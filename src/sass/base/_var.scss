@@ -1,33 +1,67 @@
-//變數
-$color : #333;
-$bgc : #eee;
-$margin : 10px auto;
-$fontSize : 20px;
-$layout : 1920px;
+//<--顏色變數-->
+//--------主要色--------
+$primary_dark: #A68169;//主要色-dark
+$primary_100 : #A68169; //主要色-100%
+$primary_70 : #DDBDA8; //主要色-70%
+$primary_50 : #E7D0C1; //主要色-50%
+$primary_30 : #F1E3DA; //主要色-30%
+//----------------------
+
+//--------輔助色--------
+$secondary_dark : #070E21;//輔助色-dark
+$secondary_100 : #0A142F;//輔助色-100%
+$secondary_70 : #545B6E;//輔助色-70%
+$secondary_50 : #848996;//輔助色-50%
+$secondary_30 : #B6B9C1;//輔助色-30%
+//----------------------
+
+//--------字體色--------
+$fontcolor_dark : #4A4E53;//字體色-dark
+$fontcolor_100 : #5C6268;//字體色-100%
+$fontcolor_70 : #8D9195;//字體色-70%
+$fontcolor_50 : #ADB0B3;//字體色-50%
+$fontcolor_30 : #CED0D2;//字體色-30%
+//----------------------
+
+//--------特殊色--------
+$errorcolor : #F56C6C;//錯誤
+$success : #67C23A;//成功
+$warning : #E6A23C;//警告
+//----------------------
+
+//<--字體大小-->
+// $margin : 10px auto;
+// $fontSize : 20px;
+// $layout : 1920px;
+
+
+
+//-----老師範例-----
 /*==css== */
 // map 數值型態
 
-$map : (
-    'red' : #f20,
-    'black' : #333);
+// $map : (
+//     'red' : #f20,
+//     'black' : #333);
 
 // images url
-$path  :  dist/images;
+// $path  :  dist/images;
 
 
 //map
-$title : (
-  "h1" : 50px,
-  "h2" : 40px, 
-  "h3" : 30px,
-  "h4" : 20px,
-  "h5" : 16px,
-  ".small" : 10px,
-  ".large" : 3rem
-);
+// $title : (
+//   "h1" : 50px,
+//   "h2" : 40px, 
+//   "h3" : 30px,
+//   "h4" : 20px,
+//   "h5" : 16px,
+//   ".small" : 10px,
+//   ".large" : 3rem
+// );
 
 
 //斷點
 
-$m_breakpoint : 720px;
-$t_breakpoint : 1024px;
+// $m_breakpoint : 720px;
+// $t_breakpoint : 1024px;
+//--------------
