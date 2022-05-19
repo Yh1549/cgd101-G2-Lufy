@@ -1,7 +1,7 @@
 //<--顏色變數-->
 //--------主要色--------
 $primary_dark: #A68169;//主要色-dark
-$primary_100 : #A68169; //主要色-100%
+$primary_100 : #CFA183; //主要色-100%
 $primary_70 : #DDBDA8; //主要色-70%
 $primary_50 : #E7D0C1; //主要色-50%
 $primary_30 : #F1E3DA; //主要色-30%
@@ -22,6 +22,7 @@ $fontcolor_100 : #5C6268;//字體色-100%
 $fontcolor_70 : #8D9195;//字體色-70%
 $fontcolor_50 : #ADB0B3;//字體色-50%
 $fontcolor_30 : #CED0D2;//字體色-30%
+$fontcolor_10 : #EFEFF0;//字體色-10%
 //----------------------
 
 //--------特殊色--------
@@ -43,8 +44,25 @@ $fontcontent :  'Inter', sans-serif;//內文字體
 // $fontsize_h1 : oopx;
 // $fontsize_p : oopx;
 
+//----按鈕樣式-----
+.btn_normal{//暫定
+    width: 250px;
+    height: 80px;
+
+    background-color: $primary_100;
+    color: $fontcolor_10;
+
+    border-style: none;
+    transition: 0.3s;
+    &:hover{
+        background-color: $primary_dark;
+    }
+}
 
 
+
+
+//---------------
 //-----老師範例-----
 /*==css== */
 
