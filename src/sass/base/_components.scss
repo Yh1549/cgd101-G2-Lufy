@@ -1,0 +1,89 @@
+//container
+//丟在body下一層包全部元素
+//控制頁面最大寬度
+.containerALL{
+    max-width: 1410px;
+    margin: 0 auto;
+    @include t{  
+       max-width: 678px;
+       margin: 0 auto;
+    };
+    @include m{  
+        max-width: 290px;
+        margin: 0 auto;
+     };
+}
+//----字體大小class-----
+//這邊可以直接套用class就好了
+.h1{
+    font-size: round($font_size*1.5);
+    line-height: round($font_size*2.25);
+}
+.h2{
+    font-size: round($font_size*1.25);
+}
+.h3{
+    font-size: round($font_size*1.125);
+}
+
+
+
+//----按鈕樣式-------------------------------------
+.btn_small{//按鈕<小>
+    min-width: 136px;
+    max-width: 100%;
+    height: 60px;
+    padding: 12px 56px;
+    text-align: center;
+//--顏色--
+    background-color: $primary_100;
+    color: $fontcolor_10;
+//-----
+    border-style: none;
+    transition: 0.3s;
+    border-radius: 8px;
+    &:hover{
+        background-color: $primary_dark;
+    }
+}
+.btn_normal{//暫定
+    width: 150px;
+    height: 60px;
+
+    background-color: $primary_100;
+    color: $fontcolor_10;
+
+    border-style: none;
+    transition: 0.3s;
+    border-radius: 8px;
+    &:hover{
+        background-color: $primary_dark;
+    }
+}
+.btn_large{//暫定
+    width: 200px;
+    height: 60px;
+
+    background-color: $primary_100;
+    color: $fontcolor_10;
+
+    border-style: none;
+    transition: 0.3s;
+    border-radius: 8px;
+    &:hover{
+        background-color: $primary_dark;
+    }
+}
+
+
+//input
+
+//麵包穴
+
+//toggle鈕
+
+//select下拉式選單
+
+//input type number (quantity)
+
+//回到top鈕

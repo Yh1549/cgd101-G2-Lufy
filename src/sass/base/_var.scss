@@ -35,29 +35,60 @@ $warning : #E6A23C;//警告
 
 //<--字體-->
 //------字體種類------
-$fontdeco : 'Playfair Display', serif;//裝飾字體
+$fontdeco : 'Playfair Display', serif;//特殊字體
 $fontcontent :  'Inter', sans-serif;//內文字體
 
 //------字體大小------
+// ---特殊字---
+$s1 : 140px;//最大
+$s2 : 104px;
+$s3 : 90px;
+//------------
+//----字體計算基準---- 
+$font_size : 16px;
+//-------------------
+
+
+
+//-----間距sapcing-----
+//section之間 文字之間 圖片之間
+@for $i from 1 through 8{
+    // margin
+    .ms_#{$i}{
+        margin-top:$i*16px;
+    }
+    .me_#{$i}{
+        margin-bottom: $i*16px;
+    }
+    .ml_#{$i}{
+        margin-left: $i*16px;
+    }
+    .mr_#{$i}{
+        margin-right: $i*16px;
+    }
+
+    //padding
+    .ps_#{$i}{
+        padding-top:$i*16px;
+    }
+    .pe_#{$i}{
+        padding-bottom: $i*16px;
+    }
+    .pl_#{$i}{
+        padding-left: $i*16px;
+    }
+    .pr_#{$i}{
+        padding-right: $i*16px;
+    }
+}
+//-----------------------------
 
 
 // $fontsize_h1 : oopx;
-// $fontsize_p : oopx;
+$fontsize_p : 16px;
 
-//----按鈕樣式-----
-.btn_normal{//暫定
-    width: 250px;
-    height: 80px;
 
-    background-color: $primary_100;
-    color: $fontcolor_10;
 
-    border-style: none;
-    transition: 0.3s;
-    &:hover{
-        background-color: $primary_dark;
-    }
-}
 
 
 
@@ -90,8 +121,8 @@ $fontcontent :  'Inter', sans-serif;//內文字體
 // );
 
 
-//斷點
-
-// $m_breakpoint : 720px;
-// $t_breakpoint : 1024px;
+//--斷點變數--
+$w_breakpoint : 1440px;
+$t_breakpoint : 768px;
+$m_breakpoint : 320px;
 //--------------
