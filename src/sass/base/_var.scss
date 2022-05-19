@@ -24,12 +24,21 @@ $fontcolor_30 : #CED0D2;//字體色-30%
 //----------------------
 
 //--------特殊色--------
+$white : #FFFFFF;//全局白
 $errorcolor : #F56C6C;//錯誤
 $success : #67C23A;//成功
 $warning : #E6A23C;//警告
 //----------------------
 
-//<--字體大小-->
+
+//<--字體-->
+//------字體種類------
+$fontdeco : 'Playfair Display', serif;//裝飾字體
+$fontcontent :  'Inter', sans-serif;//內文字體
+
+//------字體大小------
+
+
 // $fontsize_h1 : oopx;
 // $fontsize_p : oopx;
 

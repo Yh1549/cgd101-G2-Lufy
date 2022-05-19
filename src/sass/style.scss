@@ -4,14 +4,20 @@
 @import 'base/reset';
 @import 'mixin/mixin';
 //@import '../node_modules/bootstrap/scss/bootstrap.scss';
+//-----字體-----
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&display=swap%27');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700;1,900&display=swap%27');
+//--------------
 @import 'layout/header';
 @import 'layout/footer';
 @import 'page/index';
 @import 'page/about';
 
+//大家把自己寫的sass import進來 按照下面這樣隔開與註解
 //專案import---
-@import 'page/projectMain';
+@import 'page/projectMain';//專案主頁
 //------------
+
 
 // //-----老師範例-----
 // body {
