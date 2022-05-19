@@ -1,0 +1,19 @@
+.aboutUs_company_intro {
+    h2 {
+        margin-top: 40px;
+        text-align: center;
+        color: $fontcolor_70;
+    }
+    .aboutUs_company_intro_content {
+        margin-top: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $primary_100;
+        .aboutUs_company_intro_content_img {}
+        .aboutUs_company_intro_content_text {
+            margin-left: 60px;
+            width: 300px;
+        }
+    }
+}
