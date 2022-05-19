@@ -1,5 +1,5 @@
 //container
-//丟在body下一層包全部元素
+//丟在body下一層的div(要另外新增)包全部元素 等於是一個div class="containerALL"當作body
 //控制頁面最大寬度
 .containerALL{
     max-width: 1410px;
@@ -15,6 +15,7 @@
 }
 //----字體大小class-----
 //這邊可以直接套用class就好了
+//待新增
 .h1{
     font-size: round($font_size*1.5);
     line-height: round($font_size*2.25);
@@ -26,9 +27,8 @@
     font-size: round($font_size*1.125);
 }
 
-
-
 //----按鈕樣式-------------------------------------
+//待新增與修正
 .btn_small{//按鈕<小>
     min-width: 136px;
     max-width: 100%;

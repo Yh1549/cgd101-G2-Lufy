@@ -1,4 +1,5 @@
 //<--顏色變數-->
+//範例 color:$primary_dark;
 //--------主要色--------
 $primary_dark: #A68169;//主要色-dark
 $primary_100 : #CFA183; //主要色-100%
@@ -14,7 +15,6 @@ $secondary_70 : #545B6E;//輔助色-70%
 $secondary_50 : #848996;//輔助色-50%
 $secondary_30 : #B6B9C1;//輔助色-30%
 //----------------------
-
 
 //--------字體色--------
 $fontcolor_dark : #4A4E53;//字體色-dark
@@ -32,12 +32,10 @@ $success : #67C23A;//成功
 $warning : #E6A23C;//警告
 //----------------------
 
-
 //<--字體-->
 //------字體種類------
 $fontdeco : 'Playfair Display', serif;//特殊字體
 $fontcontent :  'Inter', sans-serif;//內文字體
-
 //------字體大小------
 // ---特殊字---
 $s1 : 140px;//最大
@@ -46,12 +44,14 @@ $s3 : 90px;
 //------------
 //----字體計算基準---- 
 $font_size : 16px;
+//字體大小變數請套components裡的class
 //-------------------
-
-
 
 //-----間距sapcing-----
 //section之間 文字之間 圖片之間
+//會輸出成 舉例ms的話會是 ms_1~ms_8 分別代表不同的margin-top 要使用就直接套進class
+//範例-->.ms_8會是{margin-top:128px} 所以你套ms_8這個class 你的元素就會有margin-top 128px
+//ps就是padding-top 
 @for $i from 1 through 8{
     // margin
     .ms_#{$i}{
@@ -66,7 +66,6 @@ $font_size : 16px;
     .mr_#{$i}{
         margin-right: $i*16px;
     }
-
     //padding
     .ps_#{$i}{
         padding-top:$i*16px;
@@ -82,15 +81,11 @@ $font_size : 16px;
     }
 }
 //-----------------------------
-
-
-// $fontsize_h1 : oopx;
-$fontsize_p : 16px;
-
-
-
-
-
+//--斷點變數--
+$w_breakpoint : 1440px;
+$t_breakpoint : 768px;
+$m_breakpoint : 320px;
+//--------------
 
 
 //---------------
@@ -121,8 +116,3 @@ $fontsize_p : 16px;
 // );
 
 
-//--斷點變數--
-$w_breakpoint : 1440px;
-$t_breakpoint : 768px;
-$m_breakpoint : 320px;
-//--------------
