@@ -1,8 +1,9 @@
 // 引用 var.scss
 // _告訴scss 不要編譯 
-@import 'base/var';
 @import 'base/reset';
+@import 'base/var';
 @import 'mixin/mixin';
+@import 'base/components';
 //@import '../node_modules/bootstrap/scss/bootstrap.scss';
 //-----字體-----
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&display=swap%27');

@@ -3,10 +3,49 @@
 <head>
     <meta charset="UTF-8">
     @@include('layout/meta.html')
+    <style>
+        .box{
+            width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 30px;
+        }
+        h1{
+            font-size: 48px;
+        }
+        p{
+            font-size: 18px;
+        }
+        button{
+            font-size: 16px;
+        }
+    </style>
 </head>
 <body>
-    <h1 class="projectMain_h1">title</h1>
-    <p class="projectMain_p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium enim earum optio repudiandae! Eius atque ullam esse eaque, minus rem eos debitis necessitatibus quos iste accusamus sequi recusandae nulla ratione?</p>
-    <button class="btn_normal">read more</button>
+    <div class="containerALL">
+        <button class="btn_small"></button>
+
+        <div class="box">
+            <h1 class="projectMain_h1 h1">title</h1>
+            <p class="projectMain_p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium enim earum optio repudiandae! Eius atque ullam esse eaque, minus rem eos debitis necessitatibus quos iste accusamus sequi recusandae nulla ratione?</p>
+            <button class="btn_small">  </button>
+        </div>
+        <div class="box">
+            <h1 class="projectMain_h1 h2">title</h1>
+            <p class="projectMain_p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium enim earum optio repudiandae! Eius atque ullam esse eaque, minus rem eos debitis necessitatibus quos iste accusamus sequi recusandae nulla ratione?</p>
+            <button class="btn_normal ms_8 ps_8">read more w150</button>
+        </div>
+        <div class="box">
+            <h1 class="projectMain_h1">title</h1>
+            <p class="projectMain_p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium enim earum optio repudiandae! Eius atque ullam esse eaque, minus rem eos debitis necessitatibus quos iste accusamus sequi recusandae nulla ratione?</p>
+            <button class="btn_large">read more w200</button>
+        </div>
+            
+
+    </div>
+
 </body>
 </html>
