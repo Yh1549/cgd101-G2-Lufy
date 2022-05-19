@@ -1,6 +1,22 @@
+//如果可以最好邊切版邊對照著看 不然這邊有函式你沒發現又打一次了 就很虧
+//rwd 斷點
+@mixin w(){//網頁版斷點
+  @media all and (max-width : $w_breakpoint) {
+      @content 
+    }
+};
 
+@mixin t(){//平板斷點
+  @media all and (max-width :  $t_breakpoint) {
+      @content 
+    }
+};
 
-
+@mixin m(){//手機斷點
+  @media all and (max-width :  $m_breakpoint) {
+      @content 
+    }
+};
 
 
 
@@ -91,24 +107,7 @@
 // }
 
 
-// //rwd 斷點
-@mixin w(){
-    @media all and (max-width : $w_breakpoint) {
-        @content 
-      }
-};
 
-@mixin t(){
-    @media all and (max-width :  $t_breakpoint) {
-        @content 
-      }
-};
-
-@mixin m(){
-    @media all and (max-width :  $m_breakpoint) {
-        @content 
-      }
-};
 // //
 // @mixin rwd($b) {
 //     @media all and (max-width :  $b) {

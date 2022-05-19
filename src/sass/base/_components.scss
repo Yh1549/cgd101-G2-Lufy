@@ -1,3 +1,5 @@
+//如果可以最好邊切版邊對照著看 不然這邊有元件你沒發現又做一次了 就很虧
+//如果有想到要新增或修改請立即連絡藝術總監 
 //container
 //丟在body下一層的div包全部元素 等於是新增一個div class="containerALL"當作body
 //控制頁面最大寬度
@@ -88,7 +90,7 @@
 //section之間 文字之間 圖片之間
 //會輸出成 舉例ms的話會是 ms_1~ms_8 分別代表不同的margin-top 要使用就直接套進class
 //範例-->.ms_8會是{margin-top:128px} 所以你套ms_8這個class 你的元素就會有margin-top 128px
-//ps就是padding-top 
+//ps就是padding-top
 @for $i from 1 through 8{
     // margin
     .ms_#{$i}{
