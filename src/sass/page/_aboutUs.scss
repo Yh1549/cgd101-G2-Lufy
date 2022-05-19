@@ -3,17 +3,28 @@
         margin-top: 40px;
         text-align: center;
         color: $fontcolor_70;
+        font-size: 48px;
     }
     .aboutUs_company_intro_content {
         margin-top: 40px;
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: $primary_100;
-        .aboutUs_company_intro_content_img {}
+        background-color: $secondary_dark;
+        height: 400px;
+        .aboutUs_company_intro_content_img img {
+            width: 300px;
+        }
         .aboutUs_company_intro_content_text {
             margin-left: 60px;
             width: 300px;
+            color: $fontcolor_70;
         }
     }
+}
+
+.aboutUs_time {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
 }
