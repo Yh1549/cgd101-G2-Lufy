@@ -1,5 +1,5 @@
 //container
-//丟在body下一層的div(要另外新增)包全部元素 等於是一個div class="containerALL"當作body
+//丟在body下一層的div包全部元素 等於是新增一個div class="containerALL"當作body
 //控制頁面最大寬度
 .containerALL{
     max-width: 1410px;
@@ -14,7 +14,7 @@
      };
 }
 //----字體大小class-----
-//這邊可以直接套用class就好了
+//這邊可以直接套用class就好了 大小不知道就多試幾個吧 看誰最順眼
 //待新增
 .h1{
     font-size: round($font_size*1.5);
@@ -22,60 +22,227 @@
 }
 .h2{
     font-size: round($font_size*1.25);
+    line-height: round($font_size*1.875);
 }
 .h3{
     font-size: round($font_size*1.125);
+    line-height: round($font_size*1.6875);
 }
-
+.h4{
+    font-size: round($font_size*1);
+    line-height: round($font_size*15);
+}
+.h5{
+    font-size: round($font_size*0.875);
+    line-height: round($font_size*1.3125);
+}
+.h6{
+    font-size: round($font_size*0.75);
+    line-height: round($font_size*1.125);
+}
+//---
+.p1{
+    font-size: round($font_size*1);
+    line-height: round($font_size*1.75);
+}
+.p2{
+    font-size: round($font_size*0.875);
+    line-height: round($font_size*1.3125);
+}
+.p3{
+    font-size: round($font_size*0.75);
+    line-height: round($font_size*1.4);
+}
+//字體的粗細--inter字體--
+.font_w3{
+    font-weight: 300;
+}
+.font_w5{
+    font-weight: 500;
+}
+.font_w7{
+    font-weight: 700;
+}
+.font_w9{
+    font-weight: 900;
+}
+//字體粗細--playfair字體--
+.fontdeco_w4{
+    font-weight: 400;
+}
+.fontdeco_w5{
+    font-weight: 500;
+}
+.fontdeco_w7{
+    font-weight: 700;
+}
+.fontdeco_w9{
+    font-weight: 900;
+}
+//斜體---
+.font_i{
+    font-style: italic; 
+}
+//--------------------
+//-----間距sapcing-----
+//section之間 文字之間 圖片之間
+//會輸出成 舉例ms的話會是 ms_1~ms_8 分別代表不同的margin-top 要使用就直接套進class
+//範例-->.ms_8會是{margin-top:128px} 所以你套ms_8這個class 你的元素就會有margin-top 128px
+//ps就是padding-top 
+@for $i from 1 through 8{
+    // margin
+    .ms_#{$i}{
+        margin-top:$i*16px;
+    }
+    .me_#{$i}{
+        margin-bottom: $i*16px;
+    }
+    .ml_#{$i}{
+        margin-left: $i*16px;
+    }
+    .mr_#{$i}{
+        margin-right: $i*16px;
+    }
+    //padding
+    .ps_#{$i}{
+        padding-top:$i*16px;
+    }
+    .pe_#{$i}{
+        padding-bottom: $i*16px;
+    }
+    .pl_#{$i}{
+        padding-left: $i*16px;
+    }
+    .pr_#{$i}{
+        padding-right: $i*16px;
+    }
+}
 //----按鈕樣式-------------------------------------
-//待新增與修正
-.btn_small{//按鈕<小>
-    min-width: 136px;
+//隨時可能新增或修正 請留意 如果你有覺得要新增或修改請聯絡藝術總監
+//--按鈕控制--
+$btn_base : 12;//button計算基準 請勿使用此變數
+$btn_br : 18px;//border-radius控制 請勿使用此變數
+$btn_trans:0.3s;//transition秒數控制 請勿使用此變數
+//-----------
+//class名稱總覽(05/19)----<btn_small>,<btn_normal>,<btn_large> //<btn_ol_small>,<btn_ol_nromal>,<btn_ol_large>
+//按鈕<小>
+.btn_small{
+    min-width: round($btn_base*10px);
     max-width: 100%;
-    height: 60px;
-    padding: 12px 56px;
+    height: round($btn_base*5px);
+    padding: round($btn_base*1px) round($btn_base*5px);
     text-align: center;
+    font-size: round($font_size*1);//h4
 //--顏色--
     background-color: $primary_100;
     color: $fontcolor_10;
-//-----
+//-------
     border-style: none;
-    transition: 0.3s;
-    border-radius: 8px;
+    transition: $btn_trans;
+    border-radius: $btn_br;
+    cursor: pointer;
     &:hover{
         background-color: $primary_dark;
     }
 }
-.btn_normal{//暫定
-    width: 150px;
-    height: 60px;
-
+//按鈕<中>
+.btn_normal{
+    min-width: round($btn_base*10px);
+    max-width: 100%;
+    height: round($btn_base*5px);
+    padding: round($btn_base*1px) round($btn_base*7px);
+    text-align: center;
+    font-size: round($font_size*1);
+//--顏色--
     background-color: $primary_100;
     color: $fontcolor_10;
-
+//-------
     border-style: none;
-    transition: 0.3s;
-    border-radius: 8px;
+    transition: $btn_trans;
+    border-radius: $btn_br;
+    cursor: pointer;
     &:hover{
         background-color: $primary_dark;
     }
 }
-.btn_large{//暫定
-    width: 200px;
-    height: 60px;
-
+//按鈕<大>
+.btn_large{
+    min-width: round($btn_base*10px);
+    max-width: 100%;
+    height: round($btn_base*5px);
+    padding: round($btn_base*1px) round($btn_base*9px);
+    text-align: center;
+    font-size: round($font_size*1);
+//--顏色--
     background-color: $primary_100;
     color: $fontcolor_10;
-
+//-------
     border-style: none;
-    transition: 0.3s;
-    border-radius: 8px;
+    transition: $btn_trans;
+    border-radius: $btn_br;
+    cursor: pointer;
     &:hover{
         background-color: $primary_dark;
     }
 }
-
-
+//---純框線款<outline>---
+.btn_ol_small{//小
+    min-width: round($btn_base*10px);
+    max-width: 100%;
+    height: round($btn_base*5px);
+    padding: round($btn_base*1px) round($btn_base*5px);
+    text-align: center;
+    font-size: round($font_size*1);//h4
+//--顏色--
+    background-color: $white;
+    color: $fontcolor_dark;
+//-------
+    border: 2px $fontcolor_50 solid;
+    transition: $btn_trans;
+    border-radius: $btn_br;
+    cursor: pointer;
+    &:hover{
+        background-color: $primary_50;
+    }
+}
+.btn_ol_normal{//中
+    min-width: round($btn_base*10px);
+    max-width: 100%;
+    height: round($btn_base*5px);
+    padding: round($btn_base*1px) round($btn_base*7px);
+    text-align: center;
+    font-size: round($font_size*1);//h4
+//--顏色--
+    background-color: $white;
+    color: $fontcolor_dark;
+//-------
+    border: 2px $fontcolor_50 solid;
+    transition: $btn_trans;
+    border-radius: $btn_br;
+    cursor: pointer;
+    &:hover{
+        background-color: $primary_50;
+    }
+}
+.btn_ol_large{//大
+    min-width: round($btn_base*10px);
+    max-width: 100%;
+    height: round($btn_base*5px);
+    padding: round($btn_base*1px) round($btn_base*9px);
+    text-align: center;
+    font-size: round($font_size*1);//h4
+//--顏色--
+    background-color: $white;
+    color: $fontcolor_dark;
+//-------
+    border: 2px $fontcolor_50 solid;
+    transition: $btn_trans;
+    border-radius: $btn_br;
+    cursor: pointer;
+    &:hover{
+        background-color: $primary_50;
+    }
+}
 //input
 
 //麵包穴
