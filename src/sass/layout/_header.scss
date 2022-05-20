@@ -1,19 +1,24 @@
-
-
-
-
-//-----老師範例-----
-// header {
-//   // code
-//   background-color: green;
-//   .login {
-//     font-size: 20px;
-//     color: #f20;
-
-
-//   }
+header {
+    width: 100%;
+    background-color: $secondary_30;
+    position: fixed;
+    top: 0;
+    z-index: 50;
+    height: 80px;
+    overflow-y: hidden;
+  }
+  .slider_memu{
+      position: relative;
+  }
+  .slider_menu ul{
+      position: absolute;
+  }
+  .hide{
+      opacity: 0;
+      left: 100%;
+  }
 //   nav {
-
+//-----老師範例-----
 //     width: 100%;
 //     ul {
 //         list-style: none;
