@@ -135,6 +135,7 @@ $btn_trans:0.3s;//transition秒數控制 請勿使用此變數
     padding: round($btn_base*1px) round($btn_base*5px);
     text-align: center;
     font-size: round($font_size*1);//h4
+    font-family: $fontcontent;
 //--顏色--
     background-color: $primary_100;
     color: $fontcolor_10;
@@ -155,6 +156,7 @@ $btn_trans:0.3s;//transition秒數控制 請勿使用此變數
     padding: round($btn_base*1px) round($btn_base*7px);
     text-align: center;
     font-size: round($font_size*1);
+    font-family: $fontcontent;
 //--顏色--
     background-color: $primary_100;
     color: $fontcolor_10;
@@ -175,6 +177,7 @@ $btn_trans:0.3s;//transition秒數控制 請勿使用此變數
     padding: round($btn_base*1px) round($btn_base*9px);
     text-align: center;
     font-size: round($font_size*1);
+    font-family: $fontcontent;
 //--顏色--
     background-color: $primary_100;
     color: $fontcolor_10;
@@ -195,6 +198,7 @@ $btn_trans:0.3s;//transition秒數控制 請勿使用此變數
     padding: round($btn_base*1px) round($btn_base*5px);
     text-align: center;
     font-size: round($font_size*1);//h4
+    font-family: $fontcontent;
 //--顏色--
     background-color: $white;
     color: $fontcolor_dark;
@@ -214,6 +218,7 @@ $btn_trans:0.3s;//transition秒數控制 請勿使用此變數
     padding: round($btn_base*1px) round($btn_base*7px);
     text-align: center;
     font-size: round($font_size*1);//h4
+    font-family: $fontcontent;
 //--顏色--
     background-color: $white;
     color: $fontcolor_dark;
@@ -233,6 +238,7 @@ $btn_trans:0.3s;//transition秒數控制 請勿使用此變數
     padding: round($btn_base*1px) round($btn_base*9px);
     text-align: center;
     font-size: round($font_size*1);//h4
+    font-family: $fontcontent;
 //--顏色--
     background-color: $white;
     color: $fontcolor_dark;
@@ -245,13 +251,106 @@ $btn_trans:0.3s;//transition秒數控制 請勿使用此變數
         background-color: $primary_50;
     }
 }
-//input
 
+//------input------
+//----input控制----
+$ip_base : 12;//input計算基準 請勿使用此變數
+$ip_shadow : 12px;//input shadow控制 請勿使用此變數
+$ip_br : 12px;//border radius 控制 請勿使用此變數
+//-----------------
+//class名稱總覽--><ip_small>,<ip_normal>,<ip_large>
+//-----------------
+.ip_small{//小
+    min-width: round($ip_base*15px);
+    max-width: 100%;
+    height: round($ip_base*2px);
+    padding: round($ip_base*1px) round($ip_base*2px);
+//-------------
+    border: 2px solid $secondary_30;
+    border-radius: $ip_br;
+//--------------
+    font-size: $font_size;//16px
+    font-family: $fontcontent;
+    color: $fontcolor_dark;
+//--------------
+    &:focus{
+        transition: 100ms;
+        box-shadow: 0 $ip_shadow $ip_shadow*3 0 $primary_30;
+        border: solid 2px $primary_100;
+        outline: none;
+    }
+}
+.ip_normal{//中
+    min-width: round($ip_base*20px);
+    max-width: 100%;
+    height: round($ip_base*2px);
+    padding: round($ip_base*1px) round($ip_base*2px);
+//-------------
+    border: 2px solid $secondary_30;
+    border-radius: $ip_br;
+//--------------
+    font-size: $font_size;//16px
+    font-family: $fontcontent;
+    color: $fontcolor_dark;
+//--------------
+    &:focus{
+        transition: 100ms;
+        box-shadow: 0 $ip_shadow $ip_shadow*3 0 $primary_30;
+        border: solid 2px $primary_100;
+        outline: none;
+    }
+}
+.ip_large{//大
+    min-width: round($ip_base*25px);
+    max-width: 100%;
+    height: round($ip_base*2px);
+    padding: round($ip_base*1px) round($ip_base*2px);
+//-------------
+    border: 2px solid $secondary_30;
+    border-radius: $ip_br;
+//--------------
+    font-size: $font_size;//16px
+    font-family: $fontcontent;
+    color: $fontcolor_dark;
+//--------------
+    &:focus{
+        transition: 100ms;
+        box-shadow: 0 $ip_shadow $ip_shadow*3 0 $primary_30;
+        border: solid 2px $primary_100;
+        outline: none;
+    }
+}
+//------------------
 //麵包穴
 
 //toggle鈕
 
 //select下拉式選單
+//待修正 樣式處理好像要用到js
+$sel_base : 16;
+.select{
+    min-width: round($sel_base*15px);
+    max-width: 100%;
+    padding: round($sel_base*1px) round($sel_base*1px);
+
+    font-size: $font_size;
+    font-family: $fontcontent;
+    // -webkit-appearance: none;
+    // appearance: none;
+}
+//--------------
+//checkbox
+//不會做
+$cb_base:20px;
+$cb_br: 8px;
+.cb{
+    width: $cb_base;
+    height: $cb_base;
+    border-radius: $cb_br;
+    border: 1px solid $secondary_dark;
+    color: $primary_100;
+}
+//radio button
 
 //input type number (quantity)
 
