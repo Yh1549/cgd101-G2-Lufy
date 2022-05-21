@@ -172,18 +172,70 @@
     right: 285px;
 }
 
-.designers h2 {
-    margin-top: 40px;
+.designers {
     text-align: center;
-    color: $fontcolor_70;
-    font-size: 48px;
+    h2 {
+        margin-top: 40px;
+        text-align: center;
+        color: $fontcolor_70;
+        font-size: 48px;
+    }
+}
+
+.designers_summary {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .designer_card {
+    background-color: $secondary_dark;
+    height: 400px;
     margin-top: 40px;
-    display: flex;
+    border-radius: 20px;
+    padding: 20px;
+    // background-image: url('../images/aboutus.lamp1.png');
 }
 
-.designer_card img {
-    width: 300px;
+.designer_works img {
+    width: 150px;
+    height: 190px;
+    border-radius: 15px;
+}
+
+.designer_intro {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    img {
+        width: 200px;
+        height: 190px;
+        border-radius: 15px;
+    }
+}
+
+.designer_works {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+// .designer_work {
+// //     padding: 10px;
+// // }
+.aboutus_button {
+    margin: 0 auto;
+    button {
+        font-size: 36px;
+        cursor: pointer;
+    }
+}
+
+.designer_slogan {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    p {
+        color: #fff;
+    }
 }
