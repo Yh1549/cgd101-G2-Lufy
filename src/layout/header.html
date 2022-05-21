@@ -1,12 +1,41 @@
 <header>
     @@include('login.html')
-    <nav>
-        <ul>
-            <li><a href="index.html" target="_blank">首頁</a> </li>
-            <li><a href="about.html" target="_blank">關於我們</a> </li>
-            <li>item3</li>
-            <li>item4</li>
-            <li>item5</li>
-        </ul>
-    </nav>
+    <!-- 導覽列 -->
+    <section class="main_header">
+        <input type="checkbox" name="" id="menu-switch">
+        <div class="main_nav">
+            <h1 class="logo">
+                <a href="./index.html">
+                    <img src="../images/nav_logo_web.webp" alt="LUFY - Light Up For You">
+                </a>
+            </h1>            
+            <div class="main_menu">
+                <div class="main_header_button p1">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </div>
+                <div class="main_header_button p1">
+                    <i class="fa-solid fa-circle-user"></i>
+                </div>
+                <div class="main_header_button p1">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+                <ul>
+                    <li><a href="projectMain.html">Project</a> </li>
+                    <li><a href="productMain.html">Product</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="aboutUs.html">Abour Us</a></li>
+                    <li><a href="#">Game</a></li>
+                    <p>Get in touch</p>
+                    <p>email@email.com</p>
+                </ul>   
+                <!-- 漢堡鍵 -->
+                <!-- <label for="menu-switch" class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label> -->
+                
+            </div>
+        </div>
+    </section>
 </header>

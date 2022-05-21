@@ -1,28 +1,92 @@
+/* 導覽列 */
+.main_header {
+    background-color: $secondary_100;
+    color: $white;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 500;
 
+    #menu-switch {
+        display: none;
+    }
+    /* 導覽列選單 */
+    .main_nav { 
+        padding: 1rem 4rem 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        z-index: 499;
+        /* 導覽列logo */
+        .logo{
+            width: 11rem;
+            height: 100%;
 
+            img {
+                width: 100%;
+                vertical-align: top;
+            }
+        }
+        /* 漢堡鍵 */ 
+        .hamburger{
+                width: 20px;
+                height: 20px;
+                position: relative;                
+                span{
+                    background-color: $primary_100;
+                    width: 100%;
+                    height: 2px;
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    margin: 0 auto;
+    
+                    &:first-child {
+                        top: 15px;
+                    }
+                    
+                    &:nth-child(2) {
+                        top: 0px;
+                        bottom: 0px;
+                    }
+    
+                    &:last-child {
+                        bottom: 10px;
+                    }
+                }    
+            }
 
+        .main_menu {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.9rem;
 
-//-----老師範例-----
-// header {
-//   // code
-//   background-color: green;
-//   .login {
-//     font-size: 20px;
-//     color: #f20;
+            /* main_header_button */
+            .main_header_button {
+                color: $primary_100;
+                padding: 0 1rem;
+            }
+            /* 導覽列連結 */
+            ul {
+                display: flex;
+                align-items: center;
 
-
-//   }
-//   nav {
-
-//     width: 100%;
-//     ul {
-//         list-style: none;
-//         display: flex;
-//         li {
-//           width: 100px;
-
-//         }
-//     }
-//   }
-
-// }
+                li{
+                    a {
+                        text-decoration: none;
+                        display: inline-block;
+                        padding: 0.5rem 0.75rem;                        
+                        color: var(--gray_2);
+    
+                        &:hover{
+                            color: var(--hover);
+                        }
+                    }
+                }                
+            }
+        }
+    }
+}
