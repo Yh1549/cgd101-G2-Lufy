@@ -23,6 +23,13 @@
     }
 }
 
+.company_history h2 {
+    margin-top: 40px;
+    text-align: center;
+    color: $fontcolor_70;
+    font-size: 48px;
+}
+
 .timetree {
     margin-top: 40px;
     background: $primary_70;
@@ -163,4 +170,20 @@
 .timeline .branch:nth-child(2n+1) .content:before {
     border-right-color: #ccc;
     right: 285px;
+}
+
+.designers h2 {
+    margin-top: 40px;
+    text-align: center;
+    color: $fontcolor_70;
+    font-size: 48px;
+}
+
+.designer_card {
+    margin-top: 40px;
+    display: flex;
+}
+
+.designer_card img {
+    width: 300px;
 }
