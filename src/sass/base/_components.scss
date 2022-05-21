@@ -402,6 +402,7 @@ $cb_base: 24px; //大小控制 注意圖片像素大小 會跑版 請勿使用�
 //結構範例
 // <input type="radio" id="car" name="cc" class="radio_btn" >
 //  <label for="car">volvo</label> //labe要放在input後 雖然正常來講都是這樣放 但還是提醒一下
+$rd_base: 24px; //大小控制 注意圖片像素大小 會跑版 請勿使用此變數
 .rd {
   display: none;
   & + label {
@@ -415,8 +416,8 @@ $cb_base: 24px; //大小控制 注意圖片像素大小 會跑版 請勿使用�
       content: "";
       display: inline-block;
       margin-right: 15px;
-      width: 24px;
-      height: 24px;
+      width: $rd_base;
+      height: $rd_base;
       background-image: url(../../images/Radio_button_Unchecked.png);
     }
   }
