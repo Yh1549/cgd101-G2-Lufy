@@ -1,12 +1,12 @@
 /* 導覽列 */
+header{
+    position: sticky;
+    top: 0;
+    z-index: 500;
+}
 .main_header {
     background-color: $secondary_100;
     color: $white;
-    position: sticky;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 500;
 
     #menu-switch {
         display: none;
@@ -18,7 +18,7 @@
         align-items: center;
         justify-content: space-between;
         position: relative;
-        z-index: 499;
+
         /* 導覽列logo */
         .logo{
             width: 11rem;
