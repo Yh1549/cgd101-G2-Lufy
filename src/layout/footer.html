@@ -1,4 +1,26 @@
 <footer>
   <!-- footer -->
+  <!-- 0522新增a標籤  回到最上層-->
+  <a id="b_top"></a>
+  <script>
+    let btn = document.getElementById("b_top");
 
+    window.addEventListener(
+      "scroll",
+      function () {
+        // console.log(window.scrollY);
+        if (window.scrollY > 300) {
+          btn.classList.add("show");
+        } else {
+          btn.classList.remove("show");
+        }
+      },
+      false
+    );
+    // console.log(btn);
+    btn.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
+  <!-- 0522新增a標籤 -->
 </footer>
