@@ -386,7 +386,7 @@ $cb_base: 24px; //大小控制 注意圖片像素大小 會跑版 請勿使用�
 //class名稱:rd
 //請確保html結構正確 只要在input套class即可
 //結構範例
-// <input type="radio" id="car" name="cc" class="radio_btn" >
+// <input type="radio" id="car" name="cc" class="rd" >
 //  <label for="car">volvo</label> //labe要放在input後 雖然正常來講都是這樣放 但還是提醒一下
 $rd_base: 24px; //大小控制 注意圖片像素大小 會跑版 請勿使用此變數
 .rd {
