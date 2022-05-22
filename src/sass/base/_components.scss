@@ -102,6 +102,10 @@
 .font_i {
   font-style: italic;
 }
+//--字體置中--
+.text_center{
+  text-align: center;
+}
 //--------------------
 //-----間距sapcing-----
 //section之間 文字之間 圖片之間
@@ -343,24 +347,6 @@ $ip_br: 12px; //border radius 控制 請勿使用此變數
     outline: none;
   }
 }
-//------------------
-//麵包屑
-
-//toggle鈕
-
-//select下拉式選單
-//待修正 樣式處理好像要用到js
-$sel_base: 16;
-.select {
-  min-width: round($sel_base * 15px);
-  max-width: 100%;
-  padding: round($sel_base * 1px) round($sel_base * 1px);
-
-  font-size: $font_size;
-  font-family: $fontcontent;
-  // -webkit-appearance: none;
-  // appearance: none;
-}
 //--------------
 //checkbox //0522新增
 //class名稱:cb
@@ -430,4 +416,23 @@ $rd_base: 24px; //大小控制 注意圖片像素大小 會跑版 請勿使用�
     }
   }
 }
+//以下未完成-------------------------------
 //input type number (quantity)
+
+//麵包屑
+
+//toggle鈕
+
+//select下拉式選單
+//待修正 樣式處理好像要用到js 要先用也是可以
+$sel_base: 16;
+.select {
+  min-width: round($sel_base * 15px);
+  max-width: 100%;
+  padding: round($sel_base * 1px) round($sel_base * 1px);
+
+  font-size: $font_size;
+  font-family: $fontcontent;
+  // -webkit-appearance: none;
+  // appearance: none;
+}
