@@ -1,27 +1,18 @@
 /* 導覽列 */
-header{
-    position: sticky;
-    top: 0;
-    z-index: 500;
-}
 .main_header {
     background-color: $secondary_100;
     color: $white;
 
-    #menu-switch {
-        display: none;
-    }
     /* 導覽列選單 */
     .main_nav { 
         padding: 1rem 4rem 1rem;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        position: relative;
 
         /* 導覽列logo */
         .logo{
-            width: 11rem;
+            width: 10rem;
             height: 100%;
 
             img {
@@ -29,64 +20,94 @@ header{
                 vertical-align: top;
             }
         }
-        /* 漢堡鍵 */ 
-        .hamburger{
-                width: 20px;
-                height: 20px;
-                position: relative;                
-                span{
+
+        .main_menu_link,.main_menu_content {
+            font-size: 0.9rem;
+            display: flex;
+            align-items: flex-start;
+
+            /* main_menu_button & main_menu_list */
+            .main_menu_button {
+                color: $primary_100;
+                padding: 0 1rem;
+                cursor: pointer;
+            }
+        }
+        .main_menu_content{
+            position: fixed;
+            top: 30px;
+            right: 4rem;
+            z-index: 500;
+
+            /* 漢堡鍵 */
+            #hamburger {
+                width: 14px;
+                height: 14px;
+                position: relative;
+                top: 8px;
+                right: 15px;
+                cursor: pointer;
+                span {
                     background-color: $primary_100;
                     width: 100%;
-                    height: 2px;
+                    height: 1.5px;
                     position: absolute;
                     left: 0;
                     right: 0;
                     margin: 0 auto;
-    
+        
                     &:first-child {
-                        top: 15px;
+                        top: 5px;
                     }
-                    
+        
                     &:nth-child(2) {
-                        top: 0px;
-                        bottom: 0px;
+                        top: 0.5px;
                     }
-    
+        
                     &:last-child {
-                        bottom: 10px;
+                        bottom: 2px;
                     }
-                }    
-            }
-
-        .main_menu {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            font-size: 0.9rem;
-
-            /* main_header_button */
-            .main_header_button {
-                color: $primary_100;
-                padding: 0 1rem;
-            }
-            /* 導覽列連結 */
-            ul {
-                display: flex;
-                align-items: center;
-
-                li{
-                    a {
-                        text-decoration: none;
-                        display: inline-block;
-                        padding: 0.5rem 0.75rem;                        
-                        color: var(--gray_2);
-    
-                        &:hover{
-                            color: var(--hover);
-                        }
-                    }
-                }                
+                }
             }
         }
     }
+}
+.main_menu_box{
+    width: 500px;
+    height: 100vh;
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    right: -500px;
+    z-index: 499;
+    transition: 0.3s all ease-in-out;
+    /* 導覽列連結 */
+    ul {
+        padding: 37px 5rem 0 4rem;
+        li{
+            a {
+                text-decoration: none;
+                display: inline-block;
+                padding: 1.25rem 0.75rem;
+                color: $fontcolor_100;
+
+                &:hover{
+                    color: $primary_dark;
+                }
+            }
+            &:nth-child(1) {
+                color: $fontcolor_100;
+                text-align: right;
+                visibility: hidden;
+            }
+            p{
+                color: $fontcolor_70;
+                padding: 0.1rem 0.75rem;
+            }
+        }
+    }
+}
+.slide_in {
+    display: block;
+    right: 0;
 }

@@ -2,40 +2,58 @@
     @@include('login.html')
     <!-- 導覽列 -->
     <section class="main_header">
-        <input type="checkbox" name="" id="menu-switch">
         <div class="main_nav">
             <h1 class="logo">
                 <a href="./index.html">
                     <img src="../images/nav_logo_web.webp" alt="LUFY - Light Up For You">
                 </a>
-            </h1>            
-            <div class="main_menu">
-                <div class="main_header_button p1">
+            </h1>
+            <div class="main_menu_link p1">
+                <div class="main_menu_button">
                     <i class="fa-solid fa-cart-shopping"></i>
                 </div>
-                <div class="main_header_button p1">
+                <div class="main_menu_button">
                     <i class="fa-solid fa-circle-user"></i>
                 </div>
-                <div class="main_header_button p1">
+                <div class="main_menu_button" style="visibility: hidden;">
                     <i class="fa-solid fa-bars"></i>
                 </div>
-                <ul>
-                    <li><a href="projectMain.html">Project</a> </li>
-                    <li><a href="productMain.html">Product</a></li>
-                    <li><a href="news.html">News</a></li>
-                    <li><a href="aboutUs.html">Abour Us</a></li>
-                    <li><a href="#">Game</a></li>
-                    <p>Get in touch</p>
-                    <p>email@email.com</p>
-                </ul>   
+            </div>
+            <div class="main_menu_content p1">
                 <!-- 漢堡鍵 -->
-                <!-- <label for="menu-switch" class="hamburger">
+                <div id="hamburger">
                     <span></span>
                     <span></span>
                     <span></span>
-                </label> -->
-                
+                </div>
             </div>
         </div>
     </section>
+    <div class="main_menu_box">
+        <ul>
+            <li><i class="fa-solid fa-bars"></i></li>
+            <li><p class="p2">menu</p></li>
+            <li><a class="h1" href="projectMain.html">Project</a></li>
+            <li><a class="h1" href="productMain.html">Product</a></li>
+            <li><a class="h1" href="news.html">News</a></li>
+            <li><a class="h1" href="aboutUs.html">Abour Us</a></li>
+            <li><a class="h1" href="#">Game</a></li>
+            <li>
+                <p class="p2">Get in touch</p>
+                <p class="p1">email@email.com</p>
+            </li>
+        </ul>
+    </div>
+    <script>
+        function slideIn() {
+            let mainMenuBox = document.querySelector('.main_menu_box')
+            mainMenuBox.classList.toggle('slide_in');
+        }
+        function init(){
+            let hamburger = document.querySelector('#hamburger')
+            hamburger.addEventListener('click', slideIn, false);
+            console(hamburger);
+        };
+        window.addEventListener("load", init, false);
+    </script>
 </header>
