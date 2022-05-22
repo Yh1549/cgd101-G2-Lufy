@@ -9,50 +9,161 @@
     <!-- header -->
     @@include('layout/header.html')
     <!-- header end -->
-    <div class="wrapper index">
-       <section class="w100"></section> 
-       <div class="w1200 small"></div>
-        <h1>
-            title
-        </h1>
-        <a href="#">a連結</a>
-        <div class="btn_xxl mv">
-            按鈕
+
+    <!-- 首頁輪播 -->
+    <section class="index_carousel">
+        <div class="container me_8">
+            <div class="swiper mySwiper" id="index_carousel">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="./images/index_carousel_Banner_01.webp" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./images/index_carousel_Banner_02.webp" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./images/index_carousel_Banner_03.webp" alt="">
+                    </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>
         </div>
-        <!-- <div class="box_am">
-
-        </div> -->
-
-        <!-- <script>
-           gsap.to('.box_am' , {
-            //   x : 200,
-            //  y : 100,
-             duration : 2,
-             width : '100%',
-             backgroundColor : '#333',
-             ease: "bounce.out",
-             repeat: -1,
-             repeatDelay : 2,
-             yoyo : true
-            //  rotationX : 360,
-           }) -->
-
-
-        </script>
-        <div class="btn_xl pushleft_14">
-            按鈕
-        </div>
-        <div class="btn_small">
-            按鈕
-        </div>
-    </div>
-    <div class="r">
-        test 
-    </div>
+    </section>
+    <!-- 專案實例 -->
+    <section class="index_project"></section>
+    <!-- 商品 -->
+    <section class="index_product">
+        <section class="containerALL me_8">
+            <div class="product_category me_3" id="product_category">
+                <div v-for='category in categorys'>
+                    <img :src="category.image" :alt="category.name">
+                    <p class="p1">{{category.name}}</p>
+                </div>
+            </div>
+            <script>
+                new Vue({
+                    el: '#product_category',
+                    data: {
+                        categorys:[
+                            {
+                                name: 'Floor Lamps',
+                                image: './images/product_category_floor_lamps.webp',
+                            },
+                            {
+                                name: 'Pendant',
+                                image: './images/product_category_pendant.webp'
+                            },
+                            {
+                                name: 'Home Accent',
+                                image: './images/product_category_home_accent.webp'
+                            },
+                            {
+                                name: 'Table Lamps',
+                                image: './images/product_category_table_lamps.webp'
+                            },
+                            {
+                                name: 'Wall Lamps',
+                                image: './images/product_category_wall_lamps.webp'
+                            },
+                            {
+                                name: 'Chandaliers',
+                                image: './images/product_category_chandaliers.webp'
+                            },
+                        ],
+                    },
+                });
+            </script>
+            <div class="product_grid">
+                <div class="item">
+                    <div class="item__details">
+                        【商品名稱】
+                        <span class="material-icons">
+                            favorite
+                        </span>
+                    </div>
+                </div>
+                <div class="item item--large">
+                    <div class="item__details">
+                        【商品名稱】
+                        <span class="material-icons">
+                            favorite
+                        </span>
+                    </div>
+                </div>
+                <div class="item item--medium">
+                    <div class="item__details">
+                        【商品名稱】
+                        <span class="material-icons">
+                            favorite
+                        </span>
+                    </div>
+                </div>
+                <div class="item item--large">
+                    <div class="item__details">
+                        【商品名稱】
+                        <span class="material-icons">
+                            favorite
+                        </span>
+                    </div>
+                </div>
+                <div class="item item--full">
+                    <div class="item__details">
+                        【商品名稱】
+                        <span class="material-icons">
+                            favorite
+                        </span>
+                    </div>
+                </div>
+                <div class="item item--medium">
+                    <div class="item__details">
+                        【商品名稱】
+                        <span class="material-icons">
+                            favorite
+                        </span>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item__details">
+                        【商品名稱】
+                        <span class="material-icons">
+                            favorite
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="test">
+                display:grid;<br>
+                grid-gap:30px;<br>
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));//自動填滿整個容器。<br>
+                grid-auto-rows: 240px; //溢出的項目，高要 240px<br>
+                grid-auto-flow: row dense; //🟡dense瀑布流
+            </div> -->            
+        </section>
+    </section>
+    <!-- 燈光調亮度 -->
+    <section class="index_product"></section>
+    <!-- 最新消息 -->
+    <section class="index_product"></section>
+    <!-- 關於我們 -->
+    <section class="index_product"></section>
+    <!-- 燈泡爆炸圖 -->
+    <section class="index_product"></section>
     <!-- footer  -->
-    @@include('layout/footer.html')
+        @@include('layout/footer.html')
 
     <!-- script -->
-    @@include('layout/script.html')
+        @@include('layout/script.html')
 </body>
 </html>
+<!-- vue2
+        <div id="app"></div>
+        <script>
+            new Vue({
+                    el: '#app',
+                    data: {     //變數放這裡!
+                        
+                    },
+                });       
+        </script>-->
