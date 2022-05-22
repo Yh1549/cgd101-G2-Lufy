@@ -1,0 +1,23 @@
+.fontcolor{
+    color: $primary_100;
+}
+.lineB{
+    border-bottom: 5px solid $fontcolor_100;
+}
+.newsCard{
+    display: flex;
+    align-items: center;
+}
+.newsPic{
+    width: 30%;
+}
+.newsPic img{
+    width: 100%;
+    vertical-align: bottom;
+}
+.newsText{
+    width: 70%;
+}
+.menu_title{
+    display: flex;
+}
