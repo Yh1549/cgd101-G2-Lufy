@@ -2,7 +2,7 @@
     @@include('login.html')
     <!-- 導覽列 -->
     <section class="main_header">
-        <div class="main_nav">
+        <div class="main_nav" id="mainnav">
             <h1 class="logo">
                 <a href="./index.html">
                     <img src="../images/nav_logo_web.webp" alt="LUFY - Light Up For You">
@@ -19,19 +19,19 @@
                     <i class="fa-solid fa-bars"></i>
                 </div>
             </div>
-            <div class="main_menu_content p1">
-                <!-- 漢堡鍵 -->
-                <div id="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
+        </div>
+        <!-- 漢堡鍵 -->
+        <div class="main_menu_content p1">
+            <div id="hamburger">
+                <span></span><span></span><span></span>
             </div>
         </div>
     </section>
     <div class="main_menu_box">
         <ul>
-            <li><i class="fa-solid fa-bars"></i></li>
+            <li>
+                <i class="fa-solid fa-bars"></i>
+            </li>
             <li><p class="p2">menu</p></li>
             <li><a class="h1" href="projectMain.html">Project</a></li>
             <li><a class="h1" href="productMain.html">Product</a></li>
@@ -45,6 +45,21 @@
         </ul>
     </div>
     <script>
+        /* 導覽列 scrollY 函式 */
+        function scroll(mainNav) {
+            // console.log(123)
+            if (window.scrollY > 300){
+                mainNav.classList.add('hidden');
+            } else {
+                mainNav.classList.remove('hidden');
+            }
+        }
+        /* 導覽列 mouseover 函式 */
+        function showUp() {
+            let mainNav = document.querySelector('#mainnav')
+            mainNav.classList.remove('hidden');
+        }
+        /* main_menu_box 滑入函式 */ 
         function slideIn() {
             let mainMenuBox = document.querySelector('.main_menu_box')
             mainMenuBox.classList.toggle('slide_in');
@@ -52,7 +67,15 @@
         function init(){
             let hamburger = document.querySelector('#hamburger')
             hamburger.addEventListener('click', slideIn, false);
+<<<<<<< HEAD
             // console(hamburger);
+=======
+            hamburger.addEventListener('mouseover', showUp, false);
+            // console(hamburger);
+            let mainNav = document.querySelector('#mainnav')
+            window.addEventListener('scroll', function(){scroll(mainNav)}, false);
+            // console.log(mainNav)
+>>>>>>> dev
         };
         window.addEventListener("load", init, false);
     </script>

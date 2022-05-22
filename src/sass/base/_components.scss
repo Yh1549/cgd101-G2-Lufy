@@ -18,6 +18,22 @@
 //----字體大小class-----
 //這邊可以直接套用class就好了 大小不知道就多試幾個吧 看誰最順眼
 //待修正
+//---特殊字
+.s1{
+  font-family: $fontdeco;
+  font-size: round($s1);
+  line-height: round($font_size*9.625);
+}
+.s2{
+  font-family: $fontdeco;
+  font-size: round($s2);
+  line-height: round($font_size*7.5625);
+}
+.s3{
+  font-family: $fontdeco;
+  font-size: round($s3);
+  line-height: round($font_size*6.625);
+}
 //---標題
 .h1{
     font-family: $fontcontent;

@@ -12,7 +12,10 @@
 @import 'layout/header';
 @import 'layout/footer';
 @import 'page/index';
+//關於我們import--
 @import 'page/aboutUs';
+//購物車頁import--
+@import 'page/cartEdit';
 //專案import---
 @import 'page/projectMain'; //專案主頁
 //------------
@@ -22,9 +25,6 @@
 //最新消息import------------
 @import 'page/news.scss'; //最新消息
 //-----------
-
-
-
 // //-----老師範例-----
 // body {
 //     $bgc: #eee;
