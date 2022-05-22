@@ -21,17 +21,60 @@
     </div>
     <!-- banner -->
     <!-- content -->
-    <div class="containerALL">
+   
       <!-- 特色 -->
-      <h1 class="font_w7 text_center ms_8 project_feature_title">What We Can Provide</h1>
-      <div class="project_feature ms_8">
-        
+      <h1 class="font_w5 text_center ms_8 project_feature_title">What We Can Provide</h1>     
+      <div class="project_feature_bgcon">
+        <div class="project_feature_bg"></div>
       </div>
-      
+      <div @click="move()" class="project_feature ms_5">
+        <div @click="move()" id="project_feature_left" class="project_feature_box">
+
+        </div>
+        <div @click="move()" id="project_feature_mid" class="project_feature_box">
+
+        </div>
+        <div @click="move()" id="project_feature_right" class="project_feature_box">
+        </div>
+      </div>
+      <script>
+        new Vue({
+            el: '.project_feature',
+            data: {
+            },
+            methods:{
+              move(e){
+                let right = document.getElementById('project_feature_right');
+                let mid = document.getElementById('project_feature_mid');
+                let left = document.getElementById('project_feature_left');
+                if(event.target.id == right.id){
+                  gsap.to('#project_feature_right', {x:-300, duration: .8});
+                  gsap.to('#project_feature_mid', {x:-300, duration: .8});
+                  gsap.to('#project_feature_left', {x:-300, duration: .8});
+                }else if(event.target.id == mid.id){
+                  gsap.to('#project_feature_right', {x:300, duration: .8});
+                  gsap.to('#project_feature_mid', {x:-300, duration: .8});
+                  gsap.to('#project_feature_left', {x:-300, duration: .8});
+                }else if(event.target.id == left.id){
+                  gsap.to('#project_feature_right', {x:300, duration: .8});
+                  gsap.to('#project_feature_mid', {x:300, duration: .8});
+                  gsap.to('#project_feature_left', {x:-300, duration: .8});
+                }else{
+                  gsap.to('#project_feature_right', {x:0, duration: .8});
+                  gsap.to('#project_feature_mid', {x:0, duration: .8});
+                  gsap.to('#project_feature_left', {x:0, duration: .8});
+                }
+              },
+            },
+        })
+      </script>
+
+
+
 
       
-      
       <!-- 特色 -->
+      <div class="containerALL">
       <p class="">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat velit
         illum iusto praesentium recusandae ab eius cumque, unde assumenda beatae
