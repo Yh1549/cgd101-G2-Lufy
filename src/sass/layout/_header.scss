@@ -1,18 +1,29 @@
 /* 導覽列 */
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 497;
+}
 .main_header {
-    background-color: $secondary_100;
-    color: $white;
-
     /* 導覽列選單 */
     .main_nav { 
-        padding: 1rem 4rem 1rem;
+        background-color: $secondary_100;
+        padding: 0.5rem 4rem 0.5rem;
         display: flex;
         align-items: center;
         justify-content: space-between;
+        transition: 0.3s all ease-in-out;
+        &.hidden {
+            opacity: 0;
+            &:hover {
+                opacity: 1;
+            }
+        }
 
         /* 導覽列logo */
         .logo{
-            width: 10rem;
+            width: 12rem;
             height: 100%;
 
             img {
@@ -22,7 +33,6 @@
         }
 
         .main_menu_link,.main_menu_content {
-            font-size: 0.9rem;
             display: flex;
             align-items: flex-start;
 
@@ -33,46 +43,16 @@
                 cursor: pointer;
             }
         }
+
         .main_menu_content{
             position: fixed;
             top: 30px;
             right: 4rem;
-            z-index: 500;
-
-            /* 漢堡鍵 */
-            #hamburger {
-                width: 14px;
-                height: 14px;
-                position: relative;
-                top: 8px;
-                right: 15px;
-                cursor: pointer;
-                span {
-                    background-color: $primary_100;
-                    width: 100%;
-                    height: 1.5px;
-                    position: absolute;
-                    left: 0;
-                    right: 0;
-                    margin: 0 auto;
-        
-                    &:first-child {
-                        top: 5px;
-                    }
-        
-                    &:nth-child(2) {
-                        top: 0.5px;
-                    }
-        
-                    &:last-child {
-                        bottom: 2px;
-                    }
-                }
-            }
+            z-index: 498;            
         }
     }
 }
-.main_menu_box{
+.main_menu_box {
     width: 500px;
     height: 100vh;
     background-color: #fff;
@@ -107,7 +87,40 @@
         }
     }
 }
+/* 漢堡鍵 */
+#hamburger {
+    width: 14px;
+    height: 14px;
+    position: fixed;
+    top: 36px;
+    right: 80px;
+    z-index: 500;
+    cursor: pointer;
+
+    span {
+        background-color: $primary_100;
+        width: 100%;
+        height: 2px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+
+        &:first-child {
+            top: 5px;
+        }
+
+        &:nth-child(2) {
+            top: 0px;
+        }
+
+        &:last-child {
+            bottom: 2px;
+        }
+    }
+}
+/* main_menu_box 滑入 class */
 .slide_in {
-    display: block;
     right: 0;
+    box-shadow: -1rem 0 4rem $shadow;
 }
