@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    @@include('layout/meta.html', { "title" : "商品內頁" })
+    <script src="js/cart1.js"></script>
+</head>
+
+<body>
+    @@include('layout/header.html')
+    <div class="containerALL">
+        <div class="cart">
+            <div id="newItem">
+
+            </div>
+            <div id="content">
+                <div>
+                    Item : <span id="itemCount">0</span> item(s)
+                </div>
+                <div>
+                    Subtotal : $ <span id="subtotal">0</span>
+                </div>
+                <div class="cartProcess"><a href="cartEdit.html">edit cart</a></div>
+            </div>
+        </div>
+
+        <div class="product_intro">
+            <div class="product_img">
+                <img src="images/aboutus.lamp1.png" alt="">
+            </div>
+            <div class="product_text">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis culpa dolorem maiores itaque voluptatum harum soluta totam in. Enim hic possimus reprehenderit ut provident voluptate odit et quibusdam, ullam nemo alias magnam harum ad
+                    nulla! Cumque, officiis eos velit nihil atque dolorem quo deleniti recusandae nesciunt magnam eaque? Iste, est!</p>
+            </div>
+            <div id="shopButton">
+
+                <span id="A1001" class="addButton ip_small">
+                add
+                
+                <input type="hidden" value="lamp1|aboutus.lamp1.png|50000">
+            </span>
+
+            </div>
+        </div>
+        @@include('layout/footer.html')
+    </div>
+
+</body>
+
+</html>
