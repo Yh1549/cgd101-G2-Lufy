@@ -18,6 +18,22 @@
 //----字體大小class-----
 //這邊可以直接套用class就好了 大小不知道就多試幾個吧 看誰最順眼
 //待修正
+//---特殊字
+.s1{
+  font-family: $fontdeco;
+  font-size: round($s1);
+  line-height: round($font_size*9.625);
+}
+.s2{
+  font-family: $fontdeco;
+  font-size: round($s2);
+  line-height: round($font_size*7.5625);
+}
+.s3{
+  font-family: $fontdeco;
+  font-size: round($s3);
+  line-height: round($font_size*6.625);
+}
 //---標題
 .h1{
     font-family: $fontcontent;
@@ -386,7 +402,7 @@ $cb_base: 24px; //大小控制 注意圖片像素大小 會跑版 請勿使用�
 //class名稱:rd
 //請確保html結構正確 只要在input套class即可
 //結構範例
-// <input type="radio" id="car" name="cc" class="radio_btn" >
+// <input type="radio" id="car" name="cc" class="rd" >
 //  <label for="car">volvo</label> //labe要放在input後 雖然正常來講都是這樣放 但還是提醒一下
 $rd_base: 24px; //大小控制 注意圖片像素大小 會跑版 請勿使用此變數
 .rd {

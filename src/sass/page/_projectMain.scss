@@ -2,6 +2,9 @@
 //     position: relative;
 //     top: 80px;
 // }
+// img{
+//     width: 100%;
+// }
 .project_banner_backdrop{
     width: 100%;
     height: 800px;
@@ -96,4 +99,60 @@
     background-image: url(../../images/aboutus.lamp3.png);
     background-repeat: no-repeat;
     background-position: center;
+}
+// #mouse{
+//     width: 20px;
+//     height: 20px;
+//     border-radius: 50%;
+//     background-color: red;
+// }
+.project_section{
+   position: relative;
+}
+.project_bg{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    filter: saturate(0);
+    opacity: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    transition: 500ms;
+    z-index: -1;
+}
+.project_title{
+    font-size: $s3;
+    color: $secondary_100;
+    transition: 500ms;
+    pointer-events: none;
+    z-index: 50;
+}
+.project_container{
+    display: flex;
+    justify-content: space-around;
+    & a{
+        width:25%;
+    }
+}
+.project{
+    position: relative;
+    z-index: 50;
+    & img{
+        width: 100%;
+        transition: 0.3s;
+        filter: brightness(0.5);
+    }
+    &:hover img{
+        filter: brightness(1);
+    }
+}
+.project_word{
+    position: absolute;
+    top: 30%;
+    left: 5%;
+    z-index: 50;
+    & span,h2{
+        color: $white;
+    }
 }
