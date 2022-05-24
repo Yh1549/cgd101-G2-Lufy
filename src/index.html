@@ -43,6 +43,53 @@
                 </div>
                 
             </div>
+            <div id="app" class="project_wrap">
+                <project-card v-for="project in projectObject" v-bind="project" />
+            </div>
+            <script>
+                Vue.component('project-card', {
+                    props: ['projectImg', 'projectName', 'discription', 'designerName'],
+                    template: `
+                                <div class="project_card">
+                                    <img src="{{projectImg}}" alt={{projectName}}>
+                                    <div class="content ms_1 mr_1 me_1 ml_1">
+                                    <h2 class="h1 me_1">{{projectName}}</h2>
+                                        <h3 class="h4 me_1">{{discription}}</h3>
+                                        <p class="h5 me_1">{{designerName}}</p>
+                                        <button @click=""> more </button>
+                                    </div>
+                                </div>
+                                `,
+                })
+                new Vue({   // Vue instance
+                    el: '#app',
+                    data: {
+                        projectObject: [
+                            {
+                                projectImg: `./images/aboutus.lamp1.png`,
+                                projectName: `Project Name1`,
+                                discription: `Project content. This project is design by Rick Chen with the laxury lamp#3. The laxury lamp#3 is a type of  legence lamp. Everyone love it.`,
+                                designerName: `Rick Chen`,
+                            },
+                            {
+                                projectImg: `./images/aboutus.lamp2.png`,
+                                projectName: `Project Name2`,
+                                discription: `Project content. This project is design by Rick Chen with the laxury lamp#3. The laxury lamp#3 is a type of  legence lamp. Everyone love it.`,
+                                designerName: `Rick Chen`,
+                            },
+                            {
+                                projectImg: `./images/aboutus.lamp3.png`,
+                                projectName: `Project Name3`,
+                                discription: `Project content. This project is design by Rick Chen with the laxury lamp#3. The laxury lamp#3 is a type of  legence lamp. Everyone love it.`,
+                                designerName: `Rick Chen`,
+                            },
+                        ],
+                    },     //變數放這裡!            
+                    methods: {},  // 函數大部分放這裡!            
+                    computed: {},
+                    components: {},
+                });
+            </script>
             <div class="index_project_deco_image">
                 <img src="./images/index_project_deco_image_01.webp" alt="">
             </div>
@@ -55,37 +102,46 @@
     <section class="index_product">
         <section class="containerALL me_8">
             <div class="product_category me_3" id="product_category">
-                <div v-for='category in categorys'>
-                    <img :src="category.image" :alt="category.name">
-                    <p class="p1">{{category.name}}</p>
+                <div v-for='category in categorys' :class="isSelected">
+                    <a v-bind:href="category.href">
+                        <img :src="category.image" :alt="category.name">
+                        <p class="p1">{{category.name}}</p>
+                    </a>
                 </div>
             </div>
             <script>
-                new Vue({
+                let product_category = new Vue({
                     el: '#product_category',
                     data: {
+                        isSelected: 'category',
                         categorys:[
                             {
+                                href: './productpages/productFloorLamps.html',
                                 name: 'Floor Lamps',
                                 image: './images/product_category_floor_lamps.webp',
                             },
                             {
+                                href: './productpages/productPendant.html',
                                 name: 'Pendant',
                                 image: './images/product_category_pendant.webp'
                             },
                             {
+                                href: './productpages/productHomeAccent.html',
                                 name: 'Home Accent',
                                 image: './images/product_category_home_accent.webp'
                             },
                             {
+                                href: './productpages/productTableLamps.html',
                                 name: 'Table Lamps',
                                 image: './images/product_category_table_lamps.webp'
                             },
                             {
+                                href: './productpages/productWallLamps.html',
                                 name: 'Wall Lamps',
                                 image: './images/product_category_wall_lamps.webp'
                             },
                             {
+                                href: './productpages/productChandaliers.html',
                                 name: 'Chandaliers',
                                 image: './images/product_category_chandaliers.webp'
                             },
