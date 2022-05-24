@@ -48,15 +48,15 @@
             </div>
             <script>
                 Vue.component('project-card', {
-                    props: ['projectImg', 'projectName', 'discription', 'designerName'],
+                    props: ['projectImg', 'projectName', 'discription', 'designerName', 'projectInfoLink'],
                     template: `
                                 <div class="project_card">
-                                    <img src="{{projectImg}}" alt={{projectName}}>
+                                    <img :src="projectImg" :alt="projectName">
                                     <div class="content ms_1 mr_1 me_1 ml_1">
-                                    <h2 class="h1 me_1">{{projectName}}</h2>
+                                        <h2 class="h1 me_1">{{projectName}}</h2>
                                         <h3 class="h4 me_1">{{discription}}</h3>
-                                        <p class="h5 me_1">{{designerName}}</p>
-                                        <button @click=""> more </button>
+                                        <p class="h5 me_4">{{designerName}}</p>
+                                        <a :href="projectInfoLink" class='btn_normal'> more </a>
                                     </div>
                                 </div>
                                 `,
@@ -68,20 +68,23 @@
                             {
                                 projectImg: `./images/aboutus.lamp1.png`,
                                 projectName: `Project Name1`,
-                                discription: `Project content. This project is design by Rick Chen with the laxury lamp#3. The laxury lamp#3 is a type of  legence lamp. Everyone love it.`,
+                                discription: `Project content. This project is design by Rick Chen with the laxury lamp#1. The laxury lamp#1 is a type of  legence lamp. Everyone love it.`,
                                 designerName: `Rick Chen`,
+                                projectInfoLink: 'projectMain.html',
                             },
                             {
                                 projectImg: `./images/aboutus.lamp2.png`,
                                 projectName: `Project Name2`,
-                                discription: `Project content. This project is design by Rick Chen with the laxury lamp#3. The laxury lamp#3 is a type of  legence lamp. Everyone love it.`,
+                                discription: `Project content. This project is design by Rick Chen with the laxury lamp#2. The laxury lamp#2 is a type of  legence lamp. Everyone love it.`,
                                 designerName: `Rick Chen`,
+                                projectInfoLink: 'projectMain.html',
                             },
                             {
                                 projectImg: `./images/aboutus.lamp3.png`,
                                 projectName: `Project Name3`,
                                 discription: `Project content. This project is design by Rick Chen with the laxury lamp#3. The laxury lamp#3 is a type of  legence lamp. Everyone love it.`,
                                 designerName: `Rick Chen`,
+                                projectInfoLink: 'projectMain.html',
                             },
                         ],
                     },     //變數放這裡!            
@@ -217,11 +220,30 @@
         </section>
     </section>
     <!-- 燈光調亮度 -->
-    <section class="index_product"></section>
+    <section class="index_luminosity"></section>
     <!-- 最新消息 -->
-    <section class="index_product"></section>
+    <section class="index_news"></section>
     <!-- 關於我們 -->
-    <section class="index_product"></section>
+    <section class="index_aboutus">
+        <div class="containerALL">
+            <div class="card">
+                <div class="photo"><img src="./images/index_about_us.webp" alt="about lufy"></div>
+                <div class="wrap">
+                    <div class="content">
+                        <h2 class="h1 ms_2 me_1">About Light Up For You</h2>
+                        <p class="h4 me_2">Starting from six sketches in 1991, the founder Meiric sowed a design seed, carefully irrigated with delicate thinking
+                        and rigorous attitude, rubbed light and shadow into brush and ink, and outlined the lighting imagination in his heart.
+                        We firmly believe that "light" can bring more beautiful value to life, which is our original intention.<br><br>
+                        With the addition of more creative workers, the seeds have turned into fertile soil, and the branches and leaves of the
+                        sprouts are intertwined, creating more possibilities for each other. Lights, in addition to illuminating different daily
+                        scenes, play a role in drawing people and the field to live together. In the daily interaction with people and space, we
+                        share the light and shadow poems created for the ideal life.</p>
+                        <a href="./aboutUs.html" class="btn h4 me_2">more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- 燈泡爆炸圖 -->
     <section class="index_product"></section>
     <!-- footer  -->
