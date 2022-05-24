@@ -1,52 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<<<<<<< HEAD
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <section class="product_masonry">
-        <div class="product_column">
-            <div><img src="../../louis poulsen_燈素材/Floor lamps/keglen-floor_1-min.png" alt=""></div>
-            <div><img src="../../louis poulsen_燈素材/Floor lamps/moonsetter_1-louis-poulsen-floor-lamp.png" alt=""></div>
-            <div><img src="../../louis poulsen_燈素材/Floor lamps/下載 (13).jpg" alt=""></div>
-            <div><img src="../../louis poulsen_燈素材/Floor lamps/下載 (24).jpg" alt=""></div>
-            <div><img src="../../louis poulsen_燈素材/Floor lamps/下載 (44).jpg" alt=""></div>
-            <div><img src="../../louis poulsen_燈素材/Floor lamps/vl-studio-floor_3.png" alt=""></div>
-        </div>
-        <div class="product_column">
-            <div><img src="../../louis poulsen_燈素材/Outdoor lamps/下載 (2).jpg" alt=""></div>
-            <div><img src="../../louis poulsen_燈素材/Outdoor lamps/下載 (5).jpg" alt=""></div>
-            <div><img src="../../louis poulsen_燈素材/Outdoor lamps/9783_17625_Toldbod-155-Bollard-AluTextured-01-2-5-91172.png" alt=""></div>
-            <div><img src="../../louis poulsen_燈素材/Outdoor lamps/flintwall_blaa_planet_3-1.jpginfobox3-550x750.jpg" alt=""></div>
-            <div><img src="../../louis poulsen_燈素材/Outdoor lamps/17508_17508_PH-3-25-Wall-01-2-5-91081.png" alt=""></div>
-            <div><img src="../../louis poulsen_燈素材/Outdoor lamps/9783_17625_Toldbod-155-Bollard-AluTextured-01-2-5-91172.png" alt=""></div>
-        </div>
-        <div class="product_column">
-            <div><img src="../../louis poulsen_燈素材/Table lamps/10625_23634_Panthella-Table-01-2-5-90408.png" alt=""></div>
-            <div><img src="../../louis poulsen_燈素材/Table lamps/50503_50503_Keglen Table base Black-02A-1-5-91804.png" alt=""></div>
-            <div><img src="../../louis poulsen_燈素材/Wall lamps/b2c_products_floor.svg" alt=""></div>
-            <div><img src="../../louis poulsen_燈素材/Wall lamps/vl-studio-wall_2.png" alt=""></div>
-            <div><img src="../../louis poulsen_燈素材/Spare parts/7642_7642_PH-5-Classic-White-11-2-5-90293.png" alt=""></div>
-            <div><img src="../../louis poulsen_燈素材/Pendants/ph-5-mini_poul-henningsen-lamp-icon-lamp-2-min.png" alt=""></div>
-        </div>
-    </section>
-</body>
-<script>
-    
-</script>
-=======
     @@include('layout/meta.html', {
-    "title" : "商品總覽"
+        "title" : "首頁專題"
     })
 </head>
 <body>
     <!-- header -->
     @@include('layout/header.html')
     <!-- header end -->
+
+    <!-- 首頁輪播 -->
+    <section class="index_carousel">
+        <div class="container me_8">
+            <div class="swiper mySwiper" id="index_carousel">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="./images/index_carousel_Banner_01.webp" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./images/index_carousel_Banner_02.webp" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./images/index_carousel_Banner_03.webp" alt="">
+                    </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+    <!-- 專案實例 -->
+    <section class="index_project">
+        <div class="index_project_wrap">
+            <div class="containerALL">
+                <div class="index_title">
+                    <h2 class="s2 me_4">Our Lights</h2>
+                    <h2 class="s3 me_4">Always</h2>
+                    <h2 class="s1 font_i fontdeco_w9 me_4">LIGHT</h2>
+                    <h2 class="s2 font_i me_4">your LIFE</h2>
+                </div>
+                
+            </div>
+            <div class="index_project_deco_image">
+                <img src="./images/index_project_deco_image_01.webp" alt="">
+            </div>
+        </div>
+        <div class="index_project_deco_image_fullview">
+            <img src="./images/index_project_deco_image_02.webp" alt="">
+        </div>
+    </section>
+    <!-- 商品 -->
     <section class="index_product">
         <section class="containerALL me_8">
             <div class="product_category me_3" id="product_category">
@@ -59,7 +64,7 @@
                 new Vue({
                     el: '#product_category',
                     data: {
-                        categorys: [
+                        categorys:[
                             {
                                 name: 'Floor Lamps',
                                 image: './images/product_category_floor_lamps.webp',
@@ -147,14 +152,36 @@
                 </div>
             </div>
             <!-- <div class="test">
-                    display:grid;<br>
-                    grid-gap:30px;<br>
-                    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));//自動填滿整個容器。<br>
-                    grid-auto-rows: 240px; //溢出的項目，高要 240px<br>
-                    grid-auto-flow: row dense; //🟡dense瀑布流
-                </div> -->
+                display:grid;<br>
+                grid-gap:30px;<br>
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));//自動填滿整個容器。<br>
+                grid-auto-rows: 240px; //溢出的項目，高要 240px<br>
+                grid-auto-flow: row dense; //🟡dense瀑布流
+            </div> -->            
         </section>
     </section>
+    <!-- 燈光調亮度 -->
+    <section class="index_product"></section>
+    <!-- 最新消息 -->
+    <section class="index_product"></section>
+    <!-- 關於我們 -->
+    <section class="index_product"></section>
+    <!-- 燈泡爆炸圖 -->
+    <section class="index_product"></section>
+    <!-- footer  -->
+        @@include('layout/footer.html')
+
+    <!-- script -->
+        @@include('layout/script.html')
 </body>
->>>>>>> dev
 </html>
+<!-- vue2
+        <div id="app"></div>
+        <script>
+            new Vue({
+                    el: '#app',
+                    data: {     //變數放這裡!
+                        
+                    },
+                });       
+        </script>-->

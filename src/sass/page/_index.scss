@@ -1,25 +1,236 @@
+/* 輪播圖片 */
+.swiper {
+    max-height: 100vh;
+    position: relative;
+    .swiper-wrapper{
+        .swiper-slide {
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
 
+            img{
+                width: 100%;
+                vertical-align: top;
+                object-fit: cover;
+                }
+        }
+    }
+    /* 輪播按鈕 */
+    .swiper-button-next,
+    .swiper-button-prev {
+        color: $white;
+        opacity: 0.9;
+        text-shadow: 0 0.15rem 0.5rem $secondary_dark;
+    
+        &:active {
+            color: $primary_100;
+        }
+    }
+    /* 輪播點 */
+    span.swiper-pagination-bullet {
+        width: 10rem;
+        height: 0.5rem;
+        border-radius: 0.05rem;
+        background: $white;
+        text-shadow: 0 0.15rem 0.5rem $secondary_dark;
+    }
+}
 
+/* 專案實例 */
+.index_project {
+    position: relative;
+    .index_project_wrap{
+        max-width: 1410px;
+        margin: 0 auto;
+        position: relative;
+        .index_project_deco_image img {
+                transform: scale(0.8);
+                position: absolute;
+                bottom: -114px;
+                left: -100px;
+                z-index: 2;
+            }
+    }
+    .containerALL{
+        overflow: hidden;
+    }
+    .index_title h2{
+        &:nth-of-type(1){color: $fontcolor_70;}
+        &:nth-of-type(2){
+            color: $fontcolor_70;
+            transform: translateX(15%);
+            &::after {
+                content: '';
+                width: calc(100% / 3);
+                height: $s3;
+                border-bottom: 3px solid $fontcolor_50;
+                display: inline-block;
+                transform: translate(5%,-25%);
+            }
+        }
+        &:nth-of-type(3){color: $primary_70;}
+        &:nth-of-type(4){
+            color: $fontcolor_dark;
+            transform: translateX(15%);
+        }
+    }
+    
+    .index_project_deco_image_fullview img{
+        transform: scale(0.8);
+        transform-origin: right;
+        position: absolute;
+        top: 110px;
+        right: 0;
+        z-index: 2;
+    }
+}
+/* 商品 */
+.index_product {
+    margin: 0;padding: 0;box-sizing: border-box;
+    .containerALL{
+        .product_category {
+            display: flex;
+            justify-content: space-between;
+            div {
+                width: 140px;
+                text-align: center;
+                img{
+                    width: 100%;
+                    object-fit: cover;
+                    vertical-align: top;
+                }
+                &:hover{
+                    color: $primary_100;
+                    fill: $primary_100;
+                }
+            }
+        }
+        .product_grid{
+            display: grid;
+            grid-gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));//自動填滿整個容器。
+            grid-auto-rows: 240px;    //溢出的項目，高要150px
+            grid-auto-flow: row dense;//🟡dense瀑布流
+            .item {
+                color: $white;
+                background: $primary_100;
+                box-sizing: border-box;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                grid-column-start: auto;
+                grid-row-start: auto;
+                position: relative;
+                transition: transform 0.3s ease-in-out;
+                cursor: pointer;
+                background-image: url(https://picsum.photos/id/350/600/400);
+                background-position: center;
+                background-size: cover;
+                &:nth-of-type(1n){
+                    background-image: url(https://picsum.photos/id/351/600/400);
+                }
+                &:nth-of-type(2n){
+                    background-image: url(https://picsum.photos/id/352/600/400);
+                }
+                &:nth-of-type(3n){
+                    background-image: url(https://picsum.photos/id/353/600/400);
+                }
+                &:nth-of-type(4n){
+                    background-image: url(https://picsum.photos/id/354/600/400);
+                }
+                &:nth-of-type(5n){
+                    background-image: url(https://picsum.photos/id/355/600/400);
+                }
+                &:nth-of-type(6n){
+                    background-image: url(https://picsum.photos/id/356/600/400);
+                }
+                &:nth-of-type(7n){
+                    background-image: url(https://picsum.photos/id/357/600/400);
+                }
+                &:nth-of-type(8n){
+                    background-image: url(https://picsum.photos/id/358/600/400);
+                }
+                &:nth-of-type(9n){
+                    background-image: url(https://picsum.photos/id/359/600/400);
+                }
+                &:after {
+                    content: '';
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    background-color: black;
+                    opacity: 0.3;
+                    transition: opacity 0.3s ease-in-out;
+                    z-index: 1;
+                }                
+                &:hover {  
+                    &:after {
+                        opacity: 0.8;
+                        background-color: $primary_dark;
+                    }
+                    .item__details{
+                        display: flex;
+                    }
+                }
+                &--medium{
+                    grid-row-end: span 2;
+                }
+                &--large{
+                    grid-row-end: span 3;
+                }
+                &--full{
+                    // grid-column-end: auto;
+                    grid-column: 1/-1;
+                    grid-row-end: span 2;
+                }                
+                .item__details{
+                    display: none;
+                    padding: 15px;
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    letter-spacing: 1px;
+                    color: $white;
+                    justify-content: center;
+                    align-items: center;
+                    z-index: 2;
+                    .material-icons {
+                        color: rgba(0,0,0,.04);
+                        -webkit-text-stroke: 1px hsla(0,0%,100%,.8);
+                        // text-shadow: 0 1px 5px rgb(0 0 0 / 15%);
+                        transition: all .1s ease;
+                        &:active{
+                            color: $errorcolor;
+                            text-shadow: 0 1px 3px rgb(0 0 0 / 15%);
+                            -webkit-text-stroke: 1px $errorcolor;
+                        }
+                    }
+                }
+            }
+        }            
+    }   
+    .test{
+        width: 100%;
+        color: white;
+        background: #000;
+        padding: 15px;
+        margin-bottom: 30px;
+    }
+}
 
-
-//-----老師範例-----
-// index
-
-// .index {
-//   h1 {
-//     font-size: 40px;
-
-//     // @media screen and (max-width : 414px) {
-//     //   font-size: 20px;
-//     // }
-
-//     // @include t() {
-//     //   font-size: 20px;
-//     // }
-
-//     @include m() {
-//       font-size: 12px;
-//       color: #f20
-//     }
-//   }
-// }
+/* 燈光調亮度 */
+/* 最新消息 */
+/* 關於我們 */
+/* 燈泡爆炸圖 */

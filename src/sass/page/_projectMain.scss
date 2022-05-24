@@ -1,3 +1,175 @@
-.projectMain_h1{
-    font-family: $fontdeco;
+// body{
+//     position: relative;
+//     top: 80px;
+// }
+// img{
+//     width: 100%;
+// }
+.project_banner_backdrop{
+    width: 100%;
+    height: 800px;
+    position: absolute;
+    filter: brightness(0.6);
+    background-image: url("../../images/project_bannerpic1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    @include t{
+        display: none;
+    }
 }
+.project_banner{
+    width: 100%;
+    height: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    @include t{
+        display: none;
+    }
+}
+.prject_banner_pic{
+    box-shadow: 0 $ip_shadow $ip_shadow*3 0 $secondary_100;
+}
+.prject_banner_pic img{
+    width: 100%;
+}
+.project_banner_word{
+    position: absolute;
+    top: 20%;
+    left: 20%;
+}
+.project_banner_p{
+    font-family: $fontdeco;
+    color: $fontcolor_10;
+}
+.project_banner_p1{
+    font-size: $s2+50;
+}
+.project_banner_p2{
+    font-size: $s2;
+}
+.project_banner_p3{
+    font-size: $s3;
+}
+.project_banner_p4{
+    font-size: $s2;
+}
+.project_feature_title{
+    font-family: $fontdeco;
+    color: $secondary_100;
+    font-size: $s3;
+}
+.project_feature{
+    display: flex;
+    justify-content: center;
+    z-index: 50;
+}
+.project_feature_bgcon{
+    position: relative;
+}
+.project_feature_bg{
+    width: 100%;
+    height: 500px;
+    position: absolute;
+    background-color: $secondary_dark;
+    top: 150px;
+    z-index: 1;
+}
+.project_feature_box{
+    width: 15%;
+    height: 600px;
+    background-color: red;
+    margin: 10px 20px;
+    z-index: 55;
+}
+#project_feature_left{
+    background-image: url(../../images/aboutus.lamp1.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#project_feature_mid{
+    background-image: url(../../images/aboutus.lamp2.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#project_feature_right{
+    background-image: url(../../images/aboutus.lamp3.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+// #mouse{
+//     width: 20px;
+//     height: 20px;
+//     border-radius: 50%;
+//     background-color: red;
+// }
+.project_section{
+   position: relative;
+}
+.project_bg{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    filter: saturate(0);
+    opacity: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    transition: 500ms;
+    z-index: -1;
+}
+.project_title{
+    font-size: $s3;
+    color: $secondary_100;
+    transition: 500ms;
+    pointer-events: none;
+    z-index: 50;
+}
+.project_container{
+    display: flex;
+    justify-content: space-around;
+    & a{
+        width:25%;
+    }
+}
+.project{
+    position: relative;
+    z-index: 50;
+    & img{
+        width: 100%;
+        transition: 0.3s;
+        filter: brightness(0.5);
+    }
+    &:hover img{
+        filter: brightness(1);
+    }
+}
+.project_word{
+    position: absolute;
+    top: 30%;
+    left: 5%;
+    z-index: 50;
+    & span,h2{
+        color: $white;
+    }
+}
+.project_loopword{
+    width: 100%;
+    display: flex;
+    direction:rtl;
+    color: $primary_70;
+    overflow: hidden;
+    position: fixed;
+    top: 40%;
+    z-index: -1;
+    opacity: 0.5;
+    & span{
+        overflow: hidden;
+    }
+}
+// .project_loopword_h1{
+    
+// }
