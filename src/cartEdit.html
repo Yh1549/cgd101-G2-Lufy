@@ -30,7 +30,22 @@
         </div>
     </div>
     @@include('layout/footer.html')
+    <script>
+        function showCart() {
+            let cart = document.querySelector(".cart");
+            cart.classList.toggle('hidden');
 
+        }
+
+        function init() {
+            let shopping = document.querySelector(".fa-solid fa-cart-shopping");
+            shopping.addEventListener("clicl,showCart", false);
+
+
+        }
+
+        window.addEventListener("load", init, false);
+    </script>
 
 </body>
 

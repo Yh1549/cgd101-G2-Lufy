@@ -9,18 +9,22 @@
 <body>
     @@include('layout/header.html')
     <div class="containerALL">
-        <div class="cart">
-            <div id="newItem">
+        <div class="cart_section">
+            <div class="cart hidden">
+                <h2 class="h2">Cart List</h2>
 
-            </div>
-            <div id="content">
-                <div>
-                    Item : <span id="itemCount">0</span> item(s)
+                <div id="newItem">
+
                 </div>
-                <div>
-                    Subtotal : $ <span id="subtotal">0</span>
+                <div id="content">
+                    <div>
+                        Item : <span id="itemCount">0</span> item(s)
+                    </div>
+                    <div>
+                        Subtotal : $ <span id="subtotal">0</span>
+                    </div>
+                    <div class="cartProcess"><a href="cartEdit.html"><button class="btn_small">edit cart</button></a></div>
                 </div>
-                <div class="cartProcess"><a href="cartEdit.html">edit cart</a></div>
             </div>
         </div>
 
@@ -166,6 +170,22 @@
         function init() {
             discribe.addEventListener("click", showDiscribe)
             format.addEventListener("click", showFormat)
+
+
+        }
+
+        window.addEventListener("load", init, false);
+    </script>
+    <script>
+        function showCart() {
+            let cart = document.querySelector(".cart");
+            cart.classList.toggle('hidden');
+
+        }
+
+        function init() {
+            let shopping = document.querySelector(".fa-cart-shopping");
+            shopping.addEventListener("click", showCart, false);
 
 
         }
