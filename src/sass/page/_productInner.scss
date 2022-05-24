@@ -1,18 +1,127 @@
     .cart {
         position: absolute;
         right: 200px;
-        top: 100px;
+        top: 200px;
     }
     
     .cart img {
         width: 200px;
     }
     
-    .addButton {
+    .addButton,
+    .buyNowButton,
+    .collectButton {
         cursor: pointer;
     }
     
     .product_intro {
+        margin-top: 60px;
         display: flex;
         align-items: center;
+        justify-content: center;
+        img {
+            width: 300px;
+        }
+        .same_products {
+            display: flex;
+            img {
+                width: 100px;
+            }
+        }
+    }
+    
+    .product_price {
+        color: $primary_dark;
+    }
+    
+    .product_name {
+        color: $primary_100;
+    }
+    
+    .product_text {
+        margin-left: 80px;
+        select {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+    }
+    
+    #buyNow,
+    #shopButton {
+        margin-bottom: 35px;
+    }
+    
+    .hidden {
+        display: none;
+    }
+    
+    .product_discribe,
+    .product_format {
+        width: 600px;
+    }
+    
+    .product_content {
+        margin-top: 40px;
+        text-align: center;
+    }
+    
+    .product_detail {
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .product_designer {
+        background-color: $secondary_100;
+        margin-top: 40px;
+        display: flex;
+        justify-content: space-evenly;
+        padding: 20px;
+        width: 800px;
+        border-radius: 10px;
+    }
+    
+    .product_designer_img {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+        margin-right: 20px;
+        button {
+            margin-top: 10px;
+            width: 80px;
+            height: 50px;
+            font-size: 12px;
+            padding: 0;
+        }
+        img {
+            width: 150px;
+        }
+    }
+    
+    .product_designer_intro {
+        margin-left: 10px;
+        width: 250px;
+        h2 {
+            margin-bottom: 10px;
+        }
+        color: $fontcolor_30;
+    }
+    
+    .relative_products {
+        margin-top: 60px;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .relative_product {
+        margin: 10px;
+        img {
+            width: 150px;
+        }
+    }
+    
+    .product_designers {
+        display: flex;
+        justify-content: center;
     }
