@@ -157,21 +157,21 @@
     }
 }
 .project_loopword{
-    width: 1000%;
-    display: flex;
-    color: $primary_70;
-    overflow: hidden;
-    position: fixed;
-    top: 40%;
-    z-index: -1;
-    opacity: 0.5;
-    & span{
-        display:flex;
-        flex-wrap: nowrap;
-        &:after{
-            content: "/";
-        }
-    }
+    // width: 1000%;
+    // display: flex;
+    // color: $primary_70;
+    // overflow: hidden;
+    // position: fixed;
+    // top: 40%;
+    // z-index: -1;
+    // opacity: 0.5;
+    // & span{
+    //     display:flex;
+    //     flex-wrap: nowrap;
+    //     &:after{
+    //         content: "/";
+    //     }
+    // }
 }
 // .project_loopword_h1{
     
@@ -206,4 +206,8 @@
         flex-direction: row;
     }
 }
-
+.start{
+    width: 100px;
+    height: 100px;
+    background-color: red;
+}
