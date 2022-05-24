@@ -9,80 +9,102 @@
 <body>
     @@include('layout/header.html')
     <div class="containerALL">
-        <ul class="faqCategory">
-            <h1>常見問題</h1>
-            <li>會員相關問題</li>
-            <li>訂購相關問題</li>
-            <li>售後相關問題</li>
-            <li>配送相關問題</li>
-            <h1>聯絡我們</h1>
-        </ul>
-        <ul>
-            <h2>會員相關問題</h2>
-            <li>
-                <p>如何修改會員資料及密碼?</p>
-                <p>請於「會員登入」後，點選「會員中心」中的「會員資料/修改密碼」，即可進行修改。</p>
-            </li>
-        </ul>
-        <ul>
-            <h2>訂購相關問題</h2>
-            <li>
-                <p>商品都有現貨嗎?</p>
-                <p>因網路及實體門市同時都在銷售商品，故商品流動較快，建議下單前還是確認一下庫存狀態會比較準確。</p>
-            </li>
-            <li>
-                <p>是否訂購成功?</p>
-                <p>訂購完成後可至『會員中心>訂單列表』中查詢是否訂購成功。</p>
-            </li>
-            <li>
-                <p>如何追蹤訂單進度?</p>
-                <p>有關商品的出貨進度，可在『會員中心>訂單列表』中查詢。</p>
-            </li>
-            <li>
-                <p>查看我的折價券?</p>
-                <p>進入『會員中心>優惠劵列表』，可以查詢折價劵。</p>
-            </li>
-            <li>
-                <p>如何使用折價劵?</p>
-                <p>在結帳時，點選使用折價券，就可以享有優惠喔！</p>
-            </li>
-            <li>
-                <p>折價劵使用規則</p>
-                <p>
-                    <li>1. 線上結帳，每筆訂單限用一張折價券，門市使用規則會另行公告。</li>
-                    <li>2. 折價券僅能使用一次且不找零，一經使用無法恢復。</li>
-                    <li>3. 折價券有使用效期，逾期後則無法使用，且無法恢復。</li>
-                </p>
-            </li>
-        </ul>
-        <ul>
-            <h2>售後相關問題</h2>
-            <li>
-                <p>LUFY有安裝服務嗎?</p>
-                <p>有的，LUFY有超過十年經驗的施工團隊，您可以在購買時勾選是否需要專人到府安裝服務。由於LUFY的燈具皆為設計新穎的燈款，其造型及構造常常不同於一般燈飾，部分坊間水電師傅常因不了解燈飾構造而造成組裝錯誤，因此我們建議您在本店購買的設計款燈飾，能委由LUFY專業團隊進行正確施工。如非由LUFY施工，因自行委外安裝所造成的燈具破損或意外，恕燈具和安全疏失不在保固範圍內。</p>
-            </li>
-        </ul>
-        <ul>
-            <h2>配送相關問題</h2>
-            <li>
-                <p>運送方式?</p>
-                <p>商品皆由專人宅配到府。</p>
-            </li>
-            <li>
-                <p>何時收到商品?</p>
-                <p>帳款確認後將立即處理您的訂單，您將於指定日期收到商品。</p>
-            </li>
-            <li>
-                <p>可以更改送貨地址或連絡電話嗎?</p>
-                <p>請致電原購買門市詢問，門市需進一步確認是否已出貨，若已出貨，則需請您於原址收件；若未出貨，方能為您修改收貨地址資料。</p>
-            </li>
-        </ul>
-        <div>
-            <img src="https://picsum.photos/300/200/?random=10">
-            <div>
-                <p>地址：320桃園市中壢區復興路46號</p>
-                <p>營業時間：09:00-22:00</p>
-                <p>連絡電話：(03)425-1108</p>
+        <div class="supWrapper">
+            <div class="faqCategory ps_2 pl_1 pr_4">
+                <div class="h1 ps_1 pe_1 faqTitle">
+                    <h1>FAQ</h1>
+                </div>
+                <ul class="ps_1 pe_1 faqAnchor">
+                    <li><a class="p1" href="#faq-1">Member</a></li>
+                    <li><a class="p1" href="#faq-2">Order</a></li>
+                    <li><a class="p1" href="#faq-3">After sales</a></li>
+                    <li><a class="p1" href="#faq-4">Delivery</a></li>
+                    <li><a class="p1" href="#faq-5">Contact us</a></li>
+                </ul>
+            </div>
+            <div class="faqMenu">
+                <div class="hrefpoint ps_7" id="faq-1"></div>
+                <div class="pe_4 faqCard">
+                    <h2 class="h2 font_w5">Member</h2>
+                    <ul class="ps_1 ">
+                        <li>
+                            <p class="pl_3 pr_3 ps_1 pe_1 p1 question">How to change member information and password?</p>
+                            <p class="pl_3 pr_3 ps_1 pe_1 p1 answer">Please click "Member Information/Change Password" in "Member Center" after "Member Login" to make changes.</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="hrefpoint ps_7" id="faq-2"></div>
+                <div class="pe_4 faqCard" id="faq-2">
+                    <h2 class="h2">Order</h2>
+                    <ul class="ps_1 ">
+                        <li class="pe_2">
+                            <p class="pl_3 pr_3 ps_1 pe_1 p1 question">Are the items in stock?</p>
+                            <p class="pl_3 pr_3 ps_1 pe_1 p1 answer">Because both online and physical stores are selling goods at the same time, the flow of goods is fast. It is recommended to confirm the inventory status before placing an order to be more accurate.</p>
+                        </li>
+                        <li class="pe_2">
+                            <p class="pl_3 pr_3 ps_1 pe_1 p1 question">Is the order successful?</p>
+                            <p class="pl_3 pr_3 ps_1 pe_1 p1 answer">After the order is completed, you can go to "Member Center > Order List" to check whether the order is successful.</p>
+                        </li>
+                        <li class="pe_2">
+                            <p class="pl_3 pr_3 ps_1 pe_1 p1 question">How to track order progress?</p>
+                            <p class="pl_3 pr_3 ps_1 pe_1 p1 answer">For the shipment progress of the product, you can check it in "Member Center > Order List".</p>
+                        </li>
+                        <li class="pe_2">
+                            <p class="pl_3 pr_3 ps_1 pe_1 p1 question">View my coupons?</p>
+                            <p class="pl_3 pr_3 ps_1 pe_1 p1 answer">Go to "Member Center > Discount Coupon List" to check discount coupons.</p>
+                        </li>
+                        <li class="pe_2">
+                            <p class="pl_3 pr_3 ps_1 pe_1 p1 question">How to use coupons?</p>
+                            <p class="pl_3 pr_3 ps_1 pe_1 p1 answer">At checkout, click to use coupon to enjoy the discount!</p>
+                        </li>
+                        <li class="pe_2">
+                            <p class="pl_3 pr_3 ps_1 pe_1 p1 question">Discount coupon usage rules</p>
+                            <ul class="pl_3 pr_3 ps_1 pe_1 p1 answer">
+                                <li>1. For online checkout, each order is limited to one coupon, and the store usage rules will be announced separately.</li>
+                                <li>2. Discount coupons can only be used once without change, and cannot be recovered once used.</li>
+                                <li>3. Discount coupons have an expiration date, after which they cannot be used and cannot be restored.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="hrefpoint ps_7" id="faq-3"></div>
+                <div class="pe_4 faqCard" id="faq-3">
+                    <h2 class="h2">After-sales</h2>
+                    <ul class="ps_1 ">
+                        <li>
+                            <p class="pl_3 pr_3 ps_1 pe_1 p1 question">LUFY is there an installation service?</p>
+                            <p class="pl_3 pr_3 ps_1 pe_1 p1 answer">Yes, LUFY has a construction team with more than ten years of experience. You can check whether you need a special person to install the service when you buy it. Since LUFY's lamps are all newly designed lamps, their shapes and structures are often different from ordinary lamps. Some plumbers in the market often cause assembly errors because they do not understand the structure of lamps. Therefore, we recommend that you buy design lamps in our store. The correct construction is entrusted to the LUFY professional team. If it is not constructed by LUFY, the lamps and lanterns and safety negligence are not covered by the warranty for damage or accidents caused by outsourced installation.</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="hrefpoint ps_7" id="faq-4"></div>
+                <div class="pe_4 faqCard" id="faq-4">
+                    <h2 class="h2">Delivery</h2>
+                    <ul class="ps_1 ">
+                        <li class="pe_2">
+                            <p class="pl_3 pr_3 ps_1 pe_1 p1 question">Shipping method?</p>
+                            <p class="pl_3 pr_3 ps_1 pe_1 p1 answer">Commodities are delivered to the house by specially-assigned persons.</p>
+                        </li>
+                        <li class="pe_2">
+                            <p class="pl_3 pr_3 ps_1 pe_1 p1 question">When will the item be received?</p>
+                            <p class="pl_3 pr_3 ps_1 pe_1 p1 answer">Your order will be processed immediately after payment is confirmed and you will receive the item on the specified date.</p>
+                        </li>
+                        <li class="pe_2">
+                            <p class="pl_3 pr_3 ps_1 pe_1 p1 question">Can I change the shipping address or contact number?</p>
+                            <p class="pl_3 pr_3 ps_1 pe_1 p1 answer">Please call the original purchase store to inquire. The store needs to further confirm whether it has been shipped. If it has been shipped, you need to receive it at the original address; if it has not shipped, the delivery address information can be modified for you.</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="hrefpoint ps_7" id="faq-5"></div>
+                <div class="stronghold">
+                    <img src="./images/faqMap.PNG">
+                    <div>
+                        <p class="pl_3 pr_3 ps_1 p1">Address: No. 46, Fuxing Road, Zhongli District, Taoyuan City, 320</p>
+                        <p class="pl_3 pr_3 ps_1 p1">Business hours: 09:00-22:00</p>
+                        <p class="pl_3 pr_3 ps_1 p1">Contact number: (03)425-1108</p>
+                    </div>
+                </div>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum obcaecati suscipit magni quos inventore modi laborum necessitatibus optio consectetur natus dolor architecto cumque corrupti odio, sint perferendis error saepe maxime. Iure, qui. Libero ratione, eum ut quas eaque ad praesentium animi sed a neque assumenda exercitationem asperiores sint tenetur nesciunt qui repellat inventore? Aperiam fugiat esse at nemo nam facilis nulla, odio suscipit qui, corrupti quaerat illo fugit consequatur quasi expedita excepturi obcaecati neque labore? Pariatur necessitatibus incidunt mollitia adipisci sit porro, omnis aliquam laborum rem qui at corporis saepe sint. Corporis, soluta numquam ea nostrum sunt tenetur, qui quisquam reiciendis, dignissimos non blanditiis laudantium impedit! Numquam optio vel non at molestiae, architecto accusamus dignissimos nulla, earum id quae maxime aliquid temporibus porro reiciendis vero animi cumque doloribus ducimus rem dolor ipsa. Dolore quos at accusantium itaque dolorem, sapiente fuga nam rerum veniam odio? Autem aperiam eligendi consequatur ea ab impedit minus hic et, blanditiis pariatur accusantium similique fugit culpa ipsum magnam ducimus, maiores recusandae voluptatibus ratione voluptas itaque vitae doloribus? Natus molestiae ipsam provident eius ad quod aperiam est temporibus, sunt suscipit ratione eos soluta fugiat odit laudantium ex atque sequi perspiciatis in. Iusto sed iste rem reiciendis sapiente maiores adipisci vero ullam? Exercitationem, autem commodi repudiandae vel vitae dignissimos nihil aut amet. Delectus numquam dolor minus quo excepturi harum hic rem iusto facilis ipsa, cum enim, commodi quam laborum id magni blanditiis. Eligendi cupiditate libero ex fuga dolor laboriosam quam dolores voluptatem quo perspiciatis repudiandae, saepe id inventore omnis illo. Quasi reprehenderit tempore quas quia esse id odit? Earum debitis natus voluptate provident sed error nihil repellendus praesentium consequuntur, numquam illo inventore magni cum exercitationem quam? Provident eius ullam molestiae dignissimos at sit maiores? Molestias fugit repudiandae minus cum, temporibus obcaecati animi officiis suscipit rem sit ipsa aliquid vero quis sequi tempora eaque odit porro alias corporis voluptatibus non harum. Necessitatibus ipsum rerum, impedit quod tempore assumenda, aperiam temporibus error quibusdam in eius a. Aspernatur similique sint pariatur. Perspiciatis fugit dicta inventore beatae porro! Quos, enim repudiandae sint nisi nostrum dolorem tempora delectus impedit voluptatem unde nihil sed doloribus facere maiores, quo adipisci laboriosam fugit inventore ipsa itaque, ut officia? Possimus, laboriosam eveniet nemo hic inventore dolor. Eaque suscipit similique illum dolore, totam officiis quasi minima, ipsa laborum est accusamus! Odio accusantium exercitationem eos pariatur provident accusamus perferendis, consequuntur facilis doloribus quia in libero voluptas nemo praesentium eligendi sint culpa. Itaque natus a, excepturi dignissimos voluptatem, dolore odit minima qui voluptates animi autem distinctio cumque ratione culpa aspernatur blanditiis esse ea ut, accusamus placeat quis quibusdam quisquam quo! Nobis in quis deleniti culpa. Quidem adipisci voluptatem voluptate dolor temporibus explicabo hic qui totam nihil quam, aperiam obcaecati earum, tempora illo itaque cumque quo repudiandae iure minus assumenda! Fuga hic, maxime perspiciatis labore nihil, libero repellat molestiae maiores quasi inventore quis excepturi ullam doloribus ab quas iure quae unde sequi odit sed nulla sunt in. Harum quia officia natus at voluptate eum aperiam assumenda, numquam cum, aut error sint eligendi deserunt temporibus voluptatem dignissimos repudiandae molestias porro sequi ut recusandae autem ducimus. Eaque nesciunt ex molestiae molestias temporibus, eius illum deleniti libero fugit unde optio consectetur voluptas eligendi, distinctio delectus ratione sint nisi! Ab, iure animi eaque recusandae quam maiores asperiores inventore officia in ipsam, minus numquam tempora aut blanditiis quis vel. Minus nihil voluptate voluptatem! Itaque dolorum adipisci iure? Eos, laudantium atque. Quasi quis a, quidem quas itaque suscipit! Sequi iure itaque, provident totam dicta cupiditate earum et deserunt delectus neque tenetur amet consequatur, harum fuga voluptas sint repellendus voluptatibus molestiae libero omnis aspernatur, nostrum laboriosam? Quidem id doloremque consectetur quo, molestiae illum. Repellendus ducimus, nostrum, ratione sapiente illo vero eos, magnam reprehenderit nihil odio illum unde reiciendis molestiae aspernatur dolore rem quia. Quaerat vero natus placeat dolorem expedita reprehenderit reiciendis, autem hic earum? Iure accusantium obcaecati laboriosam quisquam autem, alias in, fugit asperiores voluptatibus eveniet atque laborum dolorum officia corporis tempora nobis earum nihil ratione voluptate. Nostrum, deserunt consequuntur impedit quia blanditiis quibusdam eligendi veniam iure neque suscipit amet aliquam libero in consectetur ipsa dolor provident tenetur illum sit, numquam, voluptate delectus asperiores itaque. Voluptatum iure maiores placeat beatae error qui dolorum repellendus aliquid, praesentium facere maxime repellat dolor ratione consequuntur ab natus suscipit neque, esse dignissimos rem, quam accusantium. Neque esse dignissimos veritatis quos obcaecati numquam vero debitis vel, quia omnis accusantium saepe unde. Sit, vel facilis reiciendis nisi beatae velit neque modi. Ullam in, quaerat accusantium laborum vitae iure? Id explicabo consectetur laboriosam, enim expedita necessitatibus iusto quo quos fugit dolores quisquam maiores magni tenetur nihil eaque soluta praesentium temporibus deleniti autem sequi. Error, hic! Fugit cumque impedit ducimus? Eos temporibus eveniet ad accusamus odit non corporis quis. Laboriosam numquam veritatis magnam eveniet nulla nemo hic ratione odit repellendus natus eum consequatur animi, facere quae vitae harum cum similique! Tempore eius iste et dignissimos assumenda laboriosam dicta eos maxime sunt consequuntur doloribus quas qui quibusdam expedita, dolor ipsum suscipit quod commodi. Fugiat libero nemo laboriosam dolores tempore, amet totam voluptatibus nisi voluptatem error ad, natus autem officiis aperiam reiciendis ut earum rem. Delectus illo fugiat, dolor neque voluptates est modi rerum commodi voluptatem autem consectetur voluptatibus enim sed officia quam. Dolores consequatur doloribus, voluptatibus est ullam porro quis officiis necessitatibus laborum exercitationem molestias non cupiditate praesentium? Sed alias eos fugit atque a omnis modi sapiente magni provident repellendus temporibus in necessitatibus, quibusdam odio fugiat recusandae totam quaerat consectetur officia? Eius expedita ut ratione sint ducimus dicta eveniet quibusdam consectetur, iusto in quasi quidem inventore nesciunt nostrum recusandae voluptates impedit facilis adipisci cupiditate officia quo repudiandae. Similique omnis placeat reiciendis nostrum molestias eum deleniti, ipsa in reprehenderit. Deleniti iusto quis nemo laborum suscipit ducimus dolores fuga alias commodi nam eveniet molestias dolor voluptate, vel quos doloremque, earum perferendis veritatis quaerat ipsam maxime saepe eum veniam! Asperiores ab obcaecati voluptatem, pariatur voluptates tempore incidunt quas odit. Nemo iure corporis hic, corrupti perspiciatis pariatur quasi sed dignissimos cupiditate quidem enim sint, laboriosam vero quam esse, ipsum modi fugit?
             </div>
         </div>
     </div>

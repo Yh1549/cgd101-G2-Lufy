@@ -18,12 +18,15 @@
 @import 'page/cartEdit';
 //專案import---
 @import 'page/projectMain'; //專案主頁
+@import 'page/productInner';
 //------------
 //產品import------
 @import 'page/productMain'; //產品主頁
 //----------
 //最新消息import------------
 @import 'page/news.scss'; //最新消息
+//常見問題import------------
+@import 'page/support.scss'; //常見問題
 //-----------
 // //-----老師範例-----
 // body {

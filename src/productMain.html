@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<<<<<<< HEAD
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section class="product_masonry">
+        <div class="product_column">
+            <div><img src="../../louis poulsen_燈素材/Floor lamps/keglen-floor_1-min.png" alt=""></div>
+            <div><img src="../../louis poulsen_燈素材/Floor lamps/moonsetter_1-louis-poulsen-floor-lamp.png" alt=""></div>
+            <div><img src="../../louis poulsen_燈素材/Floor lamps/下載 (13).jpg" alt=""></div>
+            <div><img src="../../louis poulsen_燈素材/Floor lamps/下載 (24).jpg" alt=""></div>
+            <div><img src="../../louis poulsen_燈素材/Floor lamps/下載 (44).jpg" alt=""></div>
+            <div><img src="../../louis poulsen_燈素材/Floor lamps/vl-studio-floor_3.png" alt=""></div>
+        </div>
+        <div class="product_column">
+            <div><img src="../../louis poulsen_燈素材/Outdoor lamps/下載 (2).jpg" alt=""></div>
+            <div><img src="../../louis poulsen_燈素材/Outdoor lamps/下載 (5).jpg" alt=""></div>
+            <div><img src="../../louis poulsen_燈素材/Outdoor lamps/9783_17625_Toldbod-155-Bollard-AluTextured-01-2-5-91172.png" alt=""></div>
+            <div><img src="../../louis poulsen_燈素材/Outdoor lamps/flintwall_blaa_planet_3-1.jpginfobox3-550x750.jpg" alt=""></div>
+            <div><img src="../../louis poulsen_燈素材/Outdoor lamps/17508_17508_PH-3-25-Wall-01-2-5-91081.png" alt=""></div>
+            <div><img src="../../louis poulsen_燈素材/Outdoor lamps/9783_17625_Toldbod-155-Bollard-AluTextured-01-2-5-91172.png" alt=""></div>
+        </div>
+        <div class="product_column">
+            <div><img src="../../louis poulsen_燈素材/Table lamps/10625_23634_Panthella-Table-01-2-5-90408.png" alt=""></div>
+            <div><img src="../../louis poulsen_燈素材/Table lamps/50503_50503_Keglen Table base Black-02A-1-5-91804.png" alt=""></div>
+            <div><img src="../../louis poulsen_燈素材/Wall lamps/b2c_products_floor.svg" alt=""></div>
+            <div><img src="../../louis poulsen_燈素材/Wall lamps/vl-studio-wall_2.png" alt=""></div>
+            <div><img src="../../louis poulsen_燈素材/Spare parts/7642_7642_PH-5-Classic-White-11-2-5-90293.png" alt=""></div>
+            <div><img src="../../louis poulsen_燈素材/Pendants/ph-5-mini_poul-henningsen-lamp-icon-lamp-2-min.png" alt=""></div>
+        </div>
+    </section>
+</body>
+<script>
+    
+</script>
+=======
+    @@include('layout/meta.html', {
+    "title" : "商品總覽"
+    })
+</head>
+<body>
+    <!-- header -->
+    @@include('layout/header.html')
+    <!-- header end -->
+    <section class="index_product">
+        <section class="containerALL me_8">
+            <div class="product_category me_3" id="product_category">
+                <div v-for='category in categorys'>
+                    <img :src="category.image" :alt="category.name">
+                    <p class="p1">{{category.name}}</p>
+                </div>
+            </div>
+            <script>
+                new Vue({
+                    el: '#product_category',
+                    data: {
+                        categorys: [
+                            {
+                                name: 'Floor Lamps',
+                                image: './images/product_category_floor_lamps.webp',
+                            },
+                            {
+                                name: 'Pendant',
+                                image: './images/product_category_pendant.webp'
+                            },
+                            {
+                                name: 'Home Accent',
+                                image: './images/product_category_home_accent.webp'
+                            },
+                            {
+                                name: 'Table Lamps',
+                                image: './images/product_category_table_lamps.webp'
+                            },
+                            {
+                                name: 'Wall Lamps',
+                                image: './images/product_category_wall_lamps.webp'
+                            },
+                            {
+                                name: 'Chandaliers',
+                                image: './images/product_category_chandaliers.webp'
+                            },
+                        ],
+                    },
+                });
+            </script>
+            <div class="product_grid">
+                <div class="item">
+                    <div class="item__details">
+                        【商品名稱】
+                        <span class="material-icons">
+                            favorite
+                        </span>
+                    </div>
+                </div>
+                <div class="item item--large">
+                    <div class="item__details">
+                        【商品名稱】
+                        <span class="material-icons">
+                            favorite
+                        </span>
+                    </div>
+                </div>
+                <div class="item item--medium">
+                    <div class="item__details">
+                        【商品名稱】
+                        <span class="material-icons">
+                            favorite
+                        </span>
+                    </div>
+                </div>
+                <div class="item item--large">
+                    <div class="item__details">
+                        【商品名稱】
+                        <span class="material-icons">
+                            favorite
+                        </span>
+                    </div>
+                </div>
+                <div class="item item--full">
+                    <div class="item__details">
+                        【商品名稱】
+                        <span class="material-icons">
+                            favorite
+                        </span>
+                    </div>
+                </div>
+                <div class="item item--medium">
+                    <div class="item__details">
+                        【商品名稱】
+                        <span class="material-icons">
+                            favorite
+                        </span>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item__details">
+                        【商品名稱】
+                        <span class="material-icons">
+                            favorite
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="test">
+                    display:grid;<br>
+                    grid-gap:30px;<br>
+                    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));//自動填滿整個容器。<br>
+                    grid-auto-rows: 240px; //溢出的項目，高要 240px<br>
+                    grid-auto-flow: row dense; //🟡dense瀑布流
+                </div> -->
+        </section>
+    </section>
+</body>
+>>>>>>> dev
+</html>

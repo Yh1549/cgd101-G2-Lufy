@@ -2,141 +2,145 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>aboutUs</title>
-    <link rel="stylesheet" href="css/style.css">
-    <script src="js/time.js"></script>
+    @@include('layout/meta.html', { "title" : "關於我們" })
+
 </head>
 
 <body>
-    <div class="aboutUs_company_intro">
-        <h2>Company introduction</h2>
-        <div class="aboutUs_company_intro_content">
-            <div class="aboutUs_company_intro_content_img"><img src="images/lamp1.png"></div>
-            <div class="aboutUs_company_intro_content_text">
-                <p>Our company, Light Up Your Life (luyf) is located in Taipei city, Taiwan.The company has cooperated with many clients both from domestic and overseas, and has obtained consistently high praise from our customers since it was set up.</p>
-            </div>
+    @@include('layout/header.html')
+    <div class="containerALL">
 
+        <div class="aboutUs_company_intro">
+            <h2>Company introduction</h2>
+            <div class="aboutUs_company_intro_content">
+                <div class="aboutUs_company_intro_content_img"><img src="images/lamp1.png"></div>
+                <div class="aboutUs_company_intro_content_text">
+                    <p class="h5">Our company, Light Up Your Life (luyf) is located in Taipei city, Taiwan.The company has cooperated with many clients both from domestic and overseas, and has obtained consistently high praise from our customers since it was set up.</p>
+                </div>
+
+
+            </div>
 
         </div>
 
-    </div>
-
-    <div class="company_history">
-        <h2>Company History</h2>
-        <div class="timetree">
+        <div class="company_history">
+            <h2 class="ms_8 font_w5 h1">Company History</h2>
+            <div class="timetree">
 
 
-            <ul class="timeline">
-                <li class="time">
-                    <div class="content">2014</div>
-                </li>
-                <li class="branch">
-                    <div class="content">
-                        <h3>Lorem ipsum dolor</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
-                </li>
-                <li class="branch">
-                    <div class="content">
-                        <h3>Lorem ipsum dolor</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
-                </li>
-                <li class="branch">
-                    <div class="content">
-                        <h3>Lorem ipsum dolor</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
-                </li>
-                <li class="time">
-                    <div class="content">Nov 13</div>
-                </li>
-                <li></li>
-                <li class="branch">
-                    <div class="content">
-                        <h3>Lorem ipsum dolor</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
-                </li>
-                <li class="branch">
-                    <div class="content">
-                        <h3>Lorem ipsum dolor</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
-                </li>
-                <li class="branch">
-                    <div class="content">
-                        <h3>Lorem ipsum dolor</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
-                </li>
-                <li class="branch">
-                    <div class="content">
-                        <h3>Lorem ipsum dolor</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
-                </li>
-                <li class="time">
-                    <div class="content">2013</div>
-                </li>
-                <li class="time">
-                    <div class="content">2012</div>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="designers">
-
-        <h2>Designers</h2>
-        <div class="designers_summary">
-            <div class="designer_card">
-                <div class="designer_intro">
-                    <div class="designer_photo"><img src="images/designer1.jpg" alt="設計師頭像1"></div>
-                    <div class="designer_slogan">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
-                </div>
-                <div class="designer_works">
-                    <div class="aboutus_button"><button>Read More</button></div>
-                    <div class="designer_work"><img src="images/aboutus.lamp1.png" alt="作品圖"></div>
-                    <div class="designer_work"><img src="images/aboutus.lamp2.png" alt="作品圖"></div>
-                    <div class="designer_work"><img src="images/aboutus.lamp3.png" alt="作品圖"></div>
-                </div>
-            </div>
-            <div class="designer_card">
-                <div class="designer_intro">
-                    <div class="designer_photo"><img src="images/desinger2.jpg" alt="設計師頭像1"></div>
-                    <div class="designer_slogan">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
-                </div>
-                <div class="designer_works">
-                    <div class="aboutus_button"><button>Read More</button></div>
-                    <div class="designer_work"><img src="images/aboutus.lamp4.png" alt="作品圖"></div>
-                    <div class="designer_work"><img src="images/aboutus.lamp5.png" alt="作品圖"></div>
-                    <div class="designer_work"><img src="images/aboutus.lamp10.png" alt="作品圖"></div>
-                </div>
-            </div>
-            <div class="designer_card">
-                <div class="designer_intro">
-                    <div class="designer_photo"><img src="images/designer3.jpg" alt="設計師頭像1"></div>
-                    <div class="designer_slogan">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
-                </div>
-                <div class="designer_works">
-                    <div class="aboutus_button"><button>Read More</button></div>
-                    <div class="designer_work"><img src="images/aboutus.lamp7.jpg" alt="作品圖"></div>
-                    <div class="designer_work"><img src="images/aboutus.lamp8.jpg" alt="作品圖"></div>
-                    <div class="designer_work"><img src="images/aboutus.lamp6.jpg" alt="作品圖"></div>
-                </div>
+                <ul class="timeline">
+                    <li class="time">
+                        <div class="content h3">2014</div>
+                    </li>
+                    <li class="branch">
+                        <div class="content h5">
+                            <h3>Lorem ipsum dolor</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        </div>
+                    </li>
+                    <li class="branch">
+                        <div class="content h5">
+                            <h3>Lorem ipsum dolor</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        </div>
+                    </li>
+                    <li class="branch">
+                        <div class="content h5">
+                            <h3>Lorem ipsum dolor</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        </div>
+                    </li>
+                    <li class="time">
+                        <div class="content h3">Nov 13</div>
+                    </li>
+                    <li></li>
+                    <li class="branch">
+                        <div class="content h5">
+                            <h3>Lorem ipsum dolor</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        </div>
+                    </li>
+                    <li class="branch">
+                        <div class="content h5">
+                            <h3>Lorem ipsum dolor</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        </div>
+                    </li>
+                    <li class="branch">
+                        <div class="content h5">
+                            <h3>Lorem ipsum dolor</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        </div>
+                    </li>
+                    <li class="branch">
+                        <div class="content h5">
+                            <h3>Lorem ipsum dolor</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        </div>
+                    </li>
+                    <li class="time">
+                        <div class="content h3">2013</div>
+                    </li>
+                    <li class="time">
+                        <div class="content h3">2012</div>
+                    </li>
+                </ul>
             </div>
         </div>
+        <div class="designers">
 
+            <h2>Designers</h2>
+            <div class="designers_summary">
+                <div class="designer_card">
+                    <div class="designer_intro">
+                        <div class="designer_photo"><img src="images/designer1.jpg" alt="設計師頭像1"></div>
+                        <div class="designer_slogan">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        </div>
+                    </div>
+                    <div class="designer_works">
+                        <!-- <div class="aboutus_button">
+                        
+                    </div> -->
+                        <button class="btn_normal">Read More</button>
+                        <div class="designer_work"><img src="images/aboutus.lamp1.png" alt="作品圖"></div>
+                        <div class="designer_work"><img src="images/aboutus.lamp2.png" alt="作品圖"></div>
+                        <div class="designer_work"><img src="images/aboutus.lamp3.png" alt="作品圖"></div>
+                    </div>
+                </div>
+                <div class="designer_card">
+                    <div class="designer_intro">
+                        <div class="designer_photo"><img src="images/desinger2.jpg" alt="設計師頭像1"></div>
+                        <div class="designer_slogan">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        </div>
+                    </div>
+                    <div class="designer_works">
+                        <button class="btn_normal">Read More</button>
+                        <div class="designer_work"><img src="images/aboutus.lamp4.png" alt="作品圖"></div>
+                        <div class="designer_work"><img src="images/aboutus.lamp5.png" alt="作品圖"></div>
+                        <div class="designer_work"><img src="images/aboutus.lamp10.png" alt="作品圖"></div>
+                    </div>
+                </div>
+                <div class="designer_card">
+                    <div class="designer_intro">
+                        <div class="designer_photo"><img src="images/designer3.jpg" alt="設計師頭像1"></div>
+                        <div class="designer_slogan">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        </div>
+                    </div>
+                    <div class="designer_works">
+                        <button class="btn_normal">Read More</button>
+                        <div class="designer_work"><img src="images/aboutus.lamp7.jpg" alt="作品圖"></div>
+                        <div class="designer_work"><img src="images/aboutus.lamp8.jpg" alt="作品圖"></div>
+                        <div class="designer_work"><img src="images/aboutus.lamp6.jpg" alt="作品圖"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
+    @@include('layout/footer.html')
 
 </body>
 

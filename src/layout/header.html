@@ -1,4 +1,4 @@
-<header>    
+<header>
     @@include('login.html')
     <!-- 導覽列 -->
     <section class="main_header">
@@ -32,7 +32,9 @@
             <li>
                 <i class="fa-solid fa-bars"></i>
             </li>
-            <li><p class="p2">menu</p></li>
+            <li>
+                <p class="p2">menu</p>
+            </li>
             <li><a class="h1" href="projectMain.html">Project</a></li>
             <li><a class="h1" href="productMain.html">Product</a></li>
             <li><a class="h1" href="news.html">News</a></li>
@@ -48,7 +50,7 @@
         /* 導覽列 scrollY 函式 */
         function scroll(mainNav) {
             // console.log(123)
-            if (window.scrollY > 300){
+            if (window.scrollY > 300) {
                 mainNav.classList.add('hidden');
             } else {
                 mainNav.classList.remove('hidden');
@@ -59,19 +61,22 @@
             let mainNav = document.querySelector('#mainnav')
             mainNav.classList.remove('hidden');
         }
-        /* main_menu_box 滑入函式 */ 
+        /* main_menu_box 滑入函式 */
         function slideIn() {
             let mainMenuBox = document.querySelector('.main_menu_box')
             mainMenuBox.classList.toggle('slide_in');
         }
-        function init(){
+
+        function init() {
             let hamburger = document.querySelector('#hamburger')
             hamburger.addEventListener('click', slideIn, false);
             // console(hamburger);
             hamburger.addEventListener('mouseover', showUp, false);
             // console(hamburger);
             let mainNav = document.querySelector('#mainnav')
-            window.addEventListener('scroll', function(){scroll(mainNav)}, false);
+            window.addEventListener('scroll', function() {
+                scroll(mainNav)
+            }, false);
             // console.log(mainNav)
         };
         window.addEventListener("load", init, false);

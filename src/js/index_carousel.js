@@ -24,5 +24,5 @@ hot_autoplay.addEventListener('mouseenter', function () {
 })
 hot_autoplay.addEventListener('mouseleave', function () {
     hot_swiper.autoplay.start();
-    console.log('slider start again');
+    // console.log('slider start again');
 })
