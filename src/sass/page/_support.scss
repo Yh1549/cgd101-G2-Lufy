@@ -1,9 +1,38 @@
 .supWrapper{
     display: flex;
+    
+    
 }
 .faqCategory{
     width: 15%;
+    height: 500px;
+    line-height: 60px;
+    position: sticky;
+    top: 120px;
+    // background-color: aquamarine;
 }
 .faqMenu{
     width: 85%;
+}
+.stronghold{
+    display: flex;
+    align-items: center;
+}
+.faqTitle{
+    border: 1px solid #ccc;
+    text-align: center;
+    border-radius: 30px;
+}
+.question{
+    background-color: $primary_100;
+}
+.answer{
+    background-color: $primary_30;
+}
+.faqAnchor a{
+    text-decoration: none;
+}
+.faqCard h2{
+    border-bottom: 2px solid #ccc;
+    width: 40%;
 }
