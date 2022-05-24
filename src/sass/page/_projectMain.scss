@@ -156,3 +156,20 @@
         color: $white;
     }
 }
+.project_loopword{
+    width: 100%;
+    display: flex;
+    direction:rtl;
+    color: $primary_70;
+    overflow: hidden;
+    position: fixed;
+    top: 40%;
+    z-index: -1;
+    opacity: 0.5;
+    & span{
+        overflow: hidden;
+    }
+}
+// .project_loopword_h1{
+    
+// }
