@@ -10,8 +10,8 @@ $b_top_base : 50px;
   border-radius: 50%;
   text-align: center;
   position: fixed;
-  bottom: 30px;
-  right: 30px;
+  bottom: 120px;
+  right: 120px;
   transition: 0.3s;
   opacity: 0;
   visibility: hidden;
@@ -42,14 +42,33 @@ $b_top_base : 50px;
   height: 500px;
   display: flex;
   background-color: $secondary_100;
+  & ul{
+    color: $white;
+  }
 }
-.footer_botton{
-  background-color: $secondary_100;
-  color: $white;
-}
+
 .footer_wrap{
+  width: 100%;
   display: flex;
+  justify-content: space-between;
+  & .footer_img{
+    width: 15%;
+    & img{
+      width: 100%;
+    }
+  }
+  & ul{
+    width: 20%;
+  }
 }
 .footer_addres{
-
+  width: 65%;
+  // text-align: center;
+  color: $white;
+}
+.footer_bottom{
+  border-top: 1px solid $primary_30;
+  background-color: $secondary_100;
+  color: $white;
+  text-align: center;
 }

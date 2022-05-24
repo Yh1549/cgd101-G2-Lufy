@@ -82,39 +82,41 @@
     </script>
     <!--個別專案-->
     <section class="project_section ms_5 me_8">
-      <div class="project_bg"></div>
-      <h1 class="project_title fontdeco text_center ms_8">
+      <div class="project_bg">
+        <h1 class="project_title fontdeco text_center">
         BEST Project<br />
         you know
       </h1>
+    </div>
+      
       <div class="project_container ms_5">
-        <a class="project_first" href="./index.html">
-          <div class="project me_8">
+        <!-- <a class="project_first" href="./index.html"> -->
+          <div class="project_first project me_8 ms_8" >
             <div class="project_word">
               <span class="h3">project 1</span>
               <h2 class="h1">The Renaissance</h2>
             </div>
             <img src="./images/aboutus.lamp7.jpg" alt="" />
           </div>
-        </a>
-        <a href="./index.html">
-          <div   class="project me_8">
+        <!-- </a> -->
+        <!-- <a class="project_second" href="./index.html"> -->
+          <div   class="project_second project me_8 ms_8">
             <div class="project_word">
               <span class="h3">project 2</span>
               <h2 class="h1">Industrial Revolution</h2>
             </div>
             <img src="./images/aboutus.lamp8.jpg" alt="" />
           </div>
-        </a>
-        <a href="./index.html">
-          <div class="project me_8">
+        <!-- </a> -->
+        <!-- <a class="project_third" href="./index.html"> -->
+          <div class="project_third project me_8 ms_8">
             <div class="project_word">
               <span class="h3">project 3</span>
               <h2 class="h1">The Dragon</h2>
             </div>
             <img src="./images/aboutus.lamp6.jpg" alt="" />
           </div>
-        </a>
+        <!-- </a> -->
       </div>
     </section>
     <script>
@@ -128,17 +130,29 @@
           gsapProject(){
             gsap.registerPlugin(ScrollTrigger);
             const tl = gsap.timeline();
-            tl.from(".project_first",{xPercent:100});
+            tl.fromTo(".project_first",{xPercent:300},{xPercent:50})
+              .fromTo(".project_second",{xPercent:200},{xPercent:-50})
+              .fromTo(".project_third",{xPercent:100},{xPercent:-150});
             ScrollTrigger.create({
               animation:tl,
               trigger:".project_container",
-              // start:"top center",
-              // end:"top 100px",
-              scrub:true,
+              start:"center center",
+              end:"1500px center",
+              scrub:1,
               pin:true,
               markers:true,
               anticipatePin:1,
             });
+            gsap.to(".project_bg",{
+              scrollTrigger: {
+                  trigger:".project_bg",
+                  start:"center center",
+                  end:"bottom 100px",
+                  // scrub:1,
+                  pin:".project_bg",
+                  // markers:true,
+                },
+            })
         },
           // bgChange(e) {
           //   let pic = e.target.src;
@@ -159,64 +173,41 @@
       });
     </script>
     <!---------->
-    <div class="project_loopword">
-      <div class="start">
-
-      </div>
-      <span class="s1 font_w9 fontcontent project_loopword_h1"
-        >Light up For You</span
-      >
-      <span class="s1 font_w9 fontcontent project_loopword_h1"
-        >Light up For You</span
-      >
-      <span class="s1 font_w9 fontcontent project_loopword_h1"
-        >Light up For You</span
-      >
-      <span class="s1 font_w9 fontcontent project_loopword_h1_next"
-        >Light up For You</span
-      >
-      <span class="s1 font_w9 fontcontent project_loopword_h1_next"
-        >Light up For You</span
-      >
-      <span class="s1 font_w9 fontcontent project_loopword_h1_next"
-        >Light up For You</span
-      >
-    </div>
     <script>
-      new Vue({
-        el: ".project_loopword",
-        data: {},
-        mounted: function () {
-          this.loopWord();
-        },
-        methods: {
-          // loopWord() {
-          //   gsap.registerPlugin(ScrollTrigger);
-          //   gsap.to(
-          //     ".start",{
-          //       scrollTrigger: {
-          //         trigger:".start",
-          //         start:"top center",
-          //         end:"top 100px",
-          //         scrub:1,
-          //         pin:".project_loopword",
-          //         markers:true,
-          //       },
-          //         x:400,
-          //         rotation:360,
-          //         duration:3,
-          //     },
-          //     // { x: 1000 },
-          //     // { x: -1000, duration: 3 },
-          //   );
-          //   // autoplay.restart(true);
-          // },
-        },
-      });
+      // new Vue({
+      //   el: ".project_loopword",
+      //   data: {},
+      //   mounted: function () {
+      //     this.loopWord();
+      //   },
+      //   methods: {
+      //     // loopWord() {
+      //     //   gsap.registerPlugin(ScrollTrigger);
+      //     //   gsap.to(
+      //     //     ".start",{
+      //     //       scrollTrigger: {
+      //     //         trigger:".start",
+      //     //         start:"top center",
+      //     //         end:"top 100px",
+      //     //         scrub:1,
+      //     //         pin:".project_loopword",
+      //     //         markers:true,
+      //     //       },
+      //     //         x:400,
+      //     //         rotation:360,
+      //     //         duration:3,
+      //     //     },
+      //     //     // { x: 1000 },
+      //     //     // { x: -1000, duration: 3 },
+      //     //   );
+      //     //   // autoplay.restart(true);
+      //     // },
+      //   },
+      // });
     </script>
-    <div class="containerALL">
-      <div class="project_process_container">
-        <h1 class="s1">Project Process</h1>
+    <div class="containerALL ms_8">
+      <div class="project_process_container ms_8 ps_8">
+        <h1 class="s1 fontcontent font_w9 project_process_title">PROJECT PROCESS</h1>
         <div class="project_process project_process_first ms_8">
           <h2 class="h1 font_w9 fontcontent">First</h2>
           <p class="h1 fontcontent">Sketch Design</p>
@@ -235,12 +226,6 @@
         </div>
         <button class="btn_large ms_8">Contect Us</button>
       </div>
-      <p class="ms_8">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat velit
-        illum iusto praesentium recusandae ab eius cumque, unde assumenda beatae
-        porro libero asperiores adipisci aspernatur consectetur debitis enim!
-        Libero, minima.
-      </p>
     </div>
     <!-- content -->
     @@include('layout/footer.html')
