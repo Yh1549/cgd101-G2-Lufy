@@ -1,0 +1,25 @@
+.project_inner_banner{
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+}
+.project_inner_banner_img{
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+    box-shadow: 0 $ip_shadow $ip_shadow * 3 0 $fontcolor_30;
+    & img {
+        filter: brightness(0.5);
+        width: 100%;
+    }
+}
+.project_inner_banner_title{
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    color: $primary_dark;
+    backdrop-filter: blur(10px);
+    border-bottom: 10px solid $secondary_dark;
+    border-top: 10px solid $secondary_dark;
+    // background-color: $secondary_100;
+}
