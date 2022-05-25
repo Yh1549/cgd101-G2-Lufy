@@ -68,7 +68,7 @@
     .project_wrap {
         display: flex;
         margin: 0 15px;
-        justify-content: space-between;
+        justify-content: space-evenly;
 
         .project_card {
             width: 380px;
@@ -137,7 +137,7 @@
     .containerALL{
         .product_category {
             display: flex;
-            justify-content: space-between;
+            justify-content: space-evenly;
             .category {
                 width: 140px;
                 text-align: center;
