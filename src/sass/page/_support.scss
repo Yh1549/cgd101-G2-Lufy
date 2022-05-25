@@ -17,6 +17,12 @@
 .stronghold{
     display: flex;
     align-items: center;
+    img{
+        width: 40%;
+    }
+    .strongholdText{
+        width: 60%;
+    }
 }
 .faqTitle{
     border: 1px solid #ccc;
