@@ -149,9 +149,12 @@
         let divFormat = document.querySelector(".product_format")
 
         function showDiscribe() {
-            divDiscribe.classList.toggle("hidden");
-            divFormat.classList.add("hidden");
+            if (divDiscribe.classList.contains("hidden")) {
+                divDiscribe.classList.remove("hidden");
+                divFormat.classList.add("hidden");
 
+
+            }
 
 
 
@@ -159,8 +162,13 @@
         }
 
         function showFormat() {
-            divFormat.classList.toggle("hidden");
-            divDiscribe.classList.add("hidden");
+            if (divFormat.classList.contains("hidden")) {
+                divFormat.classList.remove("hidden");
+                divDiscribe.classList.add("hidden");
+
+            }
+
+
 
 
 

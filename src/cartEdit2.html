@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    @@include('layout/meta.html', { "title" : "購物車頁" })
+
+</head>
+
+<body>
+    @@include('layout/header.html')
+    <div class="containerALL">
+        <div class="cart_check">
+            <div class="cart_check_title">
+                <h1 class="h1">Payment method</h1>
+            </div>
+            <div class="cart_check_detail">
+                <div class="payer">
+                    <h3 class="h3">Payer:</h3>
+                    <div>Name:<input type="text" class="ip_small" placeholder="Please type in your name"></div>
+                    <div>TelNo:<input type="text" class="ip_small" placeholder="Please type in your phonenumber"></div>
+                    <div>Address:<input type="text" class="ip_small" placeholder="Please type in your address"></div>
+                </div>
+                <div class="receiver">
+                    <h3 class="h3">Receiver:</h3>
+                    <div>Name:<input type="text" class="ip_small" placeholder="Please type in your name"></div>
+                    <div>TelNo:<input type="text" class="ip_small" placeholder="Please type in your phonenumber"></div>
+                    <div>Address:<input type="text" class="ip_small" placeholder="Please type in your address"></div>
+                </div>
+            </div>
+            <div class="shipping_method">
+                <h3 class="h3"></h3>
+                <a href="cartEdit3.html"><button class="btn_small">Send an Order</button></a>
+                <a href="cartEdit.html"><button class="btn_small">Back to cart</button></a>
+            </div>
+
+
+
+        </div>
+
+    </div>
+    <div class="relative_products">
+        <h2 class="h2">Relative products</h2>
+        <div class="relative_product"><img src="images/aboutus.lamp5.png" alt=""></div>
+        <div class="relative_product"><img src="images/aboutus.lamp6.jpg" alt=""></div>
+        <div class="relative_product"><img src="images/aboutus.lamp7.jpg" alt=""></div>
+    </div>
+    @@include('layout/footer.html')
+
+</body>
+
+</html>

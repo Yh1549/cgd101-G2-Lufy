@@ -44,7 +44,7 @@ function addItem(itemId, itemValue) {
 
     // 存入 storage
     if (storage[itemId]) {
-        alert('You have checked.')
+        alert('You have checked,click cart to view it.')
     } else {
         storage['addItemList'] += `${itemId}, `;
         storage.setItem(itemId, itemValue)

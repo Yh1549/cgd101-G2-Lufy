@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    @@include('layout/meta.html', { "title" : "購物車頁" })
+
+</head>
+
+<body>
+    @@include('layout/header.html')
+    <div class="containerALL">
+        <div class="cart_end">
+            <div class="cart_end_title">
+                <h1 class="h1">Order established</h1>
+            </div>
+        </div>
+        <div class="customer_detail">
+            <div class="customer_detail_title">
+                <h1 class="h1">Details</h1>
+            </div>
+            <div class="shipping_form">
+                <table>
+                    <tr>
+                        <td>
+                            <h2 class="h2"> Receiver name : Brady Huang</h2>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h2 class="h2"> Tel : 0910999999</h2>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h2 class="h2"> Address : Zhongyuan Rd., Zhongli Dist., Taoyuan City</h2>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h2 class="h2"> Arrive time :2022 9/9 18:00</h2>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="relative_products">
+            <h2 class="h2">Relative products</h2>
+            <div class="relative_product"><img src="images/aboutus.lamp5.png" alt=""></div>
+            <div class="relative_product"><img src="images/aboutus.lamp6.jpg" alt=""></div>
+            <div class="relative_product"><img src="images/aboutus.lamp7.jpg" alt=""></div>
+        </div>
+    </div>
+
+    @@include('layout/footer.html')
+
+</body>
+
+</html>
