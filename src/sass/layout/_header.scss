@@ -216,9 +216,9 @@ header {
         }
     }
 
-    // @media all and (max-width:490px) {
-    //     right: -500px;
-    // }
+    @media all and (max-width:490px) {
+        width: 100%;
+    }
 }
 /* main_menu_box 滑入 class */
 .slide_in {
