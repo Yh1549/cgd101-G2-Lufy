@@ -43,12 +43,17 @@
         border-radius: 0.05rem;
         background: $white;
         text-shadow: 0 0.15rem 0.5rem $secondary_dark;
+        @media all and (max-width:490px) {
+            width: 5rem;
+            height: 0.25rem;
+        }
     }
 }
 
 /* 專案實例 */
 .index_project {
     position: relative;
+    margin-bottom: 300px;
     .index_project_wrap{
         max-width: 1410px;
         margin: 0 auto;
@@ -56,7 +61,7 @@
         .index_project_deco_image img {
                 transform: scale(0.8);
                 position: absolute;
-                bottom: -114px;
+                top: 450px;
                 left: -100px;
                 z-index: 2;
             }
@@ -66,12 +71,26 @@
     }
     .project_wrap {
         display: flex;
-        margin: 0 -15px;
+        margin: 0 15px;
+        justify-content: space-evenly;
 
         .project_card {
-            width: 450px;
+            width: 380px;
             margin: 0 15px;
 
+            h2 {
+                color: $fontcolor_100;
+            }
+            h3 {
+                color: $fontcolor_100;
+            }
+            p {
+                color: $fontcolor_70;
+            }
+            a {
+                text-decoration: none;
+                color: $white;
+            }
             img {
                 width: 100%;
                 vertical-align: top;
@@ -122,7 +141,7 @@
     .containerALL{
         .product_category {
             display: flex;
-            justify-content: space-between;
+            justify-content: space-evenly;
             .category {
                 width: 140px;
                 text-align: center;
@@ -256,8 +275,67 @@
         margin-bottom: 30px;
     }
 }
-
 /* 燈光調亮度 */
 /* 最新消息 */
+.index_news {
+    .card {
+        display: flex;
+        .news_photo {
+            .photo {
+                width: 40%;
+                img {
+                    width: 100%;
+                    object-fit: cover;
+                    vertical-align: top;
+                }
+            }
+        }
+    }
+}
 /* 關於我們 */
+.index_aboutus {
+    background-image: url(/images/index_about_us_bg.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    .card {
+        padding: 210px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .photo {
+            width: 42%;
+            box-shadow: 40px 0 6rem rgba(0,0,0,.7);
+            z-index: 2;
+            img {
+                width: 100%;
+                object-fit: cover;
+                vertical-align: top;
+            }
+        }
+        .wrap {
+            width: 58%;
+            background-color: $secondary_100;
+            .content {
+                color: $white;
+                padding: 0 5rem;
+                margin: 1.25rem 0;
+                .btn{
+                    width: 8.5rem;
+                    border-radius: 1rem;
+                    background-color: $primary_100;
+                    color: $fontcolor_10;
+                    padding: 0.75rem 1rem;
+                    text-align: center;
+                    text-decoration: none;
+                    display: inline-block;
+                    cursor: pointer;
+                    &:hover {
+                        background-color: $primary_dark;
+                    }
+                }
+            }
+        }
+    }
+}
 /* 燈泡爆炸圖 */

@@ -6,21 +6,44 @@
 }
 .lineB{
     border-bottom: 5px solid $fontcolor_100;
+    box-sizing: border-box;
 }
 .newsCard{
     display: flex;
     align-items: center;
+    @include t{
+        display: inline-block;
+    }
 }
 .newsPic{
     width: 30%;
+    @include t{
+        margin-right: auto;
+        margin-left: auto;
+        width: 100%;
+        text-align: center;
+    }
+    & img{
+        width: 100%;
+        vertical-align: bottom;
+        @include t{
+            width: 200px;
+            height: 200px;
+            
+        }
+    }
 }
-.newsPic img{
-    width: 100%;
-    vertical-align: bottom;
-}
+// .newsPic img{
+//     width: 100%;
+//     vertical-align: bottom;
+// }
 .newsText{
-    width: 70%;
+    width: 100%;
 }
 .menu_title{
     display: flex;
+    & h1 , p{
+        width: 50%;
+    }
+    
 }

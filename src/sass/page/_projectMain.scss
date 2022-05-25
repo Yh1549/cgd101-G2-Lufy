@@ -110,16 +110,11 @@
    position: relative;
 }
 .project_bg{
-    position: absolute;
     width: 100%;
-    height: 100%;
-    filter: saturate(0);
-    opacity: 0;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    transition: 500ms;
-    z-index: -1;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .project_title{
     font-size: $s3;
@@ -130,13 +125,16 @@
 }
 .project_container{
     display: flex;
-    justify-content: space-around;
-    & a{
-        width:25%;
-    }
+    position: absolute;
+    top: 0;
+    // justify-content: space-around;
+    // & a{
+    //     width:25%;
+    // }
 }
 .project{
     position: relative;
+    width: 50vw;
     z-index: 50;
     & img{
         width: 100%;
@@ -191,6 +189,7 @@
     margin-right: auto;
     background-color: $fontcolor_10;
     box-shadow: 0 $ip_shadow $ip_shadow * 3 0 $fontcolor_30;
+    color:$secondary_100;
     & h2{
         position: absolute;
         left: 0;
@@ -206,8 +205,6 @@
         flex-direction: row;
     }
 }
-.start{
-    width: 100px;
-    height: 100px;
-    background-color: red;
+.project_process_title{
+    color:$secondary_70;
 }

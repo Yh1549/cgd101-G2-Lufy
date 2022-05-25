@@ -1,12 +1,12 @@
 <header>
     @@include('login.html')
-    <!-- 導覽列 -->
+    <!-- 導覽列-網頁版 -->
     <section class="main_header">
         <div class="main_nav" id="mainnav">
             <h1 class="logo">
                 <a href="./index.html">
                     <img src="../images/nav_logo_web.webp" alt="LUFY - Light Up For You">
-                </a>
+                </a>                
             </h1>
             <div class="main_menu_link p1">
                 <div class="main_menu_button">
@@ -26,7 +26,30 @@
                 <span></span><span></span><span></span>
             </div>
         </div>
+    </section>   
+    
+    <!-- 導覽列-手機版 -->
+    <section class="main_header_mobile">
+        <div class="main_nav" id="mainnav">
+            <h1 class="logo_mobile">
+                <a href="./index.html">
+                    <img src="../images/nav_logo_mobile.webp" alt="LUFY - Light Up For You">
+                </a>
+            </h1>
+            <div class="main_menu_link p1">
+                <div class="main_menu_button">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </div>
+                <div class="main_menu_button">
+                    <i class="fa-solid fa-circle-user"></i>
+                </div>
+                <div class="main_menu_button" id="hamburger_mobile">
+                    <i class="fa-solid fa-bars"></i>                    
+                </div>
+            </div>
+        </div>
     </section>
+
     <div class="main_menu_box">
         <ul>
             <li>
@@ -38,7 +61,8 @@
             <li><a class="h1" href="projectMain.html">Project</a></li>
             <li><a class="h1" href="productMain.html">Product</a></li>
             <li><a class="h1" href="news.html">News</a></li>
-            <li><a class="h1" href="aboutUs.html">Abour Us</a></li>
+            <li><a class="h1" href="aboutUs.html">About Us</a></li>
+            <li><a class="h1" href="support.html">FAQ</a></li>
             <li><a class="h1" href="#">Game</a></li>
             <li>
                 <p class="p2">Get in touch</p>
@@ -46,6 +70,7 @@
             </li>
         </ul>
     </div>
+    
     <script>
         /* 導覽列 scrollY 函式 */
         function scroll(mainNav) {
@@ -66,15 +91,21 @@
             let mainMenuBox = document.querySelector('.main_menu_box')
             mainMenuBox.classList.toggle('slide_in');
         }
+        function slideInMobile() {
+            let mainMenuBox = document.querySelector('.main_menu_box')
+            mainMenuBox.classList.toggle('slide_in_mobile');
+        }
 
         function init() {
             let hamburger = document.querySelector('#hamburger')
             hamburger.addEventListener('click', slideIn, false);
+            let hamburgerMobile = document.querySelector('#hamburger_mobile')
+            hamburgerMobile.addEventListener('click', slideInMobile, false);
             // console(hamburger);
             hamburger.addEventListener('mouseover', showUp, false);
             // console(hamburger);
             let mainNav = document.querySelector('#mainnav')
-            window.addEventListener('scroll', function() {
+            window.addEventListener('scroll', function () {
                 scroll(mainNav)
             }, false);
             // console.log(mainNav)
