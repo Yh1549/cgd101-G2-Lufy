@@ -1,179 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    @@include('layout/meta.html', { "title" : "Project" })
-  </head>
 
-  <body>
-    @@include('layout/header.html')
-    <!-- banner -->
-    <!-- <div id="mouse"></div> -->
-    <section>
-      <div class="project_banner_backdrop"></div>
-      <div class="project_banner">
-        <div class="project_banner_word">
-          <p class="project_banner_p project_banner_p1">15</p>
-          <p class="project_banner_p project_banner_p2">YEARS</p>
-          <p class="project_banner_p project_banner_p3">OF</p>
-          <p class="project_banner_p project_banner_p4">EXPERIENCE</p>
-        </div>
-        <div class="prject_banner_pic">
-          <img src="images/project_bannerpic1.jpg" alt="" />
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  @@include('layout/meta.html', { "title" : "Project" })
+</head>
+
+<body>
+  @@include('layout/header.html')
+  <!-- banner -->
+  <!-- <div id="mouse"></div> -->
+  <section>
+    <div class="project_banner_backdrop"></div>
+    <div class="project_banner">
+      <div class="project_banner_word">
+        <p class="project_banner_p project_banner_p1">15</p>
+        <p class="project_banner_p project_banner_p2">YEARS</p>
+        <p class="project_banner_p project_banner_p3">OF</p>
+        <p class="project_banner_p project_banner_p4">EXPERIENCE</p>
       </div>
-    </section>
-    <!---------->
-    <!-- 特色 -->
-    <section>
-      <h1 class="font_w5 text_center ms_8 project_feature_title">
-        What We Can Provide
-      </h1>
-      <div class="project_feature_bgcon">
-        <div class="project_feature_bg"></div>
+      <div class="prject_banner_pic">
+        <img src="images/project_bannerpic1.jpg" alt="" />
       </div>
-      <div @click="move()" class="project_feature ms_5">
-        <div
-          @click="move()"
-          id="project_feature_left"
-          class="project_feature_box"
-        ></div>
-        <div
-          @click="move()"
-          id="project_feature_mid"
-          class="project_feature_box"
-        ></div>
-        <div
-          @click="move()"
-          id="project_feature_right"
-          class="project_feature_box"
-        ></div>
-      </div>
-    </section>
-    <script>
-      new Vue({
-        el: ".project_feature",
-        data: {},
-        methods: {
-          move(e) {
-            let right = document.getElementById("project_feature_right");
-            let mid = document.getElementById("project_feature_mid");
-            let left = document.getElementById("project_feature_left");
-            if (event.target.id == right.id) {
-              gsap.to("#project_feature_right", { x: -300, duration: 0.8 });
-              gsap.to("#project_feature_mid", { x: -300, duration: 0.8 });
-              gsap.to("#project_feature_left", { x: -300, duration: 0.8 });
-            } else if (event.target.id == mid.id) {
-              gsap.to("#project_feature_right", { x: 300, duration: 0.8 });
-              gsap.to("#project_feature_mid", { x: -300, duration: 0.8 });
-              gsap.to("#project_feature_left", { x: -300, duration: 0.8 });
-            } else if (event.target.id == left.id) {
-              gsap.to("#project_feature_right", { x: 300, duration: 0.8 });
-              gsap.to("#project_feature_mid", { x: 300, duration: 0.8 });
-              gsap.to("#project_feature_left", { x: -300, duration: 0.8 });
-            } else {
-              gsap.to("#project_feature_right", { x: 0, duration: 0.8 });
-              gsap.to("#project_feature_mid", { x: 0, duration: 0.8 });
-              gsap.to("#project_feature_left", { x: 0, duration: 0.8 });
-            }
-          },
+    </div>
+  </section>
+  <!---------->
+  <!-- 特色 -->
+  <section>
+    <h1 class="font_w5 text_center ms_8 project_feature_title">
+      What We Can Provide
+    </h1>
+    <div class="project_feature_bgcon">
+      <div class="project_feature_bg"></div>
+    </div>
+    <div @click="move()" class="project_feature ms_5">
+      <div @click="move()" id="project_feature_left" class="project_feature_box"></div>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga ut asperiores vitae unde ipsum, dolor, neque eaque laboriosam tempora nam recusandae delectus excepturi, tempore adipisci eum quod? Quo, quasi error.</p>
+      <div @click="move()" id="project_feature_mid" class="project_feature_box"></div>
+      <div @click="move()" id="project_feature_right" class="project_feature_box"></div>
+    </div>
+  </section>
+  <script>
+    new Vue({
+      el: ".project_feature",
+      data: {},
+      methods: {
+        move(e) {
+          let right = document.getElementById("project_feature_right");
+          let mid = document.getElementById("project_feature_mid");
+          let left = document.getElementById("project_feature_left");
+          if (event.target.id == right.id) {
+            gsap.to("#project_feature_right", { x: -300, duration: 0.8 });
+            gsap.to("#project_feature_mid", { x: -300, duration: 0.8 });
+            gsap.to("#project_feature_left", { x: -300, duration: 0.8 });
+          } else if (event.target.id == mid.id) {
+            gsap.to("#project_feature_right", { x: 300, duration: 0.8 });
+            gsap.to("#project_feature_mid", { x: -300, duration: 0.8 });
+            gsap.to("#project_feature_left", { x: -300, duration: 0.8 });
+          } else if (event.target.id == left.id) {
+            gsap.to("#project_feature_right", { x: 300, duration: 0.8 });
+            gsap.to("#project_feature_mid", { x: 300, duration: 0.8 });
+            gsap.to("#project_feature_left", { x: -300, duration: 0.8 });
+          } else {
+            gsap.to("#project_feature_right", { x: 0, duration: 0.8 });
+            gsap.to("#project_feature_mid", { x: 0, duration: 0.8 });
+            gsap.to("#project_feature_left", { x: 0, duration: 0.8 });
+          }
         },
-      });
-    </script>
-    <!--個別專案-->
-    <section class="project_section ms_5 me_8">
-      <div class="project_bg">
-        <h1 class="project_title fontdeco text_center">
+      },
+    });
+  </script>
+  <!--個別專案-->
+  <section class="project_section ms_5 me_8">
+    <div class="project_bg">
+      <h1 class="project_title fontdeco text_center">
         BEST Project<br />
         you know
       </h1>
     </div>
-      
-      <div class="project_container ms_5">
-        <!-- <a class="project_first" href="./index.html"> -->
-          <div class="project_first project me_8 ms_8" >
-            <div class="project_word">
-              <span class="h3">project 1</span>
-              <h2 class="h1">The Renaissance</h2>
-            </div>
-            <img src="./images/aboutus.lamp7.jpg" alt="" />
-          </div>
-        <!-- </a> -->
-        <!-- <a class="project_second" href="./index.html"> -->
-          <div   class="project_second project me_8 ms_8">
-            <div class="project_word">
-              <span class="h3">project 2</span>
-              <h2 class="h1">Industrial Revolution</h2>
-            </div>
-            <img src="./images/aboutus.lamp8.jpg" alt="" />
-          </div>
-        <!-- </a> -->
-        <!-- <a class="project_third" href="./index.html"> -->
-          <div class="project_third project me_8 ms_8">
-            <div class="project_word">
-              <span class="h3">project 3</span>
-              <h2 class="h1">The Dragon</h2>
-            </div>
-            <img src="./images/aboutus.lamp6.jpg" alt="" />
-          </div>
-        <!-- </a> -->
+
+    <div class="project_container ms_5">
+      <!-- <a class="project_first" href="./index.html"> -->
+      <div class="project_first project me_8 ms_8">
+        <div class="project_word">
+          <span class="h3">project 1</span>
+          <h2 class="h1">The Renaissance</h2>
+        </div>
+        <img src="./images/aboutus.lamp7.jpg" alt="" />
       </div>
-    </section>
-    <script>
-      new Vue({
-        el: ".project_section",
-        data: {},
-        mounted: function () {
-          this.gsapProject();
+      <!-- </a> -->
+      <!-- <a class="project_second" href="./index.html"> -->
+      <div class="project_second project me_8 ms_8">
+        <div class="project_word">
+          <span class="h3">project 2</span>
+          <h2 class="h1">Industrial Revolution</h2>
+        </div>
+        <img src="./images/aboutus.lamp8.jpg" alt="" />
+      </div>
+      <!-- </a> -->
+      <!-- <a class="project_third" href="./index.html"> -->
+      <div class="project_third project me_8 ms_8">
+        <div class="project_word">
+          <span class="h3">project 3</span>
+          <h2 class="h1">The Dragon</h2>
+        </div>
+        <img src="./images/aboutus.lamp6.jpg" alt="" />
+      </div>
+      <!-- </a> -->
+    </div>
+  </section>
+  <script>
+    new Vue({
+      el: ".project_section",
+      data: {},
+      mounted: function () {
+        this.gsapProject();
+      },
+      methods: {
+        gsapProject() {
+          gsap.registerPlugin(ScrollTrigger);
+          const tl = gsap.timeline();
+          tl.fromTo(".project_first", { xPercent: 300 }, { xPercent: 50 })
+            .fromTo(".project_second", { xPercent: 200 }, { xPercent: -50 })
+            .fromTo(".project_third", { xPercent: 100 }, { xPercent: -150 });
+          ScrollTrigger.create({
+            animation: tl,
+            trigger: ".project_container",
+            start: "center center",
+            end: "bottom center",
+            scrub: 2,
+            pin: true,
+            markers: true,
+            anticipatePin: 1,
+          });
+          gsap.to(".project_bg", {
+            scrollTrigger: {
+              trigger: ".project_bg",
+              start: "center center",
+              end: "bottom 100px",
+              // scrub:1,
+              pin: ".project_bg",
+              // markers:true,
+            },
+          })
         },
-        methods: {      
-          gsapProject(){
-            gsap.registerPlugin(ScrollTrigger);
-            const tl = gsap.timeline();
-            tl.fromTo(".project_first",{xPercent:300},{xPercent:50})
-              .fromTo(".project_second",{xPercent:200},{xPercent:-50})
-              .fromTo(".project_third",{xPercent:100},{xPercent:-150});
-            ScrollTrigger.create({
-              animation:tl,
-              trigger:".project_container",
-              start:"center center",
-              end:"1500px center",
-              scrub:2,
-              pin:true,
-              markers:true,
-              anticipatePin:1,
-            });
-            gsap.to(".project_bg",{
-              scrollTrigger: {
-                  trigger:".project_bg",
-                  start:"center center",
-                  end:"bottom 100px",
-                  // scrub:1,
-                  pin:".project_bg",
-                  // markers:true,
-                },
-            })
-        },
-          // bgChange(e) {
-          //   let pic = e.target.src;
-          //   let bgpic = document.querySelector(".project_bg");
-          //   bgpic.style.backgroundImage = `url(${pic})`;
-          //   bgpic.style.opacity = 1;
-          //   document.querySelector(".project_title").style.color = "white";
-          //   console.log(pic);
-          //   console.log(bgpic);
-          // },
-          // bgReset() {
-          //   let bgpic = document.querySelector(".project_bg");
-          //   bgpic.style.opacity = 0;
-          //   document.querySelector(".project_title").style.color = "#0A142F";
-          //   // bgpic.style.backgroundImage = "none";
-          // },
-        },
-      });
-    </script>
-    <!---------->
-    <script>
+        // bgChange(e) {
+        //   let pic = e.target.src;
+        //   let bgpic = document.querySelector(".project_bg");
+        //   bgpic.style.backgroundImage = `url(${pic})`;
+        //   bgpic.style.opacity = 1;
+        //   document.querySelector(".project_title").style.color = "white";
+        //   console.log(pic);
+        //   console.log(bgpic);
+        // },
+        // bgReset() {
+        //   let bgpic = document.querySelector(".project_bg");
+        //   bgpic.style.opacity = 0;
+        //   document.querySelector(".project_title").style.color = "#0A142F";
+        //   // bgpic.style.backgroundImage = "none";
+        // },
+      },
+    });
+  </script>
+  <!---------->
+  <script>
       // new Vue({
       //   el: ".project_loopword",
       //   data: {},
@@ -204,30 +194,31 @@
       //     // },
       //   },
       // });
-    </script>
-    <div class="containerALL ms_8">
-      <div class="project_process_container ms_8 ps_8">
-        <h1 class="s1 fontcontent font_w9 project_process_title">PROJECT PROCESS</h1>
-        <div class="project_process project_process_first ms_8">
-          <h2 class="h1 font_w9 fontcontent">First</h2>
-          <p class="h1 fontcontent">Sketch Design</p>
-        </div>
-        <div class="project_process ms_8">
-          <h2 class="h1 font_w9 fontcontent">Second</h2>
-          <p class="h1 fontcontent">Sketch Design</p>
-        </div>
-        <div class="project_process ms_8">
-          <h2 class="h1 font_w9 fontcontent">Third</h2>
-          <p class="h1 fontcontent">Sketch Design</p>
-        </div>
-        <div class="project_process ms_8">
-          <h2 class="h1 font_w9 fontcontent">Fourth</h2>
-          <p class="h1 fontcontent">Sketch Design</p>
-        </div>
-        <button class="btn_large ms_8">Contect Us</button>
+  </script>
+  <div class="containerALL ms_8">
+    <div class="project_process_container ms_8 ps_8">
+      <h1 class="s1 fontcontent font_w9 project_process_title">PROJECT PROCESS</h1>
+      <div class="project_process project_process_first ms_8">
+        <h2 class="h1 font_w9 fontcontent">First</h2>
+        <p class="h1 fontcontent">Sketch Design</p>
       </div>
+      <div class="project_process ms_8">
+        <h2 class="h1 font_w9 fontcontent">Second</h2>
+        <p class="h1 fontcontent">Sketch Design</p>
+      </div>
+      <div class="project_process ms_8">
+        <h2 class="h1 font_w9 fontcontent">Third</h2>
+        <p class="h1 fontcontent">Sketch Design</p>
+      </div>
+      <div class="project_process ms_8">
+        <h2 class="h1 font_w9 fontcontent">Fourth</h2>
+        <p class="h1 fontcontent">Sketch Design</p>
+      </div>
+      <button class="btn_large ms_8">Contect Us</button>
     </div>
-    <!-- content -->
-    @@include('layout/footer.html')
-  </body>
+  </div>
+  <!-- content -->
+  @@include('layout/footer.html')
+</body>
+
 </html>
