@@ -43,26 +43,26 @@
                 </div>
                 
             </div>
-            <div id="app" class="project_wrap">
+            <div id="project_wrap" class="project_wrap">
                 <project-card v-for="project in projectObject" v-bind="project" />
             </div>
             <script>
-                Vue.component('project-card', {
+                let project  = Vue.component('project-card', {
                     props: ['projectImg', 'projectName', 'discription', 'designerName', 'projectInfoLink'],
                     template: `
-                                <div class="project_card">
-                                    <img :src="projectImg" :alt="projectName">
-                                    <div class="content ms_1 mr_1 me_1 ml_1">
-                                        <h2 class="h1 me_1">{{projectName}}</h2>
-                                        <h3 class="h4 me_1">{{discription}}</h3>
-                                        <p class="h5 me_4">{{designerName}}</p>
-                                        <a :href="projectInfoLink" class='btn_normal'> more </a>
-                                    </div>
-                                </div>
-                                `,
+                        <div class="project_card">
+                            <img :src="projectImg" :alt="projectName">
+                            <div class="content ms_1 mr_1 me_1 ml_1">
+                                <h2 class="h1 me_1">{{projectName}}</h2>
+                                <h3 class="h4 me_1">{{discription}}</h3>
+                                <p class="h5 me_4">{{designerName}}</p>
+                                <a :href="projectInfoLink" class='btn_normal'> more </a>
+                            </div>
+                        </div>
+                        `,
                 })
                 new Vue({   // Vue instance
-                    el: '#app',
+                    el: '#project_wrap',
                     data: {
                         projectObject: [
                             {
@@ -104,53 +104,58 @@
     <!-- 商品 -->
     <section class="index_product">
         <section class="containerALL me_8">
-            <div class="product_category me_3" id="product_category">
-                <div v-for='category in categorys' :class="isSelected">
-                    <a v-bind:href="category.href">
-                        <img :src="category.image" :alt="category.name">
-                        <p class="p1">{{category.name}}</p>
-                    </a>
-                </div>
+            <div id="product_category" class="product_category me_5">
+                <product-category v-for='category in categoryObject' v-bind="category"></product-category>
             </div>
             <script>
-                let product_category = new Vue({
+                let category = Vue.component('product-category', {
+                        props: ['categoryLink', 'categoryImage', 'categoryName'],
+                        template: `
+                            <div class="category">
+                                <a :href="categoryLink">
+                                    <img :src="categoryImage" :alt="categoryName">
+                                    <p class="p1">{{categoryName}}</p>
+                                </a>
+                            </div>
+                        `,
+                })
+                new Vue({
                     el: '#product_category',
                     data: {
-                        isSelected: 'category',
-                        categorys:[
+                        categoryObject: [
                             {
-                                href: './productpages/productFloorLamps.html',
-                                name: 'Floor Lamps',
-                                image: './images/product_category_floor_lamps.webp',
+                                categoryLink: `./productpages/productFloorLamps.html`,
+                                categoryImage: `./images/product_category_floor_lamps.webp`,
+                                categoryName: `Floor Lamps`
                             },
                             {
-                                href: './productpages/productPendant.html',
-                                name: 'Pendant',
-                                image: './images/product_category_pendant.webp'
+                                categoryLink: `./productpages/productPendant.html`,
+                                categoryImage: `./images/product_category_pendant.webp`,
+                                categoryName: `Pendant`
                             },
                             {
-                                href: './productpages/productHomeAccent.html',
-                                name: 'Home Accent',
-                                image: './images/product_category_home_accent.webp'
+                                categoryLink: `./productpages/productHomeAccent.html`,
+                                categoryImage: `./images/product_category_home_accent.webp`,
+                                categoryName: `Home Accent`
                             },
                             {
-                                href: './productpages/productTableLamps.html',
-                                name: 'Table Lamps',
-                                image: './images/product_category_table_lamps.webp'
+                                categoryLink: `./productpages/productTableLamps.html`,
+                                categoryImage: `./images/product_category_table_lamps.webp`,
+                                categoryName: `Table Lamps`
                             },
                             {
-                                href: './productpages/productWallLamps.html',
-                                name: 'Wall Lamps',
-                                image: './images/product_category_wall_lamps.webp'
+                                categoryLink: `./productpages/productWallLamps.html`,
+                                categoryImage: `./images/product_category_wall_lamps.webp`,
+                                categoryName: `Wall Lamps`
                             },
                             {
-                                href: './productpages/productChandaliers.html',
-                                name: 'Chandaliers',
-                                image: './images/product_category_chandaliers.webp'
+                                categoryLink: `./productpages/productChandaliers.html`,
+                                categoryImage: `./images/product_category_chandaliers.webp`,
+                                categoryName: `Chandaliers`
                             },
-                        ],
-                    },
-                });
+                        ]
+                    }
+                }) 
             </script>
             <div class="product_grid">
                 <div class="item">
