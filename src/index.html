@@ -227,7 +227,70 @@
     <!-- 燈光調亮度 -->
     <section class="index_luminosity"></section>
     <!-- 最新消息 -->
-    <section class="index_news"></section>
+    <section class="index_news">
+        <div class="containerALL">
+            <div class="card">
+                <div id="news_photo" class="news_photo">
+                    <news-photo v-for='newsphoto in newsphotoObject' v-bind='newsphoto'></news-photo>
+                    <!-- <news-content v-for='newscontent in newscontentObject' v-bind='newscontent'></news-content> -->
+                </div>
+                <script>
+                    let newsphoto = Vue.component('news-photo',{
+                        props: ['newsImage', 'newsName', 'newsTitle', 'newsContent', 'newsInfoLink'],
+                        template: `
+                            <div>
+                                <div class='photo'>
+                                    <img :src="newsImage" :alt="newsName">
+                                </div>
+                                <div class="wrap">
+                                    <div class="content">
+                                        <h2 class="h2">{{newsTitle}}</h2>
+                                        <p class="h4 me_2">{{newsContent}}</p>
+                                        <a :href="newsInfoLink" class="btn_normal h4 me_2">more</a>
+                                    </div>
+                                </div>
+                            </div>
+                        `,
+                    })
+                    new Vue({
+                        el: '#news_photo',
+                        data: {
+                            newsphotoObject: [
+                                {
+                                    newsImage: `./images/news_shinning.webp`,
+                                    newsName: `Shinning a light on furniture`,
+                                    newsTitle: `Shinning a light on furniture`,
+                                    newsContent: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ipsum, maecenas et tristique convallis cras est aliquet arcu.`,
+                                    newsInfoLink: `news.html`
+                                },
+                                {
+                                    newsImage: `./images/news_discount_prouduct.webp`,
+                                    newsName: `Discount Prouduct`,
+                                    newsTitle: `Discount Prouduct`,
+                                    newsContent: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ipsum, maecenas et tristique convallis cras est aliquet arcu.`,
+                                    newsInfoLink: `news.html`
+                                },
+                                {
+                                    newsImage: `./images/news_new_style_creative_01.webp`,
+                                    newsName: `New Style Creative`,
+                                    newsTitle: `New Style Creative`,
+                                    newsContent: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ipsum, maecenas et tristique convallis cras est aliquet arcu.`,
+                                    newsInfoLink: `news.html`
+                                },
+                            ],
+                        }
+                    })
+                </script>
+                <!-- <div class="wrap">
+                    <div class="content">
+                        <h2 class="h2"></h2>
+                        <p class="h4 me_2"></p>
+                        <a href="" class="btn h4 me_2"></a>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </section>
     <!-- 關於我們 -->
     <section class="index_aboutus">
         <div class="containerALL">
