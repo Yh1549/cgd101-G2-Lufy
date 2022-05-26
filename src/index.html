@@ -105,7 +105,9 @@
     <section class="index_product">
         <section class="containerALL me_8">
             <div id="product_category" class="product_category me_5">
-                <product-category v-for='category in categoryObject' v-bind="category"></product-category>
+                <div class="category-wrap">
+                    <product-category v-for='category in categoryObject' v-bind="category"></product-category>
+                </div>
             </div>
             <script>
                 let category = Vue.component('product-category', {
@@ -230,15 +232,14 @@
     <section class="index_news">
         <div class="containerALL">
             <div class="card">
-                <div id="news_photo" class="news_photo">
+                <div id="news_photo">
                     <news-photo v-for='newsphoto in newsphotoObject' v-bind='newsphoto'></news-photo>
-                    <!-- <news-content v-for='newscontent in newscontentObject' v-bind='newscontent'></news-content> -->
                 </div>
                 <script>
                     let newsphoto = Vue.component('news-photo',{
                         props: ['newsImage', 'newsName', 'newsTitle', 'newsContent', 'newsInfoLink'],
                         template: `
-                            <div>
+                            <div class="news_photo me_8">
                                 <div class='photo'>
                                     <img :src="newsImage" :alt="newsName">
                                 </div>
@@ -281,13 +282,6 @@
                         }
                     })
                 </script>
-                <!-- <div class="wrap">
-                    <div class="content">
-                        <h2 class="h2"></h2>
-                        <p class="h4 me_2"></p>
-                        <a href="" class="btn h4 me_2"></a>
-                    </div>
-                </div> -->
             </div>
         </div>
     </section>
@@ -299,13 +293,8 @@
                 <div class="wrap">
                     <div class="content">
                         <h2 class="h1 ms_2 me_1">About Light Up For You</h2>
-                        <p class="h4 me_2">Starting from six sketches in 1991, the founder Meiric sowed a design seed, carefully irrigated with delicate thinking
-                        and rigorous attitude, rubbed light and shadow into brush and ink, and outlined the lighting imagination in his heart.
-                        We firmly believe that "light" can bring more beautiful value to life, which is our original intention.<br><br>
-                        With the addition of more creative workers, the seeds have turned into fertile soil, and the branches and leaves of the
-                        sprouts are intertwined, creating more possibilities for each other. Lights, in addition to illuminating different daily
-                        scenes, play a role in drawing people and the field to live together. In the daily interaction with people and space, we
-                        share the light and shadow poems created for the ideal life.</p>
+                        <p class="h4 me_2">Starting from six sketches in 1991, the founder Meiric sowed a design seed, carefully irrigated with delicate thinking and rigorous attitude, rubbed light and shadow into brush and ink, and outlined the lighting imagination in his heart.<br>
+                        We firmly believe that "light" can bring more beautiful value to life, which is our original intention.</p>
                         <a href="./aboutUs.html" class="btn h4 me_2">more</a>
                     </div>
                 </div>
@@ -313,7 +302,14 @@
         </div>
     </section>
     <!-- 燈泡爆炸圖 -->
-    <section class="index_product"></section>
+    <section class="index_lightBulbExplosion">
+        <div class="photo">
+            <img src="./images/lightBulbExplosion.svg" alt="light bulb explosion">
+        </div>
+        <div class="photo_mobile">
+            <img src="./images/lightBulbExplosion_mobile.svg" alt="light bulb explosion">
+        </div>
+    </section>
     <!-- footer  -->
         @@include('layout/footer.html')
 
