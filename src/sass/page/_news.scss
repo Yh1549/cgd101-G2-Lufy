@@ -29,21 +29,16 @@
         @include t{
             width: 200px;
             height: 200px;
-            
         }
     }
 }
-// .newsPic img{
-//     width: 100%;
-//     vertical-align: bottom;
-// }
 .newsText{
     width: 100%;
+    box-sizing: border-box;
 }
 .menu_title{
     display: flex;
     & h1 , p{
         width: 50%;
     }
-    
 }
