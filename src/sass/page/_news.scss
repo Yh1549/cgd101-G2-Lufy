@@ -4,16 +4,21 @@
 .fontColor{
     color: $fontcolor_100;
 }
-.lineB{
-    border-bottom: 5px solid $fontcolor_100;
-    box-sizing: border-box;
-}
+// .lineB{
+//     border-bottom: 5px solid $fontcolor_100;
+//     box-sizing: border-box;
+// }
 .newsCard{
     display: flex;
     align-items: center;
     @include t{
         display: inline-block;
     }
+}
+.lineA{
+    background-color: $fontcolor_100;
+    width: 100%;
+    height: 10px;
 }
 .newsPic{
     width: 30%;
