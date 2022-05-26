@@ -2,7 +2,8 @@
 .swiper {
     max-height: 100vh;
     position: relative;
-    .swiper-wrapper{
+
+    .swiper-wrapper {
         .swiper-slide {
             /* Center slide text vertically */
             display: -webkit-box;
@@ -18,24 +19,26 @@
             -webkit-align-items: center;
             align-items: center;
 
-            img{
+            img {
                 width: 100%;
                 vertical-align: top;
                 object-fit: cover;
-                }
+            }
         }
     }
+
     /* 輪播按鈕 */
     .swiper-button-next,
     .swiper-button-prev {
         color: $white;
         opacity: 0.9;
         text-shadow: 0 0.15rem 0.5rem $secondary_dark;
-    
+
         &:active {
             color: $primary_100;
         }
     }
+
     /* 輪播點 */
     span.swiper-pagination-bullet {
         width: 10rem;
@@ -43,6 +46,7 @@
         border-radius: 0.05rem;
         background: $white;
         text-shadow: 0 0.15rem 0.5rem $secondary_dark;
+
         @media all and (max-width:490px) {
             width: 5rem;
             height: 0.25rem;
@@ -54,25 +58,34 @@
 .index_project {
     position: relative;
     margin-bottom: 300px;
-    .index_project_wrap{
+
+    .index_project_wrap {
         max-width: 1410px;
         margin: 0 auto;
         position: relative;
+
         .index_project_deco_image img {
-                transform: scale(0.8);
-                position: absolute;
-                top: 450px;
-                left: -100px;
-                z-index: 2;
-            }
+            transform: scale(0.8);
+            position: absolute;
+            top: 450px;
+            left: -100px;
+            z-index: 2;
+        }
     }
-    .containerALL{
+
+    .containerALL {
         overflow: hidden;
     }
+
     .project_wrap {
         display: flex;
         margin: 0 15px;
         justify-content: space-evenly;
+        overflow: auto;
+
+        @media all and (max-width:490px) {
+            justify-content: flex-start;
+        }
 
         .project_card {
             width: 380px;
@@ -81,16 +94,20 @@
             h2 {
                 color: $fontcolor_100;
             }
+
             h3 {
                 color: $fontcolor_100;
             }
+
             p {
                 color: $fontcolor_70;
             }
+
             a {
                 text-decoration: none;
                 color: $white;
             }
+
             img {
                 width: 100%;
                 vertical-align: top;
@@ -99,74 +116,123 @@
 
             &:nth-last-of-type(3) {
                 transform: translateY(10%);
+
+                @media all and (max-width:490px) {
+                    transform: translateY(0%);
+                }
             }
 
             &:nth-last-of-type(1) {
                 transform: translateY(-10%);
+
+                @media all and (max-width:490px) {
+                    transform: translateY(0%);
+                }
             }
         }
     }
-    .index_title h2{
-        &:nth-of-type(1){color: $fontcolor_70;}
-        &:nth-of-type(2){
+
+    .index_title h2 {
+        &:nth-of-type(1) {
+            color: $fontcolor_70;
+
+            @media all and (max-width:490px) {
+                font-size: 3rem;
+            }
+        }
+
+        &:nth-of-type(2) {
             color: $fontcolor_70;
             transform: translateX(15%);
+
             &::after {
                 content: '';
                 width: calc(100% / 3);
                 height: $s3;
                 border-bottom: 3px solid $fontcolor_50;
                 display: inline-block;
-                transform: translate(5%,-25%);
+                transform: translate(5%, -25%);
+            }
+
+            @media all and (max-width:490px) {
+                font-size: 2.5rem;
             }
         }
-        &:nth-of-type(3){color: $primary_70;}
-        &:nth-of-type(4){
+
+        &:nth-of-type(3) {
+            color: $primary_70;
+
+            @media all and (max-width:490px) {
+                font-size: 4.5rem;
+            }
+        }
+
+        &:nth-of-type(4) {
             color: $fontcolor_dark;
             transform: translateX(15%);
+
+            @media all and (max-width:490px) {
+                font-size: 3rem;
+            }
         }
-    }    
-    .index_project_deco_image_fullview img{
+    }
+
+    .index_project_deco_image_fullview img {
         transform: scale(0.8);
         transform-origin: right;
         position: absolute;
         top: 110px;
         right: 0;
         z-index: 2;
+
+        @media all and (max-width) {
+            transform: scale(0.42);
+            right: -39px;
+        }
     }
 }
+
 /* 商品 */
 .index_product {
-    margin: 0;padding: 0;box-sizing: border-box;
-    .containerALL{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    .containerALL {
         .product_category {
             display: flex;
             justify-content: space-evenly;
+
             .category {
                 width: 140px;
                 text-align: center;
-                a {                    
+
+                a {
                     text-decoration: none;
                     color: $fontcolor_100;
                     transition: 0.1s all ease-in-out;
+
                     &:hover {
-                            color: $primary_100;
-                        }
+                        color: $primary_100;
+                    }
+
                     img {
                         width: 100%;
                         object-fit: cover;
                         vertical-align: top;
                     }
                 }
-                          
+
             }
         }
-        .product_grid{
+
+        .product_grid {
             display: grid;
             grid-gap: 30px;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));//自動填滿整個容器。
-            grid-auto-rows: 240px;    //溢出的項目，高要150px
-            grid-auto-flow: row dense;//🟡dense瀑布流
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); //自動填滿整個容器。
+            grid-auto-rows: 240px; //溢出的項目，高要150px
+            grid-auto-flow: row dense; //🟡dense瀑布流
+
             .item {
                 color: $white;
                 background: $primary_100;
@@ -182,33 +248,43 @@
                 background-image: url(https://picsum.photos/id/350/600/400);
                 background-position: center;
                 background-size: cover;
-                &:nth-of-type(1n){
+
+                &:nth-of-type(1n) {
                     background-image: url(https://picsum.photos/id/351/600/400);
                 }
-                &:nth-of-type(2n){
+
+                &:nth-of-type(2n) {
                     background-image: url(https://picsum.photos/id/352/600/400);
                 }
-                &:nth-of-type(3n){
+
+                &:nth-of-type(3n) {
                     background-image: url(https://picsum.photos/id/353/600/400);
                 }
-                &:nth-of-type(4n){
+
+                &:nth-of-type(4n) {
                     background-image: url(https://picsum.photos/id/354/600/400);
                 }
-                &:nth-of-type(5n){
+
+                &:nth-of-type(5n) {
                     background-image: url(https://picsum.photos/id/355/600/400);
                 }
-                &:nth-of-type(6n){
+
+                &:nth-of-type(6n) {
                     background-image: url(https://picsum.photos/id/356/600/400);
                 }
-                &:nth-of-type(7n){
+
+                &:nth-of-type(7n) {
                     background-image: url(https://picsum.photos/id/357/600/400);
                 }
-                &:nth-of-type(8n){
+
+                &:nth-of-type(8n) {
                     background-image: url(https://picsum.photos/id/358/600/400);
                 }
-                &:nth-of-type(9n){
+
+                &:nth-of-type(9n) {
                     background-image: url(https://picsum.photos/id/359/600/400);
                 }
+
                 &:after {
                     content: '';
                     position: absolute;
@@ -218,28 +294,34 @@
                     opacity: 0.3;
                     transition: opacity 0.3s ease-in-out;
                     z-index: 1;
-                }                
-                &:hover {  
+                }
+
+                &:hover {
                     &:after {
                         opacity: 0.8;
                         background-color: $primary_dark;
                     }
-                    .item__details{
+
+                    .item__details {
                         display: flex;
                     }
                 }
-                &--medium{
+
+                &--medium {
                     grid-row-end: span 2;
                 }
-                &--large{
+
+                &--large {
                     grid-row-end: span 3;
                 }
-                &--full{
+
+                &--full {
                     // grid-column-end: auto;
                     grid-column: 1/-1;
                     grid-row-end: span 2;
-                }                
-                .item__details{
+                }
+
+                .item__details {
                     display: none;
                     padding: 15px;
                     position: absolute;
@@ -252,12 +334,14 @@
                     justify-content: center;
                     align-items: center;
                     z-index: 2;
+
                     .material-icons {
-                        color: rgba(0,0,0,.04);
-                        -webkit-text-stroke: 1px hsla(0,0%,100%,.8);
+                        color: rgba(0, 0, 0, .04);
+                        -webkit-text-stroke: 1px hsla(0, 0%, 100%, .8);
                         // text-shadow: 0 1px 5px rgb(0 0 0 / 15%);
                         transition: all .1s ease;
-                        &:active{
+
+                        &:active {
                             color: $errorcolor;
                             text-shadow: 0 1px 3px rgb(0 0 0 / 15%);
                             -webkit-text-stroke: 1px $errorcolor;
@@ -265,9 +349,10 @@
                     }
                 }
             }
-        }            
-    }   
-    .test{
+        }
+    }
+
+    .test {
         width: 100%;
         color: white;
         background: #000;
@@ -275,14 +360,17 @@
         margin-bottom: 30px;
     }
 }
+
 /* 燈光調亮度 */
 /* 最新消息 */
 .index_news {
     .card {
         display: flex;
+
         .news_photo {
             .photo {
                 width: 40%;
+
                 img {
                     width: 100%;
                     object-fit: cover;
@@ -292,35 +380,42 @@
         }
     }
 }
+
 /* 關於我們 */
 .index_aboutus {
     background-image: url(/images/index_about_us_bg.webp);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+
     .card {
         padding: 210px 0;
         display: flex;
         justify-content: center;
         align-items: center;
+
         .photo {
             width: 42%;
-            box-shadow: 40px 0 6rem rgba(0,0,0,.7);
+            box-shadow: 40px 0 6rem rgba(0, 0, 0, .7);
             z-index: 2;
+
             img {
                 width: 100%;
                 object-fit: cover;
                 vertical-align: top;
             }
         }
+
         .wrap {
             width: 58%;
             background-color: $secondary_100;
+
             .content {
                 color: $white;
                 padding: 0 5rem;
                 margin: 1.25rem 0;
-                .btn{
+
+                .btn {
                     width: 8.5rem;
                     border-radius: 1rem;
                     background-color: $primary_100;
@@ -330,6 +425,7 @@
                     text-decoration: none;
                     display: inline-block;
                     cursor: pointer;
+
                     &:hover {
                         background-color: $primary_dark;
                     }
@@ -338,4 +434,5 @@
         }
     }
 }
+
 /* 燈泡爆炸圖 */
