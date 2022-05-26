@@ -81,9 +81,9 @@
         display: flex;
         margin: 0 15px;
         justify-content: space-evenly;
-        overflow: auto;
-
+        
         @media all and (max-width:490px) {
+            overflow: auto;
             justify-content: flex-start;
         }
 
@@ -184,11 +184,10 @@
         top: 110px;
         right: 0;
         z-index: 2;
-
-        @media all and (max-width) {
-            transform: scale(0.42);
-            right: -39px;
-        }
+    }
+    @media all and (max-width) {
+        transform: scale(0.42);
+        right: -39px;
     }
 }
 
@@ -393,6 +392,9 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        @media all and (max-width:490px) {
+            flex-direction: column;
+        }
 
         .photo {
             width: 42%;
@@ -404,16 +406,26 @@
                 object-fit: cover;
                 vertical-align: top;
             }
+            @media all and (max-width:490px){
+                width: 100%;
+            }
         }
 
         .wrap {
             width: 58%;
             background-color: $secondary_100;
+            @media all and (max-width:490px) {
+                width: 100%;
+            }
 
             .content {
                 color: $white;
                 padding: 0 5rem;
                 margin: 1.25rem 0;
+                @media all and (max-width:490px) {
+                    padding: 0 1rem;
+                    text-align: center;
+                }
 
                 .btn {
                     width: 8.5rem;
