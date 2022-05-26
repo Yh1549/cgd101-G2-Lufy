@@ -16,14 +16,40 @@ function includeHTML() {
 exports.html = includeHTML;
 
 // js move
+
+const babel = require('gulp-babel');
+
 function moveJs() {
-    return src('src/js/*.js').pipe(dest('dist/js'))
+    return src('src/js/*.js')
+        .pipe(babel({
+            presets: ['@babel/env']
+        }))
+        .pipe(dest('dist/js'))
 }
+
+
+
+
+
 
 //img move
 function moveImg() {
     return src('src/images/*.*').pipe(dest('dist/images'))
 }
+
+const imagemin = require('gulp-imagemin');
+
+function min_images() {
+    return src('scr/images/*.*')
+        .pipe(imagemin([
+            imagemin.mozjpeg({ quality: 70, progressive: true }) // 壓縮品質      quality越低 -> 壓縮越大 -> 品質越差 
+        ]))
+        .pipe(dest('dist/images'));
+}
+
+exports.mini_img = min_images;
+
+
 
 //productpages move
 function moveProductPages() {
@@ -32,13 +58,17 @@ function moveProductPages() {
 
 const sass = require('gulp-sass')(require('sass'));
 const sourcemaps = require('gulp-sourcemaps');
+const autoprefixer = require('gulp-autoprefixer');
 
 // sass ->css
 function styleSass() {
     return src('./src/sass/*.scss')
         .pipe(sourcemaps.init())
-        .pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
+        .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
         .pipe(sourcemaps.write())
+        .pipe(autoprefixer({
+            cascade: false
+        }))
         .pipe(dest('./dist/css'));
 }
 
