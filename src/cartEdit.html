@@ -10,7 +10,7 @@
     @@include('layout/header.html')
     <div class="containerALL">
         <div id="myCart">
-            <h1>
+            <h1 class="h1">
                 Shopping Cart
             </h1>
             <div id="cartList">
@@ -27,25 +27,20 @@
             <div class="cart_total">
                 Total: <span id="total">0</span>
             </div>
+            <div class="cart_next">
+                <a href="cartEdit2.html"><button class="btn_small">Next step</button></a>
+                <a href="productInner.html"><button class="btn_small">Go Back</button></a>
+            </div>
         </div>
+        <div class="relative_products">
+            <h2 class="h2">Relative products</h2>
+            <div class="relative_product"><img src="images/aboutus.lamp5.png" alt=""></div>
+            <div class="relative_product"><img src="images/aboutus.lamp6.jpg" alt=""></div>
+            <div class="relative_product"><img src="images/aboutus.lamp7.jpg" alt=""></div>
+        </div>
+
     </div>
     @@include('layout/footer.html')
-    <script>
-        function showCart() {
-            let cart = document.querySelector(".cart");
-            cart.classList.toggle('hidden');
-
-        }
-
-        function init() {
-            let shopping = document.querySelector(".fa-solid fa-cart-shopping");
-            shopping.addEventListener("clicl,showCart", false);
-
-
-        }
-
-        window.addEventListener("load", init, false);
-    </script>
 
 </body>
 

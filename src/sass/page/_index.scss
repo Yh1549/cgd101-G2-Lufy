@@ -43,6 +43,10 @@
         border-radius: 0.05rem;
         background: $white;
         text-shadow: 0 0.15rem 0.5rem $secondary_dark;
+        @media all and (max-width:490px) {
+            width: 5rem;
+            height: 0.25rem;
+        }
     }
 }
 
@@ -271,9 +275,23 @@
         margin-bottom: 30px;
     }
 }
-
 /* 燈光調亮度 */
 /* 最新消息 */
+.index_news {
+    .card {
+        display: flex;
+        .news_photo {
+            .photo {
+                width: 40%;
+                img {
+                    width: 100%;
+                    object-fit: cover;
+                    vertical-align: top;
+                }
+            }
+        }
+    }
+}
 /* 關於我們 */
 .index_aboutus {
     background-image: url(/images/index_about_us_bg.webp);
