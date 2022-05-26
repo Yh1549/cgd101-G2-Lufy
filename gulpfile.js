@@ -3,6 +3,7 @@ const { src, dest, watch, series, parallel } = require('gulp');
 
 // html package
 const fileinclude = require('gulp-file-include');
+
 function includeHTML() {
     return src('src/*.html') // 來源
         .pipe(fileinclude({
@@ -17,6 +18,7 @@ exports.html = includeHTML;
 
 // js move
 const babel = require('gulp-babel');
+
 function moveJs() {
     return src('src/js/*.js')
         .pipe(babel({
@@ -40,6 +42,7 @@ function moveProductPages() {
 
 // 壓圖
 const imagemin = require('gulp-imagemin');
+
 function min_images() {
     return src('src/images/*.*')
         .pipe(imagemin([
@@ -55,12 +58,11 @@ const sass = require('gulp-sass')(require('sass'));
 const sourcemaps = require('gulp-sourcemaps');
 const autoprefixer = require('gulp-autoprefixer');
 
-
 // sass ->css
 function styleSass() {
     return src('./src/sass/*.scss')
         .pipe(sourcemaps.init())
-        .pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
+        .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
         .pipe(sourcemaps.write())
         .pipe(autoprefixer({
             cascade: false
@@ -90,6 +92,7 @@ function watchfile() {
 // 瀏覽器同步
 const browserSync = require('browser-sync');
 const reload = browserSync.reload;
+
 function browser(done) {
     browserSync.init({
         server: {
