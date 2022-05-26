@@ -15,8 +15,8 @@ function includeHTML() {
 
 exports.html = includeHTML;
 
-// js move
 
+// js move
 const babel = require('gulp-babel');
 
 function moveJs() {
@@ -28,33 +28,31 @@ function moveJs() {
 }
 
 
-
-
-
-
 //img move
 function moveImg() {
     return src('src/images/*.*').pipe(dest('dist/images'))
 }
-
-const imagemin = require('gulp-imagemin');
-
-function min_images() {
-    return src('scr/images/*.*')
-        .pipe(imagemin([
-            imagemin.mozjpeg({ quality: 70, progressive: true }) // 壓縮品質      quality越低 -> 壓縮越大 -> 品質越差 
-        ]))
-        .pipe(dest('dist/images'));
-}
-
-exports.mini_img = min_images;
-
 
 
 //productpages move
 function moveProductPages() {
     return src('src/productpages/*.*').pipe(dest('dist/productpages'))
 }
+
+
+// 壓圖
+const imagemin = require('gulp-imagemin');
+
+function min_images() {
+    return src('src/images/*.*')
+        .pipe(imagemin([
+            imagemin.mozjpeg({ quality: 80, progressive: true }) // 壓縮品質      quality越低 -> 壓縮越大 -> 品質越差 
+        ]))
+        .pipe(dest('dist/images'))
+}
+
+exports.mini_img = min_images
+
 
 const sass = require('gulp-sass')(require('sass'));
 const sourcemaps = require('gulp-sourcemaps');
@@ -82,10 +80,10 @@ function watchfile() {
     watch(['./src/sass/*.scss', './src/sass/**/*.scss'], styleSass) // 監看sass
 }
 
+
 // 瀏覽器同步
 const browserSync = require('browser-sync');
 const reload = browserSync.reload;
-
 
 function browser(done) {
     browserSync.init({
@@ -106,6 +104,7 @@ function browser(done) {
 
 // 監看
 exports.w = series(parallel(moveJs, moveImg, includeHTML, moveProductPages, styleSass), watchfile)
+
 
 //瀏覽器同步
 exports.default = series(parallel(moveJs, includeHTML, styleSass, moveProductPages, moveImg), browser)
