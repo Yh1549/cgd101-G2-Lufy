@@ -58,6 +58,7 @@
     background-color: $secondary_70;
     padding: 20px;
     border-radius: 10px;
+    align-items: center;
 }
 
 .payer {
@@ -83,4 +84,8 @@
 .shipping_form {
     margin-top: 30px;
     margin-left: 10px;
+}
+
+.arriveTime {
+    font-size: 20px;
 }

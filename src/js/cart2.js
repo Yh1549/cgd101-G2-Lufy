@@ -1,18 +1,19 @@
 let storage = localStorage;
+let itemString = storage.getItem('addItemList')
+let items = itemString.substr(0, itemString.length - 2).split(', ')
+
+let newDiv = document.createElement('div')
+let newTable = document.createElement('table')
 
 function doFirst() {
-    let itemString = storage.getItem('addItemList')
-    let items = itemString.substr(0, itemString.length - 2).split(', ')
 
-    newDiv = document.createElement('div')
-    newTable = document.createElement('table')
 
 
 
     newDiv.appendChild(newTable)
     cartList.appendChild(newDiv)
 
-    total = 0;
+    let total = 0;
 
 
     for (let i = 0; i < items.length; i++) {
