@@ -27,8 +27,8 @@
   top: 0;
   left: 0;
   display: flex;
-  transform-origin: 50% 50%;
-  transition-timing-function: ease-in;
+  // transform-origin: 50% 50%;
+  // transition-timing-function: ease-in;
 //   transition: 200ms;
 }
 .entrance_lamp{
@@ -40,13 +40,13 @@
     left: 47.5%;
     
 }
-.entrance_light {
+#entrance_light {
   width: 100%;
   height: 100vh;
   background-color:hsla(0,0%,0%,0.95);
 //   background-color:conic-gradient(from 0deg at 50% 0%, #000000 -153.28deg, #000000 151.9deg, transparent 179.21deg, #000000 206.72deg, #000000 511.9deg);
 //   filter: brightness(2);
-//   mask: conic-gradient(from 0deg at 50% 0%, #000000 -153.28deg, #000000 151.9deg, transparent 179.21deg, #000000 206.72deg, #000000 511.9deg);
+  mask-image: conic-gradient(from 0deg at 50% 0%, #000000 -153.28deg, #000000 151.9deg, transparent 179.21deg, #000000 206.72deg, #000000 511.9deg);
 //  backdrop-filter: brightness(0.5); 
 //  background-image: url(../../images/project_bannerpic1.jpg);
 //   -webkit-mask-repeat: no-repeat;

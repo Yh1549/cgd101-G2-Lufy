@@ -18,7 +18,7 @@
         <div class="entrance_lamp">
  
         </div>
-       <div class="entrance_light" style="-web-kit-mask: conic-gradient(from 0deg at 50% 0%, #000000 -153.28deg, #000000 151.9deg, transparent 179.21deg, #000000 206.72deg, #000000 511.9deg);">
+       <div id="entrance_light">
         <!-- <img src="./images/project_bannerpic1.jpg" alt=""> -->
         </div>
     </div>
@@ -27,18 +27,18 @@
     <script>
         function tracking(e){
             let lamp = document.querySelector(".entrance_lamp");
-            let body = document.querySelector("body");
-            let light = document.querySelector(".entrance_light")
+            let light = document.querySelector("#entrance_light")
             let rotateDeg = Math.round(Math.atan((lamp.offsetLeft-e.pageX)/(window.innerHeight-light.offsetTop))*180/Math.PI)+57+125;
 
-            light.style.webkitMask = "conic-gradient(from 0deg at 50% 0%, #000000deg -153.28deg, #000000 151.9deg, transparent 179.21deg, #000000 206.72deg, #000000 511.9deg)";
-            console.log(light.style.backgroundColor);
+            // light.style.mask = "red";
+            // light.style.webkitMaskImage = "conic-gradient(from 0deg at 50% 0%, #000000deg -153.28deg, #000000 151.9deg, transparent "+`${rotateDeg}`+", #000000 206.72deg, #000000 511.9deg)";
+            // console.log(light.style.mask);
+            let x = window.getComputedStyle(light);
+            console.log(x);
         };
         // " + `${rotateDeg}`+" 
         function init(){
-            let box = document.querySelector(".box");
             window.addEventListener("mousemove", tracking, false);
-            console.log(box);
         };
 
 
