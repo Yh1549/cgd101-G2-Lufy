@@ -3,6 +3,7 @@
 
 <head>
     @@include('layout/meta.html', { "title" : "購物車頁" })
+    <!-- <script src="./js/cart3"></script> -->
 
 </head>
 
@@ -22,14 +23,15 @@
                 </div>
                 <div class="receiver">
                     <h3 class="h3">Receiver:</h3>
-                    <div>Name:<input type="text" class="ip_small" placeholder="Please type in your name"></div>
-                    <div>TelNo:<input type="text" class="ip_small" placeholder="Please type in your phonenumber"></div>
-                    <div>Address:<input type="text" class="ip_small" placeholder="Please type in your address"></div>
+                    <div>Name:<input type="text" class="ip_small name" placeholder="Please type in your name"></div>
+                    <div>TelNo:<input type="text" class="ip_small phone" placeholder="Please type in your phonenumber"></div>
+                    <div>Address:<input type="text" class="ip_small address" placeholder="Please type in your address"></div>
+                    <div>Arrive Date:<input type="datetime-local" class="arriveTime" name="arriveTime" min="2022-06-01T00:00" max="2022-08-01T00:00"></div>
                 </div>
             </div>
             <div class="shipping_method">
                 <h3 class="h3"></h3>
-                <a href="cartEdit3.html"><button class="btn_small">Send an Order</button></a>
+                <a href="cartEdit3.html"><input type="button" class="btn_small setBtn" value="Send an order"></a>
                 <a href="cartEdit.html"><button class="btn_small">Back to cart</button></a>
             </div>
 
@@ -45,7 +47,35 @@
         <div class="relative_product"><img src="images/aboutus.lamp7.jpg" alt=""></div>
     </div>
     @@include('layout/footer.html')
+    <script>
+        //綁定 .setBtn
+        var setBtn = document.querySelector(".setBtn");
+        //監聽 setBtn
+        setBtn.addEventListener("click", setInputItem, false);
+        //建立 function
+        function setInputItem(e) {
+            let str = document.querySelector(".name").value; //選擇到表單輸入的值
+            localStorage.setItem("name", str); //存入 localStorage
 
+            let str2 = document.querySelector(".phone").value;
+            localStorage.setItem("phone", str2);
+
+            let str3 = document.querySelector(".address").value;
+            localStorage.setItem("address", str3);
+
+
+            let str4 = document.querySelector(".arriveTime").value;
+
+            // let dateString = str4.toString();
+
+            localStorage.setItem("arriveTime", str4);
+
+            // console.log(dateString);
+            // console.log(str4);
+            // console.log(typeof str4);
+
+        }
+    </script>
 </body>
 
 </html>

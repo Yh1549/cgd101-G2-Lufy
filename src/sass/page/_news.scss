@@ -4,21 +4,17 @@
 .fontColor{
     color: $fontcolor_100;
 }
-// .lineB{
-//     border-bottom: 5px solid $fontcolor_100;
-//     box-sizing: border-box;
-// }
 .newsCard{
     display: flex;
     align-items: center;
+    border-bottom: 5px solid $fontcolor_100;
+    box-sizing: border-box;
     @include t{
         display: inline-block;
     }
 }
-.lineA{
-    background-color: $fontcolor_100;
-    width: 100%;
-    height: 10px;
+.newsCard:nth-of-type(6){
+    border-bottom: 0px;
 }
 .newsPic{
     width: 30%;
@@ -45,5 +41,11 @@
     display: flex;
     & h1 , p{
         width: 50%;
+        @include t{
+            width: 100%;
+        }
+    }
+    @include t{
+        display: contents;
     }
 }

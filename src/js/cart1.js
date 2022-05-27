@@ -10,9 +10,9 @@ function doFirst() {
     for (let i = 0; i < list.length; i++) {
         list[i].addEventListener('click', function(e) {
 
-            let teddyInfo = document.querySelector(`#${e.target.id} input`).value
+            let lamp = document.querySelector(`#${e.target.id} input`).value
 
-            addItem(e.target.id, teddyInfo)
+            addItem(e.target.id, lamp)
         })
     }
 }
@@ -53,9 +53,10 @@ function addItem(itemId, itemValue) {
 
     let itemString = storage.getItem('addItemList')
     let items = itemString.substr(0, itemString.length - 2).split(', ')
+    console.log(items);
 
 
-    subtotal = 0;
+    let subtotal = 0;
     for (let i = 0; i < items.length; i++) {
         let itemInfo = storage.getItem(items[i])
         let itemPrice = parseInt(itemInfo.split('|')[2])

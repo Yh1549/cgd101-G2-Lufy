@@ -192,8 +192,6 @@ $btn_trans: 0.3s; //transition秒數控制 請勿使用此變數
 //class名稱總覽(05/19)----<btn_small>,<btn_normal>,<btn_large> //<btn_ol_small>,<btn_ol_nromal>,<btn_ol_large>
 //按鈕<小>
 .btn_small {
-    min-width: round($btn_base * 10px);
-    max-width: 100%;
     height: round($btn_base * 5px);
     padding: round($btn_base * 1px) round($btn_base * 5px);
     text-align: center;
@@ -214,8 +212,6 @@ $btn_trans: 0.3s; //transition秒數控制 請勿使用此變數
 
 //按鈕<中>
 .btn_normal {
-    min-width: round($btn_base * 10px);
-    max-width: 100%;
     height: round($btn_base * 5px);
     padding: round($btn_base * 1px) round($btn_base * 7px);
     text-align: center;
@@ -236,8 +232,6 @@ $btn_trans: 0.3s; //transition秒數控制 請勿使用此變數
 
 //按鈕<大>
 .btn_large {
-    min-width: round($btn_base * 10px);
-    max-width: 100%;
     height: round($btn_base * 5px);
     padding: round($btn_base * 1px) round($btn_base * 9px);
     text-align: center;
@@ -259,8 +253,6 @@ $btn_trans: 0.3s; //transition秒數控制 請勿使用此變數
 //---純框線款<outline>---
 .btn_ol_small {
     //小
-    min-width: round($btn_base * 10px);
-    max-width: 100%;
     height: round($btn_base * 5px);
     padding: round($btn_base * 1px) round($btn_base * 5px);
     text-align: center;
@@ -281,8 +273,6 @@ $btn_trans: 0.3s; //transition秒數控制 請勿使用此變數
 
 .btn_ol_normal {
     //中
-    min-width: round($btn_base * 10px);
-    max-width: 100%;
     height: round($btn_base * 5px);
     padding: round($btn_base * 1px) round($btn_base * 7px);
     text-align: center;
@@ -303,8 +293,6 @@ $btn_trans: 0.3s; //transition秒數控制 請勿使用此變數
 
 .btn_ol_large {
     //大
-    min-width: round($btn_base * 10px);
-    max-width: 100%;
     height: round($btn_base * 5px);
     padding: round($btn_base * 1px) round($btn_base * 9px);
     text-align: center;
@@ -333,8 +321,6 @@ $ip_br: 12px; //border radius 控制 請勿使用此變數
 //-----------------
 .ip_small {
     //小
-    min-width: round($ip_base * 15px);
-    max-width: 100%;
     height: round($ip_base * 2px);
     padding: round($ip_base * 1px) round($ip_base * 2px);
     //-------------
@@ -355,8 +341,6 @@ $ip_br: 12px; //border radius 控制 請勿使用此變數
 
 .ip_normal {
     //中
-    min-width: round($ip_base * 20px);
-    max-width: 100%;
     height: round($ip_base * 2px);
     padding: round($ip_base * 1px) round($ip_base * 2px);
     //-------------
@@ -377,8 +361,6 @@ $ip_br: 12px; //border radius 控制 請勿使用此變數
 
 .ip_large {
     //大
-    min-width: round($ip_base * 25px);
-    max-width: 100%;
     height: round($ip_base * 2px);
     padding: round($ip_base * 1px) round($ip_base * 2px);
     //-------------

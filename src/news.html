@@ -18,7 +18,7 @@
         let newsMenu = Vue.component('N_menu',{
             props:['newsImage','newsTitle', 'newsDate','newsTxt'],
             template: `
-                <li class="newsCard">
+                <li class="newsCard ps_1 pe_1">
                     <div class="newsPic ">
                         <img :src="newsImage" :alt="newsTitle">
                     </div>
@@ -32,7 +32,6 @@
                         </div>
                     </div>
                 </li>
-                <div class="lineA"></div>
             `,
         })
         new Vue({
