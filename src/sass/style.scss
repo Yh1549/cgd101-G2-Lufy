@@ -12,6 +12,8 @@
 @import 'layout/header';
 @import 'layout/footer';
 @import 'page/index';
+//入口頁entrance--
+@import 'page/entrance';
 //關於我們import--
 @import 'page/aboutUs';
 //購物車頁import--
@@ -19,8 +21,7 @@
 //專案import---
 @import 'page/projectMain'; //專案主頁
 @import 'page/productInner';
-//專案內頁import
-@import 'page/projectInner.scss';
+@import 'page/projectInner.scss';//專案內頁
 //------------
 //產品import------
 @import 'page/productMain'; //產品主頁

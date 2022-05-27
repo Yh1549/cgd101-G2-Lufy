@@ -123,14 +123,14 @@
     pointer-events: none;
     z-index: 50;
 }
+.project_section{
+    overflow: hidden;
+}
 .project_container{
     display: flex;
     position: absolute;
     top: 0;
-    // justify-content: space-around;
-    // & a{
-    //     width:25%;
-    // }
+    overflow: hidden;
 }
 .project{
     position: relative;
@@ -154,26 +154,6 @@
         color: $white;
     }
 }
-.project_loopword{
-    // width: 1000%;
-    // display: flex;
-    // color: $primary_70;
-    // overflow: hidden;
-    // position: fixed;
-    // top: 40%;
-    // z-index: -1;
-    // opacity: 0.5;
-    // & span{
-    //     display:flex;
-    //     flex-wrap: nowrap;
-    //     &:after{
-    //         content: "/";
-    //     }
-    // }
-}
-// .project_loopword_h1{
-    
-// }
 .project_process_container{
     text-align: center;
 }

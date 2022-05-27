@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    @@include('layout/meta.html', { "title" : "Entrance" })
+  </head>
+
+  <body>
+    <div class="entrance">
+        <div class="entrance_container">
+          <div class="entrance_visitor entrance_box"></div>
+          <div class="entrance_admin entrance_box"></div>
+          <div class="entrance_designer entrance_box"></div>
+        </div>
+      </div>
+    <div class="entrance_lamp_bg">
+        <img src="./images/project_bannerpic1.jpg" alt="">
+        <div class="entrance_lamp">
+ 
+        </div>
+       <div class="entrance_light" style="-web-kit-mask: conic-gradient(from 0deg at 50% 0%, #000000 -153.28deg, #000000 151.9deg, transparent 179.21deg, #000000 206.72deg, #000000 511.9deg);">
+        <!-- <img src="./images/project_bannerpic1.jpg" alt=""> -->
+        </div>
+    </div>
+
+    
+    <script>
+        function tracking(e){
+            let lamp = document.querySelector(".entrance_lamp");
+            let body = document.querySelector("body");
+            let light = document.querySelector(".entrance_light")
+            let rotateDeg = Math.round(Math.atan((lamp.offsetLeft-e.pageX)/(window.innerHeight-light.offsetTop))*180/Math.PI)+57+125;
+
+            light.style.webkitMask = "conic-gradient(from 0deg at 50% 0%, #000000deg -153.28deg, #000000 151.9deg, transparent 179.21deg, #000000 206.72deg, #000000 511.9deg)";
+            console.log(light.style.backgroundColor);
+        };
+        // " + `${rotateDeg}`+" 
+        function init(){
+            let box = document.querySelector(".box");
+            window.addEventListener("mousemove", tracking, false);
+            console.log(box);
+        };
+
+
+        window.addEventListener("load", init, false);
+    </script>
+    <!-- <script>
+      new Vue({
+        el: ".entrance_lamp",
+        data: {},
+        methods: {
+          tracking(e) {
+            let box = document.querySelector(".entrance_lamp");
+            let body = document.querySelector("body");
+            let light = document.querySelector(".entrance_light");
+            box.style.transform = `rotate(${
+              (Math.atan(
+                (box.offsetLeft - e.pageX) /
+                  (window.clientHeight - light.offsetTop)
+              ) *
+                180) /
+              Math.PI
+            }deg)`;
+            console.log(window.clientHeight);
+          },
+        },
+      });
+    </script> -->
+  </body>
+</html>

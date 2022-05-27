@@ -9,7 +9,6 @@
 <body>
   @@include('layout/header.html')
   <!-- banner -->
-  <!-- <div id="mouse"></div> -->
   <section>
     <div class="project_banner_backdrop"></div>
     <div class="project_banner">
@@ -127,7 +126,7 @@
             animation: tl,
             trigger: ".project_container",
             start: "center center",
-            end: "bottom center",
+            end: "800 center",
             scrub: 2,
             pin: true,
             markers: true,
@@ -144,57 +143,10 @@
             },
           })
         },
-        // bgChange(e) {
-        //   let pic = e.target.src;
-        //   let bgpic = document.querySelector(".project_bg");
-        //   bgpic.style.backgroundImage = `url(${pic})`;
-        //   bgpic.style.opacity = 1;
-        //   document.querySelector(".project_title").style.color = "white";
-        //   console.log(pic);
-        //   console.log(bgpic);
-        // },
-        // bgReset() {
-        //   let bgpic = document.querySelector(".project_bg");
-        //   bgpic.style.opacity = 0;
-        //   document.querySelector(".project_title").style.color = "#0A142F";
-        //   // bgpic.style.backgroundImage = "none";
-        // },
       },
     });
   </script>
   <!---------->
-  <script>
-      // new Vue({
-      //   el: ".project_loopword",
-      //   data: {},
-      //   mounted: function () {
-      //     this.loopWord();
-      //   },
-      //   methods: {
-      //     // loopWord() {
-      //     //   gsap.registerPlugin(ScrollTrigger);
-      //     //   gsap.to(
-      //     //     ".start",{
-      //     //       scrollTrigger: {
-      //     //         trigger:".start",
-      //     //         start:"top center",
-      //     //         end:"top 100px",
-      //     //         scrub:1,
-      //     //         pin:".project_loopword",
-      //     //         markers:true,
-      //     //       },
-      //     //         x:400,
-      //     //         rotation:360,
-      //     //         duration:3,
-      //     //     },
-      //     //     // { x: 1000 },
-      //     //     // { x: -1000, duration: 3 },
-      //     //   );
-      //     //   // autoplay.restart(true);
-      //     // },
-      //   },
-      // });
-  </script>
   <div class="containerALL ms_8">
     <div class="project_process_container ms_8 ps_8">
       <h1 class="s1 fontcontent font_w9 project_process_title">PROJECT PROCESS</h1>
