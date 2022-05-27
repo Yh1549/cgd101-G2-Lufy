@@ -88,6 +88,12 @@ function watchfile() {
     watch(['./src/sass/*.scss', './src/sass/**/*.scss'], styleSass) // 監看sass
 }
 
+const clean = require('gulp-clean');
+
+function clear() {
+    return src('dist', { read: false, allowEmpty: true }) //不去讀檔案結構，增加刪除效率  / allowEmpty : 允許刪除空的檔案
+        .pipe(clean({ force: true })); //強制刪除檔案 
+}
 
 // 瀏覽器同步
 const browserSync = require('browser-sync');
@@ -117,6 +123,11 @@ exports.w = series(parallel(moveJs, moveImg, includeHTML, moveProductPages, styl
 //瀏覽器同步
 exports.default = series(clear, parallel(moveJs, includeHTML, styleSass, moveProductPages, moveImg), browser)
 
+<<<<<<< HEAD
 
 //打包上線
 exports.package = series(clear, parallel(moveJs, includeHTML, styleSass, moveProductPages, min_images))
+=======
+//打包上線
+exports.package = series(clear, parallel(moveJs, includeHTML, styleSass, min_images))
+>>>>>>> michael
