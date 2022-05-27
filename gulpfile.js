@@ -123,11 +123,6 @@ exports.w = series(parallel(moveJs, moveImg, includeHTML, moveProductPages, styl
 //瀏覽器同步
 exports.default = series(clear, parallel(moveJs, includeHTML, styleSass, moveProductPages, moveImg), browser)
 
-<<<<<<< HEAD
 
 //打包上線
 exports.package = series(clear, parallel(moveJs, includeHTML, styleSass, moveProductPages, min_images))
-=======
-//打包上線
-exports.package = series(clear, parallel(moveJs, includeHTML, styleSass, min_images))
->>>>>>> michael
