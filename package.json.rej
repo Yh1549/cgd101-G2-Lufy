@@ -1,9 +1,0 @@
-diff a/package.json b/package.json	(rejected hunks)
-@@ -52,6 +52,7 @@
-     "2. 監看": "gulp w",
-     "3. 瀏覽器同步": "gulp",
-     "4.打包上線": "gulp package"
-+<<<<<<< HEAD
- 
- },
- "keywords": [],
