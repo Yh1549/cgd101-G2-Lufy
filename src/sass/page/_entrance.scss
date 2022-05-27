@@ -8,57 +8,52 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  background-image: url("https://images.unsplash.com/photo-1543589076-bddcb054f426?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2134&q=80");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 .entrance_box {
-  width: 300px;
-  height: 300px;
-  background-color: red;
-}
-.entrance_lamp_bg {
-  width: 100%;
-  height: 100vh;
-  background-color:hsla(0,0%,0%,0.95);
-//   background-image: url(../../images/project_bannerpic1.jpg);
-//   filter: brightness(0.5);
-  margin-right: auto;
-  margin-left: auto;
-  overflow: hidden;
-  position: absolute;
-  top: 0;
-  left: 0;
+  width: 200px;
+  height: 150px;
+  border-radius: 10px;
+  background-color: $primary_100;
   display: flex;
-  // transform-origin: 50% 50%;
-  // transition-timing-function: ease-in;
-//   transition: 200ms;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 $ip_shadow $ip_shadow * 3 0 $secondary_100;
+  transition: 0.3s;
+  & h1{
+    color: $secondary_100;
+  }
+  &:hover{
+    box-shadow: 0 $ip_shadow $ip_shadow * 3 0 $white;
+  }
 }
+// .entrance_lamp_bg {
+//   width: 100%;
+//   height: 100vh;
+//   margin-right: auto;
+//   margin-left: auto;
+//   overflow: hidden;
+//   // position: absolute;
+//   top: 0;
+//   left: 0;
+
+// }
 .entrance_lamp{
     width: 100px;
     height: 100px;
-    background-color: red;
     position: absolute;
-    // top: 50%;
-    left: 47.5%;
+    top: 0;
+    left: 46.5%;
     
 }
 #entrance_light {
   width: 100%;
   height: 100vh;
-  background-color:hsla(0,0%,0%,0.95);
-//   background-color:conic-gradient(from 0deg at 50% 0%, #000000 -153.28deg, #000000 151.9deg, transparent 179.21deg, #000000 206.72deg, #000000 511.9deg);
-//   filter: brightness(2);
-  mask-image: conic-gradient(from 0deg at 50% 0%, #000000 -153.28deg, #000000 151.9deg, transparent 179.21deg, #000000 206.72deg, #000000 511.9deg);
-//  backdrop-filter: brightness(0.5); 
-//  background-image: url(../../images/project_bannerpic1.jpg);
-//   -webkit-mask-repeat: no-repeat;
-//   mask-repeat: no-repeat;
-//   mask-mode: luminance;
-//   clip-path: polygon(47.5% 0, 52.5% 0, 90% 100%, 10% 100%);
+  background-color:hsla(0,0%,0%,0.8);
   position: absolute;
-  transform-origin: top center;
-//   left: -50px;
   top: 0;
-  & img{
-      width: 100%;
-      
-  }
+  pointer-events: none;
 }

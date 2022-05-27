@@ -1,70 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    @@include('layout/meta.html', { "title" : "Entrance" })
-  </head>
 
-  <body>
-    <div class="entrance">
-        <div class="entrance_container">
-          <div class="entrance_visitor entrance_box"></div>
-          <div class="entrance_admin entrance_box"></div>
-          <div class="entrance_designer entrance_box"></div>
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  @@include('layout/meta.html', { "title" : "Entrance" })
+</head>
+
+<body>
+  <div class="entrance">
+    <div class="entrance_container">
+      <div class="entrance_visitor entrance_box">
+        <h1 class="h1 font_w7 fontcontent">Visitor</h1>
       </div>
-    <div class="entrance_lamp_bg">
-        <img src="./images/project_bannerpic1.jpg" alt="">
-        <div class="entrance_lamp">
- 
-        </div>
-       <div id="entrance_light">
-        <!-- <img src="./images/project_bannerpic1.jpg" alt=""> -->
-        </div>
+      <div class="entrance_admin entrance_box">
+        <h1 class="h1 font_w7 fontcontent">Admin</h1>
+      </div>
+      <div class="entrance_designer entrance_box">
+        <h1 class="h1 font_w7 fontcontent">Designer</h1>
+      </div>
     </div>
+  </div>
+  <!-- <div class="entrance_lamp_bg"></div> -->
+  <div class="entrance_lamp">
 
-    
-    <script>
-        function tracking(e){
-            let lamp = document.querySelector(".entrance_lamp");
-            let light = document.querySelector("#entrance_light")
-            let rotateDeg = Math.round(Math.atan((lamp.offsetLeft-e.pageX)/(window.innerHeight-light.offsetTop))*180/Math.PI)+57+125;
+  </div>
 
-            // light.style.mask = "red";
-            // light.style.webkitMaskImage = "conic-gradient(from 0deg at 50% 0%, #000000deg -153.28deg, #000000 151.9deg, transparent "+`${rotateDeg}`+", #000000 206.72deg, #000000 511.9deg)";
-            // console.log(light.style.mask);
-            let x = window.getComputedStyle(light);
-            console.log(x);
-        };
-        // " + `${rotateDeg}`+" 
-        function init(){
-            window.addEventListener("mousemove", tracking, false);
-        };
+  <div id="entrance_light">
+    <!-- <img src="./images/project_bannerpic1.jpg" alt=""> -->
+  </div>
 
 
-        window.addEventListener("load", init, false);
-    </script>
-    <!-- <script>
-      new Vue({
-        el: ".entrance_lamp",
-        data: {},
-        methods: {
-          tracking(e) {
-            let box = document.querySelector(".entrance_lamp");
-            let body = document.querySelector("body");
-            let light = document.querySelector(".entrance_light");
-            box.style.transform = `rotate(${
-              (Math.atan(
-                (box.offsetLeft - e.pageX) /
-                  (window.clientHeight - light.offsetTop)
-              ) *
-                180) /
-              Math.PI
-            }deg)`;
-            console.log(window.clientHeight);
-          },
-        },
-      });
-    </script> -->
-  </body>
+
+  <script>
+    function tracking(e) {
+      let lamp = document.querySelector(".entrance_lamp");
+      let light = document.querySelector("#entrance_light")
+      let rotateDeg = Math.round(Math.atan((lamp.offsetLeft - e.pageX) / (window.innerHeight - light.offsetTop)) * 180 / Math.PI) + 57 + 125;
+
+      light.setAttribute("style", "-webkit-mask-image:conic-gradient(from 0deg at 50% 0%, #000000 " + `${-(rotateDeg - 80)}` + "deg, #000000 " + `${rotateDeg - 80}` + "deg, transparent " + `${rotateDeg - 30}` + "deg, transparent " + `${rotateDeg}` + "deg, transparent " + `${rotateDeg + 20}` + "deg, #000000 " + `${rotateDeg + 70}` + "deg, #000000 " + `${rotateDeg + 240}` + "deg);");
+
+      console.log(rotateDeg);
+    };
+
+    function init() {
+      window.addEventListener("mousemove", tracking, false);
+    };
+
+
+    window.addEventListener("load", init, false);
+  </script>
+</body>
+
 </html>
