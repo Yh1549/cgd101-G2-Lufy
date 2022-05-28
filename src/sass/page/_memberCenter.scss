@@ -1,0 +1,13 @@
+.member_container {
+  display: flex;
+}
+.member_sidemenu {
+    width: 20%;
+    
+  background-color: $primary_100;
+}
+.membercenter_form {
+    margin-right: auto;
+    margin-left: auto;
+    width: 80%;
+}

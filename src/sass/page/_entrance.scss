@@ -12,6 +12,9 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  @include t(){
+    display: inline-block;
+  }
 }
 .entrance_box {
   width: 200px;
@@ -23,10 +26,14 @@
   align-items: center;
   box-shadow: 0 $ip_shadow $ip_shadow * 3 0 $secondary_100;
   transition: 0.3s;
-  & h1{
+  @include t(){
+    margin: 50px auto;
+
+  }
+  & h1 {
     color: $secondary_100;
   }
-  &:hover{
+  &:hover {
     box-shadow: 0 $ip_shadow $ip_shadow * 3 0 $white;
   }
 }
@@ -41,18 +48,17 @@
 //   left: 0;
 
 // }
-.entrance_lamp{
-    width: 100px;
-    height: 100px;
-    position: absolute;
-    top: 0;
-    left: 46.5%;
-    
+.entrance_lamp {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 0;
+  left: 46.5%;
 }
 #entrance_light {
   width: 100%;
   height: 100vh;
-  background-color:hsla(0,0%,0%,0.8);
+  background-color: hsla(0, 0%, 0%, 0.8);
   position: absolute;
   top: 0;
   pointer-events: none;
