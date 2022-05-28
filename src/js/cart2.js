@@ -4,6 +4,7 @@ let items = itemString.substr(0, itemString.length - 2).split(', ')
 
 let newDiv = document.createElement('div')
 let newTable = document.createElement('table')
+let total = 0;
 
 function doFirst() {
 
@@ -13,7 +14,7 @@ function doFirst() {
     newDiv.appendChild(newTable)
     cartList.appendChild(newDiv)
 
-    let total = 0;
+
 
 
     for (let i = 0; i < items.length; i++) {
@@ -121,7 +122,40 @@ function deleteItem(e) {
 
 }
 
-function changeItemCount() {
+function changeItemCount(e) {
+
+    let itemString = storage.getItem('addItemList')
+    let items = itemString.substr(0, itemString.length - 2).split(', ')
+
+    for (let i = 0; i < items.length; i++) {
+        let itemInfo = storage.getItem(items[i])
+
+
+
+
+        let itemPrice = parseInt(itemInfo.split('|')[2])
+
+        total = itemPrice * (e.target.value)
+        document.getElementById('total').innerText = total
+
+
+    }
+
+    // let input = document.getElementsByTagName('input');
+    // let totalprice = input.parentNode.parentNode.parentNode.childNoodes[1];
+
+
+
+
+
+
+
+
+    // console.log(input.parentNode)
+    // console.log(input)
+
+
+
 
 }
 window.addEventListener('load', doFirst);
