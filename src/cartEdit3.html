@@ -12,7 +12,7 @@
     <div class="containerALL">
         <div id="myCart">
             <h1 class="h1">
-                Shopping Cart
+                Shopping Cart final check
             </h1>
             <div id="cartList">
                 <table style="border-bottom:1px solid #ddd;">
@@ -25,44 +25,30 @@
 
                 </table>
             </div>
+            <div class="discount">
+                <select id="discount">
+                    <option value="0" disabled>Choose coupon</option>
+                    <option value="1">10% off coupon</option>
+                    <option value="2">12% off coupon</option>
+                    <option value="3">15% off coupon</option>
+                </select>
+            </div>
             <div class="cart_total">
                 Total: <span id="total">0</span>
             </div>
-        </div>
-        <div class="cart_end">
-            <div class="cart_end_title">
-                <h1 class="h1">Order established</h1>
+            <div class="discount_total">
+                Discount Total:<span id="dtotal">0</span>
             </div>
-        </div>
-        <div class="customer_detail">
-            <div class="customer_detail_title">
-                <h1 class="h1">Details</h1>
+            <div class="shipping_method">
+                <h3 class="h3"></h3>
+                <a href="cartEdit4.html"><input type="button" class="btn_small setBtn" value="Send an Order"></a>
+                <a href="cartEdit.html"><button class="btn_small">Go back</button></a>
             </div>
-            <div class="shipping_form">
-                <table>
-                    <tr>
-                        <td>
-                            <h2 class="h2"> Receiver name : <span class="receiverName"></span></h2>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <h2 class="h2"> Tel : <span class="receiverPhone"></span></h2>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <h2 class="h2"> Address : <span class="receiverAddress"></span></h2>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <h2 class="h2"> Arrive Date :<span class="arriveDate"></span></h2>
-                        </td>
-                    </tr>
-                </table>
-            </div>
+
         </div>
+
+
+
         <div class="relative_products">
             <h2 class="h2">Relative products</h2>
             <div class="relative_product"><img src="images/aboutus.lamp5.png" alt=""></div>
@@ -73,29 +59,23 @@
 
     @@include('layout/footer.html')
     <script>
-        function showInfro() {
-            let name = localStorage.getItem("name");
+        let discount = document.getElementById('discount')
 
-            let receiverName = document.querySelector('.receiverName');
-            receiverName.innerHTML = name;
+        function goDiscount() {
+            let total = document.getElementById('total').innerText
 
-            let phone = localStorage.getItem("phone");
+            if (discount.value = 1) {
+                document.getElementById('dtotal').innerText = total * 0.9
+            } else if (discount.value = 2) {
+                document.getElementById('dtotal').innerText = total * 0.88
+            } else {
+                document.getElementById('dtotal').innerText = total
 
-            let receiverPhone = document.querySelector('.receiverPhone');
-            receiverPhone.innerHTML = phone;
-
-            let address = localStorage.getItem("address");
-
-            let receiverAddress = document.querySelector('.receiverAddress');
-            receiverAddress.innerHTML = address;
-
-            let arriveTime = localStorage.getItem("arriveTime");
-
-            let arriveDate = document.querySelector('.arriveDate');
-            arriveDate.innerHTML = arriveTime;
+            }
+            console.log(discount.value)
 
         }
-        window.addEventListener("load", showInfro, false)
+        discount.addEventListener("change", goDiscount, false)
     </script>
 </body>
 
