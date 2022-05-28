@@ -2,35 +2,44 @@
 <html lang="en">
 <head>
     @@include('layout/meta.html', {
-        "title" : "首頁專題"
+        "title" : "Light Up For You"
     })
 </head>
 <body>
     <!-- header -->
     @@include('layout/header.html')
     <!-- header end -->
-
-    <!-- 首頁輪播 -->
-    <section class="index_carousel">
-        <div class="container me_8">
-            <div class="swiper mySwiper" id="index_carousel">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <img src="./images/index_carousel_Banner_01.webp" alt="">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="./images/index_carousel_Banner_02.webp" alt="">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="./images/index_carousel_Banner_03.webp" alt="">
-                    </div>
-                </div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-pagination"></div>
+    <!-- 第一屏遮罩 + 首頁輪播 -->
+    <input type="button" value="On" class="turn_on">
+    <section class="first">
+        <div class="wrapper">
+            <div class="wrapper_title">Lorem ipsum dolor sit amet.</div>
+            <div class="wrapper_text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Incidunt, quis amet.
             </div>
+            <div class="light"></div>
         </div>
-    </section>
+        <!-- 首頁輪播 -->
+        <section class="index_carousel">
+            <div class="container me_8">
+                <div class="swiper mySwiper" id="index_carousel">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="./images/index_carousel_Banner_01.webp" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="./images/index_carousel_Banner_02.webp" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="./images/index_carousel_Banner_03.webp" alt="">
+                        </div>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </section>
+    </section>    
     <!-- 專案實例 -->
     <section class="index_project">
         <div class="index_project_wrap">
