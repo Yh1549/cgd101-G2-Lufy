@@ -214,6 +214,7 @@
   width: 50vw;
   height: 75vh;
   z-index: 50;
+  cursor: pointer;
   &:hover span {
     color: $primary_50;
   }
@@ -290,7 +291,10 @@
   & h1 {
     text-align: center;
   }
-  & button {
+  & a{
+    text-decoration: none;
+  }
+  & a button {
     display: flex;
     align-items: center;
     margin-right: auto;
