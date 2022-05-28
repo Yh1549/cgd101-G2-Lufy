@@ -24,9 +24,12 @@
                 <div class="receiver">
                     <h3 class="h3">Receiver:</h3>
                     <div>Name:<input type="text" class="ip_small name" placeholder="Please type in your name"></div>
-                    <div>TelNo:<input type="text" class="ip_small phone" placeholder="Please type in your phonenumber"></div>
-                    <div>Address:<input type="text" class="ip_small address" placeholder="Please type in your address"></div>
-                    <div>Arrive Date:<input type="datetime-local" class="arriveTime" name="arriveTime" min="2022-06-01T00:00" max="2022-08-01T00:00"></div>
+                    <div>TelNo:<input type="text" class="ip_small phone" placeholder="Please type in your phonenumber">
+                    </div>
+                    <div>Address:<input type="text" class="ip_small address" placeholder="Please type in your address">
+                    </div>
+                    <div>Arrive Date:<input type="datetime-local" class="arriveTime" name="arriveTime"
+                            min="2022-06-01T00:00" max="2022-08-01T00:00"></div>
                 </div>
             </div>
             <div class="shipping_method">
@@ -76,6 +79,11 @@
 
         }
     </script>
+    <!-- footer  -->
+    @@include('layout/footer.html')
+
+    <!-- script -->
+    @@include('layout/script.html')
 </body>
 
 </html>

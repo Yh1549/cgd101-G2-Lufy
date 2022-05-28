@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     @@include('layout/meta.html', { "title" : "member" })
@@ -19,27 +20,32 @@
                 <li>帳號登出</li>
             </ul>
         </div>
-   
-
-    <h1>Member Settings</h1>
-    <form action="" class="membercenter_form">
-        <label for="memName">姓名</label>
-        <input type="text" name="memName" class="ip_normal"><br>
-        <label for="email">電郵</label>
-        <input type="email" name="email" class="ip_normal"><br>
-        <label for="memBD">生日</label>
-        <input type="date" name="memBD" class="ip_normal"><br>
-        <label for="memPhone">手機</label>
-        <input type="text" name="memPhone" class="ip_normal"><br>
-        <label for="Addres">地址</label>
-        <input type="text" name="Addres" class="ip_normal"><br>
-
-    </form> 
-        </div>
-</div>
 
 
+        <h1>Member Settings</h1>
+        <form action="" class="membercenter_form">
+            <label for="memName">姓名</label>
+            <input type="text" name="memName" class="ip_normal"><br>
+            <label for="email">電郵</label>
+            <input type="email" name="email" class="ip_normal"><br>
+            <label for="memBD">生日</label>
+            <input type="date" name="memBD" class="ip_normal"><br>
+            <label for="memPhone">手機</label>
+            <input type="text" name="memPhone" class="ip_normal"><br>
+            <label for="Addres">地址</label>
+            <input type="text" name="Addres" class="ip_normal"><br>
 
+        </form>
+    </div>
+    </div>
+
+
+
+    <!-- footer  -->
     @@include('layout/footer.html')
+
+    <!-- script -->
+    @@include('layout/script.html')
 </body>
+
 </html>

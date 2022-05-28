@@ -1,129 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    @@include('layout/meta.html', { "title" : "Project_Inner" })
-  </head>
-  <body>
-    @@include('layout/header.html')
-    <div class="project_inner_banner me_8">
-      <div class="project_inner_banner_img">
-        <img src="./images/projectMain_pic6.jpg" alt="" />
-      </div>
-      <div class="project_inner_banner_title ps_2 pe_2">
-        <h1 class="s3 font_w9">INDUSTRIAL REVOLUTION</h1>
-      </div>
+
+<head>
+  <meta charset="UTF-8" />
+  @@include('layout/meta.html', { "title" : "Project_Inner" })
+</head>
+
+<body>
+  @@include('layout/header.html')
+  <div class="project_inner_banner me_8">
+    <div class="project_inner_banner_img">
+      <img src="./images/projectMain_pic6.jpg" alt="" />
     </div>
-    <div class="projectinner_content ms_8 me_8 pe_8 ps_8">
-      <div class="projectinner_content_img"></div>
-      <div class="projectinner_content_img2"></div>
-      <div class="projectinner_word">
-        <h2 class="h1 me_8">quaerat amet</h2>
-        <p class="h3">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
-          consequuntur in, sunt odit quaerat amet beatae sapiente laboriosam
-          quos iure placeat aliquid, veritatis perspiciatis cupiditate maiores
-          vitae repudiandae ratione? Incidunt.
-        </p>
-        <h2 class="h1 ms_8 me_8">quaerat amet</h2>
-      </div>
-      <div class="projectinner_word2">
-        <p class="h3">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
-          consequuntur in, sunt odit quaerat amet beatae sapiente laboriosam
-          quos iure placeat aliquid, veritatis perspiciatis cupiditate maiores
-          vitae repudiandae ratione? Incidunt.
-        </p>
-      </div>
+    <div class="project_inner_banner_title ps_2 pe_2">
+      <h1 class="s3 font_w9">INDUSTRIAL REVOLUTION</h1>
     </div>
-    <h2 class="s3 project_lamp_title">LAMP USING</h2>
-    <div class="project_lamp me_8 containerALL">
-      <div class="project_lamp_first">
-        <img src="./images/aboutus.lamp5.png" alt="" />
-        <h3 class="h2 pl_1 pr_1">Super Lamp</h3>
-        <p class="h5 ms_2 pl_1 pr_1">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
-          aspernatur perferendis explicabo. Inventore dignissimos adipisci magni
-          sequi eligendi impedit quidem hic! Fugiat eveniet accusantium dolores
-          quae a aspernatur nesciunt hic.
-        </p>
-      </div>
-      <div class="project_lamp_second">
-        <img src="./images/aboutus.lamp10.png" alt="" />
-        <h3 class="h2 pl_1 pr_1">Super Lamp</h3>
-        <p class="h5 ms_2 pl_1 pr_1">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis quia
-          obcaecati ut adipisci deserunt est quas aliquam autem perferendis a,
-          officia earum reprehenderit aliquid iste, dolorum iure dignissimos!
-          Quam, fuga!
-        </p>
-      </div>
-      <div class="project_lamp_third">
-        <img src="./images/aboutus.lamp4.png" alt="" />
-        <h3 class="h2 pl_1 pr_1">Super Lamp</h3>
-        <p class="h5 ms_2 pl_1 pr_1">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Est quae
-          provident blanditiis esse omnis! Eum inventore temporibus beatae
-          consequuntur magnam, alias, non odio adipisci quisquam nemo, commodi
-          cumque sapiente libero?
-        </p>
-      </div>
+  </div>
+  <div class="projectinner_content ms_8 me_8 pe_8 ps_8">
+    <div class="projectinner_content_img"></div>
+    <div class="projectinner_content_img2"></div>
+    <div class="projectinner_word">
+      <h2 class="h1 me_8">quaerat amet</h2>
+      <p class="h3">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
+        consequuntur in, sunt odit quaerat amet beatae sapiente laboriosam
+        quos iure placeat aliquid, veritatis perspiciatis cupiditate maiores
+        vitae repudiandae ratione? Incidunt.
+      </p>
+      <h2 class="h1 ms_8 me_8">quaerat amet</h2>
     </div>
-    <h2 class="s3 project_lamp_title">GREAT DESIGNER</h2>
-    <div class="projectinner_designer ms_8 containerALL">
-      <div class="projectinner_designer_pic">
-        <img src="./images/designer6.jpg" alt="" />
-      </div>
-      <div class="projectinner_designer_word">
-        <h3 class="h1">James Barry</h3>
-        <p class="h4">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci,
-          repellat! Ea sunt omnis nostrum nulla provident expedita totam nam
-          libero, id autem perspiciatis, qui, error nesciunt! Veritatis, porro!
-          Dignissimos, adipisci!
-        </p>
-      </div>
+    <div class="projectinner_word2">
+      <p class="h3">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
+        consequuntur in, sunt odit quaerat amet beatae sapiente laboriosam
+        quos iure placeat aliquid, veritatis perspiciatis cupiditate maiores
+        vitae repudiandae ratione? Incidunt.
+      </p>
     </div>
-    <script>
-      new Vue({
-        el: ".project_inner_banner",
-        data: {},
-        mounted: function () {
-          this.gsapProjInnerbanner();
-        },
-        methods: {
-          gsapProjInnerbanner() {
-            gsap.registerPlugin(ScrollTrigger);
-            const tl = gsap.timeline();
-            gsap.from(".project_inner_banner_title h1", {
-              scrollTrigger: {
-                trigger: ".project_inner_banner_title",
-                start: "200 center",
-                end: "800 center",
-                scrub: 1,
-                pin: ".project_inner_banner",
-                // markers: true,
-              },
-              x: -1800,
-            });
-            tl.to(".project_inner_banner_title", {
-              rotation: 90,
-              transformOrigin: "left bottom",
-            });
-            ScrollTrigger.create({
-              animation: tl,
+  </div>
+  <h2 class="s3 project_lamp_title">LAMP USING</h2>
+  <div class="project_lamp me_8 containerALL">
+    <div class="project_lamp_first">
+      <img src="./images/aboutus.lamp5.png" alt="" />
+      <h3 class="h2 pl_1 pr_1">Super Lamp</h3>
+      <p class="h5 ms_2 pl_1 pr_1">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
+        aspernatur perferendis explicabo. Inventore dignissimos adipisci magni
+        sequi eligendi impedit quidem hic! Fugiat eveniet accusantium dolores
+        quae a aspernatur nesciunt hic.
+      </p>
+    </div>
+    <div class="project_lamp_second">
+      <img src="./images/aboutus.lamp10.png" alt="" />
+      <h3 class="h2 pl_1 pr_1">Super Lamp</h3>
+      <p class="h5 ms_2 pl_1 pr_1">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis quia
+        obcaecati ut adipisci deserunt est quas aliquam autem perferendis a,
+        officia earum reprehenderit aliquid iste, dolorum iure dignissimos!
+        Quam, fuga!
+      </p>
+    </div>
+    <div class="project_lamp_third">
+      <img src="./images/aboutus.lamp4.png" alt="" />
+      <h3 class="h2 pl_1 pr_1">Super Lamp</h3>
+      <p class="h5 ms_2 pl_1 pr_1">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Est quae
+        provident blanditiis esse omnis! Eum inventore temporibus beatae
+        consequuntur magnam, alias, non odio adipisci quisquam nemo, commodi
+        cumque sapiente libero?
+      </p>
+    </div>
+  </div>
+  <h2 class="s3 project_lamp_title">GREAT DESIGNER</h2>
+  <div class="projectinner_designer ms_8 containerALL">
+    <div class="projectinner_designer_pic">
+      <img src="./images/designer6.jpg" alt="" />
+    </div>
+    <div class="projectinner_designer_word">
+      <h3 class="h1">James Barry</h3>
+      <p class="h4">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci,
+        repellat! Ea sunt omnis nostrum nulla provident expedita totam nam
+        libero, id autem perspiciatis, qui, error nesciunt! Veritatis, porro!
+        Dignissimos, adipisci!
+      </p>
+    </div>
+  </div>
+  <script>
+    new Vue({
+      el: ".project_inner_banner",
+      data: {},
+      mounted: function () {
+        this.gsapProjInnerbanner();
+      },
+      methods: {
+        gsapProjInnerbanner() {
+          gsap.registerPlugin(ScrollTrigger);
+          const tl = gsap.timeline();
+          gsap.from(".project_inner_banner_title h1", {
+            scrollTrigger: {
               trigger: ".project_inner_banner_title",
-              start: "800 center",
-              end: "600 top",
-              scrub: 2,
-              //pin: true,
-              markers: true,
-              //anticipatePin: 1,
-            });
-          },
+              start: "200 center",
+              end: "800 center",
+              scrub: 1,
+              pin: ".project_inner_banner",
+              // markers: true,
+            },
+            x: -1800,
+          });
+          tl.to(".project_inner_banner_title", {
+            rotation: 90,
+            transformOrigin: "left bottom",
+          });
+          ScrollTrigger.create({
+            animation: tl,
+            trigger: ".project_inner_banner_title",
+            start: "800 center",
+            end: "600 top",
+            scrub: 2,
+            //pin: true,
+            markers: true,
+            //anticipatePin: 1,
+          });
         },
-      });
-    </script>
-    @@include('layout/footer.html')
-  </body>
+      },
+    });
+  </script>
+  <!-- footer  -->
+  @@include('layout/footer.html')
+
+  <!-- script -->
+  @@include('layout/script.html')
+</body>
+
 </html>
