@@ -2,18 +2,19 @@
 .turn_on {
     color: #666;
     background-color: rgba(0, 0, 0, 0);
-    border: 0;
-    font-size: 20px;
+    border: 1px solid rgba(0,0,0,0);
+    font-size: 26px;
     cursor: pointer;
     transition: 0.2s all ease-in-out;
     position: absolute;
-    top: 20%;
-    right: 10%;
+    bottom: 30%;
+    right: 50%;
     z-index: 1000;
     opacity: 1;
     transition: 0.3s all ease-in-out;
     &:hover {
         color: #fff;
+        border-bottom: 1px solid #fff;
     }
 }
 .wrapper {
@@ -32,15 +33,12 @@
     overflow: hidden;
     z-index: 999;
     .wrapper_title {
-        font-size: 100px;
         font-weight: 900;
         color: #fff;
         cursor: default;
     }
     .wrapper_text {
         color: #fff;
-        font-size: 30px;
-        font-weight: 900;
         margin-top: 25px;
         text-align: center;
         line-height: 1.2;
@@ -82,7 +80,7 @@ html.fixWindow {
     }
 }
 .swiper {
-    max-height: 100vh;
+    max-height: 93vh;
     position: relative;
     .swiper-wrapper {
         .swiper-slide {
