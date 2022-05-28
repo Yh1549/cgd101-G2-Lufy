@@ -62,7 +62,7 @@
                         `,
                 })
                 new Vue({   // Vue instance
-                    el: '#project_wrap',
+                    el: '#project_wrap',                    
                     data: {
                         projectObject: [
                             {
@@ -88,7 +88,12 @@
                             },
                         ],
                     },     //變數放這裡!            
-                    methods: {},  // 函數大部分放這裡!            
+                    mounted: function () {
+                        this.gsapProject();
+                    },
+                    methods: {
+                        gsapProject(){},
+                    },  // 函數大部分放這裡!            
                     computed: {},
                     components: {},
                 });
