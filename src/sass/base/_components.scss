@@ -4,16 +4,16 @@
 //丟在body下一層的div包全部元素 等於是新增一個div class="containerALL"當作body
 //控制頁面最大寬度
 .containerALL {
-    max-width: 1410px;
+  max-width: 1410px;
+  margin: 0 auto;
+  @include t {
+    max-width: 678px;
     margin: 0 auto;
-    @include t {
-        max-width: 678px;
-        margin: 0 auto;
-    }
-    @include m {
-        max-width: 290px;
-        margin: 0 auto;
-    }
+  }
+  @include m {
+    max-width: 290px;
+    margin: 0 auto;
+  }
 }
 
 //----字體大小class-----
@@ -21,130 +21,130 @@
 //待修正
 //---特殊字
 .s1 {
-    font-family: $fontdeco;
-    font-size: round($s1);
-    line-height: round($font_size*9.625);
+  font-family: $fontdeco;
+  font-size: round($s1);
+  line-height: round($font_size * 9.625);
 }
 
 .s2 {
-    font-family: $fontdeco;
-    font-size: round($s2);
-    line-height: round($font_size*7.5625);
+  font-family: $fontdeco;
+  font-size: round($s2);
+  line-height: round($font_size * 7.5625);
 }
 
 .s3 {
-    font-family: $fontdeco;
-    font-size: round($s3);
-    line-height: round($font_size*6.625);
+  font-family: $fontdeco;
+  font-size: round($s3);
+  line-height: round($font_size * 6.625);
 }
 
 //---標題
 .h1 {
-    font-family: $fontcontent;
-    font-size: round($font_size*1.5);
-    line-height: round($font_size*2.25);
+  font-family: $fontcontent;
+  font-size: round($font_size * 1.5);
+  line-height: round($font_size * 2.25);
 }
 
 .h2 {
-    font-family: $fontcontent;
-    font-size: round($font_size*1.25);
-    line-height: round($font_size*1.875);
+  font-family: $fontcontent;
+  font-size: round($font_size * 1.25);
+  line-height: round($font_size * 1.875);
 }
 
 .h3 {
-    font-family: $fontcontent;
-    font-size: round($font_size*1.125);
-    line-height: round($font_size*1.6875);
+  font-family: $fontcontent;
+  font-size: round($font_size * 1.125);
+  line-height: round($font_size * 1.6875);
 }
 
 .h4 {
-    font-family: $fontcontent;
-    font-size: round($font_size*1);
-    line-height: round($font_size*1.5);
+  font-family: $fontcontent;
+  font-size: round($font_size * 1);
+  line-height: round($font_size * 1.5);
 }
 
 .h5 {
-    font-family: $fontcontent;
-    font-size: round($font_size*0.875);
-    line-height: round($font_size*1.3125);
+  font-family: $fontcontent;
+  font-size: round($font_size * 0.875);
+  line-height: round($font_size * 1.3125);
 }
 
 .h6 {
-    font-family: $fontcontent;
-    font-size: round($font_size*0.75);
-    line-height: round($font_size*1.125);
+  font-family: $fontcontent;
+  font-size: round($font_size * 0.75);
+  line-height: round($font_size * 1.125);
 }
 
 //---內文
 .p1 {
-    font-family: $fontcontent;
-    font-size: round($font_size*1);
-    line-height: round($font_size*1.75);
+  font-family: $fontcontent;
+  font-size: round($font_size * 1);
+  line-height: round($font_size * 1.75);
 }
 
 .p2 {
-    font-family: $fontcontent;
-    font-size: round($font_size*0.875);
-    line-height: round($font_size*1.3125);
+  font-family: $fontcontent;
+  font-size: round($font_size * 0.875);
+  line-height: round($font_size * 1.3125);
 }
 
 .p3 {
-    font-family: $fontcontent;
-    font-size: round($font_size*0.75);
-    line-height: round($font_size*1.4);
+  font-family: $fontcontent;
+  font-size: round($font_size * 0.75);
+  line-height: round($font_size * 1.4);
 }
 
 //字體
 .fontdeco {
-    font-family: $fontdeco;
+  font-family: $fontdeco;
 }
 
 .fontcontent {
-    font-family: $fontcontent;
+  font-family: $fontcontent;
 }
 
 //字體的粗細--inter字體--
 .font_w3 {
-    font-weight: 300;
+  font-weight: 300;
 }
 
 .font_w5 {
-    font-weight: 500;
+  font-weight: 500;
 }
 
 .font_w7 {
-    font-weight: 700;
+  font-weight: 700;
 }
 
 .font_w9 {
-    font-weight: 900;
+  font-weight: 900;
 }
 
 //字體粗細--playfair字體--
 .fontdeco_w4 {
-    font-weight: 400;
+  font-weight: 400;
 }
 
 .fontdeco_w5 {
-    font-weight: 500;
+  font-weight: 500;
 }
 
 .fontdeco_w7 {
-    font-weight: 700;
+  font-weight: 700;
 }
 
 .fontdeco_w9 {
-    font-weight: 900;
+  font-weight: 900;
 }
 
 //斜體---
 .font_i {
-    font-style: italic;
+  font-style: italic;
 }
 
 //--字體置中--
 .text_center {
-    text-align: center;
+  text-align: center;
 }
 
 //--------------------
@@ -154,32 +154,32 @@
 //範例-->.ms_8會是{margin-top:128px} 所以你套ms_8這個class 你的元素就會有margin-top 128px
 //ps就是padding-top
 @for $i from 1 through 8 {
-    // margin
-    .ms_#{$i} {
-        margin-top: $i * 16px;
-    }
-    .me_#{$i} {
-        margin-bottom: $i * 16px;
-    }
-    .ml_#{$i} {
-        margin-left: $i * 16px;
-    }
-    .mr_#{$i} {
-        margin-right: $i * 16px;
-    }
-    //padding
-    .ps_#{$i} {
-        padding-top: $i * 16px;
-    }
-    .pe_#{$i} {
-        padding-bottom: $i * 16px;
-    }
-    .pl_#{$i} {
-        padding-left: $i * 16px;
-    }
-    .pr_#{$i} {
-        padding-right: $i * 16px;
-    }
+  // margin
+  .ms_#{$i} {
+    margin-top: $i * 16px;
+  }
+  .me_#{$i} {
+    margin-bottom: $i * 16px;
+  }
+  .ml_#{$i} {
+    margin-left: $i * 16px;
+  }
+  .mr_#{$i} {
+    margin-right: $i * 16px;
+  }
+  //padding
+  .ps_#{$i} {
+    padding-top: $i * 16px;
+  }
+  .pe_#{$i} {
+    padding-bottom: $i * 16px;
+  }
+  .pl_#{$i} {
+    padding-left: $i * 16px;
+  }
+  .pr_#{$i} {
+    padding-right: $i * 16px;
+  }
 }
 
 //----按鈕樣式-------------------------------------
@@ -192,194 +192,228 @@ $btn_trans: 0.3s; //transition秒數控制 請勿使用此變數
 //class名稱總覽(05/19)----<btn_small>,<btn_normal>,<btn_large> //<btn_ol_small>,<btn_ol_nromal>,<btn_ol_large>
 //按鈕<小>
 .btn_small {
-    height: round($btn_base * 5px);
-    padding: round($btn_base * 1px) round($btn_base * 5px);
-    text-align: center;
-    font-size: round($font_size * 1); //h4
-    font-family: $fontcontent;
-    //--顏色--
-    background-color: $primary_100;
-    // background: linear-gradient(93.79deg, #0A142F -30.94%, #9B6D53 105.22%);
-    color: $fontcolor_10;
-    //-------
-    border-style: none;
-    transition: $btn_trans;
-    border-radius: $btn_br;
-    cursor: pointer;
-    &:hover {
-        background-color: $primary_dark;
-    }
+  height: round($btn_base * 5px);
+  padding: round($btn_base * 1px) round($btn_base * 5px);
+  text-align: center;
+  font-size: round($font_size * 1); //h4
+  font-family: $fontcontent;
+  //--顏色--
+  background-color: $primary_100;
+  // background: linear-gradient(93.79deg, #0A142F -30.94%, #9B6D53 105.22%);
+  color: $fontcolor_10;
+  //-------
+  border-style: none;
+  transition: $btn_trans;
+  border-radius: $btn_br;
+  cursor: pointer;
+  &:hover {
+    background-color: $primary_dark;
+  }
 }
 
 //按鈕<中>
 .btn_normal {
-    height: round($btn_base * 5px);
-    padding: round($btn_base * 1px) round($btn_base * 7px);
-    text-align: center;
-    font-size: round($font_size * 1);
-    font-family: $fontcontent;
-    //--顏色--
-    background-color: $primary_100;
-    color: $fontcolor_10;
-    //-------
-    border-style: none;
-    transition: $btn_trans;
-    border-radius: $btn_br;
-    cursor: pointer;
-    &:hover {
-        background-color: $primary_dark;
-    }
+  height: round($btn_base * 5px);
+  padding: round($btn_base * 1px) round($btn_base * 7px);
+  text-align: center;
+  font-size: round($font_size * 1);
+  font-family: $fontcontent;
+  //--顏色--
+  background-color: $primary_100;
+  color: $fontcolor_10;
+  //-------
+  border-style: none;
+  transition: $btn_trans;
+  border-radius: $btn_br;
+  cursor: pointer;
+  &:hover {
+    background-color: $primary_dark;
+  }
 }
 
 //按鈕<大>
 .btn_large {
-    height: round($btn_base * 5px);
-    padding: round($btn_base * 1px) round($btn_base * 9px);
-    text-align: center;
-    font-size: round($font_size * 1);
-    font-family: $fontcontent;
-    //--顏色--
-    background-color: $primary_100;
-    color: $fontcolor_10;
-    //-------
-    border-style: none;
-    transition: $btn_trans;
-    border-radius: $btn_br;
-    cursor: pointer;
-    &:hover {
-        background-color: $primary_dark;
-    }
+  height: round($btn_base * 5px);
+  padding: round($btn_base * 1px) round($btn_base * 9px);
+  text-align: center;
+  font-size: round($font_size * 1);
+  font-family: $fontcontent;
+  //--顏色--
+  background-color: $primary_100;
+  color: $fontcolor_10;
+  //-------
+  border-style: none;
+  transition: $btn_trans;
+  border-radius: $btn_br;
+  cursor: pointer;
+  &:hover {
+    background-color: $primary_dark;
+  }
 }
 
 //---純框線款<outline>---
 .btn_ol_small {
-    //小
-    height: round($btn_base * 5px);
-    padding: round($btn_base * 1px) round($btn_base * 5px);
-    text-align: center;
-    font-size: round($font_size * 1); //h4
-    font-family: $fontcontent;
-    //--顏色--
-    background-color: $white;
-    color: $fontcolor_dark;
-    //-------
-    border: 2px $fontcolor_50 solid;
-    transition: $btn_trans;
-    border-radius: $btn_br;
-    cursor: pointer;
-    &:hover {
-        background-color: $primary_50;
-    }
+  //小
+  height: round($btn_base * 5px);
+  padding: round($btn_base * 1px) round($btn_base * 5px);
+  text-align: center;
+  font-size: round($font_size * 1); //h4
+  font-family: $fontcontent;
+  //--顏色--
+  background-color: $white;
+  color: $fontcolor_dark;
+  //-------
+  border: 2px $fontcolor_50 solid;
+  transition: $btn_trans;
+  border-radius: $btn_br;
+  cursor: pointer;
+  &:hover {
+    background-color: $primary_50;
+  }
 }
 
 .btn_ol_normal {
-    //中
-    height: round($btn_base * 5px);
-    padding: round($btn_base * 1px) round($btn_base * 7px);
-    text-align: center;
-    font-size: round($font_size * 1); //h4
-    font-family: $fontcontent;
-    //--顏色--
-    background-color: $white;
-    color: $fontcolor_dark;
-    //-------
-    border: 2px $fontcolor_50 solid;
-    transition: $btn_trans;
-    border-radius: $btn_br;
-    cursor: pointer;
-    &:hover {
-        background-color: $primary_50;
-    }
+  //中
+  height: round($btn_base * 5px);
+  padding: round($btn_base * 1px) round($btn_base * 7px);
+  text-align: center;
+  font-size: round($font_size * 1); //h4
+  font-family: $fontcontent;
+  //--顏色--
+  background-color: $white;
+  color: $fontcolor_dark;
+  //-------
+  border: 2px $fontcolor_50 solid;
+  transition: $btn_trans;
+  border-radius: $btn_br;
+  cursor: pointer;
+  &:hover {
+    background-color: $primary_50;
+  }
 }
 
 .btn_ol_large {
-    //大
-    height: round($btn_base * 5px);
-    padding: round($btn_base * 1px) round($btn_base * 9px);
-    text-align: center;
-    font-size: round($font_size * 1); //h4
-    font-family: $fontcontent;
-    //--顏色--
-    background-color: $white;
-    color: $fontcolor_dark;
-    //-------
-    border: 2px $fontcolor_50 solid;
-    transition: $btn_trans;
-    border-radius: $btn_br;
-    cursor: pointer;
-    &:hover {
-        background-color: $primary_50;
-    }
+  //大
+  height: round($btn_base * 5px);
+  padding: round($btn_base * 1px) round($btn_base * 9px);
+  text-align: center;
+  font-size: round($font_size * 1); //h4
+  font-family: $fontcontent;
+  //--顏色--
+  background-color: $white;
+  color: $fontcolor_dark;
+  //-------
+  border: 2px $fontcolor_50 solid;
+  transition: $btn_trans;
+  border-radius: $btn_br;
+  cursor: pointer;
+  &:hover {
+    background-color: $primary_50;
+  }
 }
 
 //------input------
 //----input控制----
-$ip_base: 12; //input計算基準 請勿使用此變數
+$ip_base: 8; //input計算基準 請勿使用此變數
 $ip_shadow: 12px; //input shadow控制 請勿使用此變數
 $ip_br: 12px; //border radius 控制 請勿使用此變數
 //-----------------
 //class名稱總覽--><ip_small>,<ip_normal>,<ip_large>
 //-----------------
 .ip_small {
-    //小
-    height: round($ip_base * 2px);
-    padding: round($ip_base * 1px) round($ip_base * 2px);
-    //-------------
-    border: 2px solid $secondary_30;
-    border-radius: $ip_br;
-    //--------------
-    font-size: $font_size; //16px
-    font-family: $fontcontent;
-    color: $fontcolor_dark;
-    //--------------
-    &:focus {
-        transition: 100ms;
-        box-shadow: 0 $ip_shadow $ip_shadow * 3 0 $primary_30;
-        border: solid 2px $primary_100;
-        outline: none;
-    }
+  //小
+  height: round($ip_base * 2px);
+  padding: round($ip_base * 1px) round($ip_base * 2px);
+  //-------------
+  border: 2px solid $secondary_30;
+  border-radius: $ip_br;
+  //--------------
+  font-size: $font_size; //16px
+  font-family: $fontcontent;
+  color: $fontcolor_dark;
+  //--------------
+  &:focus {
+    transition: 100ms;
+    box-shadow: 0 $ip_shadow $ip_shadow * 3 0 $primary_30;
+    border: solid 2px $primary_100;
+    outline: none;
+  }
 }
 
 .ip_normal {
-    //中
-    height: round($ip_base * 2px);
-    padding: round($ip_base * 1px) round($ip_base * 2px);
-    //-------------
-    border: 2px solid $secondary_30;
-    border-radius: $ip_br;
-    //--------------
-    font-size: $font_size; //16px
-    font-family: $fontcontent;
-    color: $fontcolor_dark;
-    //--------------
-    &:focus {
-        transition: 100ms;
-        box-shadow: 0 $ip_shadow $ip_shadow * 3 0 $primary_30;
-        border: solid 2px $primary_100;
-        outline: none;
-    }
+  //中
+  height: round($ip_base * 2px);
+  padding: round($ip_base * 1px) round($ip_base * 2px);
+  //-------------
+  border: 2px solid $secondary_30;
+  border-radius: $ip_br;
+  //--------------
+  font-size: $font_size; //16px
+  font-family: $fontcontent;
+  color: $fontcolor_dark;
+  //--------------
+  &:focus {
+    transition: 100ms;
+    box-shadow: 0 $ip_shadow $ip_shadow * 3 0 $primary_30;
+    border: solid 2px $primary_100;
+    outline: none;
+  }
 }
 
 .ip_large {
-    //大
-    height: round($ip_base * 2px);
-    padding: round($ip_base * 1px) round($ip_base * 2px);
-    //-------------
-    border: 2px solid $secondary_30;
-    border-radius: $ip_br;
-    //--------------
-    font-size: $font_size; //16px
-    font-family: $fontcontent;
-    color: $fontcolor_dark;
-    //--------------
-    &:focus {
-        transition: 100ms;
-        box-shadow: 0 $ip_shadow $ip_shadow * 3 0 $primary_30;
-        border: solid 2px $primary_100;
-        outline: none;
-    }
+  //大
+  height: round($ip_base * 2px);
+  padding: round($ip_base * 1px) round($ip_base * 2px);
+  //-------------
+  border: 2px solid $secondary_30;
+  border-radius: $ip_br;
+  //--------------
+  font-size: $font_size; //16px
+  font-family: $fontcontent;
+  color: $fontcolor_dark;
+  //--------------
+  &:focus {
+    transition: 100ms;
+    box-shadow: 0 $ip_shadow $ip_shadow * 3 0 $primary_30;
+    border: solid 2px $primary_100;
+    outline: none;
+  }
 }
-
+.ip_sub {
+  text-decoration: none;
+  cursor: pointer;
+  background-color: $primary_100;
+  padding: round($ip_base * 1px) round($ip_base * 1px);
+  //-------------
+  border: none;
+  border-radius: 6px;
+  //--------------
+  font-size: $font_size; //16px
+  font-family: $fontcontent;
+  color: $fontcolor_100;
+  transition: 0.3s;
+  &:hover {
+    color: $white;
+  }
+}
+.ip_reset {
+  text-decoration: none;
+  cursor: pointer;
+  background:none;
+  padding: round($ip_base * 1px) round($ip_base * 1px);
+  //-------------
+  border: 1px solid $fontcolor_100;
+  border-radius: 6px;
+  //--------------
+  font-size: $font_size; //16px
+  font-family: $fontcontent;
+  color: $fontcolor_100;
+  transition: 0.3s;
+  &:hover {
+    color: $white;
+    background-color: $primary_100;
+  }
+}
 //--------------
 //checkbox //0522新增
 //class名稱:cb
@@ -389,31 +423,31 @@ $ip_br: 12px; //border radius 控制 請勿使用此變數
 //  <label for="car">volvo</label> //labe要放在input後 雖然正常來講都是這樣放 但還是提醒一下
 $cb_base: 24px; //大小控制 注意圖片像素大小 會跑版 請勿使用此變數
 .cb {
-    display: none;
-    &+label {
-        //選到label
-        display: flex;
-        align-items: center;
-        font-family: $fontcontent;
-        margin: 10px;
-        &::before {
-            //用label的before做圖片
-            content: "";
-            display: inline-block;
-            margin-right: 15px;
-            width: $cb_base;
-            height: $cb_base;
-            background-image: url(../../images/checkedbox_Unchecked.png);
-        }
+  display: none;
+  & + label {
+    //選到label
+    display: flex;
+    align-items: center;
+    font-family: $fontcontent;
+    margin: 10px;
+    &::before {
+      //用label的before做圖片
+      content: "";
+      display: inline-block;
+      margin-right: 15px;
+      width: $cb_base;
+      height: $cb_base;
+      background-image: url(../../images/checkedbox_Unchecked.png);
     }
-    &:checked {
-        //checked之後換label before的圖片
-        &+label {
-            &::before {
-                background-image: url(../../images/checkbox_checked.png);
-            }
-        }
+  }
+  &:checked {
+    //checked之後換label before的圖片
+    & + label {
+      &::before {
+        background-image: url(../../images/checkbox_checked.png);
+      }
     }
+  }
 }
 
 //radio button //0522新增
@@ -424,31 +458,31 @@ $cb_base: 24px; //大小控制 注意圖片像素大小 會跑版 請勿使用�
 //  <label for="car">volvo</label> //labe要放在input後 雖然正常來講都是這樣放 但還是提醒一下
 $rd_base: 24px; //大小控制 注意圖片像素大小 會跑版 請勿使用此變數
 .rd {
-    display: none;
-    &+label {
-        //選到label
-        display: flex;
-        align-items: center;
-        font-family: $fontcontent;
-        margin: 10px;
-        &::before {
-            //用label的before做圖片
-            content: "";
-            display: inline-block;
-            margin-right: 15px;
-            width: $rd_base;
-            height: $rd_base;
-            background-image: url(../../images/Radio_button_Unchecked.png);
-        }
+  display: none;
+  & + label {
+    //選到label
+    display: flex;
+    align-items: center;
+    font-family: $fontcontent;
+    margin: 10px;
+    &::before {
+      //用label的before做圖片
+      content: "";
+      display: inline-block;
+      margin-right: 15px;
+      width: $rd_base;
+      height: $rd_base;
+      background-image: url(../../images/Radio_button_Unchecked.png);
     }
-    &:checked {
-        //checked之後換label before的圖片
-        &+label {
-            &::before {
-                background-image: url(../../images/Radio_button_checked.png);
-            }
-        }
+  }
+  &:checked {
+    //checked之後換label before的圖片
+    & + label {
+      &::before {
+        background-image: url(../../images/Radio_button_checked.png);
+      }
     }
+  }
 }
 
 //以下未完成-------------------------------
@@ -459,11 +493,11 @@ $rd_base: 24px; //大小控制 注意圖片像素大小 會跑版 請勿使用�
 //待修正 樣式處理好像要用到js 要先用也是可以
 $sel_base: 16;
 .select {
-    min-width: round($sel_base * 15px);
-    max-width: 100%;
-    padding: round($sel_base * 1px) round($sel_base * 1px);
-    font-size: $font_size;
-    font-family: $fontcontent;
-    // -webkit-appearance: none;
-    // appearance: none;
+  min-width: round($sel_base * 15px);
+  max-width: 100%;
+  padding: round($sel_base * 1px) round($sel_base * 1px);
+  font-size: $font_size;
+  font-family: $fontcontent;
+  // -webkit-appearance: none;
+  // appearance: none;
 }

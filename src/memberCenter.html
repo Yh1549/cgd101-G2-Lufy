@@ -1,51 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     @@include('layout/meta.html', { "title" : "member" })
-</head>
+  </head>
 
-<body>
+  <body>
     @@include('layout/header.html')
     <div class="member_container">
-        <div class="member_sidemenu">
-            <h1>會員中心</h1>
-            <ul>
-                <li>會員資料</li>
-                <li>訂單列表</li>
-                <li>私藏列表</li>
-                <li>優惠券列表</li>
-                <li>修改密碼</li>
-                <li>帳號登出</li>
-            </ul>
+      <div class="member_sidemenu">
+        <h1 class="h1 font_w7">Member Center</h1>
+        <ul class="h3 ul">
+          <li>Your Profiles</li>
+          <li>Your Orders</li>
+          <li>Your Wishlist</li>
+          <li>Redeem List</li>
+          <li>Change Password</li>
+          <li>Log out</li>
+        </ul>
+      </div>
+      <div class="memberform_content ms_4 me_4">
+        <div id="member_welcome">
+          <h1 class="s3">Welcome!</h1>
         </div>
 
+        <div id="member_center_profiles" class="memberform member_hide">
+          <h1 class="s3 fontcontent me_1 ml_4">Your Profiles</h1>
+          <form action="" class="membercenter_form">
+            <div class="memberform_label">
+              <label for="memName">Name : </label>
+              <label for="email">Email : </label>
+              <label for="memBD">BirthDay : </label>
+              <label for="memPhone">Phone : </label>
+              <label for="Address">Address : </label>
+            </div>
+            <div class="memberform_input">
+              <input
+                type="text"
+                name="memName"
+                id="memName"
+                class="ip_normal"
+              /><br />
+              <input
+                type="email"
+                name="email"
+                id="email"
+                class="ip_normal"
+              /><br />
+              <input
+                type="date"
+                name="memBD"
+                id="memBD"
+                class="ip_normal"
+              /><br />
+              <input
+                type="text"
+                name="memPhone"
+                id="memPhone"
+                class="ip_normal"
+              /><br />
+              <input
+                type="text"
+                name="Address"
+                id="Address"
+                class="ip_normal"
+              /><br />
+              <input type="submit" class="ip_sub" value="Save Change" />
+              <input type="reset" class="ip_reset" value="Reset" />
+            </div>
+            <div class="member_photo">
+              <div>
+                <img src="./images/designer6.jpg" alt="" />
+                <label for="memphoto" class="h1 font_w7">Upload</label>
+              </div>
+              <input type="file" name="memphoto" id="memphoto" />
+            </div>
+          </form>
+        </div>
+        <!-- 訂單列表 -->
+        <div id="member_center_orders" class="memberform member_hide">
+          <h1 class="s3 fontcontent me_4 ml_4">Your Orders</h1>
+          <table class="memtable h1">
+            <thead>
+              <tr>
+                <th>Order Number</th>
+                <th>Order Date</th>
+                <th>Order Status</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+                <orders v-for="ordersTemplate in member_orders_obj" v-bind="ordersTemplate">
+                </orders>
+            <tr>
+                <td>3</td>
+                <td>12/2/22</td>
+                <td>await</td>
+                <td>464140346</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>12/2/22</td>
+                <td>await</td>
+                <td>464140346</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>12/2/22</td>
+                <td>await</td>
+                <td>464140346</td>
+              </tr>
+            </tbody>
+          </table>
+          <script>
+            let ordersTemplate = Vue.component("orders", {
+              props: ["orderNum", "orderDate", "orderStatus", "orderTotal"],
+              template: `<tr>
+                      <td>{{orderNum}}</td>
+                      <td>{{orderDate}}</td>
+                      <td>{{orderStatus}}</td>
+                      <td>{{orderTotal}}</td>
+                      </tr>
+                      `,
+            });
+            new Vue({
+              el: ".member_container",
+              data: {
+                member_orders_obj: [
+                  {
+                    orderNum: `1`,
+                    orderDate: `2022/04/21`,
+                    orderStatus: `waiting for confirm`,
+                    orderTotal: `5656500`,
+                  },
+                  {
+                    orderNum: `2`,
+                    orderDate: `2022/04/21`,
+                    orderStatus: `waiting for confirm`,
+                    orderTotal: `5656500`,
+                  },
+                ],
+              },
+            });
+          </script>
+        </div>
 
-        <h1>Member Settings</h1>
-        <form action="" class="membercenter_form">
-            <label for="memName">姓名</label>
-            <input type="text" name="memName" class="ip_normal"><br>
-            <label for="email">電郵</label>
-            <input type="email" name="email" class="ip_normal"><br>
-            <label for="memBD">生日</label>
-            <input type="date" name="memBD" class="ip_normal"><br>
-            <label for="memPhone">手機</label>
-            <input type="text" name="memPhone" class="ip_normal"><br>
-            <label for="Addres">地址</label>
-            <input type="text" name="Addres" class="ip_normal"><br>
+        <!-- 私藏列表 -->
+        <div id="member_center_wishlist" class="memberform member_hide">
+          <h1 class="h1">Your Wishlist</h1>
+        </div>
 
-        </form>
+        <!-- 優惠券 -->
+        <div id="member_center_redeem" class="memberform member_hide">
+          <h1 class="h1">Redeem List</h1>
+        </div>
+
+        <!-- 改密碼 -->
+        <div id="member_center_changepassword" class="memberform member_hide">
+          <h1 class="h1">Change Password</h1>
+        </div>
+        <!-- 登出 -->
+        <div id="member_center_logout" class="memberform member_hide">
+          <h1 class="h1">Log out</h1>
+        </div>
+      </div>
     </div>
-    </div>
+    
+    <script>
+      let changeTab = (e) => {
+        // console.log(e.target);
+        let memberform = document.querySelectorAll(".memberform");
+        for (
+          let i = 0;
+          i < document.querySelector(".ul").children.length;
+          i++
+        ) {
+          if (e.target == document.querySelector(".ul").children[i]) {
+            memberform[i].classList.remove("member_hide");
+            document
+              .querySelector("#member_welcome")
+              .classList.add("member_hide");
+          } else if (e.target == document.querySelector(".ul")) {
+            document
+              .querySelector("#member_welcome")
+              .classList.remove("member_hide");
+            memberform[i].classList.add("member_hide");
+          } else {
+            memberform[i].classList.add("member_hide");
+          }
+        }
+      };
+      init = () => {
+        let ul = document.querySelector(".ul");
+        console.log(ul.children[0]);
+        ul.addEventListener("click", changeTab, false);
+      };
 
-
-
+      window.addEventListener("load", init, false);
+    </script>
     <!-- footer  -->
     @@include('layout/footer.html')
 
     <!-- script -->
     @@include('layout/script.html')
-</body>
-
+  </body>
 </html>

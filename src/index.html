@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     @@include('layout/meta.html', {
-        "title" : "Light Up For You"
+    "title" : "Light Up For You"
     })
 </head>
+
 <body>
     <!-- header -->
     @@include('layout/header.html')
@@ -14,7 +16,8 @@
     <section class="first">
         <div class="wrapper">
             <div class="wrapper_title s3 font_i">Light Up For You</div>
-            <div class="wrapper_text h4">We firmly believe that "light" can bring more beautiful value to life, which is our original intention.
+            <div class="wrapper_text h4">We firmly believe that "light" can bring more beautiful value to life, which is
+                our original intention.
             </div>
             <div class="light"></div>
         </div>
@@ -39,7 +42,7 @@
                 </div>
             </div>
         </section>
-    </section>    
+    </section>
     <!-- 專案實例 -->
     <section class="index_project">
         <div class="index_project_wrap">
@@ -50,13 +53,13 @@
                     <h2 class="s1 font_i fontdeco_w9 me_4">LIGHT</h2>
                     <h2 class="s2 font_i me_4">your LIFE</h2>
                 </div>
-                
+
             </div>
             <div id="project_wrap" class="project_wrap">
                 <project-card v-for="project in projectObject" v-bind="project" />
             </div>
             <script>
-                let project  = Vue.component('project-card', {
+                let project = Vue.component('project-card', {
                     props: ['projectImg', 'projectName', 'discription', 'designerName', 'projectInfoLink'],
                     template: `
                         <div class="project_card">
@@ -71,7 +74,7 @@
                         `,
                 })
                 new Vue({   // Vue instance
-                    el: '#project_wrap',                    
+                    el: '#project_wrap',
                     data: {
                         projectObject: [
                             {
@@ -101,7 +104,7 @@
                         this.gsapProject();
                     },
                     methods: {
-                        gsapProject(){},
+                        gsapProject() { },
                     },  // 函數大部分放這裡!            
                     computed: {},
                     components: {},
@@ -125,47 +128,45 @@
             </div>
             <script>
                 let category = Vue.component('product-category', {
-                        props: ['categoryLink', 'categoryImage', 'categoryName'],
-                        template: `
-                            <div class="category">
+                    props: ['categoryLink', 'categoryImage', 'categoryName'],
+                    template: `<div class="category">
                                 <a :href="categoryLink">
                                     <img :src="categoryImage" :alt="categoryName">
                                     <p class="p1">{{categoryName}}</p>
                                 </a>
-                            </div>
-                        `,
+                            </div>`,
                 })
                 new Vue({
                     el: '#product_category',
                     data: {
                         categoryObject: [
                             {
-                                categoryLink: `./productpages/productFloorLamps.html`,
+                                categoryLink: `productFloorLamps.html`,
                                 categoryImage: `./images/product_category_floor_lamps.webp`,
                                 categoryName: `Floor Lamps`
                             },
                             {
-                                categoryLink: `./productpages/productPendant.html`,
+                                categoryLink: `productPendant.html`,
                                 categoryImage: `./images/product_category_pendant.webp`,
                                 categoryName: `Pendant`
                             },
                             {
-                                categoryLink: `./productpages/productHomeAccent.html`,
+                                categoryLink: `productHomeAccent.html`,
                                 categoryImage: `./images/product_category_home_accent.webp`,
                                 categoryName: `Home Accent`
                             },
                             {
-                                categoryLink: `./productpages/productTableLamps.html`,
+                                categoryLink: `productTableLamps.html`,
                                 categoryImage: `./images/product_category_table_lamps.webp`,
                                 categoryName: `Table Lamps`
                             },
                             {
-                                categoryLink: `./productpages/productWallLamps.html`,
+                                categoryLink: `productWallLamps.html`,
                                 categoryImage: `./images/product_category_wall_lamps.webp`,
                                 categoryName: `Wall Lamps`
                             },
                             {
-                                categoryLink: `./productpages/productChandaliers.html`,
+                                categoryLink: `productChandaliers.html`,
                                 categoryImage: `./images/product_category_chandaliers.webp`,
                                 categoryName: `Chandaliers`
                             },
@@ -176,7 +177,7 @@
             <div class="product_grid">
                 <div class="item">
                     <div class="item__details">
-                        【商品名稱】
+                        <a href="./cartEdit.html">【商品名稱】</a>
                         <span class="material-icons">
                             favorite
                         </span>
@@ -231,17 +232,26 @@
                     </div>
                 </div>
             </div>
-            <!-- <div class="test">
-                display:grid;<br>
-                grid-gap:30px;<br>
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));//自動填滿整個容器。<br>
-                grid-auto-rows: 240px; //溢出的項目，高要 240px<br>
-                grid-auto-flow: row dense; //🟡dense瀑布流
-            </div> -->            
         </section>
     </section>
-    <!-- 燈光調亮度 -->
-    <section class="index_luminosity"></section>
+    <!-- 情境模擬 -->
+    <section class="index_luminosity ms_8 me_8" id="index_luminosity">
+        <div class="lamp-wrapper">
+        </div>
+        <div class="wall-light-shadow"></div>
+        <form class="index_form" oninput="index_luminosity.setAttribute('data-light', slider.value)">
+            <div class="range">
+                <div class="sliderValue">
+                    <span class="indicator">0</span>
+                </div>
+                <div class="field">
+                    <div class="value left">0</div>
+                    <input type="range" id="slider" value="0" min="0" max="100" steps="1">
+                    <div class="value right">100</div>
+                </div>
+            </div>
+        </form>
+    </section>
     <!-- 最新消息 -->
     <section class="index_news">
         <div class="containerALL">
@@ -250,7 +260,7 @@
                     <news-photo v-for='newsphoto in newsphotoObject' v-bind='newsphoto'></news-photo>
                 </div>
                 <script>
-                    let newsphoto = Vue.component('news-photo',{
+                    let newsphoto = Vue.component('news-photo', {
                         props: ['newsImage', 'newsName', 'newsTitle', 'newsContent', 'newsInfoLink'],
                         template: `
                             <div class="news_photo me_8">
@@ -307,8 +317,11 @@
                 <div class="wrap">
                     <div class="content">
                         <h2 class="h1 ms_2 me_1">About Light Up For You</h2>
-                        <p class="h4 me_2">Starting from six sketches in 1991, the founder Meiric sowed a design seed, carefully irrigated with delicate thinking and rigorous attitude, rubbed light and shadow into brush and ink, and outlined the lighting imagination in his heart.<br>
-                        We firmly believe that "light" can bring more beautiful value to life, which is our original intention.</p>
+                        <p class="h4 me_2">Starting from six sketches in 1991, the founder Meiric sowed a design seed,
+                            carefully irrigated with delicate thinking and rigorous attitude, rubbed light and shadow
+                            into brush and ink, and outlined the lighting imagination in his heart.<br>
+                            We firmly believe that "light" can bring more beautiful value to life, which is our original
+                            intention.</p>
                         <a href="./aboutUs.html" class="btn h4 me_2">more</a>
                     </div>
                 </div>
@@ -325,19 +338,9 @@
         </div>
     </section>
     <!-- footer  -->
-        @@include('layout/footer.html')
-
+    @@include('layout/footer.html')
     <!-- script -->
-        @@include('layout/script.html')
+    @@include('layout/script.html')
 </body>
+
 </html>
-<!-- vue2
-        <div id="app"></div>
-        <script>
-            new Vue({
-                    el: '#app',
-                    data: {     //變數放這裡!
-                        
-                    },
-                });       
-        </script>-->
