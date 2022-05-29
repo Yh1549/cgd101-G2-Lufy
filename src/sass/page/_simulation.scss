@@ -42,7 +42,7 @@
     background: $secondary-bg-color;
     border-radius: 4px;
     margin: 0;
-    padding: 1.2em 2.2em;
+    padding: 1.2rem 2.2rem;
     position: absolute;
     bottom: 2%;
 }
@@ -91,6 +91,7 @@
             }
 
         }
+
         .display {
             transform: translateX(0%) scale(1);
         }
@@ -192,11 +193,11 @@
 
         .blub,
         .wall-light-shadow {
-            opacity: $i / 10;
+            opacity: calc($i / 10);
         }
 
         .lamp-part.-bottom:before {
-            opacity: 1 - ($i / 100);
+            opacity: calc(1 - ($i / 100));
         }
     }
 }
@@ -229,5 +230,13 @@
 @for $i from 1 through 8 {
     .ray:nth-child(#{$i}) {
         transform: rotate($i * 45deg);
+    }
+}
+
+@media all and (max-width:490px) {
+    .simulation_form {
+        .range {
+            padding: 0;
+        }
     }
 }

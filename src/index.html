@@ -14,12 +14,15 @@
     <!-- 第一屏遮罩 + 首頁輪播 -->
     <input type="button" value="On" class="turn_on">
     <section class="first">
-        <div class="wrapper">
-            <div class="wrapper_title s3 font_i">Light Up For You</div>
-            <div class="wrapper_text h4">We firmly believe that "light" can bring more beautiful value to life, which is
-                our original intention.
+        <div class="containerALL">
+            <div class="wrapper">
+                <h1 class="wrapper_title s3 font_i">Light Up For You</h1>
+                <h2 class="wrapper_text h2">We firmly believe that 'Light' can bring more beautiful value to life<br>
+                    which is
+                    our original intention.
+                </h2>
+                <div class="light"></div>
             </div>
-            <div class="light"></div>
         </div>
         <!-- 首頁輪播 -->
         <section class="index_carousel">
@@ -47,13 +50,12 @@
     <section class="index_project">
         <div class="index_project_wrap">
             <div class="containerALL">
-                <div class="index_title">
+                <div class="index_project_title">
                     <h2 class="s2 me_4">Our Lights</h2>
                     <h2 class="s3 me_4">Always</h2>
                     <h2 class="s1 font_i fontdeco_w9 me_4">LIGHT</h2>
                     <h2 class="s2 font_i me_4">your LIFE</h2>
                 </div>
-
             </div>
             <div id="project_wrap" class="project_wrap">
                 <project-card v-for="project in projectObject" v-bind="project" />
@@ -242,22 +244,30 @@
         </section>
     </section>
     <!-- 情境模擬 -->
-    <section class="index_luminosity ms_8 me_8" id="index_luminosity">
-        <div class="lamp-wrapper">
-        </div>
-        <div class="wall-light-shadow"></div>
-        <form class="index_form" oninput="index_luminosity.setAttribute('data-light', slider.value)">
-            <div class="range">
-                <div class="sliderValue">
-                    <span class="indicator">0</span>
-                </div>
-                <div class="field">
-                    <div class="value left">0</div>
-                    <input type="range" id="slider" value="0" min="0" max="100" steps="1">
-                    <div class="value right">100</div>
-                </div>
+    <section class="index_simulation">
+        <div class="containerALL">
+            <div class="index_simulation_title">
+                <h2 class="s1 font_i fontdeco_w5 me_4">MyLight</h2>
+                <h2 class="s2 font_i fontdeco_w2 me_4">/Play with the Light</h2>
             </div>
-        </form>
+        </div>
+        <div class="index_luminosity ms_8 me_8" id="index_luminosity">
+            <div class="lamp-wrapper">
+            </div>
+            <div class="wall-light-shadow"></div>
+            <form class="index_form" oninput="index_luminosity.setAttribute('data-light', slider.value)">
+                <div class="range">
+                    <div class="sliderValue">
+                        <span class="indicator">0</span>
+                    </div>
+                    <div class="field">
+                        <div class="value left">0</div>
+                        <input type="range" id="slider" value="0" min="0" max="100" steps="1">
+                        <div class="value right">100</div>
+                    </div>
+                </div>
+            </form>
+        </div>
     </section>
     <!-- 最新消息 -->
     <section class="index_news">
