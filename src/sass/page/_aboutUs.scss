@@ -240,3 +240,46 @@
         color: $fontcolor_10;
     }
 }
+
+.designer_name,
+.designer_art,
+.designer_article {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.designer_words,
+.design_spirit {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    align-items: center;
+    width: 70%;
+    background-color: $primary_70;
+    padding: 20px;
+}
+
+.designer_artwork {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    align-items: center;
+    width: 70%;
+    background-color: $primary_70;
+    padding: 20px;
+    flex-direction: row-reverse;
+}
+
+.designer_presentation,
+.designer_artworks,
+.designer_spirit {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    align-items: center;
+}
+
+.designer_image {
+    margin: 10px;
+}
