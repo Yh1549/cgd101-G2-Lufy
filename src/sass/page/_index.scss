@@ -464,7 +464,7 @@ html.fixWindow {
     align-items: center;
     position: relative;
     z-index: 496;
-    height: 93vh;
+    height: 75vh;
     overflow: hidden;
 
     .wall-light-shadow {
@@ -489,7 +489,7 @@ html.fixWindow {
     }
 }
 
-form {
+.index_form {
     color: #fff;
     background: $secondary-bg-color;
     border-radius: 4px;
