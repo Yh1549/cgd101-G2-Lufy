@@ -90,9 +90,12 @@
               </tr>
             </thead>
             <tbody>
-                <orders v-for="ordersTemplate in member_orders_obj" v-bind="ordersTemplate">
-                </orders>
-            <tr>
+              <orders
+                v-for="ordersTemplate in member_orders_obj"
+                v-bind="ordersTemplate"
+              >
+              </orders>
+              <tr>
                 <td>3</td>
                 <td>12/2/22</td>
                 <td>await</td>
@@ -112,42 +115,34 @@
               </tr>
             </tbody>
           </table>
-          <script>
-            let ordersTemplate = Vue.component("orders", {
-              props: ["orderNum", "orderDate", "orderStatus", "orderTotal"],
-              template: `<tr>
-                      <td>{{orderNum}}</td>
-                      <td>{{orderDate}}</td>
-                      <td>{{orderStatus}}</td>
-                      <td>{{orderTotal}}</td>
-                      </tr>
-                      `,
-            });
-            new Vue({
-              el: ".member_container",
-              data: {
-                member_orders_obj: [
-                  {
-                    orderNum: `1`,
-                    orderDate: `2022/04/21`,
-                    orderStatus: `waiting for confirm`,
-                    orderTotal: `5656500`,
-                  },
-                  {
-                    orderNum: `2`,
-                    orderDate: `2022/04/21`,
-                    orderStatus: `waiting for confirm`,
-                    orderTotal: `5656500`,
-                  },
-                ],
-              },
-            });
-          </script>
         </div>
 
         <!-- 私藏列表 -->
         <div id="member_center_wishlist" class="memberform member_hide">
-          <h1 class="h1">Your Wishlist</h1>
+          <h1 class="s3 fontcontent me_4 ml_4">Your Wishlist</h1>
+          <table class="memtable h1">
+            <thead>
+              <tr>
+                <th>商品圖片</th>
+                <th>商品名稱</th>
+                <th>productStatus</th>
+                <th>price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- <wish
+                v-for="wishTemplate in member_wish_obj"
+                v-bind="wishTemplate"
+              >
+              </wish> -->
+              <tr>
+                <td>pic</td>
+                <td>productname</td>
+                <td>avaliable</td>
+                <td>3000</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
 
         <!-- 優惠券 -->
@@ -165,7 +160,55 @@
         </div>
       </div>
     </div>
-    
+    <script>
+      let ordersTemplate = Vue.component("orders", {
+        props: ["orderNum", "orderDate", "orderStatus", "orderTotal"],
+        template: `<tr>
+                  <td>{{orderNum}}</td>
+                  <td>{{orderDate}}</td>
+                  <td>{{orderStatus}}</td>
+                  <td>{{orderTotal}}</td>
+                  </tr>
+                  `,
+      });
+    //   let wishTemplate = Vue.component("wish", {
+    //     props: ["商品圖片", "商品名稱", "productStatus", "price"],
+    //     template: `<tr>
+    //               <td>{{商品圖片}}</td>
+    //               <td>{{商品名稱}}</td>
+    //               <td>{{productStatus}}</td>
+    //               <td>{{price}}</td>
+    //               </tr>
+    //               `,
+    //   });
+      new Vue({
+        el: ".member_container",
+        data: {
+          member_orders_obj: [
+            {
+              orderNum: `1`,
+              orderDate: `2022/04/21`,
+              orderStatus: `waiting for confirm`,
+              orderTotal: `5656500`,
+            },
+            {
+              orderNum: `2`,
+              orderDate: `2022/04/21`,
+              orderStatus: `waiting for confirm`,
+              orderTotal: `5656500`,
+            },
+          ],
+        //   mem_wish_obj: [
+        //     {
+        //       商品圖片: ``,
+        //       商品名稱: ``,
+        //       productStatus: ``,
+        //       price: ``,
+        //     },
+        //   ],
+        },
+      });
+    </script>
     <script>
       let changeTab = (e) => {
         // console.log(e.target);
@@ -192,7 +235,7 @@
       };
       init = () => {
         let ul = document.querySelector(".ul");
-        console.log(ul.children[0]);
+        // console.log(ul.children[0]);
         ul.addEventListener("click", changeTab, false);
       };
 
