@@ -30,7 +30,7 @@
     }
 }
 //------------------------左邊
-.aaaa{
+.backendContainer{
     display: flex;
     
     & .beMenu{
@@ -46,7 +46,7 @@
             & li{
                 color: $fontcolor_10;
                 display: block;
-                
+                cursor: pointer;
             }
             & li:hover{
                 background-color: $primary_100;
@@ -58,7 +58,9 @@
         width:87.5%;
     }
 }
-
+.currentM{
+    background-color: $primary_100;
+}
 //------------------------列表標題
 .beNews_title{
     display: flex;
@@ -89,3 +91,9 @@
         border: 1px solid #aaa;
     }
 }
+// .mem_content{
+//     display: none;
+// }
+// .mem_content#mainElm1{
+//     display: block;
+// }

@@ -5,147 +5,274 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/backendMenu.js"></script>
     @@include('layout/meta.html', { "title" : "Backend" })
 </head>
 <body>
     <!-- <div id="lightBox">
         <form action="">
             <label for="">編號</label><input type="text" name="" id="">
-            <label for="">開始日期</label><input type="text" name="" id="">
-            <label for="">結束日期</label><input type="text" name="" id="">
+            <label for="">開始日期</label><input type="date" name="" id="">
+            <label for="">結束日期</label><input type="date" name="" id="">
+            <label for="">標題</label><input type="text" name="" id="">
+            <label for="">內文</label><textarea name="" id="" cols="30" rows="10"></textarea>
         </form>
-
+        <form action="">
+            <p>優惠商品</p>
+            <label for="">商品編號</label><input type="text" name="" id="">
+            <label for="">原價</label><input type="text" name="" id="">
+            <label for="">優惠價</label><input type="text" name="" id="">
+        </form>
+        
     </div> -->
-    <div class="aaaa">
+    <div class="backendContainer">
+        <!-- 左邊section -->
         <section class="beMenu">
             <div class="ps_1 pe_1">
                 <img src="./images/nav_logo_web.webp" alt="">
             </div>
             <ul>
-                <li class="ps_1 pe_1 pl_1 pr_1 h3">會員管理</li>
-                <li class="ps_1 pe_1 pl_1 pr_1 h3">商品管理</li>
-                <li class="ps_1 pe_1 pl_1 pr_1 h3">訂單管理</li>
-                <li class="ps_1 pe_1 pl_1 pr_1 h3">優惠活動管理</li>
-                <li class="ps_1 pe_1 pl_1 pr_1 h3">最新消息管理</li>
-                <li class="ps_1 pe_1 pl_1 pr_1 h3">常見問題管理</li>
-                <li class="ps_1 pe_1 pl_1 pr_1 h3">輪播管理</li>
-                <li class="ps_1 pe_1 pl_1 pr_1 h3">設計師管理</li>
-                <li class="ps_1 pe_1 pl_1 pr_1 h3">登出</li>
+                <li onclick="openClass(event,'mainElm1')" class="ps_1 pe_1 pl_1 pr_1 h3 tablink currentM">會員管理</li>
+                <li onclick="openClass(event,'mainElm2')" class="ps_1 pe_1 pl_1 pr_1 h3 tablink">商品管理</li>
+                <li onclick="openClass(event,'mainElm3')" class="ps_1 pe_1 pl_1 pr_1 h3 tablink">訂單管理</li>
+                <li onclick="openClass(event,'mainElm4')" class="ps_1 pe_1 pl_1 pr_1 h3 tablink">優惠活動管理</li>
+                <!-- <li onclick="openClass(event,'mainElm5')" class="ps_1 pe_1 pl_1 pr_1 h3 tablink">最新消息管理</li> -->
+                <li onclick="openClass(event,'mainElm6')" class="ps_1 pe_1 pl_1 pr_1 h3 tablink">常見問題管理</li>
+                <li onclick="openClass(event,'mainElm7')" class="ps_1 pe_1 pl_1 pr_1 h3 tablink">輪播管理</li>
+                <li onclick="openClass(event,'mainElm8')" class="ps_1 pe_1 pl_1 pr_1 h3 tablink">設計師管理</li>
+                <li onclick="openClass(event,'mainElm9')" class="ps_1 pe_1 pl_1 pr_1 h3 tablink">登出</li>
             </ul>
         </section>
-        <section class="beCont">
-            <div class="ps_1 pe_1 pl_1 pr_1 beNews_titleH1">
-                <h1 class="h1 font_w5 fontTitle">Promotions Manage</h1>
-            </div>
-            <div class="ps_1 pe_1 pl_1 pr_1">
-                <div class="pr_1 newListBtn"><button class="p1 newsbtn">✚ NEW</button></div>
-                <div class="beNews_title">
-                    <p class="p1 font_w5 fontcontent fontColor">活動編號</p>
-                    <p class="p1 font_w5 fontcontent fontColor listGrow">活動名稱</p>
-                    <p class="p1 font_w5 fontcontent fontColor">活動開始日期</p>
-                    <p class="p1 font_w5 fontcontent fontColor">活動結束日期</p>
-                    <p class="p1 font_w5 fontcontent fontColor listGrow">圖片路徑</p>
-                    <p></p>
+        <!-- 右邊section -->
+        <div class="beCont">
+            <!-- 會員管理 -->
+            <section class="mem_content" id="mainElm1">
+                <div class="ps_1 pe_1 pl_1 pr_1 beNews_titleH1">
+                    <h1 class="h1 font_w5 fontTitle">會員管理</h1>
                 </div>
-                <ul class="backendList" id="pList">
-                    <B_menu v-for="backendMenu in promotionsObject" v-bind="backendMenu">
-                    </B_menu>
-                </ul>
-                <div class="pages">
-                    <p class="p1 pl_1 pr_1">1</p>
-                    <p class="p1 pl_1 pr_1">2</p>
-                </div>
-            </div>
-        </section>
-    </div>
-    <script>
-        let backendMenu = Vue.component('B_menu', {
-            props: ['promotionsNo', 'promotionsName', 'promotionsStartDate', 'promotionsEndDate','promotionsImagePath'],
-            template: `
-                <li class="ps_1 beNews_details">
-                    <div class="beNews_text">
-                        <p class="p1 font_w5 fontcontent fontColor">{{promotionsNo}}</p>
-                        <p class="p1 font_w5 fontcontent fontColor listGrow">{{promotionsName}}</p>
-                        <p class="p1 font_w5 fontcontent fontColor">{{promotionsStartDate}}</p>
-                        <p class="p1 font_w5 fontcontent fontColor">{{promotionsEndDate}}</p>
-                        <p class="p1 font_w5 fontcontent fontColor listGrow">{{promotionsImagePath}}</p>
-                        <button class="p1 newsbtn">編輯與查看</button>
+                <div class="ps_1 pe_1 pl_1 pr_1">
+                    <div class="beNews_title">
+                        <p class="p1 font_w5 fontcontent fontColor">會員編號</p>
+                        <p class="p1 font_w5 fontcontent fontColor">會員姓名</p>
+                        <p class="p1 font_w5 fontcontent fontColor listGrow">會員帳號(信箱)</p>
+                        <p class="p1 font_w5 fontcontent fontColor">會員生日</p>
+                        <p class="p1 font_w5 fontcontent fontColor">會員電話</p>
+                        <p class="p1 font_w5 fontcontent fontColor listGrow">會員地址</p>
+                        <p class="p1 font_w5 fontcontent fontColor">會員狀態</p>
+                        <p></p>
                     </div>
-                </li>
-            `,
-        })
-        new Vue({
-            el: '#pList',
-            data: {
-                promotionsObject: [
-                    {
-                        promotionsNo: `1`,
-                        promotionsName: `Latest Product`,
-                        promotionsStartDate: `2022/04/21`,
-                        promotionsEndDate: `2022/06/02`,
-                        promotionsEndTxt:``,
-                        promotionsImagePath: `./images/news.lamp.png`
-                    },
-                    {
-                        promotionsNo: `2`,
-                        promotionsName: `2022 Happy mom's day`,
-                        promotionsStartDate: `2022/05/01`,
-                        promotionsEndDate: `2022/05/31`,
-                        promotionsEndTxt:``,
-                        promotionsImagePath: `./images/news.moms_day.png`
-                    },
-                    {
-                        promotionsNo: `3`,
-                        promotionsName: `2022 Happy new year`,
-                        promotionsStartDate: `2022/01/01`,
-                        promotionsEndDate: `2022/02/06`,
-                        promotionsEndTxt:``,
-                        promotionsImagePath: `./images/news.newyear.png`
-                    },
-                    {
-                        promotionsNo: `4`,
-                        promotionsName: `LUFY 10 Anniversary`,
-                        promotionsStartDate: `2021/11/16`,
-                        promotionsEndDate: `2021/12/31`,
-                        promotionsEndTxt:``,
-                        promotionsImagePath: `./images/news.tenyear.jpg`
-                    },
-                    {
-                        promotionsNo: `5`,
-                        promotionsName: ``,
-                        promotionsStartDate: ``,
-                        promotionsEndDate: ``,
-                        promotionsEndTxt:``,
-                        promotionsImagePath: ``
-                    },
-                    {
-                        promotionsNo: `6`,
-                        promotionsName: ``,
-                        promotionsStartDate: ``,
-                        promotionsEndDate: ``,
-                        promotionsEndTxt:``,
-                        promotionsImagePath: ``
-                    },
-                    {
-                        promotionsNo: `7`,
-                        promotionsName: ``,
-                        promotionsStartDate: ``,
-                        promotionsEndDate: ``,
-                        promotionsEndTxt:``,
-                        promotionsImagePath: ``
-                    },
-                    {
-                        promotionsNo: `8`,
-                        promotionsName: ``,
-                        promotionsStartDate: ``,
-                        promotionsEndDate: ``,
-                        promotionsEndTxt:``,
-                        promotionsImagePath: ``
-                    },
-                ]
-            }
-        })
-    </script>
+                    <!-- <div class="pages">
+                        <p class="p1 pl_1 pr_1">1</p>
+                        <p class="p1 pl_1 pr_1">2</p>
+                    </div> -->
+                </div>
+            </section>
+            <!-- 商品管理 -->
+            <section class="mem_content" id="mainElm2">
+                <div class="ps_1 pe_1 pl_1 pr_1 beNews_titleH1">
+                    <h1 class="h1 font_w5 fontTitle">商品管理</h1>
+                </div>
+                <div class="ps_1 pe_1 pl_1 pr_1">
+                    <div class="pr_1 pe_1 newListBtn"><button class="p1 newsbtn">✚ NEW</button></div>
+                    <div class="beNews_title">
+                        <p class="p1 font_w5 fontcontent fontColor">編號</p>
+                        <p class="p1 font_w5 fontcontent fontColor">名稱</p>
+                        <p class="p1 font_w5 fontcontent fontColor">類別</p>
+                        <p class="p1 font_w5 fontcontent fontColor">設計師</p>
+                        <p class="p1 font_w5 fontcontent fontColor listGrow">介紹</p>
+                        <p class="p1 font_w5 fontcontent fontColor listGrow">規格</p>
+                        <p class="p1 font_w5 fontcontent fontColor">單價</p>
+                        <p class="p1 font_w5 fontcontent fontColor">狀態</p>
+                        <p class="p1 font_w5 fontcontent fontColor">庫存</p>
+                        <p class="listGrow"></p>
+                    </div>
+                    <!-- <div class="pages">
+                        <p class="p1 pl_1 pr_1">1</p>
+                        <p class="p1 pl_1 pr_1">2</p>
+                    </div> -->
+                </div>
+            </section>
+            <!-- 訂單管理 -->
+            <section class="mem_content" id="mainElm2">
+                <div class="ps_1 pe_1 pl_1 pr_1 beNews_titleH1">
+                    <h1 class="h1 font_w5 fontTitle">訂單管理</h1>
+                </div>
+                <div class="ps_1 pe_1 pl_1 pr_1">
+                    <div class="beNews_title">
+                        <p class="p1 font_w5 fontcontent fontColor listGrow">訂單編號</p>
+                        <p class="p1 font_w5 fontcontent fontColor listGrow">會員編號</p>
+                        <p class="p1 font_w5 fontcontent fontColor">訂單日期時間</p>
+                        <p class="p1 font_w5 fontcontent fontColor">訂單總額</p>
+                        <p class="p1 font_w5 fontcontent fontColor">訂單狀態</p>
+                        <p class="p1 font_w5 fontcontent fontColor">訂單備註</p>
+                        <p class="listGrow"></p>
+                    </div>
+                    <!-- <div class="pages">
+                        <p class="p1 pl_1 pr_1">1</p>
+                        <p class="p1 pl_1 pr_1">2</p>
+                    </div> -->
+                </div>
+            </section>
+            <!-- 優惠活動 -->
+            <section class="mem_content" id="mainElm4">
+                <div class="ps_1 pe_1 pl_1 pr_1 beNews_titleH1">
+                    <h1 class="h1 font_w5 fontTitle">Promotions Manage</h1>
+                </div>
+                <div class="ps_1 pe_1 pl_1 pr_1">
+                    <div class="pr_1 pe_1 newListBtn"><button class="p1 newsbtn">✚ NEW</button></div>
+                    <div class="beNews_title">
+                        <p class="p1 font_w5 fontcontent fontColor">活動編號</p>
+                        <p class="p1 font_w5 fontcontent fontColor listGrow">活動名稱</p>
+                        <p class="p1 font_w5 fontcontent fontColor">活動開始日期</p>
+                        <p class="p1 font_w5 fontcontent fontColor">活動結束日期</p>
+                        <p class="p1 font_w5 fontcontent fontColor listGrow">圖片路徑</p>
+                        <p></p>
+                    </div>
+                    <ul class="backendList" id="pList">
+                        <B_menu v-for="backendMenu in promotionsObject" v-bind="backendMenu">
+                        </B_menu>
+                    </ul>
+                    <div class="pages">
+                        <p class="p1 pl_1 pr_1">1</p>
+                        <p class="p1 pl_1 pr_1">2</p>
+                    </div>
+                </div>
+            </section>
+            <script>
+                let backendMenu = Vue.component('B_menu', {
+                    props: ['promotionsNo', 'promotionsName', 'promotionsStartDate', 'promotionsEndDate','promotionsImagePath'],
+                    template: `
+                        <li class="ps_1 beNews_details">
+                            <div class="beNews_text">
+                                <p class="p1 font_w5 fontcontent fontColor">{{promotionsNo}}</p>
+                                <p class="p1 font_w5 fontcontent fontColor listGrow">{{promotionsName}}</p>
+                                <p class="p1 font_w5 fontcontent fontColor">{{promotionsStartDate}}</p>
+                                <p class="p1 font_w5 fontcontent fontColor">{{promotionsEndDate}}</p>
+                                <p class="p1 font_w5 fontcontent fontColor listGrow">{{promotionsImagePath}}</p>
+                                <button class="p1 newsbtn">編輯與查看</button>
+                            </div>
+                        </li>
+                    `,
+                })
+                new Vue({
+                    el: '#pList',
+                    data: {
+                        promotionsObject: [
+                            {
+                                promotionsNo: `1`,
+                                promotionsName: `Latest Product`,
+                                promotionsStartDate: `2022/04/21`,
+                                promotionsEndDate: `2022/06/02`,
+                                promotionsEndTxt:``,
+                                promotionsImagePath: `./images/news.lamp.png`
+                            },
+                            {
+                                promotionsNo: `2`,
+                                promotionsName: `2022 Happy mom's day`,
+                                promotionsStartDate: `2022/05/01`,
+                                promotionsEndDate: `2022/05/31`,
+                                promotionsEndTxt:``,
+                                promotionsImagePath: `./images/news.moms_day.png`
+                            },
+                            {
+                                promotionsNo: `3`,
+                                promotionsName: `2022 Happy new year`,
+                                promotionsStartDate: `2022/01/01`,
+                                promotionsEndDate: `2022/02/06`,
+                                promotionsEndTxt:``,
+                                promotionsImagePath: `./images/news.newyear.png`
+                            },
+                            {
+                                promotionsNo: `4`,
+                                promotionsName: `LUFY 10 Anniversary`,
+                                promotionsStartDate: `2021/11/16`,
+                                promotionsEndDate: `2021/12/31`,
+                                promotionsEndTxt:``,
+                                promotionsImagePath: `./images/news.tenyear.jpg`
+                            },
+                            {
+                                promotionsNo: `5`,
+                                promotionsName: ``,
+                                promotionsStartDate: ``,
+                                promotionsEndDate: ``,
+                                promotionsEndTxt:``,
+                                promotionsImagePath: ``
+                            },
+                            {
+                                promotionsNo: `6`,
+                                promotionsName: ``,
+                                promotionsStartDate: ``,
+                                promotionsEndDate: ``,
+                                promotionsEndTxt:``,
+                                promotionsImagePath: ``
+                            },
+                            {
+                                promotionsNo: `7`,
+                                promotionsName: ``,
+                                promotionsStartDate: ``,
+                                promotionsEndDate: ``,
+                                promotionsEndTxt:``,
+                                promotionsImagePath: ``
+                            },
+                            {
+                                promotionsNo: `8`,
+                                promotionsName: ``,
+                                promotionsStartDate: ``,
+                                promotionsEndDate: ``,
+                                promotionsEndTxt:``,
+                                promotionsImagePath: ``
+                            },
+                        ]
+                    }
+                })
+            </script>
+            <!-- 常見問題管理 -->
+            <section class="mem_content" id="mainElm4">
+                <div class="ps_1 pe_1 pl_1 pr_1 beNews_titleH1">
+                    <h1 class="h1 font_w5 fontTitle">常見問題管理</h1>
+                </div>
+                <div class="ps_1 pe_1 pl_1 pr_1">
+                    <div class="pr_1 pe_1 newListBtn"><button class="p1 newsbtn">✚ NEW</button></div>
+                    <div class="beNews_title">
+                        <p class="p1 font_w5 fontcontent fontColor">編號</p>
+                        <p class="p1 font_w5 fontcontent fontColor">類別</p>
+                        <p class="p1 font_w5 fontcontent fontColor listGrow">標題</p>
+                        <p class="p1 font_w5 fontcontent fontColor listGrow">內文</p>
+                        <p></p>
+                    </div>
+                    <!-- <div class="pages">
+                        <p class="p1 pl_1 pr_1">1</p>
+                        <p class="p1 pl_1 pr_1">2</p>
+                    </div> -->
+                </div>
+            </section>
+            <!-- 輪播管理 -->
+
+            <!-- 設計師管理 -->
+            <section class="mem_content" id="mainElm4">
+                <div class="ps_1 pe_1 pl_1 pr_1 beNews_titleH1">
+                    <h1 class="h1 font_w5 fontTitle">設計師管理</h1>
+                </div>
+                <div class="ps_1 pe_1 pl_1 pr_1">
+                    <div class="pr_1 pe_1 newListBtn"><button class="p1 newsbtn">✚ NEW</button></div>
+                    <div class="beNews_title">
+                        <p class="p1 font_w5 fontcontent fontColor">設計師編號</p>
+                        <p class="p1 font_w5 fontcontent fontColor listGrow">姓名</p>
+                        <p class="p1 font_w5 fontcontent fontColor listGrow">簡介</p>
+                        <p class="p1 font_w5 fontcontent fontColor">狀態</p>
+                        <p class="p1 font_w5 fontcontent fontColor">帳號</p>
+                        <p class="p1 font_w5 fontcontent fontColor listGrow">圖片路徑</p>
+                        <p></p>
+                    </div>
+                    <!-- <div class="pages">
+                        <p class="p1 pl_1 pr_1">1</p>
+                        <p class="p1 pl_1 pr_1">2</p>
+                    </div> -->
+                </div>
+            </section>
+        </div>
+    </div>
+
    
 
     <!-- script -->
