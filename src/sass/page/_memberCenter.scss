@@ -107,7 +107,22 @@
 }
 // ---
 
-#member_center_orders {
+.memtable{
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+  & thead tr th{
+    color: $secondary_100;
+    background-color: $primary_50;
+    border-right: 10px solid $white;
+  }
+  & tbody tr td {
+    text-align: center;
+    padding: 10px 0px;
+    border-bottom: 1px solid $secondary_100;
+  }
+  }
+// #member_center_orders {
 
   
-}
+// }
