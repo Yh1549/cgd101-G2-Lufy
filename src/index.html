@@ -232,6 +232,13 @@
                     </div>
                 </div>
             </div>
+            <!-- <div class="test">
+                    display:grid;<br>
+                    grid-gap:30px;<br>
+                    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));//自動填滿整個容器。<br>
+                    grid-auto-rows: 240px; //溢出的項目，高要 240px<br>
+                    grid-auto-flow: row dense; //🟡dense瀑布流
+                </div> -->
         </section>
     </section>
     <!-- 情境模擬 -->
@@ -339,6 +346,16 @@
     </section>
     <!-- footer  -->
     @@include('layout/footer.html')
+
+    <!-- 首頁輪播 -->
+    <script src="./js/index_carousel.js"></script>
+    <!-- 燈箱 -->
+    <script src="./js/index_lightbox.js"></script>
+    <!-- 情境模擬 -->
+    <script src="./js/simulation.js"></script>
+    <!-- 輪播套件script -->
+    <script src="./js/swiper-bundle.min.js"></script>
+
     <!-- script -->
     @@include('layout/script.html')
 </body>
