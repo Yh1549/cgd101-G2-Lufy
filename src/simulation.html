@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @@include('layout/meta.html', {
+    "title" : "Light Up For You"
+    })
+</head>
+<body>
+    <!-- header -->
+    @@include('layout/header.html')
+    <!-- header end -->
+    <section class="simulation_luminosity" id="simulation_luminosity">
+        <div class="lamp-wrapper">
+        </div>
+        <div class="wall-light-shadow"></div>
+        <form oninput="simulation_luminosity.setAttribute('data-light', slider.value)">
+            <div class="range">
+                <div class="sliderValue">
+                    <span class="indicator">0</span>
+                </div>
+                <div class="field">
+                    <div class="value left">0</div>
+                    <input type="range" id="slider" value="0" min="0" max="100" steps="1">
+                    <div class="value right">100</div>
+                </div>
+            </div>
+        </form>
+    </section>
+    <!-- footer  -->
+    @@include('layout/footer.html')
+    <!-- script -->
+    @@include('layout/script.html')
+</body>
+</html>
+
