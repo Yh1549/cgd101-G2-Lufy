@@ -20,35 +20,59 @@
       </div>
     </div>
   </div>
-  <!-- <div class="entrance_lamp_bg"></div> -->
-  <div class="entrance_lamp">
+  <div class="entrance_lamp"></div>
 
-  </div>
-
-  <div id="entrance_light">
-    <!-- <img src="./images/project_bannerpic1.jpg" alt=""> -->
-  </div>
-
-
+  <div id="entrance_light"></div>
 
   <script>
     function tracking(e) {
       let lamp = document.querySelector(".entrance_lamp");
-      let light = document.querySelector("#entrance_light")
-      let rotateDeg = Math.round(Math.atan((lamp.offsetLeft - e.pageX) / (window.innerHeight - light.offsetTop)) * 180 / Math.PI) + 57 + 125;
+      let light = document.querySelector("#entrance_light");
+      let rotateDeg =
+        Math.round(
+          (Math.atan(
+            (lamp.offsetLeft - e.pageX) /
+            (window.innerHeight - light.offsetTop)
+          ) *
+            180) /
+          Math.PI
+        ) +
+        57 +
+        125;
 
-      light.setAttribute("style", "-webkit-mask-image:conic-gradient(from 0deg at 50% 0%, #000000 " + `${-(rotateDeg - 80)}` + "deg, #000000 " + `${rotateDeg - 80}` + "deg, transparent " + `${rotateDeg - 30}` + "deg, transparent " + `${rotateDeg}` + "deg, transparent " + `${rotateDeg + 20}` + "deg, #000000 " + `${rotateDeg + 70}` + "deg, #000000 " + `${rotateDeg + 240}` + "deg);");
+      light.setAttribute(
+        "style",
+        "-webkit-mask-image:conic-gradient(from 0deg at 50% 0%, #000000 " +
+        `${-(rotateDeg - 80)}` +
+        "deg, #000000 " +
+        `${rotateDeg - 80}` +
+        "deg, transparent " +
+        `${rotateDeg - 30}` +
+        "deg, transparent " +
+        `${rotateDeg}` +
+        "deg, transparent " +
+        `${rotateDeg + 20}` +
+        "deg, #000000 " +
+        `${rotateDeg + 70}` +
+        "deg, #000000 " +
+        `${rotateDeg + 240}` +
+        "deg);"
+      );
 
       console.log(rotateDeg);
-    };
+    }
 
     function init() {
       window.addEventListener("mousemove", tracking, false);
-    };
-
+    }
 
     window.addEventListener("load", init, false);
   </script>
+  <!-- footer  -->
+  @@include('layout/footer.html')
+
+  <!-- script -->
+  @@include('layout/script.html')
 </body>
 
 </html>

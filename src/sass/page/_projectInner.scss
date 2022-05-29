@@ -1,11 +1,20 @@
 .project_inner_banner {
   position: relative;
+  @include t() {
+    display: none;
+  }
+}
+.project_inner_banner_title_m{
+  display: none;
+    @include t() {
+      display: inline-block;
+      text-align: center;
+    }
 }
 .project_inner_banner_img {
   width: 50%;
   margin-right: auto;
   margin-left: auto;
-
   & img {
     filter: brightness(0.5);
     width: 100%;
@@ -25,9 +34,12 @@
   // backdrop-filter: blur(10px);
   border-bottom: 10px solid $secondary_dark;
   // border-top: 10px solid $secondary_dark;
+  @include t() {
+    display: none;
+  }
 }
 .projectinner_content {
-  width: 60%;
+  width: 70%;
   // display: flex;
   // flex-direction: column;
   position: relative;
@@ -36,18 +48,52 @@
   z-index: -1;
   background-color: $secondary_100;
   color: $white;
+  @include t() {
+    width: 100%;
+    position: unset;
+    padding: 0px;
+    margin: 10px 0px;
+
+  }
+
   & .projectinner_word {
     width: 50%;
     position: relative;
     left: 35%;
+    @include t() {
+      width: 80%;
+      position: unset;
+      padding: 0px 20px;
+      margin: 10px 0px;
+
+    }
+    & p{
+      @include t() {
+        font-size: 14px;
+        margin:10px 0px;
+      }
+    }
     & h2 {
       font-size: 40px;
+      @include t() {
+        font-size: 20px;
+        margin:10px 0px;
+      }
     }
   }
   & .projectinner_word2 {
     width: 50%;
     position: relative;
     left: 15%;
+    @include t() {
+      width: 80%; 
+      padding: 0px 20px;    
+      margin:10px 0px;
+      position: unset;
+      & p{
+        font-size: 14px;
+      }
+    }
   }
   & .projectinner_content_img {
     position: absolute;
@@ -60,6 +106,11 @@
     background-repeat: no-repeat;
     box-shadow: 0 $ip_shadow $ip_shadow * 3 0 black;
     // background-color: #fff;
+    @include t() {
+      width: 100%;
+      height: 200px;
+      position: unset;
+    }
     & img {
       width: 100%;
     }
@@ -74,7 +125,11 @@
     background-position: center;
     background-repeat: no-repeat;
     box-shadow: 0 $ip_shadow $ip_shadow * 3 0 black;
-
+    @include t() {
+      width: 100%;
+      height: 200px;
+      position: unset;
+    }
     & img {
       width: 100%;
     }
@@ -83,6 +138,9 @@
 .project_lamp_title {
   text-align: center;
   margin-top: 200px;
+  @include t() {
+    font-size: $s3 - 20;
+  }
 }
 .project_lamp {
   width: 100%;
@@ -99,14 +157,33 @@
     border-right: 3px solid $primary_100;
   }
 }
+.project_lamp_title{
+  @include t() {
+    font-size: $s3 - 20;
+  }
+}
 .projectinner_designer {
   display: flex;
   justify-content: space-evenly;
+  @include t() {
+    display: inline-block;
+    text-align: center;
+  }
   & .projectinner_designer_word {
     width: 25%;
     align-self: center;
+    @include t() {
+      width: 100%;
+    }
   }
   & .projectinner_designer_pic img {
     box-shadow: 0 $ip_shadow $ip_shadow * 3 0 black;
+    @include t() {
+      width: 50%;
+      // position: relative;
+      // left: 40%;
+
+    }
+    
   }
 }

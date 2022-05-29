@@ -1,3 +1,76 @@
+/* 第一屏燈箱 */
+.turn_on {
+    color: #666;
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid rgba(0,0,0,0);
+    font-size: 26px;
+    cursor: pointer;
+    transition: 0.2s all ease-in-out;
+    position: absolute;
+    bottom: 30%;
+    right: 50%;
+    z-index: 1000;
+    opacity: 1;
+    transition: 0.3s all ease-in-out;
+    &:hover {
+        color: #fff;
+        border-bottom: 1px solid #fff;
+    }
+}
+.wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(15, 15, 15);
+    opacity: 1;
+    transition: 0.3s all ease-in-out;
+    overflow: hidden;
+    z-index: 999;
+    .wrapper_title {
+        font-weight: 900;
+        color: #fff;
+        cursor: default;
+    }
+    .wrapper_text {
+        color: #fff;
+        margin-top: 25px;
+        text-align: center;
+        line-height: 1.2;
+        cursor: default;
+    }
+    .light {
+        background: radial-gradient(circle at 50%, transparent 5%, rgba(0, 0, 0, 0.95) 15%);
+        position: absolute;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        width: 100%;
+        height: 100%;
+        transition: 0.3s all ease-in-out;
+    }
+}
+/* 開燈 */
+.shut_down {
+    opacity: 0;
+    pointer-events: none;
+}
+/* 鎖住畫面 */
+html.noscroll {
+    position: fixed;
+    overflow-y: scroll;
+    width: 100%;
+}
+html.fixWindow {
+    position: fixed;
+    width: 100%;
+}
+
 /* 輪播圖片 */
 .index_carousel {
     .container {
@@ -7,9 +80,8 @@
     }
 }
 .swiper {
-    max-height: 100vh;
+    max-height: 93vh;
     position: relative;
-
     .swiper-wrapper {
         .swiper-slide {
             /* Center slide text vertically */
@@ -25,7 +97,6 @@
             -ms-flex-align: center;
             -webkit-align-items: center;
             align-items: center;
-
             img {
                 width: 100%;
                 vertical-align: top;
@@ -33,19 +104,16 @@
             }
         }
     }
-
     /* 輪播按鈕 */
     .swiper-button-next,
     .swiper-button-prev {
         color: $white;
         opacity: 0.9;
         text-shadow: 0 0.15rem 0.5rem $secondary_dark;
-
         &:active {
             color: $primary_100;
         }
     }
-
     /* 輪播點 */
     span.swiper-pagination-bullet {
         width: 10rem;
@@ -53,7 +121,6 @@
         border-radius: 0.05rem;
         background: $white;
         text-shadow: 0 0.15rem 0.5rem $secondary_dark;
-
         @media all and (max-width:490px) {
             width: 5rem;
             height: 0.25rem;
@@ -433,7 +500,7 @@
                     height: 400px;
                     background-color: $primary_70;
                     position: absolute;
-                    transform: translate(-50%, 75%);
+                    transform: translate(-15%, 75%);
                     z-index: -1;
                 }
             }
