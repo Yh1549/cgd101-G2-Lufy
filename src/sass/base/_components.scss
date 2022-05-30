@@ -501,3 +501,44 @@ $sel_base: 16;
   // -webkit-appearance: none;
   // appearance: none;
 }
+.mouse{
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  backdrop-filter: invert(100%);
+
+  z-index: 600;
+  pointer-events: none;
+  transition-duration: 200ms;
+  transition-timing-function: ease-out;
+  animation: cursorAnim .5s infinite alternate;
+}
+.mouseClickani{
+  transform: scale(2);
+  &::after {
+    content: "";
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    border: 5px solid $secondary_100;
+    border-radius: 50%;
+    opacity: 1;
+    top: -5px;
+    left: -5px;
+    animation: mouseAni .5s infinite alternate;
+}
+}
+.expand{
+  transition-duration: 800ms;
+  transform: scale(200);
+}
+@keyframes mouseAni{
+  from {
+    transform: scale(1);
+}
+to {
+    transform: scale(.5);
+}
+}
+

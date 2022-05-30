@@ -350,15 +350,3 @@
     display: none;
   }
 }
-#mouse{
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: red;
-    z-index: 600;
-    pointer-events: none;
-    transition-duration: 200ms;
-    transition-timing-function: ease-out;
-    animation: cursorAnim .5s infinite alternate;
-}
