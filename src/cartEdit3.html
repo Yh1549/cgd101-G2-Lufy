@@ -29,6 +29,14 @@
             <div class="cart_total">
                 Total: <span id="total">0</span>
             </div>
+            <div class="discount">
+                <select id="discount">
+                    <option value="0" disabled>Choose coupon</option>
+                    <option value="1">10% off coupon</option>
+                    <option value="2">12% off coupon</option>
+                    
+                </select>
+            </div>
             <div class="discount_total">
                 Discount Total:<span id="dtotal">0</span>
             </div>
@@ -39,22 +47,18 @@
             </div>
 
         </div>
-        <div class="discount">
-            <select id="discount" class="select">
-                <option value="0" disabled>Choose coupon</option>
-                <option value="1">10% off coupon</option>
-                <option value="2">12% off coupon</option>
-                <option value="3">15% off coupon</option>
-            </select>
-        </div>
 
 
 
-        <div class="relative_products">
+
+        <div class="moreworks">
             <h2 class="h2">Relative products</h2>
-            <div class="relative_product"><img src="images/aboutus.lamp5.png" alt=""></div>
-            <div class="relative_product"><img src="images/aboutus.lamp6.jpg" alt=""></div>
-            <div class="relative_product"><img src="images/aboutus.lamp7.jpg" alt=""></div>
+            <div class="relative_products">
+
+                <div class="relative_product"><img src="images/aboutus.lamp5.png" alt=""></div>
+                <div class="relative_product"><img src="images/aboutus.lamp6.jpg" alt=""></div>
+                <div class="relative_product"><img src="images/aboutus.lamp7.jpg" alt=""></div>
+            </div>
         </div>
     </div>
 
@@ -65,9 +69,9 @@
         function goDiscount() {
             let total = document.getElementById('total').innerText
 
-            if (discount.value = 1) {
+            if (discount.value == 1) {
                 document.getElementById('dtotal').innerText = total * 0.9
-            } else if (discount.value = 2) {
+            } else if (discount.value == 2) {
                 document.getElementById('dtotal').innerText = total * 0.88
             } else {
                 document.getElementById('dtotal').innerText = total
