@@ -12,23 +12,21 @@
     @@include('layout/header.html')
     <!-- header end -->
     <section class="productMain_product">
-        <section class="containerALL me_8">
+        <section class="containerALL ms_8 me_8">
             <div id="product_category" class="product_category me_5">
                 <product-category v-for='category in categoryObject' v-bind="category"></product-category>
             </div>
             <script>
                 let category = Vue.component('product-category', {
                     props: ['categoryLink', 'categoryImage', 'categoryName'],
-                    template: `
-                                <div class="category">
+                    template: `<div class="category">
                                     <a :href="categoryLink">
                                         <img :src="categoryImage" :alt="categoryName">
                                         <p class="p1">{{categoryName}}</p>
                                     </a>
-                                </div>
-                            `,
+                                </div>`,
                 })
-                new Vue({
+                const productCategory = new Vue({
                     el: '#product_category',
                     data: {
                         categoryObject: [
@@ -63,72 +61,135 @@
                                 categoryName: `Chandaliers`
                             },
                         ]
-                    }
+                    },
                 }) 
             </script>
-            <div class="grid">
-                <a href="./productInner.html">
-                    <div class="grid-item"><img src="./images/product_01.webp" alt=""></div>
-                </a>
-                <a href="./productInner.html">
-                    <div class="grid-item"><img src="./images/product_02.webp" alt=""></div>
-                </a>
-                <a href="./productInner.html">
-                    <div class="grid-item"><img src="./images/product_03.webp" alt=""></div>
-                </a>
-                <a href="./productInner.html">
-                    <div class="grid-item"><img src="./images/product_04.webp" alt=""></div>
-                </a>
-                <a href="./productInner.html">
-                    <div class="grid-item"><img src="./images/product_05.webp" alt=""></div>
-                </a>
-                <a href="./productInner.html">
-                    <div class="grid-item"><img src="./images/product_06.webp" alt=""></div>
-                </a>
-                <a href="./productInner.html">
-                    <div class="grid-item"><img src="./images/product_07.webp" alt=""></div>
-                </a>
-                <a href="./productInner.html">
-                    <div class="grid-item"><img src="./images/product_08.webp" alt=""></div>
-                </a>
-                <a href="./productInner.html">
-                    <div class="grid-item"><img src="./images/product_09.webp" alt=""></div>
-                </a>
-                <a href="./productInner.html">
-                    <div class="grid-item"><img src="./images/product_10.webp" alt=""></div>
-                </a>
-                <a href="./productInner.html">
-                    <div class="grid-item"><img src="./images/product_11.webp" alt=""></div>
-                </a>
-                <a href="./productInner.html">
-                    <div class="grid-item"><img src="./images/product_12.webp" alt=""></div>
-                </a>
-                <a href="./productInner.html">
-                    <div class="grid-item"><img src="./images/product_13.webp" alt=""></div>
-                </a>
-                <a href="./productInner.html">
-                    <div class="grid-item"><img src="./images/product_14.webp" alt=""></div>
-                </a>
-                <a href="./productInner.html">
-                    <div class="grid-item"><img src="./images/product_15.webp" alt=""></div>
-                </a>
-                <a href="./productInner.html">
-                    <div class="grid-item"><img src="./images/product_16.webp" alt=""></div>
-                </a>
-                <a href="./productInner.html">
-                    <div class="grid-item"><img src="./images/product_17.webp" alt=""></div>
-                </a>
-                <a href="./productInner.html">
-                    <div class="grid-item"><img src="./images/product_18.webp" alt=""></div>
-                </a>
+            <div id="grid_masonry">
+                <div class="grid">
+                    <div class="grid-sizer"></div>
+                    <div class="gutter-sizer"></div>
+                    <product-commodity v-for="commodity in commodityObject" v-bind="commodity"></product-commodity>
+                </div>
             </div>
+            <script>
+                let commodity = Vue.component('product-commodity', {
+                    props : ['commodityLink', 'commodityImg', 'commodityName'],
+                    template: ` <a class="grid-item" :href="commodityLink">
+                                    <div  class="commodityImg">
+                                        <img :src="commodityImg" :alt="commodityName">
+                                    </div>
+                                    <div class="commodity">
+                                        <h2>{{commodityName}}</h2>
+                                        <span class="material-icons">
+                                            favorite
+                                        </span>
+                                    </div>
+                                </a> `,
+                })
+                const productCommodity = new Vue({
+                    el: '#grid_masonry',
+                    data: {
+                        commodityObject: [
+                            {
+                                commodityLink:`./productInner.html`,
+                                commodityImg:`./images/product_01.webp`,
+                                commodityName:`Floor Lamps`,
+                            },
+                            {
+                                commodityLink:`./productInner.html`,
+                                commodityImg:`./images/product_02.webp`,
+                                commodityName:`Floor Lamps`,
+                            },
+                            {
+                                commodityLink:`./productInner.html`,
+                                commodityImg:`./images/product_03.webp`,
+                                commodityName:`Floor Lamps`,
+                            },
+                            {
+                                commodityLink:`./productInner.html`,
+                                commodityImg:`./images/product_04.webp`,
+                                commodityName:`Floor Lamps`,
+                            },
+                            {
+                                commodityLink:`./productInner.html`,
+                                commodityImg:`./images/product_05.webp`,
+                                commodityName:`Floor Lamps`,
+                            },
+                            {
+                                commodityLink:`./productInner.html`,
+                                commodityImg:`./images/product_06.webp`,
+                                commodityName:`Floor Lamps`,
+                            },
+                            {
+                                commodityLink:`./productInner.html`,
+                                commodityImg:`./images/product_07.webp`,
+                                commodityName:`Floor Lamps`,
+                            },
+                            {
+                                commodityLink:`./productInner.html`,
+                                commodityImg:`./images/product_08.webp`,
+                                commodityName:`Floor Lamps`,
+                            },
+                            {
+                                commodityLink:`./productInner.html`,
+                                commodityImg:`./images/product_09.webp`,
+                                commodityName:`Floor Lamps`,
+                            },
+                            {
+                                commodityLink:`./productInner.html`,
+                                commodityImg:`./images/product_10.webp`,
+                                commodityName:`Floor Lamps`,
+                            },
+                            {
+                                commodityLink:`./productInner.html`,
+                                commodityImg:`./images/product_11.webp`,
+                                commodityName:`Floor Lamps`,
+                            },
+                            {
+                                commodityLink:`./productInner.html`,
+                                commodityImg:`./images/product_12.webp`,
+                                commodityName:`Floor Lamps`,
+                            },
+                            {
+                                commodityLink:`./productInner.html`,
+                                commodityImg:`./images/product_13.webp`,
+                                commodityName:`Floor Lamps`,
+                            },
+                            {
+                                commodityLink:`./productInner.html`,
+                                commodityImg:`./images/product_14.webp`,
+                                commodityName:`Floor Lamps`,
+                            },
+                            {
+                                commodityLink:`./productInner.html`,
+                                commodityImg:`./images/product_15.webp`,
+                                commodityName:`Floor Lamps`,
+                            },
+                            {
+                                commodityLink:`./productInner.html`,
+                                commodityImg:`./images/product_16.webp`,
+                                commodityName:`Floor Lamps`,
+                            },
+                            {
+                                commodityLink:`./productInner.html`,
+                                commodityImg:`./images/product_17.webp`,
+                                commodityName:`Floor Lamps`,
+                            },
+                            {
+                                commodityLink:`./productInner.html`,
+                                commodityImg:`./images/product_18.webp`,
+                                commodityName:`Floor Lamps`,
+                            },                            
+                        ]
+                    },
+                })
+            </script>
         </section>
     </section>
-    <!-- 商品頁瀑布流 -->
-    <script type="module" src="./js/productMain_masonry.js"></script>
-
     <!-- footer  -->
     @@include('layout/footer.html')
+    <!-- 商品頁瀑布流 -->
+    <script type="module" src="./js/productMain_masonry.js"></script>
 
     <!-- script -->
     @@include('layout/script.html')
