@@ -72,23 +72,50 @@
     }
 }
 //------------------------左邊
+body::-webkit-scrollbar{
+    width: 0rem;
+}
+body::-webkit-scrollbar-track{
+    background: transparent;
+}
+body::-webkit-scrollbar-track{
+    background: transparent;
+}
+body:hover::-webkit-scrollbar-thumb{
+    background: transparent;
+}
 .backendContainer{
     display: flex;
-    
+    height: auto;
+    min-height: 100vh;
     & .beMenu{
-        width: 12.5%;
-        height: 100vh;
+        width: 15%;
+        
         background-color: $secondary_100;
         box-sizing: border-box;
-        & img{
-            width: 90%;
+        position: relative;
+        .logo{
+            width: 12rem;
+            position: sticky;
+            top: 0;
+            left: 0;
+            & img{
+                width: 90%;
+                vertical-align: top;
+                object-fit: cover;
+            }
         }
         & ul{
-
+            position: sticky;
+            top: 100px;
+            left: 0;
             & li{
                 color: $fontcolor_10;
                 display: block;
                 cursor: pointer;
+            }
+            & a{
+                text-decoration: none;
             }
             & li:hover{
                 background-color: $primary_100;
@@ -126,6 +153,13 @@
 }
 .listGrow{
     flex-grow: 1;
+}
+.ellipsis{
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .pages{
     display: flex;
