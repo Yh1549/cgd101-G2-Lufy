@@ -1,3 +1,9 @@
+body {
+    background-image: url(../../images/backend_bg.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
 .fontTitle{
     color: $secondary_100;
 }
@@ -40,11 +46,12 @@
 }
 .lightBox_list{
     background-color: $white;
-    width: 90%;
+    width: 82%;
     border-radius: 20px;
     box-sizing: border-box;
     margin: auto;
-    // overflow-y: scroll;
+    position: relative;
+    left: 115px;
     & .formOne{
         display: flex;
     }
@@ -134,14 +141,15 @@ body:hover::-webkit-scrollbar-thumb{
 .beNews_title{
     display: flex;
     padding: 10px;
+    background-color: $secondary_70;
     & p{
         width: 10%;
+        color: #ffff;
     }
 }
 //------------------------列表表格
 .beNews_text{
     display: flex;
-    background-color: $primary_30;
     box-sizing: border-boxs;
     padding: 10px;
     & p{
@@ -150,6 +158,9 @@ body:hover::-webkit-scrollbar-thumb{
     & button{
         width: 10%;
     }
+}
+.beNews_details:nth-child(even){
+    background:#f1e3da;
 }
 .listGrow{
     flex-grow: 1;
