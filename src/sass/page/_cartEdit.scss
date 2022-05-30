@@ -11,7 +11,7 @@
 
 #myCart {
     margin: 0 auto;
-    width: 900px;
+    width: 80%;
     border: 1px solid #fff;
     // input {
     //     width: 60px;
@@ -32,6 +32,13 @@
     font-size: medium;
     font-weight: 800;
     border-bottom: 1px solid #aaa;
+    input {
+        @include t {
+            max-width: 678px;
+            margin: 0 auto;
+            width: 40px;
+        }
+    }
 }
 
 #subtotal {
@@ -45,6 +52,14 @@
     display: flex;
     justify-content: end;
     margin-bottom: 20px;
+    button {
+        @include t {
+            max-width: 678px;
+            margin: 0 auto;
+            width: 60px;
+            text-align: center;
+        }
+    }
 }
 
 .cart_check_detail {
@@ -58,6 +73,8 @@
 
 .payer,
 .receiver {
+    margin: 0 1rem;
+    width: 50%;
     height: 250px;
     flex-direction: column;
     display: flex;
@@ -66,10 +83,26 @@
     padding: 20px;
     border-radius: 10px;
     align-items: center;
+    @include t {
+        max-width: 678px;
+        margin: 0 auto;
+        width: 30%;
+    }
+    input {
+        @include t {
+            max-width: 678px;
+            margin: 0 auto;
+            width: 80%;
+        }
+    }
 }
 
-.payer {
-    margin-right: 20px;
+.arriveTime {
+    @include t {
+        max-width: 678px;
+        margin: 0 auto;
+        font-size: 12px;
+    }
 }
 
 .shipping_method {
