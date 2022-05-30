@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    @@include('layout/meta.html', { "title" : "設計師頁" })
+
+</head>
+<style>
+    .box {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .a {
+        background-color: blue;
+    }
+    
+    .b {
+        background-color: darkred;
+    }
+    
+    .c {
+        background-color: rgb(6, 190, 40);
+    }
+</style>
+
+<body>
+    @@include('layout/header.html')
+    <div class="containerALL">
+        <div class="designer_name">
+            <h1 class="h1">Designer John</h1>
+        </div>
+        <div class="designer_presentation">
+            <div class="designer_words">
+                <div class="designer_image">
+                    <img src="./images/designer1.jpg" alt="">
+
+                </div>
+                <div class="designer_speech">
+                    <p class="h3">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi, voluptates facere! Ad optio consectetur voluptatem a ipsum voluptatum, nemo consequuntur atque facilis sed repellendus veritatis dolor repellat tenetur sunt maxime quae
+                        consequatur quibusdam expedita voluptates aspernatur natus dicta? Culpa iusto ex laboriosam voluptate quasi numquam ratione temporibus voluptates iste sit.</p>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="designer_art">
+            <h1 class="h1">Artworks</h1>
+        </div>
+        <div class="designer_artworks">
+            <div class="designer_artwork">
+                <div class="artwork_image">
+                    <img src="./images/aboutus.lamp2.png" width="200px" alt="">
+
+                </div>
+                <div class="artwork_intro">
+                    <p class="h3">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates officiis labore placeat tenetur, vitae optio ipsa omnis dolorem reprehenderit esse vero voluptatum, explicabo cum quia distinctio cumque repudiandae incidunt neque.
+                        Dignissimos, alias aliquid ullam maiores voluptas quisquam, officiis praesentium minus facilis aperiam ipsa voluptatibus similique quos sequi odit. Dolorum, provident.</p>
+                </div>
+            </div>
+        </div>
+        <div class="designer_article">
+            <h1 class="h1">Articles</h1>
+        </div>
+        <div class="designer_spirit">
+            <div class="design_spirit">
+                <div class="spirit_image">
+                    <img src="./images/aboutus.lamp4.png" width=200px alt="">
+
+                </div>
+                <div class="spirit_text">
+                    <p class="h3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates obcaecati quasi aperiam aspernatur deleniti ipsam. Non fugit id, nesciunt impedit suscipit eveniet quis dolores esse similique vitae in sed aliquam ad quas
+                        accusantium veniam odit minus! Totam dicta, velit quia, alias, explicabo adipisci atque odio dignissimos quibusdam aut aspernatur?</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="box a">a</div>
+        <div class="box "></div>
+        <div class="box "></div>
+        <div class="box "></div>
+
+        <div class="box b">b</div>
+        <div class="box "></div>
+        <div class="box "></div>
+        <div class="box "></div>
+        <div class="box "></div>
+        <div class="box c">c</div>
+        <div class="box "></div>
+        <div class="box "></div>
+        <div class="box "></div>
+        <div class="box "></div>
+        <div class="box "></div>
+        <div class="box "></div>
+        <div class="box "></div>
+        <div class="box "></div>
+        <div class="box "></div>
+        <div class="box "></div>
+        <div class="box "></div>
+        <div class="box "></div>
+
+    </div>
+    @@include('layout/footer.html')
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        let tl = gsap.timeline({
+
+            scrollTrigger: {
+                trigger: ".c",
+                start: "top center",
+                end: "+=300",
+                scrub: 1,
+                markers: true,
+                toggleActions: "restart pause resume pause"
+            }
+        });
+
+        tl.to(".c", {
+
+                x: 300,
+                rotation: 360,
+                ease: "none",
+                duration: 3
+            })
+            .to(".c", {
+                backgroundColor: "$secondary_50",
+                duration: 1
+            })
+            .to(".c", {
+                x: 0,
+                duration: 3
+            })
+    </script>
+
+</body>
+
+</html>
