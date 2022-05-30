@@ -1,5 +1,5 @@
 function openClass(evt,cname){
-    let tablink = document.getElementByClassName('tablink');
+    let tablink = document.getElementsByClassName('tablink');
     let content = document.getElementsByClassName('mem_content');
     for(let i=0; i<content.length; i++){
         tablink[i].classList.remove('currentM')}

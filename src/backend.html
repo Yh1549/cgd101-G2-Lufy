@@ -5,25 +5,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./js/backend.js"></script>
-    <script src="./js/backendLightBox.js"></script>
     @@include('layout/meta.html', { "title" : "Backend" })
 </head>
 <body>
-    <div class="ps_1" id="lightBox" style="display:none">
+    <!-- 商品燈箱 -->
+    <div class="ps_1" id="A_lightBox" style="display:none">
         <div class="ps_2 pe_2 pl_2 pr_2 lightBox_list">
             <form action="" class="formOne">
                 <div style="width:30%">
-                    <label class="p1 p1 pl_1 pr_1" for="">No.</label>
+                    <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">A_No.</label>
                     <input type="text" name="" id=""><br>
-                    <label class="p1 p1 pl_1 pr_1" for="">Start_Date</label>
+                    <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">Start_Date</label>
                     <input type="date" name="" id=""><br>
-                    <label class="p1 p1 pl_1 pr_1" for="">End_Date</label>
+                    <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">End_Date</label>
                     <input type="date" name="" id="">
                 </div>
                 <div style="width:70%">
-                    <label class="p1 p1 pl_1 pr_1" for="">Title</label><input type="text" name="" id=""><br>
-                    <label class="p1 p1 pl_1 pr_1" for="" style="vertical-align:top">Text</label><textarea name="" id="" cols="100" rows="10"></textarea>
+                    <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">Title</label><input type="text" name="" id=""><br>
+                    <label class="p1 ps_1 pe_1 pl_1 pr_1" for="" style="vertical-align:top">Text</label><textarea name="" id="" cols="100" rows="10"></textarea>
                 </div>
             </form>
             <form action="" class="formTwo">
@@ -35,18 +34,201 @@
                     <label class="p1 pl_1 pr_1" for="">Price</label><input type="text" name="" id="">
                     <label class="p1 pl_1 pr_1" for="">Promotions_price</label><input type="text" name="" id="">
                     <button class="ml_1 mr_1 newsbtn">✚ New</button>
-                    <button class="ml_1 mr_1 newsbtn">─ Dele</button>
+                    
                 </div>
                 <ul>
-                    <li></li>
+                    <li class="ps_1">
+                        <label class="p1 pl_1 pr_1" for="">Product_No</label>
+                        <p class="p1">0000001</p>
+                        <label class="p1 pl_1 pr_1" for="">Price</label>
+                        <p class="p1">$ 1000</p>
+                        <label class="p1 pl_1 pr_1" for="">Promotions_price</label>
+                        <p class="p1">$ 900</p>
+                        <button class="ml_1 mr_1 newsbtn">─ Delete</button>
+                    </li>
+                    <li class="ps_1">
+                        <label class="p1 pl_1 pr_1" for="">Product_No</label>
+                        <p class="p1">0000002</p>
+                        <label class="p1 pl_1 pr_1" for="">Price</label>
+                        <p class="p1">$ 1500</p>
+                        <label class="p1 pl_1 pr_1" for="">Promotions_price</label>
+                        <p class="p1">$ 1400</p>
+                        <button class="ml_1 mr_1 newsbtn">─ Delete</button>
+                    </li>
                 </ul>
             </form>
             <div class="lastBtn">
-                <button class="ml_1 p1 newsbtn" id="btnCancel">Cancel</button><button class="ml_1 p1 newsbtn">Confirm</button>
+                <button class="ml_1 p1 newsbtn" id="A_btnCancel">Cancel</button>
+                <button class="ml_1 p1 newsbtn">Confirm</button>
             </div>
         </div>
-        
     </div>
+    <!-- 優惠活動燈箱 -->
+    <div class="ps_1" id="B_lightBox" style="display:none">
+        <div class="ps_2 pe_2 pl_2 pr_2 lightBox_list">
+            <form action="" class="formOne">
+                <div style="width:30%">
+                    <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">B_No.</label>
+                    <input type="text" name="" id=""><br>
+                    <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">Start_Date</label>
+                    <input type="date" name="" id=""><br>
+                    <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">End_Date</label>
+                    <input type="date" name="" id="">
+                </div>
+                <div style="width:70%">
+                    <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">Title</label><input type="text" name="" id=""><br>
+                    <label class="p1 ps_1 pe_1 pl_1 pr_1" for="" style="vertical-align:top">Text</label><textarea name="" id="" cols="100" rows="10"></textarea>
+                </div>
+            </form>
+            <form action="" class="formTwo">
+                <div class="ps_1 me_1 beNews_titleH1">
+                    <p class="h1">優惠商品</p>
+                </div>
+                <div class="ps_1">
+                    <label class="p1 pl_1 pr_1" for="">Product_No</label><input type="text" name="" id="">
+                    <label class="p1 pl_1 pr_1" for="">Price</label><input type="text" name="" id="">
+                    <label class="p1 pl_1 pr_1" for="">Promotions_price</label><input type="text" name="" id="">
+                    <button class="ml_1 mr_1 newsbtn">✚ New</button>
+                    
+                </div>
+                <ul>
+                    <li class="ps_1">
+                        <label class="p1 pl_1 pr_1" for="">Product_No</label>
+                        <p class="p1">0000001</p>
+                        <label class="p1 pl_1 pr_1" for="">Price</label>
+                        <p class="p1">$ 1000</p>
+                        <label class="p1 pl_1 pr_1" for="">Promotions_price</label>
+                        <p class="p1">$ 900</p>
+                        <button class="ml_1 mr_1 newsbtn">─ Delete</button>
+                    </li>
+                    <li class="ps_1">
+                        <label class="p1 pl_1 pr_1" for="">Product_No</label>
+                        <p class="p1">0000002</p>
+                        <label class="p1 pl_1 pr_1" for="">Price</label>
+                        <p class="p1">$ 1500</p>
+                        <label class="p1 pl_1 pr_1" for="">Promotions_price</label>
+                        <p class="p1">$ 1400</p>
+                        <button class="ml_1 mr_1 newsbtn">─ Delete</button>
+                    </li>
+                </ul>
+            </form>
+            <div class="lastBtn">
+                <button class="ml_1 p1 newsbtn" id="B_btnCancel">Cancel</button>
+                <button class="ml_1 p1 newsbtn">Confirm</button>
+            </div>
+        </div>
+    </div>
+    <!-- 常見問題燈箱 -->
+    <div class="ps_1" id="C_lightBox" style="display:none">
+        <div class="ps_2 pe_2 pl_2 pr_2 lightBox_list">
+            <form action="" class="formOne">
+                <div style="width:30%">
+                    <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">C_No.</label>
+                    <input type="text" name="" id=""><br>
+                    <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">Start_Date</label>
+                    <input type="date" name="" id=""><br>
+                    <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">End_Date</label>
+                    <input type="date" name="" id="">
+                </div>
+                <div style="width:70%">
+                    <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">Title</label><input type="text" name="" id=""><br>
+                    <label class="p1 ps_1 pe_1 pl_1 pr_1" for="" style="vertical-align:top">Text</label><textarea name="" id="" cols="100" rows="10"></textarea>
+                </div>
+            </form>
+            <form action="" class="formTwo">
+                <div class="ps_1 me_1 beNews_titleH1">
+                    <p class="h1">優惠商品</p>
+                </div>
+                <div class="ps_1">
+                    <label class="p1 pl_1 pr_1" for="">Product_No</label><input type="text" name="" id="">
+                    <label class="p1 pl_1 pr_1" for="">Price</label><input type="text" name="" id="">
+                    <label class="p1 pl_1 pr_1" for="">Promotions_price</label><input type="text" name="" id="">
+                    <button class="ml_1 mr_1 newsbtn">✚ New</button>
+                    
+                </div>
+                <ul>
+                    <li class="ps_1">
+                        <label class="p1 pl_1 pr_1" for="">Product_No</label>
+                        <p class="p1">0000001</p>
+                        <label class="p1 pl_1 pr_1" for="">Price</label>
+                        <p class="p1">$ 1000</p>
+                        <label class="p1 pl_1 pr_1" for="">Promotions_price</label>
+                        <p class="p1">$ 900</p>
+                        <button class="ml_1 mr_1 newsbtn">─ Delete</button>
+                    </li>
+                    <li class="ps_1">
+                        <label class="p1 pl_1 pr_1" for="">Product_No</label>
+                        <p class="p1">0000002</p>
+                        <label class="p1 pl_1 pr_1" for="">Price</label>
+                        <p class="p1">$ 1500</p>
+                        <label class="p1 pl_1 pr_1" for="">Promotions_price</label>
+                        <p class="p1">$ 1400</p>
+                        <button class="ml_1 mr_1 newsbtn">─ Delete</button>
+                    </li>
+                </ul>
+            </form>
+            <div class="lastBtn">
+                <button class="ml_1 p1 newsbtn" id="C_btnCancel">Cancel</button>
+                <button class="ml_1 p1 newsbtn">Confirm</button>
+            </div>
+        </div>
+    </div>
+    <!-- 設計師燈箱 -->
+    <div class="ps_1" id="D_lightBox" style="display:none">
+        <div class="ps_2 pe_2 pl_2 pr_2 lightBox_list">
+            <form action="" class="formOne">
+                <div style="width:30%">
+                    <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">D_No.</label>
+                    <input type="text" name="" id=""><br>
+                    <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">Start_Date</label>
+                    <input type="date" name="" id=""><br>
+                    <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">End_Date</label>
+                    <input type="date" name="" id="">
+                </div>
+                <div style="width:70%">
+                    <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">Title</label><input type="text" name="" id=""><br>
+                    <label class="p1 ps_1 pe_1 pl_1 pr_1" for="" style="vertical-align:top">Text</label><textarea name="" id="" cols="100" rows="10"></textarea>
+                </div>
+            </form>
+            <form action="" class="formTwo">
+                <div class="ps_1 me_1 beNews_titleH1">
+                    <p class="h1">優惠商品</p>
+                </div>
+                <div class="ps_1">
+                    <label class="p1 pl_1 pr_1" for="">Product_No</label><input type="text" name="" id="">
+                    <label class="p1 pl_1 pr_1" for="">Price</label><input type="text" name="" id="">
+                    <label class="p1 pl_1 pr_1" for="">Promotions_price</label><input type="text" name="" id="">
+                    <button class="ml_1 mr_1 newsbtn">✚ New</button>
+                    
+                </div>
+                <ul>
+                    <li class="ps_1">
+                        <label class="p1 pl_1 pr_1" for="">Product_No</label>
+                        <p class="p1">0000001</p>
+                        <label class="p1 pl_1 pr_1" for="">Price</label>
+                        <p class="p1">$ 1000</p>
+                        <label class="p1 pl_1 pr_1" for="">Promotions_price</label>
+                        <p class="p1">$ 900</p>
+                        <button class="ml_1 mr_1 newsbtn">─ Delete</button>
+                    </li>
+                    <li class="ps_1">
+                        <label class="p1 pl_1 pr_1" for="">Product_No</label>
+                        <p class="p1">0000002</p>
+                        <label class="p1 pl_1 pr_1" for="">Price</label>
+                        <p class="p1">$ 1500</p>
+                        <label class="p1 pl_1 pr_1" for="">Promotions_price</label>
+                        <p class="p1">$ 1400</p>
+                        <button class="ml_1 mr_1 newsbtn">─ Delete</button>
+                    </li>
+                </ul>
+            </form>
+            <div class="lastBtn">
+                <button class="ml_1 p1 newsbtn" id="D_btnCancel">Cancel</button>
+                <button class="ml_1 p1 newsbtn">Confirm</button>
+            </div>
+        </div>
+    </div>
+
     <div class="backendContainer">
         <!-- 左邊section -->
         <section class="beMenu">
@@ -59,10 +241,10 @@
                 <li onclick="openClass(event,'mainElm3')" class="ps_1 pe_1 pl_1 pr_1 h3 tablink">訂單管理</li>
                 <li onclick="openClass(event,'mainElm4')" class="ps_1 pe_1 pl_1 pr_1 h3 tablink">優惠活動管理</li>
                 <!-- <li onclick="openClass(event,'mainElm5')" class="ps_1 pe_1 pl_1 pr_1 h3 tablink">最新消息管理</li> -->
-                <li onclick="openClass(event,'mainElm6')" class="ps_1 pe_1 pl_1 pr_1 h3 tablink">常見問題管理</li>
-                <li onclick="openClass(event,'mainElm7')" class="ps_1 pe_1 pl_1 pr_1 h3 tablink">輪播管理</li>
-                <li onclick="openClass(event,'mainElm8')" class="ps_1 pe_1 pl_1 pr_1 h3 tablink">設計師管理</li>
-                <li onclick="openClass(event,'mainElm9')" class="ps_1 pe_1 pl_1 pr_1 h3 tablink">登出</li>
+                <li onclick="openClass(event,'mainElm5')" class="ps_1 pe_1 pl_1 pr_1 h3 tablink">常見問題管理</li>
+                <li onclick="openClass(event,'mainElm6')" class="ps_1 pe_1 pl_1 pr_1 h3 tablink">輪播管理</li>
+                <li onclick="openClass(event,'mainElm7')" class="ps_1 pe_1 pl_1 pr_1 h3 tablink">設計師管理</li>
+                <li class="ps_1 pe_1 pl_1 pr_1 h3 tablink">登出</li>
             </ul>
         </section>
         <!-- 右邊section -->
@@ -70,9 +252,10 @@
             <!-- 會員管理 -->
             <section class="mem_content" id="mainElm1">
                 <div class="ps_1 pe_1 pl_1 pr_1 beNews_titleH1">
-                    <h1 class="h1 font_w5 fontTitle">會員管理</h1>
+                    <h1 class="h1 font_w5 fontTitle">Member Manage</h1>
                 </div>
                 <div class="ps_1 pe_1 pl_1 pr_1">
+                    <div class="pr_1 pe_1 ps_2"></div>
                     <div class="beNews_title">
                         <p class="p1 font_w5 fontcontent fontColor">會員編號</p>
                         <p class="p1 font_w5 fontcontent fontColor">會員姓名</p>
@@ -83,39 +266,214 @@
                         <p class="p1 font_w5 fontcontent fontColor">會員狀態</p>
                         <p></p>
                     </div>
+                    <ul id="membList">
+                        <N_menu v-for="N_backendMenu in membObject" v-bind="N_backendMenu">
+                        </N_menu>
+                    </ul>
                     <!-- <div class="pages">
                         <p class="p1 pl_1 pr_1">1</p>
                         <p class="p1 pl_1 pr_1">2</p>
                     </div> -->
                 </div>
             </section>
+            <script>
+                let N_backendMenu = Vue.component('N_menu', {
+                    props: ['membNo', 'membName', 'membEmail', 'membBirDate','membPhone','membAddress','membState'],
+                    template: `
+                        <li class="ps_1 beNews_details">
+                            <div class="beNews_text">
+                                <p class="p1 font_w5 fontcontent fontColor">{{membNo}}</p>
+                                <p class="p1 font_w5 fontcontent fontColor">{{membName}}</p>
+                                <p class="p1 font_w5 fontcontent fontColor listGrow">{{membEmail}}</p>
+                                <p class="p1 font_w5 fontcontent fontColor">{{membBirDate}}</p>
+                                <p class="p1 font_w5 fontcontent fontColor">{{membPhone}}</p>
+                                <p class="p1 font_w5 fontcontent fontColor listGrow">{{membAddress}}</p>
+                                <p class="p1 font_w5 fontcontent fontColor">{{membState}}</p>
+                                <button class="p1 newsbtn">訂單明細</button>
+                            </div>
+                        </li>
+                    `,
+                })
+                new Vue({
+                    el: '#membList',
+                    data: {
+                        membObject: [
+                            {
+                                membNo: `1`,
+                                membName: `Amy`,
+                                membEmail: `amy@gmail.com`,
+                                membBirDate: `2000/06/02`,
+                                membPhone:`0912345678`,
+                                membAddress: `桃園市中壢區`,
+                                membState: `正常`
+                            },
+                            {
+                                membNo: `2`,
+                                membName: `Ben`,
+                                membEmail: `ben@gmail.com`,
+                                membBirDate: `1999/06/02`,
+                                membPhone:`0987654321`,
+                                membAddress: `桃園市桃園區`,
+                                membState: `凍結`
+                            },
+                            {
+                                membNo: `3`,
+                                membName: ``,
+                                membEmail: ``,
+                                membBirDate: ``,
+                                membPhone:``,
+                                membAddress: ``,
+                                membState: ``
+                            },
+                            {
+                                membNo: `4`,
+                                membName: ``,
+                                membEmail: ``,
+                                membBirDate: ``,
+                                membPhone:``,
+                                membAddress: ``,
+                                membState: ``
+                            },
+                            {
+                                membNo: `5`,
+                                membName: ``,
+                                membEmail: ``,
+                                membBirDate: ``,
+                                membPhone:``,
+                                membAddress: ``,
+                                membState: ``
+                            },
+                            {
+                                membNo: `6`,
+                                membName: ``,
+                                membEmail: ``,
+                                membBirDate: ``,
+                                membPhone:``,
+                                membAddress: ``,
+                                membState: ``
+                            },
+                            {
+                                membNo: `7`,
+                                membName: ``,
+                                membEmail: ``,
+                                membBirDate: ``,
+                                membPhone:``,
+                                membAddress: ``,
+                                membState: ``
+                            },
+                            {
+                                membNo: `8`,
+                                membName: ``,
+                                membEmail: ``,
+                                membBirDate: ``,
+                                membPhone:``,
+                                membAddress: ``,
+                                membState: ``
+                            },
+                            {
+                                membNo: `8`,
+                                membName: ``,
+                                membEmail: ``,
+                                membBirDate: ``,
+                                membPhone:``,
+                                membAddress: ``,
+                                membState: ``
+                            },
+                        ]
+                    }
+                })
+            </script>
             <!-- 商品管理 -->
             <section class="mem_content" id="mainElm2">
                 <div class="ps_1 pe_1 pl_1 pr_1 beNews_titleH1">
                     <h1 class="h1 font_w5 fontTitle">商品管理</h1>
                 </div>
                 <div class="ps_1 pe_1 pl_1 pr_1">
-                    <div class="pr_1 pe_1 newListBtn"><button class="p1 newsbtn">✚ NEW</button></div>
+                    <div class="pr_1 pe_1 newListBtn"><button class="p1 newsbtn" id="A_New">✚ NEW</button></div>
                     <div class="beNews_title">
-                        <p class="p1 font_w5 fontcontent fontColor">編號</p>
-                        <p class="p1 font_w5 fontcontent fontColor">名稱</p>
-                        <p class="p1 font_w5 fontcontent fontColor">類別</p>
-                        <p class="p1 font_w5 fontcontent fontColor">設計師</p>
-                        <p class="p1 font_w5 fontcontent fontColor listGrow">介紹</p>
-                        <p class="p1 font_w5 fontcontent fontColor listGrow">規格</p>
-                        <p class="p1 font_w5 fontcontent fontColor">單價</p>
-                        <p class="p1 font_w5 fontcontent fontColor">狀態</p>
-                        <p class="p1 font_w5 fontcontent fontColor">庫存</p>
+                        <p class="p1 font_w5 fontcontent fontColor">商品編號</p>
+                        <p class="p1 font_w5 fontcontent fontColor">商品名稱</p>
+                        <p class="p1 font_w5 fontcontent fontColor">商品類別</p>
+                        <p class="p1 font_w5 fontcontent fontColor">商品設計師</p>
+                        <p class="p1 font_w5 fontcontent fontColor listGrow">商品規格</p>
+                        <p class="p1 font_w5 fontcontent fontColor">商品單價</p>
+                        <p class="p1 font_w5 fontcontent fontColor">商品狀態</p>
+                        <p class="p1 font_w5 fontcontent fontColor">商品庫存</p>
                         <p class="listGrow"></p>
                     </div>
+                    <ul id="productList">
+                        <A_menu v-for="A_backendMenu in prodObject" v-bind="A_backendMenu">
+                        </A_menu>
+                    </ul>
                     <!-- <div class="pages">
                         <p class="p1 pl_1 pr_1">1</p>
                         <p class="p1 pl_1 pr_1">2</p>
                     </div> -->
                 </div>
             </section>
+            <script>
+                let A_backendMenu = Vue.component('A_menu', {
+                    props: ['prodNo', 'prodName', 'prodCategory', 'prodDesigner','prodIntroduce','prodSpec','prodPrice','prodState','in_stock'],
+                    template: `
+                        <li class="ps_1 beNews_details">
+                            <div class="beNews_text">
+                                <p class="p1 font_w5 fontcontent fontColor">{{prodNo}}</p>
+                                <p class="p1 font_w5 fontcontent fontColor">{{prodName}}</p>
+                                <p class="p1 font_w5 fontcontent fontColor">{{prodCategory}}</p>
+                                <p class="p1 font_w5 fontcontent fontColor">{{prodDesigner}}</p>
+                                <p class="p1 font_w5 fontcontent fontColor listGrow">{{prodSpec}}</p>
+                                <p class="p1 font_w5 fontcontent fontColor">{{prodPrice}}</p>
+                                <p class="p1 font_w5 fontcontent fontColor">{{prodState}}</p>
+                                <p class="p1 font_w5 fontcontent fontColor">{{in_stock}}</p>
+                                
+                                <button class="p1 newsbtn listGrow">編輯與查看</button>
+                            </div>
+                        </li>
+                    `,
+                })
+                new Vue({
+                    el: '#productList',
+                    data: {
+                        prodObject: [
+                            {
+                                prodNo: `1`,
+                                prodName: `燈燈燈`,
+                                prodCategory: `落地燈`,
+                                prodDesigner: `阿宏`,
+                                prodIntroduce:`超穩站立`,
+                                prodSpec: `100 x 200`,
+                                prodPrice: `$ 1000`,
+                                prodState: `上架`,
+                                in_stock: `有`
+                            },
+                            {
+                                prodNo: `2`,
+                                prodName: ``,
+                                prodCategory: ``,
+                                prodDesigner: ``,
+                                prodIntroduce:``,
+                                prodSpec: ``,
+                                prodPrice: ``,
+                                prodState: ``,
+                                in_stock: ``
+                            },
+                            {
+                                prodNo: `3`,
+                                prodName: ``,
+                                prodCategory: ``,
+                                prodDesigner: ``,
+                                prodIntroduce:``,
+                                prodSpec: ``,
+                                prodPrice: ``,
+                                prodState: ``,
+                                in_stock: ``
+                            },
+                        ]
+                    }
+                })
+            </script>
             <!-- 訂單管理 -->
-            <section class="mem_content" id="mainElm2">
+            <section class="mem_content" id="mainElm3">
                 <div class="ps_1 pe_1 pl_1 pr_1 beNews_titleH1">
                     <h1 class="h1 font_w5 fontTitle">訂單管理</h1>
                 </div>
@@ -141,7 +499,7 @@
                     <h1 class="h1 font_w5 fontTitle">Promotions Manage</h1>
                 </div>
                 <div class="ps_1 pe_1 pl_1 pr_1">
-                    <div class="pr_1 pe_1 newListBtn"><button class="p1 newsbtn" id="spanNew">✚ NEW</button></div>
+                    <div class="pr_1 pe_1 newListBtn"><button class="p1 newsbtn" id="B_New">✚ NEW</button></div>
                     <div class="beNews_title">
                         <p class="p1 font_w5 fontcontent fontColor">活動編號</p>
                         <p class="p1 font_w5 fontcontent fontColor listGrow">活動名稱</p>
@@ -150,8 +508,8 @@
                         <p class="p1 font_w5 fontcontent fontColor listGrow">圖片路徑</p>
                         <p></p>
                     </div>
-                    <ul class="backendList" id="pList">
-                        <B_menu v-for="backendMenu in promotionsObject" v-bind="backendMenu">
+                    <ul id="promList">
+                        <B_menu v-for="B_backendMenu in promotionsObject" v-bind="B_backendMenu">
                         </B_menu>
                     </ul>
                     <div class="pages">
@@ -161,7 +519,7 @@
                 </div>
             </section>
             <script>
-                let backendMenu = Vue.component('B_menu', {
+                let B_backendMenu = Vue.component('B_menu', {
                     props: ['promotionsNo', 'promotionsName', 'promotionsStartDate', 'promotionsEndDate','promotionsImagePath'],
                     template: `
                         <li class="ps_1 beNews_details">
@@ -177,7 +535,7 @@
                     `,
                 })
                 new Vue({
-                    el: '#pList',
+                    el: '#promList',
                     data: {
                         promotionsObject: [
                             {
@@ -249,12 +607,12 @@
                 })
             </script>
             <!-- 常見問題管理 -->
-            <section class="mem_content" id="mainElm4">
+            <section class="mem_content" id="mainElm5">
                 <div class="ps_1 pe_1 pl_1 pr_1 beNews_titleH1">
                     <h1 class="h1 font_w5 fontTitle">常見問題管理</h1>
                 </div>
                 <div class="ps_1 pe_1 pl_1 pr_1">
-                    <div class="pr_1 pe_1 newListBtn"><button class="p1 newsbtn">✚ NEW</button></div>
+                    <div class="pr_1 pe_1 newListBtn"><button class="p1 newsbtn" id="C_New">✚ NEW</button></div>
                     <div class="beNews_title">
                         <p class="p1 font_w5 fontcontent fontColor">編號</p>
                         <p class="p1 font_w5 fontcontent fontColor">類別</p>
@@ -269,14 +627,32 @@
                 </div>
             </section>
             <!-- 輪播管理 -->
-
+            <section class="mem_content" id="mainElm6">
+                <div class="ps_1 pe_1 pl_1 pr_1 beNews_titleH1">
+                    <h1 class="h1 font_w5 fontTitle">輪播管理</h1>
+                </div>
+                <div class="ps_1 pe_1 pl_1 pr_1">
+                    <div class="pr_1 beNews_title">
+                        <p class="p1 font_w5 fontcontent fontColor">編號</p>
+                        <p class="p1 font_w5 fontcontent fontColor">名稱</p>
+                        <p class="p1 font_w5 fontcontent fontColor listGrow">圖片路徑</p>
+                        <p class="p1 font_w5 fontcontent fontColor listGrow">圖片預覽</p>
+                        <p></p>
+                        <button class="p1 newsbtn">Upload</button>
+                    </div>
+                    <!-- <div class="pages">
+                        <p class="p1 pl_1 pr_1">1</p>
+                        <p class="p1 pl_1 pr_1">2</p>
+                    </div> -->
+                </div>
+            </section>
             <!-- 設計師管理 -->
-            <section class="mem_content" id="mainElm4">
+            <section class="mem_content" id="mainElm7">
                 <div class="ps_1 pe_1 pl_1 pr_1 beNews_titleH1">
                     <h1 class="h1 font_w5 fontTitle">設計師管理</h1>
                 </div>
                 <div class="ps_1 pe_1 pl_1 pr_1">
-                    <div class="pr_1 pe_1 newListBtn"><button class="p1 newsbtn">✚ NEW</button></div>
+                    <div class="pr_1 pe_1 newListBtn"><button class="p1 newsbtn" id="D_New">✚ NEW</button></div>
                     <div class="beNews_title">
                         <p class="p1 font_w5 fontcontent fontColor">設計師編號</p>
                         <p class="p1 font_w5 fontcontent fontColor listGrow">姓名</p>
@@ -296,7 +672,8 @@
     </div>
 
    
-
+    <script src="./js/backend.js"></script>
+    <script src="./js/backendLightBox.js"></script>
     <!-- script -->
     @@include('layout/script.html')
 </body>
