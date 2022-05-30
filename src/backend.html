@@ -232,7 +232,7 @@
     <div class="backendContainer">
         <!-- 左邊section -->
         <section class="beMenu">
-            <div class="ps_1 pe_1">
+            <div class="logo ps_1 pe_1">
                 <img src="./images/nav_logo_web.webp" alt="">
             </div>
             <ul>
@@ -240,11 +240,12 @@
                 <li onclick="openClass(event,'mainElm2')" class="ps_1 pe_1 pl_1 pr_1 h3 tablink">商品管理</li>
                 <li onclick="openClass(event,'mainElm3')" class="ps_1 pe_1 pl_1 pr_1 h3 tablink">訂單管理</li>
                 <li onclick="openClass(event,'mainElm4')" class="ps_1 pe_1 pl_1 pr_1 h3 tablink">優惠活動管理</li>
-                <!-- <li onclick="openClass(event,'mainElm5')" class="ps_1 pe_1 pl_1 pr_1 h3 tablink">最新消息管理</li> -->
                 <li onclick="openClass(event,'mainElm5')" class="ps_1 pe_1 pl_1 pr_1 h3 tablink">最新消息管理</li>
                 <li onclick="openClass(event,'mainElm6')" class="ps_1 pe_1 pl_1 pr_1 h3 tablink">輪播管理</li>
                 <li onclick="openClass(event,'mainElm7')" class="ps_1 pe_1 pl_1 pr_1 h3 tablink">設計師管理</li>
-                <li class="ps_1 pe_1 pl_1 pr_1 h3 tablink">登出</li>
+                <a class="" href="entrance.html">
+                    <li class="ps_1 pe_1 pl_1 pr_1 h3">登出</li>
+                </a>
             </ul>
         </section>
         <!-- 右邊section -->
@@ -257,13 +258,13 @@
                 <div class="ps_1 pe_1 pl_1 pr_1">
                     <div class="pr_1 pe_1 ps_2"></div>
                     <div class="beNews_title">
-                        <p class="p1 font_w5 fontcontent fontColor">會員編號</p>
-                        <p class="p1 font_w5 fontcontent fontColor">會員姓名</p>
-                        <p class="p1 font_w5 fontcontent fontColor listGrow">會員帳號(信箱)</p>
-                        <p class="p1 font_w5 fontcontent fontColor">會員生日</p>
-                        <p class="p1 font_w5 fontcontent fontColor">會員電話</p>
-                        <p class="p1 font_w5 fontcontent fontColor listGrow">會員地址</p>
-                        <p class="p1 font_w5 fontcontent fontColor">會員狀態</p>
+                        <p class="p1 pr_1 font_w5 fontcontent fontColor">會員編號</p>
+                        <p class="p1 pr_1 font_w5 fontcontent fontColor">會員姓名</p>
+                        <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">會員帳號(信箱)</p>
+                        <p class="p1 pr_1 font_w5 fontcontent fontColor">會員生日</p>
+                        <p class="p1 pr_1 font_w5 fontcontent fontColor">會員電話</p>
+                        <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">會員地址</p>
+                        <p class="p1 pr_1 font_w5 fontcontent fontColor">會員狀態</p>
                         <p></p>
                     </div>
                     <ul id="membList">
@@ -282,14 +283,14 @@
                     template: `
                         <li class="ps_1 beNews_details">
                             <div class="beNews_text">
-                                <p class="p1 font_w5 fontcontent fontColor">{{membNo}}</p>
-                                <p class="p1 font_w5 fontcontent fontColor">{{membName}}</p>
-                                <p class="p1 font_w5 fontcontent fontColor listGrow">{{membEmail}}</p>
-                                <p class="p1 font_w5 fontcontent fontColor">{{membBirDate}}</p>
-                                <p class="p1 font_w5 fontcontent fontColor">{{membPhone}}</p>
-                                <p class="p1 font_w5 fontcontent fontColor listGrow">{{membAddress}}</p>
-                                <p class="p1 font_w5 fontcontent fontColor">{{membState}}</p>
-                                <button class="p1 newsbtn">編輯與查看</button>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{membNo}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{membName}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{membEmail}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{membBirDate}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{membPhone}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{membAddress}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{membState}}</p>
+                                <button class="p1 newsbtn">Edit & View</button>
                             </div>
                         </li>
                     `,
@@ -371,7 +372,43 @@
                                 membState: ``
                             },
                             {
-                                membNo: `8`,
+                                membNo: `9`,
+                                membName: ``,
+                                membEmail: ``,
+                                membBirDate: ``,
+                                membPhone:``,
+                                membAddress: ``,
+                                membState: ``
+                            },
+                            {
+                                membNo: `10`,
+                                membName: ``,
+                                membEmail: ``,
+                                membBirDate: ``,
+                                membPhone:``,
+                                membAddress: ``,
+                                membState: ``
+                            },
+                            {
+                                membNo: `11`,
+                                membName: ``,
+                                membEmail: ``,
+                                membBirDate: ``,
+                                membPhone:``,
+                                membAddress: ``,
+                                membState: ``
+                            },
+                            {
+                                membNo: `12`,
+                                membName: ``,
+                                membEmail: ``,
+                                membBirDate: ``,
+                                membPhone:``,
+                                membAddress: ``,
+                                membState: ``
+                            },
+                            {
+                                membNo: `13`,
                                 membName: ``,
                                 membEmail: ``,
                                 membBirDate: ``,
@@ -391,14 +428,14 @@
                 <div class="ps_1 pe_1 pl_1 pr_1">
                     <div class="pr_1 pe_1 newListBtn"><button class="p1 newsbtn" id="A_New">✚ NEW</button></div>
                     <div class="beNews_title">
-                        <p class="p1 font_w5 fontcontent fontColor">商品編號</p>
-                        <p class="p1 font_w5 fontcontent fontColor">商品名稱</p>
-                        <p class="p1 font_w5 fontcontent fontColor">商品類別</p>
-                        <p class="p1 font_w5 fontcontent fontColor">商品設計師</p>
-                        <p class="p1 font_w5 fontcontent fontColor listGrow">商品規格</p>
-                        <p class="p1 font_w5 fontcontent fontColor">商品單價</p>
-                        <p class="p1 font_w5 fontcontent fontColor">商品狀態</p>
-                        <p class="p1 font_w5 fontcontent fontColor">商品庫存</p>
+                        <p class="p1 pr_1 font_w5 fontcontent fontColor">商品編號</p>
+                        <p class="p1 pr_1 font_w5 fontcontent fontColor">商品名稱</p>
+                        <p class="p1 pr_1 font_w5 fontcontent fontColor">商品類別</p>
+                        <p class="p1 pr_1 font_w5 fontcontent fontColor">商品設計師</p>
+                        <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">商品規格</p>
+                        <p class="p1 pr_1 font_w5 fontcontent fontColor">商品單價</p>
+                        <p class="p1 pr_1 font_w5 fontcontent fontColor">商品狀態</p>
+                        <p class="p1 pr_1 font_w5 fontcontent fontColor">商品庫存</p>
                         <p></p>
                     </div>
                     <ul id="productList">
@@ -417,15 +454,15 @@
                     template: `
                         <li class="ps_1 beNews_details">
                             <div class="beNews_text">
-                                <p class="p1 font_w5 fontcontent fontColor">{{prodNo}}</p>
-                                <p class="p1 font_w5 fontcontent fontColor">{{prodName}}</p>
-                                <p class="p1 font_w5 fontcontent fontColor">{{prodCategory}}</p>
-                                <p class="p1 font_w5 fontcontent fontColor">{{prodDesigner}}</p>
-                                <p class="p1 font_w5 fontcontent fontColor listGrow">{{prodSpec}}</p>
-                                <p class="p1 font_w5 fontcontent fontColor">{{prodPrice}}</p>
-                                <p class="p1 font_w5 fontcontent fontColor">{{prodState}}</p>
-                                <p class="p1 font_w5 fontcontent fontColor">{{in_stock}}</p>
-                                <button class="p1 newsbtn">編輯與查看</button>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{prodNo}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{prodName}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{prodCategory}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{prodDesigner}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{prodSpec}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{prodPrice}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{prodState}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{in_stock}}</p>
+                                <button class="p1 newsbtn">Edit & View</button>
                             </div>
                         </li>
                     `,
@@ -479,12 +516,12 @@
                 <div class="ps_1 pe_1 pl_1 pr_1">
                     <div class="pr_1 pe_1 ps_2"></div>
                     <div class="beNews_title">
-                        <p class="p1 font_w5 fontcontent fontColor">訂單編號</p>
-                        <p class="p1 font_w5 fontcontent fontColor">會員編號</p>
-                        <p class="p1 font_w5 fontcontent fontColor">訂單日期時間</p>
-                        <p class="p1 font_w5 fontcontent fontColor">訂單總額</p>
-                        <p class="p1 font_w5 fontcontent fontColor">訂單狀態</p>
-                        <p class="p1 font_w5 fontcontent fontColor">訂單備註</p>
+                        <p class="p1 pr_1 font_w5 fontcontent fontColor">訂單編號</p>
+                        <p class="p1 pr_1 font_w5 fontcontent fontColor">會員編號</p>
+                        <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">訂單日期時間</p>
+                        <p class="p1 pr_1 font_w5 fontcontent fontColor">訂單總額</p>
+                        <p class="p1 pr_1 font_w5 fontcontent fontColor">訂單狀態</p>
+                        <p class="p1 pr_1 font_w5 fontcontent fontColor">訂單備註</p>
                         <p class="listGrow"></p>
                     </div>
                     <ul id="orderList">
@@ -503,13 +540,13 @@
                     template: `
                         <li class="ps_1 beNews_details">
                             <div class="beNews_text">
-                                <p class="p1 font_w5 fontcontent fontColor">{{orderNo}}</p>
-                                <p class="p1 font_w5 fontcontent fontColor">{{orderM_NO}}</p>
-                                <p class="p1 font_w5 fontcontent fontColor">{{orderDate}}</p>
-                                <p class="p1 font_w5 fontcontent fontColor">{{orderPrice}}</p>
-                                <p class="p1 font_w5 fontcontent fontColor">{{orderState}}</p>
-                                <p class="p1 font_w5 fontcontent fontColor listGrow">{{orderRemark}}</p>
-                                <button class="p1 newsbtn">訂單明細</button>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{orderNo}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{orderM_NO}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{orderDate}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{orderPrice}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{orderState}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{orderRemark}}</p>
+                                <button class="p1 newsbtn">Order Details</button>
                             </div>
                         </li>
                     `,
@@ -521,7 +558,7 @@
                             {
                                 orderNo: `1`,
                                 orderM_NO: `0000001`,
-                                orderDate: `2022/06/02`,
+                                orderDate: `2022/06/02 , AM 10:00`,
                                 orderPrice: `$ 5000`,
                                 orderState:`待處理`,
                                 orderRemark: `出貨請電聯`,
@@ -529,7 +566,7 @@
                             {
                                 orderNo: `2`,
                                 orderM_NO: `0000005`,
-                                orderDate: `2022/06/01`,
+                                orderDate: `2022/06/01 , PM 02:00`,
                                 orderPrice: `$ 8000`,
                                 orderState:`已出貨`,
                                 orderRemark: ``,
@@ -554,12 +591,12 @@
                 <div class="ps_1 pe_1 pl_1 pr_1">
                     <div class="pr_1 pe_1 newListBtn"><button class="p1 newsbtn" id="B_New">✚ NEW</button></div>
                     <div class="beNews_title">
-                        <p class="p1 font_w5 fontcontent fontColor">活動編號</p>
-                        <p class="p1 font_w5 fontcontent fontColor listGrow">活動名稱</p>
-                        <p class="p1 font_w5 fontcontent fontColor">活動開始日期</p>
-                        <p class="p1 font_w5 fontcontent fontColor">活動結束日期</p>
-                        <p class="p1 font_w5 fontcontent fontColor listGrow">圖片路徑</p>
-                        <p class="p1 font_w5 fontcontent fontColor">狀態</p>
+                        <p class="p1 pr_1 font_w5 fontcontent fontColor">活動編號</p>
+                        <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">活動名稱</p>
+                        <p class="p1 pr_1 font_w5 fontcontent fontColor">活動開始日期</p>
+                        <p class="p1 pr_1 font_w5 fontcontent fontColor">活動結束日期</p>
+                        <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">圖片路徑</p>
+                        <p class="p1 pr_1 font_w5 fontcontent fontColor">狀態</p>
                         <p></p>
                     </div>
                     <ul id="promList">
@@ -578,13 +615,13 @@
                     template: `
                         <li class="ps_1 beNews_details">
                             <div class="beNews_text">
-                                <p class="p1 font_w5 fontcontent fontColor">{{promotionsNo}}</p>
-                                <p class="p1 font_w5 fontcontent fontColor listGrow">{{promotionsName}}</p>
-                                <p class="p1 font_w5 fontcontent fontColor">{{promotionsStartDate}}</p>
-                                <p class="p1 font_w5 fontcontent fontColor">{{promotionsEndDate}}</p>
-                                <p class="p1 font_w5 fontcontent fontColor listGrow">{{promotionsImagePath}}</p>
-                                <p class="p1 font_w5 fontcontent fontColor">{{promotionsState}}</p>
-                                <button class="p1 newsbtn">編輯與查看</button>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{promotionsNo}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{promotionsName}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{promotionsStartDate}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{promotionsEndDate}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{promotionsImagePath}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{promotionsState}}</p>
+                                <button class="p1 newsbtn">Edit & View</button>
                             </div>
                         </li>
                     `,
@@ -659,12 +696,12 @@
                 <div class="ps_1 pe_1 pl_1 pr_1">
                     <div class="pr_1 pe_1 newListBtn"><button class="p1 newsbtn" id="C_New">✚ NEW</button></div>
                     <div class="beNews_title">
-                        <p class="p1 font_w5 fontcontent fontColor">消息編號</p>
-                        <p class="p1 font_w5 fontcontent fontColor listGrow">消息名稱</p>
-                        <p class="p1 font_w5 fontcontent fontColor">開始日期</p>
-                        <p class="p1 font_w5 fontcontent fontColor">結束日期</p>
-                        <p class="p1 font_w5 fontcontent fontColor listGrow">消息圖片路徑</p>
-                        <p class="p1 font_w5 fontcontent fontColor">狀態</p>
+                        <p class="p1 pr_1 font_w5 fontcontent fontColor">消息編號</p>
+                        <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">消息名稱</p>
+                        <p class="p1 pr_1 font_w5 fontcontent fontColor">消息開始日期</p>
+                        <p class="p1 pr_1 font_w5 fontcontent fontColor">消息結束日期</p>
+                        <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">消息圖片路徑</p>
+                        <p class="p1 pr_1 font_w5 fontcontent fontColor">狀態</p>
                         <p></p>
                     </div>
                     <ul id="newsList">
@@ -683,13 +720,13 @@
                     template: `
                         <li class="ps_1 beNews_details">
                             <div class="beNews_text">
-                                <p class="p1 font_w5 fontcontent fontColor">{{newsNo}}</p>
-                                <p class="p1 font_w5 fontcontent fontColor listGrow">{{newsName}}</p>
-                                <p class="p1 font_w5 fontcontent fontColor">{{newsStartDate}}</p>
-                                <p class="p1 font_w5 fontcontent fontColor">{{newsEndDate}}</p>
-                                <p class="p1 font_w5 fontcontent fontColor listGrow">{{newsImagePath}}</p>
-                                <p class="p1 font_w5 fontcontent fontColor">{{newsState}}</p>
-                                <button class="p1 newsbtn">編輯與查看</button>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{newsNo}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{newsName}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{newsStartDate}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{newsEndDate}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{newsImagePath}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{newsState}}</p>
+                                <button class="p1 newsbtn">Edit & View</button>
                             </div>
                         </li>
                     `,
@@ -741,10 +778,10 @@
                 </div>
                 <div class="ps_1 pe_1 pl_1 pr_1">
                     <div class="pr_1 beNews_title">
-                        <p class="p1 font_w5 fontcontent fontColor">編號</p>
-                        <p class="p1 font_w5 fontcontent fontColor">名稱</p>
-                        <p class="p1 font_w5 fontcontent fontColor listGrow">圖片路徑</p>
-                        <p class="p1 font_w5 fontcontent fontColor listGrow">圖片預覽</p>
+                        <p class="p1 pr_1 font_w5 fontcontent fontColor">編號</p>
+                        <p class="p1 pr_1 font_w5 fontcontent fontColor">名稱</p>
+                        <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">圖片路徑</p>
+                        <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">圖片預覽</p>
                         <p></p>
                         <button class="p1 newsbtn">Upload</button>
                     </div>
@@ -762,12 +799,12 @@
                 <div class="ps_1 pe_1 pl_1 pr_1">
                     <div class="pr_1 pe_1 newListBtn"><button class="p1 newsbtn" id="D_New">✚ NEW</button></div>
                     <div class="beNews_title">
-                        <p class="p1 font_w5 fontcontent fontColor">設計師編號</p>
-                        <p class="p1 font_w5 fontcontent fontColor listGrow">姓名</p>
-                        <p class="p1 font_w5 fontcontent fontColor listGrow">簡介</p>
-                        <p class="p1 font_w5 fontcontent fontColor">狀態</p>
-                        <p class="p1 font_w5 fontcontent fontColor">帳號</p>
-                        <p class="p1 font_w5 fontcontent fontColor listGrow">圖片路徑</p>
+                        <p class="p1 pr_1 font_w5 fontcontent fontColor">設計師編號</p>
+                        <p class="p1 pr_1 font_w5 fontcontent fontColor">設計師姓名</p>
+                        <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">設計師簡介</p>
+                        <p class="p1 pr_1 font_w5 fontcontent fontColor">狀態</p>
+                        <p class="p1 pr_1 font_w5 fontcontent fontColor">設計師帳號</p>
+                        <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">圖片路徑</p>
                         <p></p>
                     </div>
                     <ul id="designerList">
@@ -786,13 +823,13 @@
                     template: `
                         <li class="ps_1 beNews_details">
                             <div class="beNews_text">
-                                <p class="p1 font_w5 fontcontent fontColor">{{designerNo}}</p>
-                                <p class="p1 font_w5 fontcontent fontColor listGrow">{{designerName}}</p>
-                                <p class="p1 font_w5 fontcontent fontColor listGrow">{{designerInt}}</p>
-                                <p class="p1 font_w5 fontcontent fontColor">{{designerState}}</p>
-                                <p class="p1 font_w5 fontcontent fontColor">{{designerAccount}}</p>
-                                <p class="p1 font_w5 fontcontent fontColor listGrow">{{designerImagePath}}</p>
-                                <button class="p1 newsbtn">編輯與查看</button>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{designerNo}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{designerName}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow ellipsis">{{designerInt}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{designerState}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{designerAccount}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{designerImagePath}}</p>
+                                <button class="p1 newsbtn">Edit & View</button>
                             </div>
                         </li>
                     `,
@@ -804,16 +841,16 @@
                             {
                                 designerNo: `1`,
                                 designerName: `阿宏師`,
-                                designerInt: `效率達人`,
-                                designerState: `上架`,
+                                designerInt: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit facere, sequi, temporibus tempora ab veniam illo possimus repellendus quidem perferendis labore aliquid eos nemo cupiditate qui sunt minus exercitationem enim! Corrupti excepturi qui sapiente minus id eos voluptatum sunt voluptates quam eaque commodi, veniam asperiores quidem error adipisci incidunt repudiandae. Laborum consequuntur facere nam alias quis fugiat enim ratione minima ipsa consequatur officiis, ipsam illum sunt laboriosam est autem architecto, laudantium eos officia aliquid id aut. Adipisci laudantium, veniam dignissimos nesciunt omnis sunt sapiente nihil debitis quas optio. Tempora ex in quaerat iusto obcaecati corporis et exercitationem? Quas, magnam officiis?`,
+                                designerState: `正常`,
                                 designerAccount: `yh123`,
                                 designerImagePath: `./images/news.lamp.png`
                             },
                             {
                                 designerNo: `2`,
                                 designerName: `阿敏師`,
-                                designerInt: `細節大佬`,
-                                designerState: `上架`,
+                                designerInt: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit facere, sequi, temporibus tempora ab veniam illo possimus repellendus quidem perferendis labore aliquid eos nemo cupiditate qui sunt minus exercitationem enim! Corrupti excepturi qui sapiente minus id eos voluptatum sunt voluptates quam eaque commodi, veniam asperiores quidem error adipisci incidunt repudiandae. Laborum consequuntur facere nam alias quis fugiat enim ratione minima ipsa consequatur officiis, ipsam illum sunt laboriosam est autem architecto, laudantium eos officia aliquid id aut. Adipisci laudantium, veniam dignissimos nesciunt omnis sunt sapiente nihil debitis quas optio. Tempora ex in quaerat iusto obcaecati corporis et exercitationem? Quas, magnam officiis?`,
+                                designerState: `正常`,
                                 designerAccount: `zu123`,
                                 designerImagePath: `./images/news.moms_day.png`
                             },
