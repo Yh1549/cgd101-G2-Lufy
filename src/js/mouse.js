@@ -1,6 +1,5 @@
 function mouseTracking(e) {
   let mouse = document.querySelector(".mouse");
-  // console.log(MouseEvent.screenX);
   mouse.style="top: " + (e.pageY - 25) + "px; left: " + (e.pageX - 25) + "px;";
 };
 
@@ -23,6 +22,7 @@ function mouseScale() {
 function init() {
   let mouseOn = document.querySelectorAll('.mouseOn');
   window.addEventListener("mousemove", mouseTracking, false);
+  // window.addEventListener("scroll", mouseTracking, false);
   for (let i = 0; i < mouseOn.length; i++) {
     mouseOn[i].addEventListener("mouseover", mouseBig, false);
     mouseOn[i].addEventListener("mouseout", mouseReset, false);

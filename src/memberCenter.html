@@ -17,9 +17,8 @@
         <li>Your Profiles</li>
         <li>Your Orders</li>
         <li>Your Wishlist</li>
-        <li>Redeem List</li>
         <li>Change Password</li>
-        <li>Log out</li>
+        <li> <button class="h1">Log out</button></li>
       </ul>
     </div>
     <div class="memberform_content ms_4 me_4">
@@ -58,7 +57,7 @@
               <img src="./images/memphoto_default.jpg" id="memphotoPreview" />
               <label for="memphoto" class="h1 font_w7">Upload</label>
             </div>
-            <input type="file" name="memphoto" id="memphoto" class="me_2" />
+            <input type="file" name="memphoto" id="memphoto" class="me_2 ip_file" />
             <input type="submit" class="ip_sub" value="Save Change" />
           </form>
         </div>
@@ -92,22 +91,22 @@
             </tr>
           </thead>
           <tbody>
-            <orders v-for="ordersTemplate in member_orders_obj" v-bind="ordersTemplate">
-            </orders>
+            <!-- <orders v-for="ordersTemplate in member_orders_obj" v-bind="ordersTemplate">
+            </orders> -->
+            <tr>
+              <td>1</td>
+              <td>12/2/22</td>
+              <td>await</td>
+              <td>464140346</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>12/2/22</td>
+              <td>await</td>
+              <td>464140346</td>
+            </tr>
             <tr>
               <td>3</td>
-              <td>12/2/22</td>
-              <td>await</td>
-              <td>464140346</td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>12/2/22</td>
-              <td>await</td>
-              <td>464140346</td>
-            </tr>
-            <tr>
-              <td>5</td>
               <td>12/2/22</td>
               <td>await</td>
               <td>464140346</td>
@@ -144,24 +143,28 @@
         </table>
       </div>
 
-      <!-- 優惠券 -->
-      <div id="member_center_redeem" class="memberform member_hide">
-        <h1 class="h1">Redeem List</h1>
-      </div>
-
       <!-- 改密碼 -->
       <div id="member_center_changepassword" class="memberform member_hide">
         <h1 class="h1">Change Password</h1>
-      </div>
+        <form action="" class="membercenter_form">
+          
+            <div class="memberform_label">
+              <label for="oldPsw">Old Password :</label>
+              <label for="newPsw">New Password :</label>
+              <label for="check">Enter Again :</label>
+            </div>
 
-      <!-- 登出 -->
-      <div id="member_center_logout" class="memberform member_hide">
-        <h1 class="h1">Log out</h1>
+            <div class="memberform_input">
+              <input type="text" name="oldPsw" id="oldPsw" class="ip_normal"><br />
+              <input type="text" name="newPsw" id="newPsw" class="ip_normal"><br />
+              <input type="text" name="check" id="check" class="ip_normal"><br />
+               <input type="submit" class="ip_sub" value="Save Change">
+            </div>
+        </form>
       </div>
-
     </div>
   </div>
-  <script>
+  <!-- <script>
     let ordersTemplate = Vue.component("orders", {
       props: ["orderNum", "orderDate", "orderStatus", "orderTotal"],
       template: `<tr>
@@ -214,7 +217,7 @@
         ],
       },
     });
-  </script>
+  </script> -->
 
   <!-- footer  -->
   @@include('layout/footer.html')
