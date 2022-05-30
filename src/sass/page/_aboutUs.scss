@@ -39,7 +39,7 @@
 
 .timeline {
     list-style: none;
-    width: 640px;
+    width: 80%;
     margin: 10px auto;
     position: relative;
     padding: 0;
@@ -102,45 +102,43 @@
     position: relative;
     border: 1px solid #ccc;
     padding: 10px;
-    width: 275px;
+    width: 60%;
     float: left;
     margin: 15px 23px 15px 0;
 }
 
-.timeline .branch:after {
-    content: '';
-    width: 20px;
-    height: 20px;
-    background: #fff;
-    border: 2px solid #ccc;
-    -moz-border-radius: 100%;
-    -webkit-border-radius: 100%;
-    border-radius: 100%;
-    position: absolute;
-    top: 5px;
-    left: 308px;
-}
-
+// .timeline .branch:after {
+//     content: '';
+//     width: 20px;
+//     height: 20px;
+//     background: #fff;
+//     border: 2px solid #ccc;
+//     -moz-border-radius: 100%;
+//     -webkit-border-radius: 100%;
+//     border-radius: 100%;
+//     position: absolute;
+//     top: 5px;
+//     left: 308px;
+// }
 .timeline .branch .content {
     font-size: 14px;
     position: relative;
+    height: 80px;
 }
 
-.timeline .branch .content:after,
-.timeline .branch .content:before {
-    content: '';
-    border: 10px solid transparent;
-    border-left-color: #fff;
-    position: absolute;
-    top: 0;
-    left: 284px;
-}
-
-.timeline .branch .content:before {
-    border-left-color: #ccc;
-    left: 285px;
-}
-
+// .timeline .branch .content:after,
+// .timeline .branch .content:before {
+//     content: '';
+//     border: 10px solid transparent;
+//     border-left-color: #fff;
+//     position: absolute;
+//     top: 0;
+//     left: 284px;
+// }
+// .timeline .branch .content:before {
+//     border-left-color: #ccc;
+//     left: 285px;
+// }
 .timeline .branch .content h3 {
     margin: 0;
 }
@@ -258,6 +256,11 @@
     width: 70%;
     background-color: $primary_70;
     padding: 20px;
+    @include t {
+        max-width: 678px;
+        margin: 0 auto;
+        flex-direction: column;
+    }
 }
 
 .designer_artwork {
@@ -278,8 +281,20 @@
     justify-content: center;
     margin-top: 20px;
     align-items: center;
+    @include t {
+        max-width: 678px;
+        margin: 0 auto;
+        flex-direction: row;
+    }
 }
 
 .designer_image {
     margin: 10px;
+    img {
+        width: 200px;
+    }
+}
+
+.designer {
+    margin-bottom: 20px;
 }
