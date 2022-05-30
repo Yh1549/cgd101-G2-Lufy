@@ -4,11 +4,12 @@
 <head>
   <meta charset="UTF-8" />
   @@include('layout/meta.html', { "title" : "Project" })
-  <!-- <script src="./js/mouse.js"></script> -->
+  <script src="./js/mouse.js"></script>
 
 </head>
 
 <body>
+  <div class="mouse"></div>
   @@include('layout/header.html')
   <!-- banner -->
   <!-- <div id="mouse"></div> -->
@@ -173,7 +174,7 @@
 
     <div class="project_container ms_5">
       <!-- <a class="project_first" href="./index.html"> -->
-      <div class="project_first project me_8 ms_8" onclick="window.location.assign('projectInner1.html')">
+      <div class="project_first project me_8 ms_8 mouseOn" onclick="window.location.assign('projectInner1.html')">
         <div class="project_word">
           <span class="h1">project 1</span>
           <h2 class="s3">The Renaissance</h2>
@@ -182,7 +183,7 @@
       </div>
       <!-- </a> -->
       <!-- <a class="project_second" href="./index.html"> -->
-      <div class="project_second project me_8 ms_8 " onclick="window.location.assign('projectInner2.html')">
+      <div class="project_second project me_8 ms_8 mouseOn" onclick="window.location.assign('projectInner2.html')">
         <div class="project_word">
           <span class="h3">project 2</span>
           <h2 class="s3">Industrial Revolution</h2>
@@ -191,7 +192,7 @@
       </div>
       <!-- </a> -->
       <!-- <a class="project_third" href="./index.html"> -->
-      <div class="project_third project me_8 ms_8" onclick="window.location.assign('projectInner3.html')">
+      <div class="project_third project me_8 ms_8 mouseOn" onclick="window.location.assign('projectInner3.html')">
         <div class="project_word">
           <span class="h3">project 3</span>
           <h2 class="s3">The Dragon</h2>
@@ -300,7 +301,7 @@
           voluptas assumenda accusamus reprehenderit.
         </p>
       </div>
-      <a href="support.html"><button class="btn_large ms_4">Contect Us</button></a>
+      <a href="support.html"><button class="btn_large ms_4 me_4 mouseOn">Contect Us</button></a>
     </div>
   </div>
   <script>

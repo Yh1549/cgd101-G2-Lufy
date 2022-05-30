@@ -20,7 +20,9 @@
       box-sizing: border-box;
       border-bottom: 2px solid $primary_100;
       &:hover {
-        border-bottom: 2px solid $secondary_70;
+        background-color: $secondary_70;
+        color: $primary_30;
+        // border-bottom: 2px solid $secondary_70;
       }
     }
   }
@@ -32,13 +34,11 @@
   display: flex;
   margin-right: auto;
   margin-left: auto;
-  width: 70%;
+ width: 70%;
   
 }
-.memberform{
-  & h1{
-    font-size: 64px;
-  }
+.memberform_profiles{
+  display: flex;
 }
 .member_hide {
   display: none;
@@ -60,6 +60,9 @@
 }
 // -----
 #member_center_profiles {
+  margin-right: auto;
+  margin-left: auto;
+  width: 70%;
   & form div label {
     font-size: 20px;
     padding: 8px 16px;
@@ -70,7 +73,26 @@
     font-family: $fontcontent;
     margin-top: 20px;
   }
-  & form .member_photo {
+  
+}
+// ---
+
+.memtable{
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+  & thead tr th{
+    color: $secondary_100;
+    background-color: $primary_50;
+    border-right: 10px solid $white;
+  }
+  & tbody tr td {
+    text-align: center;
+    padding: 10px 0px;
+    border-bottom: 1px solid $secondary_100;
+  }
+  }
+  .member_photo {
     text-align: center;
     // & input {
     // }
@@ -82,7 +104,7 @@
       & label {
         position: absolute;
         top: 50%;
-        left: 20%;
+        left: 25%;
         color: $fontcolor_100;
         transition: 0.3s;
         font-size: 32px;
@@ -102,24 +124,6 @@
         border-radius: 10px;
       }
     }
-  }
-}
-// ---
-
-.memtable{
-  width: 80%;
-  margin-right: auto;
-  margin-left: auto;
-  & thead tr th{
-    color: $secondary_100;
-    background-color: $primary_50;
-    border-right: 10px solid $white;
-  }
-  & tbody tr td {
-    text-align: center;
-    padding: 10px 0px;
-    border-bottom: 1px solid $secondary_100;
-  }
   }
 // #member_center_orders {
 

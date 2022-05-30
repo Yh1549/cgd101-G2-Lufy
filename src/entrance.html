@@ -4,18 +4,26 @@
 <head>
   <meta charset="UTF-8" />
   @@include('layout/meta.html', { "title" : "Entrance" })
+
 </head>
 
 <body>
+  <div class="mouse"></div>
   <div class="entrance">
     <div class="entrance_container">
-      <div class="entrance_visitor entrance_box">
+      <div class="entrance_visitor entrance_box mouseOn" onclick="setTimeout(()=>{
+window.location.assign('index.html')
+      },800)">
         <h1 class="h1 font_w7 fontcontent">Visitor</h1>
       </div>
-      <div class="entrance_admin entrance_box">
+      <div class="entrance_admin entrance_box mouseOn" onclick="setTimeout(()=>{
+        window.location.assign('backend.html')
+              },800)">
         <h1 class="h1 font_w7 fontcontent">Admin</h1>
       </div>
-      <div class="entrance_designer entrance_box">
+      <div class="entrance_designer entrance_box mouseOn" onclick="setTimeout(()=>{
+        window.location.assign('backend.html')
+              },800)">
         <h1 class="h1 font_w7 fontcontent">Designer</h1>
       </div>
     </div>
@@ -59,7 +67,7 @@
         "deg);"
       );
 
-      console.log(rotateDeg);
+      // console.log(rotateDeg);
     }
 
     function init() {
@@ -68,11 +76,6 @@
 
     window.addEventListener("load", init, false);
   </script>
-  <!-- footer  -->
-  @@include('layout/footer.html')
-
-  <!-- script -->
-  @@include('layout/script.html')
 </body>
 
 </html>
