@@ -1,0 +1,1 @@
+gsap.from('.index_project_deco_image')
