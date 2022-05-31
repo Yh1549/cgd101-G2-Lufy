@@ -75,6 +75,8 @@ function createCartList(itemId, itemValue) {
     let pPrice = document.createElement('p')
     pPrice.innerText = itemPrice
 
+
+
     console.log(pPrice);
     tdPrice.appendChild(pPrice)
     trItemList.appendChild(tdPrice)
@@ -135,12 +137,18 @@ function changeItemCount(e) {
     let list = document.querySelectorAll('.js-count');
     list.forEach(item => {
         let itemId = item.parentNode.parentNode.parentNode.children[1].id;
+        // let itemClass = item.parentNode.parentNode.parentNode.children[1].classList;
         let itemValue = storage.getItem(itemId);
         let newPrice = parseInt(itemValue.split('|')[2]) * (item.value);
         item.parentNode.parentNode.previousSibling.children[0].innerText = newPrice;
         sum += newPrice;
         // storage.setItem(itemId, newPrice);
         // console.log(storage.getItem(itemId))
+        // console.log(newPrice);
+        // storage.clear();
+        // storage.setItem(itemId, newPrice);
+
+
 
     })
     document.getElementById('total').innerText = sum;
