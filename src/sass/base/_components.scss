@@ -399,7 +399,7 @@ $ip_br: 12px; //border radius 控制 請勿使用此變數
 .ip_reset {
   text-decoration: none;
   cursor: pointer;
-  background:none;
+  background: none;
   padding: round($ip_base * 1px) round($ip_base * 1px);
   //-------------
   border: 1px solid $fontcolor_100;
@@ -501,20 +501,21 @@ $sel_base: 16;
   // -webkit-appearance: none;
   // appearance: none;
 }
-.mouse{
+.mouse {
   position: absolute;
   width: 20px;
   height: 20px;
   border-radius: 50%;
   backdrop-filter: invert(100%);
-
+  // border: 2px solid $primary_100;
   z-index: 600;
   pointer-events: none;
-  transition-duration: 200ms;
-  transition-timing-function: ease-out;
-  animation: cursorAnim .5s infinite alternate;
+  // transition-duration: 200ms;
+  // transition-timing-function: ease-out;
+  // animation: cursorAni 5s infinite alternate;
 }
-.mouseClickani{
+.mouseClickani {
+  // transition-duration: 200ms;
   transform: scale(2);
   &::after {
     content: "";
@@ -526,29 +527,39 @@ $sel_base: 16;
     opacity: 1;
     top: -3px;
     left: -3px;
-    animation: mouseAni .5s infinite alternate;
+    animation: mouseAni 0.5s infinite alternate;
+  }
 }
+.expand {
+  animation: big 0.8s;
 }
-.expand{
-  animation: big .8s;
+@keyframes cursorAni {
+  0% {
+    transform: scale(1);
+  }
+  80% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
-@keyframes mouseAni{
+@keyframes mouseAni {
   from {
     transform: scale(1);
+  }
+  to {
+    transform: scale(0.5);
+  }
 }
-to {
-    transform: scale(.5);
-}
-}
-@keyframes big{
-  0%{
+@keyframes big {
+  0% {
     transform: scale(1);
-}
-50%{
+  }
+  50% {
     transform: scale(200);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
-100%{
-  transform: scale(1);
-}
-}
-

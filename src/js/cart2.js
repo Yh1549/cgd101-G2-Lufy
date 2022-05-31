@@ -90,6 +90,7 @@ function createCartList(itemId, itemValue) {
     inputItemCount.type = 'number'
     inputItemCount.value = 1
     inputItemCount.min = 1
+    inputItemCount.className = 'js-count'
     inputItemCount.addEventListener('input', changeItemCount)
 
     pItemCount.appendChild(inputItemCount)
@@ -122,40 +123,40 @@ function deleteItem(e) {
 
 }
 
+
+
 function changeItemCount(e) {
-
-    let itemString = storage.getItem('addItemList')
-    let items = itemString.substr(0, itemString.length - 2).split(', ')
-
-    for (let i = 0; i < items.length; i++) {
-        let itemInfo = storage.getItem(items[i])
+    // let a = document.getElementsByTagName('input')
+    // let b = a.parentNode.parentNode.parentNode.children[1].id
+    // console.log(b)
 
 
+    let sum = 0;
+    let list = document.querySelectorAll('.js-count');
+    list.forEach(item => {
+        let itemId = item.parentNode.parentNode.parentNode.children[1].id;
+        let itemValue = storage.getItem(itemId);
+        let newPrice = parseInt(itemValue.split('|')[2]) * (item.value);
+        item.parentNode.parentNode.previousSibling.children[0].innerText = newPrice;
+        sum += newPrice;
+        // storage.setItem(itemId, newPrice);
+        // console.log(storage.getItem(itemId))
 
-
-        let itemPrice = parseInt(itemInfo.split('|')[2])
-
-        total = itemPrice * (e.target.value)
-        document.getElementById('total').innerText = total
-
-
-    }
-
-    // let input = document.getElementsByTagName('input');
-    // let totalprice = input.parentNode.parentNode.parentNode.childNoodes[1];
-
-
-
-
-
-
-
-
-    // console.log(input.parentNode)
-    // console.log(input)
-
+    })
+    document.getElementById('total').innerText = sum;
 
 
 
 }
 window.addEventListener('load', doFirst);
+
+// let checkout = document.getElementById('checkout')
+
+// function setStorage {
+
+
+// }
+
+
+
+// checkout.addEventListener('clcik', setStorage, false);
