@@ -8,7 +8,7 @@ function doFirst() {
 
     let list = document.querySelectorAll('.addButton');
     for (let i = 0; i < list.length; i++) {
-        list[i].addEventListener('click', function(e) {
+        list[i].addEventListener('click', function (e) {
 
             let lamp = document.querySelector(`#${e.target.id} input`).value
 
@@ -16,6 +16,21 @@ function doFirst() {
         })
     }
 }
+
+function showCart() {
+    let cart = document.querySelector(".cart");
+    cart.classList.toggle('hidden');
+
+}
+
+function init() {
+    let shopping = document.querySelector(".cartclick");
+    shopping.addEventListener("click", showCart, false);
+
+
+}
+
+window.addEventListener("load", init, false);
 
 function addItem(itemId, itemValue) {
 
@@ -39,8 +54,8 @@ function addItem(itemId, itemValue) {
 
 
     newItem.appendChild(image)
-        // newItem.appendChild(title)
-        // newItem.appendChild(price)
+    // newItem.appendChild(title)
+    // newItem.appendChild(price)
 
     // 存入 storage
     if (storage[itemId]) {
