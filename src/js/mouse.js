@@ -1,6 +1,6 @@
 function mouseTracking(e) {
   let mouse = document.querySelector(".mouse");
-  mouse.style="top: " + (e.pageY - 25) + "px; left: " + (e.pageX - 25) + "px;";
+  mouse.style="top: " + (e.pageY - 10) + "px; left: " + (e.pageX - 10) + "px;";
 };
 
 function mouseBig(e) {

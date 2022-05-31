@@ -1,3 +1,9 @@
+.beCont {
+    background-image: url(../../images/backend_bg.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
 .fontTitle{
     color: $secondary_100;
 }
@@ -40,11 +46,12 @@
 }
 .lightBox_list{
     background-color: $white;
-    width: 90%;
+    width: 82%;
     border-radius: 20px;
     box-sizing: border-box;
     margin: auto;
-    // overflow-y: scroll;
+    position: relative;
+    left: 115px;
     & .formOne{
         display: flex;
     }
@@ -72,23 +79,50 @@
     }
 }
 //------------------------左邊
+body::-webkit-scrollbar{
+    width: 0rem;
+}
+body::-webkit-scrollbar-track{
+    background: transparent;
+}
+body::-webkit-scrollbar-track{
+    background: transparent;
+}
+body:hover::-webkit-scrollbar-thumb{
+    background: transparent;
+}
 .backendContainer{
     display: flex;
-    
+    height: auto;
+    min-height: 100vh;
     & .beMenu{
-        width: 12.5%;
-        height: 100vh;
+        width: 15%;
+        
         background-color: $secondary_100;
         box-sizing: border-box;
-        & img{
-            width: 90%;
+        position: relative;
+        .logo{
+            width: 12rem;
+            position: sticky;
+            top: 0;
+            left: 0;
+            & img{
+                width: 90%;
+                vertical-align: top;
+                object-fit: cover;
+            }
         }
         & ul{
-
+            position: sticky;
+            top: 100px;
+            left: 0;
             & li{
                 color: $fontcolor_10;
                 display: block;
                 cursor: pointer;
+            }
+            & a{
+                text-decoration: none;
             }
             & li:hover{
                 background-color: $primary_100;
@@ -107,14 +141,15 @@
 .beNews_title{
     display: flex;
     padding: 10px;
+    background-color: $secondary_70;
     & p{
         width: 10%;
+        color: #ffff;
     }
 }
 //------------------------列表表格
 .beNews_text{
     display: flex;
-    background-color: $primary_30;
     box-sizing: border-boxs;
     padding: 10px;
     & p{
@@ -124,8 +159,18 @@
         width: 10%;
     }
 }
+.beNews_details:nth-child(even){
+    background:#f1e3da;
+}
 .listGrow{
     flex-grow: 1;
+}
+.ellipsis{
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .pages{
     display: flex;
