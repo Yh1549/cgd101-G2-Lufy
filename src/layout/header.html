@@ -9,13 +9,37 @@
                 </a>                
             </h1>
             <div class="main_menu_link p1">
-                <div class="main_menu_button">
+                <div class="main_menu_button cartclick">
                     <i class="fa-solid fa-cart-shopping"></i>
+
+
+                                    <div class="cart_section">
+                                        <div class="cart hidden">
+                                            <h2 class="h2">Cart List</h2>s
+                                    
+                                            <div id="newItem">
+                                    
+                                            </div>
+                                            <div id="content">
+                                                <div>
+                                                    Item : <span id="itemCount">0</span> item(s)
+                                                </div>
+                                                <div>
+                                                    Subtotal : $ <span id="subtotal">0</span>
+                                                </div>
+                                                <div class="cartProcess"><a href="cartEdit.html"><button class="btn_small">edit cart</button></a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+                    </div>
                 </div>
-                <div class="main_menu_button">
+                <div class="main_menu_button" onclick="window.location.assign('memberCenter.html')">
                     <i class="fa-solid fa-circle-user"></i>
                 </div>
-                <div class="main_menu_button" style="visibility: hidden;">
+                <div class="main_menu_button" style="visibility: hidden;" >>
                     <i class="fa-solid fa-bars"></i>
                 </div>
             </div>
@@ -40,7 +64,7 @@
                 <div class="main_menu_button">
                     <i class="fa-solid fa-cart-shopping"></i>
                 </div>
-                <div class="main_menu_button">
+                <div class="main_menu_button" >
                     <i class="fa-solid fa-circle-user"></i>
                 </div>
                 <div class="main_menu_button" id="hamburger_mobile">

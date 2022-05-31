@@ -306,7 +306,8 @@
                                 membBirDate: `2000/06/02`,
                                 membPhone:`0912345678`,
                                 membAddress: `桃園市中壢區`,
-                                membState: `正常`
+                                membState: `正常`,
+                                membbbbb:`ests`
                             },
                             {
                                 membNo: `2`,
@@ -777,20 +778,65 @@
                     <h1 class="h1 font_w5 fontTitle">輪播管理</h1>
                 </div>
                 <div class="ps_1 pe_1 pl_1 pr_1">
+                    <div class="pr_1 pe_1 ps_2"></div>
                     <div class="pr_1 beNews_title">
                         <p class="p1 pr_1 font_w5 fontcontent">編號</p>
                         <p class="p1 pr_1 font_w5 fontcontent">名稱</p>
                         <p class="p1 pr_1 font_w5 fontcontent listGrow">圖片路徑</p>
                         <p class="p1 pr_1 font_w5 fontcontent listGrow">圖片預覽</p>
-                        <p></p>
-                        <button class="p1 newsbtn">Upload</button>
+                        <p class="listGrow"></p>
                     </div>
+                    <ul id="carouselList">
+                        <P_menu v-for="P_backendMenu in carouselObject" v-bind="P_backendMenu">
+                        </P_menu>
+                    </ul>
                     <!-- <div class="pages">
                         <p class="p1 pl_1 pr_1">1</p>
                         <p class="p1 pl_1 pr_1">2</p>
                     </div> -->
                 </div>
             </section>
+            <script>
+                let P_backendMenu = Vue.component('P_menu', {
+                    props: ['carouselNo', 'carouselName', 'carouselImagePath','carouselImage'],
+                    template: `
+                        <li class="beNews_details">
+                            <div class="beNews_text">
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{carouselNo}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{carouselName}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{carouselImagePath}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{carouselImage}}</p>
+                                <button class="p1 newsbtn">Upload</button>
+                            </div>
+                        </li>
+                    `,
+                })
+                new Vue({
+                    el: '#carouselList',
+                    data: {
+                        carouselObject: [
+                            {
+                                carouselNo: `1`,
+                                carouselName: `活動1`,
+                                carouselImagePath: ``,
+                                carouselImage: ``
+                            },
+                            {
+                                carouselNo: `2`,
+                                carouselName: `活動2`,
+                                carouselImagePath: ``,
+                                carouselImage: ``
+                            },
+                            {
+                                carouselNo: `3`,
+                                carouselName: `活動2`,
+                                carouselImagePath: ``,
+                                carouselImage: ``
+                            },
+                        ]
+                    }
+                })
+            </script>
             <!-- 設計師管理 -->
             <section class="mem_content" id="mainElm7">
                 <div class="ps_1 pe_1 pl_1 pr_1 beNews_titleH1">
