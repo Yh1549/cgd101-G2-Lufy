@@ -1,6 +1,7 @@
 .entrance {
   width: 100%;
   height: 100vh;
+  cursor:none;
 }
 .entrance_container {
   width: 100%;
@@ -27,7 +28,6 @@
   align-items: center;
   box-shadow: 0 $ip_shadow $ip_shadow * 3 0 $secondary_100;
   transition: 0.3s;
-  cursor: pointer;
   @include t(){
     margin: 50px auto;
 

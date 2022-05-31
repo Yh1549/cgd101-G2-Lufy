@@ -12,7 +12,7 @@
   }
   & ul {
     text-align: center;
-    color: $fontcolor_100;
+    color: $secondary_100;
     & li {
       cursor: pointer;
       margin-bottom: 20px;
@@ -23,6 +23,12 @@
         background-color: $secondary_70;
         color: $primary_30;
         // border-bottom: 2px solid $secondary_70;
+      }
+      & button{
+        cursor: pointer;
+        background: none;
+        border: none;
+        color: $white;
       }
     }
   }
@@ -75,6 +81,21 @@
   }
   
 }
+#member_center_changepassword{
+  margin-right: auto;
+  margin-left: auto;
+  width: 70%;
+  & form div label {
+    font-size: 20px;
+    padding: 8px 16px;
+    margin-top: 20px;
+    font-family: $fontcontent;
+  }
+  & form div input {
+    font-family: $fontcontent;
+    margin-top: 20px;
+  }
+}
 // ---
 
 .memtable{
@@ -125,7 +146,6 @@
       }
     }
   }
-// #member_center_orders {
-
-  
-// }
+.ip_file{
+ display: none;
+}
