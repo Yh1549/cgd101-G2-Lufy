@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @@include('layout/meta.html', { "title" : "Backend Designer" })
+</head>
+<body>
+    <div class="backendD_Container">
+        <!-- 左邊section -->
+        <section class="beMenu">
+            <div class="logo ps_1 pe_1">
+                <img src="./images/nav_logo_web.webp" alt="">
+            </div>
+            <ul>
+                <li onclick="openClass(event,'mainElm11')" class="ps_1 pe_1 pl_1 pr_1 h3 tablink currentM">簡介管理</li>
+                <li onclick="openClass(event,'mainElm12')" class="ps_1 pe_1 pl_1 pr_1 h3 tablink">作品管理</li>
+                <li onclick="openClass(event,'mainElm13')" class="ps_1 pe_1 pl_1 pr_1 h3 tablink">文章管理</li>
+                <a class="" href="entrance.html">
+                    <li class="ps_1 pe_1 pl_1 pr_1 h3">登出</li>
+                </a>
+            </ul>
+        </section>
+        <!-- 右邊section -->
+        <div class="beCont">
+            <!-- 簡介管理 -->
+            <section class="mem_content" id="mainElm11">
+                <div class="ps_1 pe_1 pl_1 pr_1 beNews_titleH1">
+                    <h1 class="h1 font_w5 fontTitle">簡介管理</h1>
+                </div>
+                <div class="ps_1 pe_1 pl_1 pr_1 sectFirst">
+                    <div class="pr_1 pe_1 ps_2"></div>
+                    <form class="p1 pe_2 desIntroduction" action="">
+                        <div class="pl_1 pr_1 desImg">
+                            <label for="upFile"><img src="./images/imgUpload.jpg"></label><input type="file" name="upFile" id="upFile" style="display:none">
+                            <p class="p1">請注意檔案大小</p>
+                            <input type="file" value="上傳檔案">
+                        </div>
+                        <div class="pl_1 pr_1 desTxt">
+                            <label class="h1 font_w5 fontcontent fontTitle" for="">Title</label><br>
+                            <input class="p1 ip_normal" type="text"><br>
+                            <label class="h1 font_w5 fontcontent fontTitle" for="" style="vertical-align:top">Text</label>
+                            <textarea class="p1 tArea" name="" id="" cols="80" rows="10"></textarea><br>
+                        </div>
+                    </form>
+                    <input class="btn_small" type="button" value="confirm">
+                </div>
+            </section>
+            
+            <!-- 作品管理 -->
+            <section class="mem_content" id="mainElm12">
+                <div class="ps_1 pe_1 pl_1 pr_1 beNews_titleH1">
+                    <h1 class="h1 font_w5 fontTitle">作品管理</h1>
+                </div>
+                <div class="ps_1 pe_1 pl_1 pr_1">
+                    <div class="pr_1 pe_1 ps_2"></div>
+                    <div class="beNews_title">
+                        <p class="p1 pr_1 font_w5 fontcontent">作品編號</p>
+                        <p class="p1 pr_1 font_w5 fontcontent">作品名稱</p>
+                        <p class="p1 pr_1 font_w5 fontcontent">樣式</p>
+                        <p class="p1 pr_1 font_w5 fontcontent">狀態</p>
+                        <p></p>
+                    </div>
+                    <ul id="productList">
+                        <A_menu v-for="A_backendMenu in prodObject" v-bind="A_backendMenu">
+                        </A_menu>
+                    </ul>
+                    <!-- <div class="pages">
+                        <p class="p1 pl_1 pr_1">1</p>
+                        <p class="p1 pl_1 pr_1">2</p>
+                    </div> -->
+                </div>
+            </section>
+            <script>
+                let A_backendMenu = Vue.component('A_menu', {
+                    props: ['prodNo', 'prodName', 'prodCategory', 'prodState'],
+                    template: `
+                        <li class="beNews_details">
+                            <div class="backendD_text">
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{prodNo}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{prodName}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{prodCategory}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{prodState}}</p>
+                                <span></span>
+                                <button class="p1 newsbtn">Edit</button>
+                            </div>
+                        </li>
+                    `,
+                })
+                new Vue({
+                    el: '#productList',
+                    data: {
+                        prodObject: [
+                            {
+                                prodNo: `1`,
+                                prodName: `燈燈燈`,
+                                prodCategory: `A 樣式`,
+                                prodState: `上架`
+                            },
+                            {
+                                prodNo: `2`,
+                                prodName: `燈燈`,
+                                prodCategory: `B 樣式`,
+                                prodState: `上架`
+                            },
+                            {
+                                prodNo: `3`,
+                                prodName: `燈`,
+                                prodCategory: `C 樣式`,
+                                prodState: `上架`
+                            },
+                        ]
+                    }
+                })
+            </script>
+            <!-- 文章管理 -->
+            <section class="mem_content" id="mainElm13">
+                <div class="ps_1 pe_1 pl_1 pr_1 beNews_titleH1">
+                    <h1 class="h1 font_w5 fontTitle">文章管理</h1>
+                </div>
+                <div class="ps_1 pe_1 pl_1 pr_1">
+                    <div class="pr_1 pe_1 ps_2"></div>
+                    <div class="beNews_title">
+                        <p class="p1 pr_1 font_w5 fontcontent">文章編號</p>
+                        <p class="p1 pr_1 font_w5 fontcontent">文章名稱</p>
+                        <p class="p1 pr_1 font_w5 fontcontent">樣式</p>
+                        <p class="p1 pr_1 font_w5 fontcontent">狀態</p>
+                        <p></p>
+                    </div>
+                    <ul id="articleList">
+                        <O_menu v-for="O_backendMenu in articleObject" v-bind="O_backendMenu">
+                        </O_menu>
+                    </ul>
+                    <!-- <div class="pages">
+                        <p class="p1 pl_1 pr_1">1</p>
+                        <p class="p1 pl_1 pr_1">2</p>
+                    </div> -->
+                </div>
+            </section>
+            <script>
+                let O_backendMenu = Vue.component('O_menu', {
+                    props: ['articleNo', 'articleName','articleCategory','articleState'],
+                    template: `
+                        <li class="beNews_details">
+                            <div class="backendD_text">
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{articleNo}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{articleName}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{articleCategory}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{articleState}}</p>
+                                <span></span>
+                                <button class="p1 newsbtn">Edit</button>
+                            </div>
+                        </li>
+                    `,
+                })
+                new Vue({
+                    el: '#articleList',
+                    data: {
+                        articleObject: [
+                            {
+                                articleNo: `1`,
+                                articleName: `與光同行`,
+                                articleCategory: `A 樣式`,
+                                articleState: `上架`
+                            },
+                            {
+                                articleNo: `2`,
+                                articleName: `光的魔術師`,
+                                articleCategory: `B 樣式`,
+                                articleState: `上架`
+                            },
+                            {
+                                articleNo: `3`,
+                                articleName: `淺談燈光對人類的重要性`,
+                                articleCategory: `C 樣式`,
+                                articleState: `上架`
+                            },
+                        ]
+                    }
+                })
+            </script>
+    </div>
+
+   
+    <script src="./js/backend.js"></script>
+    <script src="./js/backendLightBox.js"></script>
+    <!-- script -->
+    @@include('layout/script.html')
+</body>
+
+</html>

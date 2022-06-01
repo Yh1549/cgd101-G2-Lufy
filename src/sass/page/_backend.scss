@@ -1,0 +1,197 @@
+.beCont {
+    background-image: url(./../images/backend_bg.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.fontTitle{
+    color: $secondary_100;
+}
+.fontColor{
+    color: $fontcolor_100;
+}
+//------------------------大標題
+.backend_titleH1{
+    border-bottom: 5px solid $secondary_100;
+}
+//------------------------按鈕樣式<小>
+.newsbtn{
+    text-align: center;
+    padding: 0 10px;
+    font-size: round($font_size * 1);
+    font-family: $fontcontent;
+    background-color: $primary_100;
+    color: $fontcolor_10;
+    border: none;
+    transition: $btn_trans;
+    border-radius: $btn_br;
+    cursor: pointer;
+    &:hover{
+        background-color: $primary_dark;
+    }
+}
+.newListBtn{
+    text-align: right;
+    & button{
+        padding: 0 10px;
+    }
+}
+//------------------------燈箱
+#A_lightBox , #B_lightBox , #C_lightBox , #D_lightBox{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(66, 66, 66, 0.6);
+
+}
+.lightBox_list{
+    background-color: $white;
+    width: 82%;
+    border-radius: 20px;
+    box-sizing: border-box;
+    margin: auto;
+    position: relative;
+    left: 115px;
+    & .formOne{
+        display: flex;
+    }
+    & .formTwo{
+        & div{
+            display: flex;
+            & label{
+                color: $primary_dark;
+            }
+        }
+        & ul{
+            & li{
+                display: flex;
+                & label{
+                    color: $primary_dark;
+                }
+                & p{
+                    width: 13%;
+                }
+            }
+        }
+    }
+    & .lastBtn{
+        text-align: right;
+    }
+}
+//------------------------左邊
+body::-webkit-scrollbar{
+    width: 0rem;
+}
+body::-webkit-scrollbar-track{
+    background: transparent;
+}
+body::-webkit-scrollbar-track{
+    background: transparent;
+}
+body:hover::-webkit-scrollbar-thumb{
+    background: transparent;
+}
+.backendContainer{
+    display: flex;
+    height: auto;
+    min-height: 100vh;
+    & .beMenu{
+        width: 15%;
+        
+        background-color: $secondary_100;
+        box-sizing: border-box;
+        position: relative;
+        .logo{
+            width: 12rem;
+            position: sticky;
+            top: 0;
+            left: 0;
+            & img{
+                width: 90%;
+                vertical-align: top;
+                object-fit: cover;
+            }
+        }
+        & ul{
+            position: sticky;
+            top: 100px;
+            left: 0;
+            & li{
+                color: $fontcolor_10;
+                display: block;
+                cursor: pointer;
+            }
+            & a{
+                text-decoration: none;
+            }
+            & li:hover{
+                background-color: $primary_100;
+            }
+        }
+    }
+    & .beCont{
+        width:87.5%;
+        
+    }
+}
+.currentM{
+    background-color: $primary_100;
+}
+//------------------------列表標題
+.backend_title{
+    display: flex;
+    padding: 10px;
+    background-color: $secondary_70;
+    & p{
+        width: 10%;
+        color: #ffff;
+    }
+}
+//------------------------列表表格
+.backend_text{
+    display: flex;
+    box-sizing: border-boxs;
+    padding: 10px;
+    & p{
+        width: 10%;
+        & img{
+            width: 50%;
+        }
+    }
+    & button{
+        width: 10%;
+    }
+}
+.backend_details:nth-child(even){
+    background:#f1e3da;
+}
+.listGrow{
+    flex-grow: 1;
+}
+.ellipsis{
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.pages{
+    display: flex;
+    justify-content: center;
+    & p{
+        border: 1px solid #aaa;
+    }
+}
+.mem_content{
+    display: none;
+}
+.mem_content#mainElm1{
+    display: block;
+}
+.membList{
+    overflow-y: hidden;
+}
+.carouselPlace p{
+    display: flex;
+    align-items: center;
+}

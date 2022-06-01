@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    @@include('layout/meta.html', { "title" : "購物車頁" })
+    <!-- <script src="./js/cart3.js"></script> -->
+
+</head>
+
+<body>
+    @@include('layout/header.html')
+    <div class="containerALL">
+
+        <div class="cart_end">
+            <div class="cart_end_title">
+                <h1 class="h1">Order established</h1>
+            </div>
+        </div>
+        <div class="customer_detail">
+            <div class="customer_detail_title">
+                <h1 class="h1">Details</h1>
+            </div>
+            <div class="shipping_form">
+                <table>
+                    <tr>
+                        <td>
+                            <h2 class="h2"> OrderNO : <span class="orderno"></span></h2>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h2 class="h2"> OrderPrice : <span class="orderPrice"></span></h2>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h2 class="h2"> Receiver name : <span class="receiverName"></span></h2>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h2 class="h2"> Tel : <span class="receiverPhone"></span></h2>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h2 class="h2"> Address : <span class="receiverAddress"></span></h2>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h2 class="h2"> Arrive Date :<span class="arriveDate"></span></h2>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="moreworks">
+            <h2 class="h2">Relative products</h2>
+            <div class="relative_products">
+
+                <div class="relative_product"><img src="images/aboutus.lamp5.png" alt=""></div>
+                <div class="relative_product"><img src="images/aboutus.lamp6.jpg" alt=""></div>
+                <div class="relative_product"><img src="images/aboutus.lamp7.jpg" alt=""></div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        function showInfro(j) {
+
+            let orderno = document.querySelector('.orderno')
+            var random_no = "";
+            for (var i = 0; i < j; i++) //j位隨機數，用以加在時間戳後面。
+            {
+                random_no += Math.floor(Math.random() * 10);
+            }
+            random_no = new Date().getTime() + random_no;
+
+            orderno.innerHTML = random_no
+
+            let name = localStorage.getItem("name");
+
+            let receiverName = document.querySelector('.receiverName');
+            receiverName.innerHTML = name;
+
+            let discount = localStorage.getItem("discount");
+
+            let orderPrice = document.querySelector('.orderPrice');
+            orderPrice.innerHTML = discount;
+
+
+
+            let phone = localStorage.getItem("phone");
+
+            let receiverPhone = document.querySelector('.receiverPhone');
+            receiverPhone.innerHTML = phone;
+
+            let address = localStorage.getItem("address");
+
+            let receiverAddress = document.querySelector('.receiverAddress');
+            receiverAddress.innerHTML = address;
+
+            let arriveTime = localStorage.getItem("arriveTime");
+
+            let arriveDate = document.querySelector('.arriveDate');
+            arriveDate.innerHTML = arriveTime;
+
+        }
+        window.addEventListener("load", showInfro, false)
+    </script>
+    <!-- footer  -->
+    @@include('layout/footer.html')
+
+    <!-- script -->
+    @@include('layout/script.html')
+</body>
+
+</html>

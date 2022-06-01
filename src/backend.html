@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @@include('layout/meta.html', { "title" : "Backend" })
+</head>
+<body>
+    <!-- 商品燈箱 -->
+    <div class="ps_1" id="A_lightBox" style="display:none">
+        <div class="ps_2 pe_2 pl_2 pr_2 lightBox_list">
+            <form action="" class="formOne">
+                <div style="width:30%">
+                    <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">A_No.</label>
+                    <input type="text" name="" id=""><br>
+                    <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">Start_Date</label>
+                    <input type="date" name="" id=""><br>
+                    <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">End_Date</label>
+                    <input type="date" name="" id="">
+                </div>
+                <div style="width:70%">
+                    <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">Title</label><input type="text" name="" id=""><br>
+                    <label class="p1 ps_1 pe_1 pl_1 pr_1" for="" style="vertical-align:top">Text</label><textarea name="" id="" cols="100" rows="10"></textarea>
+                </div>
+            </form>
+            <form action="" class="formTwo">
+                <div class="ps_1 me_1 backend_titleH1">
+                    <p class="h1">優惠商品</p>
+                </div>
+                <div class="ps_1">
+                    <label class="p1 pl_1 pr_1" for="">Product_No</label><input type="text" name="" id="">
+                    <label class="p1 pl_1 pr_1" for="">Price</label><input type="text" name="" id="">
+                    <label class="p1 pl_1 pr_1" for="">Promotions_price</label><input type="text" name="" id="">
+                    <button class="ml_1 mr_1 newsbtn">✚ New</button>
+                    
+                </div>
+                <ul>
+                    <li class="ps_1">
+                        <label class="p1 pl_1 pr_1" for="">Product_No</label>
+                        <p class="p1">0000001</p>
+                        <label class="p1 pl_1 pr_1" for="">Price</label>
+                        <p class="p1">$ 1000</p>
+                        <label class="p1 pl_1 pr_1" for="">Promotions_price</label>
+                        <p class="p1">$ 900</p>
+                        <button class="ml_1 mr_1 newsbtn">─ Delete</button>
+                    </li>
+                    <li class="ps_1">
+                        <label class="p1 pl_1 pr_1" for="">Product_No</label>
+                        <p class="p1">0000002</p>
+                        <label class="p1 pl_1 pr_1" for="">Price</label>
+                        <p class="p1">$ 1500</p>
+                        <label class="p1 pl_1 pr_1" for="">Promotions_price</label>
+                        <p class="p1">$ 1400</p>
+                        <button class="ml_1 mr_1 newsbtn">─ Delete</button>
+                    </li>
+                </ul>
+            </form>
+            <div class="lastBtn">
+                <button class="ml_1 p1 newsbtn" id="A_btnCancel">Cancel</button>
+                <button class="ml_1 p1 newsbtn">Confirm</button>
+            </div>
+        </div>
+    </div>
+    <!-- 優惠活動燈箱 -->
+    <div class="ps_1" id="B_lightBox" style="display:none">
+        <div class="ps_2 pe_2 pl_2 pr_2 lightBox_list">
+            <form action="" class="formOne">
+                <div style="width:30%">
+                    <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">B_No.</label>
+                    <input type="text" name="" id=""><br>
+                    <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">Start_Date</label>
+                    <input type="date" name="" id=""><br>
+                    <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">End_Date</label>
+                    <input type="date" name="" id="">
+                </div>
+                <div style="width:70%">
+                    <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">Title</label><input type="text" name="" id=""><br>
+                    <label class="p1 ps_1 pe_1 pl_1 pr_1" for="" style="vertical-align:top">Text</label><textarea name="" id="" cols="100" rows="10"></textarea>
+                </div>
+            </form>
+            <form action="" class="formTwo">
+                <div class="ps_1 me_1 backend_titleH1">
+                    <p class="h1">優惠商品</p>
+                </div>
+                <div class="ps_1">
+                    <label class="p1 pl_1 pr_1" for="">Product_No</label><input type="text" name="" id="">
+                    <label class="p1 pl_1 pr_1" for="">Price</label><input type="text" name="" id="">
+                    <label class="p1 pl_1 pr_1" for="">Promotions_price</label><input type="text" name="" id="">
+                    <button class="ml_1 mr_1 newsbtn">✚ New</button>
+                    
+                </div>
+                <ul>
+                    <li class="ps_1">
+                        <label class="p1 pl_1 pr_1" for="">Product_No</label>
+                        <p class="p1">0000001</p>
+                        <label class="p1 pl_1 pr_1" for="">Price</label>
+                        <p class="p1">$ 1000</p>
+                        <label class="p1 pl_1 pr_1" for="">Promotions_price</label>
+                        <p class="p1">$ 900</p>
+                        <button class="ml_1 mr_1 newsbtn">─ Delete</button>
+                    </li>
+                    <li class="ps_1">
+                        <label class="p1 pl_1 pr_1" for="">Product_No</label>
+                        <p class="p1">0000002</p>
+                        <label class="p1 pl_1 pr_1" for="">Price</label>
+                        <p class="p1">$ 1500</p>
+                        <label class="p1 pl_1 pr_1" for="">Promotions_price</label>
+                        <p class="p1">$ 1400</p>
+                        <button class="ml_1 mr_1 newsbtn">─ Delete</button>
+                    </li>
+                </ul>
+            </form>
+            <div class="lastBtn">
+                <button class="ml_1 p1 newsbtn" id="B_btnCancel">Cancel</button>
+                <button class="ml_1 p1 newsbtn">Confirm</button>
+            </div>
+        </div>
+    </div>
+    <!-- 常見問題燈箱 -->
+    <div class="ps_1" id="C_lightBox" style="display:none">
+        <div class="ps_2 pe_2 pl_2 pr_2 lightBox_list">
+            <form action="" class="formOne">
+                <div style="width:30%">
+                    <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">C_No.</label>
+                    <input type="text" name="" id=""><br>
+                    <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">Start_Date</label>
+                    <input type="date" name="" id=""><br>
+                    <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">End_Date</label>
+                    <input type="date" name="" id="">
+                </div>
+                <div style="width:70%">
+                    <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">Title</label><input type="text" name="" id=""><br>
+                    <label class="p1 ps_1 pe_1 pl_1 pr_1" for="" style="vertical-align:top">Text</label><textarea name="" id="" cols="100" rows="10"></textarea>
+                </div>
+            </form>
+            <form action="" class="formTwo">
+                <div class="ps_1 me_1 backend_titleH1">
+                    <p class="h1">優惠商品</p>
+                </div>
+                <div class="ps_1">
+                    <label class="p1 pl_1 pr_1" for="">Product_No</label><input type="text" name="" id="">
+                    <label class="p1 pl_1 pr_1" for="">Price</label><input type="text" name="" id="">
+                    <label class="p1 pl_1 pr_1" for="">Promotions_price</label><input type="text" name="" id="">
+                    <button class="ml_1 mr_1 newsbtn">✚ New</button>
+                    
+                </div>
+                <ul>
+                    <li class="ps_1">
+                        <label class="p1 pl_1 pr_1" for="">Product_No</label>
+                        <p class="p1">0000001</p>
+                        <label class="p1 pl_1 pr_1" for="">Price</label>
+                        <p class="p1">$ 1000</p>
+                        <label class="p1 pl_1 pr_1" for="">Promotions_price</label>
+                        <p class="p1">$ 900</p>
+                        <button class="ml_1 mr_1 newsbtn">─ Delete</button>
+                    </li>
+                    <li class="ps_1">
+                        <label class="p1 pl_1 pr_1" for="">Product_No</label>
+                        <p class="p1">0000002</p>
+                        <label class="p1 pl_1 pr_1" for="">Price</label>
+                        <p class="p1">$ 1500</p>
+                        <label class="p1 pl_1 pr_1" for="">Promotions_price</label>
+                        <p class="p1">$ 1400</p>
+                        <button class="ml_1 mr_1 newsbtn">─ Delete</button>
+                    </li>
+                </ul>
+            </form>
+            <div class="lastBtn">
+                <button class="ml_1 p1 newsbtn" id="C_btnCancel">Cancel</button>
+                <button class="ml_1 p1 newsbtn">Confirm</button>
+            </div>
+        </div>
+    </div>
+    <!-- 設計師燈箱 -->
+    <div class="ps_1" id="D_lightBox" style="display:none">
+        <div class="ps_2 pe_2 pl_2 pr_2 lightBox_list">
+            <form action="" class="formOne">
+                <div style="width:30%">
+                    <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">D_No.</label>
+                    <input type="text" name="" id=""><br>
+                    <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">Start_Date</label>
+                    <input type="date" name="" id=""><br>
+                    <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">End_Date</label>
+                    <input type="date" name="" id="">
+                </div>
+                <div style="width:70%">
+                    <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">Title</label><input type="text" name="" id=""><br>
+                    <label class="p1 ps_1 pe_1 pl_1 pr_1" for="" style="vertical-align:top">Text</label><textarea name="" id="" cols="100" rows="10"></textarea>
+                </div>
+            </form>
+            <form action="" class="formTwo">
+                <div class="ps_1 me_1 backend_titleH1">
+                    <p class="h1">優惠商品</p>
+                </div>
+                <div class="ps_1">
+                    <label class="p1 pl_1 pr_1" for="">Product_No</label><input type="text" name="" id="">
+                    <label class="p1 pl_1 pr_1" for="">Price</label><input type="text" name="" id="">
+                    <label class="p1 pl_1 pr_1" for="">Promotions_price</label><input type="text" name="" id="">
+                    <button class="ml_1 mr_1 newsbtn">✚ New</button>
+                    
+                </div>
+                <ul>
+                    <li class="ps_1">
+                        <label class="p1 pl_1 pr_1" for="">Product_No</label>
+                        <p class="p1">0000001</p>
+                        <label class="p1 pl_1 pr_1" for="">Price</label>
+                        <p class="p1">$ 1000</p>
+                        <label class="p1 pl_1 pr_1" for="">Promotions_price</label>
+                        <p class="p1">$ 900</p>
+                        <button class="ml_1 mr_1 newsbtn">─ Delete</button>
+                    </li>
+                    <li class="ps_1">
+                        <label class="p1 pl_1 pr_1" for="">Product_No</label>
+                        <p class="p1">0000002</p>
+                        <label class="p1 pl_1 pr_1" for="">Price</label>
+                        <p class="p1">$ 1500</p>
+                        <label class="p1 pl_1 pr_1" for="">Promotions_price</label>
+                        <p class="p1">$ 1400</p>
+                        <button class="ml_1 mr_1 newsbtn">─ Delete</button>
+                    </li>
+                </ul>
+            </form>
+            <div class="lastBtn">
+                <button class="ml_1 p1 newsbtn" id="D_btnCancel">Cancel</button>
+                <button class="ml_1 p1 newsbtn">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="backendContainer">
+        <!-- 左邊section -->
+        <section class="beMenu">
+            <div class="logo ps_1 pe_1">
+                <img src="./images/nav_logo_web.webp" alt="">
+            </div>
+            <ul>
+                <li onclick="openClass(event,'mainElm1')" class="ps_1 pe_1 pl_1 pr_1 h3 tablink currentM">會員管理</li>
+                <li onclick="openClass(event,'mainElm2')" class="ps_1 pe_1 pl_1 pr_1 h3 tablink">商品管理</li>
+                <li onclick="openClass(event,'mainElm3')" class="ps_1 pe_1 pl_1 pr_1 h3 tablink">訂單管理</li>
+                <li onclick="openClass(event,'mainElm4')" class="ps_1 pe_1 pl_1 pr_1 h3 tablink">優惠活動管理</li>
+                <li onclick="openClass(event,'mainElm5')" class="ps_1 pe_1 pl_1 pr_1 h3 tablink">最新消息管理</li>
+                <li onclick="openClass(event,'mainElm6')" class="ps_1 pe_1 pl_1 pr_1 h3 tablink">輪播管理</li>
+                <li onclick="openClass(event,'mainElm7')" class="ps_1 pe_1 pl_1 pr_1 h3 tablink">設計師管理</li>
+                <a class="" href="entrance.html">
+                    <li class="ps_1 pe_1 pl_1 pr_1 h3">登出</li>
+                </a>
+            </ul>
+        </section>
+        <!-- 右邊section -->
+        <div class="beCont">
+            <!-- 會員管理 -->
+            <section class="mem_content" id="mainElm1">
+                <div class="ps_1 pe_1 pl_1 pr_1 backend_titleH1">
+                    <h1 class="h1 font_w5 fontTitle">Member Manage</h1>
+                </div>
+                <div class="ps_1 pe_1 pl_1 pr_1">
+                    <div class="pr_1 pe_1 ps_2"></div>
+                    <div class="backend_title">
+                        <p class="p1 pr_1 font_w5 fontcontent">會員編號</p>
+                        <p class="p1 pr_1 font_w5 fontcontent">會員姓名</p>
+                        <p class="p1 pr_1 font_w5 fontcontent listGrow">會員帳號(信箱)</p>
+                        <p class="p1 pr_1 font_w5 fontcontent">會員生日</p>
+                        <p class="p1 pr_1 font_w5 fontcontent">會員電話</p>
+                        <p class="p1 pr_1 font_w5 fontcontent listGrow">會員地址</p>
+                        <p class="p1 pr_1 font_w5 fontcontent">會員狀態</p>
+                        <p></p>
+                    </div>
+                    <ul id="membList">
+                        <N_menu v-for="N_backendMenu in membObject" v-bind="N_backendMenu">
+                        </N_menu>
+                    </ul>
+                    <!-- <div class="pages">
+                        <p class="p1 pl_1 pr_1">1</p>
+                        <p class="p1 pl_1 pr_1">2</p>
+                    </div> -->
+                </div>
+            </section>
+            <script>
+                let N_backendMenu = Vue.component('N_menu', {
+                    props: ['membNo', 'membName', 'membEmail', 'membBirDate','membPhone','membAddress','membState'],
+                    template: `
+                        <li class="backend_details">
+                            <div class="backend_text">
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{membNo}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{membName}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{membEmail}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{membBirDate}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{membPhone}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{membAddress}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{membState}}</p>
+                                <button class="p1 newsbtn">Edit</button>
+                            </div>
+                        </li>
+                    `,
+                })
+                new Vue({
+                    el: '#membList',
+                    data: {
+                        membObject: [
+                            {
+                                membNo: `1`,
+                                membName: `Amy`,
+                                membEmail: `amy@gmail.com`,
+                                membBirDate: `2000/06/02`,
+                                membPhone:`0912345678`,
+                                membAddress: `桃園市中壢區`,
+                                membState: `正常`,
+                                membbbbb:`ests`
+                            },
+                            {
+                                membNo: `2`,
+                                membName: `Ben`,
+                                membEmail: `ben@gmail.com`,
+                                membBirDate: `1999/06/02`,
+                                membPhone:`0987654321`,
+                                membAddress: `桃園市桃園區`,
+                                membState: `凍結`
+                            },
+                            {
+                                membNo: `3`,
+                                membName: ``,
+                                membEmail: ``,
+                                membBirDate: ``,
+                                membPhone:``,
+                                membAddress: ``,
+                                membState: ``
+                            },
+                            {
+                                membNo: `4`,
+                                membName: ``,
+                                membEmail: ``,
+                                membBirDate: ``,
+                                membPhone:``,
+                                membAddress: ``,
+                                membState: ``
+                            },
+                            {
+                                membNo: `5`,
+                                membName: ``,
+                                membEmail: ``,
+                                membBirDate: ``,
+                                membPhone:``,
+                                membAddress: ``,
+                                membState: ``
+                            },
+                            {
+                                membNo: `6`,
+                                membName: ``,
+                                membEmail: ``,
+                                membBirDate: ``,
+                                membPhone:``,
+                                membAddress: ``,
+                                membState: ``
+                            },
+                            {
+                                membNo: `7`,
+                                membName: ``,
+                                membEmail: ``,
+                                membBirDate: ``,
+                                membPhone:``,
+                                membAddress: ``,
+                                membState: ``
+                            },
+                            {
+                                membNo: `8`,
+                                membName: ``,
+                                membEmail: ``,
+                                membBirDate: ``,
+                                membPhone:``,
+                                membAddress: ``,
+                                membState: ``
+                            },
+                            {
+                                membNo: `9`,
+                                membName: ``,
+                                membEmail: ``,
+                                membBirDate: ``,
+                                membPhone:``,
+                                membAddress: ``,
+                                membState: ``
+                            },
+                            {
+                                membNo: `10`,
+                                membName: ``,
+                                membEmail: ``,
+                                membBirDate: ``,
+                                membPhone:``,
+                                membAddress: ``,
+                                membState: ``
+                            },
+                            {
+                                membNo: `11`,
+                                membName: ``,
+                                membEmail: ``,
+                                membBirDate: ``,
+                                membPhone:``,
+                                membAddress: ``,
+                                membState: ``
+                            },
+                            {
+                                membNo: `12`,
+                                membName: ``,
+                                membEmail: ``,
+                                membBirDate: ``,
+                                membPhone:``,
+                                membAddress: ``,
+                                membState: ``
+                            },
+                            {
+                                membNo: `13`,
+                                membName: ``,
+                                membEmail: ``,
+                                membBirDate: ``,
+                                membPhone:``,
+                                membAddress: ``,
+                                membState: ``
+                            },
+                        ]
+                    }
+                })
+            </script>
+            <!-- 商品管理 -->
+            <section class="mem_content" id="mainElm2">
+                <div class="ps_1 pe_1 pl_1 pr_1 backend_titleH1">
+                    <h1 class="h1 font_w5 fontTitle">Product Manage</h1>
+                </div>
+                <div class="ps_1 pe_1 pl_1 pr_1">
+                    <div class="pr_1 pe_1 newListBtn"><button class="p1 newsbtn" id="A_New">✚ NEW</button></div>
+                    <div class="backend_title">
+                        <p class="p1 pr_1 font_w5 fontcontent">商品編號</p>
+                        <p class="p1 pr_1 font_w5 fontcontent">商品名稱</p>
+                        <p class="p1 pr_1 font_w5 fontcontent">商品類別</p>
+                        <p class="p1 pr_1 font_w5 fontcontent">商品設計師</p>
+                        <p class="p1 pr_1 font_w5 fontcontent listGrow">商品規格</p>
+                        <p class="p1 pr_1 font_w5 fontcontent">商品單價</p>
+                        <p class="p1 pr_1 font_w5 fontcontent">商品狀態</p>
+                        <p class="p1 pr_1 font_w5 fontcontent">商品庫存</p>
+                        <p></p>
+                    </div>
+                    <ul id="productList">
+                        <A_menu v-for="A_backendMenu in prodObject" v-bind="A_backendMenu">
+                        </A_menu>
+                    </ul>
+                    <!-- <div class="pages">
+                        <p class="p1 pl_1 pr_1">1</p>
+                        <p class="p1 pl_1 pr_1">2</p>
+                    </div> -->
+                </div>
+            </section>
+            <script>
+                let A_backendMenu = Vue.component('A_menu', {
+                    props: ['prodNo', 'prodName', 'prodCategory', 'prodDesigner','prodIntroduce','prodSpec','prodPrice','prodState','in_stock'],
+                    template: `
+                        <li class="backend_details">
+                            <div class="backend_text">
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{prodNo}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{prodName}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{prodCategory}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{prodDesigner}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{prodSpec}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{prodPrice}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{prodState}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{in_stock}}</p>
+                                <button class="p1 newsbtn">Edit</button>
+                            </div>
+                        </li>
+                    `,
+                })
+                new Vue({
+                    el: '#productList',
+                    data: {
+                        prodObject: [
+                            {
+                                prodNo: `1`,
+                                prodName: `燈燈燈`,
+                                prodCategory: `落地燈`,
+                                prodDesigner: `阿宏`,
+                                prodIntroduce:`超穩站立`,
+                                prodSpec: `100 x 200 x150`,
+                                prodPrice: `$ 1000`,
+                                prodState: `上架`,
+                                in_stock: `有`
+                            },
+                            {
+                                prodNo: `2`,
+                                prodName: ``,
+                                prodCategory: ``,
+                                prodDesigner: ``,
+                                prodIntroduce:``,
+                                prodSpec: ``,
+                                prodPrice: ``,
+                                prodState: ``,
+                                in_stock: ``
+                            },
+                            {
+                                prodNo: `3`,
+                                prodName: ``,
+                                prodCategory: ``,
+                                prodDesigner: ``,
+                                prodIntroduce:``,
+                                prodSpec: ``,
+                                prodPrice: ``,
+                                prodState: ``,
+                                in_stock: ``
+                            },
+                        ]
+                    }
+                })
+            </script>
+            <!-- 訂單管理 -->
+            <section class="mem_content" id="mainElm3">
+                <div class="ps_1 pe_1 pl_1 pr_1 backend_titleH1">
+                    <h1 class="h1 font_w5 fontTitle">Order Manage</h1>
+                </div>
+                <div class="ps_1 pe_1 pl_1 pr_1">
+                    <div class="pr_1 pe_1 ps_2"></div>
+                    <div class="backend_title">
+                        <p class="p1 pr_1 font_w5 fontcontent">訂單編號</p>
+                        <p class="p1 pr_1 font_w5 fontcontent">會員編號</p>
+                        <p class="p1 pr_1 font_w5 fontcontent listGrow">訂單日期時間</p>
+                        <p class="p1 pr_1 font_w5 fontcontent">訂單總額</p>
+                        <p class="p1 pr_1 font_w5 fontcontent">訂單狀態</p>
+                        <p class="p1 pr_1 font_w5 fontcontent">訂單備註</p>
+                        <p class="listGrow"></p>
+                    </div>
+                    <ul id="orderList">
+                        <O_menu v-for="O_backendMenu in orderObject" v-bind="O_backendMenu">
+                        </O_menu>
+                    </ul>
+                    <!-- <div class="pages">
+                        <p class="p1 pl_1 pr_1">1</p>
+                        <p class="p1 pl_1 pr_1">2</p>
+                    </div> -->
+                </div>
+            </section>
+            <script>
+                let O_backendMenu = Vue.component('O_menu', {
+                    props: ['orderNo','orderM_NO', 'orderDate','orderPrice','orderState','orderRemark'],
+                    template: `
+                        <li class="backend_details">
+                            <div class="backend_text">
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{orderNo}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{orderM_NO}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{orderDate}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{orderPrice}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{orderState}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{orderRemark}}</p>
+                                <button class="p1 newsbtn">Details</button>
+                            </div>
+                        </li>
+                    `,
+                })
+                new Vue({
+                    el: '#orderList',
+                    data: {
+                        orderObject: [
+                            {
+                                orderNo: `1`,
+                                orderM_NO: `0000001`,
+                                orderDate: `2022/06/02 , AM 10:00`,
+                                orderPrice: `$ 5000`,
+                                orderState:`待處理`,
+                                orderRemark: `出貨請電聯`,
+                            },
+                            {
+                                orderNo: `2`,
+                                orderM_NO: `0000005`,
+                                orderDate: `2022/06/01 , PM 02:00`,
+                                orderPrice: `$ 8000`,
+                                orderState:`已出貨`,
+                                orderRemark: ``,
+                            },
+                            {
+                                orderNo: `3`,
+                                orderM_NO: ``,
+                                orderDate: ``,
+                                orderPrice: ``,
+                                orderState:``,
+                                orderRemark: ``,
+                            },
+                        ]
+                    }
+                })
+            </script>
+            <!-- 優惠活動 -->
+            <section class="mem_content" id="mainElm4">
+                <div class="ps_1 pe_1 pl_1 pr_1 backend_titleH1">
+                    <h1 class="h1 font_w5 fontTitle">Promotions Manage</h1>
+                </div>
+                <div class="ps_1 pe_1 pl_1 pr_1">
+                    <div class="pr_1 pe_1 newListBtn"><button class="p1 newsbtn" id="B_New">✚ NEW</button></div>
+                    <div class="backend_title">
+                        <p class="p1 pr_1 font_w5 fontcontent">活動編號</p>
+                        <p class="p1 pr_1 font_w5 fontcontent listGrow">活動名稱</p>
+                        <p class="p1 pr_1 font_w5 fontcontent">活動開始日期</p>
+                        <p class="p1 pr_1 font_w5 fontcontent">活動結束日期</p>
+                        <p class="p1 pr_1 font_w5 fontcontent listGrow">圖片路徑</p>
+                        <p class="p1 pr_1 font_w5 fontcontent">狀態</p>
+                        <p></p>
+                    </div>
+                    <ul id="promList">
+                        <B_menu v-for="B_backendMenu in promotionsObject" v-bind="B_backendMenu">
+                        </B_menu>
+                    </ul>
+                    <!-- <div class="pages">
+                        <p class="p1 pl_1 pr_1">1</p>
+                        <p class="p1 pl_1 pr_1">2</p>
+                    </div> -->
+                </div>
+            </section>
+            <script>
+                let B_backendMenu = Vue.component('B_menu', {
+                    props: ['promotionsNo', 'promotionsName', 'promotionsStartDate', 'promotionsEndDate','promotionsImagePath','promotionsState'],
+                    template: `
+                        <li class="backend_details">
+                            <div class="backend_text">
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{promotionsNo}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{promotionsName}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{promotionsStartDate}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{promotionsEndDate}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{promotionsImagePath}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{promotionsState}}</p>
+                                <button class="p1 newsbtn">Edit</button>
+                            </div>
+                        </li>
+                    `,
+                })
+                new Vue({
+                    el: '#promList',
+                    data: {
+                        promotionsObject: [
+                            {
+                                promotionsNo: `1`,
+                                promotionsName: `2022 Summer Event`,
+                                promotionsStartDate: `2022/07/21`,
+                                promotionsEndDate: `2022/08/02`,
+                                promotionsEndTxt:``,
+                                promotionsImagePath: `./images/news.lamp.png`,
+                                promotionsState: `上架`
+                            },
+                            {
+                                promotionsNo: `2`,
+                                promotionsName: `2022 Happy mom's day`,
+                                promotionsStartDate: `2022/05/01`,
+                                promotionsEndDate: `2022/05/31`,
+                                promotionsEndTxt:``,
+                                promotionsImagePath: `./images/news.moms_day.png`,
+                                promotionsState: `下架`
+                            },
+                            {
+                                promotionsNo: `3`,
+                                promotionsName: `2022 Happy new year`,
+                                promotionsStartDate: `2022/01/01`,
+                                promotionsEndDate: `2022/02/06`,
+                                promotionsEndTxt:``,
+                                promotionsImagePath: `./images/news.newyear.png`,
+                                promotionsState: `下架`
+                            },
+                            {
+                                promotionsNo: `4`,
+                                promotionsName: `LUFY 10 Anniversary`,
+                                promotionsStartDate: `2021/11/16`,
+                                promotionsEndDate: `2021/12/31`,
+                                promotionsEndTxt:``,
+                                promotionsImagePath: `./images/news.tenyear.jpg`,
+                                promotionsState: `下架`
+                            },
+                            {
+                                promotionsNo: `5`,
+                                promotionsName: ``,
+                                promotionsStartDate: ``,
+                                promotionsEndDate: ``,
+                                promotionsEndTxt:``,
+                                promotionsImagePath: ``,
+                                promotionsState: ``
+                            },
+                            {
+                                promotionsNo: `6`,
+                                promotionsName: ``,
+                                promotionsStartDate: ``,
+                                promotionsEndDate: ``,
+                                promotionsEndTxt:``,
+                                promotionsImagePath: ``,
+                                promotionsState: ``
+                            },
+                        ]
+                    }
+                })
+            </script>
+            <!-- 最新消息管理 -->
+            <section class="mem_content" id="mainElm5">
+                <div class="ps_1 pe_1 pl_1 pr_1 backend_titleH1">
+                    <h1 class="h1 font_w5 fontTitle">News Manage</h1>
+                </div>
+                <div class="ps_1 pe_1 pl_1 pr_1">
+                    <div class="pr_1 pe_1 newListBtn"><button class="p1 newsbtn" id="C_New">✚ NEW</button></div>
+                    <div class="backend_title">
+                        <p class="p1 pr_1 font_w5 fontcontent">消息編號</p>
+                        <p class="p1 pr_1 font_w5 fontcontent listGrow">消息名稱</p>
+                        <p class="p1 pr_1 font_w5 fontcontent">消息開始日期</p>
+                        <p class="p1 pr_1 font_w5 fontcontent">消息結束日期</p>
+                        <p class="p1 pr_1 font_w5 fontcontent listGrow">消息圖片路徑</p>
+                        <p class="p1 pr_1 font_w5 fontcontent">狀態</p>
+                        <p></p>
+                    </div>
+                    <ul id="newsList">
+                        <C_menu v-for="C_backendMenu in newsObject" v-bind="C_backendMenu">
+                        </C_menu>
+                    </ul>
+                    <!-- <div class="pages">
+                        <p class="p1 pl_1 pr_1">1</p>
+                        <p class="p1 pl_1 pr_1">2</p>
+                    </div> -->
+                </div>
+            </section>
+            <script>
+                let C_backendMenu = Vue.component('C_menu', {
+                    props: ['newsNo', 'newsName', 'newsStartDate', 'newsEndDate','newsImagePath','newsState'],
+                    template: `
+                        <li class="backend_details">
+                            <div class="backend_text">
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{newsNo}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{newsName}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{newsStartDate}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{newsEndDate}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{newsImagePath}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{newsState}}</p>
+                                <button class="p1 newsbtn">Edit</button>
+                            </div>
+                        </li>
+                    `,
+                })
+                new Vue({
+                    el: '#newsList',
+                    data: {
+                        newsObject: [
+                            {
+                                newsNo: `1`,
+                                newsName: `Latest Product`,
+                                newsStartDate: `2022/04/21`,
+                                newsEndDate: `2022/06/02`,
+                                newsImagePath: `./images/news.lamp.png`,
+                                newsState: `上架`
+                            },
+                            {
+                                newsNo: `2`,
+                                newsName: `Latest Designer`,
+                                newsStartDate: `2022/02/15`,
+                                newsEndDate: `2022/03/30`,
+                                newsImagePath: `./images/news.moms_day.png`,
+                                newsState: `下架`
+                            },
+                            {
+                                newsNo: `3`,
+                                newsName: ``,
+                                newsStartDate: ``,
+                                newsEndDate: ``,
+                                newsImagePath: ``,
+                                newsState: ``
+                            },
+                            {
+                                newsNo: `4`,
+                                newsName: ``,
+                                newsStartDate: ``,
+                                newsEndDate: ``,
+                                newsImagePath: ``,
+                                newsState: ``
+                            },
+                        ]
+                    }
+                })
+            </script>
+            <!-- 輪播管理 -->
+            <section class="mem_content" id="mainElm6">
+                <div class="ps_1 pe_1 pl_1 pr_1 backend_titleH1">
+                    <h1 class="h1 font_w5 fontTitle">輪播管理</h1>
+                </div>
+                <div class="ps_1 pe_1 pl_1 pr_1">
+                    <div class="pr_1 pe_1 ps_2"></div>
+                    <div class="pr_1 backend_title">
+                        <p class="p1 pr_1 font_w5 fontcontent">編號</p>
+                        <p class="p1 pr_1 font_w5 fontcontent">名稱</p>
+                        <p class="p1 pr_1 font_w5 fontcontent listGrow">圖片路徑</p>
+                        <p class="p1 pr_1 font_w5 fontcontent listGrow">圖片預覽</p>
+                        <p class=""></p>
+                    </div>
+                    <ul id="carouselList">
+                        <P_menu v-for="P_backendMenu in carouselObject" v-bind="P_backendMenu">
+                        </P_menu>
+                    </ul>
+                    <!-- <div class="pages">
+                        <p class="p1 pl_1 pr_1">1</p>
+                        <p class="p1 pl_1 pr_1">2</p>
+                    </div> -->
+                </div>
+            </section>
+            <script>
+                let P_backendMenu = Vue.component('P_menu', {
+                    props: ['carouselNo', 'carouselName', 'carouselImagePath','carouselImage'],
+                    template: `
+                        <li class="backend_details">
+                            <div class="backend_text carouselPlace">
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{carouselNo}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{carouselName}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{carouselImagePath}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow"><img :src="carouselImagePath"></img></p>
+                                <button class="p1 newsbtn">Upload</button>
+                            </div>
+                        </li>
+                    `,
+                })
+                new Vue({
+                    el: '#carouselList',
+                    data: {
+                        carouselObject: [
+                            {
+                                carouselNo: `1`,
+                                carouselName: `活動1`,
+                                carouselImagePath: `./images/index_carousel_Banner_01.webp`,
+                            },
+                            {
+                                carouselNo: `2`,
+                                carouselName: `活動2`,
+                                carouselImagePath: `./images/index_carousel_Banner_02.webp`,
+                            },
+                            {
+                                carouselNo: `3`,
+                                carouselName: `活動2`,
+                                carouselImagePath: `./images/index_carousel_Banner_03.webp`,
+                            },
+                        ]
+                    }
+                })
+            </script>
+            <!-- 設計師管理 -->
+            <section class="mem_content" id="mainElm7">
+                <div class="ps_1 pe_1 pl_1 pr_1 backend_titleH1">
+                    <h1 class="h1 font_w5 fontTitle">Designer Manage</h1>
+                </div>
+                <div class="ps_1 pe_1 pl_1 pr_1">
+                    <div class="pr_1 pe_1 newListBtn"><button class="p1 newsbtn" id="D_New">✚ NEW</button></div>
+                    <div class="backend_title">
+                        <p class="p1 pr_1 font_w5 fontcontent">設計師編號</p>
+                        <p class="p1 pr_1 font_w5 fontcontent">設計師姓名</p>
+                        <p class="p1 pr_1 font_w5 fontcontent listGrow">設計師簡介</p>
+                        <p class="p1 pr_1 font_w5 fontcontent">狀態</p>
+                        <p class="p1 pr_1 font_w5 fontcontent">設計師帳號</p>
+                        <p class="p1 pr_1 font_w5 fontcontent listGrow">圖片路徑</p>
+                        <p></p>
+                    </div>
+                    <ul id="designerList">
+                        <D_menu v-for="D_backendMenu in designerObject" v-bind="D_backendMenu">
+                        </D_menu>
+                    </ul>
+                    <!-- <div class="pages">
+                        <p class="p1 pl_1 pr_1">1</p>
+                        <p class="p1 pl_1 pr_1">2</p>
+                    </div> -->
+                </div>
+            </section>
+            <script>
+                let D_backendMenu = Vue.component('D_menu', {
+                    props: ['designerNo', 'designerName', 'designerInt', 'designerState','designerAccount','designerImagePath'],
+                    template: `
+                        <li class="backend_details">
+                            <div class="backend_text">
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{designerNo}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{designerName}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow ellipsis">{{designerInt}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{designerState}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{designerAccount}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{designerImagePath}}</p>
+                                <button class="p1 newsbtn">Edit</button>
+                            </div>
+                        </li>
+                    `,
+                })
+                new Vue({
+                    el: '#designerList',
+                    data: {
+                        designerObject: [
+                            {
+                                designerNo: `1`,
+                                designerName: `阿宏師`,
+                                designerInt: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit facere, sequi, temporibus tempora ab veniam illo possimus repellendus quidem perferendis labore aliquid eos nemo cupiditate qui sunt minus exercitationem enim! Corrupti excepturi qui sapiente minus id eos voluptatum sunt voluptates quam eaque commodi, veniam asperiores quidem error adipisci incidunt repudiandae. Laborum consequuntur facere nam alias quis fugiat enim ratione minima ipsa consequatur officiis, ipsam illum sunt laboriosam est autem architecto, laudantium eos officia aliquid id aut. Adipisci laudantium, veniam dignissimos nesciunt omnis sunt sapiente nihil debitis quas optio. Tempora ex in quaerat iusto obcaecati corporis et exercitationem? Quas, magnam officiis?`,
+                                designerState: `正常`,
+                                designerAccount: `yh123`,
+                                designerImagePath: `./images/news.lamp.png`
+                            },
+                            {
+                                designerNo: `2`,
+                                designerName: `阿敏師`,
+                                designerInt: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit facere, sequi, temporibus tempora ab veniam illo possimus repellendus quidem perferendis labore aliquid eos nemo cupiditate qui sunt minus exercitationem enim! Corrupti excepturi qui sapiente minus id eos voluptatum sunt voluptates quam eaque commodi, veniam asperiores quidem error adipisci incidunt repudiandae. Laborum consequuntur facere nam alias quis fugiat enim ratione minima ipsa consequatur officiis, ipsam illum sunt laboriosam est autem architecto, laudantium eos officia aliquid id aut. Adipisci laudantium, veniam dignissimos nesciunt omnis sunt sapiente nihil debitis quas optio. Tempora ex in quaerat iusto obcaecati corporis et exercitationem? Quas, magnam officiis?`,
+                                designerState: `正常`,
+                                designerAccount: `zu123`,
+                                designerImagePath: `./images/news.moms_day.png`
+                            },
+                            {
+                                designerNo: `3`,
+                                designerName: ``,
+                                designerInt: ``,
+                                designerState: ``,
+                                designerAccount: ``,
+                                designerImagePath: ``
+                            },
+                            {
+                                designerNo: `4`,
+                                designerName: ``,
+                                designerInt: ``,
+                                designerState: ``,
+                                designerAccount: ``,
+                                designerImagePath: ``
+                            },
+                        ]
+                    }
+                })
+            </script>
+        </div>
+    </div>
+
+   
+    <script src="./js/backend.js"></script>
+    <script src="./js/backendLightBox.js"></script>
+    <!-- script -->
+    @@include('layout/script.html')
+</body>
+
+</html>

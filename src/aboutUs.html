@@ -32,19 +32,19 @@
                     <li class="time">
                         <div class="content h3">2014</div>
                     </li>
-                    <li class="branch">
+                    <li class="branch c">
+                        <div class="content h5 ">
+                            <h3>Lorem ipsum dolor</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        </div>
+                    </li>
+                    <li class="branch a">
                         <div class="content h5">
                             <h3>Lorem ipsum dolor</h3>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                         </div>
                     </li>
-                    <li class="branch">
-                        <div class="content h5">
-                            <h3>Lorem ipsum dolor</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                        </div>
-                    </li>
-                    <li class="branch">
+                    <li class="branch c">
                         <div class="content h5">
                             <h3>Lorem ipsum dolor</h3>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -54,25 +54,25 @@
                         <div class="content h3">Nov 13</div>
                     </li>
                     <li></li>
-                    <li class="branch">
+                    <li class="branch a">
                         <div class="content h5">
                             <h3>Lorem ipsum dolor</h3>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                         </div>
                     </li>
-                    <li class="branch">
+                    <li class="branch c">
                         <div class="content h5">
                             <h3>Lorem ipsum dolor</h3>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                         </div>
                     </li>
-                    <li class="branch">
+                    <li class="branch a">
                         <div class="content h5">
                             <h3>Lorem ipsum dolor</h3>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                         </div>
                     </li>
-                    <li class="branch">
+                    <li class="branch c">
                         <div class="content h5">
                             <h3>Lorem ipsum dolor</h3>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -102,7 +102,7 @@
                         <!-- <div class="aboutus_button">
                         
                     </div> -->
-                        <button class="btn_normal">Read More</button>
+                        <a href="designers.html"><button class="btn_normal">Read More</button></a>
                         <div class="designer_work"><img src="images/aboutus.lamp1.png" alt="作品圖"></div>
                         <div class="designer_work"><img src="images/aboutus.lamp2.png" alt="作品圖"></div>
                         <div class="designer_work"><img src="images/aboutus.lamp3.png" alt="作品圖"></div>
@@ -116,7 +116,7 @@
                         </div>
                     </div>
                     <div class="designer_works">
-                        <button class="btn_normal">Read More</button>
+                        <a href="designers.html"><button class="btn_normal">Read More</button></a>
                         <div class="designer_work"><img src="images/aboutus.lamp4.png" alt="作品圖"></div>
                         <div class="designer_work"><img src="images/aboutus.lamp5.png" alt="作品圖"></div>
                         <div class="designer_work"><img src="images/aboutus.lamp10.png" alt="作品圖"></div>
@@ -130,7 +130,7 @@
                         </div>
                     </div>
                     <div class="designer_works">
-                        <button class="btn_normal">Read More</button>
+                        <a href="designers.html"><button class="btn_normal">Read More</button></a>
                         <div class="designer_work"><img src="images/aboutus.lamp7.jpg" alt="作品圖"></div>
                         <div class="designer_work"><img src="images/aboutus.lamp8.jpg" alt="作品圖"></div>
                         <div class="designer_work"><img src="images/aboutus.lamp6.jpg" alt="作品圖"></div>
@@ -140,7 +140,72 @@
 
         </div>
     </div>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        let tl = gsap.timeline({
+
+            scrollTrigger: {
+                trigger: ".c",
+                start: "top center",
+                end: "+=300",
+                scrub: 1,
+                markers: true,
+                toggleActions: "restart pause resume pause"
+            }
+        });
+
+        tl.from(".c", {
+
+                x: 300,
+                // rotation: 360,
+                ease: "none",
+                duration: 3
+            })
+            .to(".c", {
+                backgroundColor: "#A68169",
+                duration: 1
+            })
+            .to(".c", {
+                x: 0,
+                duration: 3
+            })
+        gsap.registerPlugin(ScrollTrigger);
+
+        let tl1 = gsap.timeline({
+
+            scrollTrigger: {
+                trigger: ".a",
+                start: "top center",
+                end: "+=300",
+                scrub: 1,
+                markers: true,
+                toggleActions: "restart pause resume pause"
+            }
+        });
+
+        tl1.from(".a", {
+
+                x: -300,
+                // rotation: 360,
+                ease: "none",
+                duration: 3
+            })
+            .to(".a", {
+                backgroundColor: "#ADB0B3",
+                duration: 1
+            })
+            .to(".a", {
+                x: 0,
+                duration: 3
+            })
+    </script>
+
+    <!-- footer  -->
     @@include('layout/footer.html')
+
+    <!-- script -->
+    @@include('layout/script.html')
 
 </body>
 

@@ -4,6 +4,7 @@ let items = itemString.substr(0, itemString.length - 2).split(', ')
 
 let newDiv = document.createElement('div')
 let newTable = document.createElement('table')
+let total = 0;
 
 function doFirst() {
 
@@ -13,7 +14,7 @@ function doFirst() {
     newDiv.appendChild(newTable)
     cartList.appendChild(newDiv)
 
-    let total = 0;
+
 
 
     for (let i = 0; i < items.length; i++) {
@@ -62,7 +63,7 @@ function createCartList(itemId, itemValue) {
     delButton.addEventListener('click', deleteItem)
 
     tdTitle.appendChild(pTitle)
-    tdTitle.appendChild(delButton)
+        // tdTitle.appendChild(delButton)
 
     trItemList.appendChild(tdTitle)
 
@@ -86,6 +87,7 @@ function createCartList(itemId, itemValue) {
     let pItemCount = document.createElement('p')
     let inputItemCount = document.createElement('input')
 
+    inputItemCount.disabled = true
     inputItemCount.type = 'number'
     inputItemCount.value = 1
     inputItemCount.min = 1

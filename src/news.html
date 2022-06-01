@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @@include('layout/meta.html', { "title" : "News" })
+    <script src="./js/mouse.js"></script>
 </head>
+
 <body>
+    <div class="mouse"></div>
     @@include('layout/header.html')
     <div class="containerALL">
         <ul class="newsList" id="abcd">
@@ -15,8 +19,8 @@
         </ul>
     </div>
     <script>
-        let newsMenu = Vue.component('N_menu',{
-            props:['newsImage','newsTitle', 'newsDate','newsTxt'],
+        let newsMenu = Vue.component('N_menu', {
+            props: ['newsImage', 'newsTitle', 'newsDate', 'newsTxt'],
             template: `
                 <li class="newsCard ps_1 pe_1">
                     <div class="newsPic ">
@@ -37,7 +41,7 @@
         new Vue({
             el: '#abcd',
             data: {
-                newsObject:[
+                newsObject: [
                     {
                         newsImage: `./images/news.lamp.png`,
                         newsTitle: `Latest Product`,
@@ -78,7 +82,11 @@
             }
         })
     </script>
-    <!-- content -->
+    <!-- footer  -->
     @@include('layout/footer.html')
+
+    <!-- script -->
+    @@include('layout/script.html')
 </body>
+
 </html>

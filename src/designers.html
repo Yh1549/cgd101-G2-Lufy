@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> @@include('layout/meta.html', { "title" : "desingers" })
+</head>
+
+<body>
+    @@include('layout/header.html')
+    <div class="containerALL">
+        <ul class="designer" id="design">
+            <designer_page v-for="designer in designerObject" v-bind="designer">
+            </designer_page>
+        </ul>
+    </div>
+    <script>
+        let designer = Vue.component('designer_page', {
+            props: ['designer_Image', 'designer_Title', 'designer_Text'],
+            template: `
+            <li>
+            <div class="designer_name">
+            <h1 class="h1">{{designer_Title}}</h1>
+        </div>
+        <div class="designer_presentation">
+            <div class="designer_words">
+                <div class="designer_image">
+                    <img :src="designer_Image" :alt="designer_Title">
+
+                </div>
+                <div class="designer_speech">
+                    <p class="h3">{{designer_Text}}</p>
+
+                </div>
+            </div>
+
+        </div>
+        </li>
+                
+            `,
+        })
+        new Vue({
+            el: '#design',
+            data: {
+                designerObject: [{
+                    designer_Image: `./images/designer1.jpg`,
+                    designer_Title: `Designer John`,
+
+                    designer_Text: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi pariatur ullam iste est enim, sunt quibusdam aperiam deserunt maxime a hic possimus laudantium cupiditate reiciendis quam assumenda. Culpa assumenda illo quasi reiciendis, corrupti eum atque quas consequuntur tempora. Pariatur deserunt itaque quibusdam adipisci quidem aliquid obcaecati atque voluptas dignissimos error?`
+                }, {
+                    designer_Image: `./images/aboutus.lamp2.png`,
+                    designer_Title: `Artworks`,
+
+                    designer_Text: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi pariatur ullam iste est enim, sunt quibusdam aperiam deserunt maxime a hic possimus laudantium cupiditate reiciendis quam assumenda. Culpa assumenda illo quasi reiciendis, corrupti eum atque quas consequuntur tempora. Pariatur deserunt itaque quibusdam adipisci quidem aliquid obcaecati atque voluptas dignissimos error?`
+                }, {
+                    designer_Image: `./images/aboutus.lamp4.png`,
+                    designer_Title: `Articles`,
+
+                    designer_Text: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi pariatur ullam iste est enim, sunt quibusdam aperiam deserunt maxime a hic possimus laudantium cupiditate reiciendis quam assumenda. Culpa assumenda illo quasi reiciendis, corrupti eum atque quas consequuntur tempora. Pariatur deserunt itaque quibusdam adipisci quidem aliquid obcaecati atque voluptas dignissimos error?`
+
+                }]
+            }
+        })
+    </script>
+    <!-- footer  -->
+    @@include('layout/footer.html')
+
+    <!-- script -->
+    @@include('layout/script.html')
+</body>
+
+</html>

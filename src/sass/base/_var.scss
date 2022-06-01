@@ -36,6 +36,17 @@ $warning : #E6A23C;//警告
 $shadow : rgba(0,0,0,0.3);// 陰影色
 //----------------------
 
+//--------情境模擬特殊色--------
+$border-color: #e7d6b6;
+$shadow-color: #795a1d;
+$main-bg-color: #201d1b; // #fdf4e2
+$secondary-bg-color: #ffffff00;
+$lamp-light-color: #fdf4e2;
+$lamp-dark-color: #997a3d;
+$rope-color: #997b3e;
+$icon-color: #ebe4f1;
+
+
 //<--字體-->
 //------字體種類------
 $fontdeco : 'Playfair Display', serif;//特殊字體
@@ -56,28 +67,3 @@ $w_breakpoint : 1440px;
 $t_breakpoint : 768px;
 $m_breakpoint : 320px;
 //--------------
-
-//---------------
-//-----老師範例-----
-/*==css== */
-// map 數值型態
-// $map : (
-//     'red' : #f20,
-//     'black' : #333);
-
-// images url
-// $path  :  dist/images;
-
-
-//map
-// $title : (
-//   "h1" : 50px,
-//   "h2" : 40px, 
-//   "h3" : 30px,
-//   "h4" : 20px,
-//   "h5" : 16px,
-//   ".small" : 10px,
-//   ".large" : 3rem
-// );
-
-

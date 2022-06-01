@@ -1,135 +1,198 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     @@include('layout/meta.html', {
     "title" : "商品總覽"
     })
 </head>
+
 <body>
     <!-- header -->
     @@include('layout/header.html')
     <!-- header end -->
     <section class="productMain_product">
-        <section class="containerALL me_8">
+        <section class="containerALL ms_8 me_8">
             <div id="product_category" class="product_category me_5">
                 <product-category v-for='category in categoryObject' v-bind="category"></product-category>
             </div>
             <script>
                 let category = Vue.component('product-category', {
                     props: ['categoryLink', 'categoryImage', 'categoryName'],
-                    template: `
-                                <div class="category">
+                    template: `<div class="category">
                                     <a :href="categoryLink">
                                         <img :src="categoryImage" :alt="categoryName">
                                         <p class="p1">{{categoryName}}</p>
                                     </a>
-                                </div>
-                            `,
+                                </div>`,
                 })
-                new Vue({
+                const productCategory = new Vue({
                     el: '#product_category',
                     data: {
                         categoryObject: [
                             {
-                                categoryLink: `./productpages/productFloorLamps.html`,
+                                categoryLink: `productFloorLamps.html`,
                                 categoryImage: `./images/product_category_floor_lamps.webp`,
                                 categoryName: `Floor Lamps`
                             },
                             {
-                                categoryLink: `./productpages/productPendant.html`,
+                                categoryLink: `productPendant.html`,
                                 categoryImage: `./images/product_category_pendant.webp`,
                                 categoryName: `Pendant`
                             },
                             {
-                                categoryLink: `./productpages/productHomeAccent.html`,
+                                categoryLink: `productHomeAccent.html`,
                                 categoryImage: `./images/product_category_home_accent.webp`,
                                 categoryName: `Home Accent`
                             },
                             {
-                                categoryLink: `./productpages/productTableLamps.html`,
+                                categoryLink: `productTableLamps.html`,
                                 categoryImage: `./images/product_category_table_lamps.webp`,
                                 categoryName: `Table Lamps`
                             },
                             {
-                                categoryLink: `./productpages/productWallLamps.html`,
+                                categoryLink: `productWallLamps.html`,
                                 categoryImage: `./images/product_category_wall_lamps.webp`,
                                 categoryName: `Wall Lamps`
                             },
                             {
-                                categoryLink: `./productpages/productChandaliers.html`,
+                                categoryLink: `productChandaliers.html`,
                                 categoryImage: `./images/product_category_chandaliers.webp`,
                                 categoryName: `Chandaliers`
                             },
                         ]
-                    }
+                    },
                 }) 
             </script>
-            <div class="product_grid">
-                <div class="item">
-                    <div class="item__details">
-                        【商品名稱】
-                        <span class="material-icons">
-                            favorite
-                        </span>
-                    </div>
-                </div>
-                <div class="item item--large">
-                    <div class="item__details">
-                        【商品名稱】
-                        <span class="material-icons">
-                            favorite
-                        </span>
-                    </div>
-                </div>
-                <div class="item item--medium">
-                    <div class="item__details">
-                        【商品名稱】
-                        <span class="material-icons">
-                            favorite
-                        </span>
-                    </div>
-                </div>
-                <div class="item item--large">
-                    <div class="item__details">
-                        【商品名稱】
-                        <span class="material-icons">
-                            favorite
-                        </span>
-                    </div>
-                </div>
-                <div class="item item--full">
-                    <div class="item__details">
-                        【商品名稱】
-                        <span class="material-icons">
-                            favorite
-                        </span>
-                    </div>
-                </div>
-                <div class="item item--medium">
-                    <div class="item__details">
-                        【商品名稱】
-                        <span class="material-icons">
-                            favorite
-                        </span>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="item__details">
-                        【商品名稱】
-                        <span class="material-icons">
-                            favorite
-                        </span>
-                    </div>
+            <div id="grid_masonry">
+                <div class="grid">
+                    <div class="grid-sizer"></div>
+                    <div class="gutter-sizer"></div>
+                    <product-commodity v-for="commodity in commodityObject" v-bind="commodity"></product-commodity>
                 </div>
             </div>
-            <!-- <div class="test">
-                    display:grid;<br>
-                    grid-gap:30px;<br>
-                    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));//自動填滿整個容器。<br>
-                    grid-auto-rows: 240px; //溢出的項目，高要 240px<br>
-                    grid-auto-flow: row dense; //🟡dense瀑布流
-                </div> -->
+            <script>
+                let commodity = Vue.component('product-commodity', {
+                    props : ['commodityLink', 'commodityImg', 'commodityName'],
+                    template: ` <a class="grid-item" :href="commodityLink">
+                                    <div  class="commodityImg">
+                                        <img :src="commodityImg" :alt="commodityName">
+                                    </div>
+                                    <div class="commodity">
+                                        <h2>{{commodityName}}</h2>
+                                        <span class="material-icons">
+                                            favorite
+                                        </span>
+                                    </div>
+                                </a> `,
+                })
+                const productCommodity = new Vue({
+                    el: '#grid_masonry',
+                    data: {
+                        commodityObject: [
+                            {
+                                commodityLink:`./productInner.html`,
+                                commodityImg:`./images/product_01.webp`,
+                                commodityName:`Floor Lamps`,
+                            },
+                            {
+                                commodityLink:`./productInner.html`,
+                                commodityImg:`./images/product_02.webp`,
+                                commodityName:`Floor Lamps`,
+                            },
+                            {
+                                commodityLink:`./productInner.html`,
+                                commodityImg:`./images/product_03.webp`,
+                                commodityName:`Floor Lamps`,
+                            },
+                            {
+                                commodityLink:`./productInner.html`,
+                                commodityImg:`./images/product_04.webp`,
+                                commodityName:`Floor Lamps`,
+                            },
+                            {
+                                commodityLink:`./productInner.html`,
+                                commodityImg:`./images/product_05.webp`,
+                                commodityName:`Floor Lamps`,
+                            },
+                            {
+                                commodityLink:`./productInner.html`,
+                                commodityImg:`./images/product_06.webp`,
+                                commodityName:`Floor Lamps`,
+                            },
+                            {
+                                commodityLink:`./productInner.html`,
+                                commodityImg:`./images/product_07.webp`,
+                                commodityName:`Floor Lamps`,
+                            },
+                            {
+                                commodityLink:`./productInner.html`,
+                                commodityImg:`./images/product_08.webp`,
+                                commodityName:`Floor Lamps`,
+                            },
+                            {
+                                commodityLink:`./productInner.html`,
+                                commodityImg:`./images/product_09.webp`,
+                                commodityName:`Floor Lamps`,
+                            },
+                            {
+                                commodityLink:`./productInner.html`,
+                                commodityImg:`./images/product_10.webp`,
+                                commodityName:`Floor Lamps`,
+                            },
+                            {
+                                commodityLink:`./productInner.html`,
+                                commodityImg:`./images/product_11.webp`,
+                                commodityName:`Floor Lamps`,
+                            },
+                            {
+                                commodityLink:`./productInner.html`,
+                                commodityImg:`./images/product_12.webp`,
+                                commodityName:`Floor Lamps`,
+                            },
+                            {
+                                commodityLink:`./productInner.html`,
+                                commodityImg:`./images/product_13.webp`,
+                                commodityName:`Floor Lamps`,
+                            },
+                            {
+                                commodityLink:`./productInner.html`,
+                                commodityImg:`./images/product_14.webp`,
+                                commodityName:`Floor Lamps`,
+                            },
+                            {
+                                commodityLink:`./productInner.html`,
+                                commodityImg:`./images/product_15.webp`,
+                                commodityName:`Floor Lamps`,
+                            },
+                            {
+                                commodityLink:`./productInner.html`,
+                                commodityImg:`./images/product_16.webp`,
+                                commodityName:`Floor Lamps`,
+                            },
+                            {
+                                commodityLink:`./productInner.html`,
+                                commodityImg:`./images/product_17.webp`,
+                                commodityName:`Floor Lamps`,
+                            },
+                            {
+                                commodityLink:`./productInner.html`,
+                                commodityImg:`./images/product_18.webp`,
+                                commodityName:`Floor Lamps`,
+                            },                            
+                        ]
+                    },
+                })
+            </script>
         </section>
     </section>
+    <!-- footer  -->
+    @@include('layout/footer.html')
+    <!-- 商品頁瀑布流 -->
+    <script type="module" src="./js/productMain_masonry.js"></script>
+
+    <!-- script -->
+    @@include('layout/script.html')
 </body>
+
 </html>

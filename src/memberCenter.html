@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  @@include('layout/meta.html', { "title" : "member" })
+  <!-- tab change -->
+  <script src="js/memCentertabChange.js"></script>
+</head>
+
+<body>
+  @@include('layout/header.html')
+  <div class="member_container">
+    <div class="member_sidemenu">
+      <h1 class="h1 font_w7">Member Center</h1>
+      <ul class="h3 ul">
+        <li>Your Profiles</li>
+        <li>Your Orders</li>
+        <li>Your Wishlist</li>
+        <li>Change Password</li>
+        <li> <button class="h1">Log out</button></li>
+      </ul>
+    </div>
+    <div class="memberform_content ms_4 me_4">
+      <div id="member_welcome">
+        <h1 class="s3">Welcome!</h1>
+      </div>
+
+
+
+      <div id="member_center_profiles" class="memberform member_hide ">
+        <h1 class="h1 me_1 ml_4">Your Profiles</h1>
+        <!-- 會員資料表單 -->
+        <div class="memberform_profiles">
+          <form action="" class="membercenter_form">
+            <div class="memberform_label">
+              <label for="memName">Name : </label>
+              <label for="email">Email : </label>
+              <label for="memBD">BirthDay : </label>
+              <label for="memPhone">Phone : </label>
+              <label for="Address">Address : </label>
+            </div>
+            <div class="memberform_input">
+              <input type="text" name="memName" id="memName" class="ip_normal" /><br />
+              <input type="email" name="email" id="email" class="ip_normal" /><br />
+              <input type="date" name="memBD" id="memBD" class="ip_normal" /><br />
+              <input type="text" name="memPhone" id="memPhone" class="ip_normal" /><br />
+              <input type="text" name="Address" id="Address" class="ip_normal" /><br />
+              <input type="submit" class="ip_sub" value="Save Change" />
+              <input type="reset" class="ip_reset" value="Reset" />
+            </div>
+          </form>
+
+          <!-- 大頭貼表單 -->
+          <form action="" class="member_photo">
+            <div class="me_2">
+              <img src="./images/memphoto_default.jpg" id="memphotoPreview" />
+              <label for="memphoto" class="h1 font_w7">Upload</label>
+            </div>
+            <input type="file" name="memphoto" id="memphoto" class="me_2 ip_file" />
+            <input type="submit" class="ip_sub" value="Save Change" />
+          </form>
+        </div>
+        <!-- preview photo -->
+        <script>
+          window.addEventListener("load", () => {
+            document.getElementById('memphoto').onchange = (e) => {
+              let file = e.target.files[0];
+              let reader = new FileReader();
+              reader.onload = (e) => {
+                document.getElementById('memphotoPreview').src = reader.result;
+              }
+              reader.readAsDataURL(file);
+            }
+
+          }, false);
+
+        </script>
+      </div>
+      <!-- 訂單列表 -->
+      <div id="member_center_orders" class="memberform member_hide">
+        <h1 class="h1 me_1 ml_4">Your Orders</h1>
+
+        <table class="memtable h3">
+          <thead>
+            <tr>
+              <th>Order Number</th>
+              <th>Order Date</th>
+              <th>Order Status</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- <orders v-for="ordersTemplate in member_orders_obj" v-bind="ordersTemplate">
+            </orders> -->
+            <tr>
+              <td>1</td>
+              <td>12/2/22</td>
+              <td>await</td>
+              <td>464140346</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>12/2/22</td>
+              <td>await</td>
+              <td>464140346</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>12/2/22</td>
+              <td>await</td>
+              <td>464140346</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 私藏列表 -->
+      <div id="member_center_wishlist" class="memberform member_hide">
+        <h1 class="h1 fontcontent me_1 ml_4">Your Wishlist</h1>
+        <table class="memtable h3">
+          <thead>
+            <tr>
+              <th>商品圖片</th>
+              <th>商品名稱</th>
+              <th>productStatus</th>
+              <th>price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- <wish
+                v-for="wishTemplate in member_wish_obj"
+                v-bind="wishTemplate"
+              >
+              </wish> -->
+            <tr>
+              <td>pic</td>
+              <td>productname</td>
+              <td>avaliable</td>
+              <td>3000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 改密碼 -->
+      <div id="member_center_changepassword" class="memberform member_hide">
+        <h1 class="h1">Change Password</h1>
+        <form action="" class="membercenter_form">
+          
+            <div class="memberform_label">
+              <label for="oldPsw">Old Password :</label>
+              <label for="newPsw">New Password :</label>
+              <label for="check">Enter Again :</label>
+            </div>
+
+            <div class="memberform_input">
+              <input type="text" name="oldPsw" id="oldPsw" class="ip_normal"><br />
+              <input type="text" name="newPsw" id="newPsw" class="ip_normal"><br />
+              <input type="text" name="check" id="check" class="ip_normal"><br />
+               <input type="submit" class="ip_sub" value="Save Change">
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- <script>
+    let ordersTemplate = Vue.component("orders", {
+      props: ["orderNum", "orderDate", "orderStatus", "orderTotal"],
+      template: `<tr>
+                  <td>{{orderNum}}</td>
+                  <td>{{orderDate}}</td>
+                  <td>{{orderStatus}}</td>
+                  <td>{{orderTotal}}</td>
+                  </tr>
+                  `,
+    });
+    let wishTemplate = Vue.component("wish", {
+      props: ["商品圖片", "商品名稱", "productStatus", "price"],
+      template: `<tr>
+                  <td>{{商品圖片}}</td>
+                  <td>{{商品名稱}}</td>
+                  <td>{{productStatus}}</td>
+                  <td>{{price}}</td>
+                  </tr>
+                  `,
+    });
+    new Vue({
+      el: ".member_container",
+      data: {
+        member_orders_obj: [
+          {
+            orderNum: `1`,
+            orderDate: `2022/04/21`,
+            orderStatus: `waiting for confirm`,
+            orderTotal: `5656500`,
+          },
+          {
+            orderNum: `2`,
+            orderDate: `2022/04/21`,
+            orderStatus: `waiting for confirm`,
+            orderTotal: `5656500`,
+          },
+        ],
+      },
+    });
+    new Vue({
+      el: ".member_container",
+      data: {
+        mem_wish_obj: [
+          {
+            商品圖片: ``,
+            商品名稱: ``,
+            productStatus: ``,
+            price: ``,
+          },
+        ],
+      },
+    });
+  </script> -->
+
+  <!-- footer  -->
+  @@include('layout/footer.html')
+
+  <!-- script -->
+  @@include('layout/script.html')
+</body>
+
+</html>

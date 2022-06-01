@@ -4,18 +4,23 @@
 <head>
   <meta charset="UTF-8" />
   @@include('layout/meta.html', { "title" : "Project" })
+  <script src="./js/mouse.js"></script>
+
 </head>
 
 <body>
+  <div class="mouse"></div>
   @@include('layout/header.html')
   <!-- banner -->
+  <!-- <div id="mouse"></div> -->
+
   <section>
     <div class="project_banner_backdrop"></div>
     <div class="project_banner">
       <div class="project_banner_word">
         <p class="project_banner_p project_banner_p1">15</p>
         <p class="project_banner_p project_banner_p2">YEARS</p>
-        <p class="project_banner_p project_banner_p3">OF</p>
+        <p class="project_banner_p project_banner_p3 ">OF</p>
         <p class="project_banner_p project_banner_p4">EXPERIENCE</p>
       </div>
       <div class="prject_banner_pic">
@@ -23,20 +28,65 @@
       </div>
     </div>
   </section>
+
   <!---------->
   <!-- 特色 -->
   <section>
-    <h1 class="font_w5 text_center ms_8 project_feature_title">
+    <h1 class="font_w5 text_center ms_8 project_feature_title ">
       What We Can Provide
     </h1>
     <div class="project_feature_bgcon">
       <div class="project_feature_bg"></div>
     </div>
-    <div @click="move()" class="project_feature ms_5">
-      <div @click="move()" id="project_feature_left" class="project_feature_box"></div>
-      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga ut asperiores vitae unde ipsum, dolor, neque eaque laboriosam tempora nam recusandae delectus excepturi, tempore adipisci eum quod? Quo, quasi error.</p>
-      <div @click="move()" id="project_feature_mid" class="project_feature_box"></div>
-      <div @click="move()" id="project_feature_right" class="project_feature_box"></div>
+    <div @click="move()" class="project_feature ms_5 mouseHover">
+      <div @click="move()" id="project_feature_left" class="project_feature_box mouseHover"></div>
+      <div class="project_none" style="transition: 0.5s">
+        <h2 class="h1 font_w7 me_3">Feel Comfortable at Home</h2>
+        <p class="p2 me_1">
+          Note how instead of using regular a tags, we use a custom component
+          router-link to create links. This allows Vue Router to change the
+          URL without reloading the page, handle URL generation as well as its
+          encoding. We will see later how to benefit from these features.
+        </p>
+        <p class="p2">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga ut
+          asperiores vitae unde ipsum, dolor, neque eaque laboriosam tempora
+          nam recusandae delectus excepturi, tempore adipisci eum quod? Quo,
+          quasi error.
+        </p>
+      </div>
+      <div @click="move()" id="project_feature_mid" class="project_feature_box mouseHover"></div>
+      <div class="project_none" style="transition: 0.5s">
+        <h2 class="h1 font_w7 me_3">Professional Designer</h2>
+        <p class="p2 me_1">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga ut
+          asperiores vitae unde ipsum, dolor, neque eaque laboriosam tempora
+          nam recusandae delectus excepturi, tempore adipisci eum quod? Quo,
+          quasi error.
+        </p>
+        <p class="p2">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga ut
+          asperiores vitae unde ipsum, dolor, neque eaque laboriosam tempora
+          nam recusandae delectus excepturi, tempore adipisci eum quod? Quo,
+          quasi error.
+        </p>
+      </div>
+      <div @click="move()" id="project_feature_right" class="project_feature_box mouseHover"></div>
+      <div class="project_none" style="transition: 0.5s">
+        <h2 class="h1 font_w7 me_3">Anything You Want</h2>
+        <p class="p2 me_1">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga ut
+          asperiores vitae unde ipsum, dolor, neque eaque laboriosam tempora
+          nam recusandae delectus excepturi, tempore adipisci eum quod? Quo,
+          quasi error.
+        </p>
+        <p class="p2">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga ut
+          asperiores vitae unde ipsum, dolor, neque eaque laboriosam tempora
+          nam recusandae delectus excepturi, tempore adipisci eum quod? Quo,
+          quasi error.
+        </p>
+      </div>
     </div>
   </section>
   <script>
@@ -45,27 +95,78 @@
       data: {},
       methods: {
         move(e) {
+          if(screen.width>768){
+
+
+
+         
           let right = document.getElementById("project_feature_right");
           let mid = document.getElementById("project_feature_mid");
           let left = document.getElementById("project_feature_left");
+          let right_word = document.querySelector(
+            "#project_feature_right + div"
+          );
+          let mid_word = document.querySelector("#project_feature_mid + div");
+          let left_word = document.querySelector(
+            "#project_feature_left + div"
+          );
+          // console.log(right_word);
           if (event.target.id == right.id) {
-            gsap.to("#project_feature_right", { x: -300, duration: 0.8 });
-            gsap.to("#project_feature_mid", { x: -300, duration: 0.8 });
-            gsap.to("#project_feature_left", { x: -300, duration: 0.8 });
+            gsap.to("#project_feature_right", {
+              xPercent: -100,
+              duration: 0.8,
+            });
+            gsap.to("#project_feature_mid", {
+              xPercent: -100,
+              duration: 0.8,
+            });
+            gsap.to("#project_feature_left", {
+              xPercent: -100,
+              duration: 0.8,
+            });
+            right_word.style.opacity = "1";
+            mid_word.style.opacity = "0";
+            left_word.style.opacity = "0";
           } else if (event.target.id == mid.id) {
-            gsap.to("#project_feature_right", { x: 300, duration: 0.8 });
-            gsap.to("#project_feature_mid", { x: -300, duration: 0.8 });
-            gsap.to("#project_feature_left", { x: -300, duration: 0.8 });
+            gsap.to("#project_feature_right", {
+              xPercent: 100,
+              duration: 0.8,
+            });
+            gsap.to("#project_feature_mid", {
+              xPercent: -100,
+              duration: 0.8,
+            });
+            gsap.to("#project_feature_left", {
+              xPercent: -100,
+              duration: 0.8,
+            });
+            right_word.style.opacity = "0";
+            mid_word.style.opacity = "1";
+            left_word.style.opacity = "0";
           } else if (event.target.id == left.id) {
-            gsap.to("#project_feature_right", { x: 300, duration: 0.8 });
-            gsap.to("#project_feature_mid", { x: 300, duration: 0.8 });
-            gsap.to("#project_feature_left", { x: -300, duration: 0.8 });
+            gsap.to("#project_feature_right", {
+              xPercent: 100,
+              duration: 0.8,
+            });
+            gsap.to("#project_feature_mid", { xPercent: 100, duration: 0.8 });
+            gsap.to("#project_feature_left", {
+              xPercent: -100,
+              duration: 0.8,
+            });
+            right_word.style.opacity = "0";
+            mid_word.style.opacity = "0";
+            left_word.style.opacity = "1";
           } else {
-            gsap.to("#project_feature_right", { x: 0, duration: 0.8 });
-            gsap.to("#project_feature_mid", { x: 0, duration: 0.8 });
-            gsap.to("#project_feature_left", { x: 0, duration: 0.8 });
+            gsap.to("#project_feature_right", { xPercent: 0, duration: 0.8 });
+            gsap.to("#project_feature_mid", { xPercent: 0, duration: 0.8 });
+            gsap.to("#project_feature_left", { xPercent: 0, duration: 0.8 });
+            right_word.style.opacity = "0";
+            mid_word.style.opacity = "0";
+            left_word.style.opacity = "0";
           }
+        };
         },
+      
       },
     });
   </script>
@@ -79,33 +180,33 @@
     </div>
 
     <div class="project_container ms_5">
-      <!-- <a class="project_first" href="./index.html"> -->
-      <div class="project_first project me_8 ms_8">
+      <div class="project_first project me_8 ms_8 mouseOn" onclick="setTimeout(()=>{
+        window.location.assign('projectInner1.html')
+              },800)">
         <div class="project_word">
-          <span class="h3">project 1</span>
-          <h2 class="h1">The Renaissance</h2>
+          <span class="h1">project 1</span>
+          <h2 class="s3">The Renaissance</h2>
         </div>
-        <img src="./images/aboutus.lamp7.jpg" alt="" />
+        <img src="./images/designer4.jpg" alt="" />
       </div>
-      <!-- </a> -->
-      <!-- <a class="project_second" href="./index.html"> -->
-      <div class="project_second project me_8 ms_8">
+      <div class="project_second project me_8 ms_8 mouseOn" onclick="setTimeout(()=>{
+        window.location.assign('projectInner2.html')
+              },800)">
         <div class="project_word">
           <span class="h3">project 2</span>
-          <h2 class="h1">Industrial Revolution</h2>
+          <h2 class="s3">Industrial Revolution</h2>
         </div>
-        <img src="./images/aboutus.lamp8.jpg" alt="" />
+        <img src="./images/desinger5.jpg" alt="" />
       </div>
-      <!-- </a> -->
-      <!-- <a class="project_third" href="./index.html"> -->
-      <div class="project_third project me_8 ms_8">
+      <div class="project_third project me_8 ms_8 mouseOn" onclick="setTimeout(()=>{
+        window.location.assign('projectInner3.html')
+              },800)">
         <div class="project_word">
           <span class="h3">project 3</span>
-          <h2 class="h1">The Dragon</h2>
+          <h2 class="s3">The Dragon</h2>
         </div>
-        <img src="./images/aboutus.lamp6.jpg" alt="" />
+        <img src="./images/designer6.jpg" alt="" />
       </div>
-      <!-- </a> -->
     </div>
   </section>
   <script>
@@ -119,29 +220,41 @@
         gsapProject() {
           gsap.registerPlugin(ScrollTrigger);
           const tl = gsap.timeline();
-          tl.fromTo(".project_first", { xPercent: 300 }, { xPercent: 50 })
-            .fromTo(".project_second", { xPercent: 200 }, { xPercent: -50 })
-            .fromTo(".project_third", { xPercent: 100 }, { xPercent: -150 });
+          tl.fromTo(
+            ".project_first",
+            { xPercent: 300 },
+            { xPercent: 50, ease: "elastic.out(1, 0.75)" }
+          )
+            .fromTo(
+              ".project_second",
+              { xPercent: 200 },
+              { xPercent: -50, ease: "elastic.out(1, 0.75)" }
+            )
+            .fromTo(
+              ".project_third",
+              { xPercent: 100 },
+              { xPercent: -150, ease: "elastic.out(1, 0.75)" }
+            );
           ScrollTrigger.create({
             animation: tl,
             trigger: ".project_container",
             start: "center center",
-            end: "800 center",
-            scrub: 2,
+            end: "3000 top",
+            scrub: true,
             pin: true,
-            markers: true,
+            // markers: true,
             anticipatePin: 1,
           });
           gsap.to(".project_bg", {
             scrollTrigger: {
               trigger: ".project_bg",
               start: "center center",
-              end: "bottom 100px",
-              // scrub:1,
-              pin: ".project_bg",
+              end: "3000 top",
+              scrub: 1,
+              pin: true,
               // markers:true,
             },
-          })
+          });
         },
       },
     });
@@ -149,28 +262,113 @@
   <!---------->
   <div class="containerALL ms_8">
     <div class="project_process_container ms_8 ps_8">
-      <h1 class="s1 fontcontent font_w9 project_process_title">PROJECT PROCESS</h1>
-      <div class="project_process project_process_first ms_8">
+      <div class="project_arrowBody"></div>
+      <div class="project_arrowHead"></div>
+      <h1 class="s1 fontdeco font_w3 project_process_title">
+        PROJECT PROCESS
+      </h1>
+      <!-- <div class="project_arrowHead"></div> -->
+      <div class="project_process project_process_first ms_8 pl_4 pr_4">
         <h2 class="h1 font_w9 fontcontent">First</h2>
         <p class="h1 fontcontent">Sketch Design</p>
+        <p class="h3 fontcontent">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat
+          incidunt nulla suscipit odio voluptatum quos nobis voluptatibus unde
+          aliquid nostrum quas quibusdam adipisci repellendus, sed vitae,
+          voluptas assumenda accusamus reprehenderit.
+        </p>
       </div>
-      <div class="project_process ms_8">
+      <div class="project_process project_process_second ms_8 pl_4 pr_4">
         <h2 class="h1 font_w9 fontcontent">Second</h2>
         <p class="h1 fontcontent">Sketch Design</p>
+        <p class="h3 fontcontent">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat
+          incidunt nulla suscipit odio voluptatum quos nobis voluptatibus unde
+          aliquid nostrum quas quibusdam adipisci repellendus, sed vitae,
+          voluptas assumenda accusamus reprehenderit.
+        </p>
       </div>
-      <div class="project_process ms_8">
+      <div class="project_process project_process_third ms_8 pl_4 pr_4">
         <h2 class="h1 font_w9 fontcontent">Third</h2>
         <p class="h1 fontcontent">Sketch Design</p>
+        <p class="h3 fontcontent">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat
+          incidunt nulla suscipit odio voluptatum quos nobis voluptatibus unde
+          aliquid nostrum quas quibusdam adipisci repellendus, sed vitae,
+          voluptas assumenda accusamus reprehenderit.
+        </p>
       </div>
-      <div class="project_process ms_8">
+      <div class="project_process project_process_fourth ms_8 pl_4 pr_4">
         <h2 class="h1 font_w9 fontcontent">Fourth</h2>
         <p class="h1 fontcontent">Sketch Design</p>
+        <p class="h3 fontcontent">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat
+          incidunt nulla suscipit odio voluptatum quos nobis voluptatibus unde
+          aliquid nostrum quas quibusdam adipisci repellendus, sed vitae,
+          voluptas assumenda accusamus reprehenderit.
+        </p>
       </div>
-      <button class="btn_large ms_8">Contect Us</button>
+      <a href="support.html"><button class="btn_large ms_4 me_4 mouseOn">Contect Us</button></a>
     </div>
   </div>
-  <!-- content -->
+  <script>
+    new Vue({
+      el: ".containerALL",
+      data: {},
+      mounted: function () {
+        this.process();
+      },
+      methods: {
+        process() {
+          gsap.to(".project_process_first", {
+            scrollTrigger: {
+              trigger: ".project_process_first",
+              start: "center center",
+              end: "bottom top",
+              scrub: 1,
+              pin: true,
+              // markers: true,
+            },
+          });
+          gsap.to(".project_process_second", {
+            scrollTrigger: {
+              trigger: ".project_process_second",
+              start: "center center",
+              end: "bottom top",
+              scrub: 1,
+              pin: true,
+              // markers: true,
+            },
+          });
+          gsap.to(".project_process_third", {
+            scrollTrigger: {
+              trigger: ".project_process_third",
+              start: "center center",
+              end: "bottom top",
+              scrub: 1,
+              pin: true,
+              // markers: true,
+            },
+          });
+          gsap.to(".project_process_fourth", {
+            scrollTrigger: {
+              trigger: ".project_process_fourth",
+              start: "center center",
+              end: "bottom top",
+              scrub: 1,
+              pin: true,
+              // markers: true,
+            },
+          });
+        },
+      },
+    });
+  </script>
+  <!-- footer  -->
   @@include('layout/footer.html')
+
+  <!-- script -->
+  @@include('layout/script.html')
 </body>
 
 </html>

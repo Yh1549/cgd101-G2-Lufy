@@ -1,15 +1,15 @@
 <footer>
   <!-- footer -->
-  <div class="footer_all ms_8">
+  <div class="footer_all">
     <div class="footer_wrap ms_4 pl_8 pr_8">
       <div class="footer_img">
-        <a href="../index.html">
-          <img src="../images/footer_logo_web.svg" alt="" />
+        <a href="./homePage.html">
+          <img src="./images/footer_logo_web.svg" alt="" />
         </a>
       </div>      
       <div class="footer_img_mobile me_1">
-        <a href="../index.html">
-          <img src="../images/footer_logo_mobile.svg" alt="" />
+        <a href="./homePage.html">
+          <img src="./images/footer_logo_mobile.svg" alt="" />
         </a>
       </div>
       <div class="footer_addres ml_8">
@@ -30,26 +30,5 @@
   </div>
   <!-- 0522新增a標籤  回到最上層-->
   <a id="b_top"></a>
-  <script>
-    //回到top的js
-    let btn = document.getElementById("b_top");
-
-    window.addEventListener(
-      "scroll",
-      function () {
-        // console.log(window.scrollY);
-        if (window.scrollY > 300) {
-          btn.classList.add("show");
-        } else {
-          btn.classList.remove("show");
-        }
-      },
-      false
-    );
-    // console.log(btn);
-    btn.addEventListener("click", function () {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-  </script>
   <!-- 0522新增a標籤 -->
 </footer>

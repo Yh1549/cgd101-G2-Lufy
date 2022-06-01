@@ -1,20 +1,21 @@
 let storage = localStorage;
 
 function doFirst() {
+
     if (storage['addItemList'] == null) {
         storage['addItemList'] = '';
     }
-
-
     let list = document.querySelectorAll('.addButton');
     for (let i = 0; i < list.length; i++) {
-        list[i].addEventListener('click', function(e) {
-
-            let lamp = document.querySelector(`#${e.target.id} input`).value
-
-            addItem(e.target.id, lamp)
+        list[i].addEventListener('click', function (e) {
+            let lamp = document.querySelector(`#${e.target.id} input`).value;
+            addItem(e.target.id, lamp);
+            // console.log(lamp);
         })
     }
+    
+    
+    
 }
 
 function addItem(itemId, itemValue) {
@@ -39,27 +40,30 @@ function addItem(itemId, itemValue) {
 
 
     newItem.appendChild(image)
-        // newItem.appendChild(title)
-        // newItem.appendChild(price)
+    // newItem.appendChild(title)
+    // newItem.appendChild(price)
 
     // 存入 storage
     if (storage[itemId]) {
         alert('You have checked,click cart to view it.')
     } else {
         storage['addItemList'] += `${itemId}, `;
-        storage.setItem(itemId, itemValue)
+        storage.setItem(itemId, itemValue);
+        console.log(itemValue);
     }
 
 
     let itemString = storage.getItem('addItemList')
     let items = itemString.substr(0, itemString.length - 2).split(', ')
+    console.log(itemString);
     console.log(items);
 
 
     let subtotal = 0;
     for (let i = 0; i < items.length; i++) {
-        let itemInfo = storage.getItem(items[i])
-        let itemPrice = parseInt(itemInfo.split('|')[2])
+        let itemInfo = storage.getItem(items[i]);
+        console.log(itemInfo);
+        let itemPrice = parseInt(itemInfo.split('|')[2]);
 
         subtotal += itemPrice
     }
@@ -67,4 +71,4 @@ function addItem(itemId, itemValue) {
     document.getElementById('itemCount').innerText = items.length
     document.getElementById('subtotal').innerText = subtotal
 }
-window.addEventListener('load', doFirst);
+window.addEventListener('load', doFirst,false);

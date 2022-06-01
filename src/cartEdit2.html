@@ -20,19 +20,24 @@
                     <div>Name:<input type="text" class="ip_small" placeholder="Please type in your name"></div>
                     <div>TelNo:<input type="text" class="ip_small" placeholder="Please type in your phonenumber"></div>
                     <div>Address:<input type="text" class="ip_small" placeholder="Please type in your address"></div>
+                    <div>Credit Card: <input type="text" class="ip_small" placeholder="Please type No1-8"></div>
+                    <div>Credit Card: <input type="text" class="ip_small" placeholder="Please type No9-16"></div>
+                    <div>Credit Card: <input type="text" class="ip_small" placeholder="Please type check code"></div>
                 </div>
                 <div class="receiver">
                     <h3 class="h3">Receiver:</h3>
                     <div>Name:<input type="text" class="ip_small name" placeholder="Please type in your name"></div>
-                    <div>TelNo:<input type="text" class="ip_small phone" placeholder="Please type in your phonenumber"></div>
-                    <div>Address:<input type="text" class="ip_small address" placeholder="Please type in your address"></div>
-                    <div>Arrive Date:<input type="datetime-local" class="arriveTime" name="arriveTime" min="2022-06-01T00:00" max="2022-08-01T00:00"></div>
+                    <div>TelNo:<input type="text" class="ip_small phone" placeholder="Please type in your phonenumber">
+                    </div>
+                    <div>Address:<input type="text" class="ip_small address" placeholder="Please type in your address">
+                    </div>
+                    <div class="date">Arrive Date:<input type="datetime-local" class="arriveTime" name="arriveTime" min="2022-06-01T00:00" max="2022-08-01T00:00"></div>
                 </div>
             </div>
             <div class="shipping_method">
                 <h3 class="h3"></h3>
-                <a href="cartEdit3.html"><input type="button" class="btn_small setBtn" value="Send an order"></a>
-                <a href="cartEdit.html"><button class="btn_small">Back to cart</button></a>
+                <a href="cartEdit3.html"><input type="button" class="btn_small setBtn" value="Next step"></a>
+                <a href="cartEdit.html"><button class="btn_small">Go back</button></a>
             </div>
 
 
@@ -40,13 +45,16 @@
         </div>
 
     </div>
-    <div class="relative_products">
+    <div class="moreworks">
         <h2 class="h2">Relative products</h2>
-        <div class="relative_product"><img src="images/aboutus.lamp5.png" alt=""></div>
-        <div class="relative_product"><img src="images/aboutus.lamp6.jpg" alt=""></div>
-        <div class="relative_product"><img src="images/aboutus.lamp7.jpg" alt=""></div>
+        <div class="relative_products">
+
+            <div class="relative_product"><img src="images/aboutus.lamp5.png" alt=""></div>
+            <div class="relative_product"><img src="images/aboutus.lamp6.jpg" alt=""></div>
+            <div class="relative_product"><img src="images/aboutus.lamp7.jpg" alt=""></div>
+        </div>
     </div>
-    @@include('layout/footer.html')
+
     <script>
         //綁定 .setBtn
         var setBtn = document.querySelector(".setBtn");
@@ -76,6 +84,11 @@
 
         }
     </script>
+    <!-- footer  -->
+    @@include('layout/footer.html')
+
+    <!-- script -->
+    @@include('layout/script.html')
 </body>
 
 </html>
