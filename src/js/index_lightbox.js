@@ -18,7 +18,7 @@ function shutDown() {
 function init() {
     let turnOn = document.querySelector('.turn_on');
     turnOn.addEventListener('click', shutDown);
-    setTimeout(() => { shutDown() }, 5000);
+    setTimeout(() => { shutDown() }, 8000);
 };
 window.addEventListener("scroll", noscroll);
 window.addEventListener("load", init, false);
