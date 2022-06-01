@@ -5,7 +5,7 @@
   margin-top: -1.5rem;
   position: absolute;
   filter: brightness(0.6);
-  background-image: url("../../images/project_bannerpic1.jpg");
+  background-image: url("./../images/project_bannerpic1.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -110,7 +110,7 @@
   }
 }
 #project_feature_left {
-  background-image: url(../../images/projectMain_pic1.jpg);
+  background-image: url(./../images/projectMain_pic1.jpg);
   background-repeat: no-repeat;
   background-position: center;
   & + div {
@@ -132,7 +132,7 @@
   }
 }
 #project_feature_mid {
-  background-image: url(../../images/projectMain_pic3.jpg);
+  background-image: url(./../images/projectMain_pic3.jpg);
   background-repeat: no-repeat;
   background-position: center;
   & + div {
@@ -154,7 +154,7 @@
   }
 }
 #project_feature_right {
-  background-image: url(../../images/projectMain_pic2.jpg);
+  background-image: url(./../images/projectMain_pic2.jpg);
   background-repeat: no-repeat;
   background-position: center;
   & + div {
@@ -240,7 +240,7 @@
   }
 }
 .project_first {
-  background-image: url(../../images/projectMain_pic5.jpg);
+  background-image: url(./../images/projectMain_pic5.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -257,7 +257,7 @@
   }
 }
 .project_second {
-  background-image: url(../../images/projectMain_pic4.jpg);
+  background-image: url(./../images/projectMain_pic4.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -272,7 +272,7 @@
   }
 }
 .project_third {
-  background-image: url(../../images/projectMain_pic6.jpg);
+  background-image: url(./../images/projectMain_pic6.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

@@ -437,14 +437,14 @@ $cb_base: 24px; //大小控制 注意圖片像素大小 會跑版 請勿使用�
       margin-right: 15px;
       width: $cb_base;
       height: $cb_base;
-      background-image: url(../../images/checkedbox_Unchecked.png);
+      background-image: url(./../images/checkedbox_Unchecked.png);
     }
   }
   &:checked {
     //checked之後換label before的圖片
     & + label {
       &::before {
-        background-image: url(../../images/checkbox_checked.png);
+        background-image: url(./../images/checkbox_checked.png);
       }
     }
   }
@@ -472,14 +472,14 @@ $rd_base: 24px; //大小控制 注意圖片像素大小 會跑版 請勿使用�
       margin-right: 15px;
       width: $rd_base;
       height: $rd_base;
-      background-image: url(../../images/Radio_button_Unchecked.png);
+      background-image: url(./../images/Radio_button_Unchecked.png);
     }
   }
   &:checked {
     //checked之後換label before的圖片
     & + label {
       &::before {
-        background-image: url(../../images/Radio_button_checked.png);
+        background-image: url(./../images/Radio_button_checked.png);
       }
     }
   }
