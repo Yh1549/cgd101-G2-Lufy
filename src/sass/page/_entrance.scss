@@ -57,6 +57,9 @@
   top: 0;
   left: 46.5%;
 }
+.entrance_homepage{
+  -webkit-mask-image: conic-gradient(from 0deg at 50% 0%, #000000 -106.18deg, #000000 107.43deg, rgba(255, 255, 255, 0.48) 149.52deg, transparent 178.79deg, rgba(255, 255, 255, 0.47) 206.23deg, #000000 253.82deg, #000000 467.43deg);;
+}
 #entrance_light {
   width: 100%;
   height: 100vh;

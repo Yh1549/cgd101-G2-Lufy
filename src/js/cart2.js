@@ -2,19 +2,16 @@ let storage = localStorage;
 
 let newDiv = document.createElement('div')
 let newTable = document.createElement('table')
-
+let total = 0;
 
 function doFirst() {
     let itemString = storage.getItem('addItemList')
     let items = itemString.substr(0, itemString.length - 2).split(', ')
 
 
-
-
-
     newDiv.appendChild(newTable)
     cartList.appendChild(newDiv)
-    let total = 0;
+    
 
 
     for (let i = 0; i < items.length; i++) {
@@ -108,7 +105,7 @@ function createCartList(itemId, itemValue) {
 
 function deleteItem(e) {
 
-    let total;
+    // let total;
 
     let itemId = e.target.parentNode.id
     console.log(itemId);
@@ -117,16 +114,10 @@ function deleteItem(e) {
     console.log(itemValue);
     total -= parseInt(itemValue.split('|')[2])
 
-    document.getElementById('total').innerText = total
-
-
-
-    storage.removeItem(itemId)
-
-    storage['addItemList'] = storage['addItemList'].replace(`${itemId}, `, ``)
-
-
-    newTable.removeChild(e.target.parentNode.parentNode)
+    document.getElementById('total').innerText = total;
+    storage.removeItem(itemId);
+    storage['addItemList'] = storage['addItemList'].replace(`${itemId}, `, ``);
+    newTable.removeChild(e.target.parentNode.parentNode);
 
 }
 
@@ -136,7 +127,6 @@ function changeItemCount(e) {
     // let a = document.getElementsByTagName('input')
     // let b = a.parentNode.parentNode.parentNode.children[1].id
     // console.log(b)
-
 
     let sum = 0;
     let list = document.querySelectorAll('.js-count');
@@ -160,12 +150,8 @@ function changeItemCount(e) {
         // storage.clear();
         // storage.setItem(itemId, newPrice);
 
-
-
     })
     document.getElementById('total').innerText = sum;
-
-
 
 }
 window.addEventListener('load', doFirst);

@@ -1,6 +1,4 @@
-.test{
-  cursor: none;
-}
+
 .project_banner_backdrop {
   width: 100%;
   height: 800px;
@@ -64,7 +62,8 @@
   color: $secondary_100;
   font-size: $s3;
   @include t() {
-    font-size: $s3 - 30;
+    font-size: $s3 - 60;
+    margin-top: 20px;
   }
 }
 .project_feature {
@@ -200,7 +199,7 @@
   pointer-events: none;
   z-index: 50;
   @include t() {
-    font-size: $s3 - 20;
+    font-size: $s3 - 40;
   }
 }
 .project_container {
@@ -326,6 +325,7 @@
   }
   & p {
     @include t() {
+      font-size: 12px;
       padding-top: 10px;
     }
   }
@@ -333,7 +333,7 @@
 .project_process_title {
   color: $secondary_70;
   @include t() {
-    font-size: $s3 - 20;
+    font-size: $s3 - 60;
   }
 }
 .project_arrowHead {
