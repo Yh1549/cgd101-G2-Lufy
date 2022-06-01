@@ -137,32 +137,52 @@ body:hover::-webkit-scrollbar-thumb{
 .currentM{
     background-color: $primary_100;
 }
+//------------------------右邊
+.sectFirst{
+    text-align: center;
+    & .desIntroduction{
+        display: flex;
+        & .desImg{
+            width: 40%;
+            text-align: left;
+        }
+        & .desTxt{
+            text-align: left;
+        }
+        
+    }
+}
+
+.tArea{
+    border: 2px solid $secondary_30;
+    border-radius: $ip_br;
+}
 //------------------------列表標題
 .beNews_title{
     display: flex;
     padding: 10px;
     background-color: $secondary_70;
     & p{
-        width: 10%;
+        width: 20%;
         color: #ffff;
     }
 }
 //------------------------列表表格
-.beNews_text{
+.backend_text{
     display: flex;
     box-sizing: border-boxs;
     padding: 10px;
     & p{
+        width: 20%;
+    }
+    & span{
         width: 10%;
-        & img{
-            width: 50%;
-        }
     }
     & button{
         width: 10%;
     }
 }
-.beNews_details:nth-child(even){
+.backend_details:nth-child(even){
     background:#f1e3da;
 }
 .listGrow{
@@ -175,23 +195,12 @@ body:hover::-webkit-scrollbar-thumb{
     overflow: hidden;
     text-overflow: ellipsis;
 }
-.pages{
-    display: flex;
-    justify-content: center;
-    & p{
-        border: 1px solid #aaa;
-    }
-}
 .mem_content{
     display: none;
 }
-.mem_content#mainElm1{
+.mem_content#mainElm11{
     display: block;
 }
 .membList{
     overflow-y: hidden;
-}
-.carouselPlace p{
-    display: flex;
-    align-items: center;
 }

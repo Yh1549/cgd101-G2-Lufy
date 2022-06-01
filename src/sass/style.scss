@@ -37,8 +37,11 @@
 @import 'page/simulation.scss';     //情境模擬
 //-----------
 
-//優惠活動後台import------------
-@import 'page/backend.scss';        //優惠活動後台
+//後台import------------
+@import 'page/backend.scss';        //後台
+//-----------
+//設計師後台import------------
+@import 'page/backendDesigner.scss';        //設計師後台
 //-----------
 
 // //-----老師範例-----
