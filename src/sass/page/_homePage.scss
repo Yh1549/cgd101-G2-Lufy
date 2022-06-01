@@ -7,7 +7,7 @@
     cursor: pointer;
     transition: 0.2s all ease-in-out;
     position: absolute;
-    bottom: 30%;
+    top: 80%;
     left: 0;
     right: 0;
     z-index: 1000;
@@ -176,7 +176,7 @@ html.fixWindow {
         .index_project_deco_image img {
             transform: scale(0.8);
             position: absolute;
-            top: 450px;
+            top: 510px;
             left: -100px;
             z-index: 2;
         }

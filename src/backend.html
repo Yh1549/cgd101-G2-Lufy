@@ -281,8 +281,8 @@
                 let N_backendMenu = Vue.component('N_menu', {
                     props: ['membNo', 'membName', 'membEmail', 'membBirDate','membPhone','membAddress','membState'],
                     template: `
-                        <li class="beNews_details">
-                            <div class="beNews_text">
+                        <li class="backend_details">
+                            <div class="backend_text">
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{membNo}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{membName}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{membEmail}}</p>
@@ -453,8 +453,8 @@
                 let A_backendMenu = Vue.component('A_menu', {
                     props: ['prodNo', 'prodName', 'prodCategory', 'prodDesigner','prodIntroduce','prodSpec','prodPrice','prodState','in_stock'],
                     template: `
-                        <li class="beNews_details">
-                            <div class="beNews_text">
+                        <li class="backend_details">
+                            <div class="backend_text">
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{prodNo}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{prodName}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{prodCategory}}</p>
@@ -539,8 +539,8 @@
                 let O_backendMenu = Vue.component('O_menu', {
                     props: ['orderNo','orderM_NO', 'orderDate','orderPrice','orderState','orderRemark'],
                     template: `
-                        <li class="beNews_details">
-                            <div class="beNews_text">
+                        <li class="backend_details">
+                            <div class="backend_text">
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{orderNo}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{orderM_NO}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{orderDate}}</p>
@@ -614,8 +614,8 @@
                 let B_backendMenu = Vue.component('B_menu', {
                     props: ['promotionsNo', 'promotionsName', 'promotionsStartDate', 'promotionsEndDate','promotionsImagePath','promotionsState'],
                     template: `
-                        <li class="beNews_details">
-                            <div class="beNews_text">
+                        <li class="backend_details">
+                            <div class="backend_text">
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{promotionsNo}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{promotionsName}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{promotionsStartDate}}</p>
@@ -719,8 +719,8 @@
                 let C_backendMenu = Vue.component('C_menu', {
                     props: ['newsNo', 'newsName', 'newsStartDate', 'newsEndDate','newsImagePath','newsState'],
                     template: `
-                        <li class="beNews_details">
-                            <div class="beNews_text">
+                        <li class="backend_details">
+                            <div class="backend_text">
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{newsNo}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{newsName}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{newsStartDate}}</p>
@@ -784,7 +784,7 @@
                         <p class="p1 pr_1 font_w5 fontcontent">名稱</p>
                         <p class="p1 pr_1 font_w5 fontcontent listGrow">圖片路徑</p>
                         <p class="p1 pr_1 font_w5 fontcontent listGrow">圖片預覽</p>
-                        <p class="listGrow"></p>
+                        <p class=""></p>
                     </div>
                     <ul id="carouselList">
                         <P_menu v-for="P_backendMenu in carouselObject" v-bind="P_backendMenu">
@@ -800,12 +800,12 @@
                 let P_backendMenu = Vue.component('P_menu', {
                     props: ['carouselNo', 'carouselName', 'carouselImagePath','carouselImage'],
                     template: `
-                        <li class="beNews_details">
-                            <div class="beNews_text">
+                        <li class="backend_details">
+                            <div class="backend_text carouselPlace">
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{carouselNo}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{carouselName}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{carouselImagePath}}</p>
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{carouselImage}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow"><img :src="carouselImagePath"></img></p>
                                 <button class="p1 newsbtn">Upload</button>
                             </div>
                         </li>
@@ -818,20 +818,17 @@
                             {
                                 carouselNo: `1`,
                                 carouselName: `活動1`,
-                                carouselImagePath: ``,
-                                carouselImage: ``
+                                carouselImagePath: `./images/index_carousel_Banner_01.webp`,
                             },
                             {
                                 carouselNo: `2`,
                                 carouselName: `活動2`,
-                                carouselImagePath: ``,
-                                carouselImage: ``
+                                carouselImagePath: `./images/index_carousel_Banner_02.webp`,
                             },
                             {
                                 carouselNo: `3`,
                                 carouselName: `活動2`,
-                                carouselImagePath: ``,
-                                carouselImage: ``
+                                carouselImagePath: `./images/index_carousel_Banner_03.webp`,
                             },
                         ]
                     }
@@ -867,8 +864,8 @@
                 let D_backendMenu = Vue.component('D_menu', {
                     props: ['designerNo', 'designerName', 'designerInt', 'designerState','designerAccount','designerImagePath'],
                     template: `
-                        <li class="beNews_details">
-                            <div class="beNews_text">
+                        <li class="backend_details">
+                            <div class="backend_text">
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{designerNo}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{designerName}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow ellipsis">{{designerInt}}</p>
