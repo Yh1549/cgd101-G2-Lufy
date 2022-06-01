@@ -9,7 +9,7 @@
 <body>
     <!-- @@include('layout/header.html') -->
     <div class="containerALL">
-        <div class="supWrapper">
+        <div class="supWrapper"> 
             <div class="faqCategory ps_2 pl_1 pr_4">
                 <div class="h1 ps_1 pe_1 faqTitle">
                     <h1>FAQ</h1>
@@ -111,4 +111,11 @@
     <!-- content -->
     @@include('layout/footer.html')
 </body>
+<script>
+    $(function(){
+        $('.question').click(function(){
+            $(this).next('.answer').slideToggle("slow");
+        })
+    });
+</script>
 </html>
