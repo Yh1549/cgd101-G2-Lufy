@@ -1,7 +1,8 @@
+html{
+    scroll-behavior: smooth;
+}
 .supWrapper{
-    display: flex;
-    
-    
+    display: flex;  
 }
 .faqCategory{
     width: 15%;
@@ -31,9 +32,11 @@
 }
 .question{
     background-color: $primary_100;
+    cursor: pointer;
 }
 .answer{
     background-color: $primary_30;
+    display: none;
 }
 .faqAnchor a{
     text-decoration: none;
