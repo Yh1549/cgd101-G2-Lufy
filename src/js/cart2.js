@@ -147,6 +147,13 @@ function changeItemCount(e) {
         let newPrice = parseInt(itemValue.split('|')[2]) * (item.value);
         item.parentNode.parentNode.previousSibling.children[0].innerText = newPrice;
         sum += newPrice;
+
+        let itemName = itemValue.split('|')[0];
+
+        storage.setItem(itemName, newPrice);
+
+
+
         // storage.setItem(itemId, newPrice);
         // console.log(storage.getItem(itemId))
         // console.log(newPrice);
