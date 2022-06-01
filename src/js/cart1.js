@@ -5,21 +5,18 @@ function doFirst() {
     if (storage['addItemList'] == null) {
         storage['addItemList'] = '';
     }
-
-
     let list = document.querySelectorAll('.addButton');
     for (let i = 0; i < list.length; i++) {
-        list[i].addEventListener('click', function(e) {
-
+        list[i].addEventListener('click', function (e) {
             let lamp = document.querySelector(`#${e.target.id} input`).value;
-
-
             addItem(e.target.id, lamp);
+            // console.log(lamp);
         })
     }
+    
+    
+    
 }
-
-
 
 function addItem(itemId, itemValue) {
 
@@ -43,8 +40,8 @@ function addItem(itemId, itemValue) {
 
 
     newItem.appendChild(image)
-        // newItem.appendChild(title)
-        // newItem.appendChild(price)
+    // newItem.appendChild(title)
+    // newItem.appendChild(price)
 
     // 存入 storage
     if (storage[itemId]) {
@@ -74,4 +71,4 @@ function addItem(itemId, itemValue) {
     document.getElementById('itemCount').innerText = items.length
     document.getElementById('subtotal').innerText = subtotal
 }
-window.addEventListener('load', doFirst)
+window.addEventListener('load', doFirst,false);
