@@ -8,7 +8,7 @@
 
 </head>
 
-<body class="test">
+<body>
   <div class="mouse"></div>
   @@include('layout/header.html')
   <!-- banner -->
@@ -38,8 +38,8 @@
     <div class="project_feature_bgcon">
       <div class="project_feature_bg"></div>
     </div>
-    <div @click="move()" class="project_feature ms_5">
-      <div @click="move()" id="project_feature_left" class="project_feature_box "></div>
+    <div @click="move()" class="project_feature ms_5 mouseHover">
+      <div @click="move()" id="project_feature_left" class="project_feature_box mouseHover"></div>
       <div class="project_none" style="transition: 0.5s">
         <h2 class="h1 font_w7 me_3">Feel Comfortable at Home</h2>
         <p class="p2 me_1">
@@ -55,7 +55,7 @@
           quasi error.
         </p>
       </div>
-      <div @click="move()" id="project_feature_mid" class="project_feature_box "></div>
+      <div @click="move()" id="project_feature_mid" class="project_feature_box mouseHover"></div>
       <div class="project_none" style="transition: 0.5s">
         <h2 class="h1 font_w7 me_3">Professional Designer</h2>
         <p class="p2 me_1">
@@ -71,7 +71,7 @@
           quasi error.
         </p>
       </div>
-      <div @click="move()" id="project_feature_right" class="project_feature_box"></div>
+      <div @click="move()" id="project_feature_right" class="project_feature_box mouseHover"></div>
       <div class="project_none" style="transition: 0.5s">
         <h2 class="h1 font_w7 me_3">Anything You Want</h2>
         <p class="p2 me_1">
@@ -95,6 +95,11 @@
       data: {},
       methods: {
         move(e) {
+          if(screen.width>768){
+
+
+
+         
           let right = document.getElementById("project_feature_right");
           let mid = document.getElementById("project_feature_mid");
           let left = document.getElementById("project_feature_left");
@@ -159,7 +164,9 @@
             mid_word.style.opacity = "0";
             left_word.style.opacity = "0";
           }
+        };
         },
+      
       },
     });
   </script>

@@ -139,27 +139,36 @@
   text-align: center;
   margin-top: 200px;
   @include t() {
-    font-size: $s3 - 20;
+    font-size: $s3 - 60;
+    margin-top: 20px;
   }
 }
 .project_lamp {
   width: 100%;
-  display: flex;
-  justify-content: center;
+  // display: flex;
+  // justify-content: center;
+  @include t() {
+  overflow-y: hidden;
+  }
   & div {
-    width: 30%;
+    width: 100vw;
+    display: inline-block;
   }
   & div img {
     width: 100%;
   }
+  & div h3,p {
+    @include t() {
+      font-size: 12px;
+      // margin-top: 20px;
+    }
+  }
   & .project_lamp_second {
     border-left: 3px solid $primary_100;
     border-right: 3px solid $primary_100;
-  }
-}
-.project_lamp_title{
-  @include t() {
-    font-size: $s3 - 20;
+    @include t() {
+     border: none;
+    }
   }
 }
 .projectinner_designer {
@@ -185,5 +194,26 @@
 
     }
     
+  }
+}
+
+.test{
+ width: 20px;
+ height: 20px;
+ background-color: red;
+}
+.testclick{
+  animation: 1s;
+}
+@keyframes pop{
+  0%{
+    opacity: 0;
+  }
+  50%{
+    opacity: 1;
+    top: -100;
+  }
+  100%{
+    opacity: 0;
   }
 }

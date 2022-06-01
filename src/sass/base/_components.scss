@@ -501,6 +501,8 @@ $sel_base: 16;
   // -webkit-appearance: none;
   // appearance: none;
 }
+
+// ///////////////
 .mouse {
   position: absolute;
   width: 20px;
@@ -513,6 +515,9 @@ $sel_base: 16;
   // transition-duration: 200ms;
   // transition-timing-function: ease-out;
   // animation: cursorAni 5s infinite alternate;
+  @include t() {
+    display: none;
+  }
 }
 .mouseClickani {
   // transition-duration: 200ms;
@@ -529,9 +534,21 @@ $sel_base: 16;
     left: -3px;
     animation: mouseAni 0.5s infinite alternate;
   }
+  @include t() {
+    display: none;
+  }
+}
+.mouseScale{
+  transform: scale(5);
+  @include t() {
+    display: none;
+  }
 }
 .expand {
   animation: big 0.8s;
+  @include t() {
+    display: none;
+  }
 }
 @keyframes cursorAni {
   0% {
@@ -563,3 +580,5 @@ $sel_base: 16;
     transform: scale(1);
   }
 }
+
+// ///////

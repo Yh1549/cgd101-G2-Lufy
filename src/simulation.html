@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     @@include('layout/meta.html', {
     "title" : "Light Up For You"
     })
 </head>
+
 <body>
     <!-- header -->
     @@include('layout/header.html')
     <!-- header end -->
+<!-- 
+    <section class="simulation_container">
+    </section> -->
     <section class="simulation_luminosity" id="simulation_luminosity">
+        <div class="entrance_lamp"></div>
+      <div id="entrance_light" class="entrance_homepage"></div>
         <div class="lamp-wrapper">
         </div>
         <div class="wall-light-shadow"></div>
@@ -34,5 +41,5 @@
     <!-- script -->
     @@include('layout/script.html')
 </body>
-</html>
 
+</html>

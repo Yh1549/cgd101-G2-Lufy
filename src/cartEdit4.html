@@ -29,6 +29,11 @@
                     </tr>
                     <tr>
                         <td>
+                            <h2 class="h2"> OrderPrice : <span class="orderPrice"></span></h2>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
                             <h2 class="h2"> Receiver name : <span class="receiverName"></span></h2>
                         </td>
                     </tr>
@@ -79,6 +84,13 @@
 
             let receiverName = document.querySelector('.receiverName');
             receiverName.innerHTML = name;
+
+            let discount = localStorage.getItem("discount");
+
+            let orderPrice = document.querySelector('.orderPrice');
+            orderPrice.innerHTML = discount;
+
+
 
             let phone = localStorage.getItem("phone");
 
