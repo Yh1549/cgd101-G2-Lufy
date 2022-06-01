@@ -1,6 +1,7 @@
 let storage = localStorage;
 
 function doFirst() {
+    // storage.clear();
     if (storage['addItemList'] == null) {
         storage['addItemList'] = '';
     }
@@ -10,9 +11,10 @@ function doFirst() {
     for (let i = 0; i < list.length; i++) {
         list[i].addEventListener('click', function(e) {
 
-            let lamp = document.querySelector(`#${e.target.id} input`).value
+            let lamp = document.querySelector(`#${e.target.id} input`).value;
 
-            addItem(e.target.id, lamp)
+
+            addItem(e.target.id, lamp);
         })
     }
 }
@@ -49,12 +51,13 @@ function addItem(itemId, itemValue) {
         alert('You have checked,click cart to view it.')
     } else {
         storage['addItemList'] += `${itemId}, `;
-        storage.setItem(itemId, itemValue)
+        storage.setItem(itemId, itemValue);
     }
 
 
     let itemString = storage.getItem('addItemList')
     let items = itemString.substr(0, itemString.length - 2).split(', ')
+    console.log(itemString);
     console.log(items);
 
 
@@ -70,18 +73,3 @@ function addItem(itemId, itemValue) {
     document.getElementById('subtotal').innerText = subtotal
 }
 window.addEventListener('load', doFirst);
-
-function showCart() {
-    let cart = document.querySelector(".cart");
-    cart.classList.toggle('hidden');
-
-}
-
-function init() {
-    let shopping = document.querySelector(".cartclick");
-    shopping.addEventListener("click", showCart, false);
-
-
-}
-
-window.addEventListener("load", init, false);
