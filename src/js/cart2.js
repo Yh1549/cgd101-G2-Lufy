@@ -1,20 +1,20 @@
 let storage = localStorage;
-let itemString = storage.getItem('addItemList')
-let items = itemString.substr(0, itemString.length - 2).split(', ')
 
 let newDiv = document.createElement('div')
 let newTable = document.createElement('table')
-let total = 0;
+
 
 function doFirst() {
+    let itemString = storage.getItem('addItemList')
+    let items = itemString.substr(0, itemString.length - 2).split(', ')
+
 
 
 
 
     newDiv.appendChild(newTable)
     cartList.appendChild(newDiv)
-
-
+    let total = 0;
 
 
     for (let i = 0; i < items.length; i++) {
@@ -104,12 +104,17 @@ function createCartList(itemId, itemValue) {
 
 
 }
+// let total;
 
 function deleteItem(e) {
 
+    let total;
+
     let itemId = e.target.parentNode.id
+    console.log(itemId);
 
     let itemValue = storage.getItem(itemId)
+    console.log(itemValue);
     total -= parseInt(itemValue.split('|')[2])
 
     document.getElementById('total').innerText = total

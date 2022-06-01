@@ -1,7 +1,7 @@
 let storage = localStorage;
 
 function doFirst() {
-    // storage.clear();
+
     if (storage['addItemList'] == null) {
         storage['addItemList'] = '';
     }
@@ -52,6 +52,7 @@ function addItem(itemId, itemValue) {
     } else {
         storage['addItemList'] += `${itemId}, `;
         storage.setItem(itemId, itemValue);
+        console.log(itemValue);
     }
 
 
@@ -63,8 +64,9 @@ function addItem(itemId, itemValue) {
 
     let subtotal = 0;
     for (let i = 0; i < items.length; i++) {
-        let itemInfo = storage.getItem(items[i])
-        let itemPrice = parseInt(itemInfo.split('|')[2])
+        let itemInfo = storage.getItem(items[i]);
+        console.log(itemInfo);
+        let itemPrice = parseInt(itemInfo.split('|')[2]);
 
         subtotal += itemPrice
     }
@@ -72,4 +74,4 @@ function addItem(itemId, itemValue) {
     document.getElementById('itemCount').innerText = items.length
     document.getElementById('subtotal').innerText = subtotal
 }
-window.addEventListener('load', doFirst);
+window.addEventListener('load', doFirst)
