@@ -1,5 +1,5 @@
 .beCont {
-    background-image: url(../../images/backend_bg.jpg);
+    background-image: url(./../images/backend_bg.jpg);
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -91,7 +91,7 @@ body::-webkit-scrollbar-track{
 body:hover::-webkit-scrollbar-thumb{
     background: transparent;
 }
-.backendContainer{
+.backendD_Container{
     display: flex;
     height: auto;
     min-height: 100vh;
@@ -168,7 +168,7 @@ body:hover::-webkit-scrollbar-thumb{
     }
 }
 //------------------------列表表格
-.backend_text{
+.backendD_text{
     display: flex;
     box-sizing: border-boxs;
     padding: 10px;
@@ -182,7 +182,7 @@ body:hover::-webkit-scrollbar-thumb{
         width: 10%;
     }
 }
-.backend_details:nth-child(even){
+.backendD_details:nth-child(even){
     background:#f1e3da;
 }
 .listGrow{

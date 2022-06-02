@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   @@include('layout/meta.html', { "title" : "Entrance" })
-  <script src="../js/mouse.js"></script>
+  <script src="./js/mouse.js"></script>
 </head>
 
 <body>
@@ -30,23 +30,15 @@ window.location.assign('homePage.html')
   </div>
   <div class="entrance_lamp"></div>
 
-  <div id="entrance_light"></div>
+  <div id="entrance_light" class="entrance_homepage"></div>
 
   <script>
     function tracking(e) {
+      if(screen.width>768){
       let lamp = document.querySelector(".entrance_lamp");
       let light = document.querySelector("#entrance_light");
       let rotateDeg =
-        Math.round(
-          (Math.atan(
-            (lamp.offsetLeft - e.pageX) /
-            (window.innerHeight - light.offsetTop)
-          ) *
-            180) /
-          Math.PI
-        ) +
-        57 +
-        125;
+        Math.round((Math.atan((lamp.offsetLeft - e.pageX) /(window.innerHeight - light.offsetTop)) *180) /Math.PI) +57 +125;
 
       light.setAttribute(
         "style",
@@ -65,7 +57,7 @@ window.location.assign('homePage.html')
         "deg, #000000 " +
         `${rotateDeg + 240}` +
         "deg);"
-      );
+      );}
 
       // console.log(rotateDeg);
     }

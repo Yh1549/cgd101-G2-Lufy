@@ -531,7 +531,7 @@ html.fixWindow {
 
 .index_luminosity {
     // background-color: $main-bg-color;
-    background-image: url(../../images/index_carousel_Banner_02.webp);
+    background-image: url(./../images/index_carousel_Banner_02.webp);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -548,7 +548,7 @@ html.fixWindow {
 
     .wall-light-shadow {
         background-color: rgb(250, 246, 223);
-        // background-image: url(../../images/index_carousel_Banner_02.webp);
+        // background-image: url(./../images/index_carousel_Banner_02.webp);
         // background: linear-gradient(($lamp-light-color), ($main-bg-color) 30%);
         background-blend-mode: luminosity;
         background-size: cover;
@@ -979,7 +979,7 @@ html.fixWindow {
 
 /* 關於我們 */
 .index_aboutus {
-    background-image: url(/images/index_about_us_bg.webp);
+    background: url(../images/index_about_us_bg.webp);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
