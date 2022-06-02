@@ -9,7 +9,7 @@
 <body>
     @@include('layout/header.html')
     <div class="containerALL">
-        <div class="cart_section">
+        <!-- <div class="cart_section">
             <div class="cart hidden">
                 <h2 class="h2">Cart List</h2>
 
@@ -27,7 +27,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <div class="product_intro">
             <div class="product_img">
@@ -74,22 +74,15 @@
             </div>
         </div>
         <div class="product_content">
-            <button id="discribe" class="btn_small">Discribe</button> <button id="format"
-                class="btn_small">Format</button>
+            <button id="discribe" class="btn_small">Discribe</button> <button id="format" class="btn_small">Format</button>
             <div class="product_detail">
                 <div class="product_discribe">
-                    <p>DLorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum velit quod quasi accusamus?
-                        Temporibus exercitationem voluptate quasi aliquam dolorem expedita ullam magni accusantium nemo
-                        reiciendis, culpa ratione voluptatum odit
-                        iste nisi incidunt in ipsam ducimus enim facilis amet rerum voluptatibus. Unde reprehenderit
-                        neque ipsum veritatis accusantium eos tempore cum quasi.</p>
+                    <p>DLorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum velit quod quasi accusamus? Temporibus exercitationem voluptate quasi aliquam dolorem expedita ullam magni accusantium nemo reiciendis, culpa ratione voluptatum odit
+                        iste nisi incidunt in ipsam ducimus enim facilis amet rerum voluptatibus. Unde reprehenderit neque ipsum veritatis accusantium eos tempore cum quasi.</p>
                 </div>
                 <div class="product_format hidden">
-                    <p>FLorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, neque aliquid! Consectetur
-                        fugiat praesentium vitae quidem voluptatum, itaque eius. Alias saepe veritatis ullam repudiandae
-                        rem voluptatem iste, soluta harum, voluptates
-                        voluptatibus asperiores ducimus nisi assumenda dolore ratione placeat id at aperiam amet et
-                        laborum dolorem nam. Omnis tenetur ratione corrupti.</p>
+                    <p>FLorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, neque aliquid! Consectetur fugiat praesentium vitae quidem voluptatum, itaque eius. Alias saepe veritatis ullam repudiandae rem voluptatem iste, soluta harum, voluptates
+                        voluptatibus asperiores ducimus nisi assumenda dolore ratione placeat id at aperiam amet et laborum dolorem nam. Omnis tenetur ratione corrupti.</p>
                 </div>
             </div>
         </div>
@@ -102,11 +95,8 @@
 
                 <div class="product_designer_intro">
                     <h2 class="h2">Viginia Larson</h2>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati aut nisi recusandae itaque.
-                        Voluptate sequi officia pariatur voluptas sunt voluptatem beatae corporis sit ad expedita
-                        facilis rem perspiciatis obcaecati atque iusto
-                        repellat earum distinctio, sed praesentium dignissimos ipsam eum sapiente eius natus. Sunt
-                        doloremque nam obcaecati accusantium non cumque quo!</p>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati aut nisi recusandae itaque. Voluptate sequi officia pariatur voluptas sunt voluptatem beatae corporis sit ad expedita facilis rem perspiciatis obcaecati atque iusto
+                        repellat earum distinctio, sed praesentium dignissimos ipsam eum sapiente eius natus. Sunt doloremque nam obcaecati accusantium non cumque quo!</p>
 
                 </div>
 
@@ -117,7 +107,9 @@
             <h2 class="h2">Relative products</h2>
             <div class="relative_products">
 
-                <div class="relative_product"><img src="images/aboutus.lamp5.png" alt=""></div>
+                <div class="relative_product">
+                    <a href="productInner2.html"><img src="images/aboutus.lamp5.png" alt=""></a>
+                </div>
                 <div class="relative_product"><img src="images/aboutus.lamp6.jpg" alt=""></div>
                 <div class="relative_product"><img src="images/aboutus.lamp7.jpg" alt=""></div>
             </div>
@@ -157,6 +149,7 @@
                 divFormat.classList.add("hidden");
             }
         }
+
         function showFormat() {
             if (divFormat.classList.contains("hidden")) {
                 divFormat.classList.remove("hidden");
@@ -164,6 +157,7 @@
 
             }
         }
+
         function init() {
             discribe.addEventListener("click", showDiscribe)
             format.addEventListener("click", showFormat)
