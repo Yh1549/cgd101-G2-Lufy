@@ -8,6 +8,61 @@
     @@include('layout/meta.html', { "title" : "Backend Designer" })
 </head>
 <body>
+    <!-- 作品燈箱 -->
+    <div class="ps_1" id="A_lightBox" style="display:none">
+        <div class="ps_2 pe_2 pl_2 pr_2 lightBox_list">
+            <form action="" class="formOne">
+                <div style="width:30%">
+                    <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">A_No.</label>
+                    <input type="text" name="" id=""><br>
+                    <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">Start_Date</label>
+                    <input type="date" name="" id=""><br>
+                    <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">End_Date</label>
+                    <input type="date" name="" id="">
+                </div>
+                <div style="width:70%">
+                    <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">Title</label><input type="text" name="" id=""><br>
+                    <label class="p1 ps_1 pe_1 pl_1 pr_1" for="" style="vertical-align:top">Text</label><textarea name="" id="" cols="100" rows="10"></textarea>
+                </div>
+            </form>
+            <form action="" class="formTwo">
+                <div class="ps_1 me_1 backend_titleH1">
+                    <p class="h1">優惠商品</p>
+                </div>
+                <div class="ps_1">
+                    <label class="p1 pl_1 pr_1" for="">Product_No</label><input type="text" name="" id="">
+                    <label class="p1 pl_1 pr_1" for="">Price</label><input type="text" name="" id="">
+                    <label class="p1 pl_1 pr_1" for="">Promotions_price</label><input type="text" name="" id="">
+                    <button class="ml_1 mr_1 newsbtn">✚ New</button>
+                    
+                </div>
+                <ul>
+                    <li class="ps_1">
+                        <label class="p1 pl_1 pr_1" for="">Product_No</label>
+                        <p class="p1">0000001</p>
+                        <label class="p1 pl_1 pr_1" for="">Price</label>
+                        <p class="p1">$ 1000</p>
+                        <label class="p1 pl_1 pr_1" for="">Promotions_price</label>
+                        <p class="p1">$ 900</p>
+                        <button class="ml_1 mr_1 newsbtn">─ Delete</button>
+                    </li>
+                    <li class="ps_1">
+                        <label class="p1 pl_1 pr_1" for="">Product_No</label>
+                        <p class="p1">0000002</p>
+                        <label class="p1 pl_1 pr_1" for="">Price</label>
+                        <p class="p1">$ 1500</p>
+                        <label class="p1 pl_1 pr_1" for="">Promotions_price</label>
+                        <p class="p1">$ 1400</p>
+                        <button class="ml_1 mr_1 newsbtn">─ Delete</button>
+                    </li>
+                </ul>
+            </form>
+            <div class="lastBtn">
+                <button class="ml_1 p1 newsbtn" id="A_btnCancel">Cancel</button>
+                <button class="ml_1 p1 newsbtn">Confirm</button>
+            </div>
+        </div>
+    </div>
     <div class="backendD_Container">
         <!-- 左邊section -->
         <section class="beMenu">
@@ -35,7 +90,7 @@
                     <form class="p1 pe_2 desIntroduction" action="">
                         <div class="pl_1 pr_1 desImg">
                             <label for="upFile"><img src="./images/imgUpload.jpg"></label><input type="file" name="upFile" id="upFile" style="display:none">
-                            <p class="p1">請注意檔案大小</p>
+                            <p class="p1">★請注意檔案大小</p>
                             <input type="file" value="上傳檔案">
                         </div>
                         <div class="pl_1 pr_1 desTxt">
@@ -45,7 +100,7 @@
                             <textarea class="p1 tArea" name="" id="" cols="80" rows="10"></textarea><br>
                         </div>
                     </form>
-                    <input class="btn_small" type="button" value="confirm">
+                    <div class="pr_1 pe_1 ps_2"><input class="btn_small" type="button" value="confirm"></div>
                 </div>
             </section>
             
@@ -84,7 +139,7 @@
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{prodCategory}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{prodState}}</p>
                                 <span></span>
-                                <button class="p1 newsbtn">Edit</button>
+                                <button class="p1 newsbtn" id="A_Edit">Edit</button>
                             </div>
                         </li>
                     `,
@@ -185,7 +240,7 @@
 
    
     <script src="./js/backend.js"></script>
-    <script src="./js/backendLightBox.js"></script>
+    <script src="./js/backendDesignerLightBox.js"></script>
     <!-- script -->
     @@include('layout/script.html')
 </body>
