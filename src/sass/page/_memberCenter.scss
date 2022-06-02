@@ -1,6 +1,10 @@
 .member_container {
   display: flex;
   width: 100%;
+  @include t() {
+    display: inline-block;
+  }
+  
 }
 .member_sidemenu {
   width: 20%;
