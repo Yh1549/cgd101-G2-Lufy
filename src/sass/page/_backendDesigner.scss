@@ -53,27 +53,16 @@
     margin: auto;
     position: relative;
     left: 115px;
-    & .formOne{
+    & .formDOne{
         display: flex;
     }
-    & .formTwo{
+    & .formDTwo{
         & div{
-            display: flex;
             & label{
                 color: $primary_dark;
             }
         }
-        & ul{
-            & li{
-                display: flex;
-                & label{
-                    color: $primary_dark;
-                }
-                & p{
-                    width: 13%;
-                }
-            }
-        }
+        
     }
     & .lastBtn{
         text-align: right;
