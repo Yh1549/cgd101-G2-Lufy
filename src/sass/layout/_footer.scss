@@ -57,6 +57,10 @@ $b_top_base : 50px;
       margin-bottom: 2rem;
       color: $fontcolor_70;
       // font-size: 1.15rem;
+      a{
+        color: $fontcolor_70;
+        text-decoration: none;
+      }
     }
   }
 }
