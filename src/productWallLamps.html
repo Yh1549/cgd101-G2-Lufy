@@ -9,7 +9,104 @@
     <!-- header -->
     @@include('layout/header.html')
     <!-- header end -->
-    <img src="./images/product_category_wall_lamps.webp" alt="wall_lamps">
+    <div class="containerALL me_8">
+        <div id="product_category" class="product_category ms_8 me_5">
+            <product-category v-for='category in categoryObject' v-bind="category"></product-category>
+        </div>
+        <script>
+            let category = Vue.component('product-category', {
+                props: ['categoryLink', 'categoryImage', 'categoryName'],
+                template: `<div class="category">
+                                                    <a :href="categoryLink">
+                                                        <img :src="categoryImage" :alt="categoryName">
+                                                        <p class="p1">{{categoryName}}</p>
+                                                    </a>
+                                                </div>`,
+            })
+            const productCategory = new Vue({
+                el: '#product_category',
+                data: {
+                    categoryObject: [
+                        {
+                            categoryLink: `productFloorLamps.html`,
+                            categoryImage: `./images/product_category_floor_lamps.webp`,
+                            categoryName: `Floor Lamps`
+                        },
+                        {
+                            categoryLink: `productPendant.html`,
+                            categoryImage: `./images/product_category_pendant.webp`,
+                            categoryName: `Pendant`
+                        },
+                        {
+                            categoryLink: `productHomeAccent.html`,
+                            categoryImage: `./images/product_category_home_accent.webp`,
+                            categoryName: `Home Accent`
+                        },
+                        {
+                            categoryLink: `productTableLamps.html`,
+                            categoryImage: `./images/product_category_table_lamps.webp`,
+                            categoryName: `Table Lamps`
+                        },
+                        {
+                            categoryLink: `productWallLamps.html`,
+                            categoryImage: `./images/product_category_wall_lamps.webp`,
+                            categoryName: `Wall Lamps`
+                        },
+                        {
+                            categoryLink: `productChandaliers.html`,
+                            categoryImage: `./images/product_category_chandaliers.webp`,
+                            categoryName: `Chandaliers`
+                        },
+                    ]
+                },
+            }) 
+        </script>
+        <div id="walllamps_wrap" class="walllamps_wrap ms_8 me_5">
+            <product-walllamps v-for="walllamps in walllampsObject" v-bind="walllamps"></product-walllamps>
+        </div>
+        <script>
+            let walllamps = Vue.component('product-walllamps', {
+                props: ['walllampsImg', 'walllampsName', 'walllampsInfoLink'],
+                template: ` <a class="category_card" :href="walllampsInfoLink">
+                                    <div  class="category_img">
+                                        <img :src="walllampsImg" :alt="walllampsName">
+                                    </div>
+                                    <div class="category_content">
+                                        <h2>{{walllampsName}}</h2>
+                                        <span class="material-icons">
+                                            favorite
+                                        </span>
+                                    </div>
+                                </a> `,
+            })
+            new Vue({   // Vue instance
+                el: '#walllamps_wrap',
+                data: {
+                    walllampsObject: [
+                        {
+                            walllampsImg: `./images/aboutus.lamp1.png`,
+                            walllampsName: `walllamps Name1`,
+                            walllampsInfoLink: 'walllampsInner1.html',
+                        },
+                        {
+                            walllampsImg: `./images/aboutus.lamp2.png`,
+                            walllampsName: `walllamps Name2`,
+                            walllampsInfoLink: 'walllampsInner2.html',
+                        },
+                        {
+                            walllampsImg: `./images/aboutus.lamp3.png`,
+                            walllampsName: `walllamps Name3`,
+                            walllampsInfoLink: 'walllampsInner3.html',
+                        },
+                    ],
+                },     //變數放這裡!            
+                mounted: {},
+                methods: {},  // 函數大部分放這裡!            
+                computed: {},
+                components: {},
+            });
+        </script>
+    </div>
     <!-- footer  -->
     @@include('layout/footer.html')
     <!-- script -->
