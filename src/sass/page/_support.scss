@@ -1,6 +1,3 @@
-html{
-    scroll-behavior: smooth;
-}
 .supWrapper{
     display: flex;  
 }
@@ -40,8 +37,12 @@ html{
 }
 .faqAnchor a{
     text-decoration: none;
+    color: $fontcolor_70;
 }
 .faqCard h2{
     border-bottom: 2px solid #ccc;
     width: 40%;
+}
+.faqAnchor a:hover{
+    color: $primary_70;
 }
