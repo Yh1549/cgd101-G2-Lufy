@@ -9,12 +9,12 @@
 
 <body>
     @@include('layout/header.html')
-    <div class="containerALL">
-        <ul class="designer" id="design">
+
+        <ul class="designer" id="design">   
+             <h1 class="s3">Designer</h1>
             <designer_page v-for="designer in designerObject" v-bind="designer">
             </designer_page>
         </ul>
-    </div>
     <script>
         let designer = Vue.component('designer_page', {
             props: ['designer_Image', 'designer_Title', 'designer_Text'],

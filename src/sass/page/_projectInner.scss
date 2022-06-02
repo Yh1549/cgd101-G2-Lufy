@@ -145,10 +145,12 @@
 }
 .project_lamp {
   width: 100%;
-  // display: flex;
-  // justify-content: center;
+  display: flex;
+  justify-content: center;
   @include t() {
   overflow-y: hidden;
+  display: inline-block;
+
   }
   & div {
     width: 100vw;
@@ -187,33 +189,14 @@
   }
   & .projectinner_designer_pic img {
     box-shadow: 0 $ip_shadow $ip_shadow * 3 0 black;
+    margin-bottom: 20px;
     @include t() {
       width: 50%;
+      // margin-bottom: 20px;
       // position: relative;
       // left: 40%;
 
     }
     
-  }
-}
-
-.test{
- width: 20px;
- height: 20px;
- background-color: red;
-}
-.testclick{
-  animation: 1s;
-}
-@keyframes pop{
-  0%{
-    opacity: 0;
-  }
-  50%{
-    opacity: 1;
-    top: -100;
-  }
-  100%{
-    opacity: 0;
   }
 }

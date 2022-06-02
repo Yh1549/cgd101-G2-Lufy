@@ -1,24 +1,26 @@
 .aboutUs_company_intro {
-    h2 {
-        margin-top: 40px;
+    background-color: $secondary_dark;
+    & h2 {
         text-align: center;
-        color: $fontcolor_70;
-        font-size: 48px;
+        background-color: $fontcolor_10;
+        @include t() {
+           font-size: $s3 - 60;
+          }
     }
+
     .aboutUs_company_intro_content {
         margin-top: 40px;
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: $secondary_dark;
-        height: 400px;
+        // background-color: $secondary_dark;
         .aboutUs_company_intro_content_img img {
             width: 300px;
         }
         .aboutUs_company_intro_content_text {
             margin-left: 60px;
             width: 300px;
-            color: $fontcolor_70;
+            color: $fontcolor_10;
         }
     }
 }
@@ -26,15 +28,12 @@
 .company_history h2 {
     margin-top: 40px;
     text-align: center;
-    color: $fontcolor_70;
-    font-size: 48px;
+    @include t() {
+        font-size: $s3 - 60;
+       }
 }
-
 .timetree {
     margin-top: 40px;
-    background: $primary_70;
-    font-family: arial;
-    color: #555;
 }
 
 .timeline {
@@ -47,15 +46,15 @@
 
 .timeline:before {
     content: '';
-    width: 6px;
-    border: 3px solid #fff;
+    width: 20px;
+    border:3px dashed $secondary_100;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     margin: auto;
     position: absolute;
-    background: rgb(221, 221, 221);
+    background: $primary_100;
     /* z-index: -2; */
 }
 
@@ -73,19 +72,19 @@
 }
 
 .timeline .time .content {
-    background: #fff;
-    border: 3px solid #ccc;
-    padding: 3px 10px;
-    font-size: 12px;
-    color: #ccc;
-    width: 50px;
+    background: $secondary_100;
+    // border: 3px solid #ccc;
+    padding: 15px 50px;
+    font-size: 24px;
+    color: $fontcolor_10;
+    // width: 50px;
     display: inline-block;
     text-align: center;
     -moz-border-radius: 20px;
     -webkit-border-radius: 20px;
     border-radius: 20px;
     z-index: 10;
-    color: #ccc;
+    // color: #ccc;
     position: relative;
 }
 
@@ -98,9 +97,7 @@
 }
 
 .timeline .branch {
-    background: #fff;
     position: relative;
-    border: 1px solid #ccc;
     padding: 10px;
     width: 60%;
     float: left;
@@ -121,9 +118,12 @@
 //     left: 308px;
 // }
 .timeline .branch .content {
+    background: $fontcolor_10;
+    border-radius: 10px;
     font-size: 14px;
     position: relative;
     height: 80px;
+    box-shadow: 0 $ip_shadow $ip_shadow * 3 0 $secondary_dark;
 }
 
 // .timeline .branch .content:after,
@@ -172,12 +172,6 @@
 
 .designers {
     text-align: center;
-    h2 {
-        margin-top: 40px;
-        text-align: center;
-        color: $fontcolor_70;
-        font-size: 48px;
-    }
 }
 
 .designers_summary {
@@ -188,7 +182,7 @@
 
 .designer_card {
     background-color: $secondary_dark;
-    height: 400px;
+  
     margin-top: 40px;
     border-radius: 20px;
     padding: 20px;
@@ -198,17 +192,16 @@
 .designer_works img {
     width: 150px;
     height: 190px;
-    border-radius: 15px;
 }
 
 .designer_intro {
     display: flex;
     justify-content: center;
     margin: 10px;
-    img {
-        width: 200px;
-        height: 190px;
-        border-radius: 15px;
+    width: 100%;
+
+    img {   
+        width: 40%;
     }
 }
 
@@ -223,10 +216,10 @@
 // // }
 .aboutus_button {
     margin: 0 auto;
+
     button {
         font-size: 36px;
         cursor: pointer;
-        border-radius: 10px;
     }
 }
 
@@ -234,6 +227,7 @@
     padding: 10px;
     display: flex;
     align-items: center;
+
     p {
         color: $fontcolor_10;
     }
@@ -256,6 +250,7 @@
     width: 70%;
     background-color: $primary_70;
     padding: 20px;
+
     @include t {
         max-width: 678px;
         margin: 0 auto;
@@ -281,6 +276,7 @@
     justify-content: center;
     margin-top: 20px;
     align-items: center;
+
     @include t {
         max-width: 678px;
         margin: 0 auto;
@@ -290,11 +286,49 @@
 
 .designer_image {
     margin: 10px;
+
     img {
         width: 200px;
     }
 }
 
 .designer {
+    & h1{
+        text-align: center;
+        margin: 40px 0px;
+    }
     margin-bottom: 20px;
+}
+.timetreecontainer{
+    position: relative;    
+}
+.timetreeimg{
+    position: absolute;
+    top: 70%;
+    opacity: 0.5;
+    filter: blur(5px);
+}
+.timetreeimg1{
+    position: absolute;
+    top: 0%;
+    left: 55%;
+    opacity: 0.5;
+
+    filter: blur(5px);
+}
+.timetreeimg2{
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    opacity: 0.5;
+
+    filter: blur(5px);
+}
+.timetreeimg3{
+    position: absolute;
+    top: 60%;
+    left: 55%;
+    opacity: 0.5;
+
+    filter: blur(5px);
 }

@@ -174,17 +174,18 @@
     window.addEventListener(
       "load",
       () => {
+        if(screen.width>768){
         gsap.registerPlugin(ScrollTrigger);
         const tl = gsap.timeline();
-        tl.from(".project_card3", { y: 300, opacity: 0 })
-          .from(".project_card2", { y: 300, opacity: 0 })
-          .from(".project_card1", { y: 300, opacity: 0 });
+        tl.from(".project_card3", { y: 200, opacity: 0,duration:0.5 })
+          .from(".project_card2", { y: 300, opacity: 0,duration:0.5 })
+          .from(".project_card1", { y: 300, opacity: 0,duration:0.5 });
         ScrollTrigger.create({
           animation: tl,
           trigger: ".project_card3",
           start: "top bottom",
-          end: "top center",
-          scrub: true,
+          end: "top 100",
+          // scrub: true,
           // pin: true,
           // markers: true,
           // anticipatePin: 1,
@@ -226,7 +227,7 @@
           },
           y: 20,
         });
-      },
+      }},
       false
     );
   </script>
