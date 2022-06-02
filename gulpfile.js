@@ -26,7 +26,9 @@ function moveJs() {
         }))
         .pipe(dest('dist/js'))
 }
-
+function movePhp() {
+    return src('src/*.php').pipe(dest('dist'))
+}
 
 //img move
 function moveImg() {
@@ -115,7 +117,7 @@ exports.w = series(parallel(moveJs, moveImg, includeHTML, moveProductPages, styl
 
 
 //瀏覽器同步
-exports.default = series(clear, parallel(moveJs, includeHTML, styleSass, moveProductPages, moveImg), browser)
+exports.default = series(clear, parallel(movePhp, moveJs, includeHTML, styleSass, moveProductPages, moveImg), browser)
 
 
 //打包上線
