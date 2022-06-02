@@ -61,7 +61,7 @@
                 },
             }) 
         </script>
-        <div id="pendant_wrap" class="pendant_wrap ms_8 me_5">
+        <div id="pendant_wrap" class="category_wrap ms_8 me_5">
             <product-pendant v-for="pendant in pendantObject" v-bind="pendant"></product-pendant>
         </div>
         <script>
@@ -69,7 +69,7 @@
                 props: ['pendantImg', 'pendantName', 'pendantInfoLink'],
                 template: ` <a class="category_card" :href="pendantInfoLink">
                                     <div  class="category_img">
-                                        <img :src="pendantImg" :alt="chandaliersName">
+                                        <img :src="pendantImg" :alt="pendantName">
                                     </div>
                                     <div class="category_content">
                                         <h2>{{pendantName}}</h2>
