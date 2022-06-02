@@ -10,58 +10,103 @@
     @@include('layout/header.html')
     <!-- header end -->
     <div class="containerALL me_8">
-        <div id="chandaliers_wrap" class="chandaliers_wrap me_5">
+        <div id="product_category" class="product_category ms_8 me_5">
+            <product-category v-for='category in categoryObject' v-bind="category"></product-category>
+        </div>
+        <script>
+            let category = Vue.component('product-category', {
+                props: ['categoryLink', 'categoryImage', 'categoryName'],
+                template: `<div class="category">
+                                                    <a :href="categoryLink">
+                                                        <img :src="categoryImage" :alt="categoryName">
+                                                        <p class="p1">{{categoryName}}</p>
+                                                    </a>
+                                                </div>`,
+            })
+            const productCategory = new Vue({
+                el: '#product_category',
+                data: {
+                    categoryObject: [
+                        {
+                            categoryLink: `productFloorLamps.html`,
+                            categoryImage: `./images/product_category_floor_lamps.webp`,
+                            categoryName: `Floor Lamps`
+                        },
+                        {
+                            categoryLink: `productPendant.html`,
+                            categoryImage: `./images/product_category_pendant.webp`,
+                            categoryName: `Pendant`
+                        },
+                        {
+                            categoryLink: `productHomeAccent.html`,
+                            categoryImage: `./images/product_category_home_accent.webp`,
+                            categoryName: `Home Accent`
+                        },
+                        {
+                            categoryLink: `productTableLamps.html`,
+                            categoryImage: `./images/product_category_table_lamps.webp`,
+                            categoryName: `Table Lamps`
+                        },
+                        {
+                            categoryLink: `productWallLamps.html`,
+                            categoryImage: `./images/product_category_wall_lamps.webp`,
+                            categoryName: `Wall Lamps`
+                        },
+                        {
+                            categoryLink: `productChandaliers.html`,
+                            categoryImage: `./images/product_category_chandaliers.webp`,
+                            categoryName: `Chandaliers`
+                        },
+                    ]
+                },
+            }) 
+        </script>
+        <div id="chandaliers_wrap" class="category_wrap ms_8 me_5">
             <product-chandaliers v-for="chandaliers in chandaliersObject" v-bind="chandaliers"></product-chandaliers>
         </div>
+        <script>
+            let chandaliers = Vue.component('product-chandaliers', {
+                props: ['chandaliersImg', 'chandaliersName', 'chandaliersInfoLink'],
+                template: ` <a class="category_card" :href="chandaliersInfoLink">
+                                    <div  class="category_img">
+                                        <img :src="chandaliersImg" :alt="chandaliersName">
+                                    </div>
+                                    <div class="category_content">
+                                        <h2>{{chandaliersName}}</h2>
+                                        <span class="material-icons">
+                                            favorite
+                                        </span>
+                                    </div>
+                                </a> `,
+            })
+            new Vue({   // Vue instance
+                el: '#chandaliers_wrap',
+                data: {
+                    chandaliersObject: [
+                        {
+                            chandaliersImg: `./images/aboutus.lamp1.png`,
+                            chandaliersName: `chandaliers Name1`,
+                            chandaliersInfoLink: 'chandaliersInner1.html',
+                        },
+                        {
+                            chandaliersImg: `./images/aboutus.lamp2.png`,
+                            chandaliersName: `chandaliers Name2`,
+                            chandaliersInfoLink: 'chandaliersInner2.html',
+                        },
+                        {
+                            chandaliersImg: `./images/aboutus.lamp3.png`,
+                            chandaliersName: `chandaliers Name3`,
+                            chandaliersInfoLink: 'chandaliersInner3.html',
+                        },
+                    ],
+                },     //變數放這裡!            
+                mounted:{},
+                methods: {},  // 函數大部分放這裡!            
+                computed: {},
+                components: {},
+            });
+        </script>
     </div>
-    <script>
-        let chandaliers = Vue.component('product-chandaliers', {
-            props: ['chandaliersImg', 'chandaliersName', 'discription', 'designerName', 'chandaliersInfoLink'],
-            template: `
-                <div class="chandaliers_card">
-                    <img :src="chandaliersImg" :alt="chandaliersName">
-                    <div class="content ms_1 mr_1 me_1 ml_1">
-                        <h2 class="h1 me_1">{{chandaliersName}}</h2>
-                        <h3 class="h4 me_1">{{discription}}</h3>
-                        <p class="h5 me_4">{{designerName}}</p>
-                        <a :href="chandaliersInfoLink" class='btn_normal'> more </a>
-                    </div>
-                </div>
-                `,
-        })
-        new Vue({   // Vue instance
-            el: '#chandaliers_wrap',
-            data: {
-                chandaliersObject: [
-                    {
-                        chandaliersImg: `./images/aboutus.lamp1.png`,
-                        chandaliersName: `chandaliers Name1`,
-                        discription: `chandaliers content. This chandaliers is design by James Barry with the laxury lamp#1. The laxury lamp#1 is a type of  legence lamp. Everyone love it.`,
-                        designerName: `James Barry`,
-                        chandaliersInfoLink: 'chandaliersInner1.html',
-                    },
-                    {
-                        chandaliersImg: `./images/aboutus.lamp2.png`,
-                        chandaliersName: `chandaliers Name2`,
-                        discription: `chandaliers content. This chandaliers is design by James Barry with the laxury lamp#2. The laxury lamp#2 is a type of  legence lamp. Everyone love it.`,
-                        designerName: `James Barry`,
-                        chandaliersInfoLink: 'chandaliersInner2.html',
-                    },
-                    {
-                        chandaliersImg: `./images/aboutus.lamp3.png`,
-                        chandaliersName: `chandaliers Name3`,
-                        discription: `chandaliers content. This chandaliers is design by James Barry with the laxury lamp#3. The laxury lamp#3 is a type of  legence lamp. Everyone love it.`,
-                        designerName: `James Barry`,
-                        chandaliersInfoLink: 'chandaliersInner3.html',
-                    },
-                ],
-            },     //變數放這裡!            
-            mounted:{},
-            methods: {},  // 函數大部分放這裡!            
-            computed: {},
-            components: {},
-        });
-    </script>
     <!-- footer  -->
     @@include('layout/footer.html')
     <!-- script -->

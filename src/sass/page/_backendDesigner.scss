@@ -10,6 +10,7 @@
 .fontColor{
     color: $fontcolor_100;
 }
+
 //------------------------大標題
 .beNews_titleH1{
     border-bottom: 5px solid $secondary_100;
@@ -140,22 +141,29 @@ body:hover::-webkit-scrollbar-thumb{
 //------------------------右邊
 .sectFirst{
     text-align: center;
+    
     & .desIntroduction{
+        margin: auto;
         display: flex;
         & .desImg{
             width: 40%;
             text-align: left;
+            margin: auto;
         }
         & .desTxt{
             text-align: left;
         }
-        
     }
 }
-
 .tArea{
     border: 2px solid $secondary_30;
     border-radius: $ip_br;
+    &:focus {
+        transition: 100ms;
+        box-shadow: 0 $ip_shadow $ip_shadow * 3 0 $primary_30;
+        border: solid 2px $primary_100;
+        outline: none;
+    }
 }
 //------------------------列表標題
 .beNews_title{
