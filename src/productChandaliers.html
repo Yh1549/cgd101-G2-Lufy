@@ -17,11 +17,11 @@
             let category = Vue.component('product-category', {
                 props: ['categoryLink', 'categoryImage', 'categoryName'],
                 template: `<div class="category">
-                                                    <a :href="categoryLink">
-                                                        <img :src="categoryImage" :alt="categoryName">
-                                                        <p class="p1">{{categoryName}}</p>
-                                                    </a>
-                                                </div>`,
+                            <a :href="categoryLink">
+                                <img :src="categoryImage" :alt="categoryName">
+                                <p class="p1">{{categoryName}}</p>
+                            </a>
+                        </div>`,
             })
             const productCategory = new Vue({
                 el: '#product_category',

@@ -61,15 +61,15 @@
                 },
             }) 
         </script>
-        <div id="tablelamps_wrap" class="tablelamps_wrap ms_8 me_5">
+        <div id="tablelamps_wrap" class="category_wrap ms_8 me_5">
             <product-tablelamps v-for="tablelamps in tablelampsObject" v-bind="tablelamps"></product-tablelamps>
         </div>
         <script>
             let tablelamps = Vue.component('product-tablelamps', {
                 props: ['tablelampsImg', 'tablelampsName', 'tablelampsInfoLink'],
                 template: ` <a class="category_card" :href="tablelampsInfoLink">
-                                    <div  class="tablelampsImg">
-                                        <img :src="chandaliersImg" :alt="tablelampsName">
+                                    <div  class="category_img">
+                                        <img :src="tablelampsImg" :alt="tablelampsName">
                                     </div>
                                     <div class="category_content">
                                         <h2>{{tablelampsName}}</h2>
