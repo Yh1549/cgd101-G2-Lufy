@@ -3,11 +3,16 @@
 
 <head>
     @@include('layout/meta.html', { "title" : "商品內頁" })
-    <script src="./js/cart1.js"></script>
+    
 </head>
 
 <body>
+    <!-- header -->
     @@include('layout/header.html')
+    <!-- header end -->
+    <!-- breadcrumb -->
+    @@include('layout/breadcrumb.html')
+    <!-- breadcrumb end-->
     <div class="containerALL">
         <!-- <div class="cart_section">
             <div class="cart hidden">
@@ -137,10 +142,6 @@
         window.addEventListener("load", init, false);
     </script>
 
-
-
-
-
     <script>
         let discribe = document.getElementById("discribe");
         let format = document.getElementById("format");
@@ -184,6 +185,9 @@
 
         window.addEventListener("load", init, false);
     </script> -->
+
+    <!-- 商品內頁 -->
+    <script src="./js/cart1.js"></script>
     <!-- footer  -->
     @@include('layout/footer.html')
 

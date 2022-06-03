@@ -10,26 +10,9 @@
             <div class="main_menu_link p1">
                 <div class="main_menu_button cartclick">
                     <i class="fa-solid fa-cart-shopping"></i>
-                    <div class="cart_section">
-                        <div class="cart hidden">
-                            <h2 class="h2">Cart List</h2>
-                            <div id="newItem"></div>
-                            <div id="content">
-                                <div>
-                                    Item : <span id="itemCount">0</span> item(s)
-                                </div>
-                                <div>
-                                    Subtotal : $ <span id="subtotal">0</span>
-                                </div>
-                                <div class="cartProcess">
-                                    <a href="cartEdit.html">
-                                        <button class="btn_small">edit cart
-                                        </button>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- 購物車預覽清單 -->
+                    @@include('layout/cart-list_preview.html')
+                    <!-- 購物車預覽清單 end-->
                 </div>
                 <div class="main_menu_button" onclick="window.location.assign('memberCenter.html')">
                     <i class="fa-solid fa-circle-user"></i>
