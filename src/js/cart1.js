@@ -40,8 +40,8 @@ function addItem(itemId, itemValue) {
 
 
     newItem.appendChild(image)
-        // newItem.appendChild(title)
-        // newItem.appendChild(price)
+    newItem.appendChild(title)
+    newItem.appendChild(price)
 
     // 存入 storage
     if (storage[itemId]) {
