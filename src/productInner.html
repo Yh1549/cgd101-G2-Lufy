@@ -35,7 +35,7 @@
                         <img id="large" src="images/aboutus.lamp1.png" alt="">
                     </div>
                     <div class="product_overlay hidden">
-                        <h2>Added to basket</h2>
+                        <h2>Added to cart</h2>
                         <i class='fa fa-check'></i>
                     </div>
                     <div class="same_products">
@@ -184,6 +184,14 @@
 
 
             issue.classList.remove("hidden");
+
+            gsap.to('.product_overlay', {
+
+                rotate: 360,
+                duration: 1
+
+
+            });
 
             setTimeout(returnImg, 1500)
         }
