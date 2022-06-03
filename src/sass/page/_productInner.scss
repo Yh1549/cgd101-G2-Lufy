@@ -13,6 +13,11 @@
     }
 }
 
+.product_main {
+    display: flex;
+    justify-content: center;
+}
+
 #content {
     align-self: flex-end;
 }
@@ -37,7 +42,20 @@
     }
 }
 
+.product_overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px;
+    height: 400px;
+    width: 100%;
+}
+
 .product_intro {
+    width: 50%;
+    padding: 30px;
+    border-radius: 25px;
+    background-color: #f1e3da;
     margin-top: 60px;
     display: flex;
     align-items: center;

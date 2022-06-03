@@ -28,48 +28,53 @@
                 </div>
             </div>
         </div> -->
-
-        <div class="product_intro">
-            <div class="product_img">
-                <div class="main_product_img">
-                    <img id="large" src="images/aboutus.lamp1.png" alt="">
+        <div class="product_main">
+            <div class="product_intro">
+                <div class="product_img">
+                    <div class="main_product_img">
+                        <img id="large" src="images/aboutus.lamp1.png" alt="">
+                    </div>
+                    <div class="product_overlay hidden">
+                        <h2>Added to basket</h2>
+                        <i class='fa fa-check'></i>
+                    </div>
+                    <div class="same_products">
+                        <div class="same_product_img"><img class="small" src="images/aboutus.lamp2.png" alt=""></div>
+                        <div class="same_product_img"><img class="small" src="images/aboutus.lamp3.png" alt=""></div>
+                        <div class="same_product_img"><img class="small" src="images/aboutus.lamp4.png" alt=""></div>
+                    </div>
                 </div>
-                <div class="same_products">
-                    <div class="same_product_img"><img class="small" src="images/aboutus.lamp2.png" alt=""></div>
-                    <div class="same_product_img"><img class="small" src="images/aboutus.lamp3.png" alt=""></div>
-                    <div class="same_product_img"><img class="small" src="images/aboutus.lamp4.png" alt=""></div>
-                </div>
-            </div>
-            <div class="product_text">
-                <div class="h5">Black Friday 6% off</div>
-                <div class="product_name h3"> Fashion Lamp</div>
-                <div class="product_price h4">$88888</div>
-                <select>
+                <div class="product_text">
+                    <div class="h5">Black Friday 6% off</div>
+                    <div class="product_name h3"> Fashion Lamp</div>
+                    <div class="product_price h4">$88888</div>
+                    <select>
                     <option>color</option>
                     <option>white</option>
                     <option>yellow</option>
                     <option>brown</option>
                 </select>
-                <div id="buyNow">
-                    <span class="buyNowButton ip_small">
+                    <div id="buyNow">
+                        <span class="buyNowButton ip_small">
                         <i class="fa-solid fa-bag-shopping"></i> 
                         buyNow!
                         <input type="hidden" value="lamp1|aboutus.lamp1.png|50000">
                     </span>
-                </div>
-                <div id="shopButton">
-                    <span id="A1001" class="addButton ip_small">
+                    </div>
+                    <div id="shopButton">
+                        <span id="A1001" class="addButton ip_small">
                         <i class="fa-solid fa-cart-shopping"></i> 
                         add to cart
                         <input type="hidden" value="lamp1|aboutus.lamp1.png|50000">
                     </span>
-                </div>
-                <div id="collection">
-                    <span class="collectButton ip_small">
+                    </div>
+                    <div id="collection">
+                        <span class="collectButton ip_small">
                         <i class="fa-solid fa-heart-circle-check"></i>
                         collect!
                         <input type="hidden" value="lamp1|aboutus.lamp1.png|50000">
                     </span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -168,23 +173,32 @@
         }
         window.addEventListener("load", init, false);
     </script>
-    <!-- <script>
-        function showCart() {
-            let cart = document.querySelector(".cart");
-            cart.classList.toggle('hidden');
+    <script>
+        let addButton = document.querySelector('.addButton')
+        let pImg = document.querySelector('.main_product_img');
+        let issue = document.querySelector('.product_overlay')
+
+        function showIssue() {
+
+            pImg.classList.add("hidden");
+
+
+            issue.classList.remove("hidden");
+
+            setTimeout(returnImg, 1500)
+        }
+
+        function returnImg() {
+            pImg.classList.remove("hidden");
+
+
+            issue.classList.add("hidden");
+
 
         }
 
-        function init() {
-            let shopping = document.querySelector(".fa-cart-shopping");
-            shopping.addEventListener("click", showCart, false);
-
-
-        }
-
-        window.addEventListener("load", init, false);
-    </script> -->
-    <!-- footer  -->
+        addButton.addEventListener("click", showIssue, false)
+    </script>
     @@include('layout/footer.html')
 
     <!-- script -->
