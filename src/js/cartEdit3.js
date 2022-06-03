@@ -127,3 +127,34 @@ function changeItemCount() {
 
 }
 window.addEventListener('load', doFirst);
+
+let discount = document.getElementById('discount')
+
+function goDiscount() {
+    let total = document.getElementById('total').innerText
+
+    if (discount.value == 1) {
+        document.getElementById('dtotal').innerText = total * 0.9
+    } else if (discount.value == 2) {
+        document.getElementById('dtotal').innerText = total * 0.88
+    } else {
+        document.getElementById('dtotal').innerText = total
+
+    }
+    console.log(discount.value)
+
+}
+discount.addEventListener("change", goDiscount, false)
+
+let sendBtn = document.querySelector('.sendBtn')
+
+function setDiscount() {
+    let dtotal = document.getElementById('dtotal').innerText
+
+
+
+    localStorage.setItem("discount", dtotal);
+}
+
+
+sendBtn.addEventListener("click", setDiscount, false)

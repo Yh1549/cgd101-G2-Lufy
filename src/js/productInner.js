@@ -72,3 +72,81 @@ function addItem(itemId, itemValue) {
     document.getElementById('subtotal').innerText = subtotal
 }
 window.addEventListener('load', doFirst, false);
+
+
+function showLarge(e) {
+    document.getElementById("large").src = e.target.src;
+
+}
+
+function init() {
+    let imgs = document.getElementsByClassName("small");
+    for (let i = 0; i < imgs.length; i++) {
+        imgs[i].onclick = showLarge;
+    }
+
+}
+
+window.addEventListener("load", init, false);
+
+
+let discribe = document.getElementById("discribe");
+let format = document.getElementById("format");
+let divDiscribe = document.querySelector(".product_discribe")
+let divFormat = document.querySelector(".product_format")
+
+function showDiscribe() {
+    if (divDiscribe.classList.contains("hidden")) {
+        divDiscribe.classList.remove("hidden");
+        divFormat.classList.add("hidden");
+    }
+}
+
+function showFormat() {
+    if (divFormat.classList.contains("hidden")) {
+        divFormat.classList.remove("hidden");
+        divDiscribe.classList.add("hidden");
+
+    }
+}
+
+function init2() {
+    discribe.addEventListener("click", showDiscribe)
+    format.addEventListener("click", showFormat)
+}
+window.addEventListener("load", init, false);
+let addButton = document.querySelector('.addButton')
+let pImg = document.querySelector('.main_product_img');
+let issue = document.querySelector('.product_overlay')
+
+function showIssue() {
+
+    pImg.classList.add("hidden");
+
+
+    issue.classList.remove("hidden");
+
+    gsap.fromTo('.product_overlay', {
+
+        rotate: 0,
+        duration: 1
+
+
+    }, {
+        rotate: 360,
+    });
+
+    setTimeout(returnImg, 1500)
+}
+
+function returnImg() {
+    pImg.classList.remove("hidden");
+
+
+    issue.classList.add("hidden");
+
+
+}
+
+addButton.addEventListener("click", showIssue, false)
+window.addEventListener("load", init2, false);

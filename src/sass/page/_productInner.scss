@@ -1,4 +1,6 @@
-.addButton,.buyNowButton,.collectButton {
+.addButton,
+.buyNowButton,
+.collectButton {
     cursor: pointer;
     @include t {
         max-width: 678px;
@@ -15,6 +17,11 @@
     font-size: 36px;
     height: 400px;
     width: 400px;
+}
+
+.product_main {
+    display: flex;
+    justify-content: center;
 }
 
 .product_intro {
