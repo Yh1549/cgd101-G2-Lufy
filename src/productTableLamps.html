@@ -9,58 +9,10 @@
     <!-- header -->
     @@include('layout/header.html')
     <!-- header end -->
-    <div class="containerALL me_8">
-        <div id="product_category" class="product_category ms_8 me_5">
-            <product-category v-for='category in categoryObject' v-bind="category"></product-category>
-        </div>
-        <script>
-            let category = Vue.component('product-category', {
-                props: ['categoryLink', 'categoryImage', 'categoryName'],
-                template: `<div class="category">
-                                                    <a :href="categoryLink">
-                                                        <img :src="categoryImage" :alt="categoryName">
-                                                        <p class="p1">{{categoryName}}</p>
-                                                    </a>
-                                                </div>`,
-            })
-            const productCategory = new Vue({
-                el: '#product_category',
-                data: {
-                    categoryObject: [
-                        {
-                            categoryLink: `productFloorLamps.html`,
-                            categoryImage: `./images/product_category_floor_lamps.webp`,
-                            categoryName: `Floor Lamps`
-                        },
-                        {
-                            categoryLink: `productPendant.html`,
-                            categoryImage: `./images/product_category_pendant.webp`,
-                            categoryName: `Pendant`
-                        },
-                        {
-                            categoryLink: `productHomeAccent.html`,
-                            categoryImage: `./images/product_category_home_accent.webp`,
-                            categoryName: `Home Accent`
-                        },
-                        {
-                            categoryLink: `productTableLamps.html`,
-                            categoryImage: `./images/product_category_table_lamps.webp`,
-                            categoryName: `Table Lamps`
-                        },
-                        {
-                            categoryLink: `productWallLamps.html`,
-                            categoryImage: `./images/product_category_wall_lamps.webp`,
-                            categoryName: `Wall Lamps`
-                        },
-                        {
-                            categoryLink: `productChandaliers.html`,
-                            categoryImage: `./images/product_category_chandaliers.webp`,
-                            categoryName: `Chandaliers`
-                        },
-                    ]
-                },
-            }) 
-        </script>
+    <div class="containerALL">
+        <!-- product_category -->
+        @@include('layout/product_category.html')
+        <!-- product_category end -->
         <div id="tablelamps_wrap" class="category_wrap ms_8 me_5">
             <product-tablelamps v-for="tablelamps in tablelampsObject" v-bind="tablelamps"></product-tablelamps>
         </div>

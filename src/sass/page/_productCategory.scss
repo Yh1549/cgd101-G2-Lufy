@@ -12,7 +12,6 @@
         }
     }
 
-
     @media all and (max-width:490px) {
         overflow: auto;
         padding-left: 15px;
@@ -45,17 +44,16 @@
         }
 
         @media all and (max-width:490px) {
-            padding-right: 1.5rem;
-            width: 140px;
+            padding: 1rem 0.75rem;
+            width: 95px;
+
+            p {
+                font-size: 13px;
+            }
         }
     }
 }
-.containerALL {
-    @include t {
-        max-width: 678px;
-        // margin-bottom: 4rem;
-    }
-}
+
 .category_wrap {
     display: flex;
     justify-content: space-between;
@@ -136,8 +134,10 @@
             }
         }
     }
+
     @include t {
-        max-width: 678px;        
+        max-width: 678px;
+
         .category_card {
             width: 32%;
         }
@@ -148,6 +148,7 @@
         margin: 0 15px;
         margin-top: 2rem;
         margin-bottom: 2rem;
+
         .category_card {
             width: 100%;
             margin-bottom: 1rem;
