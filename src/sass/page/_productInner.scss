@@ -1,38 +1,4 @@
-.cart {
-    position: absolute;
-    right: 0;
-    top: 0;
-    height: 300px;
-    width: 200px;
-    background-color: $primary_50;
-    padding: 5px;
-    display: flex;
-    flex-wrap: wrap;
-    h2 {
-        font-size: 26px;
-    }
-}
-
-.product_main {
-    display: flex;
-    justify-content: center;
-}
-
-#content {
-    align-self: flex-end;
-}
-
-.cart_section {
-    position: relative;
-}
-
-.cart img {
-    width: 100px;
-}
-
-.addButton,
-.buyNowButton,
-.collectButton {
+.addButton,.buyNowButton,.collectButton {
     cursor: pointer;
     @include t {
         max-width: 678px;

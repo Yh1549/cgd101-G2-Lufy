@@ -11,8 +11,11 @@
     <!-- header -->
     @@include('layout/header.html')
     <!-- header end -->
+    <!-- breadcrumb -->
+    @@include('layout/breadcrumb.html')
+    <!-- breadcrumb end-->
     <section class="productMain_product">
-        <section class="containerALL ms_8 me_8">
+        <section class="containerALL me_8">
             <div id="product_category" class="product_category me_5">
                 <product-category v-for='category in categoryObject' v-bind="category"></product-category>
             </div>
