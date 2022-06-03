@@ -358,51 +358,6 @@ html.fixWindow {
     box-sizing: border-box;
 
     .containerALL {
-        .product_category {
-            .category-wrap {
-                width: 100%;
-                display: flex;
-                justify-content: space-evenly;
-
-                @media all and (max-width:490px) {
-                    justify-content: space-between;
-                }
-            }
-
-            @media all and (max-width:490px) {
-                overflow: auto;
-                padding-left: 15px;
-                padding-right: 15px;
-            }
-
-            .category {
-                width: 140px;
-                text-align: center;
-                flex-shrink: 0;
-                align-self: stretch;
-
-                a {
-                    text-decoration: none;
-                    color: $fontcolor_100;
-                    transition: 0.1s all ease-in-out;
-
-                    &:hover {
-                        color: $primary_100;
-                    }
-
-                    img {
-                        width: 100%;
-                        object-fit: cover;
-                        vertical-align: top;
-                    }
-                }
-
-                @media all and (max-width:490px) {
-                    padding-right: 1.5rem;
-                    width: 140px;
-                }
-            }
-        }
         .gutter-sizer {
             width: 2%;
         }

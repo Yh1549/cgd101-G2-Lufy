@@ -1,0 +1,41 @@
+.cartEdit_progress_bar {
+    color: $fontcolor_100;
+    display: flex;
+    justify-content: space-between;
+
+    .cartEdit_progress_bar_content {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex: 0 0 1000px;
+
+        .progress_step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .progress_title {
+                color: $fontcolor_70;
+            }
+
+            .progress_point {
+                width: 1rem;
+                height: 1rem;
+                border-radius: 50%;
+                background-color: #fff;
+                outline: 1.75px solid $fontcolor_20;
+                margin: 0.5rem;
+            }
+
+            &:nth-of-type(1) {
+                .progress_title {
+                    color: $primary_100;
+                }
+
+                .progress_point {
+                    outline: 1.75px solid $primary_100;
+                }
+            }
+        }
+    }
+}

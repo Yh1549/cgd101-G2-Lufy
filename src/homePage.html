@@ -169,123 +169,12 @@
       <img src="./images/index_project_deco_image_02.webp" alt="" />
     </div>
   </section>
-  <!-- 專案實例：gsap -->
-  <script>
-    window.addEventListener(
-      "load",
-      () => {
-        if (screen.width > 768) {
-          gsap.registerPlugin(ScrollTrigger);
-          const tl = gsap.timeline();
-          tl.from(".project_card3", { y: 200, opacity: 0, duration: 0.5 })
-            .from(".project_card2", { y: 300, opacity: 0, duration: 0.5 })
-            .from(".project_card1", { y: 300, opacity: 0, duration: 0.5 });
-          ScrollTrigger.create({
-            animation: tl,
-            trigger: ".project_card3",
-            start: "top 80%",
-            end: "top top",
-            toggleActions: "restart none resume none",
-            // markers: true,
-          });
-          gsap.to(".para1", {
-            scrollTrigger: {
-              trigger: ".para1",
-              start: "top center",
-              end: "top top",
-              scrub: true,
-            },
-            y: 100,
-          });
-          gsap.to(".para2", {
-            scrollTrigger: {
-              trigger: ".para1",
-              start: "top center",
-              end: "top top",
-              scrub: true,
-            },
-            y: 80,
-          });
-          gsap.to(".para3", {
-            scrollTrigger: {
-              trigger: ".para1",
-              start: "top center",
-              end: "top top",
-              scrub: true,
-            },
-            y: 60,
-          });
-          gsap.to(".para4", {
-            scrollTrigger: {
-              trigger: ".para1",
-              start: "top center",
-              end: "top top",
-              scrub: true,
-              //   markers: true,
-            },
-            y: 20,
-          });
-        }
-      },
-      false
-    );
-  </script>
   <!-- 商品 -->
   <section class="index_product">
     <section class="containerALL me_8">
-      <div id="product_category" class="product_category me_5">
-        <div class="category-wrap">
-          <product-category v-for="category in categoryObject" v-bind="category"></product-category>
-        </div>
-      </div>
-      <script>
-        let category = Vue.component("product-category", {
-          props: ["categoryLink", "categoryImage", "categoryName"],
-          template: `<div class="category">
-                      <a :href="categoryLink">
-                          <img :src="categoryImage" :alt="categoryName">
-                          <p class="p1">{{categoryName}}</p>
-                      </a>
-                  </div>`,
-        });
-        new Vue({
-          el: "#product_category",
-          data: {
-            categoryObject: [
-              {
-                categoryLink: `productFloorLamps.html`,
-                categoryImage: `./images/product_category_floor_lamps.webp`,
-                categoryName: `Floor Lamps`,
-              },
-              {
-                categoryLink: `productPendant.html`,
-                categoryImage: `./images/product_category_pendant.webp`,
-                categoryName: `Pendant`,
-              },
-              {
-                categoryLink: `productHomeAccent.html`,
-                categoryImage: `./images/product_category_home_accent.webp`,
-                categoryName: `Home Accent`,
-              },
-              {
-                categoryLink: `productTableLamps.html`,
-                categoryImage: `./images/product_category_table_lamps.webp`,
-                categoryName: `Table Lamps`,
-              },
-              {
-                categoryLink: `productWallLamps.html`,
-                categoryImage: `./images/product_category_wall_lamps.webp`,
-                categoryName: `Wall Lamps`,
-              },
-              {
-                categoryLink: `productChandaliers.html`,
-                categoryImage: `./images/product_category_chandaliers.webp`,
-                categoryName: `Chandaliers`,
-              },
-            ],
-          },
-        });
-      </script>
+      <!-- product_category -->
+      @@include('layout/product_category.html')
+      <!-- product_category end -->
       <div id="grid_masonry">
         <div class="grid">
           <div class="grid-sizer"></div>
@@ -452,19 +341,19 @@
               "newsInfoLink",
             ],
             template: `
-                            <div class="news_photo me_8">
-                                <div class='photo'>
-                                    <img :src="newsImage" :alt="newsName">
-                                </div>
-                                <div class="wrap">
-                                    <div class="content">
-                                        <h2 class="h2">{{newsTitle}}</h2>
-                                        <p class="h4 me_2">{{newsContent}}</p>
-                                        <a :href="newsInfoLink" class="btn_normal h4 me_2">more</a>
-                                    </div>
-                                </div>
-                            </div>
-                        `,
+                <div class="news_photo me_8">
+                    <div class='photo'>
+                        <img :src="newsImage" :alt="newsName">
+                    </div>
+                    <div class="wrap">
+                        <div class="content">
+                            <h2 class="h2">{{newsTitle}}</h2>
+                            <p class="h4 me_2">{{newsContent}}</p>
+                            <a :href="newsInfoLink" class="btn_normal h4 me_2">more</a>
+                        </div>
+                    </div>
+                </div>
+            `,
           });
           new Vue({
             el: "#news_photo",
@@ -534,10 +423,12 @@
   <!-- footer  -->
   @@include('layout/footer.html')
 
-  <!-- 首頁輪播 -->
-  <script src="./js/index_carousel.js"></script>
   <!-- 燈箱 -->
-  <script src="./js/index_lightbox.js"></script>
+  <script src="./js/homePage_lightbox.js"></script>
+  <!-- 首頁輪播 -->
+  <script src="./js/homePage_carousel.js"></script>
+  <!-- 專案實例 -->
+  <script src="./js/homePage_project.js"></script>
   <!-- 情境模擬 -->
   <script src="./js/simulation.js"></script>
   <!-- 輪播套件script -->

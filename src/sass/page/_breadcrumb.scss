@@ -1,0 +1,32 @@
+.breadcrumb-list {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 1rem 0 0 0;
+    list-style: none;
+
+    li {
+        font-size: 0.85rem;
+        letter-spacing: 0.125rem;
+
+        a {
+            color: $fontcolor_100;
+            text-decoration: none;
+        }
+    }
+
+    .breadcrumb-item {
+        &.active {
+            color: $primary_100;
+        }
+
+        +.breadcrumb-item {
+            &::before {
+                content: '>';
+                display: inline-block;
+                padding: 0 0.5rem;
+                color: $fontcolor_100;
+            }
+        }
+    }
+}
