@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     @@include('layout/meta.html', { "title" : "商品內頁" })
 
 </head>
+
 <body>
     <!-- header -->
     @@include('layout/header.html')
@@ -16,27 +18,15 @@
             <div class="main_product_img">
                 <img id="large" class="me_2" src="images/aboutus.lamp1.png" alt="">
                 <div class="small_products_img_box">
-                    <div class="small_products_img"><img
-                            class=""
-                            src="images/aboutus.lamp1.png"
-                            alt=""
-                        ></div>
-                    <div class="small_products_img"><img
-                            class=""
-                            src="images/aboutus.lamp2.png"
-                            alt=""
-                        ></div>
-                    <div class="small_products_img"><img
-                            class=""
-                            src="images/aboutus.lamp3.png"
-                            alt=""
-                        ></div>
+                    <div class="small_products_img"><img class="" src="images/aboutus.lamp1.png" alt=""></div>
+                    <div class="small_products_img"><img class="" src="images/aboutus.lamp2.png" alt=""></div>
+                    <div class="small_products_img"><img class="" src="images/aboutus.lamp3.png" alt=""></div>
                 </div>
             </div>
             <div class="product_overlay hidden">
                 <h2>Added to cart</h2>
                 <i class='fa fa-check'></i>
-            </div>            
+            </div>
             <!-- <div class="product_intro">
                 <div class="product_img">
                 </div>
@@ -46,7 +36,8 @@
                 <div class="product_name h1 me_4"> Fashion Lamp</div>
                 <div class="product_price me_4">
                     <div class="orignal_price h6"><span class="h6">$</span>50000</div>
-                    <div class="promotions_price fontdeco_w7 font_i fontdeco h1"><span class="fontdeco_w3 font_i fontdeco p2">$</span>49500</div>
+                    <div class="promotions_price fontdeco_w7 font_i fontdeco h1"><span
+                            class="fontdeco_w3 font_i fontdeco p2">$</span>49500</div>
                 </div>
                 <div class="color_selector h4 me_6">
                     <h3 class="p1 mr_4">Color</h3>
@@ -70,9 +61,9 @@
                     </div>
                 </div>
                 <div id="favoriteButton" class="favoriteButton">
-                    <i class="fa-regular fa-heart"></i>                        
+                    <i class="fa-regular fa-heart"></i>
                     <span class="fontcontent p1">Favorite</span>
-                    <input type="hidden" value="lamp1|aboutus.lamp1.png|50000">                    
+                    <input type="hidden" value="lamp1|aboutus.lamp1.png|50000">
                 </div>
             </div>
         </section>
@@ -84,13 +75,18 @@
             <div class="product_discribe">
                 <p class="p2">
                     DLorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum velit quod quasi accusamus?<br>
-                    Temporibus exercitationem voluptate quasi aliquam dolorem expedita ullam magni accusantium nemo reiciendis,<br> culpa ratione voluptatum odit iste nisi incidunt in ipsam ducimus enim facilis amet rerum voluptatibus. Unde reprehenderit neque ipsum veritatis accusantium eos tempore cum quasi.
+                    Temporibus exercitationem voluptate quasi aliquam dolorem expedita ullam magni accusantium nemo
+                    reiciendis,<br> culpa ratione voluptatum odit iste nisi incidunt in ipsam ducimus enim facilis amet
+                    rerum voluptatibus. Unde reprehenderit neque ipsum veritatis accusantium eos tempore cum quasi.
                 </p>
             </div>
             <div class="product_specification hidden">
                 <p class="p2">
-                    FLorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, neque aliquid! Consectetur fugiat praesentium vitae quidem voluptatum, itaque eius.<br>
-                    Alias saepe veritatis ullam repudiandae rem voluptatem iste,<br> Soluta harum, voluptates voluptatibus asperiores ducimus nisi assumenda dolore ratione placeat id at aperiam amet et laborum dolorem nam. Omnis tenetur ratione corrupti.
+                    FLorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, neque aliquid! Consectetur fugiat
+                    praesentium vitae quidem voluptatum, itaque eius.<br>
+                    Alias saepe veritatis ullam repudiandae rem voluptatem iste,<br> Soluta harum, voluptates
+                    voluptatibus asperiores ducimus nisi assumenda dolore ratione placeat id at aperiam amet et laborum
+                    dolorem nam. Omnis tenetur ratione corrupti.
                 </p>
             </div>
         </section>
@@ -103,8 +99,11 @@
                     <div class="product_designer_intro_content me_4">
                         <h2 class="h2 me_1">John</h2>
                         <p class="p2">
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati aut nisi recusandae itaque. Voluptate sequi officia pariatur voluptas sunt voluptatem beatae corporis sit ad expedita facilis rem perspiciatis obcaecati atque iusto
-                            repellat earum distinctio, sed praesentium dignissimos ipsam eum sapiente eius natus. Sunt doloremque nam obcaecati accusantium non cumque quo!
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati aut nisi recusandae
+                            itaque. Voluptate sequi officia pariatur voluptas sunt voluptatem beatae corporis sit ad
+                            expedita facilis rem perspiciatis obcaecati atque iusto
+                            repellat earum distinctio, sed praesentium dignissimos ipsam eum sapiente eius natus. Sunt
+                            doloremque nam obcaecati accusantium non cumque quo!
                         </p>
                     </div>
                     <a href="./designers.html" class="designer_link btn_normal">Read More</a>
@@ -115,7 +114,8 @@
             <h2 class="title h2 me_2">Relative Products</h2>
             <div class="containerALL">
                 <div id="chandaliers_wrap" class="category_wrap me_8">
-                    <product-chandaliers v-for="chandaliers in chandaliersObject" v-bind="chandaliers"></product-chandaliers>
+                    <product-chandaliers v-for="chandaliers in chandaliersObject" v-bind="chandaliers">
+                    </product-chandaliers>
                 </div>
                 <script>
                     let chandaliers = Vue.component('product-chandaliers', {
@@ -171,4 +171,5 @@
     <!-- script -->
     @@include('layout/script.html')
 </body>
+
 </html>
