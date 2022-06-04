@@ -54,3 +54,8 @@ function showItem(i) {
 
 
 }
+function init() {
+    // let shopping = document.querySelector(".cartclick");
+    // shopping.addEventListener("click", showCart, false);
+}
+window.addEventListener("load", init, false);

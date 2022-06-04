@@ -78,6 +78,9 @@ $b_top_base : 50px;
   & ul{
     width: 20%;
   }
+  @include t{
+    padding: 0;
+  }
   @media all and (max-width:490px) {
     flex-direction: column;
     align-items: center;
