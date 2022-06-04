@@ -6,10 +6,7 @@ function showCart() {
 }
 
 function init() {
-    let shopping = document.querySelector(".cartclick");
-    shopping.addEventListener("click", showCart, false);
-
-
+    // let shopping = document.querySelector(".cartclick");
+    // shopping.addEventListener("click", showCart, false);
 }
-
-window.addEventListener("load", init);
+window.addEventListener("load", init, false);

@@ -89,30 +89,34 @@ function init() {
 
 window.addEventListener("load", init, false);
 
-
-let discribe = document.getElementById("discribe");
-let format = document.getElementById("format");
+///////////////////////////////////////////////////////////////////////////////////
+let discribeBtn = document.querySelector("#discribeBtn");
+let specificationBtn = document.querySelector("#specificationBtn");
 let divDiscribe = document.querySelector(".product_discribe")
-let divFormat = document.querySelector(".product_format")
+let divSpecification = document.querySelector(".product_specification")
 
 function showDiscribe() {
     if (divDiscribe.classList.contains("hidden")) {
+        specificationBtn.classList.remove("byclicked");
+        discribeBtn.classList.add("byclicked");
         divDiscribe.classList.remove("hidden");
-        divFormat.classList.add("hidden");
+        divSpecification.classList.add("hidden");
     }
 }
 
-function showFormat() {
-    if (divFormat.classList.contains("hidden")) {
-        divFormat.classList.remove("hidden");
+function showSpecification() {
+    if (divSpecification.classList.contains("hidden")) {
+        discribeBtn.classList.remove("byclicked");
+        specificationBtn.classList.add("byclicked");
+        divSpecification.classList.remove("hidden");
         divDiscribe.classList.add("hidden");
 
     }
 }
 
 function init2() {
-    discribe.addEventListener("click", showDiscribe)
-    format.addEventListener("click", showFormat)
+    discribeBtn.addEventListener("click", showDiscribe)
+    specificationBtn.addEventListener("click", showSpecification)
 }
 window.addEventListener("load", init, false);
 let addButton = document.querySelector('.addButton')
