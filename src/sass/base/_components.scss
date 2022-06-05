@@ -582,3 +582,54 @@ $sel_base: 16;
 }
 
 // ///////
+// 滾輪向下提示
+// 結構 <a href="" class="scrollDown"><span></span>Scroll</a>
+.scrollDown {
+  font-family: $fontcontent;
+  color: $secondary_100;
+  text-decoration: none;
+  padding-top: 60px;
+  & span{
+    width: 30px;
+    height: 50px;
+    border-radius: 50px;
+    box-sizing: border-box;
+    border: 2px solid $secondary_100;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -15px;
+    &::before {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      content: "";
+      width: 6px;
+      height: 6px;
+      margin-left: -3px;
+      background-color: $secondary_100;
+      border-radius: 100%;
+      animation: scrollDownmouse 2s infinite;
+      box-sizing: border-box;
+    }
+  }
+  @include t() {
+    display: none;
+  }
+}
+@keyframes scrollDownmouse {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  80% {
+    transform: translate(0, 20px);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}

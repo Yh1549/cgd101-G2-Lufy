@@ -1,15 +1,20 @@
 .project_inner_banner {
   position: relative;
+  & a {
+    position: absolute;
+    bottom: -20%;
+    left: 49%;
+  }
   @include t() {
-    display: none;
+    margin: 0;
   }
 }
-.project_inner_banner_title_m{
+.project_inner_banner_title_m {
   display: none;
-    @include t() {
-      display: inline-block;
-      text-align: center;
-    }
+  @include t() {
+    display: inline-block;
+    text-align: center;
+  }
 }
 .project_inner_banner_img {
   width: 50%;
@@ -19,6 +24,9 @@
     filter: brightness(0.5);
     width: 100%;
     box-shadow: 0 $ip_shadow $ip_shadow * 3 0 $secondary_100;
+  }
+  @include t() {
+    width: 100%;
   }
 }
 .project_inner_banner_title {
@@ -30,18 +38,15 @@
   z-index: 50;
   transform: translate(-50%, -50%);
   text-align: center;
-  color: $primary_dark;
-  // backdrop-filter: blur(10px);
-  border-bottom: 10px solid $secondary_dark;
-  // border-top: 10px solid $secondary_dark;
-  @include t() {
-    display: none;
+  color: $primary_100;
+  & h1 {
+    @include t() {
+      font-size: 28px;
+    }
   }
 }
 .projectinner_content {
   width: 70%;
-  // display: flex;
-  // flex-direction: column;
   position: relative;
   margin-right: auto;
   margin-left: auto;
@@ -52,10 +57,8 @@
     width: 100%;
     position: unset;
     padding: 0px;
-    margin: 10px 0px;
-
+    margin: 0px;
   }
-
   & .projectinner_word {
     width: 50%;
     position: relative;
@@ -65,19 +68,19 @@
       position: unset;
       padding: 0px 20px;
       margin: 10px 0px;
-
     }
-    & p{
+    & p {
       @include t() {
+        line-height: 120%;
         font-size: 14px;
-        margin:10px 0px;
+        margin: 10px 0px;
       }
     }
     & h2 {
       font-size: 40px;
       @include t() {
         font-size: 20px;
-        margin:10px 0px;
+        margin: 10px 0px;
       }
     }
   }
@@ -86,11 +89,12 @@
     position: relative;
     left: 15%;
     @include t() {
-      width: 80%; 
-      padding: 0px 20px;    
-      margin:10px 0px;
+      width: 80%;
+      padding: 0px 20px;
+      margin: 10px 0px;
       position: unset;
-      & p{
+      & p {
+        line-height: 120%;
         font-size: 14px;
       }
     }
@@ -104,12 +108,10 @@
     background-image: url("./../images/projectinner_pic1.jpg");
     background-position: center;
     background-repeat: no-repeat;
+    background-size: cover;
     box-shadow: 0 $ip_shadow $ip_shadow * 3 0 black;
-    // background-color: #fff;
     @include t() {
-      width: 100%;
-      height: 200px;
-      position: unset;
+   display: none;
     }
     & img {
       width: 100%;
@@ -124,11 +126,11 @@
     background-image: url("./../images/projectinner_pic2.jpg");
     background-position: center;
     background-repeat: no-repeat;
+    background-size: cover;
+
     box-shadow: 0 $ip_shadow $ip_shadow * 3 0 black;
     @include t() {
-      width: 100%;
-      height: 200px;
-      position: unset;
+   display: none;
     }
     & img {
       width: 100%;
@@ -148,9 +150,9 @@
   display: flex;
   justify-content: center;
   @include t() {
-  overflow-y: hidden;
-  display: inline-block;
-
+    margin: 0;
+    overflow-y: hidden;
+    display: inline-block;
   }
   & div {
     width: 100vw;
@@ -159,7 +161,8 @@
   & div img {
     width: 100%;
   }
-  & div h3,p {
+  & div h3,
+  p {
     @include t() {
       font-size: 12px;
       // margin-top: 20px;
@@ -169,7 +172,7 @@
     border-left: 3px solid $primary_100;
     border-right: 3px solid $primary_100;
     @include t() {
-     border: none;
+      border: none;
     }
   }
 }
@@ -177,6 +180,7 @@
   display: flex;
   justify-content: space-evenly;
   @include t() {
+    margin: 0;
     display: inline-block;
     text-align: center;
   }
@@ -195,8 +199,6 @@
       // margin-bottom: 20px;
       // position: relative;
       // left: 40%;
-
     }
-    
   }
 }
