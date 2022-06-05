@@ -120,7 +120,9 @@ function init2() {
 }
 window.addEventListener("load", init, false);
 let addButton = document.querySelector('.addButton')
-let pImg = document.querySelector('.main_product_img');
+let pImg = document.getElementById('large')
+console.log(pImg);
+console.log(pImg)
 let issue = document.querySelector('.product_overlay')
 
 function showIssue() {
