@@ -9,14 +9,14 @@
     <!-- header -->
     @@include('layout/header.html')
     <!-- header end -->
-    <!-- breadcrumb -->
-    @@include('layout/breadcrumb.html')
-    <!-- breadcrumb end-->
-    <div class="containerALL">
+    <div class="containerALL me_8">
+        <!-- breadcrumb -->
+        @@include('layout/breadcrumb.html')
+        <!-- breadcrumb end-->
         <!-- product_category -->
         @@include('layout/product_category.html')
         <!-- product_category end -->
-        <div id="floorlamps_wrap" class="category_wrap ms_8 me_5">
+        <div id="floorlamps_wrap" class="category_wrap">
             <product-floorlamps v-for="floorlamps in floorlampsObject" v-bind="floorlamps"></product-floorlamps>
         </div>
         <script>
