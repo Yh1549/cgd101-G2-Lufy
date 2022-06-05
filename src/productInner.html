@@ -17,16 +17,18 @@
         <section class="product_main_box me_6">
             <div class="main_product_img">
                 <img id="large" class="me_2" src="images/aboutus.lamp1.png" alt="">
+                <div class="product_overlay hidden">
+                    <h2>Added to cart</h2>
+                    <i class='fa fa-check'></i>
+                </div>
+
                 <div class="small_products_img_box">
-                    <div class="small_products_img"><img class="" src="images/aboutus.lamp1.png" alt=""></div>
-                    <div class="small_products_img"><img class="" src="images/aboutus.lamp2.png" alt=""></div>
-                    <div class="small_products_img"><img class="" src="images/aboutus.lamp3.png" alt=""></div>
+                    <div class="small_products_img"><img class="small" src="images/aboutus.lamp1.png" alt=""></div>
+                    <div class="small_products_img"><img class="small" src="images/aboutus.lamp2.png" alt=""></div>
+                    <div class="small_products_img"><img class="small" src="images/aboutus.lamp3.png" alt=""></div>
                 </div>
             </div>
-            <div class="product_overlay hidden">
-                <h2>Added to cart</h2>
-                <i class='fa fa-check'></i>
-            </div>
+
             <!-- <div class="product_intro">
                 <div class="product_img">
                 </div>
@@ -36,8 +38,7 @@
                 <div class="product_name h1 me_4"> Fashion Lamp</div>
                 <div class="product_price me_4">
                     <div class="orignal_price h6"><span class="h6">$</span>50000</div>
-                    <div class="promotions_price fontdeco_w7 font_i fontdeco h1"><span
-                            class="fontdeco_w3 font_i fontdeco p2">$</span>49500</div>
+                    <div class="promotions_price fontdeco_w7 font_i fontdeco h1"><span class="fontdeco_w3 font_i fontdeco p2">$</span>49500</div>
                 </div>
                 <div class="color_selector h4 me_6">
                     <h3 class="p1 mr_4">Color</h3>
@@ -74,24 +75,14 @@
             </div>
             <div class="product_discribe">
                 <p class="p2">
-                    Light sources can only be replaced by lights that have the same lamp base, also called a socket. You
-                    can for example
-                    only replace an E14 bulb with an E14 (LED) bulb. And you should replace a GU10 LED spot with another
-                    LED spot with a
-                    GU10 socket. Any other type of socket will not fit in the fixture of the light source. The image
-                    below gives an overview
-                    of the most common lamp bases at Any-Lamp.
+                    Light sources can only be replaced by lights that have the same lamp base, also called a socket. You can for example only replace an E14 bulb with an E14 (LED) bulb. And you should replace a GU10 LED spot with another LED spot with a GU10 socket. Any
+                    other type of socket will not fit in the fixture of the light source. The image below gives an overview of the most common lamp bases at Any-Lamp.
                 </p>
             </div>
             <div class="product_specification hidden">
                 <p class="p2">
-                    Energy-saving bulbs, also known as compact fluorescent lights (CFL), have a low power consumption,
-                    making them the most
-                    efficient and energy-efficient conventional light source. CFL bulbs have an E27 / E14 socket or a
-                    socket with pins
-                    (2-Pin or 4-Pin). CFL lights with a 2-Pin or 4-Pin socket require a ballast. Energy-saving bulbs are
-                    used in homes and
-                    business environments.
+                    Energy-saving bulbs, also known as compact fluorescent lights (CFL), have a low power consumption, making them the most efficient and energy-efficient conventional light source. CFL bulbs have an E27 / E14 socket or a socket with pins (2-Pin or 4-Pin).
+                    CFL lights with a 2-Pin or 4-Pin socket require a ballast. Energy-saving bulbs are used in homes and business environments.
                 </p>
             </div>
         </section>
@@ -104,10 +95,8 @@
                     <div class="product_designer_intro_content me_4">
                         <h2 class="h2 me_1">John</h2>
                         <p class="p2">
-                            My name is John, graduated from Hubei University of Economics ***advertising professional graphic design, advertising
-                            bias***. Undergraduate personality: lively and cheerful, easy-going, also officially. Amiable and easy of approach
-                            because of this character, I have many hobbies: playing volleyball, jogging, reading, surfing the Internet. Strict with
-                            oneself is my motto, broad-minded toward others.
+                            My name is John, graduated from Hubei University of Economics ***advertising professional graphic design, advertising bias***. Undergraduate personality: lively and cheerful, easy-going, also officially. Amiable and easy of approach because of this character,
+                            I have many hobbies: playing volleyball, jogging, reading, surfing the Internet. Strict with oneself is my motto, broad-minded toward others.
                         </p>
                     </div>
                     <a href="./designers.html" class="designer_link btn_normal">Read More</a>
@@ -136,29 +125,25 @@
                                                 </div>
                                             </a> `,
                     })
-                    new Vue({   // Vue instance
+                    new Vue({ // Vue instance
                         el: '#chandeliers_wrap',
                         data: {
-                            chandeliersObject: [
-                                {
-                                    chandeliersImg: `./images/aboutus.lamp1.png`,
-                                    chandeliersName: `chandeliers Name1`,
-                                    chandeliersInfoLink: './productInner.html',
-                                },
-                                {
-                                    chandeliersImg: `./images/aboutus.lamp2.png`,
-                                    chandeliersName: `chandeliers Name2`,
-                                    chandeliersInfoLink: './productInner.html',
-                                },
-                                {
-                                    chandeliersImg: `./images/aboutus.lamp3.png`,
-                                    chandeliersName: `chandeliers Name3`,
-                                    chandeliersInfoLink: './productInner.html',
-                                },
-                            ],
-                        },     //變數放這裡!            
+                            chandeliersObject: [{
+                                chandeliersImg: `./images/aboutus.lamp1.png`,
+                                chandeliersName: `chandeliers Name1`,
+                                chandeliersInfoLink: './productInner.html',
+                            }, {
+                                chandeliersImg: `./images/aboutus.lamp2.png`,
+                                chandeliersName: `chandeliers Name2`,
+                                chandeliersInfoLink: './productInner.html',
+                            }, {
+                                chandeliersImg: `./images/aboutus.lamp3.png`,
+                                chandeliersName: `chandeliers Name3`,
+                                chandeliersInfoLink: './productInner.html',
+                            }, ],
+                        }, //變數放這裡!            
                         mounted: {},
-                        methods: {},  // 函數大部分放這裡!            
+                        methods: {}, // 函數大部分放這裡!            
                         computed: {},
                         components: {},
                     });
