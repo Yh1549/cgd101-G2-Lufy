@@ -8,60 +8,81 @@
 </head>
 
 <body>
-  <div class="mouse"></div>
+  <div class="mouse entrance_mouse"></div>
   <div class="entrance">
-    <div class="entrance_container">
-      <div class="entrance_visitor entrance_box mouseOn" onclick="setTimeout(()=>{
+    <div class="entrance_logo"></div>
+    <div class="entrance_container ps_4 pe_4">
+
+      <!-- 首頁入口按鈕 -->
+      <div class="entrance_visitor entrance_box_container">
+        <div class="entrance_box mouseOn" onclick="setTimeout(()=>{
 window.location.assign('homePage.html')
       },800)">
-        <h1 class="h1 font_w7 fontcontent">Visitor</h1>
+          <h1 class="h1 font_w7 fontcontent">Visitor <br>前台</h1>
+        </div>
       </div>
-      <div class="entrance_admin entrance_box mouseOn" onclick="setTimeout(()=>{
+      <!-- 後臺入口按鈕 -->
+      <div class="entrance_admin entrance_box_container">
+        <div class="entrance_box mouseOn" onclick="setTimeout(()=>{
         window.location.assign('backend.html')
               },800)">
-        <h1 class="h1 font_w7 fontcontent">Admin</h1>
+          <h1 class="h1 font_w7 fontcontent">Admin <br>後台</h1>
+        </div>
       </div>
-      <div class="entrance_designer entrance_box mouseOn" onclick="setTimeout(()=>{
+      <!-- 設計師入口按鈕 -->
+      <div class="entrance_designer entrance_box_container">
+        <div class=" entrance_box mouseOn" onclick="setTimeout(()=>{
         window.location.assign('backendDesigner.html')
               },800)">
-        <h1 class="h1 font_w7 fontcontent">Designer</h1>
+          <h1 class="h1 font_w7 fontcontent">Designer <br>後台</h1>
+        </div>
       </div>
+
+    </div>
+    <div class="entrance_p ps_2 pl_1 pr_1">
+      <p>本網站為緯育TibaMe_前端設計工程師班第75期學員專題成果作品，本平台僅供學習、展示之用。若有抵觸有關著作權，或有第三人主張侵害智慧財產權等情事，均由學員負法律上責任，緯育公司概不負責。若有侵權疑慮，您可以私訊[緯育TibaMe]，後續會由專人協助處理。</p>
     </div>
   </div>
+
   <div class="entrance_lamp"></div>
-
   <div id="entrance_light" class="entrance_homepage"></div>
-
   <script>
     function tracking(e) {
-      if(screen.width>768){
-      let lamp = document.querySelector(".entrance_lamp");
-      let light = document.querySelector("#entrance_light");
-      let rotateDeg =
-        Math.round((Math.atan((lamp.offsetLeft - e.pageX) /(window.innerHeight - light.offsetTop)) *180) /Math.PI) +57 +125;
+      if (screen.width > 768) {
+        let lamp = document.querySelector(".entrance_lamp");
+        let light = document.querySelector("#entrance_light");
+        let rotateDeg =
+          Math.round(
+            (Math.atan(
+              (lamp.offsetLeft - e.pageX) /
+              (window.innerHeight - light.offsetTop)
+            ) *
+              180) /
+            Math.PI
+          ) +
+          57 +
+          125;
 
-      light.setAttribute(
-        "style",
-        "-webkit-mask-image:conic-gradient(from 0deg at 50% 0%, #000000 " +
-        `${-(rotateDeg - 80)}` +
-        "deg, #000000 " +
-        `${rotateDeg - 80}` +
-        "deg, transparent " +
-        `${rotateDeg - 30}` +
-        "deg, transparent " +
-        `${rotateDeg}` +
-        "deg, transparent " +
-        `${rotateDeg + 20}` +
-        "deg, #000000 " +
-        `${rotateDeg + 70}` +
-        "deg, #000000 " +
-        `${rotateDeg + 240}` +
-        "deg);"
-      );}
-
-      // console.log(rotateDeg);
+        light.setAttribute(
+          "style",
+          "-webkit-mask-image:conic-gradient(from 0deg at 50% 0%, #000000 " +
+          `${-(rotateDeg - 80)}` +
+          "deg, #000000 " +
+          `${rotateDeg - 110}` +
+          "deg, transparent " +
+          `${rotateDeg - 50}` +
+          "deg, transparent " +
+          `${rotateDeg}` +
+          "deg, transparent " +
+          `${rotateDeg + 40}` +
+          "deg, #000000 " +
+          `${rotateDeg + 90}` +
+          "deg, #000000 " +
+          `${rotateDeg + 240}` +
+          "deg);"
+        );
+      }
     }
-
     function init() {
       window.addEventListener("mousemove", tracking, false);
     }

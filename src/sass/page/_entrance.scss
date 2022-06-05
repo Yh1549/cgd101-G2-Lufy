@@ -1,55 +1,108 @@
 .entrance {
   width: 100%;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   cursor:none;
+  background-color:$secondary_100;
+  @include t(){
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+  }
 }
+.entrance_logo{
+  width: 500px;
+  height: 100px;
+  background-image: url("./../../images/nav_logo_web.svg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: repeat-y;
+  @include t(){
+    width: 100%;
+  
+  }
+}
+
 .entrance_container {
   width: 100%;
-  height: 100vh;
+  height: 80vh;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-image: url("./../images/entrance_bg.jpg");
+  background-color:$primary_100;
   background-position: center;
   background-size: cover;
   background-repeat: repeat-y;
   @include t(){
     display: inline-block;
-    
+    padding: 0;
+    height: 100%;
   }
 }
 .entrance_box {
-  width: 200px;
+  width: 150px;
   height: 150px;
-  border-radius: 10px;
-  background-color: $primary_100;
+  border-radius: 50%;
+  margin: 10px;
+  background-color: $primary_50;
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   box-shadow: 0 $ip_shadow $ip_shadow * 3 0 $secondary_100;
   transition: 0.3s;
   @include t(){
-    margin: 50px auto;
-
+   width: 100px;
+   height: 100px;
   }
   & h1 {
     color: $secondary_100;
+    font-size: 18px;
   }
   &:hover {
-    box-shadow: 0 $ip_shadow $ip_shadow * 3 0 $white;
+    transform:scale(1.5);
+    box-shadow: 0 $ip_shadow $ip_shadow * 3 0 $primary_100;
   }
 }
-// .entrance_lamp_bg {
-//   width: 100%;
-//   height: 100vh;
-//   margin-right: auto;
-//   margin-left: auto;
-//   overflow: hidden;
-//   // position: absolute;
-//   top: 0;
-//   left: 0;
+.entrance_box_container{
+  width:100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  @include t(){
+    width: 100%;
+    height: 150px;
+  
+  }
 
-// }
+}
+.entrance_visitor{
+  background-image: url("./../../images/entrance_bg1.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: repeat-y;
+}
+.entrance_admin{
+  background-image: url("./../../images/entrance_bg2.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: repeat-y;
+}
+.entrance_designer{
+  background-image: url("./../../images/entrance_bg3.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: repeat-y;
+}
+.entrance_p{
+  color: $white;
+
+}
 .entrance_lamp {
   width: 100px;
   height: 100px;
@@ -58,7 +111,10 @@
   left: 46.5%;
 }
 .entrance_homepage{
-  -webkit-mask-image: conic-gradient(from 0deg at 50% 0%, #000000 -106.18deg, #000000 107.43deg, rgba(255, 255, 255, 0.48) 149.52deg, transparent 178.79deg, rgba(255, 255, 255, 0.47) 206.23deg, #000000 253.82deg, #000000 467.43deg);;
+  -webkit-mask-image: conic-gradient(from 0deg at 50% 0%, #000000 -106.18deg, #000000 107.43deg, rgba(255, 255, 255, 0.48) 149.52deg, transparent 178.79deg, rgba(255, 255, 255, 0.47) 206.23deg, #000000 253.82deg, #000000 467.43deg);
+  @include t(){
+  display: none
+  };
 }
 #entrance_light {
   width: 100%;
@@ -67,4 +123,10 @@
   position: absolute;
   top: 0;
   pointer-events: none;
+  @include t(){
+    display: none
+    };
+}
+.entrance_mouse{
+transform: scale(3);
 }
