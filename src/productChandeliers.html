@@ -9,25 +9,25 @@
     <!-- header -->
     @@include('layout/header.html')
     <!-- header end -->
-    <!-- breadcrumb -->
-    @@include('layout/breadcrumb.html')
-    <!-- breadcrumb end-->
-    <div class="containerALL">
+    <div class="containerALL me_8">
+        <!-- breadcrumb -->
+        @@include('layout/breadcrumb.html')
+        <!-- breadcrumb end-->
         <!-- product_category -->
         @@include('layout/product_category.html')
         <!-- product_category end -->
-        <div id="chandaliers_wrap" class="category_wrap ms_8 me_5">
-            <product-chandaliers v-for="chandaliers in chandaliersObject" v-bind="chandaliers"></product-chandaliers>
+        <div id="chandeliers_wrap" class="category_wrap">
+            <product-chandeliers v-for="chandeliers in chandeliersObject" v-bind="chandeliers"></product-chandeliers>
         </div>
         <script>
-            let chandaliers = Vue.component('product-chandaliers', {
-                props: ['chandaliersImg', 'chandaliersName', 'chandaliersInfoLink'],
-                template: ` <a class="category_card" :href="chandaliersInfoLink">
+            let chandeliers = Vue.component('product-chandeliers', {
+                props: ['chandeliersImg', 'chandeliersName', 'chandeliersInfoLink'],
+                template: ` <a class="category_card" :href="chandeliersInfoLink">
                                     <div  class="category_img">
-                                        <img :src="chandaliersImg" :alt="chandaliersName">
+                                        <img :src="chandeliersImg" :alt="chandeliersName">
                                     </div>
                                     <div class="category_content">
-                                        <h2>{{chandaliersName}}</h2>
+                                        <h2>{{chandeliersName}}</h2>
                                         <span class="material-icons">
                                             favorite
                                         </span>
@@ -35,23 +35,23 @@
                                 </a> `,
             })
             new Vue({   // Vue instance
-                el: '#chandaliers_wrap',
+                el: '#chandeliers_wrap',
                 data: {
-                    chandaliersObject: [
+                    chandeliersObject: [
                         {
-                            chandaliersImg: `./images/aboutus.lamp1.png`,
-                            chandaliersName: `chandaliers Name1`,
-                            chandaliersInfoLink: './productInner.html',
+                            chandeliersImg: `./images/aboutus.lamp1.png`,
+                            chandeliersName: `chandeliers Name1`,
+                            chandeliersInfoLink: './productInner.html',
                         },
                         {
-                            chandaliersImg: `./images/aboutus.lamp2.png`,
-                            chandaliersName: `chandaliers Name2`,
-                            chandaliersInfoLink: './productInner.html',
+                            chandeliersImg: `./images/aboutus.lamp2.png`,
+                            chandeliersName: `chandeliers Name2`,
+                            chandeliersInfoLink: './productInner.html',
                         },
                         {
-                            chandaliersImg: `./images/aboutus.lamp3.png`,
-                            chandaliersName: `chandaliers Name3`,
-                            chandaliersInfoLink: './productInner.html',
+                            chandeliersImg: `./images/aboutus.lamp3.png`,
+                            chandeliersName: `chandeliers Name3`,
+                            chandeliersInfoLink: './productInner.html',
                         },
                     ],
                 },     //變數放這裡!            

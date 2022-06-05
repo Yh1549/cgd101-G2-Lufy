@@ -12,11 +12,11 @@
     <!-- breadcrumb -->
     @@include('layout/breadcrumb.html')
     <!-- breadcrumb end-->
-    <div class="containerALL">
+    <div class="containerALL me_8">
         <!-- product_category -->
         @@include('layout/product_category.html')
         <!-- product_category end -->
-        <div id="pendant_wrap" class="category_wrap ms_8 me_5">
+        <div id="pendant_wrap" class="category_wrap">
             <product-pendant v-for="pendant in pendantObject" v-bind="pendant"></product-pendant>
         </div>
         <script>

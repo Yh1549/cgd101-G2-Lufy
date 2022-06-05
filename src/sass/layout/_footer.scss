@@ -50,7 +50,7 @@ $b_top_base : 50px;
   // height: 500px;
   display: flex;
   background-color: $secondary_100;
-  & ul{
+  ul{
     color: $white;
     margin-bottom: 2rem;
     li {
@@ -75,11 +75,17 @@ $b_top_base : 50px;
       width: 100%;
     }
   }
-  & ul{
+  ul{
     width: 20%;
   }
   @include t{
     padding: 0;
+    .footer_img {
+      margin-left: 3rem;
+    }
+    ul {
+      width: 30%;
+    }
   }
   @media all and (max-width:490px) {
     flex-direction: column;
@@ -110,6 +116,11 @@ $b_top_base : 50px;
 .footer_addres{
   width: 65%;
   color: $white;
+  @include t {
+    width: 40%;
+    max-width: 678px;
+    margin-left: 3rem;
+  }
   @media all and (max-width:490px) {
     width: 100%;
     margin: 0;

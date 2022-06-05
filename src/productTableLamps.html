@@ -12,11 +12,11 @@
     <!-- breadcrumb -->
     @@include('layout/breadcrumb.html')
     <!-- breadcrumb end-->
-    <div class="containerALL">
+    <div class="containerALL me_8">
         <!-- product_category -->
         @@include('layout/product_category.html')
         <!-- product_category end -->
-        <div id="tablelamps_wrap" class="category_wrap ms_8 me_5">
+        <div id="tablelamps_wrap" class="category_wrap">
             <product-tablelamps v-for="tablelamps in tablelampsObject" v-bind="tablelamps"></product-tablelamps>
         </div>
         <script>
