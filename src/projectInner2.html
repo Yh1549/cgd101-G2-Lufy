@@ -17,6 +17,7 @@
     <div class="project_inner_banner_title ps_2 pe_2">
       <h1 class="s3 font_w9">INDUSTRIAL REVOLUTION</h1>
     </div>
+    <a href="" class="scrollDown"><span></span>Scroll</a>
   </div>
   <h1 class="project_inner_banner_title_m h1 font_w9">INDUSTRIAL REVOLUTION</h1>
 
@@ -76,8 +77,8 @@
       <img src="./images/desinger5.jpg" alt="" />
     </div>
     <div class="projectinner_designer_word">
-      <h3 class="h1">James Barry</h3>
-      <p class="h4">
+      <h3 class="h1">John</h3>
+      <p class="h4 ps_3">
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci,
         repellat! Ea sunt omnis nostrum nulla provident expedita totam nam
         libero, id autem perspiciatis, qui, error nesciunt! Veritatis, porro!
@@ -94,6 +95,7 @@
       },
       methods: {
         gsapProjInnerbanner() {
+          if (screen.width > 768) {
           gsap.registerPlugin(ScrollTrigger);
           const tl = gsap.timeline();
           gsap.from(".project_inner_banner_title h1", {
@@ -105,11 +107,10 @@
               pin: ".project_inner_banner",
               // markers: true,
             },
-            x: -1800,
           });
           tl.to(".project_inner_banner_title", {
             rotation: 90,
-            transformOrigin: "left bottom",
+            transformOrigin: "left botFtom",
           });
           ScrollTrigger.create({
             animation: tl,
@@ -117,10 +118,9 @@
             start: "800 center",
             end: "600 top",
             scrub: 2,
-            //pin: true,
             // markers: true,
-            //anticipatePin: 1,
           });
+        }
         },
       },
     });

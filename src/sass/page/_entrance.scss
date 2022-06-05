@@ -25,7 +25,6 @@
   
   }
 }
-
 .entrance_container {
   width: 100%;
   height: 80vh;
@@ -77,9 +76,7 @@
   @include t(){
     width: 100%;
     height: 150px;
-  
   }
-
 }
 .entrance_visitor{
   background-image: url("./../../images/entrance_bg1.jpg");
@@ -101,7 +98,6 @@
 }
 .entrance_p{
   color: $white;
-
 }
 .entrance_lamp {
   width: 100px;

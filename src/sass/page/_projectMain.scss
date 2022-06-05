@@ -1,4 +1,3 @@
-
 .project_banner_backdrop {
   width: 100%;
   height: 800px;
@@ -28,10 +27,10 @@
 }
 .prject_banner_pic {
   vertical-align: top;
-  box-shadow: 0 $ip_shadow $ip_shadow * 3 0 $secondary_100;
-}
-.prject_banner_pic img {
-  width: 100%;
+  box-shadow: 0 $ip_shadow $ip_shadow * 3 0 $primary_30;
+  & img {
+    width: 100%;
+  }
 }
 .project_banner_word {
   position: absolute;
@@ -56,6 +55,15 @@
 }
 .project_banner_p4 {
   font-size: $s2;
+}
+.project_banner_p_w {
+  display: none;
+  @include t() {
+    display: inline-block;
+    position: absolute;
+    color: $fontcolor_10;
+    font-family: $fontdeco;
+  }
 }
 .project_feature_title {
   font-family: $fontdeco;
@@ -87,7 +95,7 @@
   height: 500px;
   position: absolute;
   background-color: $secondary_dark;
-  top: 150px;
+  top: 100px;
   z-index: 1;
   @include t() {
     display: none;
@@ -104,7 +112,7 @@
   }
   @include t() {
     width: 50%;
-    height: 300px;
+    height: 200px;
     margin-right: auto;
     margin-left: auto;
   }
@@ -175,15 +183,12 @@
     }
   }
 }
-// #mouse{
-//     width: 20px;
-//     height: 20px;
-//     border-radius: 50%;
-//     background-color: red;
-// }
 .project_section {
   position: relative;
   overflow: hidden;
+  @include t() {
+    margin: 0;
+  }
 }
 .project_bg {
   width: 100%;
@@ -191,6 +196,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  & a {
+    position: absolute;
+    bottom: 3%;
+  }
+  @include t() {
+    width: 100%;
+    height: 100%;
+    margin: 10px 0px;
+  }
 }
 .project_title {
   font-size: $s3;
@@ -206,7 +221,13 @@
   display: flex;
   position: absolute;
   top: 0;
-  //overflow: hidden;
+  overflow-x: hidden;
+  @include t() {
+    width: 100%;
+    display: inline-block;
+    position: unset;
+    margin: 0;
+  }
 }
 .project {
   position: relative;
@@ -221,6 +242,8 @@
     color: $primary_50;
   }
   @include t() {
+    width: 80%;
+    margin: 0px auto;
   }
 }
 .project_word {
@@ -290,7 +313,7 @@
   & h1 {
     text-align: center;
   }
-  & a{
+  & a {
     text-decoration: none;
   }
   & a button {
@@ -298,6 +321,10 @@
     align-items: center;
     margin-right: auto;
     margin-left: auto;
+  }
+  @include t() {
+    margin: 0;
+    padding: 0;
   }
 }
 .project_process {
@@ -327,7 +354,11 @@
     @include t() {
       font-size: 12px;
       padding-top: 10px;
+      line-height: 130%;
     }
+  }
+  @include t() {
+    height: 200px;
   }
 }
 .project_process_title {
