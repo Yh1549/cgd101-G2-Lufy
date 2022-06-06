@@ -1,4 +1,4 @@
-const { compileString } = require("sass");
+// const { compileString } = require("sass");
 
 function showCart() {
 
@@ -41,6 +41,11 @@ function showItem(itemId, Value) {
 
     let price = document.createElement('span')
     price.innerText = Value.split('|')[2]
+    console.log(Value.split('|')[2]);
+
+    let text = document.createElement('p')
+    text.innerText = Value.split('|')[3]
+    console.log(Value.split('|')[3]);
 
     // let product = document.querySelector('.shopping-cart .product')
 
@@ -52,11 +57,15 @@ function showItem(itemId, Value) {
     product.className = 'product'
     shoppingCart.appendChild(product)
 
-    // if (shoppingCart.hasChildNodes()) {
-    //     while (shoppingCart.childNodes.length >= 3) {
-    //         shoppingCart.removeChild(shoppingCart.lastChild)
-    //     }
-    // }
+    console.log(shoppingCart.childNodes.length);
+
+
+
+    if (shoppingCart.hasChildNodes()) {
+        while (shoppingCart.childNodes.length >= 20) {
+            shoppingCart.removeChild(shoppingCart.lastChild)
+        }
+    }
 
 
     let imgDiv = document.createElement('div')
@@ -81,7 +90,7 @@ function showItem(itemId, Value) {
 
     productDescription.className = ('product-description')
     productDetails.appendChild(productDescription)
-    productDescription.innerText = "The best dog bones of all time. Holy crap. Your dog will be begging "
+    productDescription.innerText = text.innerText
 
     let productPrice = document.createElement('div')
     productPrice.className = "product-price"

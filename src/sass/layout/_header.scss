@@ -155,7 +155,7 @@ header {
     }
 
     .shopping-cart {
-        margin-top: -70px;
+        // margin-top: -70px;
     }
 
     /* Column headers */
@@ -187,6 +187,9 @@ header {
                 width: 100px;
                 object-fit: cover;
                 vertical-align: top;
+                @include t {
+                    margin: 0;
+                }
             }
         }
 
@@ -199,6 +202,13 @@ header {
             .product-description {
                 margin: 5px 20px 5px 0;
                 line-height: 1.4em;
+                @include t {
+                    margin: 0;
+                }
+            }
+            @include t {
+                width: 70%;
+                margin: 0;
             }
         }
 
@@ -334,9 +344,17 @@ header {
 @media all and (max-width:490px) {
     .shopping_cart_box {
         max-width: 100%;
+        max-height: 90vh;
         box-shadow: none;
-        padding: 0;
+        padding: 0 15px 2rem;
+        overflow: auto;
 
+        .shopping-cart {
+            overflow: auto;
+        }
+        .product-image {
+            margin: 0;
+        }
         .product-removal {
             float: right;
         }
@@ -362,7 +380,7 @@ header {
                     width: 40%;
                 }
             }
-        }
+        }        
     }
 }
 
