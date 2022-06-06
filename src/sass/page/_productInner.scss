@@ -1,5 +1,9 @@
 /* 商品主頁 */
-
+.containerALL {
+    @include m {
+        margin-bottom: 2rem;
+    }
+}
 .product_main_box {
     display: flex;
     .main_product_img {
@@ -36,51 +40,11 @@
                 }
             }
         }
+        @include m {
+            width: 100%;
+        }
     }
-    // .product_intro {
-    //     width: 50%;
-    //     display: flex;
-    //     justify-content: flex-start;
-    //     .product_img {
-    //         width: 500px;
-    //         img {
-    //             width: 100%;
-    //             object-fit: cover;
-    //             vertical-align: top;
-    //             @include t {
-    //                 max-width: 678px;
-    //                 width: 200px;
-    //             }
-    //         }
-    //         .small_products_img_box {
-    //             display: flex;
-    //             justify-content: space-between;
-    //             .small_products_img {
-    //                 width: 150px;
-    //                 img {
-    //                     width: 100%;
-    //                     object-fit: cover;
-    //                     vertical-align: top;
-    //                 }
-    //             }
-    //         }
-    //     }
-    //     @include t {
-    //         max-width: 678px;
-    //         display: block;
-    //         .product_img {
-    //             width: 100%;
-    //             img {
-    //                 width: 310px;
-    //             }
-    //             .small_products_img_box {
-    //                 .small_products_img {
-    //                     width: 90px;
-    //                 }
-    //             }
-    //         }
-    //     }
-    // }
+    
     .purchase_panel {
         width: 55%;
         float: left;
@@ -123,34 +87,39 @@
             display: flex;
             align-items: center;
         }
-        .buyNowButton,
-        .addButton,
-        .favoriteButton {
+        .buyNowButton, .addButton, .favoriteButton {
             color: $fontcolor_100;
             cursor: pointer;
-            .fa-credit-card,
-            .fa-cart-plus,
-            .fa-heart {
+            .fa-credit-card, .fa-cart-plus, .fa-heart {
                 margin-right: 0.5rem;
             }
             @include t {
                 max-width: 678px;
             }
+            @include m {
+                margin-right: 2rem;
+            }
         }
         @include t {
             max-width: 678px;
             padding-left: 2rem;
-            .promotions,
-            .product_name,
-            .product_price,
-            .color_selector,
-            .purchase_function {
+            .promotions, .product_name, .product_price,  .color_selector, .purchase_function {
                 margin-bottom: 2.5rem;
             }
+        }
+        @include m {
+            width: 100%;
+            padding-left: 0;
+            .promotions, .product_name, .product_price, .color_selector, .purchase_function { margin-bottom: 0.75rem; }
         }
     }
     @include t {
         margin-bottom: 3rem;
+    }
+    @include m {
+        width: 100%;
+        padding: 0;
+        flex-direction: column;
     }
 }
 
@@ -171,8 +140,7 @@
 
 .product_details_box {
     color: $fontcolor_100;
-    .discribe,
-    .specification {
+    .discribe, .specification {
         color: $fontcolor_30;
         border-bottom: 2px solid transparent;
         padding: 0.75rem 2rem;
@@ -186,6 +154,15 @@
         margin-top: 20px;
         display: flex;
         justify-content: center;
+    }
+    @include m {
+        .detail_switch {
+            display: flex;
+            justify-content: space-around;
+        }
+        .discribe, .specification {
+            padding: 0;
+        }
     }
 }
 
@@ -205,14 +182,27 @@
                 width: 100%;
                 object-fit: cover;
                 vertical-align: top;
+
+                @include m {
+                    height: 250px;
+                    
+                }
             }
             @include t {
                 max-width: 678px;
                 width: 30%;
             }
+            @include m {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
         }
         @include t {
             max-width: 678px;
+        }
+        @include m {
+            flex-direction: column;
         }
         .product_designer_intro_box {
             color: $fontcolor_100;
@@ -237,6 +227,9 @@
                     margin-bottom: 2rem;
                 }
             }
+            @include m {
+                width: 100%;
+            }
         }
     }
 }
@@ -253,5 +246,13 @@
     h2 {
         color: $white;
         float: left;
+        @include m {
+            margin-bottom: 2rem;
+        }
+    }
+    @include m {
+        .category_wrap {
+            margin: 0;
+        }
     }
 }
