@@ -11,7 +11,7 @@ function doFirst() {
 
     newDiv.appendChild(newTable)
     cartList.appendChild(newDiv)
-    
+
 
 
     for (let i = 0; i < items.length; i++) {
@@ -139,8 +139,10 @@ function changeItemCount(e) {
         sum += newPrice;
 
         let itemName = itemValue.split('|')[0];
+        let counts = item.value
 
         storage.setItem(itemName, newPrice);
+        storage.setItem(newPrice, counts);
 
 
 
