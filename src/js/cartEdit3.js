@@ -60,7 +60,7 @@ function createCartList(itemId, itemValue) {
 
     let delButton = document.createElement('button')
     delButton.innerText = 'Delete'
-    delButton.addEventListener('click', deleteItem)
+        // delButton.addEventListener('click', deleteItem)
 
     tdTitle.appendChild(pTitle)
         // tdTitle.appendChild(delButton)
@@ -73,9 +73,12 @@ function createCartList(itemId, itemValue) {
     tdPrice.style.width = '170px'
 
     let pPrice = document.createElement('p')
-    pPrice.innerText = itemPrice
+    let newPrice = storage.getItem(itemValue.split('|')[0])
 
-    console.log(pPrice);
+    pPrice.className = 'tPrice'
+    pPrice.innerText = newPrice
+
+
     tdPrice.appendChild(pPrice)
     trItemList.appendChild(tdPrice)
 
@@ -87,51 +90,58 @@ function createCartList(itemId, itemValue) {
     let pItemCount = document.createElement('p')
     let inputItemCount = document.createElement('input')
 
+    let counts = storage.getItem(newPrice)
     inputItemCount.disabled = true
     inputItemCount.type = 'number'
-    inputItemCount.value = 1
+    inputItemCount.value = counts
     inputItemCount.min = 1
-    inputItemCount.addEventListener('input', changeItemCount)
+        // inputItemCount.addEventListener('input', changeItemCount)
 
     pItemCount.appendChild(inputItemCount)
     tdItemCount.appendChild(pItemCount)
     trItemList.appendChild(tdItemCount)
 
 
+    let sum = 0;
+    let list = document.querySelectorAll('.tPrice');
+    list.forEach(tPrice => {
+        tPrice.innerText = newPrice
+
+
+
+
+        sum += parseInt(newPrice);
+        console.log(sum);
+
+
+
+
+
+        // storage.setItem(itemId, newPrice);
+        // console.log(storage.getItem(itemId))
+        // console.log(newPrice);
+        // storage.clear();
+        // storage.setItem(itemId, newPrice);
+
+    })
+    document.getElementById('total2').innerText = sum;
+
+
+
 
 
 
 }
 
-function deleteItem(e) {
-
-    let itemId = e.target.parentNode.id
-
-    let itemValue = storage.getItem(itemId)
-    total -= parseInt(itemValue.split('|')[2])
-
-    document.getElementById('total').innerText = total
 
 
 
-    storage.removeItem(itemId)
-
-    storage['addItemList'] = storage['addItemList'].replace(`${itemId}, `, ``)
-
-
-    newTable.removeChild(e.target.parentNode.parentNode)
-
-}
-
-function changeItemCount() {
-
-}
 window.addEventListener('load', doFirst);
 
 let discount = document.getElementById('discount')
 
 function goDiscount() {
-    let total = document.getElementById('total').innerText
+    let total = document.getElementById('total2').innerText
 
     if (discount.value == 1) {
         document.getElementById('dtotal').innerText = total * 0.9
