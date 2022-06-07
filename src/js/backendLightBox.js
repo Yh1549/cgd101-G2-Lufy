@@ -1,4 +1,4 @@
-//-------------------開關商品燈箱
+//-------------------開商品燈箱
 function A_showLightBox(){
     document.getElementById("A_lightBox").style.display = "block";
 }
@@ -6,7 +6,7 @@ function A_showLightBox(){
 function B_showLightBox(){
     document.getElementById("B_lightBox").style.display = "block";
 }
-//-------------------開常見問題燈箱
+//-------------------開最新消息燈箱
 function C_showLightBox(){
     document.getElementById("C_lightBox").style.display = "block";
 }
