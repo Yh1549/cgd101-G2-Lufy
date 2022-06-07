@@ -135,14 +135,14 @@ function changeItemCount(e) {
         // let itemClass = item.parentNode.parentNode.parentNode.children[1].classList;
         let itemValue = storage.getItem(itemId);
         let newPrice = parseInt(itemValue.split('|')[2]) * (item.value);
-        item.parentNode.parentNode.previousSibling.children[0].innerText = newPrice;
+        // item.parentNode.parentNode.previousSibling.children[0].innerText = newPrice;
         sum += newPrice;
 
         let itemName = itemValue.split('|')[0];
         let counts = item.value
 
-        storage.setItem(itemName, newPrice);
-        storage.setItem(newPrice, counts);
+        storage.setItem(itemName, counts);
+
 
 
 
