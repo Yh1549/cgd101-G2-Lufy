@@ -1,60 +1,66 @@
+let Logintab = (e) => {
+    let memLoginbtn = document.querySelector("#mem_Loginbtn");
+    if (memLoginbtn.innerText == "Log in") {
+        document.querySelector("#member_welcome").classList.remove("member_hide");
+        if (document.cookie != "") {
+            memLoginbtn.innerText = "Log out";
+        }
+    } else if (memLoginbtn.innerText == "Log out") {
+        for (
+            let i = 0; i < document.querySelector(".ul").children.length; i++
+        ) {
+            document.querySelectorAll(".memberform")[i].classList.add("member_hide");
+        }
+        document.querySelector("#member_welcome").classList.remove("member_hide");
+        document.cookie = "memName=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/phplab/LUFY/dist;";
+        document.cookie = "memId=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/phplab/LUFY/dist;";
+        memLoginbtn.innerText = "Log in";
+    }
+};
+
+
 let changeTab = (e) => {
     // console.log(e.target);
     let memberform = document.querySelectorAll(".memberform");
-
-
+    let memLoginbtn = document.querySelector("#mem_Loginbtn");
     for (
         let i = 0; i < document.querySelector(".ul").children.length; i++
     ) {
-        if (e.target == document.querySelector(".ul").children[i]) {
-            memberform[i].classList.remove("member_hide");
-            document
-                .querySelector("#member_welcome")
-                .classList.add("member_hide");
-        } else if (e.target == document.querySelector(".ul")) {
-            document
-                .querySelector("#member_welcome")
-                .classList.remove("member_hide");
-            memberform[i].classList.add("member_hide");
+        if (document.cookie != "") {
+            if (e.target == document.querySelector(".ul").children[i]) {
+                memberform[i].classList.remove("member_hide");
+                document
+                    .querySelector("#member_welcome")
+                    .classList.add("member_hide");
+            } else if (e.target == document.querySelector(".ul")) {
+                document
+                    .querySelector("#member_welcome")
+                    .classList.remove("member_hide");
+                memberform[i].classList.add("member_hide");
+            } else {
+                memberform[i].classList.add("member_hide");
+            }
         } else {
-            memberform[i].classList.add("member_hide");
+            alert("Login First");
+            // console.log(document.cookie);
+            break;
         }
+
     }
-    // console.log(memberform[0]);
-
 };
 
-let memberLogin = () => {
-    let xhr = new XMLHttpRequest(); //註冊
-
-    xhr.onload = () => {
-        if (xhr.status == 200) {
-            document.getElementById('idMsg').innerText = xhr.responseText;
-            console.log(xhr.responseText);
-
-        } else {
-            alert(xhr.status);
-        }
-    };
-
-
-
-    xhr.open("post", "member.php", true);
-    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded")
-
-    let data_info = "memId=" + document.getElementById("memId").value;
-    //  + "&memPsw=" + document.getElementById("memPsw").value;
-
-    xhr.send(data_info);
-
-};
 
 function init() {
     let ul = document.querySelector(".ul");
-    // console.log(ul.children[0]);
     ul.addEventListener("click", changeTab, false);
-    document.querySelector('#btnLogin').addEventListener("click", memberLogin, false);
-
-
+    let memLoginbtn = document.querySelector("#mem_Loginbtn");
+    memLoginbtn.addEventListener("click", Logintab, false);
+    if (document.cookie == "") {
+        memLoginbtn.innerText = "Log in"
+        console.log(2);
+    } else {
+        memLoginbtn.innerText = "Log out"
+        console.log(1);
+    }
 };
 window.addEventListener("load", init, false);
