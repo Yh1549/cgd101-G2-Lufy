@@ -5,6 +5,7 @@
     <meta charset="UTF-8" /> @@include('layout/meta.html', { "title" : "member" })
     <!-- tab change -->
     <script src="js/memCentertabChange.js"></script>
+    <script src="js/memberLogin.js"></script>
 </head>
 
 <body>
@@ -17,8 +18,9 @@
                 <li>Your Orders</li>
                 <li>Your Wishlist</li>
                 <li>Change Password</li>
-                <li> <button class="h1">Log out</button></li>
             </ul>
+            <button class="h1 btn_ol_normal" id="mem_Loginbtn"></button>
+
         </div>
         <div class="memberform_content ms_4 me_4">
             <div id="member_welcome">
@@ -31,8 +33,9 @@
                     <div class="mempsw"> <label for="memPsw" class="h1">Password : </label>
                         <input type="password" name="memPsw" id="memPsw" placeholder="Enter Your Password" class="ip_normal">
                     </div>
-                    <input type="submit" value="確定" class="btn_normal" id="btnLogin">
+                    <input type="button" value="Confirm" class="btn_normal" id="btnLogin">
                 </form>
+                <span class="ms_2 me_2 h4">No Account? Click here to <a href="memberRegister.html"> Register </a></span>
             </div>
             <!-- <script>
             <!-- </script> -->

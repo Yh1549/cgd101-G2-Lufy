@@ -54,12 +54,29 @@
     left: 115px;
     & .formOne{
         display: flex;
+        & label{
+            color: $primary_dark;
+        }
+        & select{
+            padding: round($ip_base * 1px) round($ip_base * 2px);
+            //-------------
+            border: 2px solid $secondary_30;
+            border-radius: $ip_br;
+            //--------------
+            font-size: $font_size; //16px
+            font-family: $fontcontent;
+            color: $fontcolor_dark;
+        }
     }
     & .formTwo{
         & div{
             display: flex;
             & label{
                 color: $primary_dark;
+                
+            }
+            & input{
+                width: 10%;
             }
         }
         & ul{

@@ -7,15 +7,8 @@ let newTable = document.createElement('table')
 let total = 0;
 
 function doFirst() {
-
-
-
-
     newDiv.appendChild(newTable)
     cartList.appendChild(newDiv)
-
-
-
 
     for (let i = 0; i < items.length; i++) {
         let itemInfo = storage.getItem(items[i])
@@ -24,7 +17,7 @@ function doFirst() {
         let itemPrice = parseInt(itemInfo.split('|')[2])
         total += itemPrice
     }
-    document.getElementById('total').innerText = total
+    // document.getElementById('total2').innerText = total
 
 }
 
@@ -73,10 +66,10 @@ function createCartList(itemId, itemValue) {
     tdPrice.style.width = '170px'
 
     let pPrice = document.createElement('p')
-    let newPrice = storage.getItem(itemValue.split('|')[0])
+        // let newPrice = storage.getItem(itemValue.split('|')[0])
 
     pPrice.className = 'tPrice'
-    pPrice.innerText = newPrice
+    pPrice.innerText = parseInt(itemValue.split('|')[2])
 
 
     tdPrice.appendChild(pPrice)
@@ -90,7 +83,7 @@ function createCartList(itemId, itemValue) {
     let pItemCount = document.createElement('p')
     let inputItemCount = document.createElement('input')
 
-    let counts = storage.getItem(newPrice)
+    let counts = storage.getItem(itemValue.split('|')[0])
     inputItemCount.disabled = true
     inputItemCount.type = 'number'
     inputItemCount.value = counts
@@ -104,19 +97,17 @@ function createCartList(itemId, itemValue) {
 
     let sum = 0;
     let list = document.querySelectorAll('.tPrice');
-    list.forEach(tPrice => {
-        tPrice.innerText = newPrice
 
+    list.forEach(item => {
+        let price = item.innerText;
+        // console.log(item.innerText);
 
+        let fcounts = item.parentNode.nextSibling.firstChild.firstChild.value
+            // console.log(fcounts);
 
-
-        sum += parseInt(newPrice);
-        console.log(sum);
-
-
-
-
-
+        let newPrice = price * fcounts
+        sum += newPrice;
+        // console.log(sum);
         // storage.setItem(itemId, newPrice);
         // console.log(storage.getItem(itemId))
         // console.log(newPrice);
@@ -125,17 +116,9 @@ function createCartList(itemId, itemValue) {
 
     })
     document.getElementById('total2').innerText = sum;
-
-
-
-
-
+    // console.log(sum);
 
 }
-
-
-
-
 window.addEventListener('load', doFirst);
 
 let discount = document.getElementById('discount')
@@ -151,7 +134,7 @@ function goDiscount() {
         document.getElementById('dtotal').innerText = total
 
     }
-    console.log(discount.value)
+    // console.log(discount.value)
 
 }
 discount.addEventListener("change", goDiscount, false)

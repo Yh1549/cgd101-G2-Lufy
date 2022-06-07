@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8" /> @@include('layout/meta.html', { "title" : "memberRegister" })
+</head>
+
+<body>
+    @@include('layout/header.html')
+    <div class="member_register">
+        <form action="" class="membercenter_form">
+            <div class="memberform_label">
+                <label for="memName">Name : </label>
+                <label for="email">Email : </label>
+                <label for="memBD">BirthDay : </label>
+                <label for="memPhone">Phone : </label>
+                <label for="Address">Address : </label>
+            </div>
+            <div class="memberform_input">
+                <input type="text" name="memName" id="memName" class="ip_normal" /><br />
+                <input type="email" name="email" id="email" class="ip_normal" /><br />
+                <input type="date" name="memBD" id="memBD" class="ip_normal" /><br />
+                <input type="text" name="memPhone" id="memPhone" class="ip_normal" /><br />
+                <input type="text" name="Address" id="Address" class="ip_normal" /><br />
+                <input type="submit" class="ip_sub" value="Save Change" />
+                <input type="reset" class="ip_reset" value="Reset" />
+            </div>
+        </form>
+
+    </div>
+
+    <!-- footer  -->
+    @@include('layout/footer.html')
+
+    <!-- script -->
+    @@include('layout/script.html')
+</body>
+
+</html>

@@ -62,7 +62,7 @@ function showItem(itemId, Value) {
 
 
     if (shoppingCart.hasChildNodes()) {
-        while (shoppingCart.childNodes.length >= 20) {
+        while (shoppingCart.childNodes.length >= 8) {
             shoppingCart.removeChild(shoppingCart.lastChild)
         }
     }

@@ -38,7 +38,7 @@
     }
 }
 //------------------------燈箱
-#A_lightBox , #B_lightBox , #C_lightBox , #D_lightBox{
+#AD_lightBox , #BD_lightBox{
     position: fixed;
     width: 100%;
     height: 100%;
@@ -55,6 +55,19 @@
     left: 115px;
     & .formDOne{
         display: flex;
+        & label{
+            color: $primary_dark;
+        }
+        & select{
+            padding: round($ip_base * 1px) round($ip_base * 2px);
+            //-------------
+            border: 2px solid $secondary_30;
+            border-radius: $ip_br;
+            //--------------
+            font-size: $font_size; //16px
+            font-family: $fontcontent;
+            color: $fontcolor_dark;
+        }
     }
     & .formDTwo{
         & div{
