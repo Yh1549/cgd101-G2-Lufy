@@ -1,8 +1,7 @@
 .breadcrumb-list {
     display: flex;
     flex-wrap: wrap;
-    padding: 0;
-    margin: 1rem 0 0 0;
+    padding: 4rem 0;
     list-style: none;
 
     li {
@@ -28,5 +27,11 @@
                 color: $fontcolor_100;
             }
         }
+    }
+    @include t {
+        padding: 3rem 0;
+    }
+    @include m {
+        padding: 2rem 0;
     }
 }
