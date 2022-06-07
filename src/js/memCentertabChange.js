@@ -18,7 +18,6 @@ let Logintab = (e) => {
     }
 };
 
-
 let changeTab = (e) => {
     // console.log(e.target);
     let memberform = document.querySelectorAll(".memberform");
@@ -48,7 +47,6 @@ let changeTab = (e) => {
 
     }
 };
-
 
 function init() {
     let ul = document.querySelector(".ul");
