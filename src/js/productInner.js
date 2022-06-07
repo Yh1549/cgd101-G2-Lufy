@@ -29,19 +29,19 @@ function addItem(itemId, itemValue) {
     let price = document.createElement('span')
     price.innerText = itemValue.split('|')[2]
 
-    let newItem = document.getElementById('newItem')
+    // let newItem = document.getElementById('newItem')
 
 
-    if (newItem.hasChildNodes()) {
-        while (newItem.childNodes.length >= 1) {
-            newItem.removeChild(newItem.firstChild)
-        }
-    }
+    // if (newItem.hasChildNodes()) {
+    //     while (newItem.childNodes.length >= 1) {
+    //         newItem.removeChild(newItem.firstChild)
+    //     }
+    // }
 
 
-    newItem.appendChild(image)
-    newItem.appendChild(title)
-    newItem.appendChild(price)
+    // newItem.appendChild(image)
+    // newItem.appendChild(title)
+    // newItem.appendChild(price)
 
     // 存入 storage
     if (storage[itemId]) {
@@ -68,8 +68,8 @@ function addItem(itemId, itemValue) {
         subtotal += itemPrice
     }
 
-    document.getElementById('itemCount').innerText = items.length
-    document.getElementById('subtotal').innerText = subtotal
+    // document.getElementById('itemCount').innerText = items.length
+    // document.getElementById('subtotal').innerText = subtotal
 }
 window.addEventListener('load', doFirst, false);
 
