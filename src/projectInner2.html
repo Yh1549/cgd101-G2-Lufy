@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   @@include('layout/meta.html', { "title" : "Project_Inner" })
-  <script src="./js/mouse.js"></script> 
+  <script src="./js/mouse.js"></script>
 </head>
 
 <body>
@@ -77,8 +77,8 @@
       <img src="./images/desinger5.jpg" alt="" />
     </div>
     <div class="projectinner_designer_word">
-      <h3 class="h1">John</h3>
-      <p class="h4 ps_3">
+      <h3 class="h1">James Barry</h3>
+      <p class="h4">
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci,
         repellat! Ea sunt omnis nostrum nulla provident expedita totam nam
         libero, id autem perspiciatis, qui, error nesciunt! Veritatis, porro!
@@ -95,7 +95,6 @@
       },
       methods: {
         gsapProjInnerbanner() {
-          if (screen.width > 768) {
           gsap.registerPlugin(ScrollTrigger);
           const tl = gsap.timeline();
           gsap.from(".project_inner_banner_title h1", {
@@ -110,7 +109,7 @@
           });
           tl.to(".project_inner_banner_title", {
             rotation: 90,
-            transformOrigin: "left botFtom",
+            transformOrigin: "left bottom",
           });
           ScrollTrigger.create({
             animation: tl,
@@ -120,7 +119,6 @@
             scrub: 2,
             // markers: true,
           });
-        }
         },
       },
     });

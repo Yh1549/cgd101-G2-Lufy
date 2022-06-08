@@ -127,7 +127,6 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-
     box-shadow: 0 $ip_shadow $ip_shadow * 3 0 black;
     @include t() {
    display: none;
@@ -165,7 +164,6 @@
   p {
     @include t() {
       font-size: 12px;
-      // margin-top: 20px;
     }
   }
   & .project_lamp_second {
@@ -196,9 +194,6 @@
     margin-bottom: 20px;
     @include t() {
       width: 50%;
-      // margin-bottom: 20px;
-      // position: relative;
-      // left: 40%;
     }
   }
 }
