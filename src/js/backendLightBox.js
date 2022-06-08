@@ -34,6 +34,22 @@ function init(){
     document.getElementById("B_New").onclick = B_showLightBox;
     document.getElementById("C_New").onclick = C_showLightBox;
     document.getElementById("D_New").onclick = D_showLightBox;
+    let AEts = document.querySelectorAll("#A_Edit");
+	for (let i=0; i<AEts.length; i++){
+		AEts[i].onclick = A_showLightBox;
+	}
+    let BEts = document.querySelectorAll("#B_Edit");
+	for (let i=0; i<BEts.length; i++){
+		BEts[i].onclick = B_showLightBox;
+	}
+    let CEts = document.querySelectorAll("#C_Edit");
+    for (let i=0; i<CEts.length; i++){
+		CEts[i].onclick = C_showLightBox;
+	}
+    let DEts = document.querySelectorAll("#D_Edit");
+    for (let i=0; i<DEts.length; i++){
+		DEts[i].onclick = D_showLightBox;
+	}
     //-------------------cancelLightbox
     document.getElementById("A_btnCancel").onclick = A_cancelNew;
     document.getElementById("B_btnCancel").onclick = B_cancelNew;

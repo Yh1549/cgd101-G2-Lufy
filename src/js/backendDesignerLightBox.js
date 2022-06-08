@@ -15,13 +15,13 @@ function BD_cancel(){
 //-------------------
 function init(){
     //-------------------showLightbox
-    let AEts = document.querySelectorAll("#A_Edit");
-	for (let i=0; i<AEts.length; i++){
-		AEts[i].onclick = AD_showLightBox;
+    let AdEts = document.querySelectorAll("#Ad_Edit");
+	for (let i=0; i<AdEts.length; i++){
+		AdEts[i].onclick = AD_showLightBox;
 	}
-    let BEts = document.querySelectorAll("#B_Edit");
-	for (let i=0; i<BEts.length; i++){
-		BEts[i].onclick = BD_showLightBox;
+    let BdEts = document.querySelectorAll("#Bd_Edit");
+	for (let i=0; i<BdEts.length; i++){
+		BdEts[i].onclick = BD_showLightBox;
 	}
     //-------------------cancelLightbox
     document.getElementById("A_btnCancel").onclick = AD_cancel;

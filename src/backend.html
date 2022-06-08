@@ -8,6 +8,59 @@
     @@include('layout/meta.html', { "title" : "Backend" })
 </head>
 <body>
+    <!-- 會員燈箱 -->
+    <div class="ps_1" id="N_lightBox" style="display:none">
+        <div class="ps_2 pe_2 pl_2 pr_2 lightBox_list">
+            <form action="" class="formOne">
+                <div>
+                    <div class="ps_1 pe_1">
+                        <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">照片</label>
+                        <input class="ip_normal" type="file" name="" id="">
+                    </div>
+                    <div class="ps_1 pe_1">
+                        <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">No.</label>
+                        <input class="ip_normal" type="text" name="" id="">
+                    </div>
+                    <div class="ps_1 pe_1">
+                        <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">姓名</label>
+                        <input class="ip_normal" type="text" name="" id="">
+                    </div>
+                    <div class="ps_1 pe_1">
+                        <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">電郵</label>
+                        <input class="ip_normal" type="text" name="" id="">
+                    </div>
+                    <div class="ps_1 pe_1">
+                        <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">密碼</label>
+                        <input class="ip_normal" type="text" name="" id="">
+                    </div>
+                    <div class="ps_1 pe_1">
+                        <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">手機</label>
+                        <input class="ip_normal" type="text" name="" id="">
+                    </div>
+                    <div class="ps_1 pe_1">
+                        <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">生日</label>
+                        <input class="ip_normal" type="date" name="" id="">
+                    </div>
+                    <div class="ps_1 pe_1">
+                        <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">地址</label>
+                        <input class="ip_normal" type="text" name="" id="">
+                    </div>
+                    <div class="ps_1 pe_1">
+                        <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">State</label>
+                        <select name="" id="">
+                            <option value="">上架</option>
+                            <option value="">下架</option>
+                        </select>
+                    </div>
+                </div>
+                
+            </form>
+            <div class="lastBtn">
+                <button class="ml_1 p1 newsbtn" id="N_btnCancel">Cancel</button>
+                <button class="ml_1 p1 newsbtn">Confirm</button>
+            </div>
+        </div>
+    </div>
     <!-- 商品燈箱 -->
     <div class="ps_1" id="A_lightBox" style="display:none">
         <div class="ps_2 pe_2 pl_2 pr_2 lightBox_list">
@@ -464,7 +517,7 @@
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{prodPrice}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{prodState}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{in_stock}}</p>
-                                <button class="p1 newsbtn">Edit</button>
+                                <button class="p1 newsbtn" id="A_Edit">Edit</button>
                             </div>
                         </li>
                     `,
@@ -623,7 +676,7 @@
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{promotionsEndDate}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{promotionsImagePath}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{promotionsState}}</p>
-                                <button class="p1 newsbtn">Edit</button>
+                                <button class="p1 newsbtn" id="B_Edit">Edit</button>
                             </div>
                         </li>
                     `,
@@ -728,7 +781,7 @@
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{newsEndDate}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{newsImagePath}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{newsState}}</p>
-                                <button class="p1 newsbtn">Edit</button>
+                                <button class="p1 newsbtn" id="C_Edit">Edit</button>
                             </div>
                         </li>
                     `,
@@ -873,7 +926,7 @@
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{designerState}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{designerAccount}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{designerImagePath}}</p>
-                                <button class="p1 newsbtn">Edit</button>
+                                <button class="p1 newsbtn" id="D_Edit">Edit</button>
                             </div>
                         </li>
                     `,
