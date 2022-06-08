@@ -2,103 +2,96 @@
 <html lang="en">
 
 <head>
-  @@include('layout/meta.html', { "title" : "Light Up For You" })
+    @@include('layout/meta.html', { "title" : "Light Up For You" })
 </head>
 
 <body>
-  <!-- header -->
-  @@include('layout/header.html')
-  <!-- header end -->
-  <!-- 第一屏遮罩 + 首頁輪播 -->
-  <input type="button" value="On" class="turn_on" />
-  <section class="first">
-    <div class="containerALL">
-      <div class="wrapper">
-        <h1 class="wrapper_title s3 font_i">Light Up For You</h1>
-        <h2 class="wrapper_text h2">
-          We firmly believe that 'Light' can bring more beautiful value to
-          life<br />
-          which is our original intention.
-        </h2>
-        <div class="light"></div>
-      </div>
-    </div>
-    <!-- 首頁輪播 -->
-    <section class="index_carousel">
-      <div class="container me_8">
-        <div class="swiper mySwiper" id="index_carousel">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <img src="./images/index_carousel_Banner_01.webp" alt="" />
+    <!-- header -->
+    @@include('layout/header.html')
+    <!-- header end -->
+    <!-- 第一屏遮罩 + 首頁輪播 -->
+    <input type="button" value="On" class="turn_on" />
+    <section class="first">
+        <div class="containerALL">
+            <div class="wrapper">
+                <h1 class="wrapper_title s3 font_i">Light Up For You</h1>
+                <h2 class="wrapper_text h2">
+                    We firmly believe that 'Light' can bring more beautiful value to life
+                    <br /> which is our original intention.
+                </h2>
+                <div class="light"></div>
             </div>
-            <div class="swiper-slide">
-              <img src="./images/index_carousel_Banner_02.webp" alt="" />
-            </div>
-            <div class="swiper-slide">
-              <img src="./images/index_carousel_Banner_03.webp" alt="" />
-            </div>
-          </div>
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-pagination"></div>
         </div>
-      </div>
+        <!-- 首頁輪播 -->
+        <section class="index_carousel">
+            <div class="container me_8">
+                <div class="swiper mySwiper" id="index_carousel">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="./images/index_carousel_Banner_01.webp" alt="" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="./images/index_carousel_Banner_02.webp" alt="" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="./images/index_carousel_Banner_03.webp" alt="" />
+                        </div>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </section>
     </section>
-  </section>
-  <!-- 專案實例 -->
-  <section class="index_project">
-    <div class="index_project_wrap">
-      <div class="containerALL">
-        <div class="index_project_title">
-          <h2 class="s2 me_4 para1">Our Lights</h2>
-          <h2 class="s3 me_4 para2">Always</h2>
-          <h2 class="s1 font_i fontdeco_w9 me_4 para3">LIGHT</h2>
-          <h2 class="s2 font_i me_4 para4">your LIFE</h2>
-        </div>
-      </div>
-      <div id="project_wrap" class="project_wrap">
-        <div class="project_card project_card1">
-          <img src="./images/aboutus.lamp1.png" alt="projectName" />
-          <div class="content ms_1 mr_1 me_1 ml_1">
-            <h2 class="h1 me_1">Project Name1</h2>
-            <h3 class="h4 me_1">
-              Project content. This project is design by James Barry with the
-              laxury lamp#1. The laxury lamp#1 is a type of legence lamp.
-              Everyone love it.
-            </h3>
-            <p class="h5 me_4">James Barry</p>
-            <a href="projectInner1.html" class="btn_normal"> more </a>
-          </div>
-        </div>
-        <div class="project_card project_card2">
-          <img src="./images/aboutus.lamp2.png" alt="projectName" />
-          <div class="content ms_1 mr_1 me_1 ml_1">
-            <h2 class="h1 me_1">Project Name2</h2>
-            <h3 class="h4 me_1">
-              Project content. This project is design by James Barry with the
-              laxury lamp#1. The laxury lamp#1 is a type of legence lamp.
-              Everyone love it.
-            </h3>
-            <p class="h5 me_4">James Barry</p>
-            <a href="projectInner1.html" class="btn_normal"> more </a>
-          </div>
-        </div>
-        <div class="project_card project_card3">
-          <img src="./images/aboutus.lamp3.png" alt="projectName" />
-          <div class="content ms_1 mr_1 me_1 ml_1">
-            <h2 class="h1 me_1">Project Name3</h2>
-            <h3 class="h4 me_1">
-              Project content. This project is design by James Barry with the
-              laxury lamp#1. The laxury lamp#1 is a type of legence lamp.
-              Everyone love it.
-            </h3>
-            <p class="h5 me_4">James Barry</p>
-            <a href="projectInner1.html" class="btn_normal"> more </a>
-          </div>
-        </div>
-        <!-- <project-card v-for="project in projectObject" v-bind="project" /> -->
-      </div>
-      <!-- <script>
+    <!-- 專案實例 -->
+    <section class="index_project">
+        <div class="index_project_wrap">
+            <div class="containerALL">
+                <div class="index_project_title">
+                    <h2 class="s2 me_4 para1">Our Lights</h2>
+                    <h2 class="s3 me_4 para2">Always</h2>
+                    <h2 class="s1 font_i fontdeco_w9 me_4 para3">LIGHT</h2>
+                    <h2 class="s2 font_i me_4 para4">your LIFE</h2>
+                </div>
+            </div>
+            <div id="project_wrap" class="project_wrap">
+                <div class="project_card project_card1">
+                    <img src="./images/aboutus.lamp1.png" alt="projectName" />
+                    <div class="content ms_1 mr_1 me_1 ml_1">
+                        <h2 class="h1 me_1">Project Name1</h2>
+                        <h3 class="h4 me_1">
+                            Project content. This project is design by James Barry with the laxury lamp#1. The laxury lamp#1 is a type of legence lamp. Everyone love it.
+                        </h3>
+                        <p class="h5 me_4">James Barry</p>
+                        <a href="projectInner1.html" class="btn_normal"> more </a>
+                    </div>
+                </div>
+                <div class="project_card project_card2">
+                    <img src="./images/aboutus.lamp2.png" alt="projectName" />
+                    <div class="content ms_1 mr_1 me_1 ml_1">
+                        <h2 class="h1 me_1">Project Name2</h2>
+                        <h3 class="h4 me_1">
+                            Project content. This project is design by James Barry with the laxury lamp#1. The laxury lamp#1 is a type of legence lamp. Everyone love it.
+                        </h3>
+                        <p class="h5 me_4">James Barry</p>
+                        <a href="projectInner1.html" class="btn_normal"> more </a>
+                    </div>
+                </div>
+                <div class="project_card project_card3">
+                    <img src="./images/aboutus.lamp3.png" alt="projectName" />
+                    <div class="content ms_1 mr_1 me_1 ml_1">
+                        <h2 class="h1 me_1">Project Name3</h2>
+                        <h3 class="h4 me_1">
+                            Project content. This project is design by James Barry with the laxury lamp#1. The laxury lamp#1 is a type of legence lamp. Everyone love it.
+                        </h3>
+                        <p class="h5 me_4">James Barry</p>
+                        <a href="projectInner1.html" class="btn_normal"> more </a>
+                    </div>
+                </div>
+                <!-- <project-card v-for="project in projectObject" v-bind="project" /> -->
+            </div>
+            <!-- <script>
                 let project = Vue.component('project-card', {
                     props: ['projectImg', 'projectName', 'discription', 'designerName', 'projectInfoLink'],
                     template: `
@@ -161,31 +154,31 @@
                     components: {},
                 });
             </script> -->
-      <div class="index_project_deco_image">
-        <img src="./images/index_project_deco_image_01.webp" alt="" />
-      </div>
-    </div>
-    <div class="index_project_deco_image_fullview">
-      <img src="./images/index_project_deco_image_02.webp" alt="" />
-    </div>
-  </section>
-  <!-- 商品 -->
-  <section class="index_product">
-    <section class="containerALL me_8">
-      <!-- product_category -->
-      @@include('layout/product_category.html')
-      <!-- product_category end -->
-      <div id="grid_masonry">
-        <div class="grid">
-          <div class="grid-sizer"></div>
-          <div class="gutter-sizer"></div>
-          <product-commodity v-for="commodity in commodityObject" v-bind="commodity"></product-commodity>
+            <div class="index_project_deco_image">
+                <img src="./images/index_project_deco_image_01.webp" alt="" />
+            </div>
         </div>
-      </div>
-      <script>
-        let commodity = Vue.component("product-commodity", {
-          props: ["commodityLink", "commodityImg", "commodityName"],
-          template: ` <a class="grid-item" :href="commodityLink">
+        <div class="index_project_deco_image_fullview">
+            <img src="./images/index_project_deco_image_02.webp" alt="" />
+        </div>
+    </section>
+    <!-- 商品 -->
+    <section class="index_product">
+        <section class="containerALL me_8">
+            <!-- product_category -->
+            @@include('layout/product_category.html')
+            <!-- product_category end -->
+            <div id="grid_masonry">
+                <div class="grid">
+                    <div class="grid-sizer"></div>
+                    <div class="gutter-sizer"></div>
+                    <product-commodity v-for="commodity in commodityObject" v-bind="commodity"></product-commodity>
+                </div>
+            </div>
+            <script>
+                let commodity = Vue.component("product-commodity", {
+                    props: ["commodityLink", "commodityImg", "commodityName"],
+                    template: ` <a class="grid-item" :href="commodityLink">
                         <div  class="commodityImg">
                         <img :src="commodityImg" :alt="commodityName">
                         </div>
@@ -196,151 +189,132 @@
                               </span>
                           </div>
                       </a> `,
-        });
-        const productCommodity = new Vue({
-          el: "#grid_masonry",
-          data: {
-            commodityObject: [
-              {
-                commodityLink: `./productInner.html`,
-                commodityImg: `./images/product_01.webp`,
-                commodityName: `Floor Lamps`,
-              },
-              {
-                commodityLink: `./productInner.html`,
-                commodityImg: `./images/product_02.webp`,
-                commodityName: `Floor Lamps`,
-              },
-              {
-                commodityLink: `./productInner.html`,
-                commodityImg: `./images/product_03.webp`,
-                commodityName: `Floor Lamps`,
-              },
-              {
-                commodityLink: `./productInner.html`,
-                commodityImg: `./images/product_04.webp`,
-                commodityName: `Floor Lamps`,
-              },
-              {
-                commodityLink: `./productInner.html`,
-                commodityImg: `./images/product_05.webp`,
-                commodityName: `Floor Lamps`,
-              },
-              {
-                commodityLink: `./productInner.html`,
-                commodityImg: `./images/product_06.webp`,
-                commodityName: `Floor Lamps`,
-              },
-              {
-                commodityLink: `./productInner.html`,
-                commodityImg: `./images/product_07.webp`,
-                commodityName: `Floor Lamps`,
-              },
-              {
-                commodityLink: `./productInner.html`,
-                commodityImg: `./images/product_08.webp`,
-                commodityName: `Floor Lamps`,
-              },
-              {
-                commodityLink: `./productInner.html`,
-                commodityImg: `./images/product_09.webp`,
-                commodityName: `Floor Lamps`,
-              },
-              {
-                commodityLink: `./productInner.html`,
-                commodityImg: `./images/product_10.webp`,
-                commodityName: `Floor Lamps`,
-              },
-              {
-                commodityLink: `./productInner.html`,
-                commodityImg: `./images/product_11.webp`,
-                commodityName: `Floor Lamps`,
-              },
-              {
-                commodityLink: `./productInner.html`,
-                commodityImg: `./images/product_12.webp`,
-                commodityName: `Floor Lamps`,
-              },
-              {
-                commodityLink: `./productInner.html`,
-                commodityImg: `./images/product_13.webp`,
-                commodityName: `Floor Lamps`,
-              },
-              {
-                commodityLink: `./productInner.html`,
-                commodityImg: `./images/product_14.webp`,
-                commodityName: `Floor Lamps`,
-              },
-              {
-                commodityLink: `./productInner.html`,
-                commodityImg: `./images/product_15.webp`,
-                commodityName: `Floor Lamps`,
-              },
-              {
-                commodityLink: `./productInner.html`,
-                commodityImg: `./images/product_16.webp`,
-                commodityName: `Floor Lamps`,
-              },
-              {
-                commodityLink: `./productInner.html`,
-                commodityImg: `./images/product_17.webp`,
-                commodityName: `Floor Lamps`,
-              },
-              {
-                commodityLink: `./productInner.html`,
-                commodityImg: `./images/product_18.webp`,
-                commodityName: `Floor Lamps`,
-              },
-            ],
-          },
-        });
-      </script>
+                });
+                const productCommodity = new Vue({
+                    el: "#grid_masonry",
+                    data: {
+                        commodityObject: [{
+                            commodityLink: `./productInner.html`,
+                            commodityImg: `./images/product_01.webp`,
+                            commodityName: `Floor Lamps`,
+                        }, {
+                            commodityLink: `./productInner.html`,
+                            commodityImg: `./images/product_02.webp`,
+                            commodityName: `Floor Lamps`,
+                        }, {
+                            commodityLink: `./productInner.html`,
+                            commodityImg: `./images/product_03.webp`,
+                            commodityName: `Floor Lamps`,
+                        }, {
+                            commodityLink: `./productInner.html`,
+                            commodityImg: `./images/product_04.webp`,
+                            commodityName: `Floor Lamps`,
+                        }, {
+                            commodityLink: `./productInner.html`,
+                            commodityImg: `./images/product_05.webp`,
+                            commodityName: `Floor Lamps`,
+                        }, {
+                            commodityLink: `./productInner.html`,
+                            commodityImg: `./images/product_06.webp`,
+                            commodityName: `Floor Lamps`,
+                        }, {
+                            commodityLink: `./productInner.html`,
+                            commodityImg: `./images/product_07.webp`,
+                            commodityName: `Floor Lamps`,
+                        }, {
+                            commodityLink: `./productInner.html`,
+                            commodityImg: `./images/product_08.webp`,
+                            commodityName: `Floor Lamps`,
+                        }, {
+                            commodityLink: `./productInner.html`,
+                            commodityImg: `./images/product_09.webp`,
+                            commodityName: `Floor Lamps`,
+                        }, {
+                            commodityLink: `./productInner.html`,
+                            commodityImg: `./images/product_10.webp`,
+                            commodityName: `Floor Lamps`,
+                        }, {
+                            commodityLink: `./productInner.html`,
+                            commodityImg: `./images/product_11.webp`,
+                            commodityName: `Floor Lamps`,
+                        }, {
+                            commodityLink: `./productInner.html`,
+                            commodityImg: `./images/product_12.webp`,
+                            commodityName: `Floor Lamps`,
+                        }, {
+                            commodityLink: `./productInner.html`,
+                            commodityImg: `./images/product_13.webp`,
+                            commodityName: `Floor Lamps`,
+                        }, {
+                            commodityLink: `./productInner.html`,
+                            commodityImg: `./images/product_14.webp`,
+                            commodityName: `Floor Lamps`,
+                        }, {
+                            commodityLink: `./productInner.html`,
+                            commodityImg: `./images/product_15.webp`,
+                            commodityName: `Floor Lamps`,
+                        }, {
+                            commodityLink: `./productInner.html`,
+                            commodityImg: `./images/product_16.webp`,
+                            commodityName: `Floor Lamps`,
+                        }, {
+                            commodityLink: `./productInner.html`,
+                            commodityImg: `./images/product_17.webp`,
+                            commodityName: `Floor Lamps`,
+                        }, {
+                            commodityLink: `./productInner.html`,
+                            commodityImg: `./images/product_18.webp`,
+                            commodityName: `Floor Lamps`,
+                        }, ],
+                    },
+                });
+            </script>
+        </section>
     </section>
-  </section>
-  <!-- 情境模擬 -->
-  <section class="index_simulation">
-    <div class="containerALL">
-      <div class="index_simulation_title">
-        <h2 class="s1 font_i fontdeco_w5 me_4">MyLight</h2>
-        <h2 class="s2 font_i fontdeco_w2 me_4">/Play with the Light</h2>
-      </div>
-    </div>
-    <div class="index_luminosity ms_8 me_8" id="index_luminosity">
-      <div class="entrance_lamp"></div>
-      <div id="entrance_light" class="entrance_homepage"></div>
-      <div class="lamp-wrapper"></div>
-      <div class="wall-light-shadow"></div>
-      <form class="index_form" oninput="index_luminosity.setAttribute('data-light', slider.value)">
-        <div class="range">
-          <div class="sliderValue">
-            <span class="indicator">0</span>
-          </div>
-          <div class="field">
-            <div class="value left">0</div>
-            <input type="range" id="slider" value="0" min="0" max="100" steps="1" />
-            <div class="value right">100</div>
-          </div>
+    <!-- 情境模擬 -->
+    <section class="index_simulation">
+        <div class="containerALL">
+            <div class="index_simulation_title">
+                <h2 class="s1 font_i fontdeco_w5 me_4">MyLight</h2>
+                <h2 class="s2 font_i fontdeco_w2 me_4">/Play with the Light</h2>
+            </div>
         </div>
-      </form>
-    </div>
-  </section>
-  <!-- 最新消息 -->
-  <section class="index_news">
-    <div class="containerALL">
-      <div class="card">
-        <div id="news_photo">
-          <news-photo v-for="newsphoto in newsphotoObject" v-bind="newsphoto"></news-photo>
+        <div class="index_luminosity ms_8 me_8" id="index_luminosity">
+            <!-- <div class="entrance_lamp"></div> -->
+            <!-- <div id="entrance_light" class="entrance_homepage"></div> -->
+            <div class="lamp-wrapper"></div>
+            <div class="wall-light-shadow"></div>
+            <form class="index_form" oninput="index_luminosity.setAttribute('data-light', slider.value)">
+                <div class="range">
+                    <div class="sliderValue">
+                        <span class="indicator">0</span>
+                    </div>
+                    <div class="field">
+                        <div class="value left">0</div>
+                        <input type="range" id="slider" value="0" min="0" max="100" steps="1" />
+                        <div class="value right">100</div>
+                    </div>
+                </div>
+            </form>
         </div>
-        <script>
-          let newsphoto = Vue.component("news-photo", {
-            props: [
-              "newsImage",
-              "newsName",
-              "newsTitle",
-              "newsContent",
-              "newsInfoLink",
-            ],
-            template: `
+    </section>
+    <!-- 最新消息 -->
+    <section class="index_news">
+        <div class="containerALL">
+            <div class="card">
+                <div id="news_photo">
+                    <news-photo v-for="newsphoto in newsphotoObject" v-bind="newsphoto"></news-photo>
+                </div>
+                <script>
+                    let newsphoto = Vue.component("news-photo", {
+                        props: [
+                            "newsImage",
+                            "newsName",
+                            "newsTitle",
+                            "newsContent",
+                            "newsInfoLink",
+                        ],
+                        template: `
                 <div class="news_photo me_8">
                     <div class='photo'>
                         <img :src="newsImage" :alt="newsName">
@@ -354,90 +328,82 @@
                     </div>
                 </div>
             `,
-          });
-          new Vue({
-            el: "#news_photo",
-            data: {
-              newsphotoObject: [
-                {
-                  newsImage: `./images/news_shinning.webp`,
-                  newsName: `Shinning a light on furniture`,
-                  newsTitle: `Shinning a light on furniture`,
-                  newsContent: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ipsum, maecenas et tristique convallis cras est aliquet arcu.`,
-                  newsInfoLink: `news.html`,
-                },
-                {
-                  newsImage: `./images/news_discount_prouduct.webp`,
-                  newsName: `Discount Prouduct`,
-                  newsTitle: `Discount Prouduct`,
-                  newsContent: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ipsum, maecenas et tristique convallis cras est aliquet arcu.`,
-                  newsInfoLink: `news.html`,
-                },
-                {
-                  newsImage: `./images/news_new_style_creative_01.webp`,
-                  newsName: `New Style Creative`,
-                  newsTitle: `New Style Creative`,
-                  newsContent: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ipsum, maecenas et tristique convallis cras est aliquet arcu.`,
-                  newsInfoLink: `news.html`,
-                },
-              ],
-            },
-          });
-        </script>
-      </div>
-    </div>
-  </section>
-  <!-- 關於我們 -->
-  <section class="index_aboutus">
-    <div class="containerALL">
-      <div class="card">
+                    });
+                    new Vue({
+                        el: "#news_photo",
+                        data: {
+                            newsphotoObject: [{
+                                newsImage: `./images/news_shinning.webp`,
+                                newsName: `Shinning a light on furniture`,
+                                newsTitle: `Shinning a light on furniture`,
+                                newsContent: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ipsum, maecenas et tristique convallis cras est aliquet arcu.`,
+                                newsInfoLink: `news.html`,
+                            }, {
+                                newsImage: `./images/news_discount_prouduct.webp`,
+                                newsName: `Discount Prouduct`,
+                                newsTitle: `Discount Prouduct`,
+                                newsContent: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ipsum, maecenas et tristique convallis cras est aliquet arcu.`,
+                                newsInfoLink: `news.html`,
+                            }, {
+                                newsImage: `./images/news_new_style_creative_01.webp`,
+                                newsName: `New Style Creative`,
+                                newsTitle: `New Style Creative`,
+                                newsContent: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ipsum, maecenas et tristique convallis cras est aliquet arcu.`,
+                                newsInfoLink: `news.html`,
+                            }, ],
+                        },
+                    });
+                </script>
+            </div>
+        </div>
+    </section>
+    <!-- 關於我們 -->
+    <section class="index_aboutus">
+        <div class="containerALL">
+            <div class="card">
+                <div class="photo">
+                    <img src="./images/index_about_us.webp" alt="about lufy" />
+                </div>
+                <div class="wrap">
+                    <div class="content">
+                        <h2 class="h1 ms_2 me_1">About Light Up For You</h2>
+                        <p class="h4 me_2">
+                            Starting from six sketches in 1991, the founder Meiric sowed a design seed, carefully irrigated with delicate thinking and rigorous attitude, rubbed light and shadow into brush and ink, and outlined the lighting imagination in his heart.<br
+                            /> We firmly believe that "light" can bring more beautiful value to life, which is our original intention.
+                        </p>
+                        <a href="./aboutUs.html" class="btn h4 me_2">more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 燈泡爆炸圖 -->
+    <section class="index_lightBulbExplosion">
         <div class="photo">
-          <img src="./images/index_about_us.webp" alt="about lufy" />
+            <img src="./images/lightBulbExplosion.svg" alt="light bulb explosion" />
         </div>
-        <div class="wrap">
-          <div class="content">
-            <h2 class="h1 ms_2 me_1">About Light Up For You</h2>
-            <p class="h4 me_2">
-              Starting from six sketches in 1991, the founder Meiric sowed a
-              design seed, carefully irrigated with delicate thinking and
-              rigorous attitude, rubbed light and shadow into brush and ink,
-              and outlined the lighting imagination in his heart.<br />
-              We firmly believe that "light" can bring more beautiful value to
-              life, which is our original intention.
-            </p>
-            <a href="./aboutUs.html" class="btn h4 me_2">more</a>
-          </div>
+        <div class="photo_mobile">
+            <img src="./images/lightBulbExplosion_mobile.svg" alt="light bulb explosion" />
         </div>
-      </div>
-    </div>
-  </section>
-  <!-- 燈泡爆炸圖 -->
-  <section class="index_lightBulbExplosion">
-    <div class="photo">
-      <img src="./images/lightBulbExplosion.svg" alt="light bulb explosion" />
-    </div>
-    <div class="photo_mobile">
-      <img src="./images/lightBulbExplosion_mobile.svg" alt="light bulb explosion" />
-    </div>
-  </section>
-  <!-- footer  -->
-  @@include('layout/footer.html')
+    </section>
+    <!-- footer  -->
+    @@include('layout/footer.html')
 
-  <!-- 燈箱 -->
-  <script src="./js/homePage_lightbox.js"></script>
-  <!-- 首頁輪播 -->
-  <script src="./js/homePage_carousel.js"></script>
-  <!-- 專案實例 -->
-  <script src="./js/homePage_project.js"></script>
-  <!-- 情境模擬 -->
-  <script src="./js/simulation.js"></script>
-  <!-- 輪播套件script -->
-  <script src="./js/swiper-bundle.min.js"></script>
-  <!-- 商品頁瀑布流 -->
-  <script type="module" src="./js/productMain_masonry.js"></script>
+    <!-- 燈箱 -->
+    <script src="./js/homePage_lightbox.js"></script>
+    <!-- 首頁輪播 -->
+    <script src="./js/homePage_carousel.js"></script>
+    <!-- 專案實例 -->
+    <script src="./js/homePage_project.js"></script>
+    <!-- 情境模擬 -->
+    <script src="./js/simulation.js"></script>
+    <!-- 輪播套件script -->
+    <script src="./js/swiper-bundle.min.js"></script>
+    <!-- 商品頁瀑布流 -->
+    <script type="module" src="./js/productMain_masonry.js"></script>
 
-  <!-- script -->
-  @@include('layout/script.html')
+    <!-- script -->
+    @@include('layout/script.html')
 </body>
 
 </html>
