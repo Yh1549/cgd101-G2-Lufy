@@ -1,3 +1,6 @@
+function $id(id) {
+    return document.getElementById(id);
+}
 let Logintab = (e) => {
     let memLoginbtn = document.querySelector("#mem_Loginbtn");
     if (memLoginbtn.innerText == "Log in") {
@@ -12,8 +15,12 @@ let Logintab = (e) => {
             document.querySelectorAll(".memberform")[i].classList.add("member_hide");
         }
         document.querySelector("#member_welcome").classList.remove("member_hide");
-        document.cookie = "memName=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/phplab/LUFY/dist;";
-        document.cookie = "memId=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/phplab/LUFY/dist;";
+        let xhr = new XMLHttpRequest();
+        xhr.onload = function() {
+            memLoginbtn.innerText = "Log in";
+        }
+        xhr.open("get", "memberLogout.php", true);
+        xhr.send(null);
         memLoginbtn.innerText = "Log in";
     }
 };
@@ -48,17 +55,24 @@ let changeTab = (e) => {
     }
 };
 
+function getMemberinfo() {
+    let xhr = new XMLHttpRequest();
+    xhr.onload = function() {
+        member = JSON.parse(xhr.responseText);
+        if (member.memName) {
+            $id("memName").innerText = member.memName;
+            $id("spanLogin").innerText = "登出";
+        }
+    }
+    xhr.open("get", "getMemberInfo.php", true);
+    xhr.send(null);
+};
+
 function init() {
+    getMemberinfo();
     let ul = document.querySelector(".ul");
     ul.addEventListener("click", changeTab, false);
     let memLoginbtn = document.querySelector("#mem_Loginbtn");
     memLoginbtn.addEventListener("click", Logintab, false);
-    if (document.cookie == "") {
-        memLoginbtn.innerText = "Log in"
-        console.log(2);
-    } else {
-        memLoginbtn.innerText = "Log out"
-        console.log(1);
-    }
 };
 window.addEventListener("load", init, false);
