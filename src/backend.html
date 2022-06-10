@@ -321,9 +321,14 @@
                         <p class="p1 pr_1 font_w5 fontcontent">會員狀態</p>
                         <p></p>
                     </div>
-                    <ul id="membList">
+                    <!-- <ul id="membList">
                         <N_menu v-for="N_backendMenu in membObject" v-bind="N_backendMenu">
                         </N_menu>
+                    </ul> -->
+                    <ul id="membList">
+                        <template v-for="membRow in membRows">
+                            <li is="N_menu" v-bind="membRow"></li>
+                        </template>
                     </ul>
                     <!-- <div class="pages">
                         <p class="p1 pl_1 pr_1">1</p>
@@ -332,147 +337,37 @@
                 </div>
             </section>
             <script>
-                let N_backendMenu = Vue.component('N_menu', {
-                    props: ['membNo', 'membName', 'membEmail', 'membBirDate','membPhone','membAddress','membState'],
+                let membRow = Vue.component('N_menu', {
+                    props: ['member_no', 'member_name', 'member_mail', 'member_birthday','member_tel','member_address','member_State'],
                     template: `
                         <li class="backend_details">
                             <div class="backend_text">
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{membNo}}</p>
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{membName}}</p>
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{membEmail}}</p>
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{membBirDate}}</p>
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{membPhone}}</p>
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{membAddress}}</p>
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{membState}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{member_no}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{member_name}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{member_mail}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{member_birthday}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{member_tel}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{member_address}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{member_State}}</p>
                                 <button class="p1 newsbtn">Edit</button>
                             </div>
                         </li>
                     `,
-                })
+                });
+                let membersVue =
                 new Vue({
                     el: '#membList',
                     data: {
-                        membObject: [
-                            {
-                                membNo: `1`,
-                                membName: `Amy`,
-                                membEmail: `amy@gmail.com`,
-                                membBirDate: `2000/06/02`,
-                                membPhone:`0912345678`,
-                                membAddress: `桃園市中壢區`,
-                                membState: `正常`,
-                                membbbbb:`ests`
-                            },
-                            {
-                                membNo: `2`,
-                                membName: `Ben`,
-                                membEmail: `ben@gmail.com`,
-                                membBirDate: `1999/06/02`,
-                                membPhone:`0987654321`,
-                                membAddress: `桃園市桃園區`,
-                                membState: `凍結`
-                            },
-                            {
-                                membNo: `3`,
-                                membName: ``,
-                                membEmail: ``,
-                                membBirDate: ``,
-                                membPhone:``,
-                                membAddress: ``,
-                                membState: ``
-                            },
-                            {
-                                membNo: `4`,
-                                membName: ``,
-                                membEmail: ``,
-                                membBirDate: ``,
-                                membPhone:``,
-                                membAddress: ``,
-                                membState: ``
-                            },
-                            {
-                                membNo: `5`,
-                                membName: ``,
-                                membEmail: ``,
-                                membBirDate: ``,
-                                membPhone:``,
-                                membAddress: ``,
-                                membState: ``
-                            },
-                            {
-                                membNo: `6`,
-                                membName: ``,
-                                membEmail: ``,
-                                membBirDate: ``,
-                                membPhone:``,
-                                membAddress: ``,
-                                membState: ``
-                            },
-                            {
-                                membNo: `7`,
-                                membName: ``,
-                                membEmail: ``,
-                                membBirDate: ``,
-                                membPhone:``,
-                                membAddress: ``,
-                                membState: ``
-                            },
-                            {
-                                membNo: `8`,
-                                membName: ``,
-                                membEmail: ``,
-                                membBirDate: ``,
-                                membPhone:``,
-                                membAddress: ``,
-                                membState: ``
-                            },
-                            {
-                                membNo: `9`,
-                                membName: ``,
-                                membEmail: ``,
-                                membBirDate: ``,
-                                membPhone:``,
-                                membAddress: ``,
-                                membState: ``
-                            },
-                            {
-                                membNo: `10`,
-                                membName: ``,
-                                membEmail: ``,
-                                membBirDate: ``,
-                                membPhone:``,
-                                membAddress: ``,
-                                membState: ``
-                            },
-                            {
-                                membNo: `11`,
-                                membName: ``,
-                                membEmail: ``,
-                                membBirDate: ``,
-                                membPhone:``,
-                                membAddress: ``,
-                                membState: ``
-                            },
-                            {
-                                membNo: `12`,
-                                membName: ``,
-                                membEmail: ``,
-                                membBirDate: ``,
-                                membPhone:``,
-                                membAddress: ``,
-                                membState: ``
-                            },
-                            {
-                                membNo: `13`,
-                                membName: ``,
-                                membEmail: ``,
-                                membBirDate: ``,
-                                membPhone:``,
-                                membAddress: ``,
-                                membState: ``
-                            },
-                        ]
-                    }
+                        membRows:[],
+                    },
+                    created(){
+                        let xhr = new XMLHttpRequest();
+                        xhr.onload = function(){
+                            membersVue.membRows = JSON.parse(xhr.responseText);
+                        }
+                        xhr.open("get", "getMembers.php",true);
+                        xhr.send(null);	
+                    },
                 })
             </script>
             <!-- 商品管理 -->
