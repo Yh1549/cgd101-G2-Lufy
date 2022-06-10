@@ -26,6 +26,7 @@ function moveJs() {
         }))
         .pipe(dest('dist/js'))
 }
+
 function movePhp() {
     return src('src/*.php').pipe(dest('dist'))
 }
@@ -108,6 +109,7 @@ function browser(done) {
         },
         port: 3000
     });
+    watch(['src/*.php', 'src/**/*.php'], movePhp).on('change', reload) // 監看php
     watch(['src/*.html', 'src/**/*.html'], includeHTML).on('change', reload) // 監看html
     watch('src/js/*.js', moveJs).on('change', reload) // 監看js
     watch('src/json/*.json', moveJson).on('change', reload) // 監看json
@@ -119,7 +121,7 @@ function browser(done) {
 
 
 // 監看
-exports.w = series(parallel(moveJs, moveJson, moveImg, includeHTML, moveProductPages, styleSass), watchfile)
+exports.w = series(parallel(movePhp, moveJs, moveJson, moveImg, includeHTML, moveProductPages, styleSass), watchfile)
 
 
 //瀏覽器同步
