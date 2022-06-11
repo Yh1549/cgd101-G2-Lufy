@@ -119,7 +119,7 @@ function browser(done) {
 
 
 // 監看
-exports.w = series(parallel(moveJs, moveJson, moveImg, includeHTML, moveProductPages, styleSass), watchfile)
+exports.w = series(parallel(movePhp, moveJs, moveJson, moveImg, includeHTML, moveProductPages, styleSass), watchfile)
 
 
 //瀏覽器同步
@@ -127,4 +127,4 @@ exports.default = series(clear, parallel(movePhp, moveJs, moveJson, includeHTML,
 
 
 //打包上線
-exports.package = series(clear, parallel(moveJs, moveJson, includeHTML, styleSass, moveProductPages, min_images))
+exports.package = series(clear, parallel(movePhp, moveJs, moveJson, includeHTML, styleSass, moveProductPages, min_images))
