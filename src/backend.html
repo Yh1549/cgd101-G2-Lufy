@@ -670,7 +670,7 @@
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{carousel_no}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{carousel_name}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{carousel_path}}</p>
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow"><img :src="carousel_path"></img></p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow"><img :src="'images//'+ carousel_path"></img></p>
                                 <p><button class="p1 newsbtn">Upload</button></p>
                                 
                             </div>
@@ -689,7 +689,7 @@
                             carouselVue.carouselRows = JSON.parse(xhr.responseText);
                             
                         }
-                        xhr.open("get", "getcarousel.php",true);
+                        xhr.open("get", "getCarousels.php",true);
                         xhr.send(null);	
                     },
                 })
