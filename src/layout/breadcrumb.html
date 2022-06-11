@@ -1,33 +1,45 @@
-<div id="breadcrumb_list" class="breadcrumb_list">
-    <breadcrumb-list v-for="breadcrumb in breadcrumbObject" v-bind="breadcrumb"></breadcrumb-list>
+<div id="breadcrumb_list">
+    <breadcrumb-list :breadcrumb="breadCrumb"></breadcrumb-list>
 </div>
 <script>
     let breadcrumb = Vue.component('breadcrumb-list', {
-        props: ['homepageLink', 'productMainLink', 'productCategoryLink', 'productName'],
-        template: `<ol class="breadcrumb-list">
-                        <li class="breadcrumb-item">
-                            <a :href="homepageLink">Home</a>
+        props: ['breadcrumb'],
+        template: `<ol class="breadcrumbList">
+                        <li class="breadcrumbItem" v-for="item in breadcrumb">
+                            <a :href="item.link">{{item.name}}</a>
                         </li>
-                        <li class="breadcrumb-item">
-                            <a :href="productMainLink">Product</a>
-                        </li>
-                        <li class="breadcrumb-item">
-                            <a :href="productCategoryLink">Floor Lamps</a>
-                        </li>
-                        <li class="breadcrumb-item active">{{productName}}</li>
                     </ol> `,
     })
-    const breadcrumbObject = new Vue({
+    var breadcrumbObject = new Vue({
         el: `#breadcrumb_list`,
         data: {
-            breadcrumbObject: [
-                {
-                    homepageLink: `homePage.html`,
-                    productMainLink: `productMain.html`,
-                    productCategoryLink: `productFloorLamps`,
-                    productName: `Floor Lamps Name`
-                }
-            ]
+            breadCrumb: [],
+        },
+        methods: {
+            setBreadcrumb() {
+                // /product/projustlist/item.html
+                let arr = window.location.pathname.split('.html')[0].split('/');
+                //['', 'product','projustlist' ,'item']
+                arr.splice(0, 1);
+                //['product','projustlist', 'item']
+                
+                this.breadCrumb = [
+                    {
+                        name: 'Home',
+                        link: `homePage.html`,
+                    },
+                ];
+
+                arr.forEach((v, i) => {
+                    this.breadCrumb.push({
+                        name: v,
+                        link: `${arr.slice(0, i + 1).join('/')}.html`
+                    })
+                })
+            },
+        },
+        mounted() {
+            this.setBreadcrumb();
         },
     })
 </script>

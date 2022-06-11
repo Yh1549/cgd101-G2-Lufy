@@ -1,4 +1,4 @@
-.breadcrumb-list {
+.breadcrumbList {
     display: flex;
     flex-wrap: wrap;
     padding: 4rem 0;
@@ -14,12 +14,12 @@
         }
     }
 
-    .breadcrumb-item {
+    .breadcrumbItem {
         &.active {
             color: $primary_100;
         }
 
-        +.breadcrumb-item {
+        +.breadcrumbItem {
             &::before {
                 content: '>';
                 display: inline-block;
