@@ -12,9 +12,6 @@
     <section class="productMain_product">
         <section class="containerALL me_8">
             <!-- breadcrumb -->
-            <!-- @@include('layout/breadcrumb.html') -->
-            <!-- breadcrumb end-->
-            <!-- breadcrumb -->
             @@include('layout/breadcrumb.html')
             <!-- breadcrumb end-->
             <!-- product_category -->
@@ -29,13 +26,13 @@
             </div>
             <script>
                 let commodity = Vue.component('product-commodity', {
-                    props : ['commodityLink', 'commodityImg', 'commodityName'],
-                    template: ` <a class="grid-item" :href="commodityLink">
+                    props: ['image_path', 'name', 'product_no'],
+                    template: `<a class="grid-item" :href="'./productMain_axios.html?id=' + product_no">
                                     <div  class="commodityImg">
-                                        <img :src="commodityImg" :alt="commodityName">
+                                        <img :src="'images//'+image_path" :alt="name">
                                     </div>
                                     <div class="commodity">
-                                        <h2>{{commodityName}}</h2>
+                                        <h2>{{name}}</h2>
                                         <span class="material-icons">
                                             favorite
                                         </span>
@@ -45,98 +42,12 @@
                 const productCommodity = new Vue({
                     el: '#grid_masonry',
                     data: {
-                        commodityObject: [
-                            {
-                                commodityLink:`./productInner.html`,
-                                commodityImg:`./images/product_01.webp`,
-                                commodityName:`Floor Lamps`,
-                            },
-                            {
-                                commodityLink:`./productInner.html`,
-                                commodityImg:`./images/product_02.webp`,
-                                commodityName:`Floor Lamps`,
-                            },
-                            {
-                                commodityLink:`./productInner.html`,
-                                commodityImg:`./images/product_03.webp`,
-                                commodityName:`Floor Lamps`,
-                            },
-                            {
-                                commodityLink:`./productInner.html`,
-                                commodityImg:`./images/product_04.webp`,
-                                commodityName:`Floor Lamps`,
-                            },
-                            {
-                                commodityLink:`./productInner.html`,
-                                commodityImg:`./images/product_05.webp`,
-                                commodityName:`Floor Lamps`,
-                            },
-                            {
-                                commodityLink:`./productInner.html`,
-                                commodityImg:`./images/product_06.webp`,
-                                commodityName:`Floor Lamps`,
-                            },
-                            {
-                                commodityLink:`./productInner.html`,
-                                commodityImg:`./images/product_07.webp`,
-                                commodityName:`Floor Lamps`,
-                            },
-                            {
-                                commodityLink:`./productInner.html`,
-                                commodityImg:`./images/product_08.webp`,
-                                commodityName:`Floor Lamps`,
-                            },
-                            {
-                                commodityLink:`./productInner.html`,
-                                commodityImg:`./images/product_09.webp`,
-                                commodityName:`Floor Lamps`,
-                            },
-                            {
-                                commodityLink:`./productInner.html`,
-                                commodityImg:`./images/product_10.webp`,
-                                commodityName:`Floor Lamps`,
-                            },
-                            {
-                                commodityLink:`./productInner.html`,
-                                commodityImg:`./images/product_11.webp`,
-                                commodityName:`Floor Lamps`,
-                            },
-                            {
-                                commodityLink:`./productInner.html`,
-                                commodityImg:`./images/product_12.webp`,
-                                commodityName:`Floor Lamps`,
-                            },
-                            {
-                                commodityLink:`./productInner.html`,
-                                commodityImg:`./images/product_13.webp`,
-                                commodityName:`Floor Lamps`,
-                            },
-                            {
-                                commodityLink:`./productInner.html`,
-                                commodityImg:`./images/product_14.webp`,
-                                commodityName:`Floor Lamps`,
-                            },
-                            {
-                                commodityLink:`./productInner.html`,
-                                commodityImg:`./images/product_15.webp`,
-                                commodityName:`Floor Lamps`,
-                            },
-                            {
-                                commodityLink:`./productInner.html`,
-                                commodityImg:`./images/product_16.webp`,
-                                commodityName:`Floor Lamps`,
-                            },
-                            {
-                                commodityLink:`./productInner.html`,
-                                commodityImg:`./images/product_17.webp`,
-                                commodityName:`Floor Lamps`,
-                            },
-                            {
-                                commodityLink:`./productInner.html`,
-                                commodityImg:`./images/product_18.webp`,
-                                commodityName:`Floor Lamps`,
-                            },                            
-                        ]
+                        commodityObject: []
+                    },
+                    created() {
+                        axios.get('productMain.php').then(function (response) {
+                            productCommodity.commodityObject = response.data;
+                        });
                     },
                 })
             </script>

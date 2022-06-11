@@ -129,4 +129,4 @@ exports.default = series(clear, parallel(movePhp, moveJs, moveJson, includeHTML,
 
 
 //打包上線
-exports.package = series(clear, parallel(moveJs, moveJson, includeHTML, styleSass, moveProductPages, min_images))
+exports.package = series(clear, parallel(movePhp, moveJs, moveJson, includeHTML, styleSass, moveProductPages, min_images))
