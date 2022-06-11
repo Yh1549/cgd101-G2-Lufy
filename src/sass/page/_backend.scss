@@ -169,7 +169,7 @@ body:hover::-webkit-scrollbar-thumb{
     padding: 10px;
     background-color: $secondary_70;
     & p{
-        width: 10%;
+        width: 8%;
         color: #ffff;
     }
 }
@@ -179,22 +179,23 @@ body:hover::-webkit-scrollbar-thumb{
     box-sizing: border-boxs;
     padding: 10px;
     & p{
-        width: 10%;
+        width: 8%;
         & img{
             width: 50%;
         }
     }
     & button{
-        width: 10%;
+        width: 8%;
     }
+}
+.carouselPlace button{
+    width: 100%;
 }
 .backend_details:nth-child(even){
     background:#f1e3da;
 }
 .listGrow{
     flex-grow: 1;
-}
-.ellipsis{
     display: -webkit-box;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
