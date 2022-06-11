@@ -296,7 +296,7 @@
                 <li onclick="openClass(event,'mainElm4')" class="ps_1 pe_1 pl_1 pr_1 p1 tablink"><i class="fa-solid fa-tag pr_1"></i><p>優惠活動管理</p></li>
                 <li onclick="openClass(event,'mainElm5')" class="ps_1 pe_1 pl_1 pr_1 p1 tablink"><i class="fa-solid fa-flag pr_1"></i></i><p>最新消息管理</p></li>
                 <li onclick="openClass(event,'mainElm6')" class="ps_1 pe_1 pl_1 pr_1 p1 tablink"><i class="fa-solid fa-images pr_1"></i><p>輪播管理</p></li>
-                <li onclick="openClass(event,'mainElm7')" class="ps_1 pe_1 pl_1 pr_1 p1 tablink"><i class="fa-solid fa-compass-drafting pr_1"></i><p>設計師管理</p></li>
+                <li onclick="openClass(event,'mainElm7')" class="ps_1 pe_1 pl_1 pr_1 p1 tablink"><i class="fa-solid fa-compass-drafting pr_1"></i><p>後台管理員</p></li>
                 <a class="" href="index.html">
                     <li class="ps_1 pe_1 pl_1 pr_1 p1"><i class="fa-solid fa-right-from-bracket pr_1"></i><p>登出</p></li>
                 </a>
@@ -435,7 +435,7 @@
                     },
                 })
             </script>
-            <!-- 訂單管理 -->
+            <!-- 待討論-訂單管理 -->
             <section class="mem_content" id="mainElm3">
                 <div class="ps_1 pe_1 pl_1 pr_1 backend_titleH1">
                     <h1 class="h1 font_w5 fontTitle">Order Manage</h1>
@@ -451,10 +451,6 @@
                         <p class="p1 pr_1 font_w5 fontcontent listGrow">訂單備註</p>
                         <p class=""></p>
                     </div>
-                    <!-- <ul id="orderList">
-                        <O_menu v-for="O_backendMenu in orderObject" v-bind="O_backendMenu">
-                        </O_menu>
-                    </ul> -->
                     <ul id="orderList">
                         <O_menu v-for="O_backendMenu in orderObject" v-bind="O_backendMenu">
                         </O_menu>
@@ -531,8 +527,9 @@
                         <p></p>
                     </div>
                     <ul id="promList">
-                        <B_menu v-for="B_backendMenu in promotionsObject" v-bind="B_backendMenu">
-                        </B_menu>
+                        <template v-for="promoRow in promoRows">
+                            <li is="B_menu" v-bind="promoRow"></li>
+                        </template>
                     </ul>
                     <!-- <div class="pages">
                         <p class="p1 pl_1 pr_1">1</p>
@@ -541,82 +538,37 @@
                 </div>
             </section>
             <script>
-                let B_backendMenu = Vue.component('B_menu', {
-                    props: ['promotionsNo', 'promotionsName', 'promotionsStartDate', 'promotionsEndDate','promotionsImagePath','promotionsState'],
+                let promoRow = Vue.component('B_menu', {
+                    props: ['promotions_no', 'promotions_name', 'promotions_startDate', 'promotions_endDate','promotionsImage_path','promotions_state'],
                     template: `
                         <li class="backend_details">
                             <div class="backend_text">
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{promotionsNo}}</p>
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{promotionsName}}</p>
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{promotionsStartDate}}</p>
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{promotionsEndDate}}</p>
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{promotionsImagePath}}</p>
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{promotionsState}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{promotions_no}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{promotions_name}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{promotions_startDate}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{promotions_endDate}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{promotionsImage_path}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{promotions_state}}</p>
                                 <button class="p1 newsbtn" id="B_Edit">Edit</button>
                             </div>
                         </li>
                     `,
-                })
+                });
+                let promotionsVue =
                 new Vue({
                     el: '#promList',
                     data: {
-                        promotionsObject: [
-                            {
-                                promotionsNo: `1`,
-                                promotionsName: `2022 Summer Event`,
-                                promotionsStartDate: `2022/07/21`,
-                                promotionsEndDate: `2022/08/02`,
-                                promotionsEndTxt:``,
-                                promotionsImagePath: `./images/news.lamp.png`,
-                                promotionsState: `上架`
-                            },
-                            {
-                                promotionsNo: `2`,
-                                promotionsName: `2022 Happy mom's day`,
-                                promotionsStartDate: `2022/05/01`,
-                                promotionsEndDate: `2022/05/31`,
-                                promotionsEndTxt:``,
-                                promotionsImagePath: `./images/news.moms_day.png`,
-                                promotionsState: `下架`
-                            },
-                            {
-                                promotionsNo: `3`,
-                                promotionsName: `2022 Happy new year`,
-                                promotionsStartDate: `2022/01/01`,
-                                promotionsEndDate: `2022/02/06`,
-                                promotionsEndTxt:``,
-                                promotionsImagePath: `./images/news.newyear.png`,
-                                promotionsState: `下架`
-                            },
-                            {
-                                promotionsNo: `4`,
-                                promotionsName: `LUFY 10 Anniversary`,
-                                promotionsStartDate: `2021/11/16`,
-                                promotionsEndDate: `2021/12/31`,
-                                promotionsEndTxt:``,
-                                promotionsImagePath: `./images/news.tenyear.jpg`,
-                                promotionsState: `下架`
-                            },
-                            {
-                                promotionsNo: `5`,
-                                promotionsName: ``,
-                                promotionsStartDate: ``,
-                                promotionsEndDate: ``,
-                                promotionsEndTxt:``,
-                                promotionsImagePath: ``,
-                                promotionsState: ``
-                            },
-                            {
-                                promotionsNo: `6`,
-                                promotionsName: ``,
-                                promotionsStartDate: ``,
-                                promotionsEndDate: ``,
-                                promotionsEndTxt:``,
-                                promotionsImagePath: ``,
-                                promotionsState: ``
-                            },
-                        ]
-                    }
+                        promoRows:[],
+                    },
+                    created(){
+                        let xhr = new XMLHttpRequest();
+                        xhr.onload = function(){
+                            promotionsVue.promoRows = JSON.parse(xhr.responseText);
+                            
+                        }
+                        xhr.open("get", "getPromotions.php",true);
+                        xhr.send(null);	
+                    },
                 })
             </script>
             <!-- 最新消息管理 -->
@@ -629,15 +581,16 @@
                     <div class="backend_title">
                         <p class="p1 pr_1 font_w5 fontcontent">消息編號</p>
                         <p class="p1 pr_1 font_w5 fontcontent listGrow">消息名稱</p>
-                        <p class="p1 pr_1 font_w5 fontcontent">消息開始日期</p>
-                        <p class="p1 pr_1 font_w5 fontcontent">消息結束日期</p>
+                        <p class="p1 pr_1 font_w5 fontcontent">消息發佈日期</p>
+                        <p class="p1 pr_1 font_w5 fontcontent listGrow">消息內文</p>
                         <p class="p1 pr_1 font_w5 fontcontent listGrow">消息圖片路徑</p>
                         <p class="p1 pr_1 font_w5 fontcontent">狀態</p>
                         <p></p>
                     </div>
                     <ul id="newsList">
-                        <C_menu v-for="C_backendMenu in newsObject" v-bind="C_backendMenu">
-                        </C_menu>
+                        <template v-for="newsRow in newsRows">
+                            <li is="C_menu" v-bind="newsRow"></li>
+                        </template>
                     </ul>
                     <!-- <div class="pages">
                         <p class="p1 pl_1 pr_1">1</p>
@@ -646,66 +599,43 @@
                 </div>
             </section>
             <script>
-                let C_backendMenu = Vue.component('C_menu', {
-                    props: ['newsNo', 'newsName', 'newsStartDate', 'newsEndDate','newsImagePath','newsState'],
+                let newsRow = Vue.component('C_menu', {
+                    props: ['news_no', 'news_title', 'news_publish', 'news_text','newsImage_path','news_state'],
                     template: `
                         <li class="backend_details">
                             <div class="backend_text">
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{newsNo}}</p>
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{newsName}}</p>
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{newsStartDate}}</p>
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{newsEndDate}}</p>
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{newsImagePath}}</p>
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{newsState}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{news_no}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{news_title}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{news_publish}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{news_text}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{newsImage_path}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{news_state}}</p>
                                 <button class="p1 newsbtn" id="C_Edit">Edit</button>
                             </div>
                         </li>
                     `,
-                })
+                });
+                let newsVue = 
                 new Vue({
                     el: '#newsList',
                     data: {
-                        newsObject: [
-                            {
-                                newsNo: `1`,
-                                newsName: `Latest Product`,
-                                newsStartDate: `2022/04/21`,
-                                newsEndDate: `2022/06/02`,
-                                newsImagePath: `./images/news.lamp.png`,
-                                newsState: `上架`
-                            },
-                            {
-                                newsNo: `2`,
-                                newsName: `Latest Designer`,
-                                newsStartDate: `2022/02/15`,
-                                newsEndDate: `2022/03/30`,
-                                newsImagePath: `./images/news.moms_day.png`,
-                                newsState: `下架`
-                            },
-                            {
-                                newsNo: `3`,
-                                newsName: ``,
-                                newsStartDate: ``,
-                                newsEndDate: ``,
-                                newsImagePath: ``,
-                                newsState: ``
-                            },
-                            {
-                                newsNo: `4`,
-                                newsName: ``,
-                                newsStartDate: ``,
-                                newsEndDate: ``,
-                                newsImagePath: ``,
-                                newsState: ``
-                            },
-                        ]
-                    }
+                        newsRows: []
+                    },
+                    created(){
+                        let xhr = new XMLHttpRequest();
+                        xhr.onload = function(){
+                            newsVue.newsRows = JSON.parse(xhr.responseText);
+                            
+                        }
+                        xhr.open("get", "getNews.php",true);
+                        xhr.send(null);	
+                    },
                 })
             </script>
             <!-- 輪播管理 -->
             <section class="mem_content" id="mainElm6">
                 <div class="ps_1 pe_1 pl_1 pr_1 backend_titleH1">
-                    <h1 class="h1 font_w5 fontTitle">輪播管理</h1>
+                    <h1 class="h1 font_w5 fontTitle">Carousel</h1>
                 </div>
                 <div class="ps_1 pe_1 pl_1 pr_1">
                     <div class="pr_1 pe_1 ps_2"></div>
@@ -716,9 +646,14 @@
                         <p class="p1 pr_1 font_w5 fontcontent listGrow">圖片預覽</p>
                         <p class=""></p>
                     </div>
-                    <ul id="carouselList">
+                    <!-- <ul id="carouselList">
                         <P_menu v-for="P_backendMenu in carouselObject" v-bind="P_backendMenu">
                         </P_menu>
+                    </ul> -->
+                    <ul id="carouselList">
+                        <template v-for="carouselRow in carouselRows">
+                            <li is="P_menu" v-bind="carouselRow"></li>
+                        </template>
                     </ul>
                     <!-- <div class="pages">
                         <p class="p1 pl_1 pr_1">1</p>
@@ -727,63 +662,58 @@
                 </div>
             </section>
             <script>
-                let P_backendMenu = Vue.component('P_menu', {
-                    props: ['carouselNo', 'carouselName', 'carouselImagePath','carouselImage'],
+                let carouselRow = Vue.component('P_menu', {
+                    props: ['carousel_no', 'carousel_name', 'carousel_path'],
                     template: `
                         <li class="backend_details">
                             <div class="backend_text carouselPlace">
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{carouselNo}}</p>
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{carouselName}}</p>
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{carouselImagePath}}</p>
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow"><img :src="carouselImagePath"></img></p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{carousel_no}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{carousel_name}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{carousel_path}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow"><img :src="carousel_path"></img></p>
                                 <p><button class="p1 newsbtn">Upload</button></p>
                                 
                             </div>
                         </li>
                     `,
-                })
+                });
+                let carouselVue =
                 new Vue({
                     el: '#carouselList',
                     data: {
-                        carouselObject: [
-                            {
-                                carouselNo: `1`,
-                                carouselName: `活動1`,
-                                carouselImagePath: `./images/index_carousel_Banner_01.webp`,
-                            },
-                            {
-                                carouselNo: `2`,
-                                carouselName: `活動2`,
-                                carouselImagePath: `./images/index_carousel_Banner_02.webp`,
-                            },
-                            {
-                                carouselNo: `3`,
-                                carouselName: `活動2`,
-                                carouselImagePath: `./images/index_carousel_Banner_03.webp`,
-                            },
-                        ]
-                    }
+                        carouselRows: [],
+                    },
+                    created(){
+                        let xhr = new XMLHttpRequest();
+                        xhr.onload = function(){
+                            carouselVue.carouselRows = JSON.parse(xhr.responseText);
+                            
+                        }
+                        xhr.open("get", "getcarousel.php",true);
+                        xhr.send(null);	
+                    },
                 })
             </script>
-            <!-- 設計師管理 -->
+            <!-- 後台管理員 -->
             <section class="mem_content" id="mainElm7">
                 <div class="ps_1 pe_1 pl_1 pr_1 backend_titleH1">
-                    <h1 class="h1 font_w5 fontTitle">Designer Manage</h1>
+                    <h1 class="h1 font_w5 fontTitle">Manage</h1>
                 </div>
                 <div class="ps_1 pe_1 pl_1 pr_1">
                     <div class="pr_1 pe_1 newListBtn"><button class="p1 newsbtn" id="D_New">✚ NEW</button></div>
                     <div class="backend_title">
-                        <p class="p1 pr_1 font_w5 fontcontent">設計師編號</p>
-                        <p class="p1 pr_1 font_w5 fontcontent">設計師姓名</p>
-                        <p class="p1 pr_1 font_w5 fontcontent listGrow">設計師簡介</p>
-                        <p class="p1 pr_1 font_w5 fontcontent">狀態</p>
-                        <p class="p1 pr_1 font_w5 fontcontent">設計師帳號</p>
-                        <p class="p1 pr_1 font_w5 fontcontent listGrow">圖片路徑</p>
+                        <p class="p1 pr_1 font_w5 fontcontent">人員編號</p>
+                        <p class="p1 pr_1 font_w5 fontcontent listGrow">人員姓名</p>
+                        <p class="p1 pr_1 font_w5 fontcontent listGrow">人員帳號</p>
+                        <p class="p1 pr_1 font_w5 fontcontent listGrow">人員密碼</p>
+                        <p class="p1 pr_1 font_w5 fontcontent">人員類別</p>
+                        <p class="p1 pr_1 font_w5 fontcontent">人員狀態</p>
                         <p></p>
                     </div>
-                    <ul id="designerList">
-                        <D_menu v-for="D_backendMenu in designerObject" v-bind="D_backendMenu">
-                        </D_menu>
+                    <ul id="managersList">
+                        <template v-for="managersRow in managersRows">
+                            <li is="D_menu" v-bind="managersRow"></li>
+                        </template>
                     </ul>
                     <!-- <div class="pages">
                         <p class="p1 pl_1 pr_1">1</p>
@@ -792,60 +722,37 @@
                 </div>
             </section>
             <script>
-                let D_backendMenu = Vue.component('D_menu', {
-                    props: ['designerNo', 'designerName', 'designerInt', 'designerState','designerAccount','designerImagePath'],
+                let managersRow = Vue.component('D_menu', {
+                    props: ['manager_no', 'manager_name', 'account', 'password','role','state'],
                     template: `
                         <li class="backend_details">
                             <div class="backend_text">
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{designerNo}}</p>
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{designerName}}</p>
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{designerInt}}</p>
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{designerState}}</p>
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{designerAccount}}</p>
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{designerImagePath}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{manager_no}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{manager_name}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{account}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{password}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{role}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{state}}</p>
                                 <button class="p1 newsbtn" id="D_Edit">Edit</button>
                             </div>
                         </li>
                     `,
-                })
+                });
+                let managersVue =
                 new Vue({
-                    el: '#designerList',
+                    el: '#managersList',
                     data: {
-                        designerObject: [
-                            {
-                                designerNo: `1`,
-                                designerName: `阿宏師`,
-                                designerInt: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit facere, sequi, temporibus tempora ab veniam illo possimus repellendus quidem perferendis labore aliquid eos nemo cupiditate qui sunt minus exercitationem enim! Corrupti excepturi qui sapiente minus id eos voluptatum sunt voluptates quam eaque commodi, veniam asperiores quidem error adipisci incidunt repudiandae. Laborum consequuntur facere nam alias quis fugiat enim ratione minima ipsa consequatur officiis, ipsam illum sunt laboriosam est autem architecto, laudantium eos officia aliquid id aut. Adipisci laudantium, veniam dignissimos nesciunt omnis sunt sapiente nihil debitis quas optio. Tempora ex in quaerat iusto obcaecati corporis et exercitationem? Quas, magnam officiis?`,
-                                designerState: `正常`,
-                                designerAccount: `yh123`,
-                                designerImagePath: `./images/news.lamp.png`
-                            },
-                            {
-                                designerNo: `2`,
-                                designerName: `阿敏師`,
-                                designerInt: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit facere, sequi, temporibus tempora ab veniam illo possimus repellendus quidem perferendis labore aliquid eos nemo cupiditate qui sunt minus exercitationem enim! Corrupti excepturi qui sapiente minus id eos voluptatum sunt voluptates quam eaque commodi, veniam asperiores quidem error adipisci incidunt repudiandae. Laborum consequuntur facere nam alias quis fugiat enim ratione minima ipsa consequatur officiis, ipsam illum sunt laboriosam est autem architecto, laudantium eos officia aliquid id aut. Adipisci laudantium, veniam dignissimos nesciunt omnis sunt sapiente nihil debitis quas optio. Tempora ex in quaerat iusto obcaecati corporis et exercitationem? Quas, magnam officiis?`,
-                                designerState: `正常`,
-                                designerAccount: `zu123`,
-                                designerImagePath: `./images/news.moms_day.png`
-                            },
-                            {
-                                designerNo: `3`,
-                                designerName: ``,
-                                designerInt: ``,
-                                designerState: ``,
-                                designerAccount: ``,
-                                designerImagePath: ``
-                            },
-                            {
-                                designerNo: `4`,
-                                designerName: ``,
-                                designerInt: ``,
-                                designerState: ``,
-                                designerAccount: ``,
-                                designerImagePath: ``
-                            },
-                        ]
-                    }
+                        managersRows: [],
+                    },
+                    created(){
+                        let xhr = new XMLHttpRequest();
+                        xhr.onload = function(){
+                            managersVue.managersRows = JSON.parse(xhr.responseText);
+                            
+                        }
+                        xhr.open("get", "getManagers.php",true);
+                        xhr.send(null);	
+                    },
                 })
             </script>
         </div>
