@@ -15,10 +15,37 @@
 
 
      let str4 = document.querySelector(".arriveTime").value;
-
-     // let dateString = str4.toString();
-
      localStorage.setItem("arriveTime", str4);
+
+     let str5 = document.querySelector(".pname").value;
+     localStorage.setItem("pname", str5);
+
+     let str6 = document.querySelector(".pphone").value;
+     localStorage.setItem("pphone", str6);
+
+     let str7 = document.querySelector(".paddress").value;
+     localStorage.setItem("paddress", str7);
+
+     let str8 = document.querySelector(".card1").value;
+     localStorage.setItem("card1", str8);
+
+     let str9 = document.querySelector(".card2").value;
+     localStorage.setItem("card2", str9);
+
+     let str10 = document.querySelector(".card3").value;
+     localStorage.setItem("card3", str10);
+
+
+
+
+
+
+
+
+
+
+
+
 
      // console.log(dateString);
      // console.log(str4);

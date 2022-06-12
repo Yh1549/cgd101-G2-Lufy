@@ -42,11 +42,119 @@
             </div>
             <div class="shipping_method">
                 <h3 class="h3"></h3>
-                <a href="cartEdit4.html"><input type="button" class="btn_small sendBtn" value="Send an Order"></a>
+                <input type="button" class="btn_small sendBtn" value="Send an Order" id="btnNext">
                 <a href="cartEdit.html"><button class="btn_small">Go back</button></a>
             </div>
 
         </div>
+        <form id="myForm2" method="post" action="prodInsert.php" enctype="multipart/form-data">
+            <table>
+
+                <tr>
+                    <td>
+                        <h2 class="h2"> Member NO : <input type="text" class="memNo" name="memNo" value="1"></h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h2 class="h2"> Order time : <input type="text" class="orderTime" name="orderTime"></h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h2 class="h2"> Order state : <input type="text" class="orderState" name="orderState" value="0"></h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h2 class="h2"> Order note : <input type="text" class="orderNote" name="orderNote" value="0"></h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h2 class="h2"> Order total : <input type="text" class="orderTotal" name="ordertotal"></h2>
+                    </td>
+                </tr>
+
+            </table>
+        </form>
+        <form id="myForm" method="post" action="prodInsert.php" enctype="multipart/form-data">
+            <table>
+
+                <tr>
+                    <td>
+                        <h2 class="h2"> Product no : <input type="text" class="productNo" name="productNo"></h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h2 class="h2"> Product counts : <input type="text" class="productCounts" name="productCounts"></h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h2 class="h2"> Product price : <input type="text" class="productPrice" name="productPrice"></h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h2 class="h2"> Payer name : <input type="text" class="payerName" name="payerName"></h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h2 class="h2"> Payer phone : <input type="text" class="payerPhone" name="payerPhone"></h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h2 class="h2"> Payer address : <input type="text" class="payerAddress" name="payerAddress"></h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h2 class="h2"> Credit card : <input type="text" class="creditCard1" name="creditCard1"></h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h2 class="h2"> Credit card data : <input type="text" class="creditCard2" name="creditCard2"></h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h2 class="h2"> Credit check : <input type="text" class="creditCard3" name="creditCard3"></h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h2 class="h2"> OrderPrice : <input type="text" class="orderPrice" name="orderPrice"></h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h2 class="h2"> Receiver name : <input type="text" class="receiverName" name="receiverName"></span>
+                        </h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h2 class="h2"> Tel : <input type="text" class="receiverPhone" name="receiverPhone"></h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h2 class="h2"> Address : <input type="text" class="receiverAddress" name="receiverAddress"></h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h2 class="h2"> Arrive Date : <input type="text" class="arriveDate" name="arriveDate"></h2>
+                    </td>
+                </tr>
+            </table>
+        </form>
+
 
 
 
@@ -70,6 +178,7 @@
         window.addEventListener("load",setPrice.false);
     </script> -->
     <script src="./js/cartEdit3.js"></script>
+
     <!-- footer  -->
     @@include('layout/footer.html')
 
