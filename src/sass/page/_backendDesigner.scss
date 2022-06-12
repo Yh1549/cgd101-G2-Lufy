@@ -99,13 +99,14 @@ body:hover::-webkit-scrollbar-thumb{
     height: auto;
     min-height: 100vh;
     & .beMenu{
-        width: 15%;
+        width: 12.5%;
         
         background-color: $secondary_100;
         box-sizing: border-box;
         position: relative;
         .logo{
-            width: 12rem;
+            width: 200px;
+            margin: 0 auto;
             position: sticky;
             top: 0;
             left: 0;
@@ -115,20 +116,32 @@ body:hover::-webkit-scrollbar-thumb{
                 object-fit: cover;
             }
         }
-        & ul{
-            position: sticky;
+        & ul {
+            width: 12.5%;
+            position: fixed;
             top: 100px;
             left: 0;
-            & li{
-                color: $fontcolor_10;
-                display: block;
+
+            & li {
+                color: $fontcolor_70;
+                border-left: 3px solid transparent;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
                 cursor: pointer;
             }
-            & a{
+
+            & a {
                 text-decoration: none;
             }
-            & li:hover{
-                background-color: $primary_100;
+
+            & li:hover {
+                border-left: 3px solid $primary_dark;
+                color: $primary_dark;
+            }
+
+            & li.currentM {
+                color: $white;
             }
         }
     }

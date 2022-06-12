@@ -137,11 +137,31 @@
                             chandeliersName: `chandeliers Name3`,
                             chandeliersInfoLink: './productInner.html',
                         }, ],
-                    }, //變數放這裡!            
-                    mounted: {},
-                    methods: {}, // 函數大部分放這裡!            
-                    computed: {},
-                    components: {},
+                    },
+                    created() {
+                        // let xhr = new XMLHttpRequest();
+                        // xhr.onload = function () {
+                        //     productCommodity.commodityObject = JSON.parse(xhr.responseText);
+                        //     console.log(xhr.responseText)
+                        // }
+                        // xhr.open("get", "productMain.php", true);
+                        // console.log(commodity)
+                        // console.log(grid_masonry)
+                        // xhr.send(null);
+                        // -------------------------------------------------
+                        const product_no = window.location.search.split('id=')[1];
+                        // axios.get(`productMain.php?id=${product_no
+                        //     }`).then(function (response) {
+                        //         productCommodity.commodityObject = response.data;
+                        //     });
+                    },
+                    mounted() {
+                        // const product_no = window.location.search.split('id=')[1];
+                        axios.get(`productMain.php?id=${product_no
+                            }`).then(function (response) {
+                                productCommodity.commodityObject = response.data;
+                            });
+                    },
                 });
             </script>
         </section>

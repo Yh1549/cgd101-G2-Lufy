@@ -26,23 +26,67 @@
         <section class="index_carousel">
             <div class="container me_8">
                 <div class="swiper mySwiper" id="index_carousel">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <img src="./images/index_carousel_Banner_01.webp" alt="" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="./images/index_carousel_Banner_02.webp" alt="" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="./images/index_carousel_Banner_03.webp" alt="" />
-                        </div>
-                    </div>
+                    <div class="swiper-wrapper" id="carouselRows"></div>
                     <div class="swiper-button-next"></div>
                     <div class="swiper-button-prev"></div>
                     <div class="swiper-pagination"></div>
                 </div>
             </div>
         </section>
+        <script>
+            Vue.component('carousel-rows', {
+                props: ['carousel'],
+                template: ` 
+                <div class="swiper-slide"  >
+                    <img :src="'images//'+ carousel.carousel_path" alt="" />
+                </div>`,
+            })
+            const index_carousel = new Vue({
+                el: '#index_carousel',
+                data: {
+                    carouselImg: [],
+                },
+                created() {
+                    // this.getCarouselXHR();
+                    this.getCarouselAxios()
+                },
+                methods: {
+                    getCarouselAxios() {
+                        axios.get(`./getCarousels.php`).then((response) => {
+                            console.log(response.data);
+                            index_carousel.carouselImg = response.data;
+                            this.showCarousels(response.data)
+                        })
+                            .catch(err => console.log(err));
+                    },
+                    getCarouselXHR() {
+                        let xhr = new XMLHttpRequest();
+                        xhr.onload = () => {
+
+                            if (xhr.status === 200) {
+                                console.log(xhr.responseText);
+                                this.showCarousels(xhr.responseText);
+                            }
+                            else { console.log(xhr.status) }
+                        }
+                        xhr.open('get', 'getCarousels.php', true);
+                        xhr.send(null);
+                    },
+                    showCarousels(json) {
+                        let carouselRows = (json);
+                        let html = "";
+                        for (let i in carouselRows) {
+
+                            html += `
+                        <div class="swiper-slide">
+                            <img src="images//${carouselRows[i].carousel_path}" alt="" />
+                        </div>`;
+                        }
+                        document.getElementById('carouselRows').innerHTML = html;
+                    },
+                },
+            })
+        </script>
     </section>
     <!-- 專案實例 -->
     <section class="index_project">
@@ -61,7 +105,8 @@
                     <div class="content ms_1 mr_1 me_1 ml_1">
                         <h2 class="h1 me_1">Project Name1</h2>
                         <h3 class="h4 me_1">
-                            Project content. This project is design by James Barry with the laxury lamp#1. The laxury lamp#1 is a type of legence lamp. Everyone love it.
+                            Project content. This project is design by James Barry with the laxury lamp#1. The laxury
+                            lamp#1 is a type of legence lamp. Everyone love it.
                         </h3>
                         <p class="h5 me_4">James Barry</p>
                         <a href="projectInner1.html" class="btn_normal"> more </a>
@@ -72,7 +117,8 @@
                     <div class="content ms_1 mr_1 me_1 ml_1">
                         <h2 class="h1 me_1">Project Name2</h2>
                         <h3 class="h4 me_1">
-                            Project content. This project is design by James Barry with the laxury lamp#1. The laxury lamp#1 is a type of legence lamp. Everyone love it.
+                            Project content. This project is design by James Barry with the laxury lamp#1. The laxury
+                            lamp#1 is a type of legence lamp. Everyone love it.
                         </h3>
                         <p class="h5 me_4">James Barry</p>
                         <a href="projectInner1.html" class="btn_normal"> more </a>
@@ -83,7 +129,8 @@
                     <div class="content ms_1 mr_1 me_1 ml_1">
                         <h2 class="h1 me_1">Project Name3</h2>
                         <h3 class="h4 me_1">
-                            Project content. This project is design by James Barry with the laxury lamp#1. The laxury lamp#1 is a type of legence lamp. Everyone love it.
+                            Project content. This project is design by James Barry with the laxury lamp#1. The laxury
+                            lamp#1 is a type of legence lamp. Everyone love it.
                         </h3>
                         <p class="h5 me_4">James Barry</p>
                         <a href="projectInner1.html" class="btn_normal"> more </a>
@@ -176,98 +223,31 @@
                 </div>
             </div>
             <script>
-                let commodity = Vue.component("product-commodity", {
-                    props: ["commodityLink", "commodityImg", "commodityName"],
-                    template: ` <a class="grid-item" :href="commodityLink">
-                        <div  class="commodityImg">
-                        <img :src="commodityImg" :alt="commodityName">
-                        </div>
-                            <div class="commodity">
-                              <h2>{{commodityName}}</h2>
-                              <span class="material-icons">
-                                  favorite
-                              </span>
-                          </div>
-                      </a> `,
-                });
+                let commodity = Vue.component('product-commodity', {
+                    props: ['image_path', 'name', 'product_no'],
+                    template: `<a class="grid-item" :href="'./productMain_axios.html?id=' + product_no">
+                                                <div  class="commodityImg">
+                                                    <img :src="'images//'+image_path" :alt="name">
+                                                </div>
+                                                <div class="commodity">
+                                                    <h2>{{name}}</h2>
+                                                    <span class="material-icons">
+                                                        favorite
+                                                    </span>
+                                                </div>
+                                            </a> `,
+                })
                 const productCommodity = new Vue({
-                    el: "#grid_masonry",
+                    el: '#grid_masonry',
                     data: {
-                        commodityObject: [{
-                            commodityLink: `./productInner.html`,
-                            commodityImg: `./images/product_01.webp`,
-                            commodityName: `Floor Lamps`,
-                        }, {
-                            commodityLink: `./productInner.html`,
-                            commodityImg: `./images/product_02.webp`,
-                            commodityName: `Floor Lamps`,
-                        }, {
-                            commodityLink: `./productInner.html`,
-                            commodityImg: `./images/product_03.webp`,
-                            commodityName: `Floor Lamps`,
-                        }, {
-                            commodityLink: `./productInner.html`,
-                            commodityImg: `./images/product_04.webp`,
-                            commodityName: `Floor Lamps`,
-                        }, {
-                            commodityLink: `./productInner.html`,
-                            commodityImg: `./images/product_05.webp`,
-                            commodityName: `Floor Lamps`,
-                        }, {
-                            commodityLink: `./productInner.html`,
-                            commodityImg: `./images/product_06.webp`,
-                            commodityName: `Floor Lamps`,
-                        }, {
-                            commodityLink: `./productInner.html`,
-                            commodityImg: `./images/product_07.webp`,
-                            commodityName: `Floor Lamps`,
-                        }, {
-                            commodityLink: `./productInner.html`,
-                            commodityImg: `./images/product_08.webp`,
-                            commodityName: `Floor Lamps`,
-                        }, {
-                            commodityLink: `./productInner.html`,
-                            commodityImg: `./images/product_09.webp`,
-                            commodityName: `Floor Lamps`,
-                        }, {
-                            commodityLink: `./productInner.html`,
-                            commodityImg: `./images/product_10.webp`,
-                            commodityName: `Floor Lamps`,
-                        }, {
-                            commodityLink: `./productInner.html`,
-                            commodityImg: `./images/product_11.webp`,
-                            commodityName: `Floor Lamps`,
-                        }, {
-                            commodityLink: `./productInner.html`,
-                            commodityImg: `./images/product_12.webp`,
-                            commodityName: `Floor Lamps`,
-                        }, {
-                            commodityLink: `./productInner.html`,
-                            commodityImg: `./images/product_13.webp`,
-                            commodityName: `Floor Lamps`,
-                        }, {
-                            commodityLink: `./productInner.html`,
-                            commodityImg: `./images/product_14.webp`,
-                            commodityName: `Floor Lamps`,
-                        }, {
-                            commodityLink: `./productInner.html`,
-                            commodityImg: `./images/product_15.webp`,
-                            commodityName: `Floor Lamps`,
-                        }, {
-                            commodityLink: `./productInner.html`,
-                            commodityImg: `./images/product_16.webp`,
-                            commodityName: `Floor Lamps`,
-                        }, {
-                            commodityLink: `./productInner.html`,
-                            commodityImg: `./images/product_17.webp`,
-                            commodityName: `Floor Lamps`,
-                        }, {
-                            commodityLink: `./productInner.html`,
-                            commodityImg: `./images/product_18.webp`,
-                            commodityName: `Floor Lamps`,
-                        }, ],
+                        commodityObject: []
                     },
-                });
+                    created() {
+                        axios.get('productMain.php').then(function (response) {
+                            productCommodity.commodityObject = response.data;
+                        });
+                    },
+                })
             </script>
         </section>
     </section>
@@ -350,7 +330,7 @@
                                 newsTitle: `New Style Creative`,
                                 newsContent: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ipsum, maecenas et tristique convallis cras est aliquet arcu.`,
                                 newsInfoLink: `news.html`,
-                            }, ],
+                            },],
                         },
                     });
                 </script>
@@ -368,8 +348,10 @@
                     <div class="content">
                         <h2 class="h1 ms_2 me_1">About Light Up For You</h2>
                         <p class="h4 me_2">
-                            Starting from six sketches in 1991, the founder Meiric sowed a design seed, carefully irrigated with delicate thinking and rigorous attitude, rubbed light and shadow into brush and ink, and outlined the lighting imagination in his heart.<br
-                            /> We firmly believe that "light" can bring more beautiful value to life, which is our original intention.
+                            Starting from six sketches in 1991, the founder Meiric sowed a design seed, carefully
+                            irrigated with delicate thinking and rigorous attitude, rubbed light and shadow into brush
+                            and ink, and outlined the lighting imagination in his heart.<br /> We firmly believe that
+                            "light" can bring more beautiful value to life, which is our original intention.
                         </p>
                         <a href="./aboutUs.html" class="btn h4 me_2">more</a>
                     </div>

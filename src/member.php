@@ -1,24 +1,24 @@
 <?php
-try{
-    require_once("connect_lufy.php");
-
-    $sql = "select * from member where member_mail=:memId and member_psw=:memPsw ";
-    // $sql = "select * from member where member_mail=:memId";
-    // $sql = "select * from member";
-    $member = $pdo->prepare($sql);
-    $member->bindValue(":memId", $_POST["memId"]);
-    $member->bindValue(":memPsw", $_POST["memPsw"]);
-    $member->execute();
-    if( $member->rowCount() != 0){
-        echo "登入成功";
-        $memRow = $member->fetch(PDO::FETCH_ASSOC);
-        //登入成功,將登入者的資料寫入cookie
-        -setcookie("memId", $memRow["member_mail"], time()+60);//60秒後失效
-        -setcookie("memName", $memRow["member_name"], time()+60);
-      }else{
-        echo "輸入錯誤";
-      } 
-}catch(PDOException $e){
-    echo "error";
+session_start();
+try {
+  require_once("connect_lufy.php");
+  $sql = "select * from member where member_mail=:memId and member_psw=:memPsw ";//登入
+  // $sql = "select * from member where member_mail=123 and member_psw=123 ";
+  $member = $pdo->prepare($sql);
+  $member->bindValue(":memId", $_POST["memId"]);
+  $member->bindValue(":memPsw", $_POST["memPsw"]);
+  $member->execute();
+  if ($member->rowCount() != 0) {
+    $memRow = $member->fetch(PDO::FETCH_ASSOC);
+    //登入成功,將登入者的資料寫入session
+    $_SESSION["memNo"] = $memRow["member_no"];
+    $_SESSION["memEmail"] = $memRow["member_mail"];
+    $_SESSION["memName"] = $memRow["member_name"];
+    $_SESSION["memPsw"] = $memRow["member_psw"];
+  } else {
+    echo "輸入錯誤";
+  }
+} catch (PDOException $e) {
+  // echo "error";
+  echo $e->getMessage();
 }
-?>

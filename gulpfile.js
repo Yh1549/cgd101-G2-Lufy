@@ -26,10 +26,15 @@ function moveJs() {
         }))
         .pipe(dest('dist/js'))
 }
+
 function movePhp() {
     return src('src/*.php').pipe(dest('dist'))
 }
 
+// Json move
+function moveJson() {
+    return src('src/json/*.json').pipe(dest('dist/json'))
+}
 //img move
 function moveImg() {
     return src('src/images/*.*').pipe(dest('dist/images'))
@@ -85,6 +90,7 @@ function clear() {
 function watchfile() {
     watch(['src/*.html', 'src/**/*.html'], includeHTML) // 監看html
     watch('src/js/*.js', moveJs) // 監看js
+    watch('src/json/*.json', moveJson) // 監看json
     watch(['src/images/*.*', 'src/images/**/*.*'], moveImg) // 監看img
     watch('src/productpages/*.*', moveProductPages) // 監看moveProductPages
     watch(['./src/sass/*.scss', './src/sass/**/*.scss'], styleSass) // 監看sass
@@ -103,8 +109,10 @@ function browser(done) {
         },
         port: 3000
     });
+    watch(['src/*.php', 'src/**/*.php'], movePhp).on('change', reload) // 監看php
     watch(['src/*.html', 'src/**/*.html'], includeHTML).on('change', reload) // 監看html
     watch('src/js/*.js', moveJs).on('change', reload) // 監看js
+    watch('src/json/*.json', moveJson).on('change', reload) // 監看json
     watch(['src/images/*.*', 'src/images/**/*.*'], moveImg).on('change', reload) // 監看 img
     watch('src/productpages/*.*', moveProductPages).on('change', reload) // 監看 moveProductPages
     watch(['./src/sass/*.scss', './src/sass/**/*.scss'], styleSass).on('change', reload) // 監看sass
@@ -113,12 +121,12 @@ function browser(done) {
 
 
 // 監看
-exports.w = series(parallel(moveJs, moveImg, includeHTML, moveProductPages, styleSass), watchfile)
+exports.w = series(parallel(movePhp, moveJs, moveJson, moveImg, includeHTML, moveProductPages, styleSass), watchfile)
 
 
 //瀏覽器同步
-exports.default = series(clear, parallel(movePhp, moveJs, includeHTML, styleSass, moveProductPages, moveImg), browser)
+exports.default = series(clear, parallel(movePhp, moveJs, moveJson, includeHTML, styleSass, moveProductPages, moveImg), browser)
 
 
 //打包上線
-exports.package = series(clear, parallel(moveJs, includeHTML, styleSass, moveProductPages, min_images))
+exports.package = series(clear, parallel(movePhp, moveJs, moveJson, includeHTML, styleSass, moveProductPages, min_images))
