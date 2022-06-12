@@ -1,182 +1,172 @@
 .member_container {
-    display: flex;
-    width: 100%;
-    @include t() {
-        display: inline-block;
-    }
+  display: flex;
+  width: 100%;
+  @include t() {
+    display: inline-block;
+  }
 }
 .member_sidemenu {
-    width: 20%;
-    height: 100vh;
-    background-color: $primary_100;
-    & h1 {
-        margin: 20px;
-        color: $fontcolor_100;
+  width: 20%;
+  height: 80vh;
+  background-color: $primary_100;
+  text-align: center;
+  & button {
+    margin-top: 20px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: $white;
+    &:hover {
+      background-color: $secondary_70;
     }
-    & ul {
-        text-align: center;
-        color: $secondary_100;
-        & li {
-            cursor: pointer;
-            margin-bottom: 20px;
-            transition: 0.3s;
-            box-sizing: border-box;
-            border-bottom: 2px solid $primary_100;
-            &:hover {
-                background-color: $secondary_70;
-                color: $primary_30;
-                // border-bottom: 2px solid $secondary_70;
-            }
-            & button {
-                cursor: pointer;
-                background: none;
-                border: none;
-                color: $white;
-            }
-        }
+  }
+  & h1 {
+    margin: 20px;
+    color: $fontcolor_100;
+  }
+  & ul {
+    text-align: center;
+    color: $secondary_100;
+    & li {
+      cursor: pointer;
+      transition: 0.3s;
+      box-sizing: border-box;
+      border-bottom: 2px solid $primary_100;
+      &:hover {
+        background-color: $secondary_70;
+        color: $primary_30;
+      }
     }
+  }
 }
-
+.member_colstay{
+    background-color: $secondary_70;
+    color:$white;
+}
 .memberform_content {
-    width: 80%;
+  width: 80%;
 }
-
 .membercenter_form {
-    display: flex;
-    margin-right: auto;
-    margin-left: auto;
-    width: 70%;
+  display: flex;
+  margin-right: auto;
+  margin-left: auto;
+  width: 70%;
 }
-
 .memberform_profiles {
-    display: flex;
+  display: flex;
 }
-
 .member_hide {
-    display: none;
+  display: none;
 }
-
 .memberform_label {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
-
 //帳號登入
 #member_welcome {
-    width: 100%;
-    height: 100%;
-    & h1 {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+  width: 100%;
+  height: 100%;
+  & h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  & span {
+    display: flex;
+    justify-content: center;
+    color: $fontcolor_100;
+    & a {
+      padding-left: 10px;
+      font-size: 20px;
     }
-    & span {
-        display: flex;
-        justify-content: center;
-        color: $fontcolor_100;
-        & a {
-            padding-left: 10px;
-            font-size: 20px;
-        }
+  }
+  & form {
+    text-align: center;
+    & div {
+      margin: 20px;
+      & label {
+        padding: 0px 10px;
+      }
     }
-    & form {
-        text-align: center;
-        & div {
-            margin: 20px;
-            & label {
-                padding: 0px 10px;
-            }
-        }
-        & .btn_normal {
-            font-size: 20px;
-        }
+    & .btn_normal {
+      font-size: 20px;
     }
+  }
 }
-
 // -----
 #member_center_profiles {
-    margin-right: auto;
-    margin-left: auto;
-    width: 70%;
-    & form div label {
-        font-size: 20px;
-        padding: 8px 16px;
-        margin-top: 20px;
-        font-family: $fontcontent;
-    }
-    & form div input {
-        font-family: $fontcontent;
-        margin-top: 20px;
-    }
+  margin-right: auto;
+  margin-left: auto;
+  width: 70%;
+  & form div label {
+    font-size: 20px;
+    padding: 8px 16px;
+    margin-top: 20px;
+    font-family: $fontcontent;
+  }
+  & form div input {
+    font-family: $fontcontent;
+    margin-top: 20px;
+  }
 }
-
 #member_center_changepassword {
-    margin-right: auto;
-    margin-left: auto;
-    width: 70%;
-    & form div label {
-        font-size: 20px;
-        padding: 8px 16px;
-        margin-top: 20px;
-        font-family: $fontcontent;
-    }
-    & form div input {
-        font-family: $fontcontent;
-        margin-top: 20px;
-    }
+  margin-right: auto;
+  margin-left: auto;
+  width: 70%;
+  & form div label {
+    font-size: 20px;
+    padding: 8px 16px;
+    margin-top: 20px;
+    font-family: $fontcontent;
+  }
+  & form div input {
+    font-family: $fontcontent;
+    margin-top: 20px;
+  }
 }
-
 // ---
 .memtable {
-    width: 80%;
-    margin-right: auto;
-    margin-left: auto;
-    & thead tr th {
-        color: $secondary_100;
-        background-color: $primary_50;
-        border-right: 10px solid $white;
-    }
-    & tbody tr td {
-        text-align: center;
-        padding: 10px 0px;
-        border-bottom: 1px solid $secondary_100;
-    }
-}
-
-.member_photo {
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+  & thead tr th {
+    color: $secondary_100;
+    background-color: $primary_50;
+    border-right: 10px solid $white;
+  }
+  & tbody tr td {
     text-align: center;
-    // & input {
-    // }
-    & div {
-        margin-left: auto;
-        margin-right: auto;
-        width: 50%;
-        position: relative;
-        & label {
-            position: absolute;
-            top: 50%;
-            left: 25%;
-            color: $fontcolor_100;
-            transition: 0.3s;
-            font-size: 32px;
-            cursor: pointer;
-        }
-        & img {
-            width: 100%;
-            transition: 0.3s;
-        }
-        &:hover img {
-            filter: blur(3px);
-        }
-        &:hover label {
-            color: $fontcolor_10;
-            background-color: $primary_dark;
-            border: 2px solid $fontcolor_10;
-            border-radius: 10px;
-        }
-    }
+    padding: 10px 0px;
+    border-bottom: 1px solid $secondary_100;
+  }
 }
-
+.member_photo {
+  text-align: center;
+  & div {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    position: relative;
+    & label {
+      color: $fontcolor_100;
+      transition: 0.3s;
+      font-size: 32px;
+      cursor: pointer;
+    }
+    & img {
+      width: 100%;
+      transition: 0.3s;
+    }
+    &:hover img {
+      filter: blur(3px);
+    }
+    &:hover label {
+      color: $fontcolor_10;
+      background-color: $primary_dark;
+      border-radius: 10px;
+    }
+  }
+}
 .ip_file {
-    display: none;
+  display: none;
 }
