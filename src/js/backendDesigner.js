@@ -27,3 +27,21 @@ function sendForm() {
     xhr.send(new FormData(document.getElementById("desIntro")));
 
 }
+
+let desArticleBtn = document.getElementById('desArticleBtn');
+desArticleBtn.addEventListener("click", sendForm2);
+
+function sendForm2() {
+    // console.log(new FormData(document.getElementById("desIntro")));
+    let xhr = new XMLHttpRequest();
+    xhr.onload = function() {
+        alert(xhr.responseText);
+        console.log(xhr.responseText);
+    }
+
+
+    xhr.open("post", "designer_article.php");
+
+    xhr.send(new FormData(document.getElementById("desArticle")));
+
+}

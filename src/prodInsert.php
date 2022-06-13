@@ -1,11 +1,11 @@
 <?php
 
 try {
-	require_once("connect_lufy.lee.php");
+	require_once("../../connect_lufy.php");
 	        
-	$sql2 ="INSERT INTO `product_order`(`order_no`, `member_no`, `order_datetime`, `order_state`, `order_total`, `order_notes`) VALUES (null,:member_no,:order_datetime,:order_state,:order_total,:order_notes)"
+	$sql2 ="INSERT INTO `product_order`(`order_no`, `member_no`, `order_datetime`, `order_state`, `order_total`, `order_notes`) VALUES (null,:member_no,:order_datetime,:order_state,:order_total,:order_notes)";
 
-	$productorder = $pdo->preapre($sql2);
+	$productorder = $pdo->prepare($sql2);
 
 	$productorder ->bindValue(":member_no",$_POST["memNo"]);
 	$productorder ->bindValue(":order_datetime",$_POST["orderTime"]);
@@ -13,9 +13,9 @@ try {
 	$productorder ->bindValue(":order_total",$_POST["orderTotal"]);
 	$productorder ->bindValue("order_notes",$_POST["orderNote"]);
 
-
-	$productorder -> ececute();
-	$productRow = $productorder->fetch(PDO::FETCH_ASSOC);
+    $productRow = $productorder->fetch(PDO::FETCH_ASSOC);
+	$productorder -> execute();
+	
 	
 			$sql = "INSERT INTO `orderdetail`(`order_no`, `product_no`, `order_count`, `product_price`, `payer_name`, `payer_phone`, `payer_address`, `credit_card`,`credit_card_date`, `card_checkCode`, `recipient_name`, `recipient_phone`, `recipient_address`, `recipient_datetime`) VALUES (:order_no,:product_no,:order_count,:product_price,:payer_name,:payer_phone,:payer_address,:credit_card,:credit_card_date,:card_checkCode,:recipient_name,:recipient_phone,:recipient_address,:recipient_datetime)";
 			$orderdetail = $pdo->prepare( $sql );
