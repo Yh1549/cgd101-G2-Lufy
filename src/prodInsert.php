@@ -13,9 +13,9 @@ try {
 	$productorder ->bindValue(":order_total",$_POST["orderTotal"]);
 	$productorder ->bindValue("order_notes",$_POST["orderNote"]);
 
-    $productRow = $productorder->fetch(PDO::FETCH_ASSOC);
+
 	$productorder -> execute();
-	
+	$productRow = $productorder->fetch(PDO::FETCH_ASSOC);
 	
 			$sql = "INSERT INTO `orderdetail`(`order_no`, `product_no`, `order_count`, `product_price`, `payer_name`, `payer_phone`, `payer_address`, `credit_card`,`credit_card_date`, `card_checkCode`, `recipient_name`, `recipient_phone`, `recipient_address`, `recipient_datetime`) VALUES (:order_no,:product_no,:order_count,:product_price,:payer_name,:payer_phone,:payer_address,:credit_card,:credit_card_date,:card_checkCode,:recipient_name,:recipient_phone,:recipient_address,:recipient_datetime)";
 			$orderdetail = $pdo->prepare( $sql );
