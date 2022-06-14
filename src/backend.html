@@ -10,7 +10,7 @@
 <body>
     <!-- 會員燈箱 -->
     <div class="ps_1" id="N_lightBox" style="display:none">
-        <div class="ps_2 pe_2 pl_2 pr_2 lightBox_list">
+        <div class="ps_1 pe_1 pl_1 pr_1 lightBox_list">
             <form action="" class="formOne">
                 <div>
                     <div class="ps_1 pe_1">
@@ -63,7 +63,7 @@
     </div>
     <!-- 商品燈箱 -->
     <div class="ps_1" id="A_lightBox" style="display:none">
-        <div class="ps_2 pe_2 pl_2 pr_2 lightBox_list">
+        <div class="ps_1 pe_1 pl_1 pr_1 lightBox_list">
             <form action="" class="formOne">
                 <div style="width:50%">
                     <div class="ps_1 pe_1">
@@ -124,7 +124,7 @@
     </div>
     <!-- 優惠活動燈箱 -->
     <div class="ps_1" id="B_lightBox" style="display:none">
-        <div class="ps_2 pe_2 pl_2 pr_2 lightBox_list">
+        <div class="ps_1 pe_1 pl_1 pr_1 lightBox_list">
             <form action="" class="formOne">
                 <div style="width:30%">
                     <div class="ps_1 pe_1">
@@ -202,53 +202,72 @@
     </div>
     <!-- 最新消息燈箱 -->
     <div class="ps_1" id="C_lightBox" style="display:none">
-        <div class="ps_2 pe_2 pl_2 pr_2 lightBox_list">
-            <form action="" class="formOne">
-                <div style="width:30%">
-                    <div class="ps_1 pe_1">
-                        <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">No.</label>
-                        <input class="ip_normal" type="text" name="" id="">
+        <div class="lightBox_list">
+            <p class="ps_1 pe_1 pl_2 h1 lightBox_title">Create News</p>
+            <form id="myForm" enctype="multipart/form-data" class="ps_1 pe_1 pl_1 pr_1">
+                <div action="" class="formOne">
+                    <div style="width:50%">
+                        <div class="ps_1 pe_1 LBcol">
+                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">No.</label></div>
+                            <div class="pl_1 pr_1"><input class="ip_normal" type="text" name="news_no" id=""></div>
+                        </div>
+                        <div class="ps_1 pe_1 LBcol">
+                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Publish Date</label></div>
+                            <div class="pl_1 pr_1"><input type="date" name="news_publish" id=""></div>
+                        </div>
+                        <div class="ps_1 pe_1 LBcol">
+                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">State</label></div>
+                            <div class="pl_1 pr_1">
+                                <select name="news_state" id="">
+                                    <option value="0">上架</option>
+                                    <option value="1">下架</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
-                    <div class="ps_1 pe_1">
-                        <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">Start Date</label>
-                        <input type="date" name="" id="">
-                    </div>
-                    <div class="ps_1 pe_1">
-                        <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">End Date</label>
-                        <input type="date" name="" id="">
-                    </div>
-                    <div class="ps_1 pe_1">
-                        <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">Image</label>
-                        <input type="file" name="" id="">
-                    </div>
-                    <div class="ps_1 pe_1">
-                        <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">State</label>
-                        <select name="" id="">
-                            <option value="">上架</option>
-                            <option value="">下架</option>
-                        </select>
+                    <div style="width:50%">
+                        <div class="ps_1 pe_1 LBcol">
+                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Image</label></div>
+                            <div class="pl_1 pr_1"><input type="file" name="upFile" id="upFile"><div class="ps_1"><img id="newsImage" src="./images/imgUpload.jpg" alt=""></div></div>
+                        </div>
                     </div>
                 </div>
-                <div style="width:70%">
-                    <div class="ps_1 pe_1">
-                        <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">Title</label>
-                        <input class="ip_normal" type="text" name="" id="">
+                <div class="formOne formThree">
+                    <div class="ps_1 pe_1 LBcol">
+                        <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Title</label></div>
+                        <div class="pl_1 pr_1"><input class="ip_normal ip_width" type="text" name="news_title" id=""></div>
                     </div>
-                    <div class="ps_1 pe_1">
-                        <label class="p1 ps_1 pe_1 pl_1 pr_1" for="" style="vertical-align:top">Text</label>
-                        <textarea class="tArea" name="" id="" cols="100" rows="10"></textarea>
+                    <div class="ps_1 pe_1 LBcol">
+                        <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="" style="vertical-align:top">Text</label></div>
+                        <div class="pl_1 pr_1"><textarea class="p1 tArea" name="news_text" id="" cols="100" rows="5"></textarea></div>
                     </div>
+                </div>
+                <div class="ps_1 pr_1 lastBtn">
+                    <button class="ml_1 p1 newsbtn" id="C_btnCancel">Cancel</button>
+                    <button id="btnAdd" class="ml_1 p1 newsbtn">Confirm</button>
                 </div>
             </form>
-            <div class="lastBtn">
-                <button class="ml_1 p1 newsbtn" id="C_btnCancel">Cancel</button>
-                <button class="ml_1 p1 newsbtn">Confirm</button>
-            </div>
         </div>
+        <!-- <script>
+            window.addEventListener("load", function(){
+                //-----------------
+                document.getElementById("btnAdd").onclick = function(){
+                    let xhr = new XMLHttpRequest();
+                    xhr.onload = function(){
+                        alert(xhr.responseText);
+                        location.href="getNews.php";
+                    }
+        
+                    xhr.open("post", "newsInsert.php");
+                    xhr.send(new FormData(document.getElementById("myForm")));
+                }
+        
+            })
+        </script>	 -->
     </div>
     <!-- 設計師燈箱 -->
     <div class="ps_1" id="D_lightBox" style="display:none">
-        <div class="ps_2 pe_2 pl_2 pr_2 lightBox_list">
+        <div class="ps_1 pe_1 pl_1 pr_1 lightBox_list">
             <form action="" class="formOne">
                 <div>
                     <div class="ps_1 pe_1">
@@ -296,7 +315,7 @@
                 <li onclick="openClass(event,'mainElm4')" class="ps_1 pe_1 pl_1 pr_1 p1 tablink"><i class="fa-solid fa-tag pr_1"></i><p>優惠活動管理</p></li>
                 <li onclick="openClass(event,'mainElm5')" class="ps_1 pe_1 pl_1 pr_1 p1 tablink"><i class="fa-solid fa-flag pr_1"></i></i><p>最新消息管理</p></li>
                 <li onclick="openClass(event,'mainElm6')" class="ps_1 pe_1 pl_1 pr_1 p1 tablink"><i class="fa-solid fa-images pr_1"></i><p>輪播管理</p></li>
-                <li onclick="openClass(event,'mainElm7')" class="ps_1 pe_1 pl_1 pr_1 p1 tablink"><i class="fa-solid fa-compass-drafting pr_1"></i><p>後台管理員</p></li>
+                <li onclick="openClass(event,'mainElm7')" class="ps_1 pe_1 pl_1 pr_1 p1 tablink"><i class="fa-brands fa-hashnode pr_1"></i><p>後台管理員</p></li>
                 <a class="" href="index.html">
                     <li class="ps_1 pe_1 pl_1 pr_1 p1"><i class="fa-solid fa-right-from-bracket pr_1"></i><p>登出</p></li>
                 </a>
@@ -609,7 +628,7 @@
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{news_publish}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{news_text}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{newsImage_path}}</p>
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{news_state}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor state">{{news_state ? '123' : '456'}}</p>
                                 <button class="p1 newsbtn" id="C_Edit">Edit</button>
                             </div>
                         </li>
@@ -630,6 +649,9 @@
                         xhr.open("get", "getNews.php",true);
                         xhr.send(null);	
                     },
+                    methods:{
+                        document
+                    }
                 })
             </script>
             <!-- 輪播管理 -->
@@ -761,8 +783,7 @@
    
     <script src="./js/backend.js"></script>
     <script src="./js/backendLightBox.js"></script>
-    <!-- script -->
-    @@include('layout/script.html')
+    
 </body>
 
 </html>
