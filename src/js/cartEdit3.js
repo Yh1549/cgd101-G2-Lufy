@@ -5,8 +5,74 @@ let items = itemString.substr(0, itemString.length - 2).split(', ')
 let newDiv = document.createElement('div')
 let newTable = document.createElement('table')
 let total = 0;
+let totalcounts = 0;
+let fproductPrice = 0;
 
 function doFirst() {
+    let productNo = document.querySelector('.productNo');
+    productNo.value = items
+
+
+
+
+    let pname = localStorage.getItem("pname");
+
+    let payerName = document.querySelector('.payerName');
+    payerName.value = pname;
+
+    let pphone = localStorage.getItem("pphone");
+
+    let payerPhone = document.querySelector('.payerPhone');
+    payerPhone.value = pphone;
+
+    let paddress = localStorage.getItem("paddress");
+
+    let payerAddress = document.querySelector('.payerAddress');
+    payerAddress.value = paddress;
+
+    let card1 = localStorage.getItem("card1");
+
+    let creditCard1 = document.querySelector('.creditCard1');
+    creditCard1.value = card1;
+
+    let card2 = localStorage.getItem("card2");
+
+    let creditCard2 = document.querySelector('.creditCard2');
+    creditCard2.value = card2;
+
+    let card3 = localStorage.getItem("card3");
+
+    let creditCard3 = document.querySelector('.creditCard3');
+    creditCard3.value = card3;
+
+
+    let name = localStorage.getItem("name");
+
+    let receiverName = document.querySelector('.receiverName');
+    receiverName.value = name;
+
+    let discount = localStorage.getItem("discount");
+
+    let orderPrice = document.querySelector('.orderPrice');
+    orderPrice.value = discount;
+
+
+
+    let phone = localStorage.getItem("phone");
+
+    let receiverPhone = document.querySelector('.receiverPhone');
+    receiverPhone.value = phone;
+
+    let address = localStorage.getItem("address");
+
+    let receiverAddress = document.querySelector('.receiverAddress');
+    receiverAddress.value = address;
+
+    let arriveTime = localStorage.getItem("arriveTime");
+
+    let arriveDate = document.querySelector('.arriveDate');
+    arriveDate.value = arriveTime;
+
     newDiv.appendChild(newTable)
     cartList.appendChild(newDiv)
 
@@ -70,6 +136,11 @@ function createCartList(itemId, itemValue) {
 
     pPrice.className = 'tPrice'
     pPrice.innerText = parseInt(itemValue.split('|')[2])
+    let productPrice = document.querySelector('.productPrice')
+
+    fproductPrice += (itemValue.split('|')[2])
+
+    productPrice.value = fproductPrice
 
 
     tdPrice.appendChild(pPrice)
@@ -88,7 +159,12 @@ function createCartList(itemId, itemValue) {
     inputItemCount.type = 'number'
     inputItemCount.value = counts
     inputItemCount.min = 1
-        // inputItemCount.addEventListener('input', changeItemCount)
+
+    let productCounts = document.querySelector('.productCounts');
+    totalcounts += counts, ',';
+    productCounts.value = totalcounts;
+
+
 
     pItemCount.appendChild(inputItemCount)
     tdItemCount.appendChild(pItemCount)
@@ -134,7 +210,9 @@ function goDiscount() {
         document.getElementById('dtotal').innerText = total
 
     }
-    // console.log(discount.value)
+    let orderTotal = document.querySelector('.orderTotal')
+    orderTotal.value = document.getElementById('dtotal').innerText
+
 
 }
 discount.addEventListener("change", goDiscount, false)
@@ -151,3 +229,36 @@ function setDiscount() {
 
 
 sendBtn.addEventListener("click", setDiscount, false)
+window.addEventListener("load", function() {
+    //-----------------
+    document.getElementById("btnNext").onclick = function() {
+        let xhr = new XMLHttpRequest();
+        xhr.onload = function() {
+            alert(xhr.responseText);
+
+        }
+
+        xhr.open("post", "./prodInsert.php");
+        xhr.send(new FormData(document.getElementById("myForm2")));
+        console.log(document.getElementById("myForm2"));
+
+    }
+
+})
+
+window.addEventListener("load", function() {
+    //-----------------
+    document.getElementById("btnNext").onclick = function() {
+        let xhr = new XMLHttpRequest();
+        xhr.onload = function() {
+            alert(xhr.responseText);
+
+        }
+
+        xhr.open("post", "./prodInsert.php");
+        xhr.send(new FormData(document.getElementById("myForm")));
+        console.log(new FormData(document.getElementById("myForm")));
+
+    }
+
+})

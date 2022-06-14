@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    @@include('layout/meta.html', { "title" : "Backend Designer" })
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> @@include('layout/meta.html', { "title" : "Backend Designer" })
 </head>
+
 <body>
     <!-- 作品1燈箱 -->
     <div class="ps_1" id="AD_lightBox" style="display:none">
@@ -44,19 +44,19 @@
                         </select>
                     </div>
                 </div>
-                
+
             </form>
             <form action="" class="formDTwo">
                 <div class="ps_1 pe_1">
                     <label class="p1 pl_1 pr_1" for="">Title</label><input class="ip_normal" type="text" name="" id="">
-                    
+
                 </div>
                 <div class="ps_1 pe_1">
                     <label class="p1 pl_1 pr_1" for="" style="vertical-align:top">Text</label><textarea class="tArea" name="" id="" cols="100" rows="10"></textarea>
                 </div>
             </form>
             <div class="lastBtn">
-                <button class="ml_1 p1 newsbtn" id="A_btnCancel" >Cancel</button>
+                <button class="ml_1 p1 newsbtn" id="A_btnCancel">Cancel</button>
                 <button class="ml_1 p1 newsbtn">Confirm</button>
             </div>
         </div>
@@ -64,7 +64,7 @@
     <!-- 文章燈箱 -->
     <div class="ps_1" id="BD_lightBox" style="display:none">
         <div class="ps_2 pe_2 pl_2 pr_2 lightBox_list">
-            <form action="" class="formDOne">
+            <form class="formDOne">
                 <div>
                     <div class="ps_1 pe_1">
                         <label class="p1 pl_1 pr_1" for="">No.</label>
@@ -86,20 +86,20 @@
                         </select>
                     </div>
                 </div>
-                
+
             </form>
-            <form action="" class="formDTwo">
+            <form class="formDTwo" method="post" id="desArticle">
                 <div class="ps_1 pe_1">
-                    <label class="p1 pl_1 pr_1" for="">Title</label><input class="ip_normal" type="text" name="" id="">
-                    
+                    <label class="p1 pl_1 pr_1" for="">Title</label><input class="ip_normal" type="text" name="art1" id="">
+
                 </div>
                 <div class="ps_1 pe_1">
-                    <label class="p1 pl_1 pr_1" for="" style="vertical-align:top">Text</label><textarea class="tArea" name="" id="" cols="100" rows="10"></textarea>
+                    <label class="p1 pl_1 pr_1" for="" style="vertical-align:top">Text</label><textarea class="tArea" name="art1_text" id="" cols="100" rows="10"></textarea>
                 </div>
             </form>
             <div class="lastBtn">
                 <button class="ml_1 p1 newsbtn" id="B_btnCancel">Cancel</button>
-                <button class="ml_1 p1 newsbtn">Confirm</button>
+                <button class="ml_1 p1 newsbtn" id="desArticleBtn">Confirm</button>
             </div>
         </div>
     </div>
@@ -110,9 +110,15 @@
                 <img src="./images/nav_logo_web.webp" alt="">
             </div>
             <ul>
-                <li onclick="openClass(event,'mainElm11')" class="ps_1 pe_1 pl_1 pr_1 p1 tablink currentM"><i class="fa-solid fa-id-card pr_1"></i><p>簡介管理</p></li>
-                <li onclick="openClass(event,'mainElm12')" class="ps_1 pe_1 pl_1 pr_1 p1 tablink"><i class="fa-solid fa-signature pr_1"></i><p>作品管理</p></li>
-                <li onclick="openClass(event,'mainElm13')" class="ps_1 pe_1 pl_1 pr_1 p1 tablink"><i class="fa-solid fa-paperclip pr_1"></i><p>文章管理</p></li>
+                <li onclick="openClass(event,'mainElm11')" class="ps_1 pe_1 pl_1 pr_1 p1 tablink currentM"><i class="fa-solid fa-id-card pr_1"></i>
+                    <p>簡介管理</p>
+                </li>
+                <li onclick="openClass(event,'mainElm12')" class="ps_1 pe_1 pl_1 pr_1 p1 tablink"><i class="fa-solid fa-signature pr_1"></i>
+                    <p>作品管理</p>
+                </li>
+                <li onclick="openClass(event,'mainElm13')" class="ps_1 pe_1 pl_1 pr_1 p1 tablink"><i class="fa-solid fa-paperclip pr_1"></i>
+                    <p>文章管理</p>
+                </li>
                 <a class="" href="index.html">
                     <li class="ps_1 pe_1 pl_1 pr_1 p1"><i class="fa-solid fa-right-from-bracket pr_1"></i>登出</li>
                 </a>
@@ -127,23 +133,26 @@
                 </div>
                 <div class="ps_1 pe_1 pl_1 pr_1 sectFirst">
                     <div class="pr_1 pe_1 ps_2"></div>
-                    <form class="p1 pe_2 desIntroduction" action="">
+                    <form class="p1 pe_2 desIntroduction" method="post" id="desIntro">
                         <div class="pl_1 pr_1 desImg">
-                            <label for="upFile"><img src="./images/imgUpload.jpg"></label><input type="file" name="upFile" id="upFile" style="display:none">
+                            <label for="upFile">
+                                <img src="./images/imgUpload.jpg" id="myImage">
+                            </label>
+                            <input type="file" name="upFile" id="upFile">
                             <p class="p1">★請注意檔案大小</p>
-                            <input type="file" value="上傳檔案">
+
                         </div>
                         <div class="pl_1 pr_1 desTxt">
                             <label class="h1 font_w5 fontcontent fontTitle" for="">Title</label><br>
-                            <input class="p1 ip_normal" type="text"><br>
+                            <input class="p1 ip_normal" type="text" name="desTitle"><br>
                             <label class="h1 font_w5 fontcontent fontTitle" for="" style="vertical-align:top">Text</label>
-                            <textarea class="p1 tArea" name="" id="" cols="80" rows="10"></textarea><br>
+                            <textarea class="p1 tArea" name="desIntro" id="" cols="80" rows="10"></textarea><br>
                         </div>
                     </form>
-                    <div class="pr_1 pe_1 ps_2"><input class="btn_small" type="button" value="confirm"></div>
+                    <div class="pr_1 pe_1 ps_2"><input class="btn_small" type="button" value="confirm" id="introBtn"></div>
                 </div>
             </section>
-            
+
             <!-- 作品管理 -->
             <section class="mem_content" id="mainElm12">
                 <div class="ps_1 pe_1 pl_1 pr_1 beNews_titleH1">
@@ -159,7 +168,7 @@
                         <p></p>
                     </div>
                     <ul id="productList">
-                        <A_menu v-for="A_backendMenu in prodObject" v-bind="A_backendMenu">
+                        <A_menu v-for="A_backendMenu in prodObject" :key="A_backendMenu.prodNo" v-bind="A_backendMenu" @edit-handler="editHandler(A_backendMenu.prodNo)">
                         </A_menu>
                     </ul>
                     <!-- <div class="pages">
@@ -179,7 +188,7 @@
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{prodCategory}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{prodState}}</p>
                                 <span></span>
-                                <button class="p1 newsbtn" id="Ad_Edit">Edit</button>
+                                <button class="p1 newsbtn" id="Ad_Edit" @click="$emit('edit-handler')">Edit</button>
                             </div>
                         </li>
                     `,
@@ -187,27 +196,45 @@
                 new Vue({
                     el: '#productList',
                     data: {
-                        prodObject: [
-                            {
-                                prodNo: `1`,
-                                prodName: `燈燈燈`,
-                                prodCategory: `A 樣式`,
-                                prodState: `上架`
-                            },
-                            {
-                                prodNo: `2`,
-                                prodName: `燈燈`,
-                                prodCategory: `B 樣式`,
-                                prodState: `上架`
-                            },
-                            {
-                                prodNo: `3`,
-                                prodName: `燈`,
-                                prodCategory: `C 樣式`,
-                                prodState: `上架`
-                            },
-                        ]
-                    }
+                        fucusNo: 0,
+                        prodObject: [{
+                            prodNo: `1`,
+                            prodName: `燈燈燈`,
+                            prodCategory: `A 樣式`,
+                            prodState: `上架`
+                        }, {
+                            prodNo: `2`,
+                            prodName: `燈燈`,
+                            prodCategory: `B 樣式`,
+                            prodState: `上架`
+                        }, {
+                            prodNo: `3`,
+                            prodName: `燈`,
+                            prodCategory: `C 樣式`,
+                            prodState: `上架`
+                        }, ],
+                        popupData: {
+                            prodNo: '',
+                            prodName: ``,
+                            prodCategory: ``,
+                            prodState: ``
+                        },
+                    },
+                    computed: {
+                        focusObj() {
+                            return (this.prodObject.find(v => v.prodNo == this.fucusNo)) ? (this.prodObject.find(v => v.prodNo == this.fucusNo)) : this.prodObject[0];
+                        },
+                    },
+                    watch: {
+                        focusObj(nVal) {
+                            this.popupData = JSON.parse(JSON.stringify(nVal));
+                        },
+                    },
+                    methods: {
+                        editHandler(no) {
+                            this.fucusNo = no;
+                        },
+                    },
                 })
             </script>
             <!-- 文章管理 -->
@@ -236,7 +263,7 @@
             </section>
             <script>
                 let O_backendMenu = Vue.component('O_menu', {
-                    props: ['articleNo', 'articleName','articleCategory','articleState'],
+                    props: ['articleNo', 'articleName', 'articleCategory', 'articleState'],
                     template: `
                         <li class="beNews_details">
                             <div class="backendD_text">
@@ -253,36 +280,33 @@
                 new Vue({
                     el: '#articleList',
                     data: {
-                        articleObject: [
-                            {
-                                articleNo: `1`,
-                                articleName: `與光同行`,
-                                articleCategory: `A 樣式`,
-                                articleState: `上架`
-                            },
-                            {
-                                articleNo: `2`,
-                                articleName: `光的魔術師`,
-                                articleCategory: `B 樣式`,
-                                articleState: `上架`
-                            },
-                            {
-                                articleNo: `3`,
-                                articleName: `淺談燈光對人類的重要性`,
-                                articleCategory: `C 樣式`,
-                                articleState: `上架`
-                            },
-                        ]
+                        articleObject: [{
+                            articleNo: `1`,
+                            articleName: `與光同行`,
+                            articleCategory: `A 樣式`,
+                            articleState: `上架`
+                        }, {
+                            articleNo: `2`,
+                            articleName: `光的魔術師`,
+                            articleCategory: `B 樣式`,
+                            articleState: `上架`
+                        }, {
+                            articleNo: `3`,
+                            articleName: `淺談燈光對人類的重要性`,
+                            articleCategory: `C 樣式`,
+                            articleState: `上架`
+                        }, ]
                     }
                 })
             </script>
-    </div>
 
-   
-    <script src="./js/backend.js"></script>
-    <script src="./js/backendDesignerLightBox.js"></script>
-    <!-- script -->
-    @@include('layout/script.html')
+        </div>
+
+        <script src="./js/backendDesigner.js"></script>
+        <script src="./js/backend.js"></script>
+        <script src="./js/backendDesignerLightBox.js"></script>
+        <!-- script -->
+        <!-- @@include('layout/script.html') -->
 </body>
 
 </html>
