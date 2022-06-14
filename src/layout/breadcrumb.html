@@ -1,5 +1,5 @@
 <div id="breadcrumb_list">
-    <breadcrumb-list :breadcrumb="breadCrumb"></breadcrumb-list>
+    <breadcrumb-list :breadcrumb="breadCrumbObject"></breadcrumb-list>
 </div>
 <script>
     let breadcrumb = Vue.component('breadcrumb-list', {
@@ -10,10 +10,10 @@
                         </li>
                     </ol> `,
     })
-    var breadcrumbObject = new Vue({
+    var breadCrumb = new Vue({
         el: `#breadcrumb_list`,
         data: {
-            breadCrumb: [],
+            breadCrumbObject: [],
         },
         methods: {
             setBreadcrumb() {
@@ -23,7 +23,7 @@
                 arr.splice(0, 1);
                 //['product','projustlist', 'item']
                 
-                this.breadCrumb = [
+                this.breadCrumbObject = [
                     {
                         name: 'Home',
                         link: `homePage.html`,
@@ -31,7 +31,7 @@
                 ];
 
                 arr.forEach((v, i) => {
-                    this.breadCrumb.push({
+                    this.breadCrumbObject.push({
                         name: v,
                         link: `${arr.slice(0, i + 1).join('/')}.html`
                     })

@@ -4,19 +4,22 @@
     background-position: center center;
     background-repeat: no-repeat;
 }
-.fontTitle{
+
+.fontTitle {
     color: $secondary_100;
 }
-.fontColor{
+
+.fontColor {
     color: $fontcolor_100;
 }
 
 //------------------------大標題
-.beNews_titleH1{
+.beNews_titleH1 {
     border-bottom: 5px solid $secondary_100;
 }
+
 //------------------------按鈕樣式<小>
-.newsbtn{
+.newsbtn {
     text-align: center;
     padding: 0 10px;
     font-size: round($font_size * 1);
@@ -27,25 +30,28 @@
     transition: $btn_trans;
     border-radius: $btn_br;
     cursor: pointer;
-    &:hover{
+    &:hover {
         background-color: $primary_dark;
     }
 }
-.newListBtn{
+
+.newListBtn {
     text-align: right;
-    & button{
+    & button {
         padding: 0 10px;
     }
 }
+
 //------------------------燈箱
-#AD_lightBox , #BD_lightBox{
+#AD_lightBox,
+#BD_lightBox {
     position: fixed;
     width: 100%;
     height: 100%;
     background-color: rgba(66, 66, 66, 0.6);
-
 }
-.lightBox_list{
+
+.lightBox_list {
     background-color: $white;
     width: 82%;
     border-radius: 20px;
@@ -53,12 +59,12 @@
     margin: auto;
     position: relative;
     left: 115px;
-    & .formDOne{
+    & .formDOne {
         display: flex;
-        & label{
+        & label {
             color: $primary_dark;
         }
-        & select{
+        & select {
             padding: round($ip_base * 1px) round($ip_base * 2px);
             //-------------
             border: 2px solid $secondary_30;
@@ -69,48 +75,51 @@
             color: $fontcolor_dark;
         }
     }
-    & .formDTwo{
-        & div{
-            & label{
+    & .formDTwo {
+        & div {
+            & label {
                 color: $primary_dark;
             }
         }
-        
     }
-    & .lastBtn{
+    & .lastBtn {
         text-align: right;
     }
 }
+
 //------------------------左邊
-body::-webkit-scrollbar{
+body::-webkit-scrollbar {
     width: 0rem;
 }
-body::-webkit-scrollbar-track{
+
+body::-webkit-scrollbar-track {
     background: transparent;
 }
-body::-webkit-scrollbar-track{
+
+body::-webkit-scrollbar-track {
     background: transparent;
 }
-body:hover::-webkit-scrollbar-thumb{
+
+body:hover::-webkit-scrollbar-thumb {
     background: transparent;
 }
-.backendD_Container{
+
+.backendD_Container {
     display: flex;
     height: auto;
     min-height: 100vh;
-    & .beMenu{
+    & .beMenu {
         width: 12.5%;
-        
         background-color: $secondary_100;
         box-sizing: border-box;
         position: relative;
-        .logo{
+        .logo {
             width: 200px;
             margin: 0 auto;
             position: sticky;
             top: 0;
             left: 0;
-            & img{
+            & img {
                 width: 90%;
                 vertical-align: top;
                 object-fit: cover;
@@ -121,7 +130,6 @@ body:hover::-webkit-scrollbar-thumb{
             position: fixed;
             top: 100px;
             left: 0;
-
             & li {
                 color: $fontcolor_70;
                 border-left: 3px solid transparent;
@@ -130,47 +138,45 @@ body:hover::-webkit-scrollbar-thumb{
                 align-items: center;
                 cursor: pointer;
             }
-
             & a {
                 text-decoration: none;
             }
-
             & li:hover {
                 border-left: 3px solid $primary_dark;
                 color: $primary_dark;
             }
-
             & li.currentM {
                 color: $white;
             }
         }
     }
-    & .beCont{
-        width:87.5%;
-        
+    & .beCont {
+        width: 87.5%;
     }
 }
-.currentM{
+
+.currentM {
     background-color: $primary_100;
 }
+
 //------------------------右邊
-.sectFirst{
+.sectFirst {
     text-align: center;
-    
-    & .desIntroduction{
+    & .desIntroduction {
         margin: auto;
         display: flex;
-        & .desImg{
+        & .desImg {
             width: 40%;
             text-align: left;
             margin: auto;
         }
-        & .desTxt{
+        & .desTxt {
             text-align: left;
         }
     }
 }
-.tArea{
+
+.tArea {
     border: 2px solid $secondary_30;
     border-radius: $ip_br;
     &:focus {
@@ -180,50 +186,62 @@ body:hover::-webkit-scrollbar-thumb{
         outline: none;
     }
 }
+
 //------------------------列表標題
-.beNews_title{
+.beNews_title {
     display: flex;
     padding: 10px;
     background-color: $secondary_70;
-    & p{
+    & p {
         width: 20%;
         color: #ffff;
     }
 }
+
 //------------------------列表表格
-.backendD_text{
+.backendD_text {
     display: flex;
     box-sizing: border-boxs;
     padding: 10px;
-    & p{
+    & p {
         width: 20%;
     }
-    & span{
+    & span {
         width: 10%;
     }
-    & button{
+    & button {
         width: 10%;
     }
 }
-.backendD_details:nth-child(even){
-    background:#f1e3da;
+
+.backendD_details:nth-child(even) {
+    background: #f1e3da;
 }
-.listGrow{
+
+.listGrow {
     flex-grow: 1;
 }
-.ellipsis{
+
+.ellipsis {
     display: -webkit-box;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
 }
-.mem_content{
+
+.mem_content {
     display: none;
 }
-.mem_content#mainElm11{
+
+.mem_content#mainElm11 {
     display: block;
 }
-.membList{
+
+.membList {
     overflow-y: hidden;
+}
+
+#myImage {
+    width: 400px;
 }
