@@ -213,6 +213,12 @@ function goDiscount() {
     let orderTotal = document.querySelector('.orderTotal')
     orderTotal.value = document.getElementById('dtotal').innerText
 
+    let time = new Date;
+    let nowTime = time.toLocaleString();
+    let orderTime = document.querySelector('.orderTime');
+    orderTime.value = nowTime;
+
+
 
 }
 discount.addEventListener("change", goDiscount, false)
