@@ -13,31 +13,39 @@ try {
 	$productorder ->bindValue(":order_total",$_POST["orderTotal"]);
 	$productorder ->bindValue("order_notes",$_POST["orderNote"]);
 
-    $productRow = $productorder->fetch(PDO::FETCH_ASSOC);
+    // $productRow = $productorder->fetch(PDO::FETCH_ASSOC);
 	$productorder -> execute();
+
+	$sql3=" SELECT `order_no` FROM `product_order` ORDER BY `order_datetime` DESC LIMIT 1;";
+	$productorder2 = $pdo->prepare($sql3);
+	$productRow = $productorder2->fetch(PDO::FETCH_ASSOC);
+	 $productorder2 -> execute();
 	
 	
-			$sql = "INSERT INTO `orderdetail`(`order_no`, `product_no`, `order_count`, `product_price`, `payer_name`, `payer_phone`, `payer_address`, `credit_card`,`credit_card_date`, `card_checkCode`, `recipient_name`, `recipient_phone`, `recipient_address`, `recipient_datetime`) VALUES (:order_no,:product_no,:order_count,:product_price,:payer_name,:payer_phone,:payer_address,:credit_card,:credit_card_date,:card_checkCode,:recipient_name,:recipient_phone,:recipient_address,:recipient_datetime)";
-			$orderdetail = $pdo->prepare( $sql );
+	
+	
+	
+	$sql = "INSERT INTO `orderdetail`(`order_no`, `product_no`, `order_count`, `product_price`, `payer_name`, `payer_phone`, `payer_address`, `credit_card`,`credit_card_date`, `card_checkCode`, `recipient_name`, `recipient_phone`, `recipient_address`, `recipient_datetime`) VALUES (:order_no,:product_no,:order_count,:product_price,:payer_name,:payer_phone,:payer_address,:credit_card,:credit_card_date,:card_checkCode,:recipient_name,:recipient_phone,:recipient_address,:recipient_datetime)";
+	$orderdetail = $pdo->prepare( $sql );
 			
 			
-            $orderdetail -> bindValue(":order_no", $productRow["order_no"]);
-			$orderdetail -> bindValue(":product_no", $_POST["productNo"]);
-			$orderdetail -> bindValue(":order_count", $_POST["productCounts"]);
-			$orderdetail -> bindValue(":product_price", $_POST["productPrice"]);
-			$orderdetail -> bindValue(":payer_name", $_POST["payerName"]);
-			$orderdetail -> bindValue(":payer_phone", $_POST["payerPhone"]);
-			$orderdetail -> bindValue(":payer_address", $_POST["payerAddress"]);
-			$orderdetail -> bindValue(":credit_card", $_POST["creditCard1"]);
-			$orderdetail -> bindValue(":credit_card_date", $_POST["creditCard2"]);
-			$orderdetail -> bindValue(":card_checkCode", $_POST["creditCard3"]);
-			$orderdetail -> bindValue(":recipient_name", $_POST["receiverName"]);
-			$orderdetail -> bindValue(":recipient_phone", $_POST["receiverPhone"]);
-			$orderdetail -> bindValue(":recipient_address", $_POST["receiverAddress"]);
-			$orderdetail -> bindValue(":recipient_datetime", $_POST["arriveDate"]);
+    $orderdetail -> bindValue(":order_no", $productRow["order_no"]);
+	$orderdetail -> bindValue(":product_no", $_POST["productNo"]);
+	$orderdetail -> bindValue(":order_count", $_POST["productCounts"]);
+	$orderdetail -> bindValue(":product_price", $_POST["productPrice"]);
+	$orderdetail -> bindValue(":payer_name", $_POST["payerName"]);
+	$orderdetail -> bindValue(":payer_phone", $_POST["payerPhone"]);
+	$orderdetail -> bindValue(":payer_address", $_POST["payerAddress"]);
+	$orderdetail -> bindValue(":credit_card", $_POST["creditCard1"]);
+	$orderdetail -> bindValue(":credit_card_date", $_POST["creditCard2"]);
+	$orderdetail -> bindValue(":card_checkCode", $_POST["creditCard3"]);
+	$orderdetail -> bindValue(":recipient_name", $_POST["receiverName"]);
+	$orderdetail -> bindValue(":recipient_phone", $_POST["receiverPhone"]);
+	$orderdetail -> bindValue(":recipient_address", $_POST["receiverAddress"]);
+	$orderdetail -> bindValue(":recipient_datetime", $_POST["arriveDate"]);
 			
-			$orderdetail -> execute();
-			echo "商品編號:", $pdo->lastInsertId();
+	$orderdetail -> execute();
+	echo "success";
 
 			
 			
