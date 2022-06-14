@@ -13,6 +13,7 @@ try {
 	$productorder ->bindValue(":order_total",$_POST["orderTotal"]);
 	$productorder ->bindValue("order_notes",$_POST["orderNote"]);
 
+<<<<<<< HEAD
     // $productRow = $productorder->fetch(PDO::FETCH_ASSOC);
 	$productorder -> execute();
 
@@ -21,6 +22,11 @@ try {
 	$productRow = $productorder2->fetch(PDO::FETCH_ASSOC);
 	 $productorder2 -> execute();
 	
+=======
+
+	$productorder -> execute();
+	$productRow = $productorder->fetch(PDO::FETCH_ASSOC);
+>>>>>>> bf9d9ed70d8febb4516a57bc74078d98e18d38bc
 	
 	
 	

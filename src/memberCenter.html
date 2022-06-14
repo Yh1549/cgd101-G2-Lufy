@@ -12,6 +12,7 @@
     <div class="member_container">
         <div class="member_sidemenu">
             <h1 class="h1 font_w7">Member Center</h1>
+            <span id="memshow" class="h3"></span>
             <ul class="h3 ul">
                 <li class="pe_1 ps_1">Your Profiles</li>
                 <li class="pe_1 ps_1">Your Orders</li>
@@ -88,14 +89,50 @@
                             <th>Total</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <!-- <orders v-for="ordersTemplate in member_orders_obj" v-bind="ordersTemplate">
-            </orders> -->
+                    <tbody id="orederinfo_container">
+                        <tr><template v-for="memOrder in memOrders">
+                                <td is="orderInfo" :="memOrder"></td>
+                            </template></tr>
 
+                        <tr>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
+            <script>
+                let memOrder = Vue.component('orderInfo', {
+                    props: ['news_no', 'news_title', 'news_publish', 'news_text', 'newsImage_path', 'news_state'],
+                    template: `
+                    <tr>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                        </tr>
+                    `,
+                });
+                let memOrdervue =
+                    new Vue({
+                        el: '#orederinfo_container',
+                        data: {
+                            memOrders: []
+                        },
+                        created() {
+                            let xhr = new XMLHttpRequest();
+                            xhr.onload = function () {
+                               memOrdervue.memOrders = JSON.parse((JSON.parse(xhr.responseText)).memberorder);
+                                // memOrdervue.memOrders = JSON.parse(xhr.responseText);
 
+                            }
+                            xhr.open("get", "getMemberInfo.php", true);
+                            xhr.send(null);
+                        },
+                    })
+            </script>
             <!-- 私藏列表 -->
             <div id="member_center_wishlist" class="memberform member_hide">
                 <h1 class="h1 fontcontent me_1 ml_4">Your Wishlist</h1>

@@ -21,7 +21,6 @@
                     <h2>Added to cart</h2>
                     <i class='fa fa-check'></i>
                 </div>
-
                 <div class="small_products_img_box">
                     <div class="small_products_img"><img class="small" src="images/aboutus.lamp1.png" alt=""></div>
                     <div class="small_products_img"><img class="small" src="images/aboutus.lamp2.png" alt=""></div>
@@ -138,28 +137,11 @@
                             chandeliersInfoLink: './productInner.html',
                         }, ],
                     },
-                    created() {
-                        // let xhr = new XMLHttpRequest();
-                        // xhr.onload = function () {
-                        //     productCommodity.commodityObject = JSON.parse(xhr.responseText);
-                        //     console.log(xhr.responseText)
-                        // }
-                        // xhr.open("get", "productMain.php", true);
-                        // console.log(commodity)
-                        // console.log(grid_masonry)
-                        // xhr.send(null);
-                        // -------------------------------------------------
-                        const product_no = window.location.search.split('id=')[1];
-                        // axios.get(`productMain.php?id=${product_no
-                        //     }`).then(function (response) {
-                        //         productCommodity.commodityObject = response.data;
-                        //     });
-                    },
                     mounted() {
-                        // const product_no = window.location.search.split('id=')[1];
-                        axios.get(`productMain.php?id=${product_no
+                        const product_no = window.location.search.split('id=')[1];
+                        axios.get(`productInner.php?id=${product_no
                             }`).then(function (response) {
-                                productCommodity.commodityObject = response.data;
+                                this.commodityObject = response.data;
                             });
                     },
                 });

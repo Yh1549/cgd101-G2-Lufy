@@ -15,7 +15,7 @@
             @@include('layout/breadcrumb.html')
             <!-- breadcrumb end-->
             <!-- product_category -->
-            @@include('layout/product_category.html')
+            @@include('layout/productCategory.html')
             <!-- product_category end -->
             <div id="grid_masonry">
                 <div class="grid">
@@ -24,33 +24,6 @@
                     <product-commodity v-for="commodity in commodityObject" v-bind="commodity"></product-commodity>
                 </div>
             </div>
-            <script>
-                let commodity = Vue.component('product-commodity', {
-                    props: ['image_path', 'name', 'product_no'],
-                    template: `<a class="grid-item" :href="'./productMain_axios.html?id=' + product_no">
-                                    <div  class="commodityImg">
-                                        <img :src="'images//'+image_path" :alt="name">
-                                    </div>
-                                    <div class="commodity">
-                                        <h2>{{name}}</h2>
-                                        <span class="material-icons">
-                                            favorite
-                                        </span>
-                                    </div>
-                                </a> `,
-                })
-                const productCommodity = new Vue({
-                    el: '#grid_masonry',
-                    data: {
-                        commodityObject: []
-                    },
-                    created() {
-                        axios.get('productMain.php').then(function (response) {
-                            productCommodity.commodityObject = response.data;
-                        });
-                    },
-                })
-            </script>
         </section>
     </section>
     <!-- footer  -->
