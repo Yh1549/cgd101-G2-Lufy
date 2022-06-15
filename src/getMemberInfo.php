@@ -13,17 +13,15 @@ try {
 			$memRow = $member->fetch(PDO::FETCH_ASSOC);
 			$memberTotal["member"] = json_encode($memRow);
 			// 訂單回傳
-			$sqlorder = "select * from product_order where member_no=:curId";
+			$sqlorder = "select order_no, order_datetime, order_state,  order_total  from product_order where member_no=:curId order by order_no";
 			$memberorder = $pdo->prepare($sqlorder);
 			$memberorder->bindValue(":curId", $memRow["member_no"]);
 			$memberorder->execute();
 			$orderRow = $memberorder->fetchAll(PDO::FETCH_ASSOC);
-
-			$memberTotal["memberorder"] = json_encode($orderRow);
-
-			echo json_encode($memberTotal); //回傳
+			$memberTotal["memberorder"] = json_encode($orderRow);//將訂單資料放入membertotal
+			echo json_encode($memberTotal);
 			//私藏回傳
-			// $sqlorder = "select * from product_order where member_no=:curId";
+			// $sqlorder = "select product_no from product_order where member_no=:curId";
 			// $memberorder = $pdo->prepare($sqlorder);
 			// $memberorder->bindValue(":curId", $memRow["member_no"]);
 			// // $memberorder->bindValue(":curId", "1");
