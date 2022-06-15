@@ -30,9 +30,9 @@ const productCommodity = new Vue({
     data: {
         commodityObject: []
     },
-    created() {
+    mounted() {
         axios.get('productMain.php').then(function (response) {
             productCommodity.commodityObject = response.data;
-        });
+        }).catch(err => console.log(err));
     },
 })

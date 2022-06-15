@@ -10,30 +10,72 @@
     <!-- header -->
     @@include('layout/header.html')
     <!-- header end -->
-    <div class="containerALL me_8" id="product">
+    <div class="containerALL me_8">
         <!-- breadcrumb -->
         @@include('layout/breadcrumb.html')
         <!-- breadcrumb end-->
-        <section class="product_main_box me_6">
+        <!-- productInfoPanel -->
+        <section class="product_main_box me_6" id="product">
             <div class="main_product_img" v-if="prodInfoRow.length !=0">
                 <prodimg-main :image_path="prodInfoRow[0]?.image_path"></prodimg-main>
-
-                <div class="small_products_img_box" v-if="prodInfoRow.length !=0">
-                    <prodimg-small v-for='(prodImgSmall,index) in prodInfoRow' :key="(prodImgSmall.id)" v-bind="prodImgSmall"></prodimg-small>
+                <div class="small_products_img_box">
+                    <prodimg-small v-for='(prodImgSmall,index) in prodInfoRow' :key="(prodImgSmall.id)"
+                        v-bind="prodImgSmall"></prodimg-small>
                 </div>
             </div>
-
             <div class="purchase_panel pl_6" v-if="prodInfoRow.length !=0">
                 <purchase-panel v-bind="prodInfoRow[0]"></purchase-panel>
-                
-                <div class="product_details_box me_6" v-if="prodInfoRow.length !=0">
-                    <prod-info v-bind="prodInfoRow[0]"></prod-info>
+            </div>
+        </section>
+        <!-- productInfoPanel end-->
+        <!-- productInfo -->
+        <section class="product_details_box me_6">
+            <div class="detail_switch me_2">
+                <div id="discribeBtn" class="discribe byclicked font_w5 fontcontent">Description</div>
+                <div id="specificationBtn" class="specification fontcontent">Specification</div>
+            </div>
+            <div class="product_discribe">
+                <p class="p2">
+                    Light sources can only be replaced by lights that have the same lamp base, also called a socket. You
+                    can for example only replace an E14 bulb with an E14 (LED) bulb. And you should replace a GU10 LED
+                    spot with another LED spot with a GU10 socket. Any
+                    other type of socket will not fit in the fixture of the light source. The image below gives an
+                    overview of the most common lamp bases at Any-Lamp.
+                </p>
+            </div>
+            <div class="product_specification hidden">
+                <p class="p2">
+                    Energy-saving bulbs, also known as compact fluorescent lights (CFL), have a low power consumption,
+                    making them the most efficient and energy-efficient conventional light source. CFL bulbs have an E27
+                    / E14 socket or a socket with pins (2-Pin or 4-Pin).
+                    CFL lights with a 2-Pin or 4-Pin socket require a ballast. Energy-saving bulbs are used in homes and
+                    business environments.
+                </p>
+            </div>
+        </section>
+        <!-- productInfo end-->
+        <!-- productDesigner -->
+        <section class="product_designer_box me_6">
+            <div class="product_designer">
+                <div class="product_designer_img mr_2">
+                    <img src="./images/designer4.jpg" alt="designer_name">
+                </div>
+                <div class="product_designer_intro_box me_2">
+                    <div class="product_designer_intro_content me_4">
+                        <h2 class="h2 me_1">John</h2>
+                        <p class="p2">
+                            My name is John, graduated from Hubei University of Economics ***advertising professional
+                            graphic design, advertising bias***. Undergraduate personality: lively and cheerful,
+                            easy-going, also officially. Amiable and easy of approach because of this character,
+                            I have many hobbies: playing volleyball, jogging, reading, surfing the Internet. Strict with
+                            oneself is my motto, broad-minded toward others.
+                        </p>
+                    </div>
+                    <a href="./designers.html" class="designer_link btn_normal">Read More</a>
                 </div>
             </div>
         </section>
-        <section class="product_designer_box me_6" v-if="prodInfoRow.length !=0">
-            <des-info v-bind="prodInfoRow[0]"></des-info>
-        </section>
+        <!-- productDesigner end -->
         <!-- <section class="relative_products">
             <h2 class="title h2 me_2">Relative Products</h2>
             <div id="chandeliers_wrap" class="category_wrap">
