@@ -1,23 +1,6 @@
 <?php 
 try {
 	require_once("../../connect_lufy.php");
-    /*if($_FILES["E_upFile"]["error"] == UPLOAD_ERR_OK){
-
-        // $fileName....
-        // copy($from, $to)
-
-        $dir ="images";
-		if(file_exists($dir) == false){ //檢測資料夾是否存在
-			mkdir($dir); //創建資料夾 , make directory
-		}
-		$from = $_FILES['E_upFile']['tmp_name'];
-		$to = "$dir/" . $_FILES['E_upFile']['name']; //"images/smile.gif"
-		copy($from, $to);
-		echo "完成~";
-
-    }else if($_FILES["E_upFile"]["error"] == UPLOAD_ERR_NO_FILE){
-        $fileName = $_POST["img_origin"];
-    }*/
     switch ($_FILES["E_upFile"]["error"] ){
         case UPLOAD_ERR_OK: 
             $dir ="images";
@@ -43,7 +26,7 @@ try {
         default:
     }
 	//執行sql指令
-	$sql = "update news set news_title=:news_title, news_text=: news_text, news_publish=:news_publish, news_state=:news_state, newsImage_path=:newsImage_path where news_no=:news_no";
+	$sql = "update news set news_title=:news_title, news_text=:news_text, news_publish=:news_publish, news_state=:news_state, newsImage_path=:newsImage_path where news_no=:news_no";
 
     $news = $pdo->prepare($sql); //編譯指令
     $news->bindValue(":news_no", $_POST["news_no"]); //代入資料

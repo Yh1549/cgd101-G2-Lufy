@@ -109,6 +109,8 @@ function getMemberinfo(e) {
       }
       let memberinfo = JSON.parse(JSON.parse(xhr.responseText).member); //會員資料陣列放進memberinfo
       let memberorder = JSON.parse(JSON.parse(xhr.responseText).memberorder); //會員訂單陣列放進memberorder
+      let memberfavorite = JSON.parse(JSON.parse(xhr.responseText).memberfavorite);//會員蒐藏陣列放進memberorder
+      console.log(memberfavorite);
       $id("memshow").innerText = "Hello~ \n" + memberinfo.member_name;
       //會員資料寫入HTML
       $id("memName").value = memberinfo.member_name;
@@ -119,15 +121,24 @@ function getMemberinfo(e) {
       // 會員訂單寫入
       let orderHtml = ``;
       for (let i = 0; i < memberorder.length; i++) {
-        orderHtml += `<table class="memtable h4"><thead><tr><th>Order Number</th><th>Order Date</th><th>Order Status</th><th>Total</th></tr></thead><tbody><tr>
+        orderHtml += `<div class='memtable_container'><table class="memtable h4"><thead><tr><th>Order Number</th><th>Order Date</th><th>Order Status</th><th>Total</th></tr></thead><tbody><tr>
         <td>${memberorder[i].order_no}</td>
         <td>${memberorder[i].order_datetime}</td>
         <td>${memberorder[i].order_state}</td>
-        <td>${memberorder[i].order_total}</td></tr></tbody></table>`;
+        <td>${memberorder[i].order_total}</td></tr></tbody></table></div>`;
       }
       $id("orderInsert").innerHTML = orderHtml;
       // ----------
       // 蒐藏寫入
+      let favoriteHtml = ``;
+      for (let i = 0; i < memberfavorite.length; i++) {
+        favoriteHtml += `<div class='memtable_container'><table class="memtable h4"><thead><tr><th>Product Image</th><th>Product Name</th><th>Product Status</th><th>Price</th></tr></thead><tbody><tr>
+        <td><img src=images/${memberfavorite[i].image_path}></td>
+        <td>${memberfavorite[i].name}</td>
+        <td>${memberfavorite[i].on_market ? 'on the market' :'off the market'}</td>
+        <td>${memberfavorite[i].price}</td></tr></tbody></table><button id='favoriteCancel' class="btn_normal">Delete</button></div>`;
+      }
+      $id("favoriteInsert").innerHTML = favoriteHtml;
       // ---------
     } else {
       $id("idMsg").innerText = "Login First";
@@ -135,6 +146,16 @@ function getMemberinfo(e) {
     }
   };
   xhr.open("get", "getMemberInfo.php", true);
+  xhr.send(null);
+}
+let favoriteCancel =()=>{
+  let xhr = new XMLHttpRequest();
+  xhr.onload=()=>{
+    alert(xhr.responseText);
+    location.reload();
+  };
+  let url = "favorite.php?add=" + "false";
+  xhr.open("get",url, true);
   xhr.send(null);
 }
 //img預載
@@ -162,5 +183,7 @@ function init() {
   $id("profiles_sub").onclick = profiles_sub;
   //會員密碼修改
   $id("changePsw_sub").onclick = changePsw_sub;
+// 取消蒐藏紐
+  $id("favoriteCancel").onclick = favoriteCancel;
 }
 window.addEventListener("load", init, false);
