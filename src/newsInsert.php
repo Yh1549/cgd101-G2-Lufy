@@ -3,17 +3,17 @@
 try {
 	require_once("../../connect_lufy.php");
 	//.......確定是否上傳成功
-	if( $_FILES["upFile"]["error"] == UPLOAD_ERR_OK){
+	if( $_FILES["C_upFile"]["error"] == UPLOAD_ERR_OK){
 		//----------------------
 		//先檢查images資料夾存不存在
 		if( file_exists("images") === false){
 			mkdir("images");
 		}
 		//將檔案copy到要放的路徑
-		$fileInfoArr = pathinfo($_FILES["upFile"]["name"]);
+		$fileInfoArr = pathinfo($_FILES["C_upFile"]["name"]);
 		$fileName = uniqid().".{$fileInfoArr["extension"]}"; //usq321Bddd.gif 
 
-		$from = $_FILES["upFile"]["tmp_name"];
+		$from = $_FILES["C_upFile"]["tmp_name"];
 		$to = "images/$fileName";
 		if(copy( $from, $to)===true){
 			//將檔案名稱寫回資料庫
@@ -29,7 +29,7 @@ try {
 		}
 
 	}else{
-		echo "錯誤代碼 : {$_FILES["upFile"]["error"]} <br>";
+		echo "錯誤代碼 : {$_FILES["C_upFile"]["error"]} <br>";
 		echo "新增失敗<br>";
 	}
 } catch (PDOException $e) {

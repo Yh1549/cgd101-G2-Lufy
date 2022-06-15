@@ -200,7 +200,7 @@
             </div>
         </div>
     </div>
-    <!-- 最新消息燈箱 -->
+    <!-- 最新消息燈箱
     <div class="ps_1" id="C_lightBox" style="display:none">
         <div class="lightBox_list">
             <p class="ps_1 pe_1 pl_2 h1 lightBox_title">Create News</p>
@@ -244,27 +244,60 @@
                 </div>
                 <div class="ps_1 pr_1 lastBtn">
                     <button class="ml_1 p1 newsbtn" id="C_btnCancel">Cancel</button>
-                    <button id="btnAdd" class="ml_1 p1 newsbtn">Confirm</button>
+                    <button id="C_btnAdd" class="ml_1 p1 newsbtn">Confirm</button>
                 </div>
             </form>
         </div>
-        <!-- <script>
-            window.addEventListener("load", function(){
-                //-----------------
-                document.getElementById("btnAdd").onclick = function(){
-                    let xhr = new XMLHttpRequest();
-                    xhr.onload = function(){
-                        alert(xhr.responseText);
-                        location.href="getNews.php";
-                    }
-        
-                    xhr.open("post", "newsInsert.php");
-                    xhr.send(new FormData(document.getElementById("myForm")));
-                }
-        
-            })
-        </script>	 -->
     </div>
+    修改最新消息燈箱
+    <div class="ps_1" id="C_edit_lightBox" style="display:none">
+        <div class="lightBox_list">
+            <p class="ps_1 pe_1 pl_2 h1 lightBox_title">Edit News</p>
+            <form class="ps_1 pe_1 pl_1 pr_1">
+                <div class="formOne">
+                    <div style="width:50%">
+                        <div class="ps_1 pe_1 LBcol">
+                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">No.</label></div>
+                            <div class="pl_1 pr_1"><input class="ip_normal" type="text" name="news_no" id=""></div>
+                        </div>
+                        <div class="ps_1 pe_1 LBcol">
+                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Publish Date</label></div>
+                            <div class="pl_1 pr_1"><input type="date" name="news_publish" id=""></div>
+                        </div>
+                        <div class="ps_1 pe_1 LBcol">
+                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">State</label></div>
+                            <div class="pl_1 pr_1">
+                                <select name="news_state" id="">
+                                    <option value="0">上架</option>
+                                    <option value="1">下架</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="width:50%">
+                        <div class="ps_1 pe_1 LBcol">
+                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Image</label></div>
+                            <div class="pl_1 pr_1"><input type="file" name="upFile" id="upFile"><div class="ps_1"><img id="newsImage" src="./images/imgUpload.jpg" alt=""></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="formOne formThree">
+                    <div class="ps_1 pe_1 LBcol">
+                        <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Title</label></div>
+                        <div class="pl_1 pr_1"><input class="ip_normal ip_width" type="text" name="news_title" id=""></div>
+                    </div>
+                    <div class="ps_1 pe_1 LBcol">
+                        <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="" style="vertical-align:top">Text</label></div>
+                        <div class="pl_1 pr_1"><textarea class="p1 tArea" name="news_text" id="" cols="100" rows="5"></textarea></div>
+                    </div>
+                </div>
+                <div class="ps_1 pr_1 lastBtn">
+                    <button class="ml_1 p1 newsbtn" id="C_EditBtnCancel">Cancel</button>
+                    <button id="C_EditBtnAdd" class="ml_1 p1 newsbtn">OK</button>
+                </div>
+            </form>
+        </div>
+    </div> -->
     <!-- 設計師燈箱 -->
     <div class="ps_1" id="D_lightBox" style="display:none">
         <div class="ps_1 pe_1 pl_1 pr_1 lightBox_list">
@@ -592,29 +625,138 @@
             </script>
             <!-- 最新消息管理 -->
             <section class="mem_content" id="mainElm5">
-                <div class="ps_1 pe_1 pl_1 pr_1 backend_titleH1">
-                    <h1 class="h1 font_w5 fontTitle">News Manage</h1>
-                </div>
-                <div class="ps_1 pe_1 pl_1 pr_1">
-                    <div class="pr_1 pe_1 newListBtn"><button class="p1 newsbtn" id="C_New">✚ NEW</button></div>
-                    <div class="backend_title">
-                        <p class="p1 pr_1 font_w5 fontcontent">消息編號</p>
-                        <p class="p1 pr_1 font_w5 fontcontent listGrow">消息名稱</p>
-                        <p class="p1 pr_1 font_w5 fontcontent">消息發佈日期</p>
-                        <p class="p1 pr_1 font_w5 fontcontent listGrow">消息內文</p>
-                        <p class="p1 pr_1 font_w5 fontcontent listGrow">消息圖片路徑</p>
-                        <p class="p1 pr_1 font_w5 fontcontent">狀態</p>
-                        <p></p>
+                <div id="newsList">
+                    <!-- 最新消息燈箱 -->
+                    <div class="ps_1" id="C_lightBox" style="display:none">
+                        <div class="lightBox_list">
+                            <p class="ps_1 pe_1 pl_2 h1 lightBox_title">Create News</p>
+                            <form id="newsForm" enctype="multipart/form-data" class="ps_1 pe_1 pl_1 pr_1">
+                                <div action="" class="formOne">
+                                    <div style="width:50%">
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">No.</label></div>
+                                            <div class="pl_1 pr_1"><input class="ip_normal" type="text" name="news_no" id=""></div>
+                                        </div>
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Publish Date</label></div>
+                                            <div class="pl_1 pr_1"><input type="date" name="news_publish" id=""></div>
+                                        </div>
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">State</label></div>
+                                            <div class="pl_1 pr_1">
+                                                <select name="news_state" id="">
+                                                    <option value="0">上架</option>
+                                                    <option value="1">下架</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div style="width:50%">
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Image</label></div>
+                                            <div class="pl_1 pr_1"><input type="file" name="C_upFile" id="C_upFile"><div class="ps_1"><img id="C_newsImage" src="./images/imgUpload.jpg" alt=""></div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="formOne formThree">
+                                    <div class="ps_1 pe_1 LBcol">
+                                        <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Title</label></div>
+                                        <div class="pl_1 pr_1"><input class="ip_normal ip_width" type="text" name="news_title" id=""></div>
+                                    </div>
+                                    <div class="ps_1 pe_1 LBcol">
+                                        <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="" style="vertical-align:top">Text</label></div>
+                                        <div class="pl_1 pr_1"><textarea class="p1 tArea" name="news_text" id="" cols="100" rows="5"></textarea></div>
+                                    </div>
+                                </div>
+                                <div class="ps_1 pr_1 lastBtn">
+                                    <button class="ml_1 p1 newsbtn" id="C_btnCancel" type="button">Cancel</button>
+                                    <button id="C_btnAdd" class="ml_1 p1 newsbtn" type="button">Confirm</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                    <ul id="newsList">
-                        <template v-for="newsRow in newsRows">
-                            <li is="C_menu" v-bind="newsRow"></li>
-                        </template>
-                    </ul>
-                    <!-- <div class="pages">
-                        <p class="p1 pl_1 pr_1">1</p>
-                        <p class="p1 pl_1 pr_1">2</p>
-                    </div> -->
+                    <!-- 修改最新消息燈箱 -->
+                    <div class="ps_1" id="C_edit_lightBox" style="display:none">
+                        <div class="lightBox_list">
+                            <p class="ps_1 pe_1 pl_2 h1 lightBox_title">Edit News</p>
+                            <form class="ps_1 pe_1 pl_1 pr_1" action="newsUpdateToDb.php" enctype="multipart/form-data">
+                                <div class="formOne">
+                                    <div style="width:50%">
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">No.</label></div>
+                                            <div class="pl_1 pr_1"><input class="ip_normal" type="text" name="news_no" id="" v-model="popupData.news_no" readonly="readonly"></div>
+                                        </div>
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Publish Date</label></div>
+                                            <div class="pl_1 pr_1"><input type="date" name="news_publish" id="" v-model="popupData.news_publish"></div>
+                                        </div>
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">State</label></div>
+                                            <div class="pl_1 pr_1">
+                                                <select name="news_state" id="" v-model="popupData.news_state">
+                                                    <option value="0">上架</option>
+                                                    <option value="1">下架</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div style="width:50%">
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle">
+                                                <label class="p1" for="">Image</label>
+                                            </div>
+                                            <div class="pl_1 pr_1">
+                                                <input type="file" name="E_upFile" id="E_upFile">
+                                                <div class="ps_1">
+                                                    <img name="news_publish" id="E_newsImage" :src="'images//'+ popupData.newsImage_path" alt="">
+                                                <input type="hidden" name="img_origin"  :value="popupData.newsImage_path">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="formOne formThree">
+                                    <div class="ps_1 pe_1 LBcol">
+                                        <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Title</label></div>
+                                        <div class="pl_1 pr_1"><input class="ip_normal ip_width" type="text" name="news_title" id="" v-model="popupData.news_title"></div>
+                                    </div>
+                                    <div class="ps_1 pe_1 LBcol">
+                                        <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="" style="vertical-align:top">Text</label></div>
+                                        <div class="pl_1 pr_1"><textarea class="p1 tArea" name="news_text" id="" cols="100" rows="5" v-model="popupData.news_text"></textarea></div>
+                                    </div>
+                                </div>
+                                <div class="ps_1 pr_1 lastBtn">
+                                    <button class="ml_1 p1 newsbtn" id="C_EditBtnCancel" type="button">Cancel</button>
+                                    <input class="ml_1 p1 newsbtn" type="submit" name="" id="" value="Edit">
+                                    <!-- <button id="C_EditBtnAdd" class="ml_1 p1 newsbtn">OK</button> -->
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="ps_1 pe_1 pl_1 pr_1 backend_titleH1">
+                        <h1 class="h1 font_w5 fontTitle">News Manage</h1>
+                    </div>
+                    <div class="ps_1 pe_1 pl_1 pr_1">
+                        <div class="pr_1 pe_1 newListBtn"><button class="p1 newsbtn" id="C_New" type="button">✚ NEW</button></div>
+                        <div class="backend_title">
+                            <p class="p1 pr_1 font_w5 fontcontent">消息編號</p>
+                            <p class="p1 pr_1 font_w5 fontcontent listGrow">消息名稱</p>
+                            <p class="p1 pr_1 font_w5 fontcontent">消息發佈日期</p>
+                            <p class="p1 pr_1 font_w5 fontcontent listGrow">消息內文</p>
+                            <p class="p1 pr_1 font_w5 fontcontent listGrow">消息圖片路徑</p>
+                            <p class="p1 pr_1 font_w5 fontcontent">狀態</p>
+                            <p></p>
+                        </div>
+                        <ul>
+                            <template v-for="newsRow in newsRows">
+                                <li is="C_menu" v-bind="newsRow" :key="newsRow.news_no" @edit-handler="editHandler(newsRow.news_no)"></li>
+                            </template>
+                        </ul>
+                        <!-- <div class="pages">
+                            <p class="p1 pl_1 pr_1">1</p>
+                            <p class="p1 pl_1 pr_1">2</p>
+                        </div> -->
+                    </div>
                 </div>
             </section>
             <script>
@@ -628,8 +770,8 @@
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{news_publish}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{news_text}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{newsImage_path}}</p>
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor state">{{news_state ? '123' : '456'}}</p>
-                                <button class="p1 newsbtn" id="C_Edit">Edit</button>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor state">{{news_state ? '下架' : '上架'}}</p>
+                                <button class="p1 newsbtn" id="C_Edit" @click="$emit('edit-handler')" type="button">Edit</button>
                             </div>
                         </li>
                     `,
@@ -638,7 +780,16 @@
                 new Vue({
                     el: '#newsList',
                     data: {
-                        newsRows: []
+                        fucusNo: 0,
+                        newsRows: [],
+                        popupData: {
+                            news_no: '',
+                            news_title: ``,
+                            news_publish: ``,
+                            news_text: ``,
+                            newsImage_path: ``,
+                            news_state: ``
+                        },
                     },
                     created(){
                         let xhr = new XMLHttpRequest();
@@ -649,9 +800,21 @@
                         xhr.open("get", "getNews.php",true);
                         xhr.send(null);	
                     },
-                    methods:{
-                        document
-                    }
+                    computed: {
+                        focusObj() {
+                            return (this.newsRows.find(v => v.news_no == this.fucusNo)) ? (this.newsRows.find(v => v.news_no == this.fucusNo)) : this.newsRows[0];
+                        },
+                    },
+                    watch: {
+                        focusObj(nVal) {
+                            this.popupData = JSON.parse(JSON.stringify(nVal));
+                        },
+                    },
+                    methods: {
+                        editHandler(no) {
+                            this.fucusNo = no;
+                        },
+                    },
                 })
             </script>
             <!-- 輪播管理 -->
