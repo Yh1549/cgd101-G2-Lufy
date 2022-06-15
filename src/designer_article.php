@@ -2,7 +2,7 @@
 <?php
 $errMsg = "";
 try {
-	require_once("../../connect_lufy.php");
+	require_once("connect_lufy.php");
 	
 			$sql = "UPDATE `designer` SET `art_1`=:art1,`art1_text`=:art1_text";
             

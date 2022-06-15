@@ -7,7 +7,7 @@ require_once("connect_lufy.php");
 if($_GET["add"]){
 $addfavoritesql = "insert into favorite(product_no, member_no) values(:product_no, :curId)";
 $addfavorite = $pdo->prepare($addfavoritesql);
-$addfavorite->bindValue(":product_no", $_GET["product_no"]);
+$addfavorite->bindValue(":product_no", $_GET["id"]);
 $addfavorite->bindValue(":curId", $_SESSION["memNo"]);
 $addfavorite->execute();
 echo 'add sucess';

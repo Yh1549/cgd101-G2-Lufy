@@ -1,3 +1,17 @@
+// let prodImg = Vue.component('prod-img', {
+//     props: ['name', 'image_path'],
+//     template: `
+//     <div>
+//         <img :image_path="prodInfoRow[0]?.image_path" :alt="name" class="me_2 big_img">
+//         <div class="product_overlay hidden">
+//             <h2>Added to cart</h2>
+//             <i class='fa fa-check'></i>
+//         </div>
+//         <div class="small_products_img">
+//             <img :src="'images//'+image_path" :alt='name'class="small">
+//         </div>
+//     </div>`,
+// })
 let prodImgMain = Vue.component('prodimg-main', {
     props: ['name', 'image_path'],
     template: `<img :src="'images//'+image_path" :alt="name" class="me_2 big_img">`,
@@ -10,13 +24,24 @@ let prodImgSmall = Vue.component('prodimg-small', {
 });
 let purchasePnl = Vue.component('purchase-panel', {
     props: ['name', 'price', 'promotions_name', 'promotions_price', 'promPrice'],
+    methods: {
+        setFavorite() {
+            const product_no = window.location.search.split('id=')[1];
+            console.log('product_no :', product_no);
+            axios.get(`favorite.php?id=${product_no
+                }`).then((response) => {
+                    // this.prodInfoRow = response.data;
+                    console.log('response.data :', response.data)
+                }).catch(err => console.log(err));
+        }
+    },
     computed: {
         prom_price() {
             return {
                 orignal_price: this.promotions_price,
                 big_price: !this.promotions_price,
             }
-        }
+        },
     },
     // #region 
     template: `<div>
@@ -38,7 +63,7 @@ let purchasePnl = Vue.component('purchase-panel', {
                 </span>
             </div>
         </div>
-        <div id="favoriteButton" class="favoriteButton me_4">
+        <div id="favoriteButton" class="favoriteButton me_4" @click='setFavorite()'>
             <i class="fa-regular fa-heart"></i>
             <span class="fontcontent p1">Favorite</span>
             <input type="hidden" value="lamp1|aboutus.lamp1.png|50000">
@@ -48,9 +73,11 @@ let purchasePnl = Vue.component('purchase-panel', {
 });
 let prodInfo = Vue.component('prod-info', {
     props: ['description', 'specification'],
-    data() { return { show: true, }
+    data() {
+        return { show: true, }
     },
-    computed: { show_info() { return { show: true } }
+    computed: {
+        show_info() { return { show: true } }
     },
     template: `<div>
         <div class="detail_switch me_2">
@@ -66,7 +93,7 @@ let prodInfo = Vue.component('prod-info', {
     </div>
     `,
     mounted: {
-        byClick() {}
+        byClick() { }
     }
 })
 let designerInfo = Vue.component('des-info', {
@@ -104,5 +131,6 @@ const mainProductImg = new Vue({
     },
     mounted() {
         this.setProductimage();
+        // this.setFavorite();
     },
 })
