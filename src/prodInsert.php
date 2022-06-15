@@ -1,7 +1,7 @@
 <?php
 
 try {
-	require_once("../../connect_lufy.php");
+	require_once("connect_lufy.php");
 	        
 	$sql2 ="INSERT INTO `product_order`(`order_no`, `member_no`, `order_datetime`, `order_state`, `order_total`, `order_notes`) VALUES (null,:member_no,:order_datetime,:order_state,:order_total,:order_notes)";
 

@@ -1,6 +1,6 @@
 <?php
     try{
-	require_once("../../connect_lufy.php");
+	require_once("connect_lufy.php");
 	// $sql = "SELECT p.product_no, p.name, p.description, p.specification, p.price, i.image_path 
 	// 		FROM product p 
 	// 		JOIN product_image i ON p.product_no = i.product_no

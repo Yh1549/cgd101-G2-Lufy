@@ -1,6 +1,6 @@
 <?php 
 try{
-	require_once("../../connect_lufy.php");
+	require_once("connect_lufy.php");
 
 	$sql = "select * from promotions"; //準備好sql指令
 	$promotions = $pdo->query($sql);//將sql指令送到mysql去執行, 回傳的是pdoStatement
