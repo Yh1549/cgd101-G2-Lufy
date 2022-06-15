@@ -27,10 +27,8 @@ let purchasePnl = Vue.component('purchase-panel', {
     methods: {
         setFavorite() {
             const product_no = window.location.search.split('id=')[1];
-            console.log('product_no :', product_no);
             axios.get(`favorite.php?id=${product_no
                 }`).then((response) => {
-                    // this.prodInfoRow = response.data;
                     console.log('response.data :', response.data)
                 }).catch(err => console.log(err));
         }
@@ -81,7 +79,7 @@ let prodInfo = Vue.component('prod-info', {
     },
     template: `<div>
         <div class="detail_switch me_2">
-            <div @click='show=true' class="describe byclicked font_w5 fontcontent">Description</div>
+            <div @click='show=true' class="describe font_w5 fontcontent" :class="byclicked">Description</div>
             <div @click='show=false' class="specification fontcontent">Specification</div>
         </div>
         <div v-if='show' class="product_describe">
@@ -131,6 +129,5 @@ const mainProductImg = new Vue({
     },
     mounted() {
         this.setProductimage();
-        // this.setFavorite();
     },
 })
