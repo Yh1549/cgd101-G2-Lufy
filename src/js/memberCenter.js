@@ -154,9 +154,8 @@ let favoriteCancel =()=>{
     alert(xhr.responseText);
     location.reload();
   };
-  let url = "favorite.php?memId=" + document.getElementById('memId').value;
+  let url = "favorite.php?add=" + "false";
   xhr.open("get",url, true);
-  
   xhr.send(null);
 }
 //img預載
