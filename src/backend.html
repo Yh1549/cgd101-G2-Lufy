@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @@include('layout/meta.html', { "title" : "Backend" })
 </head>
+
 <body>
     <!-- 會員燈箱 -->
     <div class="ps_1" id="N_lightBox" style="display:none">
@@ -53,7 +54,7 @@
                         </select>
                     </div>
                 </div>
-                
+
             </form>
             <div class="lastBtn">
                 <button class="ml_1 p1 newsbtn" id="N_btnCancel">Cancel</button>
@@ -167,11 +168,14 @@
                     <p class="h1">優惠商品</p>
                 </div>
                 <div class="ps_1">
-                    <label class="p1 pl_1 pr_1" for="">Product_No</label><input class="ip_small ip_width" type="text" name="" id="">
-                    <label class="p1 pl_1 pr_1" for="">Price</label><input class="ip_small ip_width" type="text" name="" id="">
-                    <label class="p1 pl_1 pr_1" for="">Promotions_price</label><input class="ip_small ip_width" type="text" name="" id="">
+                    <label class="p1 pl_1 pr_1" for="">Product_No</label><input class="ip_small ip_width" type="text"
+                        name="" id="">
+                    <label class="p1 pl_1 pr_1" for="">Price</label><input class="ip_small ip_width" type="text" name=""
+                        id="">
+                    <label class="p1 pl_1 pr_1" for="">Promotions_price</label><input class="ip_small ip_width"
+                        type="text" name="" id="">
                     <button class="ml_1 mr_1 newsbtn">✚ New</button>
-                    
+
                 </div>
                 <ul>
                     <li class="ps_1">
@@ -342,15 +346,38 @@
                 <img src="./images/nav_logo_web.webp" alt="">
             </div>
             <ul>
-                <li onclick="openClass(event,'mainElm1')" class="ps_1 pe_1 pl_1 pr_1 p1 tablink currentM"><i class="fa-solid fa-user pr_1"></i><p>會員管理</p></li>
-                <li onclick="openClass(event,'mainElm2')" class="ps_1 pe_1 pl_1 pr_1 p1 tablink"><i class="fa-solid fa-lightbulb pr_1"></i><p>商品管理</p></li>
-                <li onclick="openClass(event,'mainElm3')" class="ps_1 pe_1 pl_1 pr_1 p1 tablink"><i class="fa-solid fa-list-ul pr_1"></i><p>訂單管理</p></li>
-                <li onclick="openClass(event,'mainElm4')" class="ps_1 pe_1 pl_1 pr_1 p1 tablink"><i class="fa-solid fa-tag pr_1"></i><p>優惠活動管理</p></li>
-                <li onclick="openClass(event,'mainElm5')" class="ps_1 pe_1 pl_1 pr_1 p1 tablink"><i class="fa-solid fa-flag pr_1"></i></i><p>最新消息管理</p></li>
-                <li onclick="openClass(event,'mainElm6')" class="ps_1 pe_1 pl_1 pr_1 p1 tablink"><i class="fa-solid fa-images pr_1"></i><p>輪播管理</p></li>
-                <li onclick="openClass(event,'mainElm7')" class="ps_1 pe_1 pl_1 pr_1 p1 tablink"><i class="fa-brands fa-hashnode pr_1"></i><p>後台管理員</p></li>
+                <li onclick="openClass(event,'mainElm1')" class="ps_1 pe_1 pl_1 pr_1 p1 tablink currentM"><i
+                        class="fa-solid fa-user pr_1"></i>
+                    <p>會員管理</p>
+                </li>
+                <li onclick="openClass(event,'mainElm2')" class="ps_1 pe_1 pl_1 pr_1 p1 tablink"><i
+                        class="fa-solid fa-lightbulb pr_1"></i>
+                    <p>商品管理</p>
+                </li>
+                <li onclick="openClass(event,'mainElm3')" class="ps_1 pe_1 pl_1 pr_1 p1 tablink"><i
+                        class="fa-solid fa-list-ul pr_1"></i>
+                    <p>訂單管理</p>
+                </li>
+                <li onclick="openClass(event,'mainElm4')" class="ps_1 pe_1 pl_1 pr_1 p1 tablink"><i
+                        class="fa-solid fa-tag pr_1"></i>
+                    <p>優惠活動管理</p>
+                </li>
+                <li onclick="openClass(event,'mainElm5')" class="ps_1 pe_1 pl_1 pr_1 p1 tablink"><i
+                        class="fa-solid fa-flag pr_1"></i></i>
+                    <p>最新消息管理</p>
+                </li>
+                <li onclick="openClass(event,'mainElm6')" class="ps_1 pe_1 pl_1 pr_1 p1 tablink"><i
+                        class="fa-solid fa-images pr_1"></i>
+                    <p>輪播管理</p>
+                </li>
+                <li onclick="openClass(event,'mainElm7')" class="ps_1 pe_1 pl_1 pr_1 p1 tablink"><i
+                        class="fa-brands fa-hashnode pr_1"></i>
+                    <p>後台管理員</p>
+                </li>
                 <a class="" href="index.html">
-                    <li class="ps_1 pe_1 pl_1 pr_1 p1"><i class="fa-solid fa-right-from-bracket pr_1"></i><p>登出</p></li>
+                    <li class="ps_1 pe_1 pl_1 pr_1 p1"><i class="fa-solid fa-right-from-bracket pr_1"></i>
+                        <p>登出</p>
+                    </li>
                 </a>
             </ul>
         </section>
@@ -390,7 +417,7 @@
             </section>
             <script>
                 let membRow = Vue.component('N_menu', {
-                    props: ['member_no', 'member_name', 'member_mail', 'member_birthday','member_tel','member_address','member_State'],
+                    props: ['member_no', 'member_name', 'member_mail', 'member_birthday', 'member_tel', 'member_address', 'member_State'],
                     template: `
                         <li class="backend_details">
                             <div class="backend_text">
@@ -407,21 +434,21 @@
                     `,
                 });
                 let membersVue =
-                new Vue({
-                    el: '#membList',
-                    data: {
-                        membRows:[],
-                    },
-                    created(){
-                        let xhr = new XMLHttpRequest();
-                        xhr.onload = function(){
-                            membersVue.membRows = JSON.parse(xhr.responseText);
-                            
-                        }
-                        xhr.open("get", "getMembers.php",true);
-                        xhr.send(null);	
-                    },
-                })
+                    new Vue({
+                        el: '#membList',
+                        data: {
+                            membRows: [],
+                        },
+                        created() {
+                            let xhr = new XMLHttpRequest();
+                            xhr.onload = function () {
+                                membersVue.membRows = JSON.parse(xhr.responseText);
+
+                            }
+                            xhr.open("get", "getMembers.php", true);
+                            xhr.send(null);
+                        },
+                    })
             </script>
             <!-- 商品管理 -->
             <section class="mem_content" id="mainElm2">
@@ -454,7 +481,7 @@
             </section>
             <script>
                 let prodRow = Vue.component('A_menu', {
-                    props: ['product_no', 'name', 'category_no', 'des_no','specification','price','on_market','in_stock'],
+                    props: ['product_no', 'name', 'category_no', 'des_no', 'specification', 'price', 'on_market', 'in_stock'],
                     template: `
                         <li class="backend_details">
                             <div class="backend_text">
@@ -472,20 +499,20 @@
                     `,
                 })
                 let productsVue =
-                new Vue({
-                    el: '#productList',
-                    data: {
-                        prodRows:[],
-                    },
-                    created(){
-                        let xhr = new XMLHttpRequest();
-                        xhr.onload = function(){
-                            productsVue.prodRows = JSON.parse(xhr.responseText);
-                        }
-                        xhr.open("get", "getProducts.php",true);
-                        xhr.send(null);	
-                    },
-                })
+                    new Vue({
+                        el: '#productList',
+                        data: {
+                            prodRows: [],
+                        },
+                        created() {
+                            let xhr = new XMLHttpRequest();
+                            xhr.onload = function () {
+                                productsVue.prodRows = JSON.parse(xhr.responseText);
+                            }
+                            xhr.open("get", "getProducts.php", true);
+                            xhr.send(null);
+                        },
+                    })
             </script>
             <!-- 待討論-訂單管理 -->
             <section class="mem_content" id="mainElm3">
@@ -515,7 +542,7 @@
             </section>
             <script>
                 let O_backendMenu = Vue.component('O_menu', {
-                    props: ['orderNo','orderM_NO', 'orderDate','orderPrice','orderState','orderRemark'],
+                    props: ['orderNo', 'orderM_NO', 'orderDate', 'orderPrice', 'orderState', 'orderRemark'],
                     template: `
                         <li class="backend_details">
                             <div class="backend_text">
@@ -539,7 +566,7 @@
                                 orderM_NO: `0000001`,
                                 orderDate: `2022/06/02 , AM 10:00`,
                                 orderPrice: `$ 5000`,
-                                orderState:`待處理`,
+                                orderState: `待處理`,
                                 orderRemark: `出貨請電聯`,
                             },
                             {
@@ -547,7 +574,7 @@
                                 orderM_NO: `0000005`,
                                 orderDate: `2022/06/01 , PM 02:00`,
                                 orderPrice: `$ 8000`,
-                                orderState:`已出貨`,
+                                orderState: `已出貨`,
                                 orderRemark: ``,
                             },
                             {
@@ -555,7 +582,7 @@
                                 orderM_NO: ``,
                                 orderDate: ``,
                                 orderPrice: ``,
-                                orderState:``,
+                                orderState: ``,
                                 orderRemark: ``,
                             },
                         ]
@@ -591,7 +618,7 @@
             </section>
             <script>
                 let promoRow = Vue.component('B_menu', {
-                    props: ['promotions_no', 'promotions_name', 'promotions_startDate', 'promotions_endDate','promotionsImage_path','promotions_state'],
+                    props: ['promotions_no', 'promotions_name', 'promotions_startDate', 'promotions_endDate', 'promotionsImage_path', 'promotions_state'],
                     template: `
                         <li class="backend_details">
                             <div class="backend_text">
@@ -607,21 +634,21 @@
                     `,
                 });
                 let promotionsVue =
-                new Vue({
-                    el: '#promList',
-                    data: {
-                        promoRows:[],
-                    },
-                    created(){
-                        let xhr = new XMLHttpRequest();
-                        xhr.onload = function(){
-                            promotionsVue.promoRows = JSON.parse(xhr.responseText);
-                            
-                        }
-                        xhr.open("get", "getPromotions.php",true);
-                        xhr.send(null);	
-                    },
-                })
+                    new Vue({
+                        el: '#promList',
+                        data: {
+                            promoRows: [],
+                        },
+                        created() {
+                            let xhr = new XMLHttpRequest();
+                            xhr.onload = function () {
+                                promotionsVue.promoRows = JSON.parse(xhr.responseText);
+
+                            }
+                            xhr.open("get", "getPromotions.php", true);
+                            xhr.send(null);
+                        },
+                    })
             </script>
             <!-- 最新消息管理 -->
             <section class="mem_content" id="mainElm5">
@@ -635,14 +662,17 @@
                                     <div style="width:50%">
                                         <div class="ps_1 pe_1 LBcol">
                                             <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">No.</label></div>
-                                            <div class="pl_1 pr_1"><input class="ip_normal" type="text" name="news_no" id=""></div>
+                                            <div class="pl_1 pr_1"><input class="ip_normal" type="text" name="news_no"
+                                                    id=""></div>
                                         </div>
                                         <div class="ps_1 pe_1 LBcol">
-                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Publish Date</label></div>
+                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Publish
+                                                    Date</label></div>
                                             <div class="pl_1 pr_1"><input type="date" name="news_publish" id=""></div>
                                         </div>
                                         <div class="ps_1 pe_1 LBcol">
-                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">State</label></div>
+                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">State</label>
+                                            </div>
                                             <div class="pl_1 pr_1">
                                                 <select name="news_state" id="">
                                                     <option value="0">上架</option>
@@ -653,19 +683,26 @@
                                     </div>
                                     <div style="width:50%">
                                         <div class="ps_1 pe_1 LBcol">
-                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Image</label></div>
-                                            <div class="pl_1 pr_1"><input type="file" name="C_upFile" id="C_upFile"><div class="ps_1"><img id="C_newsImage" src="./images/imgUpload.jpg" alt=""></div></div>
+                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Image</label>
+                                            </div>
+                                            <div class="pl_1 pr_1"><input type="file" name="C_upFile" id="C_upFile">
+                                                <div class="ps_1"><img id="C_newsImage" src="./images/imgUpload.jpg"
+                                                        alt=""></div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="formOne formThree">
                                     <div class="ps_1 pe_1 LBcol">
                                         <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Title</label></div>
-                                        <div class="pl_1 pr_1"><input class="ip_normal ip_width" type="text" name="news_title" id=""></div>
+                                        <div class="pl_1 pr_1"><input class="ip_normal ip_width" type="text"
+                                                name="news_title" id=""></div>
                                     </div>
                                     <div class="ps_1 pe_1 LBcol">
-                                        <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="" style="vertical-align:top">Text</label></div>
-                                        <div class="pl_1 pr_1"><textarea class="p1 tArea" name="news_text" id="" cols="100" rows="5"></textarea></div>
+                                        <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for=""
+                                                style="vertical-align:top">Text</label></div>
+                                        <div class="pl_1 pr_1"><textarea class="p1 tArea" name="news_text" id=""
+                                                cols="100" rows="5"></textarea></div>
                                     </div>
                                 </div>
                                 <div class="ps_1 pr_1 lastBtn">
@@ -679,19 +716,24 @@
                     <div class="ps_1" id="C_edit_lightBox" style="display:none">
                         <div class="lightBox_list">
                             <p class="ps_1 pe_1 pl_2 h1 lightBox_title">Edit News</p>
-                            <form class="ps_1 pe_1 pl_1 pr_1" action="newsUpdateToDb.php" enctype="multipart/form-data">
+                            <form class="ps_1 pe_1 pl_1 pr_1" id="newsModify" enctype="multipart/form-data">
+                                <!-- action="newsUpdateToDb.php" -->
                                 <div class="formOne">
                                     <div style="width:50%">
                                         <div class="ps_1 pe_1 LBcol">
                                             <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">No.</label></div>
-                                            <div class="pl_1 pr_1"><input class="ip_normal" type="text" name="news_no" id="" v-model="popupData.news_no" readonly="readonly"></div>
+                                            <div class="pl_1 pr_1"><input class="ip_normal" type="text" name="news_no"
+                                                    id="" v-model="popupData.news_no" readonly="readonly"></div>
                                         </div>
                                         <div class="ps_1 pe_1 LBcol">
-                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Publish Date</label></div>
-                                            <div class="pl_1 pr_1"><input type="date" name="news_publish" id="" v-model="popupData.news_publish"></div>
+                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Publish
+                                                    Date</label></div>
+                                            <div class="pl_1 pr_1"><input type="date" name="news_publish" id=""
+                                                    v-model="popupData.news_publish"></div>
                                         </div>
                                         <div class="ps_1 pe_1 LBcol">
-                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">State</label></div>
+                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">State</label>
+                                            </div>
                                             <div class="pl_1 pr_1">
                                                 <select name="news_state" id="" v-model="popupData.news_state">
                                                     <option value="0">上架</option>
@@ -708,8 +750,10 @@
                                             <div class="pl_1 pr_1">
                                                 <input type="file" name="E_upFile" id="E_upFile">
                                                 <div class="ps_1">
-                                                    <img name="news_publish" id="E_newsImage" :src="'images//'+ popupData.newsImage_path" alt="">
-                                                <input type="hidden" name="img_origin"  :value="popupData.newsImage_path">
+                                                    <img name="news_publish" id="E_newsImage"
+                                                        :src="'images//'+ popupData.newsImage_path" alt="">
+                                                    <input type="hidden" name="img_origin"
+                                                        :value="popupData.newsImage_path">
                                                 </div>
                                             </div>
                                         </div>
@@ -718,17 +762,20 @@
                                 <div class="formOne formThree">
                                     <div class="ps_1 pe_1 LBcol">
                                         <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Title</label></div>
-                                        <div class="pl_1 pr_1"><input class="ip_normal ip_width" type="text" name="news_title" id="" v-model="popupData.news_title"></div>
+                                        <div class="pl_1 pr_1"><input class="ip_normal ip_width" type="text"
+                                                name="news_title" id="" v-model="popupData.news_title"></div>
                                     </div>
                                     <div class="ps_1 pe_1 LBcol">
-                                        <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="" style="vertical-align:top">Text</label></div>
-                                        <div class="pl_1 pr_1"><textarea class="p1 tArea" name="news_text" id="" cols="100" rows="5" v-model="popupData.news_text"></textarea></div>
+                                        <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for=""
+                                                style="vertical-align:top">Text</label></div>
+                                        <div class="pl_1 pr_1"><textarea class="p1 tArea" name="news_text" id=""
+                                                cols="100" rows="5" v-model="popupData.news_text"></textarea></div>
                                     </div>
                                 </div>
                                 <div class="ps_1 pr_1 lastBtn">
                                     <button class="ml_1 p1 newsbtn" id="C_EditBtnCancel" type="button">Cancel</button>
-                                    <input class="ml_1 p1 newsbtn" type="submit" name="" id="" value="Edit">
-                                    <!-- <button id="C_EditBtnAdd" class="ml_1 p1 newsbtn">OK</button> -->
+                                    <!-- <input class="ml_1 p1 newsbtn" type="submit" name="" id="" value="Edit"> -->
+                                    <button id="C_EditBtnAdd" class="ml_1 p1 newsbtn" type="button" @click="newsSub">OK</button>
                                 </div>
                             </form>
                         </div>
@@ -737,7 +784,8 @@
                         <h1 class="h1 font_w5 fontTitle">News Manage</h1>
                     </div>
                     <div class="ps_1 pe_1 pl_1 pr_1">
-                        <div class="pr_1 pe_1 newListBtn"><button class="p1 newsbtn" id="C_New" type="button">✚ NEW</button></div>
+                        <div class="pr_1 pe_1 newListBtn"><button class="p1 newsbtn" id="C_New" type="button">✚
+                                NEW</button></div>
                         <div class="backend_title">
                             <p class="p1 pr_1 font_w5 fontcontent">消息編號</p>
                             <p class="p1 pr_1 font_w5 fontcontent listGrow">消息名稱</p>
@@ -749,7 +797,8 @@
                         </div>
                         <ul>
                             <template v-for="newsRow in newsRows">
-                                <li is="C_menu" v-bind="newsRow" :key="newsRow.news_no" @edit-handler="editHandler(newsRow.news_no)"></li>
+                                <li is="C_menu" v-bind="newsRow" :key="newsRow.news_no"
+                                    @edit-handler="editHandler(newsRow.news_no)"></li>
                             </template>
                         </ul>
                         <!-- <div class="pages">
@@ -761,7 +810,7 @@
             </section>
             <script>
                 let newsRow = Vue.component('C_menu', {
-                    props: ['news_no', 'news_title', 'news_publish', 'news_text','newsImage_path','news_state'],
+                    props: ['news_no', 'news_title', 'news_publish', 'news_text', 'newsImage_path', 'news_state'],
                     template: `
                         <li class="backend_details">
                             <div class="backend_text">
@@ -776,46 +825,58 @@
                         </li>
                     `,
                 });
-                let newsVue = 
-                new Vue({
-                    el: '#newsList',
-                    data: {
-                        fucusNo: 0,
-                        newsRows: [],
-                        popupData: {
-                            news_no: '',
-                            news_title: ``,
-                            news_publish: ``,
-                            news_text: ``,
-                            newsImage_path: ``,
-                            news_state: ``
+                let newsVue =
+                    new Vue({
+                        el: '#newsList',
+                        data: {
+                            fucusNo: 0,
+                            newsRows: [],
+                            popupData: {
+                                news_no: '',
+                                news_title: ``,
+                                news_publish: ``,
+                                news_text: ``,
+                                newsImage_path: ``,
+                                news_state: ``
+                            },
                         },
-                    },
-                    created(){
-                        let xhr = new XMLHttpRequest();
-                        xhr.onload = function(){
-                            newsVue.newsRows = JSON.parse(xhr.responseText);
-                            
-                        }
-                        xhr.open("get", "getNews.php",true);
-                        xhr.send(null);	
-                    },
-                    computed: {
-                        focusObj() {
-                            return (this.newsRows.find(v => v.news_no == this.fucusNo)) ? (this.newsRows.find(v => v.news_no == this.fucusNo)) : this.newsRows[0];
+                        created() {
+                            let xhr = new XMLHttpRequest();
+                            xhr.onload = function () {
+                                newsVue.newsRows = JSON.parse(xhr.responseText);
+
+                            }
+                            xhr.open("get", "getNews.php", true);
+                            xhr.send(null);
                         },
-                    },
-                    watch: {
-                        focusObj(nVal) {
-                            this.popupData = JSON.parse(JSON.stringify(nVal));
+                        computed: {
+                            focusObj() {
+                                return (this.newsRows.find(v => v.news_no == this.fucusNo)) ? (this.newsRows.find(v => v.news_no == this.fucusNo)) : this.newsRows[0];
+                            },
                         },
-                    },
-                    methods: {
-                        editHandler(no) {
-                            this.fucusNo = no;
+                        watch: {
+                            focusObj(nVal) {
+                                this.popupData = JSON.parse(JSON.stringify(nVal));
+                            },
                         },
-                    },
-                })
+                        methods: {
+                            editHandler(no) {
+                                this.fucusNo = no;
+                            },
+                            newsSub() {
+                                let xhr = new XMLHttpRequest;
+                                xhr.onload = () => {
+
+                                };
+                                xhr.open("post", "newsUpdateToDb.php", true);
+                                let newsSubDb = new FormData(document.getElementById("newsModify"));
+                                let newsSubVue = JSON.stringify(popupData);
+                                console.log(newsSubVue);
+                                xhr.send("newsSubVue");
+
+                            }
+                        },
+                    })
             </script>
             <!-- 輪播管理 -->
             <section class="mem_content" id="mainElm6">
@@ -863,21 +924,21 @@
                     `,
                 });
                 let carouselVue =
-                new Vue({
-                    el: '#carouselList',
-                    data: {
-                        carouselRows: [],
-                    },
-                    created(){
-                        let xhr = new XMLHttpRequest();
-                        xhr.onload = function(){
-                            carouselVue.carouselRows = JSON.parse(xhr.responseText);
-                            
-                        }
-                        xhr.open("get", "getCarousels.php",true);
-                        xhr.send(null);	
-                    },
-                })
+                    new Vue({
+                        el: '#carouselList',
+                        data: {
+                            carouselRows: [],
+                        },
+                        created() {
+                            let xhr = new XMLHttpRequest();
+                            xhr.onload = function () {
+                                carouselVue.carouselRows = JSON.parse(xhr.responseText);
+
+                            }
+                            xhr.open("get", "getCarousels.php", true);
+                            xhr.send(null);
+                        },
+                    })
             </script>
             <!-- 後台管理員 -->
             <section class="mem_content" id="mainElm7">
@@ -908,7 +969,7 @@
             </section>
             <script>
                 let managersRow = Vue.component('D_menu', {
-                    props: ['manager_no', 'manager_name', 'account', 'password','role','state'],
+                    props: ['manager_no', 'manager_name', 'account', 'password', 'role', 'state'],
                     template: `
                         <li class="backend_details">
                             <div class="backend_text">
@@ -924,29 +985,29 @@
                     `,
                 });
                 let managersVue =
-                new Vue({
-                    el: '#managersList',
-                    data: {
-                        managersRows: [],
-                    },
-                    created(){
-                        let xhr = new XMLHttpRequest();
-                        xhr.onload = function(){
-                            managersVue.managersRows = JSON.parse(xhr.responseText);
-                            
-                        }
-                        xhr.open("get", "getManagers.php",true);
-                        xhr.send(null);	
-                    },
-                })
+                    new Vue({
+                        el: '#managersList',
+                        data: {
+                            managersRows: [],
+                        },
+                        created() {
+                            let xhr = new XMLHttpRequest();
+                            xhr.onload = function () {
+                                managersVue.managersRows = JSON.parse(xhr.responseText);
+
+                            }
+                            xhr.open("get", "getManagers.php", true);
+                            xhr.send(null);
+                        },
+                    })
             </script>
         </div>
     </div>
 
-   
+
     <script src="./js/backend.js"></script>
     <script src="./js/backendLightBox.js"></script>
-    
+
 </body>
 
 </html>
