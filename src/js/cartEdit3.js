@@ -138,9 +138,18 @@ function createCartList(itemId, itemValue) {
     pPrice.innerText = parseInt(itemValue.split('|')[2])
     let productPrice = document.querySelector('.productPrice')
 
-    fproductPrice += (itemValue.split('|')[2])
+    fproductPrice += (itemValue.split('|')[2]) + ","
+    console.log(fproductPrice);
 
-    productPrice.value = fproductPrice
+    let theproudctPrice = fproductPrice.substring(0, fproductPrice.length - 1)
+    console.log(theproudctPrice);
+
+
+
+    let ffproductPrice = theproudctPrice.slice(1)
+    console.log(ffproductPrice);
+
+    productPrice.value = ffproductPrice
 
 
     tdPrice.appendChild(pPrice)
@@ -161,8 +170,13 @@ function createCartList(itemId, itemValue) {
     inputItemCount.min = 1
 
     let productCounts = document.querySelector('.productCounts');
-    totalcounts += counts, ',';
-    productCounts.value = totalcounts;
+    totalcounts += counts + ',';
+    console.log(totalcounts);
+    let tcounts = totalcounts.substring(0, totalcounts.length - 1);
+    console.log(tcounts);
+    var ftotalcounts = tcounts.slice(1)
+
+    productCounts.value = ftotalcounts;
 
 
 
@@ -213,6 +227,28 @@ function goDiscount() {
     let orderTotal = document.querySelector('.orderTotal')
     orderTotal.value = document.getElementById('dtotal').innerText
 
+    let time = new Date;
+    let nowTime = time.toLocaleString();
+    let orderTime = document.querySelector('.orderTime');
+
+    var today = new Date();
+
+    var currentDateTime =
+
+        today.getFullYear() + '/' +
+
+        (today.getMonth() + 1) + '/' +
+
+        today.getDate() + '/(' +
+
+        today.getHours() + ':' + today.getMinutes() +
+
+        ')';
+
+    orderTime.value = currentDateTime;
+
+
+
 
 }
 discount.addEventListener("change", goDiscount, false)
@@ -244,21 +280,5 @@ window.addEventListener("load", function() {
 
     }
 
-})
-
-window.addEventListener("load", function() {
-    //-----------------
-    document.getElementById("btnNext").onclick = function() {
-        let xhr = new XMLHttpRequest();
-        xhr.onload = function() {
-            alert(xhr.responseText);
-
-        }
-
-        xhr.open("post", "./prodInsert.php");
-        xhr.send(new FormData(document.getElementById("myForm")));
-        console.log(new FormData(document.getElementById("myForm")));
-
-    }
 
 })

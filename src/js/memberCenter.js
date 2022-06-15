@@ -13,6 +13,8 @@ let memberLogin = () => {
         $id("idMsg").innerText = "Login Failed";
       } else {
         //登入成功
+        $id("memshow").innerText = "Hello~ \n" + xhr.responseText;
+        console.log(1);
         $id("idMsg").innerText = "Login Sucess";
         $id("mem_Loginbtn").innerText = "Log out";
         // -----
@@ -60,10 +62,10 @@ let profiles_sub = () => {
       let xhr = new XMLHttpRequest();
       xhr.onload = () => {
         if (xhr.status == 200) {
-          alert(xhr.responseText);
+          alert(xhr.responseTexFt);
         } else {
           alert("Change Fail");
-          console.log(xhr.status);
+          // console.log(xhr.status);
         }
       };
       xhr.open("post", "membermodify.php", true);
@@ -81,28 +83,33 @@ let changePsw_sub = () => {
   let changePswData = new FormData($id("changePswData"));
   xhr.send(changePswData);
 };
+
 function getMemberinfo(e) {
   let ul = document.querySelector(".ul");
   let memberform = document.querySelectorAll(".memberform");
   let xhr = new XMLHttpRequest();
-  xhr.onload = function () {
+  xhr.onload = () => {
     if (xhr.responseText != "No login") {
       $id("mem_Loginbtn").innerText = "Log out";
-      for (let i = 0; i < ul.children.length; i++) {
-        if (e.target == ul.children[i]) {
-          memberform[i].classList.remove("member_hide");
-          ul.children[i].classList.add("member_colstay");
-          $id("member_welcome").classList.add("member_hide");
-        } else if (e.target == ul) {
-          $id("member_welcome").classList.remove("member_hide");
-          memberform[i].classList.add("member_hide");
-          ul.children[i].classList.remove("member_colstay");
-        } else {
-          memberform[i].classList.add("member_hide");
-          ul.children[i].classList.remove("member_colstay");
+      if (e != undefined) {
+        for (let i = 0; i < ul.children.length; i++) {
+          if (e.target == ul.children[i]) {
+            memberform[i].classList.remove("member_hide");
+            ul.children[i].classList.add("member_colstay");
+            $id("member_welcome").classList.add("member_hide");
+          } else if (e.target == ul) {
+            $id("member_welcome").classList.remove("member_hide");
+            memberform[i].classList.add("member_hide");
+            ul.children[i].classList.remove("member_colstay");
+          } else {
+            memberform[i].classList.add("member_hide");
+            ul.children[i].classList.remove("member_colstay");
+          }
         }
       }
-      let memberinfo = JSON.parse((JSON.parse(xhr.responseText)).member);
+      let memberinfo = JSON.parse(JSON.parse(xhr.responseText).member); //會員資料陣列放進memberinfo
+      let memberorder = JSON.parse(JSON.parse(xhr.responseText).memberorder); //會員訂單陣列放進memberorder
+      $id("memshow").innerText = "Hello~ \n" + memberinfo.member_name;
       //會員資料寫入HTML
       $id("memName").value = memberinfo.member_name;
       $id("email").value = memberinfo.member_mail;
@@ -110,8 +117,18 @@ function getMemberinfo(e) {
       $id("memPhone").value = memberinfo.member_tel;
       $id("Address").value = memberinfo.member_address;
       // 會員訂單寫入
-
+      let orderHtml = ``;
+      for (let i = 0; i < memberorder.length; i++) {
+        orderHtml += `<table class="memtable h4"><thead><tr><th>Order Number</th><th>Order Date</th><th>Order Status</th><th>Total</th></tr></thead><tbody><tr>
+        <td>${memberorder[i].order_no}</td>
+        <td>${memberorder[i].order_datetime}</td>
+        <td>${memberorder[i].order_state}</td>
+        <td>${memberorder[i].order_total}</td></tr></tbody></table>`;
+      }
+      $id("orderInsert").innerHTML = orderHtml;
       // ----------
+      // 蒐藏寫入
+      // ---------
     } else {
       $id("idMsg").innerText = "Login First";
       $id("mem_Loginbtn").innerText = "Log in";
@@ -131,6 +148,7 @@ function imgPreload() {
     reader.readAsDataURL(file);
   };
 }
+
 function init() {
   getMemberinfo(); //檢查登入狀態(提取session資料)
   imgPreload();

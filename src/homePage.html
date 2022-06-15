@@ -53,7 +53,7 @@
                 methods: {
                     getCarouselAxios() {
                         axios.get(`./getCarousels.php`).then((response) => {
-                            console.log(response.data);
+                            // console.log(response.data);
                             index_carousel.carouselImg = response.data;
                             this.showCarousels(response.data)
                         })
@@ -219,7 +219,7 @@
                 <div class="grid">
                     <div class="grid-sizer"></div>
                     <div class="gutter-sizer"></div>
-                    <product-commodity v-for="commodity in commodityObject" v-bind="commodity"></product-commodity>
+                    <product-commodity v-for="(commodity, index) in commodityObject" :key="commodity.id" v-bind="commodity"></product-commodity>
                 </div>
             </div>
         </section>
@@ -256,7 +256,7 @@
         <div class="containerALL">
             <div class="card">
                 <div id="news_photo">
-                    <news-photo v-for="newsphoto in newsphotoObject" v-bind="newsphoto"></news-photo>
+                    <news-photo v-for="(newsphoto, index) in newsphotoObject" :key="newsphoto.id" v-bind="newsphoto"></news-photo>
                 </div>
                 <script>
                     let newsphoto = Vue.component("news-photo", {

@@ -15,6 +15,7 @@ try {
     $_SESSION["memEmail"] = $memRow["member_mail"];
     $_SESSION["memName"] = $memRow["member_name"];
     $_SESSION["memPsw"] = $memRow["member_psw"];
+    echo $_SESSION["memName"];
   } else {
     echo "輸入錯誤";
   }
