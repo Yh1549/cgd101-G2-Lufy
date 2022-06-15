@@ -1,6 +1,6 @@
 <?php 
 try{
-	require_once("../../connect_lufy.php");
+	require_once("connect_lufy.php");
 
 	$sql = "SELECT * FROM carousel"; //準備好sql指令
 	$carousels = $pdo->query($sql);//將sql指令送到mysql去執行, 回傳的是pdoStatement

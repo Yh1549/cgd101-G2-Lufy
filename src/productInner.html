@@ -12,7 +12,7 @@
     <!-- header end -->
     <div class="containerALL me_8" id="product">
         <!-- breadcrumb -->
-        @@include('layout/breadcrumb.html')
+        <!-- @@include('layout/breadcrumb.html') -->
         <!-- breadcrumb end-->
         <section class="product_main_box me_6">
             <div class="main_product_img" v-if="prodInfoRow.length !=0">
@@ -29,7 +29,7 @@
                 <div class="product_details_box me_6" v-if="prodInfoRow.length !=0">
                     <prod-info v-bind="prodInfoRow[0]"></prod-info>
                 </div>
-            </div>
+            </div> 
         </section>
         <section class="product_designer_box me_6" v-if="prodInfoRow.length !=0">
             <des-info v-bind="prodInfoRow[0]"></des-info>
@@ -95,3 +95,21 @@
 </body>
 
 </html>
+
+<!-- <div class="prod_img" v-if="prodInfoRow.length !=0">
+    <prod-img :image_path="prodInfoRow[0]?.image_path"></prod-img>
+</div> -->
+
+<!-- <div class="main_product_img">
+    <img id="large" class="me_2 big_img" src="images/aboutus.lamp1.png" alt="">
+    <div class="product_overlay hidden">
+        <h2>Added to cart</h2>
+        <i class='fa fa-check'></i>
+    </div>
+
+    <div class="small_products_img_box">
+        <div class="small_products_img"><img class="small" src="images/aboutus.lamp1.png" alt=""></div>
+        <div class="small_products_img"><img class="small" src="images/aboutus.lamp2.png" alt=""></div>
+        <div class="small_products_img"><img class="small" src="images/aboutus.lamp3.png" alt=""></div>
+    </div>
+</div> -->
