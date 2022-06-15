@@ -716,8 +716,12 @@
                     <div class="ps_1" id="C_edit_lightBox" style="display:none">
                         <div class="lightBox_list">
                             <p class="ps_1 pe_1 pl_2 h1 lightBox_title">Edit News</p>
+<<<<<<< HEAD
                             <form class="ps_1 pe_1 pl_1 pr_1" id="newsModify" enctype="multipart/form-data">
                                 <!-- action="newsUpdateToDb.php" -->
+=======
+                            <form class="ps_1 pe_1 pl_1 pr_1" action="newsUpdateToDb.php" enctype="multipart/form-data" id="newsModify">
+>>>>>>> dev
                                 <div class="formOne">
                                     <div style="width:50%">
                                         <div class="ps_1 pe_1 LBcol">
@@ -859,6 +863,7 @@
                                 this.popupData = JSON.parse(JSON.stringify(nVal));
                             },
                         },
+<<<<<<< HEAD
                         methods: {
                             editHandler(no) {
                                 this.fucusNo = no;
@@ -877,6 +882,25 @@
                             }
                         },
                     })
+=======
+                        newsSub() {
+                                let xhr = new XMLHttpRequest;
+                                xhr.onload = () => {
+                                   alert(xhr.responseText);
+                                   document.getElementById("C_edit_lightBox").style.display = "none";
+                                };
+                                xhr.open("post", "newsUpdateToDb.php", true);
+
+                                let newsSubDb = new FormData(document.getElementById("newsModify"));
+                                // let newsSubVue = JSON.stringify(newsVue.popupData);
+                                console.log(newsSubDb);
+
+                                xhr.send(newsSubDb);
+
+                            }
+                    },
+                })
+>>>>>>> dev
             </script>
             <!-- 輪播管理 -->
             <section class="mem_content" id="mainElm6">
