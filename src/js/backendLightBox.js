@@ -39,20 +39,6 @@ function C_showEditLightBox(){//-----------開修改燈箱
 function C_cancelEdit(){//-----------取消開修改燈箱
     document.getElementById("C_edit_lightBox").style.display = "none";
 }
-// function C_edit(){//----修改
-//     let xhr = new XMLHttpRequest();
-//     xhr.onload = function(){
-//         alert(xhr.responseText);
-//         location.href="getNews.php";
-//     }
-//     xhr.open("post", "newsInsert.php");
-//     xhr.send(new FormData(document.getElementById("newsForm")));
-// }
-
-
-
-
-
 
 
 //-------------------開設計師燈箱-------------------
@@ -99,22 +85,22 @@ function init(){
             document.getElementById("C_newsImage").src = reader.result;
         }
         reader.readAsDataURL(file); //將圖檔資訊讀出以 base64的編碼方式，以便放到img標籤中
-    }
+    };
     //-------------------修改 C_最新消息按鈕--------------------
     let CdEts = document.querySelectorAll("#C_Edit");//----列表的修改最新消息Edit鈕
 	for (let i=0; i<CdEts.length; i++){
         CdEts[i].onclick = C_showEditLightBox;
-	}
+	};
     //----document.getElementById("C_EditBtnAdd").onclick = C_edit;//----修改最新消息-Edit鈕
     document.getElementById("C_EditBtnCancel").onclick = C_cancelEdit;//----修改最新消息-取消鈕
-    /*document.getElementById("E_upFile").onchange = function(e){//----新增最新消息上傳圖片鈕
+    document.getElementById("E_upFile").onchange = function(e){//----新增最新消息上傳圖片鈕
         let file = e.target.files[0]; //取得所選的file物件的參考
         let reader = new FileReader();
         reader.onload = function(e){
             document.getElementById("E_newsImage").src = reader.result;
         }
         reader.readAsDataURL(file); //將圖檔資訊讀出以 base64的編碼方式，以便放到img標籤中
-    }*/
+    };
 
     //-------------------new_promotionsProduct
 

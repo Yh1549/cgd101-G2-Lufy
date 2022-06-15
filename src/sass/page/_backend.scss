@@ -40,6 +40,25 @@
         padding: 0 10px;
     }
 }
+.tyDate{ //日期樣式
+    height: round($ip_base * 2px);
+    padding: round($ip_base * 1px) round($ip_base * 2px);
+    //-------------
+    border: 2px solid $secondary_30;
+    border-radius: $ip_br;
+    //--------------
+    font-size: $font_size; //16px
+    font-family: $fontcontent;
+    color: $fontcolor_dark;
+    //--------------
+    &:focus {
+        transition: 100ms;
+        box-shadow: 0 $ip_shadow $ip_shadow * 3 0 $primary_30;
+        border: solid 2px $primary_100;
+        outline: none;
+    }
+    
+}
 //------------------------燈箱
 #A_lightBox , #B_lightBox , #C_lightBox , #C_edit_lightBox , #D_lightBox{
     position: fixed;
@@ -77,6 +96,13 @@
                 font-size: $font_size; //16px
                 font-family: $fontcontent;
                 color: $fontcolor_dark;
+                //--------------
+                &:focus {
+                    transition: 100ms;
+                    box-shadow: 0 $ip_shadow $ip_shadow * 3 0 $primary_30;
+                    border: solid 2px $primary_100;
+                    outline: none;
+                }
             }
             & textarea{
                 padding: 8px 16px;
