@@ -7,15 +7,12 @@ function doFirst() {
     }
     let list = document.querySelectorAll('.addButton');
     for (let i = 0; i < list.length; i++) {
-        list[i].addEventListener('click', function(e) {
+        list[i].addEventListener('click', function (e) {
             let lamp = document.querySelector(`#${e.target.id} input`).value;
             addItem(e.target.id, lamp);
             // console.log(lamp);
         })
     }
-
-
-
 }
 
 function addItem(itemId, itemValue) {
@@ -89,40 +86,11 @@ function init() {
 
 window.addEventListener("load", init, false);
 
-///////////////////////////////////////////////////////////////////////////////////
-let discribeBtn = document.querySelector("#discribeBtn");
-let specificationBtn = document.querySelector("#specificationBtn");
-let divDiscribe = document.querySelector(".product_discribe")
-let divSpecification = document.querySelector(".product_specification")
-
-function showDiscribe() {
-    if (divDiscribe.classList.contains("hidden")) {
-        specificationBtn.classList.remove("byclicked");
-        discribeBtn.classList.add("byclicked");
-        divDiscribe.classList.remove("hidden");
-        divSpecification.classList.add("hidden");
-    }
-}
-
-function showSpecification() {
-    if (divSpecification.classList.contains("hidden")) {
-        discribeBtn.classList.remove("byclicked");
-        specificationBtn.classList.add("byclicked");
-        divSpecification.classList.remove("hidden");
-        divDiscribe.classList.add("hidden");
-
-    }
-}
-
-function init2() {
-    discribeBtn.addEventListener("click", showDiscribe)
-    specificationBtn.addEventListener("click", showSpecification)
-}
 window.addEventListener("load", init, false);
 let addButton = document.querySelector('.addButton')
 let pImg = document.getElementById('large')
-console.log(pImg);
-console.log(pImg)
+// console.log(pImg);
+// console.log(pImg)
 let issue = document.querySelector('.product_overlay')
 
 function showIssue() {
@@ -147,12 +115,7 @@ function showIssue() {
 
 function returnImg() {
     pImg.classList.remove("hidden");
-
-
     issue.classList.add("hidden");
-
-
 }
 
 addButton.addEventListener("click", showIssue, false)
-window.addEventListener("load", init2, false);

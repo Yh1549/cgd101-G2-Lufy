@@ -21,7 +21,7 @@
                 <div class="grid">
                     <div class="grid-sizer"></div>
                     <div class="gutter-sizer"></div>
-                    <product-commodity v-for="commodity in commodityObject" v-bind="commodity"></product-commodity>
+                    <product-commodity v-for="(commodity, index) in commodityObject" :key="commodity.id" v-bind="commodity"></product-commodity>
                 </div>
             </div>
         </section>

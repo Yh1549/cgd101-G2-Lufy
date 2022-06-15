@@ -1,5 +1,5 @@
 <div id="product_category" class="product_category ms_4 me_4">
-    <product-category v-for='category in categoryObject' v-bind="category"></product-category>
+    <product-category v-for='(category, index) in categoryObject' :key="category.id" v-bind="category"></product-category>
 </div>
 <script>
     let category = Vue.component('product-category', {
