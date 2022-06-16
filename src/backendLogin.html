@@ -1,17 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    @@include('layout/meta.html', { "title" : "Backend Login" })
 </head>
+
 <body>
-    <form action="">
-        <div><label for="">ID</label></div>
-        <div><input type="text" name="" id=""><br></div>
-        <div><label for="">Password</label></div>
-        <div><input type="password" name="" id=""></div>
-    </form>
+    <div class="backendLogin">
+        <div class="backendLogin_banner ps_6">
+            <img src="images/nav_logo_web.webp">
+        </div>
+        <h1 class="s3">Backend Login</h1>
+        <form id="LoginInfo">
+            <span id="loginMsg"></span>
+            <label for="" class="h1">ID</label><br>
+            <input type="text" name="adminId" id="adminId" class="ip_normal me_2"><br>
+            <label for="" class="h1">Password</label><br>
+            <input type="password" name="adminPsw" id="adminPsw" class="ip_normal me_2"><br>
+            <input type="button" class="btn_normal" value="Login" id="backendLogin">
+        </form>
+    </div>
+<script>
+    let init=()=>{
+        document.getElementById("backendLogin").onclick = ()=>{
+            let backendLoginxhr = new XMLHttpRequest();
+            backendLoginxhr.onload=()=>{
+                if(backendLoginxhr.status == 200){
+                    window.location.assign(`${backendLoginxhr.responseText}`);
+                }else{
+                    document.getElementById("loginMsg").innerText = "Login fail"
+                };
+            };
+            backendLoginxhr.open("post","backendLogin.php",true);
+            let LoginInfo = new FormData(document.getElementById("LoginInfo"));
+            backendLoginxhr.send(LoginInfo);
+        };
+    }
+    window.addEventListener("load", init, false);
+</script>
 </body>
+
 </html>
