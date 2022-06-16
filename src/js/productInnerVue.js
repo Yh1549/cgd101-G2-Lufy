@@ -26,6 +26,9 @@ let prodImgSmall = Vue.component('prodimg-small', {
 });
 let purchasePnl = Vue.component('purchase-panel', {
     props: ['name', 'price', 'promotions_name', 'promotions_price', 'promPrice'],
+    data() {
+        return { isSelected: false }
+    },
     methods: {
         setFavorite() {
             const product_no = window.location.search.split('id=')[1];
@@ -33,7 +36,7 @@ let purchasePnl = Vue.component('purchase-panel', {
                 }&add=true`).then((response) => {
                     console.log('response.data :', response.data)
                 }).catch(err => console.log(err));
-        }
+        },
     },
     computed: {
         prom_price() {
@@ -61,12 +64,12 @@ let purchasePnl = Vue.component('purchase-panel', {
                 <span id="A1001" class="fontcontent p1"><i class="fa-solid fa-cart-plus"></i> Add to Cart
                     <input type="hidden" value="lamp1|aboutus.lamp1.png|50000|lamp1 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore dicta obcaecati id fuga consectetur accusantium, debitis consequatur odit iste dolorum.">
                 </span>
+                <input type="hidden" value="lamp1|aboutus.lamp1.png|50000">
             </div>
         </div>
-        <div id="favoriteButton" class="favoriteButton me_4" @click='setFavorite()'>
-            <i class="fa-regular fa-heart"></i>
+        <div id="favoriteButton" class="favoriteButton me_4" @click="isSelected=!isSelected; setFavorite()" >
+            <span class="material-icons heart" :class="{favActive : isSelected}">favorite</span>
             <span class="fontcontent p1">Favorite</span>
-            <input type="hidden" value="lamp1|aboutus.lamp1.png|50000">
         </div> 
     </div>`,
     // #endRegion
@@ -74,27 +77,21 @@ let purchasePnl = Vue.component('purchase-panel', {
 let prodInfo = Vue.component('prod-info', {
     props: ['description', 'specification'],
     data() {
-        return { show: true, }
-    },
-    computed: {
-        show_info() { return { show: true } }
+        return { layout: 'desc', }
     },
     template: `<div>
         <div class="detail_switch me_2">
-            <div @click='show=true' class="describe font_w5 fontcontent" :class="byclicked">Description</div>
-            <div @click='show=false' class="specification fontcontent">Specification</div>
+            <div class="descBar fontcontent" @click="layout = 'desc'" :class="{ barActive: layout === 'desc'}">Description</div>
+            <div class="specBar fontcontent" @click="layout = 'spec'" :class="{ barActive: layout === 'spec'}">Specification</div>
         </div>
-        <div v-if='show' class="product_describe">
-            <p class="content p2">{{description}}</p>
+        <div v-if="layout === 'desc'" class="content">
+            <p class="p2">{{description}}</p>
         </div>
-        <div v-else class="product_specification">
-            <p class="content p2">{{specification}}</p>
+        <div  v-if="layout === 'spec'" class="content">
+            <p class="p2">{{specification}}</p>
         </div>        
     </div>
     `,
-    mounted: {
-        byClick() { }
-    }
 })
 let designerInfo = Vue.component('des-info', {
     props: ['des_name', 'des_text'],
