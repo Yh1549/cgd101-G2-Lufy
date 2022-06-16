@@ -35,6 +35,11 @@
      let str10 = document.querySelector(".card3").value;
      localStorage.setItem("card3", str10);
 
+     let str11 = document.querySelector(".notes").value;
+     localStorage.setItem("notes", str11);
+
+
+
 
 
 

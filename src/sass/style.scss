@@ -28,9 +28,10 @@
 //------------
 //產品import------
 @import 'page/productMain'; //產品主頁
+@import 'page/productMain_masonry'; //商品瀑布流
 @import 'page/productCategory'; //產品分類頁
 @import 'page/productInner'; //產品內頁
-@import 'page/breadcrumb';
+@import 'page/breadcrumb'; // 麵包屑
 //----------
 //最新消息import------------
 @import 'page/news.scss'; //最新消息

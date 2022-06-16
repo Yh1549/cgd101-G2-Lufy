@@ -12,7 +12,7 @@
     <!-- header end -->
     <div class="containerALL me_8" id="product">
         <!-- breadcrumb -->
-        @@include('layout/breadcrumb.html')
+        <!-- @@include('layout/breadcrumb.html') -->
         <!-- breadcrumb end-->
         <section class="product_main_box me_6">
             <div class="main_product_img" v-if="prodInfoRow.length !=0">
@@ -24,7 +24,7 @@
             </div>
 
             <div class="purchase_panel pl_6" v-if="prodInfoRow.length !=0">
-                <purchase-panel v-bind="prodInfoRow[0]"></purchase-panel>
+                <purchase-panel v-bind="prodInfoRow[0]" v-bind:add="add"></purchase-panel>
                 
                 <div class="product_details_box me_6" v-if="prodInfoRow.length !=0">
                     <prod-info v-bind="prodInfoRow[0]"></prod-info>

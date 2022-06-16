@@ -15,23 +15,34 @@
 let prodImgMain = Vue.component('prodimg-main', {
     props: ['name', 'image_path'],
     template: `<img :src="'images//'+image_path" :alt="name" class="me_2 big_img">`,
+
 });
 let prodImgSmall = Vue.component('prodimg-small', {
     props: ['name', 'image_path'],
     template: `<div class="small_products_img">
-                <img  :src="'images//'+image_path" :alt='name'class="small">
+                <img  :src="'images//'+image_path" :alt='name'class="small" @click="showLarge()">
                 </div>`,
+
 });
 let purchasePnl = Vue.component('purchase-panel', {
-    props: ['name', 'price', 'promotions_name', 'promotions_price', 'promPrice'],
+    props: ['name', 'price', 'promotions_name', 'promotions_price', 'promPrice', 'add'],
+    // data() {
+    //     return { isSelected: false }
+    // },
     methods: {
         setFavorite() {
             const product_no = window.location.search.split('id=')[1];
             axios.get(`favorite.php?id=${product_no
-                }`).then((response) => {
-                    console.log('response.data :', response.data)
+                }&add=${this.add}`).then((response) => {
+                    if (response.data == 'add success'){
+                        this.add = false;
+                        document.querySelector('.favoriteButton .heart').classList.add('favActive');
+                    }else{
+                        this.add = true;
+                        document.querySelector('.favoriteButton .heart').classList.remove('favActive');
+                    }
                 }).catch(err => console.log(err));
-        }
+        },
     },
     computed: {
         prom_price() {
@@ -59,40 +70,34 @@ let purchasePnl = Vue.component('purchase-panel', {
                 <span id="A1001" class="fontcontent p1"><i class="fa-solid fa-cart-plus"></i> Add to Cart
                     <input type="hidden" value="lamp1|aboutus.lamp1.png|50000|lamp1 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore dicta obcaecati id fuga consectetur accusantium, debitis consequatur odit iste dolorum.">
                 </span>
+                <input type="hidden" value="lamp1|aboutus.lamp1.png|50000">
             </div>
         </div>
-        <div id="favoriteButton" class="favoriteButton me_4" @click='setFavorite()'>
-            <i class="fa-regular fa-heart"></i>
+        <div id="favoriteButton" class="favoriteButton me_4" @click="isSelected=!isSelected; setFavorite()" >
+            <span class="material-icons heart" >favorite</span>
             <span class="fontcontent p1">Favorite</span>
-            <input type="hidden" value="lamp1|aboutus.lamp1.png|50000">
         </div> 
     </div>`,
-    // #endRegion
+    // #endRegion :class="{favActive : isSelected}"
 });
 let prodInfo = Vue.component('prod-info', {
     props: ['description', 'specification'],
     data() {
-        return { show: true, }
-    },
-    computed: {
-        show_info() { return { show: true } }
+        return { layout: 'desc', }
     },
     template: `<div>
         <div class="detail_switch me_2">
-            <div @click='show=true' class="describe font_w5 fontcontent" :class="byclicked">Description</div>
-            <div @click='show=false' class="specification fontcontent">Specification</div>
+            <div class="descBar fontcontent" @click="layout = 'desc'" :class="{ barActive: layout === 'desc'}">Description</div>
+            <div class="specBar fontcontent" @click="layout = 'spec'" :class="{ barActive: layout === 'spec'}">Specification</div>
         </div>
-        <div v-if='show' class="product_describe">
-            <p class="content p2">{{description}}</p>
+        <div v-if="layout === 'desc'" class="content">
+            <p class="p2">{{description}}</p>
         </div>
-        <div v-else class="product_specification">
-            <p class="content p2">{{specification}}</p>
+        <div  v-if="layout === 'spec'" class="content">
+            <p class="p2">{{specification}}</p>
         </div>        
     </div>
     `,
-    mounted: {
-        byClick() { }
-    }
 })
 let designerInfo = Vue.component('des-info', {
     props: ['des_name', 'des_text'],
@@ -116,6 +121,7 @@ const mainProductImg = new Vue({
     el: `#product`,
     data: {
         prodInfoRow: [],
+        add:true,    
     },
     methods: {
         setProductimage() {
@@ -123,11 +129,43 @@ const mainProductImg = new Vue({
             axios.get(`productInner.php?id=${product_no
                 }`).then((response) => {
                     this.prodInfoRow = response.data;
-                    console.log(response.data)
+                    // console.log(response.data)
                 }).catch(err => console.log(err));
-        },        
+        },   
+        // 一進到頁面做商品是否已加入蒐藏檢查的函式
+        favoriteCheck(){
+            let favCheck = new XMLHttpRequest();
+            favCheck.onload=()=>{
+                if (favCheck.responseText != "No login"){
+                    let memberfavorite = JSON.parse(JSON.parse(favCheck.responseText).memberfavorite);
+                    let idParams = new URLSearchParams(window.location.search);
+                    let pageid = parseInt(idParams.get("id"));
+                    for (let i = 0; i < memberfavorite.length; i++) {
+                        if(memberfavorite[i].product_no == pageid){
+                            // console.log(memberfavorite[i].product_no+"sucess");
+                            this.add = false;
+                            document.querySelector('.favoriteButton .heart').classList.add('favActive');
+                            // favorite按鈕變色的js放這 已加入蒐藏
+                            break;
+                        }else{
+                            this.add = true;
+                            document.querySelector('.favoriteButton .heart').classList.remove('favActive');
+                            // favorite按鈕變色的js放這 未加入蒐藏
+                            // console.log("fail");
+                        }
+                    }; 
+                    // console.log(this.add);
+                }else{
+                    console.log("未登入");
+                }
+            };
+            favCheck.open("get", "membergetInfo.php",true);
+            favCheck.send(null);
+            
+        }
     },
     mounted() {
         this.setProductimage();
+        this.favoriteCheck();
     },
 })

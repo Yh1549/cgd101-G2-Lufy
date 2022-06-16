@@ -3,7 +3,6 @@ session_start();
 try {
   require_once("connect_lufy.php");
   $sql = "select * from member where member_mail=:memId and member_psw=:memPsw ";//登入
-  // $sql = "select * from member where member_mail=123 and member_psw=123 ";
   $member = $pdo->prepare($sql);
   $member->bindValue(":memId", $_POST["memId"]);
   $member->bindValue(":memPsw", $_POST["memPsw"]);
