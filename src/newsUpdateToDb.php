@@ -1,6 +1,6 @@
 <?php 
 try {
-	require_once("../../connect_lufy.php");
+	require_once("connect_lufy.php");
     switch ($_FILES["E_upFile"]["error"] ){
         case UPLOAD_ERR_OK: 
             $dir ="images";
@@ -8,11 +8,12 @@ try {
                 mkdir($dir); //創建資料夾 , make directory
             }
             $from = $_FILES['E_upFile']['tmp_name'];
-            $to = "$dir/" . $_FILES['E_upFile']['name']; //"images/smile.gif"
+            $fileInfoArr = pathinfo($_FILES['E_upFile']['name']);
+            $fileName = uniqid().".{$fileInfoArr["extension"]}";
+            $to = "$dir/" . $fileName; //"images/smile.gif"
             copy($from, $to);
-            echo "完成~";
-            // $fn = $_FILES['E_upFile']['name'];
-            $fileName = $_FILES['E_upFile']['name'];
+            //echo "完成~";
+
             break;
         case UPLOAD_ERR_INI_SIZE:
             echo "上傳檔案太大, 不得超過", ini_get("upload_max_filesize"), "<br>";
