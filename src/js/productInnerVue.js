@@ -23,13 +23,19 @@ let prodImgSmall = Vue.component('prodimg-small', {
                 </div>`,
 });
 let purchasePnl = Vue.component('purchase-panel', {
-    props: ['name', 'price', 'promotions_name', 'promotions_price', 'promPrice'],
+    props: ['name', 'price', 'promotions_name', 'promotions_price', 'promPrice', 'add'],
     methods: {
         setFavorite() {
             const product_no = window.location.search.split('id=')[1];
             axios.get(`favorite.php?id=${product_no
-                }`).then((response) => {
-                    console.log('response.data :', response.data)
+                }&add=${this.add}`).then((response) => {
+                    alert(response.data);
+                    // console.log('response.data :', response.data)
+                    if (response.data == 'add sucess'){
+                        this.add = false;
+                    }else{
+                        this.add = true;
+                    }
                 }).catch(err => console.log(err));
         }
     },
@@ -116,6 +122,7 @@ const mainProductImg = new Vue({
     el: `#product`,
     data: {
         prodInfoRow: [],
+        add:true,    
     },
     methods: {
         setProductimage() {
@@ -123,11 +130,41 @@ const mainProductImg = new Vue({
             axios.get(`productInner.php?id=${product_no
                 }`).then((response) => {
                     this.prodInfoRow = response.data;
-                    console.log(response.data)
+                    // console.log(response.data)
                 }).catch(err => console.log(err));
-        },        
+        },   
+        // 一進到頁面做商品是否已加入蒐藏檢查的函式
+        favoriteCheck(){
+            let favCheck = new XMLHttpRequest();
+            favCheck.onload=()=>{
+                if (favCheck.responseText != "No login"){
+                    let memberfavorite = JSON.parse(JSON.parse(favCheck.responseText).memberfavorite);
+                    let idParams = new URLSearchParams(window.location.search);
+                    let pageid = parseInt(idParams.get("id"));
+                    for (let i = 0; i < memberfavorite.length; i++) {
+                        if(memberfavorite[i].product_no == pageid){
+                            console.log(memberfavorite[i].product_no+"sucess");
+                            this.add = false;
+                            // favorite按鈕變色的js放這 已加入蒐藏
+                            break;
+                        }else{
+                            this.add = true;
+                            // favorite按鈕變色的js放這 未加入蒐藏
+                            console.log("fail");
+                        }
+                    }; 
+                    console.log(this.add);
+                }else{
+                    console.log("未登入");
+                }
+            };
+            favCheck.open("get", "membergetInfo.php",true);
+            favCheck.send(null);
+            
+        }
     },
     mounted() {
         this.setProductimage();
+        this.favoriteCheck();
     },
 })

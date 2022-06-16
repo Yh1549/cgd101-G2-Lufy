@@ -24,7 +24,7 @@ let memberLogin = () => {
     }
   };
   //與PHP連線
-  xhr.open("post", "member.php", true);
+  xhr.open("post", "memberlogin.php", true);
   xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
   let data_info =
     "memId=" + $id("memId").value + "&memPsw=" + $id("memPsw").value;
@@ -130,8 +130,6 @@ function getMemberinfo(e) {
       // ----------
       // 蒐藏寫入
       let favoriteHtml = ``;
-    console.log(memberfavorite[0]);
-
       for (let i = 0; i < memberfavorite.length; i++) {
         favoriteHtml += `<div class='memtable_container'><table class="memtable h4"><thead><tr><th>Product Image</th><th>Product Name</th><th>Product Status</th><th>Price</th></tr></thead><tbody><tr>
         <td><img src="images/${memberfavorite[i].image_path}"></td>
@@ -148,7 +146,7 @@ function getMemberinfo(e) {
       $id("mem_Loginbtn").innerText = "Log in";
     }
   };
-  xhr.open("get", "getMemberInfo.php", true);
+  xhr.open("get", "membergetInfo.php", true);
   xhr.send(null);
 }
 // 取消蒐藏
