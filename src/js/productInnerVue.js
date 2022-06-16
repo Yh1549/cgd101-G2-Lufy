@@ -1,3 +1,17 @@
+// let prodImg = Vue.component('prod-img', {
+//     props: ['name', 'image_path'],
+//     template: `
+//     <div>
+//         <img :image_path="prodInfoRow[0]?.image_path" :alt="name" class="me_2 big_img">
+//         <div class="product_overlay hidden">
+//             <h2>Added to cart</h2>
+//             <i class='fa fa-check'></i>
+//         </div>
+//         <div class="small_products_img">
+//             <img :src="'images//'+image_path" :alt='name'class="small">
+//         </div>
+//     </div>`,
+// })
 let prodImgMain = Vue.component('prodimg-main', {
     props: ['name', 'image_path'],
     template: `<img :src="'images//'+image_path" :alt="name" class="me_2 big_img">`,
@@ -12,13 +26,22 @@ let prodImgSmall = Vue.component('prodimg-small', {
 });
 let purchasePnl = Vue.component('purchase-panel', {
     props: ['name', 'price', 'promotions_name', 'promotions_price', 'promPrice'],
+    methods: {
+        setFavorite() {
+            const product_no = window.location.search.split('id=')[1];
+            axios.get(`favorite.php?id=${product_no
+                }&add=true`).then((response) => {
+                    console.log('response.data :', response.data)
+                }).catch(err => console.log(err));
+        }
+    },
     computed: {
         prom_price() {
             return {
                 orignal_price: this.promotions_price,
                 big_price: !this.promotions_price,
             }
-        }
+        },
     },
     // #region 
     template: `<div>
@@ -40,7 +63,7 @@ let purchasePnl = Vue.component('purchase-panel', {
                 </span>
             </div>
         </div>
-        <div id="favoriteButton" class="favoriteButton me_4">
+        <div id="favoriteButton" class="favoriteButton me_4" @click='setFavorite()'>
             <i class="fa-regular fa-heart"></i>
             <span class="fontcontent p1">Favorite</span>
             <input type="hidden" value="lamp1|aboutus.lamp1.png|50000">
@@ -58,7 +81,7 @@ let prodInfo = Vue.component('prod-info', {
     },
     template: `<div>
         <div class="detail_switch me_2">
-            <div @click='show=true' class="describe byclicked font_w5 fontcontent">Description</div>
+            <div @click='show=true' class="describe font_w5 fontcontent" :class="byclicked">Description</div>
             <div @click='show=false' class="specification fontcontent">Specification</div>
         </div>
         <div v-if='show' class="product_describe">
@@ -70,7 +93,7 @@ let prodInfo = Vue.component('prod-info', {
     </div>
     `,
     mounted: {
-        byClick() {}
+        byClick() { }
     }
 })
 let designerInfo = Vue.component('des-info', {

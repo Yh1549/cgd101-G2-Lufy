@@ -18,16 +18,15 @@ try {
 			$memberorder->bindValue(":curId", $memRow["member_no"]);
 			$memberorder->execute();
 			$orderRow = $memberorder->fetchAll(PDO::FETCH_ASSOC);
-			$memberTotal["memberorder"] = json_encode($orderRow);//將訂單資料放入membertotal
-			echo json_encode($memberTotal);
+			$memberTotal["memberorder"] = json_encode($orderRow); //將訂單資料放入membertotal
 			//私藏回傳
-			// $sqlorder = "select product_no from product_order where member_no=:curId";
-			// $memberorder = $pdo->prepare($sqlorder);
-			// $memberorder->bindValue(":curId", $memRow["member_no"]);
-			// // $memberorder->bindValue(":curId", "1");
-			// $memberorder->execute();
-			// $orderRow = $memberorder->fetchAll(PDO::FETCH_ASSOC);
-			// echo json_encode($orderRow);
+			$sqlfavorite = "select p.product_no, p.name, p.on_market, p.price, pi.image_path from favorite f join product p on f.product_no = p.product_no join product_image pi on f.product_no = pi.product_no where member_no=:curId group by p.name;";
+			$memberfavorite = $pdo->prepare($sqlfavorite);
+			$memberfavorite->bindValue(":curId", $memRow["member_no"]);
+			$memberfavorite->execute();
+			$favoriteRow = $memberfavorite->fetchAll(PDO::FETCH_ASSOC);
+			$memberTotal["memberfavorite"] = json_encode($favoriteRow);
+			echo json_encode($memberTotal);
 		};
 	} else {
 		echo "No login";

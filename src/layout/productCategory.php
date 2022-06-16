@@ -1,6 +1,6 @@
 <?php 
 try{
-	require_once("../../connect_lufy.php");
+	require_once("connect_lufy.php");
 
 	$sql = "SELECT c.category_no, c.image_path
 			FROM product p
