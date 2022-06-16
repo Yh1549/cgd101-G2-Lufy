@@ -10,7 +10,7 @@ if($_GET["add"] == "true"){
             $addfavorite->bindValue(":product_no", $_GET["id"]);
             $addfavorite->bindValue(":curId", $_SESSION["memNo"]);
             $addfavorite->execute();
-            echo 'add sucess';
+            echo 'add success';
     }else{echo 'Login First';}
 }else if($_GET["add"] == "false"){
 $removefavoritesql = "DELETE FROM `favorite` WHERE `favorite`.`product_no`=:product_no AND `favorite`.`member_no`=:curId";
@@ -18,7 +18,7 @@ $removefavorite = $pdo->prepare($removefavoritesql);
 $removefavorite->bindValue(":product_no", $_GET["id"]);
 $removefavorite->bindValue(":curId", $_SESSION["memNo"]);
 $removefavorite->execute();
-echo 'remove sucess';
+echo 'remove success';
 }
 } catch (PDOException $e) {
     // echo "error";
