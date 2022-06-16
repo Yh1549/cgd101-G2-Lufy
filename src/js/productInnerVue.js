@@ -1,12 +1,14 @@
 let prodImgMain = Vue.component('prodimg-main', {
     props: ['name', 'image_path'],
     template: `<img :src="'images//'+image_path" :alt="name" class="me_2 big_img">`,
+
 });
 let prodImgSmall = Vue.component('prodimg-small', {
     props: ['name', 'image_path'],
     template: `<div class="small_products_img">
-                <img  :src="'images//'+image_path" :alt='name'class="small">
+                <img  :src="'images//'+image_path" :alt='name'class="small" @click="showLarge()">
                 </div>`,
+
 });
 let purchasePnl = Vue.component('purchase-panel', {
     props: ['name', 'price', 'promotions_name', 'promotions_price', 'promPrice'],
@@ -48,9 +50,11 @@ let purchasePnl = Vue.component('purchase-panel', {
 });
 let prodInfo = Vue.component('prod-info', {
     props: ['description', 'specification'],
-    data() { return { show: true, }
+    data() {
+        return { show: true, }
     },
-    computed: { show_info() { return { show: true } }
+    computed: {
+        show_info() { return { show: true } }
     },
     template: `<div>
         <div class="detail_switch me_2">
@@ -97,10 +101,13 @@ const mainProductImg = new Vue({
             const product_no = window.location.search.split('id=')[1];
             axios.get(`productInner.php?id=${product_no
                 }`).then((response) => {
-                    this.prodInfoRow = response.data;
-                    console.log(response.data)
-                }).catch(err => console.log(err));
-        },        
+                this.prodInfoRow = response.data;
+                console.log(response.data)
+            }).catch(err => console.log(err));
+        },
+        showLarge() {
+
+        }
     },
     mounted() {
         this.setProductimage();

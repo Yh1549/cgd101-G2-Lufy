@@ -53,8 +53,8 @@ function doFirst() {
 
     let discount = localStorage.getItem("discount");
 
-    let orderPrice = document.querySelector('.orderPrice');
-    orderPrice.value = discount;
+    let orderTotal = document.querySelector('.orderTotal');
+    orderTotal.value = discount;
 
 
 
@@ -72,6 +72,13 @@ function doFirst() {
 
     let arriveDate = document.querySelector('.arriveDate');
     arriveDate.value = arriveTime;
+
+    let notes = localStorage.getItem('notes');
+    console.log(notes);
+    let theNotes = document.querySelector('.notes');
+    theNotes.value = notes;
+
+
 
     newDiv.appendChild(newTable)
     cartList.appendChild(newDiv)
@@ -227,8 +234,7 @@ function goDiscount() {
     let orderTotal = document.querySelector('.orderTotal')
     orderTotal.value = document.getElementById('dtotal').innerText
 
-    let time = new Date;
-    let nowTime = time.toLocaleString();
+
     let orderTime = document.querySelector('.orderTime');
 
     var today = new Date();
