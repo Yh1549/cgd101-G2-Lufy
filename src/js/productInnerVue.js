@@ -26,20 +26,20 @@ let prodImgSmall = Vue.component('prodimg-small', {
 });
 let purchasePnl = Vue.component('purchase-panel', {
     props: ['name', 'price', 'promotions_name', 'promotions_price', 'promPrice', 'add'],
-    data() {
-        return { isSelected: false }
-    },
+    // data() {
+    //     return { isSelected: false }
+    // },
     methods: {
         setFavorite() {
             const product_no = window.location.search.split('id=')[1];
             axios.get(`favorite.php?id=${product_no
                 }&add=${this.add}`).then((response) => {
-                    alert(response.data);
-                    // console.log('response.data :', response.data)
-                    if (response.data == 'add sucess'){
+                    if (response.data == 'add success'){
                         this.add = false;
+                        document.querySelector('.favoriteButton .heart').classList.add('favActive');
                     }else{
                         this.add = true;
+                        document.querySelector('.favoriteButton .heart').classList.remove('favActive');
                     }
                 }).catch(err => console.log(err));
         },
@@ -74,11 +74,11 @@ let purchasePnl = Vue.component('purchase-panel', {
             </div>
         </div>
         <div id="favoriteButton" class="favoriteButton me_4" @click="isSelected=!isSelected; setFavorite()" >
-            <span class="material-icons heart" :class="{favActive : isSelected}">favorite</span>
+            <span class="material-icons heart" >favorite</span>
             <span class="fontcontent p1">Favorite</span>
         </div> 
     </div>`,
-    // #endRegion
+    // #endRegion :class="{favActive : isSelected}"
 });
 let prodInfo = Vue.component('prod-info', {
     props: ['description', 'specification'],
@@ -142,17 +142,19 @@ const mainProductImg = new Vue({
                     let pageid = parseInt(idParams.get("id"));
                     for (let i = 0; i < memberfavorite.length; i++) {
                         if(memberfavorite[i].product_no == pageid){
-                            console.log(memberfavorite[i].product_no+"sucess");
+                            // console.log(memberfavorite[i].product_no+"sucess");
                             this.add = false;
+                            document.querySelector('.favoriteButton .heart').classList.add('favActive');
                             // favorite按鈕變色的js放這 已加入蒐藏
                             break;
                         }else{
                             this.add = true;
+                            document.querySelector('.favoriteButton .heart').classList.remove('favActive');
                             // favorite按鈕變色的js放這 未加入蒐藏
-                            console.log("fail");
+                            // console.log("fail");
                         }
                     }; 
-                    console.log(this.add);
+                    // console.log(this.add);
                 }else{
                     console.log("未登入");
                 }
