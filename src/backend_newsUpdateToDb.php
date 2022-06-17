@@ -1,14 +1,14 @@
 <?php 
 try {
 	require_once("connect_lufy.php");
-    switch ($_FILES["E_upFile"]["error"] ){
+    switch ($_FILES["C_E_upFile"]["error"] ){
         case UPLOAD_ERR_OK: 
             $dir ="images";
             if(file_exists($dir) == false){ //檢測資料夾是否存在
                 mkdir($dir); //創建資料夾 , make directory
             }
-            $from = $_FILES['E_upFile']['tmp_name'];
-            $fileInfoArr = pathinfo($_FILES['E_upFile']['name']);
+            $from = $_FILES['C_E_upFile']['tmp_name'];
+            $fileInfoArr = pathinfo($_FILES['C_E_upFile']['name']);
             $fileName = uniqid().".{$fileInfoArr["extension"]}";
             $to = "$dir/" . $fileName; //"images/smile.gif"
             copy($from, $to);
@@ -22,7 +22,7 @@ try {
             echo "上傳檔案有問題~<br>";
             break;
         case UPLOAD_ERR_NO_FILE:
-            $fileName = $_POST["img_origin"];
+            $fileName = $_POST["news_img_origin"];
             break;
         default:
     }
