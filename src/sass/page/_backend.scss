@@ -63,7 +63,9 @@
     
 }
 //------------------------燈箱
-#A_lightBox , #B_lightBox , #C_lightBox , #C_edit_lightBox , #D_lightBox{
+#A_lightBox , #B_lightBox , #C_lightBox , #D_lightBox ,
+#A_edit_lightBox , #B_edit_lightBox , #C_edit_lightBox , #D_edit_lightBox 
+{
     position: fixed;
     width: 100%;
     height: 100vh;

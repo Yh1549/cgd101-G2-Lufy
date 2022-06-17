@@ -412,7 +412,7 @@
                     }
                 })
             </script>
-            <!-- B優惠活動 -->
+            <!-- B優惠活動管理 -->
             <section class="mem_content" id="mainElm4">
                 <div id="promList">
                     <!-- B優惠活動燈箱 -->
@@ -424,15 +424,15 @@
                                     <div style="width:50%">
                                         <div class="ps_1 pe_1 LBcol">
                                             <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">No.</label></div>
-                                            <div class="pl_1 pr_1"><input class="ip_normal" type="text" name="news_no" id=""></div>
+                                            <div class="pl_1 pr_1"><input class="ip_normal" type="text" name="" id=""></div>
                                         </div>
                                         <div class="ps_1 pe_1 LBcol">
                                             <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Start Date</label></div>
-                                            <div class="pl_1 pr_1"><input class="tyDate" type="date" name="promotions_start" id=""></div>
+                                            <div class="pl_1 pr_1"><input class="tyDate" type="date" name="promotions_startDate" id=""></div>
                                         </div>
                                         <div class="ps_1 pe_1 LBcol">
                                             <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">End Date</label></div>
-                                            <div class="pl_1 pr_1"><input class="tyDate" type="date" name="promotions_end" id=""></div>
+                                            <div class="pl_1 pr_1"><input class="tyDate" type="date" name="promotions_endDate" id=""></div>
                                         </div>
                                         <div class="ps_1 pe_1 LBcol">
                                             <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">State</label>
@@ -460,14 +460,14 @@
                                 <div class="formOne formThree">
                                     <div class="ps_1 pe_1 LBcol">
                                         <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Title</label></div>
-                                        <div class="pl_1 pr_1"><input class="ip_normal ip_width" type="text" name="promotions_title" id=""></div>
+                                        <div class="pl_1 pr_1"><input class="ip_normal ip_width" type="text" name="promotions_name" id=""></div>
                                     </div>
                                     <div class="ps_1 pe_1 LBcol">
                                         <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="" style="vertical-align:top">Text</label></div>
                                         <div class="pl_1 pr_1"><textarea class="p1 tArea" name="promotions_text" id="" cols="100" rows="5"></textarea></div>
                                     </div>
                                 </div>
-                                <div class="formTwo">
+                                <!-- <div class="formTwo">
                                     <div class="ps_1 ml_1 mr_1 me_1 backend_titleH1">
                                         <p class="h1">優惠商品</p>
                                     </div>
@@ -527,7 +527,7 @@
                                             </li>
                                         </ul>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="ps_1 pr_1 lastBtn">
                                     <button class="ml_1 p1 bkbtn" id="B_btnCancel" type="button">Cancel</button>
                                     <button id="B_btnAdd" class="ml_1 p1 bkbtn" type="button">Confirm</button>
@@ -535,6 +535,73 @@
                             </form>
                         </div>
                     </div>
+                    <!-- B修改優惠活動燈箱 -->
+                    <div class="ps_1" id="B_edit_lightBox" style="display:none">
+                        <div class="lightBox_list">
+                            <p class="ps_1 pe_1 pl_2 h1 lightBox_title">Edit Promotions</p>
+                            <form class="ps_1 pe_1 pl_1 pr_1" id="promotionsModify" enctype="multipart/form-data">
+                                <div class="formOne">
+                                    <div style="width:50%">
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">No.</label></div>
+                                            <div class="pl_1 pr_1"><input class="ip_normal" type="text" name="promotions_no" id="" v-model="popupData.promotions_no" readonly="readonly"></div>
+                                        </div>
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Start Date</label></div>
+                                            <div class="pl_1 pr_1"><input class="tyDate" type="date" name="promotions_startDate" id="" v-model="popupData.promotions_startDate"></div>
+                                        </div>
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">End Date</label></div>
+                                            <div class="pl_1 pr_1"><input class="tyDate" type="date" name="promotions_endDate" id="" v-model="popupData.promotions_endDate"></div>
+                                        </div>
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">State</label>
+                                            </div>
+                                            <div class="pl_1 pr_1">
+                                                <select name="promotions_state" id="" v-model="popupData.promotions_state">
+                                                    <option value="0">上架</option>
+                                                    <option value="1">下架</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div style="width:50%">
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle">
+                                                <label class="p1" for="">Image</label>
+                                            </div>
+                                            <div class="pl_1 pr_1">
+                                                <input type="hidden" name="promotions_img_origin" :value="popupData.promotionsImage_path">
+                                                <p style="padding-top: 8px" :value="popupData.promotionsImage_path">目前檔名：{{popupData.promotionsImage_path}}</p>
+                                                <div class="ps_1 pe_1" style="width:310px; height: 173px">
+                                                    <img style="width:auto; height: 173px" name="promotionsImage_path" id="B_E_promotionsImage" :src="'images//'+ popupData.promotionsImage_path" alt="">
+                                                </div>
+                                                <input type="file" name="B_E_upFile" id="B_E_upFile">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="formOne formThree">
+                                    <div class="ps_1 pe_1 LBcol">
+                                        <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Title</label></div>
+                                        <div class="pl_1 pr_1"><input class="ip_normal ip_width" type="text"
+                                                name="promotions_name" id="" v-model="popupData.promotions_name"></div>
+                                    </div>
+                                    <div class="ps_1 pe_1 LBcol">
+                                        <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for=""
+                                                style="vertical-align:top">Text</label></div>
+                                        <div class="pl_1 pr_1"><textarea class="p1 tArea" name="promotions_text" id=""
+                                                cols="100" rows="5" v-model="popupData.promotions_text"></textarea></div>
+                                    </div>
+                                </div>
+                                <div class="ps_1 pr_1 lastBtn">
+                                    <button class="ml_1 p1 bkbtn" id="B_EditBtnCancel" type="button">Cancel</button>
+                                    <button id="B_EditBtnAdd" class="ml_1 p1 bkbtn" type="button" @click="promotionsSub">OK</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
                     <div class="ps_1 pe_1 pl_1 pr_1 backend_titleH1">
                         <h1 class="h1 font_w5 fontTitle">Promotions Manage</h1>
                     </div>
@@ -551,7 +618,8 @@
                         </div>
                         <ul>
                             <template v-for="promoRow in promoRows">
-                                <li is="B_menu" v-bind="promoRow"></li>
+                                <li is="B_menu" v-bind="promoRow" :key="promoRow.promotions_no"
+                                @edit-handler="editHandler(promoRow.promotions_no)"></li>
                             </template>
                         </ul>
                         <!-- <div class="pages">
@@ -563,7 +631,7 @@
             </section>
             <script>
                 let promoRow = Vue.component('B_menu', {
-                    props: ['promotions_no', 'promotions_name', 'promotions_startDate', 'promotions_endDate', 'promotionsImage_path', 'promotions_state'],
+                    props: ['promotions_no', 'promotions_name', 'promotions_startDate', 'promotions_endDate', 'promotions_state', 'promotionsImage_path', 'promotions_text'],
                     template: `
                         <li class="backend_details">
                             <div class="backend_text">
@@ -573,7 +641,7 @@
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{promotions_endDate}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{promotionsImage_path}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{promotions_state ? '下架' : '上架'}}</p>
-                                <button class="p1 bkbtn" id="B_Edit">Edit</button>
+                                <button class="p1 bkbtn" id="B_Edit" @click="$emit('edit-handler')" type="button">Edit</button>
                             </div>
                         </li>
                     `,
@@ -582,7 +650,17 @@
                     new Vue({
                         el: '#promList',
                         data: {
+                            fucusNo: 0,
                             promoRows: [],
+                            popupData: {
+                                promotions_no: '',
+                                promotions_name: ``,
+                                promotions_startDate: ``,
+                                promotions_endDate: ``,
+                                promotions_state: ``,
+                                promotionsImage_path: ``,
+                                promotions_text: ``
+                            },
                         },
                         created() {
                             let xhr = new XMLHttpRequest();
@@ -592,6 +670,31 @@
                             }
                             xhr.open("get", "getPromotions.php", true);
                             xhr.send(null);
+                        },
+                        computed: {
+                            focusObj() {
+                                return (this.promoRows.find(v => v.promotions_no == this.fucusNo)) ? (this.promoRows.find(v => v.promotions_no == this.fucusNo)) : this.promoRows[0];
+                            },
+                        },
+                        watch: {
+                            focusObj(nVal) {
+                                this.popupData = JSON.parse(JSON.stringify(nVal));
+                            },
+                        },
+                        methods: {
+                            editHandler(no) {
+                                this.fucusNo = no;
+                            },
+                            promotionsSub() {
+                                let xhr = new XMLHttpRequest();
+                                xhr.onload = () => {
+                                    alert(xhr.responseText);
+                                };
+                                xhr.open("post", "backend_promotionsUpdateToDb.php", true);
+                                let promotionsSubDb = new FormData(document.getElementById("promotionsModify"));
+                                xhr.send(promotionsSubDb);
+
+                            }
                         },
                     })
             </script>
@@ -607,8 +710,7 @@
                                     <div style="width:50%">
                                         <div class="ps_1 pe_1 LBcol">
                                             <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">No.</label></div>
-                                            <div class="pl_1 pr_1"><input class="ip_normal" type="text" name="news_no"
-                                                    id=""></div>
+                                            <div class="pl_1 pr_1"><input class="ip_normal" type="text" name="news_no" id=""></div>
                                         </div>
                                         <div class="ps_1 pe_1 LBcol">
                                             <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Publish Date</label></div>
@@ -662,7 +764,6 @@
                         <div class="lightBox_list">
                             <p class="ps_1 pe_1 pl_2 h1 lightBox_title">Edit News</p>
                             <form class="ps_1 pe_1 pl_1 pr_1" id="newsModify" enctype="multipart/form-data">
-                                <!-- action="newsUpdateToDb.php" -->
                                 <div class="formOne">
                                     <div style="width:50%">
                                         <div class="ps_1 pe_1 LBcol">
@@ -690,9 +791,10 @@
                                                 <label class="p1" for="">Image</label>
                                             </div>
                                             <div class="pl_1 pr_1">
-                                                <p style="padding-top: 8px" name="img_origin" :value="popupData.newsImage_path">目前檔名：{{popupData.newsImage_path}}</p>
+                                                <input type="hidden" name="news_img_origin" :value="popupData.newsImage_path">
+                                                <p style="padding-top: 8px" name="news_img_origin" :value="popupData.newsImage_path">目前檔名：{{popupData.newsImage_path}}</p>
                                                 <div class="ps_1 pe_1" style="width:310px; height: 173px">
-                                                    <img style="width:auto; height: 173px" name="news_publish" id="C_E_newsImage" :src="'images//'+ popupData.newsImage_path" alt="">
+                                                    <img style="width:auto; height: 173px" name="newsImage_path" id="C_E_newsImage" :src="'images//'+ popupData.newsImage_path" alt="">
                                                 </div>
                                                 <input type="file" name="C_E_upFile" id="C_E_upFile">
                                             </div>
@@ -740,10 +842,6 @@
                                     @edit-handler="editHandler(newsRow.news_no)"></li>
                             </template>
                         </ul>
-                        <!-- <div class="pages">
-                            <p class="p1 pl_1 pr_1">1</p>
-                            <p class="p1 pl_1 pr_1">2</p>
-                        </div> -->
                     </div>
                 </div>
             </section>
@@ -803,15 +901,13 @@
                                 this.fucusNo = no;
                             },
                             newsSub() {
-                                let xhr = new XMLHttpRequest;
+                                let xhr = new XMLHttpRequest();
                                 xhr.onload = () => {
-
+                                    alert(xhr.responseText);
                                 };
-                                xhr.open("post", "newsUpdateToDb.php", true);
+                                xhr.open("post", "backend_newsUpdateToDb.php", true);
                                 let newsSubDb = new FormData(document.getElementById("newsModify"));
-                                let newsSubVue = JSON.stringify(popupData);
-                                //console.log(newsSubVue);
-                                xhr.send("newsSubVue");
+                                xhr.send(newsSubDb);
 
                             }
                         },
