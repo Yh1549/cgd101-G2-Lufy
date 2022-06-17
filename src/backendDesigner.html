@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-@@include('layout/meta.html', { "title" : "Backend Designer" })
+    @@include('layout/meta.html', { "title" : "Backend Designer" })
 </head>
 
 <body>
@@ -237,65 +237,111 @@
             </script>
             <!-- 文章管理 -->
             <section class="mem_content" id="mainElm13">
-                <div class="ps_1 pe_1 pl_1 pr_1 beNews_titleH1">
-                    <h1 class="h1 font_w5 fontTitle">文章管理</h1>
-                </div>
-                <div class="ps_1 pe_1 pl_1 pr_1">
-                    <div class="pr_1 pe_1 ps_2"></div>
-                    <div class="beNews_title">
-                        <p class="p1 pr_1 font_w5 fontcontent">文章編號</p>
-                        <p class="p1 pr_1 font_w5 fontcontent">文章名稱</p>
-                        <p class="p1 pr_1 font_w5 fontcontent">樣式</p>
-                        <p class="p1 pr_1 font_w5 fontcontent">狀態</p>
-                        <p></p>
+                <div id="articleList">
+                    <div class="ps_1 pe_1 pl_1 pr_1 beNews_titleH1">
+                        <h1 class="h1 font_w5 fontTitle">文章管理</h1>
                     </div>
-                    <ul id="articleList">
-                        <O_menu v-for="O_backendMenu in articleObject" v-bind="O_backendMenu">
-                        </O_menu>
-                    </ul>
-                    <!-- <div class="pages">
-                        <p class="p1 pl_1 pr_1">1</p>
-                        <p class="p1 pl_1 pr_1">2</p>
-                    </div> -->
+                    <div class="ps_1 pe_1 pl_1 pr_1">
+                        <div class="pr_1 pe_1 ps_2"></div>
+                        <div class="beNews_title">
+                            <p class="p1 pr_1 font_w5 fontcontent">文章編號</p>
+                            <p class="p1 pr_1 font_w5 fontcontent">文章名稱</p>
+                            <p class="p1 pr_1 font_w5 fontcontent">樣式</p>
+                            <p class="p1 pr_1 font_w5 fontcontent">狀態</p>
+                            <p></p>
+                        </div>
+                        <!-- <ul>
+                            <O_menu v-for="O_backendMenu in articleObject" :key="O_backendMenu.articleNo" v-bind="O_backendMenu" @edit-handler="editHandler(O_backendMenu.articleNo)">
+                            </O_menu>
+                        </ul> -->
+                        <ul>
+                            <template v-for="articleRow in articleRows">
+                                <li is="O_menu" v-bind="articleRow" :key="articleRow.des_no"
+                                @edit-handler="editHandler(articleRow.des_no)"></li>
+                            </template>
+                        </ul>
+                        <!-- <div class="pages">
+                            <p class="p1 pl_1 pr_1">1</p>
+                            <p class="p1 pl_1 pr_1">2</p>
+                        </div> -->
+                    </div>
                 </div>
             </section>
             <script>
-                let O_backendMenu = Vue.component('O_menu', {
-                    props: ['articleNo', 'articleName', 'articleCategory', 'articleState'],
+                let articleRow = Vue.component('O_menu', {
+                    props: ['art_1', 'art1_text', 'art_2', 'art2_text', 'art_3', 'art3_text'],
                     template: `
                         <li class="beNews_details">
                             <div class="backendD_text">
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{articleNo}}</p>
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{articleName}}</p>
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{articleCategory}}</p>
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{articleState}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{articleObject[0]}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{art_1}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{art1_text}}</p>
                                 <span></span>
-                                <button class="p1 newsbtn" id="Bd_Edit">Edit</button>
+                                <button class="p1 newsbtn" id="Bd_Edit" @click="$emit('edit-handler')">Edit</button>
+                            </div>
+                            <div class="backendD_text">
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{articleObject[1]}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{art_2}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{art2_text}}</p>
+                                <span></span>
+                                <button class="p1 newsbtn" id="Bd_Edit" @click="$emit('edit-handler')">Edit</button>
+                            </div>
+                            <div class="backendD_text">
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{articleObject[2]}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{art_3}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{art3_text}}</p>
+                                <span></span>
+                                <button class="p1 newsbtn" id="Bd_Edit" @click="$emit('edit-handler')">Edit</button>
                             </div>
                         </li>
                     `,
                 })
-                new Vue({
-                    el: '#articleList',
-                    data: {
-                        articleObject: [{
-                            articleNo: `1`,
-                            articleName: `與光同行`,
-                            articleCategory: `A 樣式`,
-                            articleState: `上架`
-                        }, {
-                            articleNo: `2`,
-                            articleName: `光的魔術師`,
-                            articleCategory: `B 樣式`,
-                            articleState: `上架`
-                        }, {
-                            articleNo: `3`,
-                            articleName: `淺談燈光對人類的重要性`,
-                            articleCategory: `C 樣式`,
-                            articleState: `上架`
-                        }, ]
-                    }
-                })
+                let articlesVue =
+                    new Vue({
+                        el: '#articleList',
+                        data: {
+                            fucusNo: 0,
+                            articleRows: [],
+                            articleObject: [1, 2, 3]
+
+                            // popupData: {
+                            //     news_no: '',
+                            //     news_title: ``,
+                            //     news_publish: ``,
+                            //     news_text: ``,
+                            //     newsImage_path: ``,
+                            //     news_state: ``
+                            // },
+                        },
+                        created() {
+                            let xhr = new XMLHttpRequest();
+                            console.log(1);
+                            xhr.onload = function() {
+                                articlesVue.articleRows = JSON.parse(xhr.responseText);
+                                console.log(xhr.responseText);
+                                console.log(1);
+
+
+                            }
+                            xhr.open("get", "getDesignersArticle.php", true);
+                            xhr.send(null);
+                        },
+                        computed: {
+                            focusObj() {
+                                return (this.articleRows.find(v => v.articleObject == this.fucusNo)) ? (this.articleObject.find(v => v.articleObject == this.fucusNo)) : this.articleObject[0];
+                            },
+                        },
+                        watch: {
+                            focusObj(nVal) {
+                                this.popupData = JSON.parse(JSON.stringify(nVal));
+                            },
+                        },
+                        methods: {
+                            editHandler(no) {
+                                this.fucusNo = no;
+                            },
+                        },
+                    })
             </script>
 
         </div>
