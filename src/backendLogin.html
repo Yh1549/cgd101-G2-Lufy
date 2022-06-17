@@ -11,8 +11,8 @@
             <img src="images/nav_logo_web.webp">
         </div>
         <h1 class="s3">Backend Login</h1>
+        <span id="loginMsg" class="h2"></span>
         <form id="LoginInfo">
-            <span id="loginMsg"></span>
             <label for="" class="h1">ID</label><br>
             <input type="text" name="adminId" id="adminId" class="ip_normal me_2"><br>
             <label for="" class="h1">Password</label><br>
@@ -20,24 +20,29 @@
             <input type="button" class="btn_normal" value="Login" id="backendLogin">
         </form>
     </div>
-<script>
-    let init=()=>{
-        document.getElementById("backendLogin").onclick = ()=>{
-            let backendLoginxhr = new XMLHttpRequest();
-            backendLoginxhr.onload=()=>{
-                if(backendLoginxhr.status == 200){
-                    window.location.assign(`${backendLoginxhr.responseText}`);
-                }else{
-                    document.getElementById("loginMsg").innerText = "Login fail"
+    <script>
+        let init = () => {
+            document.getElementById("backendLogin").onclick = () => {
+                let backendLoginxhr = new XMLHttpRequest();
+                backendLoginxhr.onload = () => {
+                    if (backendLoginxhr.status == 200) {
+                        if (backendLoginxhr.responseText != "此帳號已被凍結") {
+                            window.location.assign(`${backendLoginxhr.responseText}`)
+                        } else {
+                            document.getElementById("loginMsg").innerText = backendLoginxhr.responseText;
+                        }
+                        ;
+                    } else {
+                        document.getElementById("loginMsg").innerText = "Login fail";
+                    };
                 };
+                backendLoginxhr.open("post", "backendLogin.php", true);
+                let LoginInfo = new FormData(document.getElementById("LoginInfo"));
+                backendLoginxhr.send(LoginInfo);
             };
-            backendLoginxhr.open("post","backendLogin.php",true);
-            let LoginInfo = new FormData(document.getElementById("LoginInfo"));
-            backendLoginxhr.send(LoginInfo);
-        };
-    }
-    window.addEventListener("load", init, false);
-</script>
+        }
+        window.addEventListener("load", init, false);
+    </script>
 </body>
 
 </html>
