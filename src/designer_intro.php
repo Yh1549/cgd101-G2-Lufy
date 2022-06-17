@@ -1,8 +1,9 @@
 
 <?php
+session_start();
 $errMsg = "";
 try {
-	require_once("connect_lufy.php");
+	require_once("../../connect_lufy.php");
 	//.......確定是否上傳成功
 	if( $_FILES["upFile"]["error"] == UPLOAD_ERR_OK){
 		//----------------------
@@ -20,11 +21,12 @@ try {
 		if(copy( $from, $to)===true){
             echo 1 ;
 			//將檔案名稱寫回資料庫
-			$sql = "UPDATE `designer` SET `des_name`=:dtitle,`des_text`=:dtext,`des_img_ path`=:fileName";
+			$sql = "UPDATE `designer` SET `des_name`=:dtitle,`des_text`=:dtext,`des_img_ path`=:fileName where manager_no = :cur_manager";
             
 			$designer = $pdo->prepare( $sql );
 			$designer -> bindValue(":dtitle", $_POST["desTitle"]);
 			$designer -> bindValue(":dtext", $_POST["desIntro"]);
+			$designer -> bindValue(":cur_manager", $_SESSION["manager_no"]);
 			
 			$designer -> bindValue(":fileName", $fileName);
 			$designer -> execute();
