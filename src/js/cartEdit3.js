@@ -9,8 +9,6 @@ let totalcounts = 0;
 let fproductPrice = 0;
 
 function doFirst() {
-    let productNo = document.querySelector('.productNo');
-    productNo.value = items
 
 
 
@@ -86,6 +84,16 @@ function doFirst() {
     for (let i = 0; i < items.length; i++) {
         let itemInfo = storage.getItem(items[i])
         createCartList(items[i], itemInfo)
+
+        let productNo = document.querySelector('.productNo');
+        let productsNo = parseInt(itemInfo.split('|')[4])
+        console.log(itemInfo);
+
+
+        productNo.value = productsNo;
+
+
+
 
         let itemPrice = parseInt(itemInfo.split('|')[2])
         total += itemPrice
