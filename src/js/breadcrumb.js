@@ -1,10 +1,11 @@
 let bb = Vue.component('breadcrumb-list', {
     props: ['breadcrumb'],
-    template: `<ol class="breadcrumbList">
-                        <li class="breadcrumbItem" v-for="item in breadcrumb">
-                            <a :href="item.link">{{item.name}}</a>
-                        </li>
-                    </ol> `,
+    template: `
+    <ol class="breadcrumbList">
+        <li class="breadcrumbItem" v-for="item in breadcrumb">
+            <a :href="item.link">{{item.name}}</a>
+        </li>
+    </ol> `,
 })
 const bCb = new Vue({
     el: `#breadcrumb_list`,

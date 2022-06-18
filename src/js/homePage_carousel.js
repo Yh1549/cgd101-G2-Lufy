@@ -24,3 +24,56 @@ hot_autoplay.addEventListener('mouseenter', function () {
 hot_autoplay.addEventListener('mouseleave', function () {
     hot_swiper.autoplay.start();
 })
+
+Vue.component('carousel-rows', {
+    props: ['carousel'],
+    template: ` 
+                <div class="swiper-slide"  >
+                    <img :src="'images//'+ carousel.carousel_path" alt="" />
+                </div>`,
+})
+const index_carousel = new Vue({
+    el: '#index_carousel',
+    data: {
+        carouselImg: [],
+    },
+    created() {
+        // this.getCarouselXHR();
+        this.getCarouselAxios()
+    },
+    methods: {
+        getCarouselAxios() {
+            axios.get(`./getCarousels.php`).then((response) => {
+                // console.log(response.data);
+                index_carousel.carouselImg = response.data;
+                this.showCarousels(response.data)
+            })
+                .catch(err => console.log(err));
+        },
+        getCarouselXHR() {
+            let xhr = new XMLHttpRequest();
+            xhr.onload = () => {
+
+                if (xhr.status === 200) {
+                    console.log(xhr.responseText);
+                    this.showCarousels(xhr.responseText);
+                }
+                else { console.log(xhr.status) }
+            }
+            xhr.open('get', 'getCarousels.php', true);
+            xhr.send(null);
+        },
+        showCarousels(json) {
+            let carouselRows = (json);
+            let html = "";
+            for (let i in carouselRows) {
+
+                html += `
+                        <div class="swiper-slide">
+                            <img src="images//${carouselRows[i].carousel_path}" alt="" />
+                        </div>`;
+            }
+            document.getElementById('carouselRows').innerHTML = html;
+        },
+    },
+})

@@ -9,14 +9,15 @@
     <!-- header -->
     @@include('layout/header.html')
     <!-- header end -->
-    <section class="productMain_product">
+    <section id="product" class="productMain">
         <section class="containerALL me_8">
             <!-- breadcrumb -->
             @@include('layout/breadcrumb.html')
             <!-- breadcrumb end-->
-            <!-- product_category -->
-            @@include('layout/productCategory.html')
-            <!-- product_category end -->
+            <div id="product_category" class="product_category ms_4 me_4">
+                <product-category v-for='(category, index) in categoryObject' :key="category.id" v-bind="category">
+                </product-category>
+            </div>
             <div id="grid_masonry">
                 <div class="grid">
                     <div class="grid-sizer"></div>
@@ -29,8 +30,8 @@
     <!-- footer  -->
     @@include('layout/footer.html')
     <!-- 商品頁瀑布流 -->
-    <script type="module" src="./js/productMain_masonry.js"></script>
-
+    <script type="module" src="./js/productMain.js"></script>
+    <!-- <script src="./js/breadcrumb.js"></script> -->
     <!-- script -->
     @@include('layout/script.html')
 </body>

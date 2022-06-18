@@ -14,38 +14,26 @@
     const productCategory = new Vue({
         el: '#product_category',
         data: {
-            categoryObject: [
-                {
-                    categoryLink: `productFloorLamps.html`,
-                    categoryImage: `./images/product_category_floor_lamps.webp`,
-                    categoryName: `Floor Lamps`
-                },
-                {
-                    categoryLink: `productPendant.html`,
-                    categoryImage: `./images/product_category_pendant.webp`,
-                    categoryName: `Pendant`
-                },
-                {
-                    categoryLink: `productHomeAccent.html`,
-                    categoryImage: `./images/product_category_home_accent.webp`,
-                    categoryName: `Home Accent`
-                },
-                {
-                    categoryLink: `productTableLamps.html`,
-                    categoryImage: `./images/product_category_table_lamps.webp`,
-                    categoryName: `Table Lamps`
-                },
-                {
-                    categoryLink: `productWallLamps.html`,
-                    categoryImage: `./images/product_category_wall_lamps.webp`,
-                    categoryName: `Wall Lamps`
-                },
-                {
-                    categoryLink: `productChandeliers.html`,
-                    categoryImage: `./images/product_category_Chandeliers.webp`,
-                    categoryName: `Chandeliers`
-                },
-            ]
+            categoryObject: [],
+            focusId: NaN,
         },
+        computed: {
+            filterList() {
+                if (isNaN(this.focusId)) return this.list;
+                return this.list.filter(item => item.cat_no == this.focusId);
+            },
+        },
+        methods: {
+            setCategory() {
+                console.log(mounted)
+                axios.get('productCategory.php').then(function (response) {
+                    this.commodityObject = response.data;
+                    console.log(response.data)
+                });
+            }
+        },
+        mounted() {
+            this.setCategory();
+        }
     }) 
 </script>
