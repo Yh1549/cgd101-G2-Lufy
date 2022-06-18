@@ -3,7 +3,6 @@
 
 <head>
     @@include('layout/meta.html', { "title" : "商品內頁" })
-
 </head>
 
 <body>
@@ -12,17 +11,16 @@
     <!-- header end -->
     <div class="containerALL me_8" id="product">
         <!-- breadcrumb -->
-        <!-- @@include('layout/breadcrumb.html') -->
+        @@include('layout/breadcrumb.html')
         <!-- breadcrumb end-->
         <section class="product_main_box me_6">
             <div class="main_product_img" v-if="prodInfoRow.length !=0">
                 <prodimg-main :image_path="prodInfoRow[0]?.image_path"></prodimg-main>
 
                 <div class="small_products_img_box" v-if="prodInfoRow.length !=0">
-                    <prodimg-small v-for='(prodImgSmall,index) in prodInfoRow' :key="(prodImgSmall.id)" v-bind="prodImgSmall"></prodimg-small>
+                    <prodimg-small v-for='(prodImgSmall,index) in prodInfoRow' :key="(prodImgSmall.id)" v-bind="prodImgSmall" :small-img="prodInfoRow[index]"></prodimg-small>
                 </div>
             </div>
-
             <div class="purchase_panel pl_6" v-if="prodInfoRow.length !=0">
                 <purchase-panel v-bind="prodInfoRow[0]" v-bind:add="add"></purchase-panel>
                 
@@ -33,57 +31,8 @@
         </section>
         <section class="product_designer_box me_6" v-if="prodInfoRow.length !=0">
             <des-info v-bind="prodInfoRow[0]"></des-info>
-        </section>
-        <!-- <section class="relative_products">
-            <h2 class="title h2 me_2">Relative Products</h2>
-            <div id="chandeliers_wrap" class="category_wrap">
-                <product-chandeliers v-for="chandeliers in chandeliersObject" v-bind="chandeliers">
-                </product-chandeliers>
-            </div>
-            <script>
-                let chandeliers = Vue.component('product-chandeliers', {
-                    props: ['chandeliersImg', 'chandeliersName', 'chandeliersInfoLink'],
-                    template: ` <a class="category_card" :href="chandeliersInfoLink">
-                                            <div  class="category_img">
-                                                <img :src="chandeliersImg" :alt="chandeliersName">
-                                            </div>
-                                            <div class="category_content">
-                                                <h2>{{chandeliersName}}</h2>
-                                                <span class="material-icons">
-                                                    favorite
-                                                </span>
-                                            </div>
-                                        </a> `,
-                })
-                new Vue({ // Vue instance
-                    el: '#chandeliers_wrap',
-                    data: {
-                        chandeliersObject: [{
-                            chandeliersImg: `./images/aboutus.lamp1.png`,
-                            chandeliersName: `chandeliers Name1`,
-                            chandeliersInfoLink: './productInner.html',
-                        }, {
-                            chandeliersImg: `./images/aboutus.lamp2.png`,
-                            chandeliersName: `chandeliers Name2`,
-                            chandeliersInfoLink: './productInner.html',
-                        }, {
-                            chandeliersImg: `./images/aboutus.lamp3.png`,
-                            chandeliersName: `chandeliers Name3`,
-                            chandeliersInfoLink: './productInner.html',
-                        }, ],
-                    },
-                    mounted() {
-                        const product_no = window.location.search.split('id=')[1];
-                        axios.get(`productInner.php?id=${product_no
-                            }`).then(function (response) {
-                                this.commodityObject = response.data;
-                            });
-                    },
-                });
-            </script>
-        </section> -->
+        </section>       
     </div>
-
     <!-- 商品內頁 -->
     <script src="./js/productInner.js"></script>
     <script src="./js/productInnerVue.js"></script>
@@ -95,21 +44,3 @@
 </body>
 
 </html>
-
-<!-- <div class="prod_img" v-if="prodInfoRow.length !=0">
-    <prod-img :image_path="prodInfoRow[0]?.image_path"></prod-img>
-</div> -->
-
-<!-- <div class="main_product_img">
-    <img id="large" class="me_2 big_img" src="images/aboutus.lamp1.png" alt="">
-    <div class="product_overlay hidden">
-        <h2>Added to cart</h2>
-        <i class='fa fa-check'></i>
-    </div>
-
-    <div class="small_products_img_box">
-        <div class="small_products_img"><img class="small" src="images/aboutus.lamp1.png" alt=""></div>
-        <div class="small_products_img"><img class="small" src="images/aboutus.lamp2.png" alt=""></div>
-        <div class="small_products_img"><img class="small" src="images/aboutus.lamp3.png" alt=""></div>
-    </div>
-</div> -->

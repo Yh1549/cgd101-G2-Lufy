@@ -1,34 +1,37 @@
-// let prodImg = Vue.component('prod-img', {
-//     props: ['name', 'image_path'],
-//     template: `
-//     <div>
-//         <img :image_path="prodInfoRow[0]?.image_path" :alt="name" class="me_2 big_img">
-//         <div class="product_overlay hidden">
-//             <h2>Added to cart</h2>
-//             <i class='fa fa-check'></i>
-//         </div>
-//         <div class="small_products_img">
-//             <img :src="'images//'+image_path" :alt='name'class="small">
-//         </div>
-//     </div>`,
-// })
+const bus = new Vue()
 let prodImgMain = Vue.component('prodimg-main', {
     props: ['name', 'image_path'],
+    data() { 
+        return {
+            image_path,
+        };
+    },
     template: `<img :src="'images//'+image_path" :alt="name" class="me_2 big_img">`,
+    mounted() { 
+        bus.$on('showImg', theImg => this.image_path = theImg.image_path)
+    },
 
 });
 let prodImgSmall = Vue.component('prodimg-small', {
-    props: ['name', 'image_path'],
-    template: `<div class="small_products_img">
-                <img  :src="'images//'+image_path" :alt='name'class="small" @click="showLarge()">
+    props: ['name', 'image_path', 'small-img'],
+    data() {
+        return {
+            image_path,
+        };
+    },
+    template: `<div class="small_products_img" @click="showLarge">
+                <img  :src="'images//'+image_path" :alt='name' class="small">
                 </div>`,
+    methods:{
+        showLarge() {
+            // alert(this.smallImg)
+            bus.$emit('showImg', this.smallImg)
+        },
+    },
 
 });
 let purchasePnl = Vue.component('purchase-panel', {
     props: ['name', 'price', 'promotions_name', 'promotions_price', 'promPrice', 'add'],
-    // data() {
-    //     return { isSelected: false }
-    // },
     methods: {
         setFavorite() {
             const product_no = window.location.search.split('id=')[1];
@@ -47,15 +50,15 @@ let purchasePnl = Vue.component('purchase-panel', {
     computed: {
         prom_price() {
             return {
-                orignal_price: this.promotions_price,
+                original_price: this.promotions_price,
                 big_price: !this.promotions_price,
             }
         },
     },
     // #region 
     template: `<div>
+        <h1 class="product_name h1 me_1">{{name}}</h1>
         <h2 class="promotions font_w3 p1 me_4">{{promotions_name}}</h2>
-        <h1 class="product_name h1 me_4">{{name}}</h1>
         <div class="product_price me_4">
             <span class="h6" :class="prom_price"><span class="h6">$</span>{{price}}</span>
             <span class="promotions_price fontdeco_w7 font_i fontdeco h1" v-if='promotions_price'><span class="fontdeco_w3 font_i fontdeco p2">$</span>{{promotions_price}}</span>
@@ -73,7 +76,7 @@ let purchasePnl = Vue.component('purchase-panel', {
                 <input type="hidden" value="lamp1|aboutus.lamp1.png|50000">
             </div>
         </div>
-        <div id="favoriteButton" class="favoriteButton me_4" @click="isSelected=!isSelected; setFavorite()" >
+        <div id="favoriteButton" class="favoriteButton me_4" @click="isSelected=!isSelected; setFavorite()">
             <span class="material-icons heart" >favorite</span>
             <span class="fontcontent p1">Favorite</span>
         </div> 
@@ -87,8 +90,8 @@ let prodInfo = Vue.component('prod-info', {
     },
     template: `<div>
         <div class="detail_switch me_2">
-            <div class="descBar fontcontent" @click="layout = 'desc'" :class="{ barActive: layout === 'desc'}">Description</div>
-            <div class="specBar fontcontent" @click="layout = 'spec'" :class="{ barActive: layout === 'spec'}">Specification</div>
+            <div class="descBar fontcontent" @click="layout = 'desc'" :class="{ barActive: layout === 'desc', }">Description</div>
+            <div class="specBar fontcontent" @click="layout = 'spec'" :class="{ barActive: layout === 'spec', 'aaa': true, }">Specification</div>
         </div>
         <div v-if="layout === 'desc'" class="content">
             <p class="p2">{{description}}</p>
@@ -126,12 +129,15 @@ const mainProductImg = new Vue({
     methods: {
         setProductimage() {
             const product_no = window.location.search.split('id=')[1];
+            // productInner.html ? id =
             axios.get(`productInner.php?id=${product_no
-                }`).then((response) => {
-                    this.prodInfoRow = response.data;
-                    // console.log(response.data)
-                }).catch(err => console.log(err));
-        },   
+            }`).then((response) => {
+                this.prodInfoRow = response.data;
+                // console.log(response.data)
+                console.log(this.prodInfoRow)
+            }).catch(err => console.log(err));
+            
+        },
         // 一進到頁面做商品是否已加入蒐藏檢查的函式
         favoriteCheck(){
             let favCheck = new XMLHttpRequest();
@@ -167,5 +173,6 @@ const mainProductImg = new Vue({
     mounted() {
         this.setProductimage();
         this.favoriteCheck();
+        bus.$on('showImg', (image_path) => { this.showLarge(image_path) })
     },
 })
