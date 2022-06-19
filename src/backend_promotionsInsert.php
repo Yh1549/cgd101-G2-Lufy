@@ -20,10 +20,10 @@ try {
 			$sql = "INSERT INTO `promotions`(`promotions_no`, `promotions_name`, `promotions_text`, `promotionsImage_path`, `promotions_startDate`, `promotions_endDate`, `promotions_state`) VALUES (null,:promotions_name,:promotions_text,:promotionsImage_path,:promotions_startDate,:promotions_endDate,:promotions_state)";
 			$news = $pdo->prepare( $sql );
 			$news -> bindValue(":promotions_name", $_POST["promotions_name"]);
-			$news -> bindValue(":promotions_text", $_POST["promotions_text"]);
 			$news -> bindValue(":promotions_startDate", $_POST["promotions_startDate"]);
 			$news -> bindValue(":promotions_endDate", $_POST["promotions_endDate"]);
 			$news -> bindValue(":promotions_state", $_POST["promotions_state"]);
+			$news -> bindValue(":promotions_text", $_POST["promotions_text"]);
 			$news -> bindValue(":promotionsImage_path", $fileName);
 			$news -> execute();
 			echo "新增成功";

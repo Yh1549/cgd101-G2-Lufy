@@ -6,98 +6,6 @@
 </head>
 
 <body>
-    <!-- N會員燈箱 -->
-    <div class="ps_1" id="N_lightBox" style="display:none">
-        <div class="ps_1 pe_1 pl_1 pr_1 lightBox_list">
-            <form action="" class="formOne">
-                <div>
-                    <div class="ps_1 pe_1">
-                        <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">照片</label>
-                        <input class="ip_normal" type="file" name="" id="">
-                    </div>
-                    <div class="ps_1 pe_1">
-                        <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">No.</label>
-                        <input class="ip_normal" type="text" name="" id="">
-                    </div>
-                    <div class="ps_1 pe_1">
-                        <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">姓名</label>
-                        <input class="ip_normal" type="text" name="" id="">
-                    </div>
-                    <div class="ps_1 pe_1">
-                        <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">電郵</label>
-                        <input class="ip_normal" type="text" name="" id="">
-                    </div>
-                    <div class="ps_1 pe_1">
-                        <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">密碼</label>
-                        <input class="ip_normal" type="text" name="" id="">
-                    </div>
-                    <div class="ps_1 pe_1">
-                        <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">手機</label>
-                        <input class="ip_normal" type="text" name="" id="">
-                    </div>
-                    <div class="ps_1 pe_1">
-                        <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">生日</label>
-                        <input class="ip_normal" type="date" name="" id="">
-                    </div>
-                    <div class="ps_1 pe_1">
-                        <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">地址</label>
-                        <input class="ip_normal" type="text" name="" id="">
-                    </div>
-                    <div class="ps_1 pe_1">
-                        <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">State</label>
-                        <select name="" id="">
-                            <option value="">上架</option>
-                            <option value="">下架</option>
-                        </select>
-                    </div>
-                </div>
-
-            </form>
-            <div class="lastBtn">
-                <button class="ml_1 p1 bkbtn" id="N_btnCancel">Cancel</button>
-                <button class="ml_1 p1 bkbtn">Confirm</button>
-            </div>
-        </div>
-    </div>
-    
-    
-    <!-- D設計師燈箱 -->
-    <div class="ps_1" id="D_lightBox" style="display:none">
-        <div class="ps_1 pe_1 pl_1 pr_1 lightBox_list">
-            <form action="" class="formOne">
-                <div>
-                    <div class="ps_1 pe_1">
-                        <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">No.</label>
-                        <input class="ip_normal" type="text" name="" id="">
-                    </div>
-                    <div class="ps_1 pe_1">
-                        <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">name</label>
-                        <input class="ip_normal" type="text" name="" id="">
-                    </div>
-                    <div class="ps_1 pe_1">
-                        <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">State</label>
-                        <select name="" id="">
-                            <option value="">上架</option>
-                            <option value="">下架</option>
-                        </select>
-                    </div>
-                    <div class="ps_1 pe_1">
-                        <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">Account</label>
-                        <input class="ip_normal" type="text" name="" id="">
-                    </div>
-                    <div class="ps_1 pe_1">
-                        <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">Password</label>
-                        <input class="ip_normal" type="text" name="" id="">
-                    </div>
-                </div>
-            </form>
-            <div class="lastBtn">
-                <button class="ml_1 p1 bkbtn" id="D_btnCancel">Cancel</button>
-                <button class="ml_1 p1 bkbtn">Confirm</button>
-            </div>
-        </div>
-    </div>
-
     <div class="backendContainer">
         <!-- 左邊section -->
         <section class="beMenu">
@@ -144,34 +52,77 @@
         <div class="beCont">
             <!-- N會員管理 -->
             <section class="mem_content" id="mainElm1">
-                <div class="ps_1 pe_1 pl_1 pr_1 backend_titleH1">
-                    <h1 class="h1 font_w5 fontTitle">Member Manage</h1>
-                </div>
-                <div class="ps_1 pe_1 pl_1 pr_1">
-                    <div class="pr_1 pe_1 ps_2"></div>
-                    <div class="backend_title">
-                        <p class="p1 pr_1 font_w5 fontcontent">會員編號</p>
-                        <p class="p1 pr_1 font_w5 fontcontent">會員姓名</p>
-                        <p class="p1 pr_1 font_w5 fontcontent listGrow">會員帳號(信箱)</p>
-                        <p class="p1 pr_1 font_w5 fontcontent">會員生日</p>
-                        <p class="p1 pr_1 font_w5 fontcontent">會員電話</p>
-                        <p class="p1 pr_1 font_w5 fontcontent listGrow">會員地址</p>
-                        <p class="p1 pr_1 font_w5 fontcontent">會員狀態</p>
-                        <p></p>
+                <div id="membList">
+                    <!-- N修改會員燈箱 -->
+                    <div class="ps_1" id="N_edit_lightBox" style="display:block">
+                        <div class="lightBox_list">
+                            <p class="ps_1 pe_1 pl_2 h1 lightBox_title">Edit Member</p>
+                            <form class="ps_1 pe_1 pl_1 pr_1" id="membersModify" enctype="multipart/form-data">
+                                <div class="formOne formThree">
+                                    <div class="ps_1 pe_1 LBcol">
+                                        <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">No.</label></div>
+                                        <div class="pl_1 pr_1"><input class="ip_normal" type="text" name="member_no" id="" v-model="popupData.member_no" readonly="readonly"></div>
+                                    </div>
+                                    <div class="ps_1 pe_1 LBcol">
+                                        <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Name</label></div>
+                                        <div class="pl_1 pr_1"><input class="ip_normal" type="text" name="member_name" id="" v-model="popupData.member_name" readonly="readonly"></div>
+                                    </div>
+                                    <div class="ps_1 pe_1 LBcol">
+                                        <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Birthday</label></div>
+                                        <div class="pl_1 pr_1"><input class="tyDate" type="date" name="member_birthday" id="" v-model="popupData.member_birthday" readonly="readonly"></div>
+                                    </div>
+                                    <div class="ps_1 pe_1 LBcol">
+                                        <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Phone</label></div>
+                                        <div class="pl_1 pr_1"><input class="ip_normal" type="text" name="member_tel" id="" v-model="popupData.member_tel" readonly="readonly"></div>
+                                    </div>
+                                    <div class="ps_1 pe_1 LBcol">
+                                        <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Address</label></div>
+                                        <div class="pl_1 pr_1"><input class="ip_normal" type="text" name="member_address" id="" v-model="popupData.member_address" readonly="readonly"></div>
+                                    </div>
+                                    <div class="ps_1 pe_1 LBcol">
+                                        <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">E-mail</label></div>
+                                        <div class="pl_1 pr_1"><input class="ip_normal" type="email" name="member_mail" id="" v-model="popupData.member_mail" readonly="readonly"></div>
+                                    </div>
+                                    <div class="ps_1 pe_1 LBcol">
+                                        <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">State</label>
+                                        </div>
+                                        <div class="pl_1 pr_1">
+                                            <select name="member_state" id="" v-model="popupData.member_State">
+                                                <option value="0">正常</option>
+                                                <option value="1">凍結</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ps_1 pr_1 lastBtn">
+                                    <button class="ml_1 p1 bkbtn" id="N_EditBtnCancel" type="button">Cancel</button>
+                                    <button id="N_EditBtnAdd" class="ml_1 p1 bkbtn" type="button" @click="membersSub">OK</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                    <!-- <ul id="membList">
-                        <N_menu v-for="N_backendMenu in membObject" v-bind="N_backendMenu">
-                        </N_menu>
-                    </ul> -->
-                    <ul id="membList">
-                        <template v-for="membRow in membRows">
-                            <li is="N_menu" v-bind="membRow"></li>
-                        </template>
-                    </ul>
-                    <!-- <div class="pages">
-                        <p class="p1 pl_1 pr_1">1</p>
-                        <p class="p1 pl_1 pr_1">2</p>
-                    </div> -->
+                    <div class="ps_1 pe_1 pl_1 pr_1 backend_titleH1">
+                        <h1 class="h1 font_w5 fontTitle">Member Manage</h1>
+                    </div>
+                    <div class="ps_1 pe_1 pl_1 pr_1">
+                        <div class="pr_1 pe_1 ps_2"></div>
+                        <div class="backend_title">
+                            <p class="p1 pr_1 font_w5 fontcontent">會員編號</p>
+                            <p class="p1 pr_1 font_w5 fontcontent">會員姓名</p>
+                            <p class="p1 pr_1 font_w5 fontcontent listGrow">會員帳號(信箱)</p>
+                            <p class="p1 pr_1 font_w5 fontcontent">會員生日</p>
+                            <p class="p1 pr_1 font_w5 fontcontent">會員電話</p>
+                            <p class="p1 pr_1 font_w5 fontcontent listGrow">會員地址</p>
+                            <p class="p1 pr_1 font_w5 fontcontent">會員狀態</p>
+                            <p></p>
+                        </div>
+                        <ul>
+                            <template v-for="membRow in membRows">
+                                <li is="N_menu" v-bind="membRow" :key="membRow.member_no"
+                                @edit-handler="editHandler(membRow.member_no)"></li>
+                            </template>
+                        </ul>
+                    </div>
                 </div>
             </section>
             <script>
@@ -187,7 +138,7 @@
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{member_tel}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{member_address}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{member_State ? '凍結' : '正常'}}</p>
-                                <button class="p1 bkbtn">Edit</button>
+                                <button class="p1 bkbtn" id="N_Edit" @click="$emit('edit-handler')" type="button">Edit</button>
                             </div>
                         </li>
                     `,
@@ -196,7 +147,17 @@
                     new Vue({
                         el: '#membList',
                         data: {
+                            fucusNo: 0,
                             membRows: [],
+                            popupData: {
+                                member_no: '',
+                                member_name: ``,
+                                member_mail: ``,
+                                member_tel: ``,
+                                member_birthday: ``,
+                                member_address: ``,
+                                member_State: ``
+                            },
                         },
                         created() {
                             let xhr = new XMLHttpRequest();
@@ -207,101 +168,295 @@
                             xhr.open("get", "getMembers.php", true);
                             xhr.send(null);
                         },
+                        computed: {
+                            focusObj() {
+                                return (this.membRows.find(v => v.member_no == this.fucusNo)) ? (this.membRows.find(v => v.member_no == this.fucusNo)) : this.membRows[0];
+                            },
+                        },
+                        watch: {
+                            focusObj(nVal) {
+                                this.popupData = JSON.parse(JSON.stringify(nVal));
+                            },
+                        },
+                        methods: {
+                            editHandler(no) {
+                                this.fucusNo = no;
+                            },
+                            membersSub() {
+                                let xhr = new XMLHttpRequest();
+                                xhr.onload = () => {
+                                    alert(xhr.responseText);
+                                };
+                                xhr.open("post", "backend_membersUpdateToDb.php", true);
+                                let membersSubDb = new FormData(document.getElementById("membersModify"));
+                                xhr.send(membersSubDb);
+                            }
+                        },
                     })
             </script>
             <!-- A商品管理 -->
             <section class="mem_content" id="mainElm2">
-                <!-- A商品燈箱 -->
-                <div class="ps_1" id="A_lightBox" style="display:none">
-                    <div class="ps_1 pe_1 pl_1 pr_1 lightBox_list">
-                        <form action="" class="formOne">
-                            <div style="width:50%">
-                                <div class="ps_1 pe_1">
-                                    <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">No.</label>
-                                    <input class="ip_normal" type="text" name="" id="">
+                <div id="productList">
+                    <!-- A商品燈箱 -->
+                    <div class="ps_1" id="A_lightBox" style="display:block">
+                        <div class="lightBox_list">
+                            <p class="ps_1 pe_1 pl_2 h1 lightBox_title">Create Product</p>
+                            <form id="productsForm" enctype="multipart/form-data" class="ps_1 pe_1 pl_1 pr_1">
+                                <div class="formOne">
+                                    <div style="width:50%">
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">No.</label></div>
+                                            <div class="pl_1 pr_1"><input class="ip_normal" type="text" name="product_no" id=""></div>
+                                        </div>
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Category</label>
+                                            </div>
+                                            <div class="pl_1 pr_1">
+                                                <select name="category_no" id="">
+                                                    <option value="1">Floor Lamps</option>
+                                                    <option value="2">Pendant</option>
+                                                    <option value="3">Home Accent</option>
+                                                    <option value="4">Table Lamps</option>
+                                                    <option value="5">Wall Lamps</option>
+                                                    <option value="6">Chandaliers</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Designer</label>
+                                            </div>
+                                            <div class="pl_1 pr_1">
+                                                <select name="des_no" id="">
+                                                    <option value="1">設計師1</option>
+                                                    <option value="2">設計師2</option>
+                                                    <option value="3">設計師3</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Name</label></div>
+                                            <div class="pl_1 pr_1"><input class="ip_normal ip_width" type="text" name="name" id=""></div>
+                                        </div>
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="" style="vertical-align:top">Description</label></div>
+                                            <div class="pl_1 pr_1"><textarea class="p1 tArea" name="description" id="" cols="23" rows="3"></textarea></div>
+                                        </div>
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="" style="vertical-align:top">Specification</label></div>
+                                            <div class="pl_1 pr_1"><textarea class="p1 tArea" name="specification" id="" cols="23" rows="3"></textarea></div>
+                                        </div>
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Price</label></div>
+                                            <div class="pl_1 pr_1"><input class="ip_normal ip_width" type="text" name="price" id=""></div>
+                                        </div>
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">On Market</label>
+                                            </div>
+                                            <div class="pl_1 pr_1">
+                                                <select name="on_market" id="">
+                                                    <option value="0">已上架</option>
+                                                    <option value="1">未上架</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">In Stork</label>
+                                            </div>
+                                            <div class="pl_1 pr_1">
+                                                <select name="in_stork" id="">
+                                                    <option value="0">有庫存</option>
+                                                    <option value="1">無庫存</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div style="width:50%">
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Image1</label></div>
+                                            <div class="pl_1 pr_1">
+                                                <input type="file" name="A_one_upFile" id="A_one_upFile">
+                                                <div class="ps_1" style="width:310px">
+                                                    <img style="width:100%" id="A_one_membersImage" src="./images/imgUpload.jpg" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Image2</label></div>
+                                            <div class="pl_1 pr_1">
+                                                <input type="file" name="A_two_upFile" id="A_two_upFile">
+                                                <div class="ps_1" style="width:310px">
+                                                    <img style="width:100%" id="A_two_membersImage" src="./images/imgUpload.jpg" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Image3</label></div>
+                                            <div class="pl_1 pr_1">
+                                                <input type="file" name="A_three_upFile" id="A_three_upFile">
+                                                <div class="ps_1" style="width:310px">
+                                                    <img style="width:100%" id="A_three_membersImage" src="./images/imgUpload.jpg" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="ps_1 pe_1">
-                                    <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">Category</label>
-                                    <select name="" id="">
-                                        <option value="">Floor Lamps</option>
-                                        <option value="">Pendant</option>
-                                        <option value="">Home Accent</option>
-                                        <option value="">Table Lamps</option>
-                                        <option value="">Wall Lamps</option>
-                                        <option value="">Chandaliers</option>
-                                    </select>
+                                <div class="ps_1 pr_1 lastBtn">
+                                    <button class="ml_1 p1 bkbtn" id="A_btnCancel" type="button">Cancel</button>
+                                    <button id="A_btnAdd" class="ml_1 p1 bkbtn" type="button">Confirm</button>
                                 </div>
-                                <div class="ps_1 pe_1">
-                                    <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">Designer</label>
-                                    <select name="" id="">
-                                        <option value="">設計師1</option>
-                                        <option value="">設計師2</option>
-                                        <option value="">設計師3</option>
-                                    </select>
-                                </div>
-                                <div class="ps_1 pe_1">
-                                    <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">Price</label>
-                                    <input class="ip_normal" type="text" name="" id="">
-                                </div>
-                                <div class="ps_1 pe_1">
-                                    <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">State</label>
-                                    <select name="" id="">
-                                        <option value="">上架</option>
-                                        <option value="">下架</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div style="width:50%">
-                                <div class="ps_1 pe_1">
-                                    <label class="p1 ps_1 pe_1 pl_1 pr_1" for="">Product Name</label>
-                                    <input class="ip_normal" type="text" name="" id="">
-                                </div>
-                                <div class="ps_1 pe_1">
-                                    <label class="p1 ps_1 pe_1 pl_1 pr_1" for="" style="vertical-align:top">Specification</label>
-                                    <input class="ip_normal" type="text" name="" id="">
-                                </div>
-                                <div class="ps_1 pe_1">
-                                    <label class="p1 ps_1 pe_1 pl_1 pr_1" for="" style="vertical-align:top">Introduce</label>
-                                    <textarea class="tArea" name="" id="" cols="50" rows="10"></textarea>
-                                </div>
-                            </div>
-                        </form>
-                        <div class="lastBtn">
-                            <button class="ml_1 p1 bkbtn" id="A_btnCancel">Cancel</button>
-                            <button class="ml_1 p1 bkbtn">Confirm</button>
+                            </form>
                         </div>
                     </div>
-                </div>
-                <div class="ps_1 pe_1 pl_1 pr_1 backend_titleH1">
-                    <h1 class="h1 font_w5 fontTitle">Product Manage</h1>
-                </div>
-                <div class="ps_1 pe_1 pl_1 pr_1">
-                    <div class="pr_1 pe_1 newListBtn"><button class="p1 bkbtn" id="A_New">✚ NEW</button></div>
-                    <div class="backend_title">
-                        <p class="p1 pr_1 font_w5 fontcontent">商品編號</p>
-                        <p class="p1 pr_1 font_w5 fontcontent">商品名稱</p>
-                        <p class="p1 pr_1 font_w5 fontcontent">商品類別</p>
-                        <p class="p1 pr_1 font_w5 fontcontent listGrow">商品設計師</p>
-                        <p class="p1 pr_1 font_w5 fontcontent listGrow">商品規格</p>
-                        <p class="p1 pr_1 font_w5 fontcontent">商品單價</p>
-                        <p class="p1 pr_1 font_w5 fontcontent">商品狀態</p>
-                        <p class="p1 pr_1 font_w5 fontcontent">商品庫存</p>
-                        <p></p>
+                    <!-- A修改商品燈箱 -->
+                    <div class="ps_1" id="A_edit_lightBox" style="display:none">
+                        <div class="lightBox_list">
+                            <p class="ps_1 pe_1 pl_2 h1 lightBox_title">Edit Product</p>
+                            <form class="ps_1 pe_1 pl_1 pr_1" id="productsModify" enctype="multipart/form-data">
+                                <div class="formOne">
+                                    <div style="width:50%">
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">No.</label></div>
+                                            <div class="pl_1 pr_1"><input class="ip_normal" type="text" name="news_no" id="" v-model="popupData.news_no" readonly="readonly"></div>
+                                        </div>
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Category</label></div>
+                                            <div class="pl_1 pr_1">
+                                                <select name="category_no" id="" v-model="popupData.category_no">
+                                                    <option value="1">Floor Lamps</option>
+                                                    <option value="2">Pendant</option>
+                                                    <option value="3">Home Accent</option>
+                                                    <option value="4">Table Lamps</option>
+                                                    <option value="5">Wall Lamps</option>
+                                                    <option value="6">Chandaliers</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Designer</label>
+                                            </div>
+                                            <div class="pl_1 pr_1">
+                                                <select name="des_no" id="" v-model="popupData.des_no">
+                                                    <option value="1">設計師1</option>
+                                                    <option value="2">設計師2</option>
+                                                    <option value="3">設計師3</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Name</label></div>
+                                            <div class="pl_1 pr_1"><input class="ip_normal ip_width" type="text" name="name" id="" v-model="popupData.name"></div>
+                                        </div>
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="" style="vertical-align:top">Description</label></div>
+                                            <div class="pl_1 pr_1"><textarea class="p1 tArea" name="description" id="" cols="23" rows="3" v-model="popupData.description"></textarea></div>
+                                        </div>
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for=""
+                                                    style="vertical-align:top">Specification</label></div>
+                                            <div class="pl_1 pr_1"><textarea class="p1 tArea" name="specification" id="" cols="23" rows="3" v-model="popupData.specification"></textarea></div>
+                                        </div>
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Price</label></div>
+                                            <div class="pl_1 pr_1"><input class="ip_normal ip_width" type="text" name="price" id="" v-model="popupData.price"></div>
+                                        </div>
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">On Market</label>
+                                            </div>
+                                            <div class="pl_1 pr_1">
+                                                <select name="on_market" id="" v-model="popupData.on_market">
+                                                    <option value="0">已上架</option>
+                                                    <option value="1">未上架</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">In Stork</label>
+                                            </div>
+                                            <div class="pl_1 pr_1">
+                                                <select name="in_stork" id="" v-model="popupData.in_stork">
+                                                    <option value="0">有庫存</option>
+                                                    <option value="1">無庫存</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div style="width:50%">
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle">
+                                                <label class="p1" for="">Image1</label>
+                                            </div>
+                                            <div class="pl_1 pr_1">
+                                                <input type="hidden" name="prodone_img_origin" :value="popupData.image_path">
+                                                <p style="padding-top: 8px" name="prodone_img_origin" :value="popupData.image_path">目前檔名：{{popupData.image_path}}</p>
+                                                <div class="ps_1 pe_1" style="width:310px; height: 173px">
+                                                    <img style="width:auto; height: 173px" name="image_path" id="A_E_one_newsImage" :src="'images//'+ popupData.image_path" alt="">
+                                                </div>
+                                                <input type="file" name="A_E_one_upFile" id="A_E_one_upFile">
+                                            </div>
+                                        </div>
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle">
+                                                <label class="p1" for="">Image2</label>
+                                            </div>
+                                            <div class="pl_1 pr_1">
+                                                <input type="hidden" name="prodone_img_origin" :value="popupData.image_path">
+                                                <p style="padding-top: 8px" name="prodone_img_origin" :value="popupData.image_path">目前檔名：{{popupData.image_path}}</p>
+                                                <div class="ps_1 pe_1" style="width:310px; height: 173px">
+                                                    <img style="width:auto; height: 173px" name="image_path" id="A_E_two_newsImage" :src="'images//'+ popupData.image_path" alt="">
+                                                </div>
+                                                <input type="file" name="A_E_two_upFile" id="A_E_two_upFile">
+                                            </div>
+                                        </div>
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle">
+                                                <label class="p1" for="">Image3</label>
+                                            </div>
+                                            <div class="pl_1 pr_1">
+                                                <input type="hidden" name="prodone_img_origin" :value="popupData.image_path">
+                                                <p style="padding-top: 8px" name="prodone_img_origin" :value="popupData.image_path">目前檔名：{{popupData.image_path}}</p>
+                                                <div class="ps_1 pe_1" style="width:310px; height: 173px">
+                                                    <img style="width:auto; height: 173px" name="image_path" id="A_E_three_newsImage" :src="'images//'+ popupData.image_path" alt="">
+                                                </div>
+                                                <input type="file" name="A_E_three_upFile" id="A_E_three_upFile">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ps_1 pr_1 lastBtn">
+                                    <button class="ml_1 p1 bkbtn" id="A_EditBtnCancel" type="button">Cancel</button>
+                                    <button id="A_EditBtnAdd" class="ml_1 p1 bkbtn" type="button" @click="productsSub">OK</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                    <ul id="productList">
-                        <template v-for="prodRow in prodRows">
-                            <li is="A_menu" v-bind="prodRow"></li>
-                        </template>
-                    </ul>
-                    <!-- <div class="pages">
-                        <p class="p1 pl_1 pr_1">1</p>
-                        <p class="p1 pl_1 pr_1">2</p>
-                    </div> -->
+                    <div class="ps_1 pe_1 pl_1 pr_1 backend_titleH1">
+                        <h1 class="h1 font_w5 fontTitle">Product Manage</h1>
+                    </div>
+                    <div class="ps_1 pe_1 pl_1 pr_1">
+                        <div class="pr_1 pe_1 newListBtn"><button class="p1 bkbtn" id="A_New">✚ NEW</button></div>
+                        <div class="backend_title">
+                            <p class="p1 pr_1 font_w5 fontcontent">商品編號</p>
+                            <p class="p1 pr_1 font_w5 fontcontent">商品名稱</p>
+                            <p class="p1 pr_1 font_w5 fontcontent">商品類別</p>
+                            <p class="p1 pr_1 font_w5 fontcontent listGrow">商品設計師</p>
+                            <p class="p1 pr_1 font_w5 fontcontent listGrow">商品規格</p>
+                            <p class="p1 pr_1 font_w5 fontcontent">商品單價</p>
+                            <p class="p1 pr_1 font_w5 fontcontent">商品狀態</p>
+                            <p class="p1 pr_1 font_w5 fontcontent">商品庫存</p>
+                            <p></p>
+                        </div>
+                        <ul>
+                            <template v-for="prodRow in prodRows">
+                                <li is="A_menu" v-bind="prodRow" :key="prodRow.product_no"
+                                @edit-handler="editHandler(prodRow.product_no)"></li>
+                            </template>
+                        </ul>
+                    </div>
                 </div>
             </section>
             <script>
                 let prodRow = Vue.component('A_menu', {
-                    props: ['product_no', 'name', 'category_no', 'des_no','specification','price','on_market','in_stock','category_name','des_name'],
+                    props: ['product_no', 'name', 'category_no', 'des_no','description','specification','price','on_market','in_stock','category_name','des_name'],
                     template: `
                         <li class="backend_details">
                             <div class="backend_text">
@@ -309,11 +464,12 @@
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{name}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{category_name}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{des_name}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{description}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{specification}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{price}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{on_market ? '已上架' : '未上架'}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{in_stock ? '有庫存' : '無庫存'}}</p>
-                                <button class="p1 bkbtn" id="A_Edit">Edit</button>
+                                <button class="p1 bkbtn" id="A_Edit" @click="$emit('edit-handler')" type="button">Edit</button>
                             </div>
                         </li>
                     `,
@@ -322,7 +478,19 @@
                     new Vue({
                         el: '#productList',
                         data: {
+                            fucusNo: 0,
                             prodRows: [],
+                            popupData: {
+                                product_no: '',
+                                name: ``,
+                                category_name: ``,
+                                des_name: ``,
+                                description: ``,
+                                specification: ``,
+                                price: ``,
+                                on_market: ``,
+                                in_stock: ``
+                            },
                         },
                         created() {
                             let xhr = new XMLHttpRequest();
@@ -331,6 +499,31 @@
                             }
                             xhr.open("get", "getProducts.php", true);
                             xhr.send(null);
+                        },
+                        computed: {
+                            focusObj() {
+                                return (this.prodRows.find(v => v.product_no == this.fucusNo)) ? (this.prodRows.find(v => v.product_no == this.fucusNo)) : this.prodRows[0];
+                            },
+                        },
+                        watch: {
+                            focusObj(nVal) {
+                                this.popupData = JSON.parse(JSON.stringify(nVal));
+                            },
+                        },
+                        methods: {
+                            editHandler(no) {
+                                this.fucusNo = no;
+                            },
+                            productsSub() {
+                                let xhr = new XMLHttpRequest();
+                                xhr.onload = () => {
+                                    alert(xhr.responseText);
+                                };
+                                xhr.open("post", "backend_productsUpdateToDb.php", true);
+                                let productsSubDb = new FormData(document.getElementById("productsModify"));
+                                xhr.send(productsSubDb);
+
+                            }
                         },
                     })
             </script>
@@ -464,67 +657,6 @@
                                         <div class="pl_1 pr_1"><textarea class="p1 tArea" name="promotions_text" id="" cols="100" rows="5"></textarea></div>
                                     </div>
                                 </div>
-                                <!-- <div class="formTwo">
-                                    <div class="ps_1 ml_1 mr_1 me_1 backend_titleH1">
-                                        <p class="h1">優惠商品</p>
-                                    </div>
-                                    <div class="ps_1">
-                                        <ul>
-                                            <li>
-                                                <div class="promotionsDiv Bk_flex-grow"><label class="p1 pl_1 pr_1" for="">Product_No</label></div>
-                                                <div class="promotionsDivtxt">
-                                                    <select class="" name="" id="" value="">
-                                                        <option value="">all</option>
-                                                    </select>
-                                                </div>
-                                                <div class="promotionsDiv"><label class="p1 pl_1 pr_1" for="">Price</label></div>
-                                                <div class="promotionsDivtxt"><input class="ip_small ip_width" type="text" name="" id="" readonly="readonly"></div>
-                                                <div class="promotionsDiv" style="flex-grow: 3"><label class="p1 pl_1 pr_1" for="">Promotions_price</label></div>
-                                                <div class="promotionsDivtxt"><input class="ip_small ip_width" type="text" name="" id=""></div>
-                                                <div class="promotionsDiv Bk_flex-grow" style="justify-content: center"><button class="bkbtn">✚ New</button></div>
-                                            </li>
-                                            <li class="ms_1">
-                                                <div class="promotionsDiv Bk_flex-grow"><label class="p1 pl_1 pr_1" for="">Product_No</label></div>
-                                                <div class="promotionsDivtxt">
-                                                    <select class="" name="" id="" value="">
-                                                        <option value="">1</option>
-                                                    </select>
-                                                </div>
-                                                <div class="promotionsDiv"><label class="p1 pl_1 pr_1" for="">Price</label></div>
-                                                <div class="promotionsDivtxt"><input class="ip_small ip_width" type="text" name="" id="" readonly="readonly"></div>
-                                                <div class="promotionsDiv" style="flex-grow: 3"><label class="p1 pl_1 pr_1" for="">Promotions_price</label></div>
-                                                <div class="promotionsDivtxt"><input class="ip_small ip_width" type="text" name="" id=""></div>
-                                                <div class="promotionsDiv Bk_flex-grow" style="justify-content: center"><button class="bkbtn">─ Delete</button></div>
-                                            </li>
-                                            <li class="ms_1">
-                                                <div class="promotionsDiv Bk_flex-grow"><label class="p1 pl_1 pr_1" for="">Product_No</label></div>
-                                                <div class="promotionsDivtxt">
-                                                    <select class="" name="" id="" value="">
-                                                        <option value="">4</option>
-                                                    </select>
-                                                </div>
-                                                <div class="promotionsDiv"><label class="p1 pl_1 pr_1" for="">Price</label></div>
-                                                <div class="promotionsDivtxt"><input class="ip_small ip_width" type="text" name="" id="" readonly="readonly"></div>
-                                                <div class="promotionsDiv" style="flex-grow: 3"><label class="p1 pl_1 pr_1" for="">Promotions_price</label></div>
-                                                <div class="promotionsDivtxt"><input class="ip_small ip_width" type="text" name="" id=""></div>
-                                                <div class="promotionsDiv Bk_flex-grow" style="justify-content: center"><button class="bkbtn">─ Delete</button></div>
-                                            </li>
-                                            <li class="ms_1">
-                                                <div class="promotionsDiv Bk_flex-grow"><label class="p1 pl_1 pr_1" for="">Product_No</label></div>
-                                                <div class="promotionsDivtxt">
-                                                    <select class="" name="" id="" value="">
-                                                        <option value="">13</option>
-                                                    </select>
-                                                </div>
-                                                <div class="promotionsDiv"><label class="p1 pl_1 pr_1" for="">Price</label></div>
-                                                <div class="promotionsDivtxt"><input class="ip_small ip_width" type="text" name="" id="" readonly="readonly"></div>
-                                                <div class="promotionsDiv" style="flex-grow: 3"><label class="p1 pl_1 pr_1" for="">Promotions_price</label></div>
-                                                <div class="promotionsDivtxt"><input class="ip_small ip_width" type="text" name="" id=""></div>
-                                                <div class="promotionsDiv Bk_flex-grow" style="justify-content: center"><button class="bkbtn">─ Delete</button></div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div> -->
                                 <div class="ps_1 pr_1 lastBtn">
                                     <button class="ml_1 p1 bkbtn" id="B_btnCancel" type="button">Cancel</button>
                                     <button id="B_btnAdd" class="ml_1 p1 bkbtn" type="button">Confirm</button>
@@ -569,7 +701,7 @@
                                             </div>
                                             <div class="pl_1 pr_1">
                                                 <input type="hidden" name="promotions_img_origin" :value="popupData.promotionsImage_path">
-                                                <p style="padding-top: 8px" :value="popupData.promotionsImage_path">目前檔名：{{popupData.promotionsImage_path}}</p>
+                                                <p style="padding-top: 8px" name="promotions_img_origin" :value="popupData.promotionsImage_path">目前檔名：{{popupData.promotionsImage_path}}</p>
                                                 <div class="ps_1 pe_1" style="width:310px; height: 173px">
                                                     <img style="width:auto; height: 173px" name="promotionsImage_path" id="B_E_promotionsImage" :src="'images//'+ popupData.promotionsImage_path" alt="">
                                                 </div>
@@ -585,10 +717,8 @@
                                                 name="promotions_name" id="" v-model="popupData.promotions_name"></div>
                                     </div>
                                     <div class="ps_1 pe_1 LBcol">
-                                        <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for=""
-                                                style="vertical-align:top">Text</label></div>
-                                        <div class="pl_1 pr_1"><textarea class="p1 tArea" name="promotions_text" id=""
-                                                cols="100" rows="5" v-model="popupData.promotions_text"></textarea></div>
+                                        <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="" style="vertical-align:top">Text</label></div>
+                                        <div class="pl_1 pr_1"><textarea class="p1 tArea" name="promotions_text" id="" cols="100" rows="5" v-model="popupData.promotions_text"></textarea></div>
                                     </div>
                                 </div>
                                 <div class="ps_1 pr_1 lastBtn">
@@ -609,6 +739,7 @@
                             <p class="p1 pr_1 font_w5 fontcontent listGrow">活動名稱</p>
                             <p class="p1 pr_1 font_w5 fontcontent">活動開始日期</p>
                             <p class="p1 pr_1 font_w5 fontcontent">活動結束日期</p>
+                            <p class="p1 pr_1 font_w5 fontcontent listGrow">活動內文</p>
                             <p class="p1 pr_1 font_w5 fontcontent listGrow">圖片路徑</p>
                             <p class="p1 pr_1 font_w5 fontcontent">狀態</p>
                             <p></p>
@@ -619,10 +750,6 @@
                                 @edit-handler="editHandler(promoRow.promotions_no)"></li>
                             </template>
                         </ul>
-                        <!-- <div class="pages">
-                            <p class="p1 pl_1 pr_1">1</p>
-                            <p class="p1 pl_1 pr_1">2</p>
-                        </div> -->
                     </div>
                 </div>
             </section>
@@ -636,6 +763,7 @@
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{promotions_name}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{promotions_startDate}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{promotions_endDate}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{promotions_text}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{promotionsImage_path}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{promotions_state ? '下架' : '上架'}}</p>
                                 <button class="p1 bkbtn" id="B_Edit" @click="$emit('edit-handler')" type="button">Edit</button>
@@ -739,8 +867,7 @@
                                 <div class="formOne formThree">
                                     <div class="ps_1 pe_1 LBcol">
                                         <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Title</label></div>
-                                        <div class="pl_1 pr_1"><input class="ip_normal ip_width" type="text"
-                                                name="news_title" id=""></div>
+                                        <div class="pl_1 pr_1"><input class="ip_normal ip_width" type="text" name="news_title" id=""></div>
                                     </div>
                                     <div class="ps_1 pe_1 LBcol">
                                         <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for=""
@@ -912,31 +1039,65 @@
             </script>
             <!-- P輪播管理 -->
             <section class="mem_content" id="mainElm6">
-                <div class="ps_1 pe_1 pl_1 pr_1 backend_titleH1">
-                    <h1 class="h1 font_w5 fontTitle">Carousel</h1>
-                </div>
-                <div class="ps_1 pe_1 pl_1 pr_1">
-                    <div class="pr_1 pe_1 ps_2"></div>
-                    <div class="pr_1 backend_title">
-                        <p class="p1 pr_1 font_w5 fontcontent">編號</p>
-                        <p class="p1 pr_1 font_w5 fontcontent">名稱</p>
-                        <p class="p1 pr_1 font_w5 fontcontent listGrow">圖片路徑</p>
-                        <p class="p1 pr_1 font_w5 fontcontent listGrow">圖片預覽</p>
-                        <p class=""></p>
+                <div id="carouselList">
+                    <!-- P修改輪播燈箱 -->
+                    <div class="ps_1" id="P_edit_lightBox" style="display:none">
+                        <div class="lightBox_list">
+                            <p class="ps_1 pe_1 pl_2 h1 lightBox_title">Edit Carousel</p>
+                            <form class="ps_1 pe_1 pl_1 pr_1" id="carouselsModify" enctype="multipart/form-data">
+                                <div class="formOne">
+                                    <div style="width:50%">
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">No.</label></div>
+                                            <div class="pl_1 pr_1"><input class="ip_normal" type="text" name="carousel_no" id="" v-model="popupData.carousel_no" readonly="readonly"></div>
+                                        </div>
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Name</label></div>
+                                            <div class="pl_1 pr_1"><input class="ip_normal ip_width" type="text" name="carousel_name" id="" v-model="popupData.carousel_name"></div>
+                                        </div>
+                                    </div>
+                                    <div style="width:50%">
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle">
+                                                <label class="p1" for="">Image</label>
+                                            </div>
+                                            <div class="pl_1 pr_1">
+                                                <input type="hidden" name="carousels_img_origin" :value="popupData.carousel_path">
+                                                <p style="padding-top: 8px" name="carousels_img_origin" :value="popupData.carousel_path">目前檔名：{{popupData.carousel_path}}</p>
+                                                <div class="ps_1 pe_1" style="width:310px; height: 173px">
+                                                    <img style="width:auto; height: 173px" name="carousel_path" id="P_E_carouselsImage" :src="'images//'+ popupData.carousel_path" alt="">
+                                                </div>
+                                                <input type="file" name="P_E_upFile" id="P_E_upFile">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ps_1 pr_1 lastBtn">
+                                    <button class="ml_1 p1 bkbtn" id="P_EditBtnCancel" type="button">Cancel</button>
+                                    <button id="P_EditBtnAdd" class="ml_1 p1 bkbtn" type="button" @click="carouselsSub">OK</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                    <!-- <ul id="carouselList">
-                        <P_menu v-for="P_backendMenu in carouselObject" v-bind="P_backendMenu">
-                        </P_menu>
-                    </ul> -->
-                    <ul id="carouselList">
-                        <template v-for="carouselRow in carouselRows">
-                            <li is="P_menu" v-bind="carouselRow"></li>
-                        </template>
-                    </ul>
-                    <!-- <div class="pages">
-                        <p class="p1 pl_1 pr_1">1</p>
-                        <p class="p1 pl_1 pr_1">2</p>
-                    </div> -->
+                    <div class="ps_1 pe_1 pl_1 pr_1 backend_titleH1">
+                        <h1 class="h1 font_w5 fontTitle">Carousel</h1>
+                    </div>
+                    <div class="ps_1 pe_1 pl_1 pr_1">
+                        <div class="pr_1 pe_1 ps_2"></div>
+                        <div class="pr_1 backend_title">
+                            <p class="p1 pr_1 font_w5 fontcontent">編號</p>
+                            <p class="p1 pr_1 font_w5 fontcontent">名稱</p>
+                            <p class="p1 pr_1 font_w5 fontcontent listGrow">圖片路徑</p>
+                            <p class="p1 pr_1 font_w5 fontcontent listGrow">圖片預覽</p>
+                            <p class=""></p>
+                        </div>
+                        <ul>
+                            <template v-for="carouselRow in carouselRows">
+                                <li is="P_menu" v-bind="carouselRow" :key="carouselRow.carousel_no"
+                                @edit-handler="editHandler(carouselRow.carousel_no)"></li>
+                            </template>
+                        </ul>
+                    </div>
                 </div>
             </section>
             <script>
@@ -959,7 +1120,13 @@
                     new Vue({
                         el: '#carouselList',
                         data: {
+                            fucusNo: 0,
                             carouselRows: [],
+                            popupData: {
+                                carousel_no: '',
+                                carousel_name: ``,
+                                carousel_path: ``
+                            },
                         },
                         created() {
                             let xhr = new XMLHttpRequest();
@@ -970,33 +1137,157 @@
                             xhr.open("get", "getCarousels.php", true);
                             xhr.send(null);
                         },
+                        computed: {
+                            focusObj() {
+                                return (this.carouselRows.find(v => v.carousel_no == this.fucusNo)) ? (this.carouselRows.find(v => v.carousel_no == this.fucusNo)) : this.carouselRows[0];
+                            },
+                        },
+                        watch: {
+                            focusObj(nVal) {
+                                this.popupData = JSON.parse(JSON.stringify(nVal));
+                            },
+                        },
+                        methods: {
+                            editHandler(no) {
+                                this.fucusNo = no;
+                            },
+                            carouselsSub() {
+                                let xhr = new XMLHttpRequest();
+                                xhr.onload = () => {
+                                    alert(xhr.responseText);
+                                };
+                                xhr.open("post", "backend_carouselsUpdateToDb.php", true);
+                                let carouselsSubDb = new FormData(document.getElementById("carouselsModify"));
+                                xhr.send(carouselsSubDb);
+                                
+                            }
+                        },
                     })
             </script>
             <!-- D後台管理員 -->
             <section class="mem_content" id="mainElm7">
-                <div class="ps_1 pe_1 pl_1 pr_1 backend_titleH1">
-                    <h1 class="h1 font_w5 fontTitle">Manage</h1>
-                </div>
-                <div class="ps_1 pe_1 pl_1 pr_1">
-                    <div class="pr_1 pe_1 newListBtn"><button class="p1 bkbtn" id="D_New">✚ NEW</button></div>
-                    <div class="backend_title">
-                        <p class="p1 pr_1 font_w5 fontcontent">人員編號</p>
-                        <p class="p1 pr_1 font_w5 fontcontent listGrow">人員姓名</p>
-                        <p class="p1 pr_1 font_w5 fontcontent listGrow">人員帳號</p>
-                        <p class="p1 pr_1 font_w5 fontcontent listGrow">人員密碼</p>
-                        <p class="p1 pr_1 font_w5 fontcontent">人員類別</p>
-                        <p class="p1 pr_1 font_w5 fontcontent">人員狀態</p>
-                        <p></p>
+                <div id="managersList">
+                    <!-- D管理員燈箱 -->
+                    <div class="ps_1" id="D_lightBox" style="display:none">
+                        <div class="lightBox_list">
+                            <p class="ps_1 pe_1 pl_2 h1 lightBox_title">Create Manager</p>
+                            <form id="managersForm" enctype="multipart/form-data" class="ps_1 pe_1 pl_1 pr_1">
+                                <div class="formOne formThree">
+                                    <div class="ps_1 pe_1 LBcol">
+                                        <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">No.</label></div>
+                                        <div class="pl_1 pr_1"><input class="ip_normal" type="text" name="manager_no" id=""></div>
+                                    </div>
+                                    <div class="ps_1 pe_1 LBcol">
+                                        <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Name</label></div>
+                                        <div class="pl_1 pr_1"><input class="ip_normal" type="text" name="manager_name" id=""></div>
+                                    </div>
+                                    <div class="ps_1 pe_1 LBcol">
+                                        <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Role</label>
+                                        </div>
+                                        <div class="pl_1 pr_1">
+                                            <select name="role" id="">
+                                                <option value="1">最高權限管理者</option>
+                                                <option value="2">設計師</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="ps_1 pe_1 LBcol">
+                                        <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Account</label></div>
+                                        <div class="pl_1 pr_1"><input class="ip_normal" type="text" name="account" id=""></div>
+                                    </div>
+                                    <div class="ps_1 pe_1 LBcol">
+                                        <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Password</label></div>
+                                        <div class="pl_1 pr_1"><input class="ip_normal" type="text" name="password" id=""></div>
+                                    </div>
+                                    <div class="ps_1 pe_1 LBcol">
+                                        <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">State</label>
+                                        </div>
+                                        <div class="pl_1 pr_1">
+                                            <select name="state" id="">
+                                                <option value="0">正常</option>
+                                                <option value="1">凍結</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ps_1 pr_1 lastBtn">
+                                    <button class="ml_1 p1 bkbtn" id="D_btnCancel" type="button">Cancel</button>
+                                    <button id="D_btnAdd" class="ml_1 p1 bkbtn" type="button">Confirm</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                    <ul id="managersList">
-                        <template v-for="managersRow in managersRows">
-                            <li is="D_menu" v-bind="managersRow"></li>
-                        </template>
-                    </ul>
-                    <!-- <div class="pages">
-                        <p class="p1 pl_1 pr_1">1</p>
-                        <p class="p1 pl_1 pr_1">2</p>
-                    </div> -->
+                    <!-- D修改管理員燈箱 -->
+                    <div class="ps_1" id="D_edit_lightBox" style="display:none">
+                        <div class="lightBox_list">
+                            <p class="ps_1 pe_1 pl_2 h1 lightBox_title">Edit Manager</p>
+                            <form class="ps_1 pe_1 pl_1 pr_1" id="managersModify" enctype="multipart/form-data">
+                                <div class="formOne formThree">
+                                    <div class="ps_1 pe_1 LBcol">
+                                        <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">No.</label></div>
+                                        <div class="pl_1 pr_1"><input class="ip_normal" type="text" name="manager_no" id="" v-model="popupData.manager_no" readonly="readonly"></div>
+                                    </div>
+                                    <div class="ps_1 pe_1 LBcol">
+                                        <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Name</label></div>
+                                        <div class="pl_1 pr_1"><input class="ip_normal" type="text" name="manager_name" id="" v-model="popupData.manager_name"></div>
+                                    </div>
+                                    <div class="ps_1 pe_1 LBcol">
+                                        <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Role</label>
+                                        </div>
+                                        <div class="pl_1 pr_1">
+                                            <select name="role" id="" v-model="popupData.role">
+                                                <option value="1">最高權限管理者</option>
+                                                <option value="2">設計師</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="ps_1 pe_1 LBcol">
+                                        <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Account</label></div>
+                                        <div class="pl_1 pr_1"><input class="ip_normal" type="text" name="account" id="" v-model="popupData.account"></div>
+                                    </div>
+                                    <div class="ps_1 pe_1 LBcol">
+                                        <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Password</label></div>
+                                        <div class="pl_1 pr_1"><input class="ip_normal" type="text" name="password" id="" v-model="popupData.password"></div>
+                                    </div>
+                                    <div class="ps_1 pe_1 LBcol">
+                                        <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">State</label>
+                                        </div>
+                                        <div class="pl_1 pr_1">
+                                            <select name="state" id="" v-model="popupData.state">
+                                                <option value="0">正常</option>
+                                                <option value="1">凍結</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ps_1 pr_1 lastBtn">
+                                    <button class="ml_1 p1 bkbtn" id="D_EditBtnCancel" type="button">Cancel</button>
+                                    <button id="D_EditBtnAdd" class="ml_1 p1 bkbtn" type="button" @click="managersSub">OK</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="ps_1 pe_1 pl_1 pr_1 backend_titleH1">
+                        <h1 class="h1 font_w5 fontTitle">Manage</h1>
+                    </div>
+                    <div class="ps_1 pe_1 pl_1 pr_1">
+                        <div class="pr_1 pe_1 newListBtn"><button class="p1 bkbtn" id="D_New">✚ NEW</button></div>
+                        <div class="backend_title">
+                            <p class="p1 pr_1 font_w5 fontcontent">人員編號</p>
+                            <p class="p1 pr_1 font_w5 fontcontent listGrow">人員姓名</p>
+                            <p class="p1 pr_1 font_w5 fontcontent listGrow">人員帳號</p>
+                            <p class="p1 pr_1 font_w5 fontcontent listGrow">人員密碼</p>
+                            <p class="p1 pr_1 font_w5 fontcontent">人員類別</p>
+                            <p class="p1 pr_1 font_w5 fontcontent">人員狀態</p>
+                            <p></p>
+                        </div>
+                        <ul>
+                            <template v-for="managersRow in managersRows">
+                                <li is="D_menu" v-bind="managersRow" :key="managersRow.manager_no"
+                                @edit-handler="editHandler(managersRow.manager_no)"></li>
+                            </template>
+                        </ul>
+                    </div>
                 </div>
             </section>
             <script>
@@ -1011,7 +1302,7 @@
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{password}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{role}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{state}}</p>
-                                <button class="p1 bkbtn" id="D_Edit">Edit</button>
+                                <button class="p1 bkbtn" id="D_Edit" @click="$emit('edit-handler')" type="button">Edit</button>
                             </div>
                         </li>
                     `,
@@ -1020,7 +1311,16 @@
                     new Vue({
                         el: '#managersList',
                         data: {
+                            fucusNo: 0,
                             managersRows: [],
+                            popupData: {
+                                manager_no: '',
+                                manager_name: ``,
+                                account: ``,
+                                password: ``,
+                                role: ``,
+                                state: ``
+                            },
                         },
                         created() {
                             let xhr = new XMLHttpRequest();
@@ -1030,6 +1330,31 @@
                             }
                             xhr.open("get", "getManagers.php", true);
                             xhr.send(null);
+                        },
+                        computed: {
+                            focusObj() {
+                                return (this.managersRows.find(v => v.manager_no == this.fucusNo)) ? (this.managersRows.find(v => v.manager_no == this.fucusNo)) : this.managersRows[0];
+                            },
+                        },
+                        watch: {
+                            focusObj(nVal) {
+                                this.popupData = JSON.parse(JSON.stringify(nVal));
+                            },
+                        },
+                        methods: {
+                            editHandler(no) {
+                                this.fucusNo = no;
+                            },
+                            managersSub() {
+                                let xhr = new XMLHttpRequest();
+                                xhr.onload = () => {
+                                    alert(xhr.responseText);
+                                };
+                                xhr.open("post", "backend_managersUpdateToDb.php", true);
+                                let managersSubDb = new FormData(document.getElementById("managersModify"));
+                                xhr.send(managersSubDb);
+
+                            }
                         },
                     })
             </script>

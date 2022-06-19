@@ -27,7 +27,7 @@ try {
         default:
     }
 	//執行sql指令
-	$sql = "update promotions set promotions_name=:promotions_name, promotions_startDate=:promotions_startDate, promotions_endDate=:promotions_endDate, promotions_state=:promotions_state, promotionsImage_path=:promotionsImage_path promotions_text=:promotions_text where promotions_no=:promotions_no;";
+	$sql = "update promotions set promotions_name=:promotions_name, promotions_startDate=:promotions_startDate, promotions_endDate=:promotions_endDate, promotions_state=:promotions_state, promotionsImage_path=:promotionsImage_path, promotions_text=:promotions_text where promotions_no=:promotions_no";
 
     $promotions = $pdo->prepare($sql); //編譯指令
     $promotions->bindValue(":promotions_no", $_POST["promotions_no"]); //代入資料
