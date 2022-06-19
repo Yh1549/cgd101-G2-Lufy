@@ -69,7 +69,7 @@ let purchasePnl = Vue.component('purchase-panel', {
             </div>
         </div>
         <div id="favoriteButton" class="favoriteButton me_4" @click="isSelected=!isSelected; setFavorite()">
-            <span class="material-icons heart" >favorite</span>
+            <span class="material-icons heart">favorite</span>
             <span class="fontcontent p1">Favorite</span>
         </div> 
     </div>`,
