@@ -85,7 +85,7 @@
                 text-align: center;
                 content: '';
                 position: absolute;
-                left: 71%;
+                left: 69.5%;
                 z-index: -1;
                 transform: translateX(-69%) rotate(45deg);
             }
@@ -193,7 +193,7 @@
 
         .blub,
         .wall-light-shadow {
-            opacity: calc($i / 10);
+            opacity: calc($i / 100);
         }
 
         .lamp-part.-bottom:before {

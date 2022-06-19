@@ -2,9 +2,10 @@
 	try{
 		require_once("connect_lufy.php");
 
-		$sql = "SELECT DISTINCT  p.product_no, p.name, i.product_show, i.image_path
+		$sql = "SELECT DISTINCT  p.product_no, p.name, i.product_show, i.image_path, c.category_no
 				FROM product p 
 				JOIN product_image i ON p.product_no = i.product_no
+				JOIN product_category c ON p.category_no = c.category_no
 				WHERE i.product_show = 1"; //準備好sql指令
 		$products = $pdo->query($sql);//將sql指令送到mysql去執行, 回傳的是pdoStatement
 		$prodRows = $products->fetchAll(PDO::FETCH_ASSOC);

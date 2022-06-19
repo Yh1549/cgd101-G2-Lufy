@@ -1,24 +1,21 @@
-let bb = Vue.component('breadcrumb-list', {
-    props: ['breadcrumb'],
-    template: `
-    <ol class="breadcrumbList">
-        <li class="breadcrumbItem" v-for="item in breadcrumb">
-            <a :href="item.link">{{item.name}}</a>
-        </li>
-    </ol> `,
-})
-const bCb = new Vue({
-    el: `#breadcrumb_list`,
-    data: {
-        breadCrumbRow: [],
+let breadcrumb = Vue.component('breadcrumb-list', {
+    data() {
+        return {
+            breadCrumbRow: [],
+        };
     },
+    template: `<ol class="breadcrumbList">
+                        <li class="breadcrumbItem" v-for="item in breadCrumbRow">
+                            <a :href="item.link">{{item.name}}</a>
+                        </li>
+                    </ol> `,
     methods: {
         setBreadcrumb() {
-            // /product/productlist/item.html
+            // /product/projustlist/item.html
             let arr = window.location.pathname.split('.html')[0].split('/');
-            //['', 'product','productlist' ,'item']
+            //['', 'product','projustlist' ,'item']
             arr.splice(0, 1);
-            //['product','productlist', 'item']
+            //['product','projustlist', 'item']
 
             this.breadCrumbRow = [
                 {

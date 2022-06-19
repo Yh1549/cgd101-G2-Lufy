@@ -1,34 +1,26 @@
 const bus = new Vue()
 let prodImgMain = Vue.component('prodimg-main', {
     props: ['name', 'image_path'],
-    data() { 
+    data() {
         return {
-            image_path,
-        };
+            largeImg: this.image_path,
+        }
     },
-    template: `<img :src="'images//'+image_path" :alt="name" class="me_2 big_img">`,
+    template: `<img :src="'images//'+largeImg" :alt="name" class="me_2 big_img">`,
     mounted() { 
-        bus.$on('showImg', theImg => this.image_path = theImg.image_path)
+        bus.$on('showImg', theImg => this.largeImg = theImg?.image_path)
     },
-
 });
 let prodImgSmall = Vue.component('prodimg-small', {
     props: ['name', 'image_path', 'small-img'],
-    data() {
-        return {
-            image_path,
-        };
-    },
-    template: `<div class="small_products_img" @click="showLarge">
+    template: `<div class="small_products_img" @click="showLargeImg">
                 <img  :src="'images//'+image_path" :alt='name' class="small">
                 </div>`,
     methods:{
-        showLarge() {
-            // alert(this.smallImg)
+        showLargeImg() {
             bus.$emit('showImg', this.smallImg)
         },
     },
-
 });
 let purchasePnl = Vue.component('purchase-panel', {
     props: ['name', 'price', 'promotions_name', 'promotions_price', 'promPrice', 'add'],
@@ -177,9 +169,8 @@ const mainProductImg = new Vue({
 
         }
     },
-    mounted() {
+    created() {
         this.setProductimage();
         this.favoriteCheck();
-        bus.$on('showImg', (image_path) => { this.showLarge(image_path) })
     },
 })

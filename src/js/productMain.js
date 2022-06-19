@@ -9,7 +9,7 @@ window.onload = () => {
         originTop: true,
     });
 }
-let bb = Vue.component('breadcrumb-list', {
+let bread = Vue.component('breadcrumb-list', {
     props: ['breadcrumb'],
     template: `
     <ol class="breadcrumbList">
@@ -20,11 +20,18 @@ let bb = Vue.component('breadcrumb-list', {
 })
 
 let category = Vue.component('product-category', {
-    props: ['category_imgpath', 'category_name'],
-    template: `<div class="category">
+    props: ['category_imgpath', 'category_name','category_no'],
+    template: `
+    <div class="category"  @click="filterhandler(category_no)">
         <img :src="'images//'+category_imgpath" :alt="category_name">
         <p class="p1">{{category_name}}</p>
     </div>`,
+
+    methods: {
+        filterhandler(category_no) {
+            this.$emit('filtercategory', category_no)
+        }
+    },
 })
 
 let commodity = Vue.component('product-commodity', {
@@ -55,7 +62,9 @@ const productCommodity = new Vue({
     data: {
         categoryObject: [],
         commodityObject: [],
+        breadCrumbRow: [],
         focusId: NaN,
+        categoryName: 'all'
     },
     methods: {
         // 麵包屑
@@ -80,13 +89,8 @@ const productCommodity = new Vue({
                 })
             })
         },
-        // 商品類別取值
-        clickHandler(id) {
-            if (this.activetab !== id) this.activetab = id;
-            else this.activetab = NaN;
-        },
         setCategory() {
-            console.log(mouted)
+            console.log(mounted)
             axios.get('productCategory.php').then(function (response) {
                 this.commodityObject = response.data;
                 console.log(response.data)
@@ -104,22 +108,38 @@ const productCommodity = new Vue({
             axios.get('productMain.php').then((response) => {
             console.log(response.data)
             productCommodity.commodityObject = response.data;
+
         }).catch(err => console.log(err)); 
         },
+        changeFocusId(num) {
+            this.focusId = num
+        },
+        callMasonry() { 
+            var grid = document.querySelector('.grid');
+            new Masonry(grid, {
+                itemSelector: '.grid-item',
+                gutter: '.gutter-sizer',
+                columnWidth: ".grid-sizer",
+                percentPosition: true,
+                originLeft: false,
+                originTop: true,
+            });
+        }
     },
     computed: {
         // 篩選商品
         filterList() {
-            if (isNaN(this.focusId)) return this.list;
-            return this.list.filter(item => item.cat_no == this.focusId);
+            if (isNaN(this.focusId)) return this.commodityObject;
+            return this.commodityObject.filter(item => item.category_no == this.focusId);
         },
+    },
+    created() { 
+        
     },
     mounted() {
         this.setBreadcrumb();
-        // this.clickHandler();
-        // this.setCategory();
         this.setCategoryimage();
         this.setProductimage();
-        // this.filterList();
+        // this.callMasonry();
     },
 })

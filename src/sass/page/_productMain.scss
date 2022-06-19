@@ -8,7 +8,7 @@
         .product_category {
             display: flex;
             justify-content: space-evenly;
-
+            overflow: auto;
             .category {
                 width: 140px;
                 text-align: center;
@@ -24,11 +24,6 @@
                     width: 100%;
                     object-fit: cover;
                     vertical-align: top;
-                }
-
-                @media all and (max-width:490px) {
-                    padding-right: 1.5rem;
-                    width: 140px;
                 }
             }
         }
@@ -138,7 +133,12 @@
         @include m {
             max-width: 290px;
             margin: 0 auto;
-
+            .product_category {
+                justify-content: flex-start;
+                .category {
+                    width: 100px;
+                }
+            }
             .grid-sizer {
                 width: 49%;
             }
