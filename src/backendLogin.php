@@ -1,7 +1,7 @@
 <?php
 session_start();
 try {
-    require_once("../../connect_lufy.php");
+    require_once("connect_lufy.php");
     $adminsql = "select * from manager where manager_account=:adminId and manager_password=:adminPsw ";//登入
   $admin = $pdo->prepare($adminsql);
   $admin->bindValue(":adminId", $_POST["adminId"]);
@@ -22,6 +22,8 @@ try {
     }else{
         echo "此帳號已凍結";
     }
+  }else{
+    echo "wrong account";
   }
 } catch (PDOException $e) {
     echo $e->getMessage();

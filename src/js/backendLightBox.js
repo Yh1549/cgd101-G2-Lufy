@@ -27,7 +27,7 @@ function A_create(){//----新增
         //location.href="getProducts.php";
     }
     xhr.open("post", "backend_productsInsert.php");
-    xhr.send(new FormData($id("productssForm")));
+    xhr.send(new FormData($id("productsForm")));
     $id("A_lightBox").style.display = "none";
 }
 //----------------------------

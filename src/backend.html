@@ -237,7 +237,7 @@
                                         </div>
                                         <div class="ps_1 pe_1 LBcol">
                                             <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Name</label></div>
-                                            <div class="pl_1 pr_1"><input class="ip_normal ip_width" type="text" name="name" id=""></div>
+                                            <div class="pl_1 pr_1"><input class="ip_normal ip_width" type="text" name="product_name" id=""></div>
                                         </div>
                                         <div class="ps_1 pe_1 LBcol">
                                             <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="" style="vertical-align:top">Description</label></div>
@@ -276,7 +276,7 @@
                                         <div class="ps_1 pe_1 LBcol">
                                             <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Image1</label></div>
                                             <div class="pl_1 pr_1">
-                                                <input type="file" name="A_one_upFile" id="A_one_upFile">
+                                                <input type="file" name="A_upFile[]" id="A_one_upFile">
                                                 <div class="ps_1" style="width:310px">
                                                     <img style="width:100%" id="A_one_membersImage" src="./images/imgUpload.jpg" alt="">
                                                 </div>
@@ -285,7 +285,7 @@
                                         <div class="ps_1 pe_1 LBcol">
                                             <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Image2</label></div>
                                             <div class="pl_1 pr_1">
-                                                <input type="file" name="A_two_upFile" id="A_two_upFile">
+                                                <input type="file" name="A_upFile[]" id="A_two_upFile">
                                                 <div class="ps_1" style="width:310px">
                                                     <img style="width:100%" id="A_two_membersImage" src="./images/imgUpload.jpg" alt="">
                                                 </div>
@@ -294,7 +294,7 @@
                                         <div class="ps_1 pe_1 LBcol">
                                             <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Image3</label></div>
                                             <div class="pl_1 pr_1">
-                                                <input type="file" name="A_three_upFile" id="A_three_upFile">
+                                                <input type="file" name="A_upFile[]" id="A_three_upFile">
                                                 <div class="ps_1" style="width:310px">
                                                     <img style="width:100%" id="A_three_membersImage" src="./images/imgUpload.jpg" alt="">
                                                 </div>
@@ -524,8 +524,17 @@
                                 xhr.open("post", "backend_productsUpdateToDb.php", true);
                                 let productsSubDb = new FormData(document.getElementById("productsModify"));
                                 xhr.send(productsSubDb);
-
-                            }
+                            },
+                            // productInsert(){
+                            //     let xhr = new XMLHttpRequest();
+                            //     xhr.onload = () => {
+                            //         alert(xhr.responseText);
+                            //     };
+                            //     xhr.open("post", "backend_productsInsert.php", true);
+                            //     let productsSubDb = new FormData(document.getElementById("productsModify"));
+                            //     xhr.send(productsSubDb);
+                                
+                            // }
                         },
                     })
             </script>
@@ -663,7 +672,7 @@
                                 </div>
                                 <div class="ps_1 pr_1 lastBtn">
                                     <button class="ml_1 p1 bkbtn" id="B_btnCancel" type="button">Cancel</button>
-                                    <button id="B_btnAdd" class="ml_1 p1 bkbtn" type="button">Confirm</button>
+                                    <button id="B_btnAdd" class="ml_1 p1 bkbtn" type="button" @click="promotionInsert">Confirm</button>
                                 </div>
                             </form>
                         </div>
@@ -823,6 +832,15 @@
                                 let promotionsSubDb = new FormData(document.getElementById("promotionsModify"));
                                 xhr.send(promotionsSubDb);
 
+                            },
+                            promotionInsert(){
+                                let xhr = new XMLHttpRequest();
+                                xhr.onload = () => {
+                                    alert(xhr.responseText);
+                                };
+                                xhr.open("post", "backend_promotionsInsert.php", true);
+                                let promotionsSubDb = new FormData(document.getElementById("promotionsForm"));
+                                xhr.send(promotionsSubDb);
                             }
                         },
                     })
