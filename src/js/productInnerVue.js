@@ -7,8 +7,8 @@ let prodImgMain = Vue.component('prodimg-main', {
         }
     },
     template: `<img :src="'images//'+largeImg" :alt="name" class="me_2 big_img">`,
-    mounted() { 
-        bus.$on('showImg', theImg => this.largeImg = theImg?.image_path)
+    mounted() {
+        bus.$on('showImg', theImg => this.largeImg = theImg ?.image_path)
     },
 });
 let prodImgSmall = Vue.component('prodimg-small', {
@@ -16,7 +16,7 @@ let prodImgSmall = Vue.component('prodimg-small', {
     template: `<div class="small_products_img" @click="showLargeImg">
                 <img  :src="'images//'+image_path" :alt='name' class="small">
                 </div>`,
-    methods:{
+    methods: {
         showLargeImg() {
             bus.$emit('showImg', this.smallImg)
         },
@@ -123,19 +123,10 @@ const mainProductImg = new Vue({
             const product_no = window.location.search.split('id=')[1];
             // productInner.html ? id =
             axios.get(`productInner.php?id=${product_no
-<<<<<<< HEAD
                 }`).then((response) => {
                 this.prodInfoRow = response.data;
                 // console.log(response.data)
             }).catch(err => console.log(err));
-=======
-            }`).then((response) => {
-                this.prodInfoRow = response.data;
-                // console.log(response.data)
-                console.log(this.prodInfoRow)
-            }).catch(err => console.log(err));
-            
->>>>>>> c6b9d9e0fd125582ccb84e1f42da36cfa0c369cf
         },
         // 一進到頁面做商品是否已加入蒐藏檢查的函式
         favoriteCheck() {
