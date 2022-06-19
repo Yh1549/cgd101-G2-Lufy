@@ -80,17 +80,21 @@ function doFirst() {
 
     newDiv.appendChild(newTable)
     cartList.appendChild(newDiv)
+    let productsNo = 0;
 
     for (let i = 0; i < items.length; i++) {
         let itemInfo = storage.getItem(items[i])
         createCartList(items[i], itemInfo)
 
         let productNo = document.querySelector('.productNo');
-        let productsNo = parseInt(itemInfo.split('|')[4])
-        console.log(itemInfo);
+         productsNo += (itemInfo.split('|')[4])+",";
+         let  productsNo2 = productsNo.substring(0, productsNo.length - 1);
+         let  productsNo3 = productsNo2.slice(1)
+         console.log(productsNo2);
+      
 
 
-        productNo.value = productsNo;
+        productNo.value = productsNo3;
 
 
 
@@ -157,12 +161,12 @@ function createCartList(itemId, itemValue) {
     console.log(fproductPrice);
 
     let theproudctPrice = fproductPrice.substring(0, fproductPrice.length - 1)
-    console.log(theproudctPrice);
+   
 
 
 
     let ffproductPrice = theproudctPrice.slice(1)
-    console.log(ffproductPrice);
+   
 
     productPrice.value = ffproductPrice
 
