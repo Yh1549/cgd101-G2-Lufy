@@ -93,6 +93,9 @@
                     color: $primary_dark;
                 }
             }
+            & .LBcolCredit{
+                width: 200px;
+            }
             & select{
                 padding: round($ip_base * 1px) round($ip_base * 2px);
                 //-------------

@@ -75,7 +75,7 @@
                                     </div>
                                     <div class="ps_1 pe_1 LBcol">
                                         <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Phone</label></div>
-                                        <div class="pl_1 pr_1"><input class="ip_normal" type="text" name="member_tel" id="" v-model="popupData.member_tel" readonly="readonly"></div>
+                                        <div class="pl_1 pr_1"><input class="ip_normal" type="tel" name="member_tel" id="" v-model="popupData.member_tel" readonly="readonly"></div>
                                     </div>
                                     <div class="ps_1 pe_1 LBcol">
                                         <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Address</label></div>
@@ -277,8 +277,8 @@
                                             <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Image1</label></div>
                                             <div class="pl_1 pr_1">
                                                 <input type="file" name="A_upFile[]" id="A_one_upFile">
-                                                <div class="ps_1" style="width:310px">
-                                                    <img style="width:100%" id="A_one_membersImage" src="./images/imgUpload.jpg" alt="">
+                                                <div class="ps_1" style="width:310px; height: 173px">
+                                                    <img style="width:auto; height: 173px" id="A_one_membersImage" src="./images/imgUpload.jpg" alt="">
                                                 </div>
                                             </div>
                                         </div>
@@ -286,8 +286,8 @@
                                             <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Image2</label></div>
                                             <div class="pl_1 pr_1">
                                                 <input type="file" name="A_upFile[]" id="A_two_upFile">
-                                                <div class="ps_1" style="width:310px">
-                                                    <img style="width:100%" id="A_two_membersImage" src="./images/imgUpload.jpg" alt="">
+                                                <div class="ps_1" style="width:310px; height: 173px">
+                                                    <img style="width:auto; height: 173px" id="A_two_membersImage" src="./images/imgUpload.jpg" alt="">
                                                 </div>
                                             </div>
                                         </div>
@@ -295,8 +295,8 @@
                                             <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Image3</label></div>
                                             <div class="pl_1 pr_1">
                                                 <input type="file" name="A_upFile[]" id="A_three_upFile">
-                                                <div class="ps_1" style="width:310px">
-                                                    <img style="width:100%" id="A_three_membersImage" src="./images/imgUpload.jpg" alt="">
+                                                <div class="ps_1" style="width:310px; height: 173px">
+                                                    <img style="width:auto; height: 173px" id="A_three_membersImage" src="./images/imgUpload.jpg" alt="">
                                                 </div>
                                             </div>
                                         </div>
@@ -542,7 +542,121 @@
             <!-- O訂單管理 -->
             <section class="mem_content" id="mainElm3">
                 <div id="orderList">
-
+                    <!-- O修改訂單燈箱 -->
+                    <div class="ps_1" id="O_edit_lightBox" style="display:none">
+                        <div class="lightBox_list">
+                            <p class="ps_1 pe_1 pl_2 h1 lightBox_title">Edit Order</p>
+                            <form class="ps_1 pe_1 pl_1 pr_1" id="ordersModify" enctype="multipart/form-data">
+                                <div class="formOne">
+                                    <div style="width:50%">
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle LBcolCredit"><label class="p1" for="">No.</label></div>
+                                            <div class="pl_1 pr_1"><input class="ip_normal" type="text" name="order_no" id="" v-model="popupData.order_no" readonly="readonly"></div>
+                                        </div>
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle LBcolCredit"><label class="p1" for="">Member No.</label></div>
+                                            <div class="pl_1 pr_1"><input class="ip_normal" type="text" name="member_no" id="" v-model="popupData.member_no" readonly="readonly"></div>
+                                        </div>
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle LBcolCredit"><label class="p1" for="">Order Date Time</label></div>
+                                            <div class="pl_1 pr_1"><input class="tyDate" type="datetime-local" name="order_datetime" id="" v-model="popupData.order_datetime"></div>
+                                        </div>
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle LBcolCredit"><label class="p1" for="">State</label>
+                                            </div>
+                                            <div class="pl_1 pr_1">
+                                                <select name="order_state" id="" v-model="popupData.order_state">
+                                                    <option value="0">待處理</option>
+                                                    <option value="1">待出貨</option>
+                                                    <option value="2">已出貨</option>
+                                                    <option value="3">訂單完成</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div style="width:50%">
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle LBcolCredit"><label class="p1" for="">Order Total</label></div>
+                                            <div class="pl_1 pr_1"><input class="tyDate" type="text" name="order_total" id="" v-model="popupData.order_total"></div>
+                                        </div>
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle LBcolCredit"><label class="p1" for="" style="vertical-align:top">Order Notes</label></div>
+                                            <div class="pl_1 pr_1"><textarea class="p1 tArea" name="order_notes" id="" cols="23" rows="5" v-model="popupData.order_notes"></textarea></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="formOne">
+                                    <div style="width:50%">
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle LBcolCredit"><label class="p1" for="">Payer Name</label></div>
+                                            <div class="pl_1 pr_1"><input class="ip_normal" type="text" name="payer_name" id="" v-model="popupData.payer_name"></div>
+                                        </div>
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle LBcolCredit"><label class="p1" for="">Payer Phone</label></div>
+                                            <div class="pl_1 pr_1"><input class="ip_normal" type="tel" name="payer_phone" id="" v-model="popupData.payer_phone"></div>
+                                        </div>
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle LBcolCredit"><label class="p1" for="">Payer Address</label></div>
+                                            <div class="pl_1 pr_1"><input class="ip_normal" type="text" name="payer_address" id="" v-model="popupData.payer_address"></div>
+                                        </div>
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle LBcolCredit"><label class="p1" for="">Credit Card</label></div>
+                                            <div class="pl_1 pr_1"><input class="ip_normal" type="tel" maxlength="16" name="credit_card" id="" v-model="popupData.credit_card"></div>
+                                        </div>
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle LBcolCredit"><label class="p1" for="">Credit Card Date</label></div>
+                                            <div class="pl_1 pr_1"><input class="ip_normal" type="tel" maxlength="4" name="card_date" id="" v-model="popupData.card_date"></div>
+                                        </div>
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle LBcolCredit"><label class="p1" for="">Credit Card CheckCode</label></div>
+                                            <div class="pl_1 pr_1"><input class="ip_normal" type="tel" maxlength="3" name="card_checkCode" id="" v-model="popupData.card_checkCode"></div>
+                                        </div>
+                                    </div>
+                                    <div style="width:50%">
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle LBcolCredit"><label class="p1" for="">Recipient Name</label></div>
+                                            <div class="pl_1 pr_1"><input class="ip_normal" type="text" name="recipient_name" id="" v-model="popupData.recipient_name"></div>
+                                        </div>
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle LBcolCredit"><label class="p1" for="">Recipient Phone</label></div>
+                                            <div class="pl_1 pr_1"><input class="ip_normal" type="tel" name="recipient_phone" id="" v-model="popupData.recipient_phone"></div>
+                                        </div>
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle LBcolCredit"><label class="p1" for="">Recipient Address</label></div>
+                                            <div class="pl_1 pr_1"><input class="ip_normal" type="text" name="recipient_address" id="" v-model="popupData.recipient_address"></div>
+                                        </div>
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle LBcolCredit"><label class="p1" for="">Recipient Date Time</label></div>
+                                            <div class="pl_1 pr_1"><input class="ip_normal" type="datetime-local" name="recipient_datetime" id="" v-model="popupData.recipient_datetime"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="formOne formThree">
+                                    <div class="ps_1 pe_1 pl_1 pr_1 backend_titleH1">
+                                        <h1 class="h1 font_w5 fontTitle">Order Detail</h1>
+                                    </div>
+                                    <div class="ps_1 pe_1 pl_1 pr_1">
+                                        <div class="pr_1 pe_1"></div>
+                                        <div class="backend_title">
+                                            <p class="p1 pr_1 font_w5 fontcontent listGrow">名稱</p>
+                                            <p class="p1 pr_1 font_w5 fontcontent listGrow">數量</p>
+                                            <p class="p1 pr_1 font_w5 fontcontent listGrow">金額</p>
+                                            <p class=""></p>
+                                        </div>
+                                        <ul>
+                                            <template v-for="detailRow in detailRows">
+                                                <li is="OD_menu" v-bind="detailRow"></li>
+                                            </template>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="ps_1 pr_1 lastBtn">
+                                    <button class="ml_1 p1 bkbtn" id="O_EditBtnCancel" type="button">Cancel</button>
+                                    <button id="O_EditBtnAdd" class="ml_1 p1 bkbtn" type="button" @click="ordersSub">OK</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                     <div class="ps_1 pe_1 pl_1 pr_1 backend_titleH1">
                         <h1 class="h1 font_w5 fontTitle">Order Manage</h1>
                     </div>
@@ -558,61 +672,110 @@
                             <p class=""></p>
                         </div>
                         <ul>
-                            <template v-for="productsRow in productsRows">
-                                <li is="O_menu" v-bind="productsRow" :key="productsRow.product_no"
-                                    @edit-handler="editHandler(productsRow.product_no)"></li>
+                            <template v-for="ordersRow in ordersRows">
+                                <li is="O_menu" v-bind="ordersRow" :key="ordersRow.order_no"
+                                    @edit-handler="editHandler(ordersRow.order_no)"></li>
                             </template>
                         </ul>
                     </div>
                 </div>
             </section>
             <script>
-                let productsRow = Vue.component('O_menu', {
-                    props: ['order_no', 'member_no', 'order_datetime', 'orderPrice', 'orderState', 'orderRemark'],
+                let ordersRow = Vue.component('O_menu', {
+                    props: ['order_no', 'member_no', 'order_datetime', 'payer_name', 'payer_phone', 'payer_address', 'credit_card', 'card_date', 'card_checkCode', 'recipient_name', 'recipient_phone', 'recipient_address', 'recipient_datetime', 'order_state', 'order_total', 'order_notes'],
                     template: `
                         <li class="backend_details">
                             <div class="backend_text">
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{orderNo}}</p>
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{orderM_NO}}</p>
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{orderDate}}</p>
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{orderPrice}}</p>
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{orderState}}</p>
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{orderRemark}}</p>
-                                <button class="p1 bkbtn">Details</button>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{order_no}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{member_no}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{order_datetime}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{order_total}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{order_state}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{order_notes}}</p>
+                                <button class="p1 bkbtn" id="O_Edit" @click="$emit('edit-handler')" type="button">Details</button>
                             </div>
                         </li>
                     `,
-                })
+                });
+                let detailRow = Vue.component('OD_menu', {
+                    props: ['order_no', 'product_no', 'product_name', 'order_count', 'product_price'],
+                    template: `
+                        <li class="backend_details">
+                            <div class="backend_text">
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{product_name}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{order_count}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{product_price}}</p>
+                                <p class=""></p>
+                            </div>
+                        </li>
+                    `,
+                });
+                let ordersVue =
                 new Vue({
                     el: '#orderList',
                     data: {
-                        orderObject: [
-                            {
-                                orderNo: `1`,
-                                orderM_NO: `0000001`,
-                                orderDate: `2022/06/02 , AM 10:00`,
-                                orderPrice: `$ 5000`,
-                                orderState: `待處理`,
-                                orderRemark: `出貨請電聯`,
-                            },
-                            {
-                                orderNo: `2`,
-                                orderM_NO: `0000005`,
-                                orderDate: `2022/06/01 , PM 02:00`,
-                                orderPrice: `$ 8000`,
-                                orderState: `已出貨`,
-                                orderRemark: ``,
-                            },
-                            {
-                                orderNo: `3`,
-                                orderM_NO: ``,
-                                orderDate: ``,
-                                orderPrice: ``,
-                                orderState: ``,
-                                orderRemark: ``,
-                            },
-                        ]
-                    }
+                        fucusNo: 0,
+                        ordersRows: [],
+                        popupData: {
+                                order_no: '',
+                                member_no: ``,
+                                order_datetime: ``,
+                                payer_name: ``,
+                                payer_phone: ``,
+                                payer_address: ``,
+                                credit_card: ``,
+                                card_date: ``,
+                                card_checkCode: ``,
+                                recipient_name: ``,
+                                recipient_phone: ``,
+                                recipient_address: ``,
+                                recipient_datetime: ``,
+                                order_state: ``,
+                                order_total: ``,
+                                order_notes: ``
+                        },
+                        detailRows: []
+                    },
+                    created() {
+                        let xhr = new XMLHttpRequest();
+                        xhr.onload = function () {
+                            ordersVue.ordersRows = JSON.parse(xhr.responseText);
+                        }
+                        xhr.open("get", "getOrders.php", true);
+                        xhr.send(null);
+
+                        let xhrD = new XMLHttpRequest();
+                        xhrD.onload = function () {
+                            ordersVue.detailRows = JSON.parse(xhrD.responseText);
+                        }
+                        xhrD.open("get", "getOrderdetail.php", true);
+                        xhrD.send(null);
+                    },
+                    computed: {
+                        focusObj() {
+                            return (this.ordersRows.find(v => v.order_no == this.fucusNo)) ? (this.ordersRows.find(v => v.order_no == this.fucusNo)) : this.ordersRows[0];
+                        },
+                    },
+                    watch: {
+                        focusObj(nVal) {
+                            this.popupData = JSON.parse(JSON.stringify(nVal));
+                        },
+                    },
+                    methods: {
+                        editHandler(no) {
+                            this.fucusNo = no;
+                        },
+                        ordersSub() {
+                            let xhr = new XMLHttpRequest();
+                            xhr.onload = () => {
+                                alert(xhr.responseText);
+                            };
+                            xhr.open("post", "backend_ordersUpdateToDb.php", true);
+                            let ordersSubDb = new FormData(document.getElementById("ordersModify"));
+                            xhr.send(ordersSubDb);
+
+                        }
+                    },
                 })
             </script>
             <!-- B優惠活動管理 -->
@@ -653,8 +816,8 @@
                                             <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Image</label></div>
                                             <div class="pl_1 pr_1">
                                                 <input type="file" name="B_upFile" id="B_upFile">
-                                                <div class="ps_1" style="width:310px">
-                                                    <img style="width:100%" id="B_promotionsImage" src="./images/imgUpload.jpg" alt="">
+                                                <div class="ps_1" style="width:310px; height: 173px">
+                                                    <img style="width:auto; height: 173px" id="B_promotionsImage" src="./images/imgUpload.jpg" alt="">
                                                 </div>
                                             </div>
                                         </div>
@@ -879,8 +1042,8 @@
                                             <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Image</label></div>
                                             <div class="pl_1 pr_1">
                                                 <input type="file" name="C_upFile" id="C_upFile">
-                                                <div class="ps_1" style="width:310px">
-                                                    <img style="width:100%" id="C_newsImage" src="./images/imgUpload.jpg" alt="">
+                                                <div class="ps_1" style="width:310px; height: 173px">
+                                                    <img style="width:auto; height: 173px" id="C_newsImage" src="./images/imgUpload.jpg" alt="">
                                                 </div>
                                             </div>
                                         </div>

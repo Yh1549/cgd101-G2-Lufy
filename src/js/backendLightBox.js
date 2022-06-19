@@ -219,18 +219,10 @@ function init() {
     for (let i = 0; i < OdEts.length; i++) {
         OdEts[i].onclick = O_showEditLightBox;
     };
-    /*
+    
     //----//----修改訂單-Edit鈕
     $id("O_EditBtnCancel").onclick = O_cancelEdit;//----修改訂單-取消鈕
-    $id("O_E_upFile").onchange = function (e) {//----新增訂單上傳圖片鈕
-        let file = e.target.files[0]; //取得所選的file物件的參考
-        let reader = new FileReader();
-        reader.onload = function (e) {
-            $id("O_E_ordersImage").src = reader.result;
-        };
-        reader.readAsDataURL(file); //將圖檔資訊讀出以 base64的編碼方式，以便放到img標籤中
-    };
-    */
+    
 
 
 
