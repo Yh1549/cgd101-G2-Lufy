@@ -89,7 +89,7 @@
                                         <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">State</label>
                                         </div>
                                         <div class="pl_1 pr_1">
-                                            <select name="member_state" id="" v-model="popupData.member_State">
+                                            <select name="member_state" id="" v-model="popupData.member_state">
                                                 <option value="0">正常</option>
                                                 <option value="1">凍結</option>
                                             </select>
@@ -129,7 +129,7 @@
             </section>
             <script>
                 let membRow = Vue.component('N_menu', {
-                    props: ['member_no', 'member_name', 'member_mail', 'member_birthday', 'member_tel', 'member_address', 'member_State'],
+                    props: ['member_no', 'member_name', 'member_mail', 'member_birthday', 'member_tel', 'member_address', 'member_state'],
                     template: `
                         <li class="backend_details">
                             <div class="backend_text">
@@ -139,7 +139,7 @@
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{member_birthday}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{member_tel}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{member_address}}</p>
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{member_State ? '凍結' : '正常'}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{member_state ? '凍結' : '正常'}}</p>
                                 <button class="p1 bkbtn" id="N_Edit" @click="$emit('edit-handler')" type="button">Edit</button>
                             </div>
                         </li>
@@ -158,7 +158,7 @@
                                 member_tel: ``,
                                 member_birthday: ``,
                                 member_address: ``,
-                                member_State: ``
+                                member_state: ``
                             },
                         },
                         created() {
@@ -463,7 +463,7 @@
                         <li class="backend_details">
                             <div class="backend_text">
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{product_no}}</p>
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{name}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{name}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{category_name}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{des_name}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{description}}</p>
@@ -530,31 +530,36 @@
                     })
             </script>
             
-            <!-- 待討論-O訂單管理 -->
+            <!-- O訂單管理 -->
             <section class="mem_content" id="mainElm3">
-                <div class="ps_1 pe_1 pl_1 pr_1 backend_titleH1">
-                    <h1 class="h1 font_w5 fontTitle">Order Manage</h1>
-                </div>
-                <div class="ps_1 pe_1 pl_1 pr_1">
-                    <div class="pr_1 pe_1 ps_2"></div>
-                    <div class="backend_title">
-                        <p class="p1 pr_1 font_w5 fontcontent">訂單編號</p>
-                        <p class="p1 pr_1 font_w5 fontcontent">會員編號</p>
-                        <p class="p1 pr_1 font_w5 fontcontent listGrow">訂單日期時間</p>
-                        <p class="p1 pr_1 font_w5 fontcontent">訂單總額</p>
-                        <p class="p1 pr_1 font_w5 fontcontent">訂單狀態</p>
-                        <p class="p1 pr_1 font_w5 fontcontent listGrow">訂單備註</p>
-                        <p class=""></p>
+                <div id="orderList">
+
+                    <div class="ps_1 pe_1 pl_1 pr_1 backend_titleH1">
+                        <h1 class="h1 font_w5 fontTitle">Order Manage</h1>
                     </div>
-                    <ul id="orderList">
-                        <O_menu v-for="O_backendMenu in orderObject" v-bind="O_backendMenu">
-                        </O_menu>
-                    </ul>
+                    <div class="ps_1 pe_1 pl_1 pr_1">
+                        <div class="pr_1 pe_1 ps_2"></div>
+                        <div class="backend_title">
+                            <p class="p1 pr_1 font_w5 fontcontent">訂單編號</p>
+                            <p class="p1 pr_1 font_w5 fontcontent">會員編號</p>
+                            <p class="p1 pr_1 font_w5 fontcontent listGrow">訂單日期時間</p>
+                            <p class="p1 pr_1 font_w5 fontcontent">訂單總額</p>
+                            <p class="p1 pr_1 font_w5 fontcontent">訂單狀態</p>
+                            <p class="p1 pr_1 font_w5 fontcontent listGrow">訂單備註</p>
+                            <p class=""></p>
+                        </div>
+                        <ul>
+                            <template v-for="productsRow in productsRows">
+                                <li is="O_menu" v-bind="productsRow" :key="productsRow.product_no"
+                                    @edit-handler="editHandler(productsRow.product_no)"></li>
+                            </template>
+                        </ul>
+                    </div>
                 </div>
             </section>
             <script>
-                let O_backendMenu = Vue.component('O_menu', {
-                    props: ['orderNo', 'orderM_NO', 'orderDate', 'orderPrice', 'orderState', 'orderRemark'],
+                let productsRow = Vue.component('O_menu', {
+                    props: ['order_no', 'member_no', 'order_datetime', 'orderPrice', 'orderState', 'orderRemark'],
                     template: `
                         <li class="backend_details">
                             <div class="backend_text">
@@ -1192,11 +1197,11 @@
                                     </div>
                                     <div class="ps_1 pe_1 LBcol">
                                         <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Account</label></div>
-                                        <div class="pl_1 pr_1"><input class="ip_normal" type="text" name="account" id=""></div>
+                                        <div class="pl_1 pr_1"><input class="ip_normal" type="text" name="manager_account" id=""></div>
                                     </div>
                                     <div class="ps_1 pe_1 LBcol">
                                         <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Password</label></div>
-                                        <div class="pl_1 pr_1"><input class="ip_normal" type="text" name="password" id=""></div>
+                                        <div class="pl_1 pr_1"><input class="ip_normal" type="text" name="manager_password" id=""></div>
                                     </div>
                                     <div class="ps_1 pe_1 LBcol">
                                         <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">State</label>
@@ -1242,11 +1247,11 @@
                                     </div>
                                     <div class="ps_1 pe_1 LBcol">
                                         <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Account</label></div>
-                                        <div class="pl_1 pr_1"><input class="ip_normal" type="text" name="account" id="" v-model="popupData.account"></div>
+                                        <div class="pl_1 pr_1"><input class="ip_normal" type="text" name="manager_account" id="" v-model="popupData.manager_account"></div>
                                     </div>
                                     <div class="ps_1 pe_1 LBcol">
                                         <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Password</label></div>
-                                        <div class="pl_1 pr_1"><input class="ip_normal" type="text" name="password" id="" v-model="popupData.password"></div>
+                                        <div class="pl_1 pr_1"><input class="ip_normal" type="text" name="manager_password" id="" v-model="popupData.manager_password"></div>
                                     </div>
                                     <div class="ps_1 pe_1 LBcol">
                                         <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">State</label>
@@ -1291,14 +1296,14 @@
             </section>
             <script>
                 let managersRow = Vue.component('D_menu', {
-                    props: ['manager_no', 'manager_name', 'account', 'password', 'role', 'state'],
+                    props: ['manager_no', 'manager_name', 'manager_account', 'manager_password', 'role', 'state'],
                     template: `
                         <li class="backend_details">
                             <div class="backend_text">
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{manager_no}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{manager_name}}</p>
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{account}}</p>
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{password}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{manager_account}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{manager_password}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{role ? '設計師' : '最高權限管理者'}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{state ? '凍結' : '正常'}}</p>
                                 <button class="p1 bkbtn" id="D_Edit" @click="$emit('edit-handler')" type="button">Edit</button>
@@ -1315,8 +1320,8 @@
                             popupData: {
                                 manager_no: '',
                                 manager_name: ``,
-                                account: ``,
-                                password: ``,
+                                manager_account: ``,
+                                manager_password: ``,
                                 role: ``,
                                 state: ``
                             },
