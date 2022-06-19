@@ -16,7 +16,8 @@
                 align-self: stretch;
                 color: $fontcolor_100;
                 transition: 0.1s all ease-in-out;
-                &:hover {
+
+                &:hover, &.active {
                     color: $primary_100;
                 }
 
@@ -34,6 +35,8 @@
         .grid-sizer {
             width: 23.5%;
         }
+
+
         .grid-item {
             width: 23.5%;
             margin-bottom: 2%;
@@ -69,6 +72,11 @@
 
                 .commodity {
                     display: flex;
+                    flex-direction: column;
+                }
+
+                h2 {
+                    margin-bottom: 0.5rem;
                 }
             }
 

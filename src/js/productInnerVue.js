@@ -69,7 +69,7 @@ let purchasePnl = Vue.component('purchase-panel', {
             </div>
         </div>
         <div id="favoriteButton" class="favoriteButton me_4" @click="isSelected=!isSelected; setFavorite()">
-            <span class="material-icons heart" >favorite</span>
+            <span class="material-icons heart">favorite</span>
             <span class="fontcontent p1">Favorite</span>
         </div> 
     </div>`,
@@ -123,19 +123,10 @@ const mainProductImg = new Vue({
             const product_no = window.location.search.split('id=')[1];
             // productInner.html ? id =
             axios.get(`productInner.php?id=${product_no
-<<<<<<< HEAD
                 }`).then((response) => {
                 this.prodInfoRow = response.data;
                 // console.log(response.data)
             }).catch(err => console.log(err));
-=======
-            }`).then((response) => {
-                this.prodInfoRow = response.data;
-                // console.log(response.data)
-                console.log(this.prodInfoRow)
-            }).catch(err => console.log(err));
-            
->>>>>>> c6b9d9e0fd125582ccb84e1f42da36cfa0c369cf
         },
         // 一進到頁面做商品是否已加入蒐藏檢查的函式
         favoriteCheck() {

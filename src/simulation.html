@@ -10,34 +10,63 @@
     <section class="simulation_luminosity" id="simulation_luminosity" :style="{ backdropFilter: 'contrast(60%)' }">
 
         <!-- 投射燈光幕 -->
-        <div class="entrance_lamp"></div>
+        <div class="simulation_lamp">
+            <img src="./images/simulation_lamp_v2.webp" alt="">
+        </div>
 
         <!-- 投射燈光 -->
-        <!-- <div id="entrance_light" class="entrance_homepage"></div> -->
+        <div id="entrance_light" class="entrance_homepage" style="display: block;"></div>
 
         <!-- 燈光 -->
-        <div class="wall-light-shadow" :style="{ backgroundColor : color, opacity : alpha/175 ,backdropFilter: `saturate(${alpha/100 *10}) contrast(${alpha}%)` }"></div>
+        <div class="wall-light-shadow" :style="hueOutput"></div>
+
+        <!-- 遮色片 -->
+        <div class="front-mask" :style="opacityOutput"></div>
 
         <!-- 控制面板 -->
         <form class="simulation_form" oninput="simulation_luminosity.setAttribute('data-light', slider.value)">
-            <div class="range">
-                
-                <label class="sliderValue">
-                    <span class="indicator" :style="{ left : (alpha/1.24) + '%' }">{{alpha}}</span>
-                </label>
-                
-                <label class="field">
-                    <div class="value left">0</div>
-                    <input type="range" id="slider" value="0" min="0" max="100" steps="1" v-model="alpha">
-                    <div class="value right">100</div>
-                </label>
 
-                <label class="colorfield">
-                    <span>Color</span>
-                    <input type="color" v-model="color">
-                    <span>{{color}}</span>
-                </label>
+            <!-- 透明度 -->
+            <div class="range me_2">
+                <h2 class="title">Light : {{opacity}}</h2>
+                <div class="rangebox">
+                    <!-- <label class="sliderValue">
+                                    <span class="indicator" :style="{ left : (opacity/1.19) + '%' }">{{opacity}}</span> -->
+                    <label class="field">
+                        <div class="value left">0</div>
+                        <input type="range" id="slider" value="0" min="0" max="100" steps="1" v-model="opacity">
+                        <div class="value right">100</div>
+                    </label>
+                </div>
             </div>
+            
+            <!-- 色相 -->
+            <div class="range me_2">
+                <h2 class="title">Hue</h2>
+                <div class="rangebox">
+                    <label class="field">
+                        <div class="value left">Orange</div>
+                        <input type="range" v-model="hue" min="40" max="180" steps="1">
+                        <div class="value right">Blue</div>
+                    </label>
+                </div>
+            </div>            
+            
+            <!-- 飽和度 -->
+            <div class="range me_2">
+                <h2 class="title">Saturation : {{saturation}}</h2>
+                <div class="rangebox">
+                    <!-- <label class="sliderValue">
+                        <span class="indicator" :style="{ left : (saturation/1.19) + '%' }">{{saturation}}</span>
+                    </label> -->
+                    <label class="field">
+                        <div class="value left">0</div>
+                        <input type="range" v-model="saturation" min="0" max="100" steps="1" >
+                        <div class="value right">100</div>
+                    </label>
+                </div>
+            </div>
+
         </form>
     </section>
     <!-- 情境模擬 -->
