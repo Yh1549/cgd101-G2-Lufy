@@ -63,9 +63,11 @@
 
 @media all and (max-width:490px) {
     .turn_on {
+        display: none;
         top: 80%;
     }
     .wrapper {
+        display: none;
         text-align: center;
 
         .wrapper_title {
@@ -300,9 +302,11 @@ html.fixWindow {
                         padding: 1rem 4rem;
                     }
                 }
-
-                &:nth-last-of-type(1),
                 &:nth-last-of-type(3) {
+                    transform: translateY(0%);
+                }
+
+                &:nth-last-of-type(1) {
                     transform: translateY(0%);
                 }
             }

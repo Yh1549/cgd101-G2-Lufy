@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    @@include('layout/meta.html', { "title" : "Light Up For You" })
+</head>
+
+<body>
+    <!-- header -->
+    @@include('layout/header.html')
+    <!-- header end -->
+    <section class="ThrillRide">
+        <div class="wrap" id="all-thrill-ride">
+            <!-- 設施區域的btn -->
+            <div class="all-btn">
+                <div class="bgBtn-area" :class="{'is-active' : currentArea == item}" @click="currentArea = item"
+                    v-for="item in names">
+                    {{item}}
+                </div>
+            </div>
+    
+            <!-- check -->
+            <div class="filter">
+                <div class="option">
+                    <input type="checkbox" v-model="rain" id="rain">
+                    <label for="rain">雨天可乘</label>
+                </div>
+                <div class="option">
+                    <input type="checkbox" v-model="pregnant" id="pregnant">
+                    <label for="pregnant">孕婦可乘</label>
+                </div>
+                <div class="option">
+                    <input type="checkbox" v-model="wheelchair" id="wheelchair">
+                    <label for="wheelchair">輪椅可乘</label>
+                </div>
+            </div>
+    
+            <!-- 名稱 -->
+            <ul class="facility-list card-bdr">
+                <li v-for="(item,idx) of filterCheck" :key="item.id">{{item.fac_name}}</li>
+            </ul>
+    
+    
+            <!-- 所有設施組件 -->
+            <div class="all-card">
+                <card-component v-for="item in filterCheck" :item="item">
+            </div>
+    
+    
+        </div>
+    </section>
+    <!-- footer  -->
+    @@include('layout/footer.html')
+    
+    <!-- 商品頁瀑布流 -->
+    <script type="module" src="./js/productMain_test.js"></script>
+</body>
+
+</html>

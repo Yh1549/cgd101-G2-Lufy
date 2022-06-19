@@ -3,9 +3,9 @@ const inputSlider = document.querySelector('#slider');
 inputSlider.oninput = (() => {
     let value = inputSlider.value;
     sliderValue.textContent = value;
-    sliderValue.style.left = (value / 1.24) + "%";
-    sliderValue.classList.add('diplay');
+    sliderValue.style.left = (value / 1.25) + "%";
+    sliderValue.classList.add('display');
 });
 inputSlider.onblur = (() => {
-    sliderValue.classList.remove('diplay');
+    sliderValue.classList.remove('display');
 })
