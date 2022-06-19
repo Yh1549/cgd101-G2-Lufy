@@ -56,7 +56,7 @@
             <section class="mem_content" id="mainElm1">
                 <div id="membList">
                     <!-- N修改會員燈箱 -->
-                    <div class="ps_1" id="N_edit_lightBox" style="display:block">
+                    <div class="ps_1" id="N_edit_lightBox" style="display:none">
                         <div class="lightBox_list">
                             <p class="ps_1 pe_1 pl_2 h1 lightBox_title">Edit Member</p>
                             <form class="ps_1 pe_1 pl_1 pr_1" id="membersModify" enctype="multipart/form-data">
@@ -200,7 +200,7 @@
             <section class="mem_content" id="mainElm2">
                 <div id="productList">
                     <!-- A商品燈箱 -->
-                    <div class="ps_1" id="A_lightBox" style="display:block">
+                    <div class="ps_1" id="A_lightBox" style="display:none">
                         <div class="lightBox_list">
                             <p class="ps_1 pe_1 pl_2 h1 lightBox_title">Create Product</p>
                             <form id="productsForm" enctype="multipart/form-data" class="ps_1 pe_1 pl_1 pr_1">
@@ -256,8 +256,8 @@
                                             </div>
                                             <div class="pl_1 pr_1">
                                                 <select name="on_market" id="">
-                                                    <option value="0">已上架</option>
-                                                    <option value="1">未上架</option>
+                                                    <option value="0">未上架</option>
+                                                    <option value="1">已上架</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -265,9 +265,9 @@
                                             <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">In Stork</label>
                                             </div>
                                             <div class="pl_1 pr_1">
-                                                <select name="in_stork" id="">
-                                                    <option value="0">有庫存</option>
-                                                    <option value="1">無庫存</option>
+                                                <select name="in_stock" id="">
+                                                    <option value="0">無庫存</option>
+                                                    <option value="1">有庫存</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -318,7 +318,7 @@
                                     <div style="width:50%">
                                         <div class="ps_1 pe_1 LBcol">
                                             <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">No.</label></div>
-                                            <div class="pl_1 pr_1"><input class="ip_normal" type="text" name="news_no" id="" v-model="popupData.news_no" readonly="readonly"></div>
+                                            <div class="pl_1 pr_1"><input class="ip_normal" type="text" name="product_no" id="" v-model="popupData.product_no" readonly="readonly"></div>
                                         </div>
                                         <div class="ps_1 pe_1 LBcol">
                                             <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Category</label></div>
@@ -346,7 +346,7 @@
                                         </div>
                                         <div class="ps_1 pe_1 LBcol">
                                             <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Name</label></div>
-                                            <div class="pl_1 pr_1"><input class="ip_normal ip_width" type="text" name="name" id="" v-model="popupData.name"></div>
+                                            <div class="pl_1 pr_1"><input class="ip_normal" type="text" name="name" id="" v-model="popupData.name"></div>
                                         </div>
                                         <div class="ps_1 pe_1 LBcol">
                                             <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="" style="vertical-align:top">Description</label></div>
@@ -359,15 +359,15 @@
                                         </div>
                                         <div class="ps_1 pe_1 LBcol">
                                             <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Price</label></div>
-                                            <div class="pl_1 pr_1"><input class="ip_normal ip_width" type="text" name="price" id="" v-model="popupData.price"></div>
+                                            <div class="pl_1 pr_1"><input class="ip_normal" type="text" name="price" id="" v-model="popupData.price"></div>
                                         </div>
                                         <div class="ps_1 pe_1 LBcol">
                                             <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">On Market</label>
                                             </div>
                                             <div class="pl_1 pr_1">
                                                 <select name="on_market" id="" v-model="popupData.on_market">
-                                                    <option value="0">已上架</option>
-                                                    <option value="1">未上架</option>
+                                                    <option value="0">未上架</option>
+                                                    <option value="1">已上架</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -375,9 +375,9 @@
                                             <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">In Stork</label>
                                             </div>
                                             <div class="pl_1 pr_1">
-                                                <select name="in_stork" id="" v-model="popupData.in_stork">
-                                                    <option value="0">有庫存</option>
-                                                    <option value="1">無庫存</option>
+                                                <select name="in_stock" id="" v-model="popupData.in_stock">
+                                                    <option value="0">無庫存</option>
+                                                    <option value="1">有庫存</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -529,6 +529,7 @@
                         },
                     })
             </script>
+            
             <!-- 待討論-O訂單管理 -->
             <section class="mem_content" id="mainElm3">
                 <div class="ps_1 pe_1 pl_1 pr_1 backend_titleH1">
@@ -549,10 +550,6 @@
                         <O_menu v-for="O_backendMenu in orderObject" v-bind="O_backendMenu">
                         </O_menu>
                     </ul>
-                    <!-- <div class="pages">
-                        <p class="p1 pl_1 pr_1">1</p>
-                        <p class="p1 pl_1 pr_1">2</p>
-                    </div> -->
                 </div>
             </section>
             <script>
@@ -1112,7 +1109,7 @@
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{carousel_name}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{carousel_path}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow"><img :src="'images//'+ carousel_path"></img></p>
-                                <p><button class="p1 bkbtn">Upload</button></p>
+                                <p><button class="p1 bkbtn" id="P_Edit" @click="$emit('edit-handler')" type="button">Upload</button></p>
                                 
                             </div>
                         </li>
@@ -1238,8 +1235,8 @@
                                         </div>
                                         <div class="pl_1 pr_1">
                                             <select name="role" id="" v-model="popupData.role">
-                                                <option value="1">最高權限管理者</option>
-                                                <option value="2">設計師</option>
+                                                <option value="0">最高權限管理者</option>
+                                                <option value="1">設計師</option>
                                             </select>
                                         </div>
                                     </div>
@@ -1279,7 +1276,7 @@
                             <p class="p1 pr_1 font_w5 fontcontent listGrow">人員姓名</p>
                             <p class="p1 pr_1 font_w5 fontcontent listGrow">人員帳號</p>
                             <p class="p1 pr_1 font_w5 fontcontent listGrow">人員密碼</p>
-                            <p class="p1 pr_1 font_w5 fontcontent">人員類別</p>
+                            <p class="p1 pr_1 font_w5 fontcontent listGrow">人員類別</p>
                             <p class="p1 pr_1 font_w5 fontcontent">人員狀態</p>
                             <p></p>
                         </div>
@@ -1302,8 +1299,8 @@
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{manager_name}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{account}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{password}}</p>
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{role}}</p>
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{state}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{role ? '設計師' : '最高權限管理者'}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{state ? '凍結' : '正常'}}</p>
                                 <button class="p1 bkbtn" id="D_Edit" @click="$emit('edit-handler')" type="button">Edit</button>
                             </div>
                         </li>
