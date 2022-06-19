@@ -1109,7 +1109,7 @@
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{carousel_name}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{carousel_path}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow"><img :src="'images//'+ carousel_path"></img></p>
-                                <p><button class="p1 bkbtn">Upload</button></p>
+                                <p><button class="p1 bkbtn" id="P_Edit" @click="$emit('edit-handler')" type="button">Upload</button></p>
                                 
                             </div>
                         </li>
