@@ -143,7 +143,6 @@ const mainProductImg = new Vue({
                 console.log(this.prodInfoRow)
             }).catch(err => console.log(err));
             
->>>>>>> c6b9d9e0fd125582ccb84e1f42da36cfa0c369cf
         },
         // 一進到頁面做商品是否已加入蒐藏檢查的函式
         favoriteCheck() {
