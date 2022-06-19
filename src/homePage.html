@@ -82,71 +82,8 @@
                         <a href="projectInner1.html" class="btn_normal"> more </a>
                     </div>
                 </div>
-                <!-- <project-card v-for="project in projectObject" v-bind="project" /> -->
             </div>
-            <!-- <script>
-                let project = Vue.component('project-card', {
-                    props: ['projectImg', 'projectName', 'discription', 'designerName', 'projectInfoLink'],
-                    template: `
-                        <div class="project_card">
-                            <img :src="projectImg" :alt="projectName">
-                            <div class="content ms_1 mr_1 me_1 ml_1">
-                                <h2 class="h1 me_1">{{projectName}}</h2>
-                                <h3 class="h4 me_1">{{discription}}</h3>
-                                <p class="h5 me_4">{{designerName}}</p>
-                                <a :href="projectInfoLink" class='btn_normal'> more </a>
-                            </div>
-                        </div>
-                        `,
-                })
-                new Vue({   // Vue instance
-                    el: '#project_wrap',
-                    data: {
-                        projectObject: [
-                            {
-                                projectImg: `./images/aboutus.lamp1.png`,
-                                projectName: `Project Name1`,
-                                discription: `Project content. This project is design by James Barry with the laxury lamp#1. The laxury lamp#1 is a type of  legence lamp. Everyone love it.`,
-                                designerName: `James Barry`,
-                                projectInfoLink: 'projectInner1.html',
-                            },
-                            {
-                                projectImg: `./images/aboutus.lamp2.png`,
-                                projectName: `Project Name2`,
-                                discription: `Project content. This project is design by James Barry with the laxury lamp#2. The laxury lamp#2 is a type of  legence lamp. Everyone love it.`,
-                                designerName: `James Barry`,
-                                projectInfoLink: 'projectInner2.html',
-                            },
-                            {
-                                projectImg: `./images/aboutus.lamp3.png`,
-                                projectName: `Project Name3`,
-                                discription: `Project content. This project is design by James Barry with the laxury lamp#3. The laxury lamp#3 is a type of  legence lamp. Everyone love it.`,
-                                designerName: `James Barry`,
-                                projectInfoLink: 'projectInner3.html',
-                            },
-                        ],
-                    },     //變數放這裡!            
-                    mounted: function () {
-                        this.gsapProject();
-                    },
-                    methods: {
-                        gsapProject() { 
-                            gsap.registerPlugin(ScrollTrigger);
-                            gsap.from(".project_card",{scrollTrigger:{
-                                trigger:".project_card",
-                                start: "center center",
-                                end: "top top",
-                                makers:true,
-                                y:200,
-                                opacity:0.5
-
-                            }});
-                         },
-                    },  // 函數大部分放這裡!            
-                    computed: {},
-                    components: {},
-                });
-            </script> -->
+        
             <div class="index_project_deco_image">
                 <img src="./images/index_project_deco_image_01.webp" alt="" />
             </div>

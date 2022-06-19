@@ -31,4 +31,7 @@ window.addEventListener("load", function touchTracer(e) {
         lightBubble.style.background = `radial-gradient(circle at ${e.touches[0].pageX
             }px ${e.touches[0].pageY}px, transparent 5%, rgba(0, 0, 0, 0.95) 15%)`;
     });
+    if (window.innerWidth <= 490) {
+        shutDown();
+    }
 });
