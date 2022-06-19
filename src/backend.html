@@ -256,8 +256,8 @@
                                             </div>
                                             <div class="pl_1 pr_1">
                                                 <select name="on_market" id="">
-                                                    <option value="0">已上架</option>
-                                                    <option value="1">未上架</option>
+                                                    <option value="0">未上架</option>
+                                                    <option value="1">已上架</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -265,9 +265,9 @@
                                             <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">In Stork</label>
                                             </div>
                                             <div class="pl_1 pr_1">
-                                                <select name="in_stork" id="">
-                                                    <option value="0">有庫存</option>
-                                                    <option value="1">無庫存</option>
+                                                <select name="in_stock" id="">
+                                                    <option value="0">無庫存</option>
+                                                    <option value="1">有庫存</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -366,8 +366,8 @@
                                             </div>
                                             <div class="pl_1 pr_1">
                                                 <select name="on_market" id="" v-model="popupData.on_market">
-                                                    <option value="0">已上架</option>
-                                                    <option value="1">未上架</option>
+                                                    <option value="0">未上架</option>
+                                                    <option value="1">已上架</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -375,9 +375,9 @@
                                             <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">In Stork</label>
                                             </div>
                                             <div class="pl_1 pr_1">
-                                                <select name="in_stork" id="" v-model="popupData.in_stork">
-                                                    <option value="0">有庫存</option>
-                                                    <option value="1">無庫存</option>
+                                                <select name="in_stock" id="" v-model="popupData.in_stock">
+                                                    <option value="0">無庫存</option>
+                                                    <option value="1">有庫存</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -1235,8 +1235,8 @@
                                         </div>
                                         <div class="pl_1 pr_1">
                                             <select name="role" id="" v-model="popupData.role">
-                                                <option value="1">最高權限管理者</option>
-                                                <option value="2">設計師</option>
+                                                <option value="0">最高權限管理者</option>
+                                                <option value="1">設計師</option>
                                             </select>
                                         </div>
                                     </div>
@@ -1276,7 +1276,7 @@
                             <p class="p1 pr_1 font_w5 fontcontent listGrow">人員姓名</p>
                             <p class="p1 pr_1 font_w5 fontcontent listGrow">人員帳號</p>
                             <p class="p1 pr_1 font_w5 fontcontent listGrow">人員密碼</p>
-                            <p class="p1 pr_1 font_w5 fontcontent">人員類別</p>
+                            <p class="p1 pr_1 font_w5 fontcontent listGrow">人員類別</p>
                             <p class="p1 pr_1 font_w5 fontcontent">人員狀態</p>
                             <p></p>
                         </div>
@@ -1299,8 +1299,8 @@
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{manager_name}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{account}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{password}}</p>
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{role}}</p>
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{state}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{role ? '設計師' : '最高權限管理者'}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{state ? '凍結' : '正常'}}</p>
                                 <button class="p1 bkbtn" id="D_Edit" @click="$emit('edit-handler')" type="button">Edit</button>
                             </div>
                         </li>
