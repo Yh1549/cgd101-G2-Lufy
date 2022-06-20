@@ -238,23 +238,51 @@
   justify-content: center;
   align-items: center;
   & .orderdetail_item{
+
     background-color: $white;
     width: 800px;
+    border-radius: 20px;
     & h1{
+      text-align: center;
       background-color: $primary_100;
     }
-
-    & .orderDetail_member{
+    & #orderDetail_member{
+      padding: 10px;
       margin: 10px;
       border: solid 2px $primary_100;
+      & p{
+        padding: 10px;
+      }
     }
     & .orderDetail_product{
+      overflow-y: scroll;
       margin: 10px;
+      padding: 20px;
       border: solid 2px $primary_100;
+      height: 200px;
       & ul{
+        padding: 10px;
+        border-bottom: 2px solid $secondary_100;
+        text-align: start;
         display: flex;
-        justify-content: space-around;
+        
+        & li{
+          width: 33%;
+        }
       }
+      & div{
+        margin: 20px;
+        width: 20%;
+        position: relative;
+        right: -70%;
+      }
+    }
+    & button{
+      max-width: 100px;
+      margin: 10px;
+      padding: 0px 40px;
+      position: relative;
+      right: -80%;
     }
   }
 }

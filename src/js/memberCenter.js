@@ -10,7 +10,7 @@ let memberLogin = () => {
       //連線成功與否的狀態碼 200=連線成功
       if (xhr.responseText == "輸入錯誤") {
         //登入失敗
-        $id("member_Lightbox").style.display="flex";
+        $id("member_Lightbox").style.display = "flex";
         $id("responseMsg").innerText = "Login Failed";
       } else {
         //登入成功
@@ -69,7 +69,7 @@ let profiles_sub = () => {
         } else {
           $id("member_Lightbox").style.display = "flex";
           $id("responseMsg").innerText = `Change Fail`;
-          
+
           // console.log(xhr.status);
         }
       };
@@ -130,11 +130,50 @@ function getMemberinfo(e) {
         <td>${memberorder[i].order_no}</td>
         <td>${memberorder[i].order_datetime}</td>
         <td>${memberorder[i].order_state}</td>
-        <td>${memberorder[i].order_total}</td></tr></tbody></table><button id='orderDetail' class="btn_normal">查看明細</button></div>`;
-      }
+        <td>${memberorder[i].order_total}</td></tr></tbody></table><input type="hidden" value="${memberorder[i].order_no}"><button class="btn_normal orderDetail">查看明細</button></div>`;
+      };
       $id("orderInsert").innerHTML = orderHtml;
-      $id("orderDetail").onclick=()=>{
-        
+
+      let orderDetail_btn = document.querySelectorAll(".orderDetail");
+      for (let i = 0; i < orderDetail_btn.length; i++) {
+        orderDetail_btn[i].onclick = (e) => {
+          let orderDetailxhr = new XMLHttpRequest;
+          orderDetailxhr.onload = () => {
+            let orderDetail = JSON.parse(JSON.parse(orderDetailxhr.responseText).orderRow)[0];
+            let orderDetail_product = JSON.parse(JSON.parse(orderDetailxhr.responseText).detailRow);
+            console.log(orderDetail);
+            let orderHtml = ` 
+                <p class="h4" id="orderDetail_memberInsert">
+                會員帳號: ${orderDetail.member_name}<br>
+                收件人姓名: ${orderDetail.recipient_name}<br>
+                收件人手機: ${orderDetail.recipient_phone}<br>
+                address : ${orderDetail.recipient_address}<br>
+                creditcard : ${orderDetail.credit_card}`;
+            $id("orderDetail_member").innerHTML = orderHtml;
+            let orderDetailHtml = `
+                <ul style="background-color: rgba(207, 161, 131, 0.3);">
+                    <li class="h4">name</li>
+                    <li class="h4">number</li>
+                    <li class="h4">price</li>
+                </ul>`;
+            for (let i = 0; i < orderDetail_product.length; i++) {
+              orderDetailHtml += `
+              <ul>
+              <li class="h4">${orderDetail_product[i].name}</li>
+              <li class="h4">${orderDetail_product[i].order_count}</li>
+              <li class="h4">${orderDetail_product[i].product_price}</li>
+            </ul>`;
+            };
+            orderDetailHtml += `<div>
+              <p class="h3">Total Price : ${orderDetail.order_total}</p>
+            </div>`;
+            $id("orderDetail_productInsert").innerHTML = orderDetailHtml;
+            $id("orderdetail_container").style.display = "flex";
+          };
+          let url = "member_orderDetail.php?id=" + `${e.target.parentNode.firstChild.nextElementSibling.value}`;
+          orderDetailxhr.open("get", url, true);
+          orderDetailxhr.send(null);
+        };
       };
       // ----------
       // 蒐藏寫入
@@ -144,11 +183,13 @@ function getMemberinfo(e) {
         <td><img src="images/${memberfavorite[i].image_path}"></td>
         <td>${memberfavorite[i].name}</td>
         <td>${memberfavorite[i].on_market ? "on the market" : "off the market"}</td>
-        <td>${memberfavorite[i].price}</td></tr></tbody></table><input type="hidden" value="${memberfavorite[i].product_no}"><button id='favoriteCancel' class="btn_normal">Delete</button></div>`;
+        <td>${memberfavorite[i].price}</td></tr></tbody></table><input type="hidden" value="${memberfavorite[i].product_no}"><button class="btn_normal favoriteCancel">Delete</button></div>`;
       }
       $id("favoriteInsert").innerHTML = favoriteHtml;
       // 取消蒐藏紐
-      $id("favoriteCancel").onclick = favoriteCancel;
+      for (let i = 0; i < memberfavorite.length; i++){
+        document.querySelectorAll(".favoriteCancel")[i].onclick = favoriteCancel;
+      }
       // ---------
     } else {
       $id("member_Lightbox").style.display = "flex";
@@ -165,9 +206,9 @@ let favoriteCancel = (e) => {
   xhr.onload = () => {
     $id("member_Lightbox").style.display = "flex";
     $id("responseMsg").innerText = `${xhr.responseText}`;
-  
+
   };
-  let url = "favorite.php?id="+`${e.target.parentNode.firstChild.nextElementSibling.value}`+ "&add=" + "false";
+  let url = "favorite.php?id=" + `${e.target.parentNode.firstChild.nextElementSibling.value}` + "&add=" + "false";
   xhr.open("get", url, true);
   xhr.send(null);
 };
@@ -197,9 +238,13 @@ function init() {
   //會員密碼修改
   $id("changePsw_sub").onclick = changePsw_sub;
   //燈箱關閉
-  $id("memberLightbox_cancel").onclick=()=>{
+  $id("memberLightbox_cancel").onclick = () => {
     $id("member_Lightbox").style.display = "none";
-    location.reload();
+    // location.reload();
+  }
+  //訂單燈箱關閉
+  $id("orderLightbox_cancel").onclick = () => {
+    $id("orderdetail_container").style.display = "none";
   }
 }
 window.addEventListener("load", init, false);

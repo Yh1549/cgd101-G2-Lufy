@@ -68,7 +68,7 @@
                             <label for="memphoto" class="h1 font_w7">Upload</label>
                         </div>
                         <input type="file" name="memphoto" id="memphoto" class="me_2 ip_file" />
-                        <input type="submit" class="ip_sub" value="Save Change" />
+                        <input type="button" class="ip_sub" value="Save Change" />
                     </form>
                 </div>
             </div>
@@ -77,7 +77,6 @@
                 <h1 class="h1 me_1 ml_4">Your Orders</h1>
                 <div id="orderInsert">
                     <!--訂單注入-->
-                   
                 </div>
             </div>
             <!-- 私藏列表 -->
@@ -106,43 +105,20 @@
             </div>
         </div>
     </div>
-    <div id="orderdetail_container">
+    <div id="orderdetail_container" style="display: none;">
         <div class="orderdetail_item">
             <h1 class="h1">Order Detail</h1>
-            <div class="orderDetail_member">
-                <p class="h3">會員帳號: eric8861453@yahoo.com.tw
-                <p class="h3">收件人姓名: 陳建宏</p>
-                <p class="h3">收件人手機: 0123456789</p>
-                <p class="h3">address</p>
-                <p class="h3">creditcard</p>
-            </div>
-            <div class="orderDetail_product">
-                <ul>
-                    <li>name</li>
-                    <li>number</li>
-                    <li>price</li>
-                </ul>
-                <ul>
-                    <li>lamp</li>
-                    <li>1</li>
-                    <li>1000</li>
-                </ul>
-                <div>
-                    <p>price</p>
-                    <p>discount</p>
-                    <p>total</p>
-                </div>
-            </div>
-    
+            <div id="orderDetail_member"><!--訂單注入--></div>
+            <div class="orderDetail_product" id="orderDetail_productInsert"><!--訂單細節注入--></div>
+            <button class="btn_normal" id="orderLightbox_cancel">OK</button>
         </div>
-    
     </div>
     <div id="member_Lightbox" style="display: none;">
         <div>
             <h1 class="h1">注意</h1>
             <div>
                 <p id="responseMsg" class="h3"></p>
-                <button class="btn_normal" id="memberLightbox_cancel">ok</button>
+                <button class="btn_normal" id="memberLightbox_cancel">OK</button>
             </div>
         </div>
     </div>
