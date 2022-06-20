@@ -1,14 +1,3 @@
-window.onload = () => {
-    const grid = document.querySelector('.grid');
-    const masonry = new Masonry(grid, {
-        itemSelector: '.grid-item',
-        gutter: '.gutter-sizer',
-        columnWidth: ".grid-sizer",
-        percentPosition: true,
-        originLeft: false,
-        originTop: true,
-    });
-}
 let bread = Vue.component('breadcrumb-list', {
     props: ['breadcrumb'],
     template: `
@@ -18,11 +7,10 @@ let bread = Vue.component('breadcrumb-list', {
         </li>
     </ol> `,
 })
-
 let category = Vue.component('product-category', {
-    props: ['category_imgpath', 'category_name','category_no'],
+    props: ['category_imgpath', 'category_name', 'category_no', 'focusId'],
     template: `
-    <div class="category"  @click="filterhandler(category_no)">
+    <div class="category"  @click="filterhandler(category_no)" :class="(focusId === category_no)?'active':''">
         <img :src="'images//'+category_imgpath" :alt="category_name">
         <p class="p1">{{category_name}}</p>
     </div>`,
@@ -34,11 +22,22 @@ let category = Vue.component('product-category', {
     },
 })
 
+
+window.onload = () => {
+    const grid = document.querySelector('.grid');
+    const masonry = new Masonry(grid, {
+        itemSelector: '.grid-item',
+        gutter: '.gutter-sizer',
+        columnWidth: ".grid-sizer",
+        percentPosition: true,
+        originLeft: false,
+        originTop: true,
+    });
+}
 let commodity = Vue.component('product-commodity', {
     props: ['image_path', 'name', 'product_no'],
     methods: {
         addFav() {
-            // php
             console.log(this.product_no)
         },
         goDetailPage() {
@@ -56,7 +55,6 @@ let commodity = Vue.component('product-commodity', {
         </div>
     </div> `,
 })
-
 const productCommodity = new Vue({
     el: '#product',
     data: {
@@ -69,7 +67,6 @@ const productCommodity = new Vue({
     methods: {
         // 麵包屑
         setBreadcrumb() {
-            // /product/productlist/item.html
             let arr = window.location.pathname.split('.html')[0].split('/');
             //['', 'product','productlist' ,'item']
             arr.splice(0, 1);
@@ -112,7 +109,8 @@ const productCommodity = new Vue({
         }).catch(err => console.log(err)); 
         },
         changeFocusId(num) {
-            this.focusId = num
+            this.focusId =
+                (this.focusId === num) ? NaN : num;
         },
         callMasonry() { 
             var grid = document.querySelector('.grid');
