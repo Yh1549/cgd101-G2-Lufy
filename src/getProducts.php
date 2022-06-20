@@ -1,11 +1,15 @@
 <?php 
 try{
 	require_once("connect_lufy.php");
-
-	$sql = "select 
-	p.product_no, p.category_no, c.category_name, p.des_no, d.des_name, p.des_select, p.name, p.description, p.specification, p.price, p.on_market, p.in_stock 
-	from product p join designer d on (p.des_no = d.des_no)
-				join product_category c on (p.category_no = c.category_no) order by 1 asc"; //準備好sql指令
+	// i.product_show, i.image_path, 
+	$sql = "SELECT  DISTINCT p.product_no, p.des_no, p.name, p.description, p.specification, p.price, p.on_market, p.in_stock, d.des_name, d.des_text, 'd.des_img_path', r.promotions_no, r.promotions_price, m.promotions_no, m.promotions_name, m.promotions_startDate, m.promotions_endDate, m.promotions_text, c.category_no, c.category_imgpath, c.category_name
+	FROM product p
+	JOIN designer d ON p.des_no = d.des_no
+	-- JOIN product_image i ON p.product_no = i.product_no
+	LEFT JOIN promotionsdetail r ON p.product_no = r.product_no
+	LEFT JOIN promotions as m ON m.promotions_no = r.promotions_no
+	LEFT JOIN product_category c ON  p.category_no = c.category_no
+				    order by 1 asc"; //準備好sql指令
 	$products = $pdo->query($sql);//將sql指令送到mysql去執行, 回傳的是pdoStatement
 	$prodRows = $products->fetchAll(PDO::FETCH_ASSOC);
 	echo json_encode($prodRows);
@@ -16,3 +20,4 @@ try{
 	//echo [$msg];
 }
 ?>
+

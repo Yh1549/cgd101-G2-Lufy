@@ -4,8 +4,6 @@ try{
 
 	$sql = "select 
 	o.order_no, o.product_no, p.name as 'product_name', o.order_count, o.product_price
-
- 
 	from orderdetail o join product p on (o.product_no = p.product_no)"; //準備好sql指令
 	$detail = $pdo->query($sql);//將sql指令送到mysql去執行, 回傳的是pdoStatement
 	$detailRows = $detail->fetchAll(PDO::FETCH_ASSOC);
