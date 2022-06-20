@@ -30,7 +30,7 @@ let purchasePnl = Vue.component('purchase-panel', {
         }
     },
     methods: {
-        setFavorite(e, product_no) {
+        setFavorite(e) {
             const product_no = window.location.search.split('id=')[1];
             axios.get(`favorite.php?id=${product_no
                 }&add=${this.isAdd}`).then((response) => {
