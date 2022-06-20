@@ -23,10 +23,12 @@
             </div>
         </div>
         <!-- 首頁輪播 -->
-        <section class="index_carousel">
+        <section id="index_carousel_app" class="index_carousel">
             <div class="container me_8">
-                <div class="swiper mySwiper" id="index_carousel">
-                    <div class="swiper-wrapper" id="carouselRows"></div>
+                <div id="index_carousel" class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                    <carousel-rows v-for="(carousel , index) in carouselImg" :key="carousel.id" :carousel="carousel"></carousel-rows>
+                    </div>
                     <div class="swiper-button-next"></div>
                     <div class="swiper-button-prev"></div>
                     <div class="swiper-pagination"></div>
