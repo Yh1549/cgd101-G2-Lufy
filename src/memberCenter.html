@@ -68,7 +68,7 @@
                             <label for="memphoto" class="h1 font_w7">Upload</label>
                         </div>
                         <input type="file" name="memphoto" id="memphoto" class="me_2 ip_file" />
-                        <input type="submit" class="ip_sub" value="Save Change" />
+                        <input type="button" class="ip_sub" value="Save Change" />
                     </form>
                 </div>
             </div>
@@ -102,6 +102,23 @@
                         <input type="button" id="changePsw_sub" class="ip_sub" value="Save Change">
                     </div>
                 </form>
+            </div>
+        </div>
+    </div>
+    <div id="orderdetail_container" style="display: none;">
+        <div class="orderdetail_item">
+            <h1 class="h1">Order Detail</h1>
+            <div id="orderDetail_member"><!--訂單注入--></div>
+            <div class="orderDetail_product" id="orderDetail_productInsert"><!--訂單細節注入--></div>
+            <button class="btn_normal" id="orderLightbox_cancel">OK</button>
+        </div>
+    </div>
+    <div id="member_Lightbox" style="display: none;">
+        <div>
+            <h1 class="h1">注意</h1>
+            <div>
+                <p id="responseMsg" class="h3"></p>
+                <button class="btn_normal" id="memberLightbox_cancel">OK</button>
             </div>
         </div>
     </div>

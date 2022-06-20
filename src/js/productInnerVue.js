@@ -24,20 +24,28 @@ let prodImgSmall = Vue.component('prodimg-small', {
 });
 let purchasePnl = Vue.component('purchase-panel', {
     props: ['name', 'price', 'promotions_name', 'promotions_price', 'promPrice', 'add'],
+    data() {
+        return {
+            isAdd: false,
+        }
+    },
     methods: {
-        setFavorite() {
+        setFavorite(e) {
             const product_no = window.location.search.split('id=')[1];
             axios.get(`favorite.php?id=${product_no
-                }&add=${this.add}`).then((response) => {
+                }&add=${this.isAdd}`).then((response) => {
                 if (response.data == 'add success') {
-                    this.add = false;
-                    document.querySelector('.favoriteButton .heart').classList.add('favActive');
+                    this.isAdd = false;
+                    e.target.classList.add('favActive');
                 } else {
-                    this.add = true;
-                    document.querySelector('.favoriteButton .heart').classList.remove('favActive');
+                    this.isAdd = true;
+                    e.target.classList.remove('favActive');
                 }
             }).catch(err => console.log(err));
         },
+    },
+    mounted() {
+        this.isAdd = this.add;
     },
     computed: {
         prom_price() {
@@ -64,11 +72,10 @@ let purchasePnl = Vue.component('purchase-panel', {
             <div class="addButton">
                 <span id="A1001" class="fontcontent p1"><i class="fa-solid fa-cart-plus"></i> Add to Cart
                     <input type="hidden" value="lamp1|aboutus.lamp1.png|50000|lamp1 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore dicta obcaecati id fuga consectetur accusantium, debitis consequatur odit iste dolorum.|1">
-                </span>
-               
+                </span>               
             </div>
         </div>
-        <div id="favoriteButton" class="favoriteButton me_4" @click="isSelected=!isSelected; setFavorite()">
+        <div id="favoriteButton" class="favoriteButton me_4" @click="setFavorite($event)">
             <span class="material-icons heart">favorite</span>
             <span class="fontcontent p1">Favorite</span>
         </div> 
@@ -95,11 +102,11 @@ let prodInfo = Vue.component('prod-info', {
     `,
 })
 let designerInfo = Vue.component('des-info', {
-    props: ['des_name', 'des_text'],
+    props: ['des_name', 'des_text', 'des_img_path'],
     template: `<div>
         <div class="product_designer">
             <div class="product_designer_img mr_2">
-                <img src="./images/designer4.jpg" :alt="des_name">
+                <img :src="'images//'+des_img_path" :alt="des_name">
             </div>
             <div class="product_designer_intro_box me_2">
                 <div class="product_designer_intro_content me_4">
@@ -157,7 +164,6 @@ const mainProductImg = new Vue({
             };
             favCheck.open("get", "membergetInfo.php", true);
             favCheck.send(null);
-
         }
     },
     created() {

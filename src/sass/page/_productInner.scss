@@ -52,6 +52,7 @@
 
         @include m {
             width: 100%;
+            margin-bottom: 0;
         }
     }
 
@@ -160,6 +161,7 @@
             .color_selector,
             .purchase_function {
                 margin-bottom: 2.5rem;
+                justify-content: space-between;
             }
 
             .buyNowButton {
@@ -176,7 +178,7 @@
             .product_price,
             .color_selector,
             .purchase_function {
-                margin-bottom: 0.75rem;
+                margin-bottom: 1.25rem;
             }
         }
     }
@@ -228,7 +230,9 @@
 
     .content{
         min-height: 90px;
-        line-height: 2;
+        .p2 {
+            line-height: 2;
+        }
     }
 
     .barActive {
@@ -239,7 +243,14 @@
     @include m {
         .detail_switch {
             display: flex;
-            justify-content: space-around;
+            justify-content: flex-start;
+        }
+        .descBar,
+        .specBar{
+            padding: 0.75rem 1.25rem;
+            &:hover {
+                color: $primary_100;
+            }
         }
 
         .describe,
@@ -248,8 +259,6 @@
         }
     }
 }
-
-
 
 .hidden {
     display: none;
@@ -263,17 +272,14 @@
         display: flex;
 
         .product_designer_img {
+            max-width: 220px;
+            min-width: 220px;
             width: 25%;
 
             img {
                 width: 100%;
                 object-fit: cover;
                 vertical-align: top;
-
-                @include m {
-                    height: 250px;
-
-                }
             }
 
             @include t {
@@ -327,6 +333,17 @@
 
             @include m {
                 width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                p {
+                    line-height: 2;
+                }
+
+                .designer_link {
+                    width: 30%;
+                }
             }
         }
     }

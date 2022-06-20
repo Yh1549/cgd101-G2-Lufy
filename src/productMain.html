@@ -24,22 +24,32 @@
             </div>
 
             
+            <!-- 商品瀑布流 -->
             <div id="grid_masonry">
+                <transition-group class="grid" tag="div" name="gender-filter" @enter="resetGrid" @after-leave="resetGrid">
+                    <div class="grid-sizer" key="grid-sizer"></div>
+                    <div class="gutter-sizer" key="gutter-sizer"></div>
+                    <p key="noPosts" v-if="filterList.length <= 0" class="no-posts">no data</p>
+                    <product-commodity v-for="commodity in filterList" :key="commodity.product_no" v-bind="commodity">
+                    </product-commodity>
+                </transition-group>
+            </div>
+            <!-- 商品瀑布流 old -->
+            <!-- <div id="grid_masonry">
                 
-                <!-- 商品瀑布流 -->
                 <div class="grid" v-show="isNaN(focusId)">                    
                     <div class="grid-sizer"></div>
                     <div class="gutter-sizer"></div>                    
                     <product-commodity v-masonry-tile v-for="(commodity, index) in filterList" :key="commodity.id" v-bind="commodity">
                     </product-commodity>
                 </div>
-                <!-- 篩選後 -->
+                
                 <div v-show="!isNaN(focusId)" class="category_wrap">
                     <product-commodity v-for="(commodity, index) in filterList" :key="commodity.id" v-bind="commodity">
                     </product-commodity>
-                </div>
-            
-            </div>
+                </div>            
+            </div> -->
+
         </section>
     </section>
     <!-- footer  -->

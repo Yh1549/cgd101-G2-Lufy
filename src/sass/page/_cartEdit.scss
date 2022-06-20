@@ -129,3 +129,17 @@
 .arriveTime {
     font-size: 20px;
 }
+.orderTable{
+    background-color:$primary_dark;
+    font-size: 24px;
+   
+   
+   
+}
+#showPanel{
+    table,th,td{
+        text-align: left;
+        border:$secondary_70 5px solid;
+        padding:10px;
+    }
+}
