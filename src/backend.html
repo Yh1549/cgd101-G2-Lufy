@@ -56,43 +56,48 @@
             <section class="mem_content" id="mainElm1">
                 <div id="membList">
                     <!-- N修改會員燈箱 -->
-                    <div class="ps_1" id="N_edit_lightBox" style="display:none">
+                    <div class="" id="N_edit_lightBox" style="display:none">
                         <div class="lightBox_list">
                             <p class="ps_1 pe_1 pl_2 h1 lightBox_title">Edit Member</p>
                             <form class="ps_1 pe_1 pl_1 pr_1" id="membersModify" enctype="multipart/form-data">
-                                <div class="formOne formThree">
-                                    <div class="ps_1 pe_1 LBcol">
-                                        <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">No.</label></div>
-                                        <div class="pl_1 pr_1"><input class="ip_normal" type="text" name="member_no" id="" v-model="popupData.member_no" readonly="readonly"></div>
-                                    </div>
-                                    <div class="ps_1 pe_1 LBcol">
-                                        <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Name</label></div>
-                                        <div class="pl_1 pr_1"><input class="ip_normal" type="text" name="member_name" id="" v-model="popupData.member_name" readonly="readonly"></div>
-                                    </div>
-                                    <div class="ps_1 pe_1 LBcol">
-                                        <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Birthday</label></div>
-                                        <div class="pl_1 pr_1"><input class="tyDate" type="date" name="member_birthday" id="" v-model="popupData.member_birthday" readonly="readonly"></div>
-                                    </div>
-                                    <div class="ps_1 pe_1 LBcol">
-                                        <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Phone</label></div>
-                                        <div class="pl_1 pr_1"><input class="ip_normal" type="tel" name="member_tel" id="" v-model="popupData.member_tel" readonly="readonly"></div>
-                                    </div>
-                                    <div class="ps_1 pe_1 LBcol">
-                                        <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Address</label></div>
-                                        <div class="pl_1 pr_1"><input class="ip_normal" type="text" name="member_address" id="" v-model="popupData.member_address" readonly="readonly"></div>
-                                    </div>
-                                    <div class="ps_1 pe_1 LBcol">
-                                        <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">E-mail</label></div>
-                                        <div class="pl_1 pr_1"><input class="ip_normal" type="email" name="member_mail" id="" v-model="popupData.member_mail" readonly="readonly"></div>
-                                    </div>
-                                    <div class="ps_1 pe_1 LBcol">
-                                        <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">State</label>
+                                <div class="formOne">
+                                    <div style="width: 50%">
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">No.</label></div>
+                                            <div class="pl_1 pr_1"><input class="ip_normal" type="text" name="member_no" id="" v-model="popupData.member_no" readonly="readonly"></div>
                                         </div>
-                                        <div class="pl_1 pr_1">
-                                            <select name="member_state" id="" v-model="popupData.member_state">
-                                                <option value="0">正常</option>
-                                                <option value="1">凍結</option>
-                                            </select>
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Name</label></div>
+                                            <div class="pl_1 pr_1"><input class="ip_normal" type="text" name="member_name" id="" v-model="popupData.member_name" readonly="readonly"></div>
+                                        </div>
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Birthday</label></div>
+                                            <div class="pl_1 pr_1"><input class="tyDate" type="date" name="member_birthday" id="" v-model="popupData.member_birthday" readonly="readonly"></div>
+                                        </div>
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Phone</label></div>
+                                            <div class="pl_1 pr_1"><input class="ip_normal" type="tel" name="member_tel" id="" v-model="popupData.member_tel" readonly="readonly"></div>
+                                        </div>
+                                        
+                                    </div>
+                                    <div style="width: 50%">
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Address</label></div>
+                                            <div class="pl_1 pr_1"><input class="ip_normal" type="text" name="member_address" id="" v-model="popupData.member_address" readonly="readonly"></div>
+                                        </div>
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">E-mail</label></div>
+                                            <div class="pl_1 pr_1"><input class="ip_normal" type="email" name="member_mail" id="" v-model="popupData.member_mail" readonly="readonly"></div>
+                                        </div>
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">State</label>
+                                            </div>
+                                            <div class="pl_1 pr_1">
+                                                <select name="member_state" id="" v-model="popupData.member_state">
+                                                    <option value="0">正常</option>
+                                                    <option value="1">凍結</option>
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -200,7 +205,7 @@
             <section class="mem_content" id="mainElm2">
                 <div id="productList">
                     <!-- A商品燈箱 -->
-                    <div class="ps_1" id="A_lightBox" style="display:none">
+                    <div class="" id="A_lightBox" style="display:none">
                         <div class="lightBox_list">
                             <p class="ps_1 pe_1 pl_2 h1 lightBox_title">Create Product</p>
                             <form id="productsForm" enctype="multipart/form-data" class="ps_1 pe_1 pl_1 pr_1">
@@ -241,15 +246,28 @@
                                         </div>
                                         <div class="ps_1 pe_1 LBcol">
                                             <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="" style="vertical-align:top">Description</label></div>
-                                            <div class="pl_1 pr_1"><textarea class="p1 tArea" name="description" id="" cols="23" rows="3"></textarea></div>
+                                            <div class="pl_1 pr_1"><textarea class="p1 tArea" name="description" id="" cols="23" rows="2"></textarea></div>
                                         </div>
                                         <div class="ps_1 pe_1 LBcol">
                                             <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="" style="vertical-align:top">Specification</label></div>
-                                            <div class="pl_1 pr_1"><textarea class="p1 tArea" name="specification" id="" cols="23" rows="3"></textarea></div>
+                                            <div class="pl_1 pr_1"><textarea class="p1 tArea" name="specification" id="" cols="23" rows="2"></textarea></div>
                                         </div>
                                         <div class="ps_1 pe_1 LBcol">
                                             <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Price</label></div>
-                                            <div class="pl_1 pr_1"><input class="ip_normal ip_width" type="text" name="price" id=""></div>
+                                            <div class="pl_1 pr_1"><input class="ip_normal ip_price" type="text" name="price" id=""></div>
+                                        </div>
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Promotions</label>
+                                            </div>
+                                            <div class="pl_1 pr_1">
+                                                <select name="on_market" id="">
+                                                    <option value="0">活動一</option>
+                                                    <option value="1">活動二</option>
+                                                    <option value="2">活動三</option>
+                                                </select>
+                                            </div>
+                                            <div class="pl_1 pr_1 LBcolTitle LBcolpriceTitle"><label class="p1" for="">Promotions Price</label></div>
+                                            <div class="pl_1 pr_1"><input class="ip_normal ip_price" type="text" name="promotions_price" id=""></div>
                                         </div>
                                         <div class="ps_1 pe_1 LBcol">
                                             <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">On Market</label>
@@ -310,7 +328,7 @@
                         </div>
                     </div>
                     <!-- A修改商品燈箱 -->
-                    <div class="ps_1" id="A_edit_lightBox" style="display:none">
+                    <div class="" id="A_edit_lightBox" style="display:none">
                         <div class="lightBox_list">
                             <p class="ps_1 pe_1 pl_2 h1 lightBox_title">Edit Product</p>
                             <form class="ps_1 pe_1 pl_1 pr_1" id="productsModify" enctype="multipart/form-data">
@@ -543,7 +561,7 @@
             <section class="mem_content" id="mainElm3">
                 <div id="orderList">
                     <!-- O修改訂單燈箱 -->
-                    <div class="ps_1" id="O_edit_lightBox" style="display:none">
+                    <div class="" id="O_edit_lightBox" style="display:none">
                         <div class="lightBox_list">
                             <p class="ps_1 pe_1 pl_2 h1 lightBox_title">Edit Order</p>
                             <form class="ps_1 pe_1 pl_1 pr_1" id="ordersModify" enctype="multipart/form-data">
@@ -734,7 +752,8 @@
                                 order_total: ``,
                                 order_notes: ``
                         },
-                        detailRows: []
+                        detailRows: [],
+                        popupDetail:[]
                     },
                     created() {
                         let xhr = new XMLHttpRequest();
@@ -755,10 +774,16 @@
                         focusObj() {
                             return (this.ordersRows.find(v => v.order_no == this.fucusNo)) ? (this.ordersRows.find(v => v.order_no == this.fucusNo)) : this.ordersRows[0];
                         },
+                        focusDetail() {
+                            return (this.detailRows.find(v => v.order_no == this.fucusNo)) ? (this.detailRows.find(v => v.order_no == this.fucusNo)) : this.detailRows[0];
+                        },
                     },
                     watch: {
                         focusObj(nVal) {
                             this.popupData = JSON.parse(JSON.stringify(nVal));
+                        },
+                        focusDetail(dVal) {
+                            this.popupDetail = JSON.parse(JSON.stringify(dVal));
                         },
                     },
                     methods: {
@@ -782,7 +807,7 @@
             <section class="mem_content" id="mainElm4">
                 <div id="promList">
                     <!-- B優惠活動燈箱 -->
-                    <div class="ps_1" id="B_lightBox" style="display:none">
+                    <div class="" id="B_lightBox" style="display:none">
                         <div class="lightBox_list">
                             <p class="ps_1 pe_1 pl_2 h1 lightBox_title">Create Promotions</p>
                             <form action="" id="promotionsForm" enctype="multipart/form-data" class="ps_1 pe_1 pl_1 pr_1">
@@ -841,7 +866,7 @@
                         </div>
                     </div>
                     <!-- B修改優惠活動燈箱 -->
-                    <div class="ps_1" id="B_edit_lightBox" style="display:none">
+                    <div class="" id="B_edit_lightBox" style="display:none">
                         <div class="lightBox_list">
                             <p class="ps_1 pe_1 pl_2 h1 lightBox_title">Edit Promotions</p>
                             <form class="ps_1 pe_1 pl_1 pr_1" id="promotionsModify" enctype="multipart/form-data">
@@ -1012,7 +1037,7 @@
             <section class="mem_content" id="mainElm5">
                 <div id="newsList">
                     <!-- C最新消息燈箱 -->
-                    <div class="ps_1" id="C_lightBox" style="display:none">
+                    <div class="" id="C_lightBox" style="display:none">
                         <div class="lightBox_list">
                             <p class="ps_1 pe_1 pl_2 h1 lightBox_title">Create News</p>
                             <form id="newsForm" enctype="multipart/form-data" class="ps_1 pe_1 pl_1 pr_1">
@@ -1069,7 +1094,7 @@
                         </div>
                     </div>
                     <!-- C修改最新消息燈箱 -->
-                    <div class="ps_1" id="C_edit_lightBox" style="display:none">
+                    <div class="" id="C_edit_lightBox" style="display:none">
                         <div class="lightBox_list">
                             <p class="ps_1 pe_1 pl_2 h1 lightBox_title">Edit News</p>
                             <form class="ps_1 pe_1 pl_1 pr_1" id="newsModify" enctype="multipart/form-data">
@@ -1226,7 +1251,7 @@
             <section class="mem_content" id="mainElm6">
                 <div id="carouselList">
                     <!-- P修改輪播燈箱 -->
-                    <div class="ps_1" id="P_edit_lightBox" style="display:none">
+                    <div class="" id="P_edit_lightBox" style="display:none">
                         <div class="lightBox_list">
                             <p class="ps_1 pe_1 pl_2 h1 lightBox_title">Edit Carousel</p>
                             <form class="ps_1 pe_1 pl_1 pr_1" id="carouselsModify" enctype="multipart/form-data">
@@ -1272,7 +1297,7 @@
                         <div class="pr_1 backend_title">
                             <p class="p1 pr_1 font_w5 fontcontent">編號</p>
                             <p class="p1 pr_1 font_w5 fontcontent">名稱</p>
-                            <p class="p1 pr_1 font_w5 fontcontent listGrow">圖片路徑</p>
+                            <p class="p1 pr_1 font_w5 fontcontent listGrow">圖片檔名</p>
                             <p class="p1 pr_1 font_w5 fontcontent listGrow">圖片預覽</p>
                             <p class=""></p>
                         </div>
@@ -1353,7 +1378,7 @@
             <section class="mem_content" id="mainElm7">
                 <div id="managersList">
                     <!-- D管理員燈箱 -->
-                    <div class="ps_1" id="D_lightBox" style="display:none">
+                    <div class="" id="D_lightBox" style="display:none">
                         <div class="lightBox_list">
                             <p class="ps_1 pe_1 pl_2 h1 lightBox_title">Create Manager</p>
                             <form id="managersForm" enctype="multipart/form-data" class="ps_1 pe_1 pl_1 pr_1">
@@ -1371,8 +1396,8 @@
                                         </div>
                                         <div class="pl_1 pr_1">
                                             <select name="role" id="">
-                                                <option value="1">最高權限管理者</option>
-                                                <option value="2">設計師</option>
+                                                <option value="最高權限管理者">最高權限管理者</option>
+                                                <option value="設計師">設計師</option>
                                             </select>
                                         </div>
                                     </div>
@@ -1403,7 +1428,7 @@
                         </div>
                     </div>
                     <!-- D修改管理員燈箱 -->
-                    <div class="ps_1" id="D_edit_lightBox" style="display:none">
+                    <div class="" id="D_edit_lightBox" style="display:none">
                         <div class="lightBox_list">
                             <p class="ps_1 pe_1 pl_2 h1 lightBox_title">Edit Manager</p>
                             <form class="ps_1 pe_1 pl_1 pr_1" id="managersModify" enctype="multipart/form-data">
@@ -1421,8 +1446,8 @@
                                         </div>
                                         <div class="pl_1 pr_1">
                                             <select name="role" id="" v-model="popupData.role">
-                                                <option value="0">最高權限管理者</option>
-                                                <option value="1">設計師</option>
+                                                <option value="最高權限管理者">最高權限管理者</option>
+                                                <option value="設計師">設計師</option>
                                             </select>
                                         </div>
                                     </div>
