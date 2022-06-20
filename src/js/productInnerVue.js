@@ -24,20 +24,28 @@ let prodImgSmall = Vue.component('prodimg-small', {
 });
 let purchasePnl = Vue.component('purchase-panel', {
     props: ['name', 'price', 'promotions_name', 'promotions_price', 'promPrice', 'add'],
+    data() {
+        return {
+            isAdd: false,
+        }
+    },
     methods: {
-        setFavorite() {
+        setFavorite(e) {
             const product_no = window.location.search.split('id=')[1];
             axios.get(`favorite.php?id=${product_no
-                }&add=${this.add}`).then((response) => {
+                }&add=${this.isAdd}`).then((response) => {
                 if (response.data == 'add success') {
-                    this.add = false;
-                    document.querySelector('.favoriteButton .heart').classList.add('favActive');
+                    this.isAdd = false;
+                    e.target.classList.add('favActive');
                 } else {
-                    this.add = true;
-                    document.querySelector('.favoriteButton .heart').classList.remove('favActive');
+                    this.isAdd = true;
+                    e.target.classList.remove('favActive');
                 }
             }).catch(err => console.log(err));
         },
+    },
+    mounted() {
+        this.isAdd = this.add;
     },
     computed: {
         prom_price() {
@@ -67,7 +75,7 @@ let purchasePnl = Vue.component('purchase-panel', {
                 </span>               
             </div>
         </div>
-        <div id="favoriteButton" class="favoriteButton me_4" @click="isSelected=!isSelected; setFavorite()">
+        <div id="favoriteButton" class="favoriteButton me_4" @click="setFavorite($event)">
             <span class="material-icons heart">favorite</span>
             <span class="fontcontent p1">Favorite</span>
         </div> 
