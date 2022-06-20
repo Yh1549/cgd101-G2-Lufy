@@ -2,15 +2,14 @@
     try{
 	require_once("connect_lufy.php");
 
-	$sql = "SELECT  DISTINCT p.product_no, p.des_no, p.name, p.description, p.specification, p.price, d.des_name, d.des_text, 'd.des_img_path', i.product_show, i.image_path, r.promotions_no, r.promotions_price, m.promotions_no, m.promotions_name, m.promotions_startDate, m.promotions_endDate, m.promotions_text, f.member_no, c.category_no, c.category_imgpath, c.category_name
-			FROM product p
-			JOIN designer d ON p.des_no = d.des_no
-			JOIN product_image i ON p.product_no = i.product_no
-			LEFT JOIN promotionsdetail r ON p.product_no = r.product_no
-			LEFT JOIN promotions as m ON m.promotions_no = r.promotions_no
-			LEFT JOIN favorite f ON p.product_no = f.product_no
-			LEFT JOIN product_category c ON  p.category_no = c.category_no
-			WHERE i.product_show = 0 AND p.on_market = 1 AND p.product_no=:id"; //準備好sql指令
+	$sql = "SELECT p.product_no, p.des_no, p.name, p.description, p.specification, p.price, d.des_name, d.des_text, d.des_img_path, i.product_show, i.image_path, r.promotions_no, r.promotions_price, m.promotions_no, m.promotions_name, m.promotions_startDate, m.promotions_endDate, m.promotions_text, f.member_no
+FROM product p
+JOIN designer d ON p.des_no = d.des_no
+JOIN product_image i ON p.product_no = i.product_no
+LEFT JOIN promotionsdetail r ON p.product_no = r.product_no
+LEFT JOIN promotions as m ON m.promotions_no = r.promotions_no
+LEFT JOIN favorite f ON p.product_no = f.product_no
+WHERE i.product_show = 0 AND p.on_market = 1 AND p.product_no=:id"; //準備好sql指令
 	$products = $pdo->prepare($sql);//將sql指令送到mysql去執行, 回傳的是pdoStatement
 	$products->bindValue(':id', $_GET['id']);
     $products->execute();

@@ -22,7 +22,6 @@ let category = Vue.component('product-category', {
     },
 })
 
-
 window.onload = () => {
     const grid = document.querySelector('.grid');
     const masonry = new Masonry(grid, {
@@ -122,7 +121,15 @@ const productCommodity = new Vue({
                 originLeft: false,
                 originTop: true,
             });
-        }
+        },
+        // 【refresh 瀑布流】
+        resetGrid() {
+            const gridEl = document.querySelector('.grid')
+            Masonry.data(gridEl).reloadItems()
+            this.$nextTick(() => {
+                Masonry.data(gridEl).layout()
+            })
+        },
     },
     computed: {
         // 篩選商品
@@ -132,12 +139,11 @@ const productCommodity = new Vue({
         },
     },
     created() { 
-        
     },
     mounted() {
         this.setBreadcrumb();
         this.setCategoryimage();
         this.setProductimage();
-        // this.callMasonry();
+        this.callMasonry();
     },
 })
