@@ -47,43 +47,54 @@
             </div>
             <div id="project_wrap" class="project_wrap">
                 <div class="project_card project_card1">
-                    <img src="./images/aboutus.lamp1.png" alt="projectName" />
+                    <img src="./images/projectMain_pic5.webp" alt="The Renaissance" />
                     <div class="content ms_1 mr_1 me_1 ml_1">
-                        <h2 class="h1 me_1">Project Name1</h2>
+                        <h2 class="h1 me_1">The Renaissance</h2>
                         <h3 class="h4 me_1">
-                            Project content. This project is design by James Barry with the laxury lamp#1. The laxury
-                            lamp#1 is a type of legence lamp. Everyone love it.
+                            It is recommended that you work through Getting started with the web before attempting this
+                            topic. However, this
+                            isn't absolutely necessary; much of what is covered in the HTML basics article is also
+                            covered in our
+                            Introduction to HTML module, albeit in a lot more detail.
                         </h3>
-                        <p class="h5 me_4">James Barry</p>
+                        <p class="h5 me_4">SIMON SCHMITZ</p>
                         <a href="projectInner1.html" class="btn_normal"> more </a>
                     </div>
                 </div>
                 <div class="project_card project_card2">
-                    <img src="./images/aboutus.lamp2.png" alt="projectName" />
+                    <img src="./images/projectMain_pic4.webp" alt="INDUSTRIAL REVOLUTION" />
                     <div class="content ms_1 mr_1 me_1 ml_1">
-                        <h2 class="h1 me_1">Project Name2</h2>
+                        <h2 class="h1 me_1">INDUSTRIAL REVOLUTION</h2>
                         <h3 class="h4 me_1">
-                            Project content. This project is design by James Barry with the laxury lamp#1. The laxury
-                            lamp#1 is a type of legence lamp. Everyone love it.
+                            The Industrial Revolution was the transition to new manufacturing processes in Great
+                            Britain, continental Europe, and
+                            the United States, in the period from about 1760 to sometime between 1820 and 1840.
                         </h3>
-                        <p class="h5 me_4">James Barry</p>
-                        <a href="projectInner1.html" class="btn_normal"> more </a>
+                        <p class="h5 me_4">BERNARD SCHOTTLANDER</p>
+                        <a href="projectInner2.html" class="btn_normal"> more </a>
                     </div>
                 </div>
                 <div class="project_card project_card3">
-                    <img src="./images/aboutus.lamp3.png" alt="projectName" />
+                    <img src="./images/projectMain_pic6.webp" alt="The Dragon" />
                     <div class="content ms_1 mr_1 me_1 ml_1">
-                        <h2 class="h1 me_1">Project Name3</h2>
+                        <h2 class="h1 me_1">The Dragon</h2>
                         <h3 class="h4 me_1">
-                            Project content. This project is design by James Barry with the laxury lamp#1. The laxury
-                            lamp#1 is a type of legence lamp. Everyone love it.
+                            The warm and soft light caressed the earth, and the dexterous light feathers flew, carrying
+                            a fresh and flawless
+                            atmosphere.
+
+                            Slowly glowing in the faint space,
+
+                            It seems to express affectionately with pure sincerity and connotation, and silently becomes
+                            a force to soothe people's
+                            hearts.
                         </h3>
-                        <p class="h5 me_4">James Barry</p>
-                        <a href="projectInner1.html" class="btn_normal"> more </a>
+                        <p class="h5 me_4">ALBIN GRAS</p>
+                        <a href="projectInner3.html" class="btn_normal"> more </a>
                     </div>
                 </div>
             </div>
-        
+
             <div class="index_project_deco_image">
                 <img src="./images/index_project_deco_image_01.webp" alt="" />
             </div>
@@ -95,17 +106,36 @@
     <!-- 商品 -->
     <section id="product" class="productMain">
         <section class="containerALL me_8">
+            <!-- 商品分類 -->
             <div id="product_category" class="product_category ms_4 me_4">
-                <product-category v-for='(category, index) in categoryObject' :key="category.id" v-bind="category">
+                <product-category v-for='(category, index) in categoryObject' :key="category.id" v-bind="category"
+                    :focus-id="focusId" @filtercategory="changeFocusId($event)">
                 </product-category>
             </div>
+
+
+            <!-- 商品瀑布流 -->
             <div id="grid_masonry">
+                <transition-group class="grid" tag="div" name="gender-filter" @enter="resetGrid"
+                    @after-leave="resetGrid">
+                    <div class="grid-sizer" key="grid-sizer"></div>
+                    <div class="gutter-sizer" key="gutter-sizer"></div>
+                    <p key="noPosts" v-if="filterList.length <= 0" class="no-posts">no data</p>
+                    <product-commodity v-for="(commodity, index) in filterList" :key="index" v-bind="commodity">
+                    </product-commodity>
+                </transition-group>
+            </div>
+            <!-- <div id="product_category" class="product_category ms_4 me_4">
+                <product-category v-for='(category, index) in categoryObject' :key="category.id" v-bind="category">
+                </product-category>
+            </div> -->
+            <!-- <div id="grid_masonry">
                 <div class="grid">
                     <div class="grid-sizer"></div>
                     <div class="gutter-sizer"></div>
                     <product-commodity v-for="(commodity, index) in commodityObject" :key="commodity.id" v-bind="commodity"></product-commodity>
                 </div>
-            </div>
+            </div> -->
         </section>
     </section>
     <!-- 情境模擬 -->
@@ -140,7 +170,8 @@
         <div class="containerALL">
             <div class="card">
                 <div id="news_photo">
-                    <news-photo v-for="(newsphoto, index) in newsphotoObject" :key="newsphoto.id" v-bind="newsphoto"></news-photo>
+                    <news-photo v-for="(newsphoto, index) in newsphotoObject" :key="newsphoto.id" v-bind="newsphoto">
+                    </news-photo>
                 </div>
                 <script>
                     let newsphoto = Vue.component("news-photo", {
