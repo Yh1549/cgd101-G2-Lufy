@@ -22,19 +22,13 @@ let category = Vue.component('product-category', {
     },
 })
 
-window.onload = () => {
-    const grid = document.querySelector('.grid');
-    const masonry = new Masonry(grid, {
-        itemSelector: '.grid-item',
-        gutter: '.gutter-sizer',
-        columnWidth: ".grid-sizer",
-        percentPosition: true,
-        originLeft: false,
-        originTop: true,
-    });
-}
 let commodity = Vue.component('product-commodity', {
-    props: ['image_path', 'name', 'product_no'],
+    props: ['image_path', 'name', 'product_no', 'add'],
+    data() { 
+        return {
+            isAdd: false,
+        }
+    },
     methods: {
         addFav() {
             console.log(this.product_no)
@@ -42,7 +36,24 @@ let commodity = Vue.component('product-commodity', {
         goDetailPage() {
             window.location = `./productInner.html?id=${this.product_no}`
         },
+        setFavorite(e, id) {
+            const product_no = id
+            axios.get(`favorite.php?id=${product_no
+                }&add=${this.isAdd}`).then((response) => {
+                    if (response.data == 'add success') {
+                        this.isAdd = false;
+                        e.target.classList.add('favActive');
+                    } else {
+                        this.isAdd = true;
+                        e.target.classList.remove('favActive');
+                    }
+                }).catch(err => console.log(err));
+        },
     },
+    mounted() { 
+        this.isAdd = this.add;
+    },
+   
     template: `
     <div class="grid-item" @click="goDetailPage">
         <div class="commodityImg">
@@ -50,7 +61,7 @@ let commodity = Vue.component('product-commodity', {
         </div>
         <div class="commodity">
             <h2>{{name}}</h2>
-            <span class="material-icons" @click.stop="addFav">favorite</span>
+            <span class="material-icons favoriteButton" @click.stop="addFav;setFavorite($event, product_no)">favorite</span>
         </div>
     </div> `,
 })
@@ -85,13 +96,6 @@ const productCommodity = new Vue({
                 })
             })
         },
-        setCategory() {
-            console.log(mounted)
-            axios.get('productCategory.php').then(function (response) {
-                this.commodityObject = response.data;
-                console.log(response.data)
-            });
-        },
         // 取商品類別圖
         setCategoryimage() {
             axios.get('productCategory.php').then((response) => {
@@ -100,19 +104,21 @@ const productCommodity = new Vue({
             }).catch(err => console.log(err));
         },
         // 取商品圖片
-        setProductimage() {
+        async setProductimage() {
             axios.get('productMain.php').then((response) => {
-            console.log(response.data)
-            productCommodity.commodityObject = response.data;
+                console.log(response.data)
+                productCommodity.commodityObject = response.data;
+                this.$nextTick(this.callMasonry)
 
-        }).catch(err => console.log(err)); 
+            }).catch(err => console.log(err));
         },
         changeFocusId(num) {
             this.focusId =
                 (this.focusId === num) ? NaN : num;
         },
-        callMasonry() { 
-            var grid = document.querySelector('.grid');
+        callMasonry() {
+            const grid = document.querySelector('.grid');
+            console.log(grid)
             new Masonry(grid, {
                 itemSelector: '.grid-item',
                 gutter: '.gutter-sizer',
@@ -121,15 +127,50 @@ const productCommodity = new Vue({
                 originLeft: false,
                 originTop: true,
             });
+
+            this.$nextTick(() => {
+                setTimeout(this.resetGrid, 1000)
+            })
         },
         // 【refresh 瀑布流】
         resetGrid() {
             const gridEl = document.querySelector('.grid')
+            if (!Masonry.data(gridEl)) return;
             Masonry.data(gridEl).reloadItems()
             this.$nextTick(() => {
                 Masonry.data(gridEl).layout()
             })
         },
+        favoriteCheck() {
+            console.log('123')
+            let favCheck = new XMLHttpRequest();
+            favCheck.onload = () => {
+                if (favCheck.responseText != "No login") {
+                    let memberfavorite = JSON.parse(JSON.parse(favCheck.responseText).memberfavorite);
+                    let idParams = new URLSearchParams(window.location.search);
+                    let pageid = parseInt(idParams.get("id"));
+                    for (let i = 0; i < memberfavorite.length; i++) {
+                        if (memberfavorite[i].product_no == pageid) {
+                            // console.log(memberfavorite[i].product_no+"sucess");
+                            this.add = false;
+                            document.querySelector('.favoriteButton .heart').classList.add('favActive');
+                            // favorite按鈕變色的js放這 已加入蒐藏
+                            break;
+                        } else {
+                            this.add = true;
+                            document.querySelector('.favoriteButton .heart').classList.remove('favActive');
+                            // favorite按鈕變色的js放這 未加入蒐藏
+                            // console.log("fail");
+                        }
+                    };
+                    // console.log(this.add);
+                } else {
+                    console.log("未登入");
+                }
+            };
+            favCheck.open("get", "membergetInfo.php", true);
+            favCheck.send(null);
+        }
     },
     computed: {
         // 篩選商品
@@ -138,12 +179,12 @@ const productCommodity = new Vue({
             return this.commodityObject.filter(item => item.category_no == this.focusId);
         },
     },
-    created() { 
+    created() {
+        this.favoriteCheck();
     },
     mounted() {
         this.setBreadcrumb();
         this.setCategoryimage();
         this.setProductimage();
-        this.callMasonry();
     },
 })
