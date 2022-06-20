@@ -10,12 +10,13 @@ let memberLogin = () => {
       //連線成功與否的狀態碼 200=連線成功
       if (xhr.responseText == "輸入錯誤") {
         //登入失敗
-        $id("idMsg").innerText = "Login Failed";
+        $id("member_Lightbox").style.display="flex";
+        $id("responseMsg").innerText = "Login Failed";
       } else {
         //登入成功
         $id("memshow").innerText = "Hello~ \n" + xhr.responseText;
-        console.log(1);
-        $id("idMsg").innerText = "Login Sucess";
+        $id("member_Lightbox").style.display = "flex";
+        $id("responseMsg").innerText = "Login Sucess";
         $id("mem_Loginbtn").innerText = "Log out";
         // -----
       }
@@ -56,15 +57,19 @@ let profiles_sub = () => {
   // 檢查input是否有值
   for (let i = 0; i < profilesInput.length; i++) {
     if (profilesInput[i].value == "") {
-      alert("No blank!!");
+      $id("member_Lightbox").style.display = "flex";
+      $id("responseMsg").innerText = "No blank!!";
       break;
     } else if (i == profilesInput.length - 1) {
       let xhr = new XMLHttpRequest();
       xhr.onload = () => {
         if (xhr.status == 200) {
-          alert(xhr.responseTexFt);
+          $id("member_Lightbox").style.display = "flex";
+          $id("responseMsg").innerText = `${xhr.responseText}`;
         } else {
-          alert("Change Fail");
+          $id("member_Lightbox").style.display = "flex";
+          $id("responseMsg").innerText = `Change Fail`;
+          
           // console.log(xhr.status);
         }
       };
@@ -77,7 +82,8 @@ let profiles_sub = () => {
 let changePsw_sub = () => {
   let xhr = new XMLHttpRequest();
   xhr.onload = () => {
-    alert(xhr.responseText);
+    $id("member_Lightbox").style.display = "flex";
+    $id("responseMsg").innerText = `${xhr.responseText}`;
   };
   xhr.open("post", "membermodify.php", true);
   let changePswData = new FormData($id("changePswData"));
@@ -124,9 +130,12 @@ function getMemberinfo(e) {
         <td>${memberorder[i].order_no}</td>
         <td>${memberorder[i].order_datetime}</td>
         <td>${memberorder[i].order_state}</td>
-        <td>${memberorder[i].order_total}</td></tr></tbody></table></div>`;
+        <td>${memberorder[i].order_total}</td></tr></tbody></table><button id='orderDetail' class="btn_normal">查看明細</button></div>`;
       }
       $id("orderInsert").innerHTML = orderHtml;
+      $id("orderDetail").onclick=()=>{
+        
+      };
       // ----------
       // 蒐藏寫入
       let favoriteHtml = ``;
@@ -142,7 +151,8 @@ function getMemberinfo(e) {
       $id("favoriteCancel").onclick = favoriteCancel;
       // ---------
     } else {
-      $id("idMsg").innerText = "Login First";
+      $id("member_Lightbox").style.display = "flex";
+      $id("responseMsg").innerText = `Login First`;
       $id("mem_Loginbtn").innerText = "Log in";
     }
   };
@@ -153,8 +163,9 @@ function getMemberinfo(e) {
 let favoriteCancel = (e) => {
   let xhr = new XMLHttpRequest();
   xhr.onload = () => {
-    alert(xhr.responseText);
-    location.reload();
+    $id("member_Lightbox").style.display = "flex";
+    $id("responseMsg").innerText = `${xhr.responseText}`;
+  
   };
   let url = "favorite.php?id="+`${e.target.parentNode.firstChild.nextElementSibling.value}`+ "&add=" + "false";
   xhr.open("get", url, true);
@@ -185,5 +196,10 @@ function init() {
   $id("profiles_sub").onclick = profiles_sub;
   //會員密碼修改
   $id("changePsw_sub").onclick = changePsw_sub;
+  //燈箱關閉
+  $id("memberLightbox_cancel").onclick=()=>{
+    $id("member_Lightbox").style.display = "none";
+    location.reload();
+  }
 }
 window.addEventListener("load", init, false);
