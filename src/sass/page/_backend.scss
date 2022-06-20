@@ -75,11 +75,12 @@
 .lightBox_list{
     background-color: $white;
     width: 80%;
-    max-height: 95vh;
+    max-height: 85vh;
     border-radius: 20px;
     box-sizing: border-box;
     position: relative;
     left: 55px;
+    top: 55px;
     margin: auto 0;
     overflow-y: scroll;
     & .formOne{
@@ -92,6 +93,12 @@
                 & label{
                     color: $primary_dark;
                 }
+            }
+            & .ip_price{
+                width: 80px;
+            }
+            & .LBcolpriceTitle{
+                width: 148px;
             }
             & .LBcolCredit{
                 width: 200px;

@@ -95,11 +95,11 @@ let prodInfo = Vue.component('prod-info', {
     `,
 })
 let designerInfo = Vue.component('des-info', {
-    props: ['des_name', 'des_text'],
+    props: ['des_name', 'des_text', 'des_img_path'],
     template: `<div>
         <div class="product_designer">
             <div class="product_designer_img mr_2">
-                <img src="./images/designer4.jpg" :alt="des_name">
+                <img :src="'images//'+des_img_path" :alt="des_name">
             </div>
             <div class="product_designer_intro_box me_2">
                 <div class="product_designer_intro_content me_4">
@@ -157,7 +157,6 @@ const mainProductImg = new Vue({
             };
             favCheck.open("get", "membergetInfo.php", true);
             favCheck.send(null);
-
         }
     },
     created() {

@@ -27,8 +27,7 @@ hot_autoplay.addEventListener('mouseleave', function () {
 
 Vue.component('carousel-rows', {
     props: ['carousel'],
-    template: ` 
-                <div class="swiper-slide"  >
+    template: `<div class="swiper-slide"  >
                     <img :src="'images//'+ carousel.carousel_path" alt="" />
                 </div>`,
 })
@@ -39,16 +38,15 @@ const index_carousel = new Vue({
     },
     created() {
         // this.getCarouselXHR();
-        this.getCarouselAxios()
+        this.getCarouselAxios();
     },
     methods: {
         getCarouselAxios() {
-            axios.get(`./getCarousels.php`).then((response) => {
-                // console.log(response.data);
+            axios.get(`getCarousels.php`).then((response) => {
+                console.log(response.data);
                 index_carousel.carouselImg = response.data;
                 this.showCarousels(response.data)
-            })
-                .catch(err => console.log(err));
+            }).catch(err => console.log(err));
         },
         getCarouselXHR() {
             let xhr = new XMLHttpRequest();
@@ -67,9 +65,7 @@ const index_carousel = new Vue({
             let carouselRows = (json);
             let html = "";
             for (let i in carouselRows) {
-
-                html += `
-                        <div class="swiper-slide">
+                html += `<div class="swiper-slide">
                             <img src="images//${carouselRows[i].carousel_path}" alt="" />
                         </div>`;
             }

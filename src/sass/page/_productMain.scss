@@ -122,9 +122,8 @@
                 }
             }
         }
-        @include t {
-            max-width: 678px;
-            margin: 0 auto;
+        @media all and (max-width:820px) {
+            margin: 0 30px;
 
             .gutter-sizer {
                 width: 2%;
@@ -138,13 +137,17 @@
                 width: 32%;
             }
         }
-        @include m {
-            max-width: 290px;
-            margin: 0 auto;
+        @media all and (max-width:490px) {
+            
+            margin: 0 15px;
             .product_category {
                 justify-content: flex-start;
                 .category {
-                    width: 100px;
+                    width: 90px;
+                    padding-right: 1.75rem;
+                    .p1 {
+                        font-size: 13px;
+                    }
                 }
             }
             .grid-sizer {
