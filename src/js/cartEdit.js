@@ -27,8 +27,8 @@ function doFirst() {
 
 function createCartList(itemId, itemValue) {
 
-    let itemTitle = itemValue.split('|')[0]
-    let itemImage = 'images/' + itemValue.split('|')[1]
+    let itemTitle = itemValue.split('|')[1]
+    let itemImage = 'images/' + itemValue.split('|')[3]
     let itemPrice = parseInt(itemValue.split('|')[2])
 
 
@@ -134,11 +134,13 @@ function changeItemCount(e) {
         let itemId = item.parentNode.parentNode.parentNode.children[1].id;
         // let itemClass = item.parentNode.parentNode.parentNode.children[1].classList;
         let itemValue = storage.getItem(itemId);
+        console.log(itemValue);
         let newPrice = parseInt(itemValue.split('|')[2]) * (item.value);
+        console.log(newPrice);
         // item.parentNode.parentNode.previousSibling.children[0].innerText = newPrice;
         sum += newPrice;
 
-        let itemName = itemValue.split('|')[0];
+        let itemName = itemValue.split('|')[1];
         let counts = item.value
 
         storage.setItem(itemName, counts);

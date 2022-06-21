@@ -9,9 +9,10 @@ try {
                     mkdir($dir);
                 }
                 $from = $_FILES["A_upFile"]["tmp_name"][$i];
-                $to = "$dir/" . $_FILES["A_upFile"]["name"][$i];
+                $fileInfoArr = pathinfo($_FILES['A_upFile']['name'][$i]);
+                $fileName = uniqid() . ".{$fileInfoArr["extension"]}";
+                $to = "$dir/" . $fileName;
                 copy($from, $to);
-                echo "完成";
                 break;
             case UPLOAD_ERR_INI_SIZE:
                 echo "上傳檔案太大, 不得超過", ini_get("upload_max_filesize"), "<br>";
@@ -40,7 +41,6 @@ try {
         $products->bindValue(":price", $_POST["price"]);
         $products->bindValue(":on_market", $_POST["on_market"]);
         $products->bindValue(":in_stock", $_POST["in_stock"]);
-
         $products->execute();
 
         $sql = "select product_no from product where name=:product_name";
@@ -49,12 +49,19 @@ try {
         $productCur->execute();
         $productCurRow = $productCur->fetch(PDO::FETCH_ASSOC);
 
+        $promotionsql = "insert into promotionsdetail(promotions_no, product_no, promotions_price) value(:promotions_no, :product_no, :promotions_price)";
+        $promotion =$pdo->prepare($promotionsql);
+        $promotion->bindValue(":promotions_no", $_POST["promotions_no"]);
+        $promotion->bindValue(":product_no", $productCurRow["product_no"]);
+        $promotion->bindValue(":promotions_price", $_POST["promotions_price"]);
+        $promotion->execute();
+
         foreach ($_FILES["A_upFile"]["error"] as $i => $error) {
             $productImgsql = "INSERT INTO `product_image`(`product_no`, `name`, `product_show`, `image_path`) VALUES (:product_no ,:product_name, :product_show, :image_path)";
             $productImg = $pdo->prepare($productImgsql);
             $productImg->bindValue(":product_no", $productCurRow["product_no"]);
             $productImg->bindValue(":product_name", $_POST["product_name"]);
-            $productImg->bindValue(":product_show", "1");
+            $productImg->bindValue(":product_show", $_POST["product_show"][$i]);
             $productImg->bindValue(":image_path", $_FILES["A_upFile"]["name"][$i]);
             $productImg->execute();
         };

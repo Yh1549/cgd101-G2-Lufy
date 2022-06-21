@@ -7,9 +7,11 @@
 }
 .member_sidemenu {
   width: 20%;
-  height: 80vh;
   background-color: $primary_100;
   text-align: center;
+  @include t() {
+    width: 100%;
+}
   & button {
     margin-top: 20px;
     cursor: pointer;
@@ -19,19 +21,36 @@
     &:hover {
       background-color: $secondary_70;
     }
+    @include t() {
+      margin: 0px;
+  }
   }
   & h1 {
     margin: 20px;
     color: $fontcolor_100;
+    @include t() {
+      margin: 0px;
+      font-size: 22px;
+  }
   }
   & ul {
     text-align: center;
     color: $secondary_100;
+    @include t() {
+      display: flex;
+      justify-content: space-evenly;
+  }
     & li {
       cursor: pointer;
       transition: 0.3s;
       box-sizing: border-box;
       border-bottom: 2px solid $primary_100;
+      @include t() {
+        font-size: 14px;
+        padding: 10px;
+        display: flex;
+        align-self: center;
+    }
       &:hover {
         background-color: $secondary_70;
         color: $primary_30;
@@ -45,15 +64,27 @@
 }
 .memberform_content {
   width: 80%;
+  @include t() {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+}
 }
 .membercenter_form {
   display: flex;
   margin-right: auto;
   margin-left: auto;
   width: 70%;
+  @include t() {
+    width: 100%;
+  }
 }
 .memberform_profiles {
   display: flex;
+  @include t() {
+  display: inline-block;
+  width: 100%;
+}
 }
 .member_hide {
   display: none;
@@ -61,6 +92,10 @@
 .memberform_label {
   display: flex;
   flex-direction: column;
+  @include t() {
+    width: 40%;
+  }
+  
 }
 //帳號登入
 #member_welcome {
@@ -70,6 +105,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    @include t() {
+      font-size: $s3 - 40px;
+  }
   }
   & span {
     display: flex;
@@ -84,6 +122,9 @@
     text-align: center;
     & div {
       margin: 20px;
+      & input{
+        max-width: 100%;
+      }
       & label {
         padding: 0px 10px;
       }
@@ -98,21 +139,35 @@
   margin-right: auto;
   margin-left: auto;
   width: 70%;
+  @include t() {
+    width: 100%;
+  }
   & form div label {
     font-size: 20px;
     padding: 8px 16px;
     margin-top: 20px;
     font-family: $fontcontent;
+    @include t() {
+      font-size: 14px;
+    }
   }
   & form div input {
     font-family: $fontcontent;
     margin-top: 20px;
+    @include t() {
+      font-size: 14px;
+      width: 50%;
+    }
+    
   }
 }
 #member_center_changepassword {
   margin-right: auto;
   margin-left: auto;
   width: 70%;
+  @include t() {
+    width: 100%;
+  }
   & h1{
     text-align: center;
   }
@@ -125,10 +180,18 @@
     padding: 8px 16px;
     margin-top: 20px;
     font-family: $fontcontent;
+    @include t() {
+    font-size: 12px;
+    text-align: start;
+  }
   }
   & form div input {
     font-family: $fontcontent;
     margin-top: 20px;
+    @include t() {
+      font-size: 14px;
+      width: 50%;
+    }
   }
 }
 // ---
@@ -185,6 +248,9 @@
       background-color: $primary_dark;
       border-radius: 10px;
     }
+  }
+  @include t {
+    margin-top: 10px;
   }
 }
 .ip_file {

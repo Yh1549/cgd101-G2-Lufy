@@ -1,5 +1,11 @@
 .supWrapper{
-    display: flex;  
+    display: flex;
+    @include t {
+        flex-direction: column;
+        // justify-content: center;
+        // align-items: center;
+        // border: 1px solid red;
+      }
 }
 .faqCategory{
     width: 15%;
@@ -8,6 +14,13 @@
     position: sticky;
     top: 120px;
     // background-color: aquamarine;
+    @include t {
+        display: flex;
+        // position: fixed;
+        width: 85%;
+        height: 100px;
+        justify-content: center;
+      }
 }
 .faqMenu{
     width: 85%;
@@ -20,12 +33,21 @@
     }
     .strongholdText{
         width: 60%;
+        @include t {
+            width: 90%;
+          }
     }
+    @include t {
+        flex-direction: column;
+      }
 }
 .faqTitle{
     border: 1px solid #ccc;
     text-align: center;
     border-radius: 30px;
+    @include t {
+        display: none;
+      }
 }
 .question{
     background-color: $primary_100;
@@ -38,6 +60,10 @@
 .faqAnchor a{
     text-decoration: none;
     color: $fontcolor_70;
+    @include t {
+        padding: 5px 10px;
+        font-size: 14px;
+      }
 }
 .faqCard h2{
     border-bottom: 2px solid #ccc;
@@ -45,4 +71,11 @@
 }
 .faqAnchor a:hover{
     color: $primary_70;
+}
+.faqAnchor{
+    @include t {
+        display: flex;
+        justify-content: space-between;
+        transform: translateY(-70px);
+      }
 }

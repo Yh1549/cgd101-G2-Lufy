@@ -128,13 +128,13 @@
                     <div class="ps_1 pe_1 pl_1 pr_1">
                         <div class="pr_1 pe_1 ps_2"></div>
                         <div class="backend_title">
-                            <p class="p1 pr_1 font_w5 fontcontent">會員編號</p>
-                            <p class="p1 pr_1 font_w5 fontcontent">會員姓名</p>
-                            <p class="p1 pr_1 font_w5 fontcontent listGrow">會員帳號(信箱)</p>
-                            <p class="p1 pr_1 font_w5 fontcontent">會員生日</p>
-                            <p class="p1 pr_1 font_w5 fontcontent">會員電話</p>
-                            <p class="p1 pr_1 font_w5 fontcontent listGrow">會員地址</p>
-                            <p class="p1 pr_1 font_w5 fontcontent">會員狀態</p>
+                            <p class="p1 pr_1 font_w5">會員編號</p>
+                            <p class="p1 pr_1 font_w5">會員姓名</p>
+                            <p class="p1 pr_1 font_w5 listGrow">會員帳號(信箱)</p>
+                            <p class="p1 pr_1 font_w5">會員生日</p>
+                            <p class="p1 pr_1 font_w5">會員電話</p>
+                            <p class="p1 pr_1 font_w5 listGrow">會員地址</p>
+                            <p class="p1 pr_1 font_w5">會員狀態</p>
                             <p></p>
                         </div>
                         <ul>
@@ -304,19 +304,22 @@
                                             <p class="pl_1 pr_1 h2">Promotions</p>
                                         </div>
                                         <div class="ps_1 pe_1 LBcol">
-                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1"
-                                                    for="">Name</label>
+                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Name</label>
                                             </div>
                                             <div class="pl_1 pr_1">
                                                 <select name="promotions_no" id="">
                                                     <option>請選擇優惠活動</option>
-                                                    <option v-for="item in promotions_select_list" :key="item.promotions_no" :value="item.promotions_no">{{item.promotions_name}}</option>
+                                                    <option v-for="item in promotions_select_list"
+                                                        :key="item.promotions_no" :value="item.promotions_no">
+                                                        {{item.promotions_name}}</option>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="ps_1 pe_1 LBcol">
-                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Sale Price</label></div>
-                                            <div class="pl_1 pr_1"><input class="ip_normal ip_price" type="text" name="promotions_price" id=""></div>
+                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Sale
+                                                    Price</label></div>
+                                            <div class="pl_1 pr_1"><input class="ip_normal ip_price" type="text"
+                                                    name="promotions_price" id=""></div>
                                         </div>
                                     </div>
                                     <div style="width:50%">
@@ -335,7 +338,7 @@
                                             <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Show</label>
                                             </div>
                                             <div class="pl_1 pr_1">
-                                                <select name="product_show" id="">
+                                                <select name="product_show[]" id="">
                                                     <option value="0">No</option>
                                                     <option value="1">Yes</option>
                                                 </select>
@@ -356,7 +359,7 @@
                                             <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Show</label>
                                             </div>
                                             <div class="pl_1 pr_1">
-                                                <select name="product_show" id="">
+                                                <select name="product_show[]" id="">
                                                     <option value="0">No</option>
                                                     <option value="1">Yes</option>
                                                 </select>
@@ -377,7 +380,7 @@
                                             <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Show</label>
                                             </div>
                                             <div class="pl_1 pr_1">
-                                                <select name="product_show" id="">
+                                                <select name="product_show[]" id="">
                                                     <option value="0">No</option>
                                                     <option value="1">Yes</option>
                                                 </select>
@@ -398,7 +401,7 @@
                                             <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Show</label>
                                             </div>
                                             <div class="pl_1 pr_1">
-                                                <select name="product_show" id="">
+                                                <select name="product_show[]" id="">
                                                     <option value="0">No</option>
                                                     <option value="1">Yes</option>
                                                 </select>
@@ -505,15 +508,19 @@
                                             <div class="pl_1 pr_1">
                                                 <select name="promotions_no" id="" v-model="popupData.promotions_no">
                                                     <option>請選擇優惠活動</option>
-                                                    <option v-for="item in promotions_select_list" :key="item.promotions_no" :value="item.promotions_no">{{
+                                                    <option v-for="item in promotions_select_list"
+                                                        :key="item.promotions_no" :value="item.promotions_no">{{
                                                         item.promotions_name }}</option>
                                                 </select>
                                             </div>
-                                            
+
                                         </div>
                                         <div class="ps_1 pe_1 LBcol">
-                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Sale Price</label></div>
-                                            <div class="pl_1 pr_1"><input class="ip_normal ip_price" type="text" name="promotions_price" id="" v-model="popupData.promotions_price"></div>
+                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Sale
+                                                    Price</label></div>
+                                            <div class="pl_1 pr_1"><input class="ip_normal ip_price" type="text"
+                                                    name="promotions_price" id="" v-model="popupData.promotions_price">
+                                            </div>
                                         </div>
                                     </div>
                                     <div style="width:50%">
@@ -523,13 +530,13 @@
                                             </div>
                                             <div class="pl_1 pr_1">
                                                 <input type="hidden" name="prodone_img_origin"
-                                                    :value="popupData.image_path">
+                                                    :value="imageData.image_path">
                                                 <!-- <p class="pe_1" style="padding-top: 8px" name="prodone_img_origin"
                                                     :value="popupData.image_path">目前檔名：{{popupData.image_path}}</p> -->
                                                 <input type="file" name="A_E_one_upFile" id="A_E_one_upFile">
-                                                    <div class="ps_1 pe_1" style="width:310px; height: 173px">
+                                                <div class="ps_1 pe_1" style="width:310px; height: 173px">
                                                     <img style="width:auto; height: 173px" name="image_path"
-                                                        id="A_E_one_newsImage" :src="'images//'+ popupData.image_path"
+                                                        id="A_E_one_newsImage" :src="'images//'+ imageData.image_path"
                                                         alt="">
                                                 </div>
                                             </div>
@@ -538,7 +545,7 @@
                                             <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Show</label>
                                             </div>
                                             <div class="pl_1 pr_1">
-                                                <select name="product_show" v-model="popupData.product_show" id="">
+                                                <select name="product_show" v-model="imageData.product_show" id="">
                                                     <option value="0">No</option>
                                                     <option value="1">Yes</option>
                                                 </select>
@@ -554,7 +561,7 @@
                                                 <!-- <p style="padding-top: 8px" name="prodone_img_origin"
                                                     :value="popupData.image_path">目前檔名：{{popupData.image_path}}</p> -->
                                                 <input type="file" name="A_E_two_upFile" id="A_E_two_upFile">
-                                                    <div class="ps_1 pe_1" style="width:310px; height: 173px">
+                                                <div class="ps_1 pe_1" style="width:310px; height: 173px">
                                                     <img style="width:auto; height: 173px" name="image_path"
                                                         id="A_E_two_newsImage" :src="'images//'+ popupData.image_path"
                                                         alt="">
@@ -625,6 +632,33 @@
                                                 </select>
                                             </div>
                                         </div>
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle">
+                                                <label class="p1" for="">Image4</label>
+                                            </div>
+                                            <div class="pl_1 pr_1">
+                                                <input type="hidden" name="prodone_img_origin"
+                                                    :value="popupData.image_path">
+                                                <!-- <p style="padding-top: 8px" name="prodone_img_origin"
+                                                    :value="popupData.image_path">目前檔名：{{popupData.image_path}}</p> -->
+                                                <input type="file" name="A_E_four_upFile" id="A_E_four_upFile">
+                                                <div class="ps_1 pe_1" style="width:310px; height: 173px">
+                                                    <img style="width:auto; height: 173px" name="image_path"
+                                                        id="A_E_four_newsImage" :src="'images//'+ popupData.image_path"
+                                                        alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Show</label>
+                                            </div>
+                                            <div class="pl_1 pr_1">
+                                                <select name="product_show" v-model="popupData.product_show" id="">
+                                                    <option value="0">No</option>
+                                                    <option value="1">Yes</option>
+                                                </select>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="ps_1 pr_1 lastBtn">
@@ -641,15 +675,15 @@
                     <div class="ps_1 pe_1 pl_1 pr_1">
                         <div class="pr_1 pe_1 newListBtn"><button class="p1 bkbtn" id="A_New">✚ NEW</button></div>
                         <div class="backend_title">
-                            <p class="p1 pr_1 font_w5 fontcontent">商品編號</p>
-                            <p class="p1 pr_1 font_w5 fontcontent listGrow">商品名稱</p>
-                            <p class="p1 pr_1 font_w5 fontcontent">商品類別</p>
-                            <p class="p1 pr_1 font_w5 fontcontent listGrow">商品設計師</p>
-                            <p class="p1 pr_1 font_w5 fontcontent listGrow">商品介紹</p>
-                            <p class="p1 pr_1 font_w5 fontcontent listGrow">商品規格</p>
-                            <p class="p1 pr_1 font_w5 fontcontent">商品單價</p>
-                            <p class="p1 pr_1 font_w5 fontcontent">商品狀態</p>
-                            <p class="p1 pr_1 font_w5 fontcontent">商品庫存</p>
+                            <p class="p1 pr_1 font_w5">商品編號</p>
+                            <p class="p1 pr_1 font_w5 listGrow">商品名稱</p>
+                            <p class="p1 pr_1 font_w5">商品類別</p>
+                            <p class="p1 pr_1 font_w5 listGrow">商品設計師</p>
+                            <p class="p1 pr_1 font_w5 listGrow">商品介紹</p>
+                            <p class="p1 pr_1 font_w5 listGrow">商品規格</p>
+                            <p class="p1 pr_1 font_w5">商品單價</p>
+                            <p class="p1 pr_1 font_w5">商品狀態</p>
+                            <p class="p1 pr_1 font_w5">商品庫存</p>
                             <p></p>
                         </div>
                         <ul>
@@ -687,6 +721,8 @@
                         data: {
                             fucusNo: 0,
                             prodRows: [],
+                            imageRows:[],
+                            imageData:[],
                             popupData: {
                                 product_no: '',
                                 name: ``,
@@ -697,14 +733,17 @@
                                 price: ``,
                                 on_market: ``,
                                 in_stock: ``,
-                                product_show: ``
+                                product_show: ``,
                             },
                             promotions_select_list: []
                         },
                         created() {
                             let xhr = new XMLHttpRequest();
                             xhr.onload = function () {
-                                productsVue.prodRows = JSON.parse(xhr.responseText);
+                                productsVue.prodRows = JSON.parse(xhr.responseText).prodRows;
+                                 productsVue.imageRows = JSON.parse(xhr.responseText).imageRows;
+                                console.log(productsVue.imageRows);
+
                             }
                             xhr.open("get", "getProducts.php", true);
                             xhr.send(null);
@@ -715,15 +754,25 @@
                             }
                             xhrP.open("get", "getPromotions.php", true);
                             xhrP.send(null);
+
+                            
                         },
                         computed: {
                             focusObj() {
                                 return (this.prodRows.find(v => v.product_no == this.fucusNo)) ? (this.prodRows.find(v => v.product_no == this.fucusNo)) : this.prodRows[0];
                             },
+                            focusimgObj() {
+                                return this.imageRows.filter(v => v.product_no == this.fucusNo);
+                                // return 123;
+                            },
                         },
                         watch: {
                             focusObj(nVal) {
+                                // console.log(nVal);
                                 this.popupData = JSON.parse(JSON.stringify(nVal));
+                            },
+                            focusimgObj(gVal) {
+                                this.imageData = JSON.parse(JSON.stringify(gVal));
                             },
                         },
                         methods: {
@@ -780,7 +829,8 @@
                                             <div class="pl_1 pr_1 LBcolTitle LBcolCredit"><label class="p1" for="">Order
                                                     Date Time</label></div>
                                             <div class="pl_1 pr_1"><input class="tyDate" type="text"
-                                                    name="order_datetime" id="" v-model="popupData.order_datetime" readonly="readonly">
+                                                    name="order_datetime" id="" v-model="popupData.order_datetime"
+                                                    readonly="readonly">
                                             </div>
                                         </div>
                                         <div class="ps_1 pe_1 LBcol">
@@ -808,7 +858,8 @@
                                             <div class="pl_1 pr_1 LBcolTitle LBcolCredit"><label class="p1" for=""
                                                     style="vertical-align:top">Order Notes</label></div>
                                             <div class="pl_1 pr_1"><textarea class="p1 tArea" name="order_notes" id=""
-                                                    cols="23" rows="5" v-model="popupData.order_notes" readonly="readonly"></textarea></div>
+                                                    cols="23" rows="5" v-model="popupData.order_notes"
+                                                    readonly="readonly"></textarea></div>
                                         </div>
                                     </div>
                                 </div>
@@ -818,37 +869,43 @@
                                             <div class="pl_1 pr_1 LBcolTitle LBcolCredit"><label class="p1" for="">Payer
                                                     Name</label></div>
                                             <div class="pl_1 pr_1"><input class="ip_normal" type="text"
-                                                    name="payer_name" id="" v-model="popupData.payer_name" readonly="readonly"></div>
+                                                    name="payer_name" id="" v-model="popupData.payer_name"
+                                                    readonly="readonly"></div>
                                         </div>
                                         <div class="ps_1 pe_1 LBcol">
                                             <div class="pl_1 pr_1 LBcolTitle LBcolCredit"><label class="p1" for="">Payer
                                                     Phone</label></div>
                                             <div class="pl_1 pr_1"><input class="ip_normal" type="tel"
-                                                    name="payer_phone" id="" v-model="popupData.payer_phone" readonly="readonly"></div>
+                                                    name="payer_phone" id="" v-model="popupData.payer_phone"
+                                                    readonly="readonly"></div>
                                         </div>
                                         <div class="ps_1 pe_1 LBcol">
                                             <div class="pl_1 pr_1 LBcolTitle LBcolCredit"><label class="p1" for="">Payer
                                                     Address</label></div>
                                             <div class="pl_1 pr_1"><input class="ip_normal" type="text"
-                                                    name="payer_address" id="" v-model="popupData.payer_address" readonly="readonly"></div>
+                                                    name="payer_address" id="" v-model="popupData.payer_address"
+                                                    readonly="readonly"></div>
                                         </div>
                                         <div class="ps_1 pe_1 LBcol">
                                             <div class="pl_1 pr_1 LBcolTitle LBcolCredit"><label class="p1"
                                                     for="">Credit Card</label></div>
                                             <div class="pl_1 pr_1"><input class="ip_normal" type="tel" maxlength="16"
-                                                    name="credit_card" id="" v-model="popupData.credit_card" readonly="readonly"></div>
+                                                    name="credit_card" id="" v-model="popupData.credit_card"
+                                                    readonly="readonly"></div>
                                         </div>
                                         <div class="ps_1 pe_1 LBcol">
                                             <div class="pl_1 pr_1 LBcolTitle LBcolCredit"><label class="p1" for="">Card
                                                     Date (year month)</label></div>
                                             <div class="pl_1 pr_1"><input class="ip_normal" type="tel" maxlength="4"
-                                                    name="card_date" id="" v-model="popupData.card_date" readonly="readonly"></div>
+                                                    name="card_date" id="" v-model="popupData.card_date"
+                                                    readonly="readonly"></div>
                                         </div>
                                         <div class="ps_1 pe_1 LBcol">
                                             <div class="pl_1 pr_1 LBcolTitle LBcolCredit"><label class="p1"
                                                     for="">Credit Card CheckCode</label></div>
                                             <div class="pl_1 pr_1"><input class="ip_normal" type="tel" maxlength="3"
-                                                    name="card_checkCode" id="" v-model="popupData.card_checkCode" readonly="readonly">
+                                                    name="card_checkCode" id="" v-model="popupData.card_checkCode"
+                                                    readonly="readonly">
                                             </div>
                                         </div>
                                     </div>
@@ -857,57 +914,60 @@
                                             <div class="pl_1 pr_1 LBcolTitle LBcolCredit"><label class="p1"
                                                     for="">Recipient Name</label></div>
                                             <div class="pl_1 pr_1"><input class="ip_normal" type="text"
-                                                    name="recipient_name" id="" v-model="popupData.recipient_name" readonly="readonly">
+                                                    name="recipient_name" id="" v-model="popupData.recipient_name"
+                                                    readonly="readonly">
                                             </div>
                                         </div>
                                         <div class="ps_1 pe_1 LBcol">
                                             <div class="pl_1 pr_1 LBcolTitle LBcolCredit"><label class="p1"
                                                     for="">Recipient Phone</label></div>
                                             <div class="pl_1 pr_1"><input class="ip_normal" type="tel"
-                                                    name="recipient_phone" id="" v-model="popupData.recipient_phone" readonly="readonly">
+                                                    name="recipient_phone" id="" v-model="popupData.recipient_phone"
+                                                    readonly="readonly">
                                             </div>
                                         </div>
                                         <div class="ps_1 pe_1 LBcol">
                                             <div class="pl_1 pr_1 LBcolTitle LBcolCredit"><label class="p1"
                                                     for="">Recipient Address</label></div>
                                             <div class="pl_1 pr_1"><input class="ip_normal" type="text"
-                                                    name="recipient_address" id=""
-                                                    v-model="popupData.recipient_address" readonly="readonly"></div>
+                                                    name="recipient_address" id="" v-model="popupData.recipient_address"
+                                                    readonly="readonly"></div>
                                         </div>
                                         <div class="ps_1 pe_1 LBcol">
                                             <div class="pl_1 pr_1 LBcolTitle LBcolCredit"><label class="p1"
                                                     for="">Recipient Date Time</label></div>
                                             <div class="pl_1 pr_1"><input class="ip_normal" type="text"
-                                                    name="recipient_datetime" id="" v-model="popupData.recipient_datetime" readonly="readonly"></div>
+                                                    name="recipient_datetime" id=""
+                                                    v-model="popupData.recipient_datetime" readonly="readonly"></div>
                                         </div>
                                     </div>
                                 </div>
-                            </form>    
-                                <div class="formOne formThree">
-                                    <div class="ml_1 mr_1 ps_1 pe_1 pl_1 pr_1 backend_titleH1">
-                                        <h1 class="h1 font_w5 fontTitle">Order Detail</h1>
-                                    </div>
-                                    <div class="ps_1 pe_1 pl_1 pr_1">
-                                        <div class="pr_1 pe_1"></div>
-                                        <div class="backend_title">
-                                            <p class="p1 pr_1 font_w5 fontcontent listGrow">Product Name</p>
-                                            <p class="p1 pr_1 font_w5 fontcontent listGrow">Quantity</p>
-                                            <p class="p1 pr_1 font_w5 fontcontent listGrow">Price</p>
-                                            <p class=""></p>
-                                        </div>
-                                        <ul>
-                                            <template v-for="detailRow in popupDetail">
-                                                <li is="OD_menu" v-bind="detailRow"></li>
-                                            </template>
-                                        </ul>
-                                    </div>
+                            </form>
+                            <div class="formOne formThree">
+                                <div class="ml_1 mr_1 ps_1 pe_1 pl_1 pr_1 backend_titleH1">
+                                    <h1 class="h1 font_w5 fontTitle">Order Detail</h1>
                                 </div>
-                                <div class="ps_1 pe_1 pr_1 lastBtn">
-                                    <button class="ml_1 p1 bkbtn" id="O_EditBtnCancel" type="button">Cancel</button>
-                                    <button id="O_EditBtnAdd" class="ml_1 p1 bkbtn" type="button"
-                                        @click="ordersSub">OK</button>
+                                <div class="ps_1 pe_1 pl_1 pr_1">
+                                    <div class="pr_1 pe_1"></div>
+                                    <div class="backend_title">
+                                        <p class="p1 pr_1 font_w5 listGrow">Product Name</p>
+                                        <p class="p1 pr_1 font_w5 listGrow">Quantity</p>
+                                        <p class="p1 pr_1 font_w5 listGrow">Price</p>
+                                        <p class=""></p>
+                                    </div>
+                                    <ul>
+                                        <template v-for="detailRow in popupDetail">
+                                            <li is="OD_menu" v-bind="detailRow"></li>
+                                        </template>
+                                    </ul>
                                 </div>
-                            
+                            </div>
+                            <div class="ps_1 pe_1 pr_1 lastBtn">
+                                <button class="ml_1 p1 bkbtn" id="O_EditBtnCancel" type="button">Cancel</button>
+                                <button id="O_EditBtnAdd" class="ml_1 p1 bkbtn" type="button"
+                                    @click="ordersSub">OK</button>
+                            </div>
+
                         </div>
                     </div>
                     <div class="ps_1 pe_1 pl_1 pr_1 backend_titleH1">
@@ -916,12 +976,12 @@
                     <div class="ps_1 pe_1 pl_1 pr_1">
                         <div class="pr_1 pe_1 ps_2"></div>
                         <div class="backend_title">
-                            <p class="p1 pr_1 font_w5 fontcontent">訂單編號</p>
-                            <p class="p1 pr_1 font_w5 fontcontent">會員編號</p>
-                            <p class="p1 pr_1 font_w5 fontcontent listGrow">訂單日期時間</p>
-                            <p class="p1 pr_1 font_w5 fontcontent">訂單總額</p>
-                            <p class="p1 pr_1 font_w5 fontcontent listGrow">收貨時間</p>
-                            <p class="p1 pr_1 font_w5 fontcontent listGrow">訂單備註</p>
+                            <p class="p1 pr_1 font_w5">訂單編號</p>
+                            <p class="p1 pr_1 font_w5">會員編號</p>
+                            <p class="p1 pr_1 font_w5 listGrow">訂單日期時間</p>
+                            <p class="p1 pr_1 font_w5">訂單總額</p>
+                            <p class="p1 pr_1 font_w5 listGrow">收貨時間</p>
+                            <p class="p1 pr_1 font_w5 listGrow">訂單備註</p>
                             <p class=""></p>
                         </div>
                         <ul>
@@ -987,26 +1047,26 @@
                                 order_total: ``,
                                 order_notes: ``
                             },
-                            StateName:[
+                            StateName: [
                                 {
-                                    id:0,
-                                    name:'待處理'
+                                    id: 0,
+                                    name: '待處理'
                                 },
                                 {
-                                    id:1,
-                                    name:'待出貨'
+                                    id: 1,
+                                    name: '待出貨'
                                 },
                                 {
-                                    id:2,
-                                    name:'已出貨'
+                                    id: 2,
+                                    name: '已出貨'
                                 },
                                 {
-                                    id:3,
-                                    name:'訂單完成'
+                                    id: 3,
+                                    name: '訂單完成'
                                 }
                             ],
                             detailRows: [],
-                            popupDetail:[]
+                            popupDetail: []
                         },
                         created() {
                             let xhr = new XMLHttpRequest();
@@ -1219,13 +1279,13 @@
                     <div class="ps_1 pe_1 pl_1 pr_1">
                         <div class="pr_1 pe_1 newListBtn"><button class="p1 bkbtn" id="B_New">✚ NEW</button></div>
                         <div class="backend_title">
-                            <p class="p1 pr_1 font_w5 fontcontent">活動編號</p>
-                            <p class="p1 pr_1 font_w5 fontcontent listGrow">活動名稱</p>
-                            <p class="p1 pr_1 font_w5 fontcontent">活動開始日期</p>
-                            <p class="p1 pr_1 font_w5 fontcontent">活動結束日期</p>
-                            <p class="p1 pr_1 font_w5 fontcontent listGrow">活動內文</p>
-                            <p class="p1 pr_1 font_w5 fontcontent listGrow">圖片路徑</p>
-                            <p class="p1 pr_1 font_w5 fontcontent">狀態</p>
+                            <p class="p1 pr_1 font_w5">活動編號</p>
+                            <p class="p1 pr_1 font_w5 listGrow">活動名稱</p>
+                            <p class="p1 pr_1 font_w5">活動開始日期</p>
+                            <p class="p1 pr_1 font_w5">活動結束日期</p>
+                            <p class="p1 pr_1 font_w5 listGrow">活動內文</p>
+                            <p class="p1 pr_1 font_w5 listGrow">圖片路徑</p>
+                            <p class="p1 pr_1 font_w5">狀態</p>
                             <p></p>
                         </div>
                         <ul>
@@ -1461,12 +1521,12 @@
                         <div class="pr_1 pe_1 newListBtn"><button class="p1 bkbtn" id="C_New" type="button">✚
                                 NEW</button></div>
                         <div class="backend_title">
-                            <p class="p1 pr_1 font_w5 fontcontent">消息編號</p>
-                            <p class="p1 pr_1 font_w5 fontcontent listGrow">消息名稱</p>
-                            <p class="p1 pr_1 font_w5 fontcontent">消息發佈日期</p>
-                            <p class="p1 pr_1 font_w5 fontcontent listGrow">消息內文</p>
-                            <p class="p1 pr_1 font_w5 fontcontent listGrow">消息圖片路徑</p>
-                            <p class="p1 pr_1 font_w5 fontcontent">狀態</p>
+                            <p class="p1 pr_1 font_w5">消息編號</p>
+                            <p class="p1 pr_1 font_w5 listGrow">消息名稱</p>
+                            <p class="p1 pr_1 font_w5">消息發佈日期</p>
+                            <p class="p1 pr_1 font_w5 listGrow">消息內文</p>
+                            <p class="p1 pr_1 font_w5 listGrow">消息圖片路徑</p>
+                            <p class="p1 pr_1 font_w5">狀態</p>
                             <p></p>
                         </div>
                         <ul>
@@ -1604,10 +1664,10 @@
                     <div class="ps_1 pe_1 pl_1 pr_1">
                         <div class="pr_1 pe_1 ps_2"></div>
                         <div class="pr_1 backend_title">
-                            <p class="p1 pr_1 font_w5 fontcontent">編號</p>
-                            <p class="p1 pr_1 font_w5 fontcontent">名稱</p>
-                            <p class="p1 pr_1 font_w5 fontcontent listGrow">圖片檔名</p>
-                            <p class="p1 pr_1 font_w5 fontcontent listGrow">圖片預覽</p>
+                            <p class="p1 pr_1 font_w5">編號</p>
+                            <p class="p1 pr_1 font_w5">名稱</p>
+                            <p class="p1 pr_1 font_w5 listGrow">圖片檔名</p>
+                            <p class="p1 pr_1 font_w5 listGrow">圖片預覽</p>
                             <p class=""></p>
                         </div>
                         <ul>
@@ -1651,7 +1711,6 @@
                             let xhr = new XMLHttpRequest();
                             xhr.onload = function () {
                                 carouselVue.carouselRows = JSON.parse(xhr.responseText);
-
                             }
                             xhr.open("get", "getCarousels.php", true);
                             xhr.send(null);
@@ -1804,12 +1863,12 @@
                     <div class="ps_1 pe_1 pl_1 pr_1">
                         <div class="pr_1 pe_1 newListBtn"><button class="p1 bkbtn" id="D_New">✚ NEW</button></div>
                         <div class="backend_title">
-                            <p class="p1 pr_1 font_w5 fontcontent">人員編號</p>
-                            <p class="p1 pr_1 font_w5 fontcontent listGrow">人員姓名</p>
-                            <p class="p1 pr_1 font_w5 fontcontent listGrow">人員帳號</p>
-                            <p class="p1 pr_1 font_w5 fontcontent listGrow">人員密碼</p>
-                            <p class="p1 pr_1 font_w5 fontcontent listGrow">人員類別</p>
-                            <p class="p1 pr_1 font_w5 fontcontent">人員狀態</p>
+                            <p class="p1 pr_1 font_w5">人員編號</p>
+                            <p class="p1 pr_1 font_w5 listGrow">人員姓名</p>
+                            <p class="p1 pr_1 font_w5 listGrow">人員帳號</p>
+                            <p class="p1 pr_1 font_w5 listGrow">人員密碼</p>
+                            <p class="p1 pr_1 font_w5 listGrow">人員類別</p>
+                            <p class="p1 pr_1 font_w5">人員狀態</p>
                             <p></p>
                         </div>
                         <ul>
@@ -1891,11 +1950,7 @@
             </script>
         </div>
     </div>
-
-
-
     <script src="./js/backendLightBox.js"></script>
-
 </body>
 
 </html>

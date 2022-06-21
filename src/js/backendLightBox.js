@@ -31,7 +31,7 @@ function A_create(){//----新增
 
     let xhrPm = new XMLHttpRequest();
     xhrPm.onload = function(){
-        alert(xhrPm.responseText);
+        // alert(xhrPm.responseText);
     }
     xhrPm.open("post", "backend_promotionsdetailsInsert.php");
     xhrPm.send(new FormData($id("productsForm")));
@@ -352,9 +352,6 @@ function init() {
     };
     //----//----修改管理員-Edit鈕
     $id("D_EditBtnCancel").onclick = D_cancelEdit;//----修改管理員-取消鈕
-    
-    
-
 };
 
 window.addEventListener("load", init, false);

@@ -8,20 +8,23 @@ function doFirst() {
     let list = document.querySelectorAll('.addButton');
     for (let i = 0; i < list.length; i++) {
         list[i].addEventListener('click', function (e) {
-            let lamp = document.querySelector(`#${e.target.id} input`).value;
+            let selector = e.target + ' input'
+            let lamp = document.querySelector(`span input`).value
             addItem(e.target.id, lamp);
             // console.log(lamp);
+            // console.log(e.target.id);
+            // console.log(e.target.id);
         })
     }
 }
 
 function addItem(itemId, itemValue) {
-
+   
     let image = document.createElement('img')
-    image.src = 'images/' + itemValue.split('|')[1]
+    image.src = 'images/' + itemValue.split('|')[3]
 
     let title = document.createElement('span')
-    title.innerText = itemValue.split('|')[0]
+    title.innerText = itemValue.split('|')[1]
 
     let price = document.createElement('span')
     price.innerText = itemValue.split('|')[2]
@@ -46,20 +49,19 @@ function addItem(itemId, itemValue) {
     } else {
         storage['addItemList'] += `${itemId}, `;
         storage.setItem(itemId, itemValue);
-        console.log(itemValue);
+       
     }
 
 
     let itemString = storage.getItem('addItemList')
     let items = itemString.substr(0, itemString.length - 2).split(', ')
-    console.log(itemString);
-    console.log(items);
+    
 
 
     let subtotal = 0;
     for (let i = 0; i < items.length; i++) {
         let itemInfo = storage.getItem(items[i]);
-        console.log(itemInfo);
+     
         let itemPrice = parseInt(itemInfo.split('|')[2]);
 
         subtotal += itemPrice
@@ -89,8 +91,7 @@ window.addEventListener("load", init, false);
 window.addEventListener("load", init, false);
 let addButton = document.querySelector('.addButton')
 let pImg = document.getElementById('large')
-// console.log(pImg);
-// console.log(pImg)
+
 let issue = document.querySelector('.product_overlay')
 
 function showIssue() {
