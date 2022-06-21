@@ -29,17 +29,21 @@ let prodImgSmall = Vue.component('prodimg-small', {
     },
 });
 let purchasePnl = Vue.component('purchase-panel', {
+<<<<<<< HEAD
     props: ['name', 'price', 'promotions_name', 'promotions_price', 'promPrice', 'add', 'product_no','image_path','specification'],
+=======
+    props: ['name', 'price', 'promotions_name', 'promotions_price', 'promPrice', 'add', 'product_no'],
+>>>>>>> 39c3dc6311b4f69bd18e129ed901f9318c38c10a
     methods: {
         setFavorite(e) {
             const product_no = window.location.search.split('id=')[1];
             axios.get(`favorite.php?id=${product_no
-                }&add=${this.isAdd}`).then((response) => {
+                }&add=${this.add}`).then((response) => {
                 if (response.data == 'add success') {
-                    this.isAdd = false;
+                    this.add = false;
                     e.target.classList.add('favActive');
                 } else {
-                    this.isAdd = true;
+                    this.add = true;
                     e.target.classList.remove('favActive');
                 }
             }).catch(err => console.log(err));

@@ -31,7 +31,7 @@ function A_create(){//----新增
 
     let xhrPm = new XMLHttpRequest();
     xhrPm.onload = function(){
-        alert(xhrPm.responseText);
+        // alert(xhrPm.responseText);
     }
     xhrPm.open("post", "backend_promotionsdetailsInsert.php");
     xhrPm.send(new FormData($id("productsForm")));
@@ -144,7 +144,16 @@ function D_cancelEdit() {//-----------取消開修改燈箱
     $id("D_edit_lightBox").style.display = "none";
 };
 
-
+function admin(){
+    let xhr = new XMLHttpRequest();
+    xhr.onload = function () {
+        if(xhr.status == 200){
+            alert("登出成功");
+        };
+    };
+    xhr.open("get", "memberLogout.php");
+    xhr.send(null);
+};
 //-----------------------init-------------------------------------------------------------
 function init() {
 
@@ -343,9 +352,6 @@ function init() {
     };
     //----//----修改管理員-Edit鈕
     $id("D_EditBtnCancel").onclick = D_cancelEdit;//----修改管理員-取消鈕
-    
-    
-
 };
 
 window.addEventListener("load", init, false);
