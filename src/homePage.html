@@ -207,58 +207,45 @@
     <section class="index_news">
         <div class="containerALL">
             <div class="card">
-                <div id="news_photo">
-                    <news-photo v-for="(newsphoto, index) in newsphotoObject" :key="newsphoto.id" v-bind="newsphoto">
-                    </news-photo>
+                <div id="newsList">
+                    <news-card v-for="(newsphoto, index) in newsRows" :key="newsphoto.id" v-bind="newsphoto">
+                    </news-card>
                 </div>
                 <script>
-                    let newsphoto = Vue.component("news-photo", {
-                        props: [
-                            "newsImage",
-                            "newsName",
-                            "newsTitle",
-                            "newsContent",
-                            "newsInfoLink",
-                        ],
+                    let newsphoto = Vue.component("news-card", {
+                        props: ['news_no', 'news_title', 'news_text', 'newsImage_path', 'news_publish', 'news_state'],
                         template: `
-                <div class="news_photo me_8">
-                    <div class='photo'>
-                        <img :src="newsImage" :alt="newsName">
-                    </div>
-                    <div class="wrap">
-                        <div class="content">
-                            <h2 class="h2">{{newsTitle}}</h2>
-                            <p class="h4 me_2">{{newsContent}}</p>
-                            <a :href="newsInfoLink" class="btn_normal h4 me_2">more</a>
-                        </div>
-                    </div>
-                </div>
-            `,
+                            <div class="news_photo me_8">
+                                <div class='photo'>
+                                    <img :src="'images//'+ newsImage_path"" :alt="news_title">
+                                </div>
+                                <div class="wrap">
+                                    <div class="content">
+                                        <h2 class="h2 me_1">{{news_title}}</h2>
+                                        <div>
+                                            <p class="h5 me_2">{{news_text}}</p>
+                                        </div>
+                                        <a :href="newsInfoLink" class="btn_normal h4 me_2">more</a>
+                                    </div>
+                                </div>
+                            </div>
+                        `,
                     });
-                    new Vue({
-                        el: "#news_photo",
-                        data: {
-                            newsphotoObject: [{
-                                newsImage: `./images/news_01_lamp_maintenance_guide.webp`,
-                                newsName: `lamp_maintenance_guide`,
-                                newsTitle: `lamp_maintenance_guide`,
-                                newsContent: `In fact, as long as a simple maintenance program is carried out on a regular basis for the material of each lamp, the service life of the lamp can be extended and more time spent with family members.`,
-                                newsInfoLink: `news.html`,
-                            }, {
-                                newsImage: `./images/news_02_tips_for_choosing_lamps_for_children_at_home.webp`,
-                                newsName: `Tips_for_choosing_lamps_for_children_at_home`,
-                                newsTitle: `Tips_for_choosing_lamps_for_children_at_home`,
-                                newsContent: `Today, let's talk about the "Notes on Lamps for Children", so that everyone can confirm according to the description and help families with small children find a lamp that is suitable for accompanying the whole family.`,
-                                newsInfoLink: `news.html`,
-                            }, {
-                                newsImage: `./images/news_03_friendly_home_lighting_environment_guide.webp`,
-                                newsName: `Friendly_home_lighting_environment_guide`,
-                                newsTitle: `Friendly_home_lighting_environment_guide`,
-                                newsContent: `With age, vision naturally gradually weakens. After about 50 years old, people will gradually become less sensitive to color contrast, take longer to respond to light in the dark room, or easily feel soreness due to excessive intraocular pressure, and experience imagery.`,
-                                newsInfoLink: `news.html`,
-                            },],
-                        },
-                    });
+                    let newsVue =
+                            new Vue({
+                                el: '#newsList',
+                                data: {
+                                    newsRows: [],
+                                },
+                                created() {
+                                    let xhr = new XMLHttpRequest();
+                                    xhr.onload = function () {
+                                        newsVue.newsRows = JSON.parse(xhr.responseText);
+                                    }
+                                    xhr.open("get", "getNews.php", true);
+                                    xhr.send(null);
+                                },
+                            });
                 </script>
             </div>
         </div>
