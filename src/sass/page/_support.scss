@@ -4,7 +4,7 @@
         flex-direction: column;
         // justify-content: center;
         // align-items: center;
-        border: 1px solid red;
+        // border: 1px solid red;
       }
 }
 .faqCategory{
@@ -33,7 +33,15 @@
     }
     .strongholdText{
         width: 60%;
+        @include t {
+            width: 90%;
+            
+          }
     }
+    @include t {
+        flex-direction: column;
+        
+      }
 }
 .faqTitle{
     border: 1px solid #ccc;
@@ -57,7 +65,7 @@
     color: $fontcolor_70;
     @include t {
         padding: 5px 10px;
-        
+        font-size: 14px;
       }
 }
 .faqCard h2{
@@ -71,7 +79,6 @@
     @include t {
         display: flex;
         justify-content: space-between;
-        border: 1px solid red;
-        
+        transform: translateY(-50px);
       }
 }
