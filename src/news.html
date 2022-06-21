@@ -13,15 +13,17 @@
     <div class="mouse"></div>
     @@include('layout/header.html')
     <div class="containerALL">
-        <div class="ps_1 pe_1 pl_1 h1 fontcontent font_w7 fontTitle">
-            <h1 class="h1">Promotions</h1>
+        <div class="ms_1 ps_1 pe_1">
+            <h1 class="ps_1 pe_1 pl_1 h1 fontcontent font_w7 fontTitle contentTitle">Promotions</h1>
         </div>
         <ul class="promotionsList" id="promotionsList">
             <template v-for="promoRow in promoRows">
                 <li is="G_menu" v-bind="promoRow"></li>
             </template>
         </ul>
-        <h1 class="h1">News</h1>
+        <div class="ms_1 ps_1 pe_1">
+            <h1 class="ps_1 pe_1 pl_1 h1 fontcontent font_w7 fontTitle contentTitle">News</h1>
+        </div>
         <ul class="newsList" id="newsList">
             <template v-for="newsRow in newsRows">
                 <li is="H_menu" v-bind="newsRow"></li>
@@ -42,8 +44,8 @@
                     </div>
                     <div class="pl_2 pr_2 newsText">
                         <div class="menu_title">
-                            <h1 class="h1 fontcontent font_w5 fontTitle">{{promotions_name}}</h1>
-                            <p class="h2 fontcontent font_w5 fontTitle">Event : {{promotions_startDate}}~{{promotions_endDate}}</p>
+                            <h1 class="ps_1 pe_1 h1 fontcontent font_w5 fontTitle">{{promotions_name}}</h1>
+                            <p class="ps_1 pe_1 h2 fontcontent font_w5 fontTitle">Event : {{promotions_startDate}}~{{promotions_endDate}}</p>
                         </div>
                         <div>
                             <p class="p1 fontcontent fontColor">{{promotions_text}}</p>
@@ -61,8 +63,8 @@
                     </div>
                     <div class="pl_2 pr_2 newsText">
                         <div class="menu_title">
-                            <h1 class="h1 fontcontent font_w5 fontTitle">{{news_title}}</h1>
-                            <p class="h2 fontcontent font_w5 fontTitle">Publish : {{news_publish}}</p>
+                            <h1 class="ps_1 pe_1 h1 fontcontent font_w5 fontTitle">{{news_title}}</h1>
+                            <p class="ps_1 pe_1 h2 fontcontent font_w5 fontTitle">Publish : {{news_publish}}</p>
                         </div>
                         <div>
                             <p class="p1 fontcontent fontColor">{{news_text}}</p>
