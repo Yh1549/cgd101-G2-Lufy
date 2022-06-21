@@ -506,7 +506,7 @@
                                             <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Name</label>
                                             </div>
                                             <div class="pl_1 pr_1">
-                                                <select name="promotions_no" id="" v-model="popupData.promotions_no">
+                                                <select name="promotions_no" id="promotions_no" v-model="popupData.promotions_no">
                                                     <option>請選擇優惠活動</option>
                                                     <option v-for="item in promotions_select_list"
                                                         :key="item.promotions_no" :value="item.promotions_no">{{
@@ -524,15 +524,14 @@
                                         </div>
                                     </div>
                                     <div style="width:50%">
-                                        <div class="ps_1 pe_1 LBcol">
+                                        <!-- <div class="ps_1 pe_1 LBcol">
                                             <div class="pl_1 pr_1 LBcolTitle">
                                                 <label class="p1" for="">Image1</label>
                                             </div>
                                             <div class="pl_1 pr_1">
                                                 <input type="hidden" name="prodone_img_origin"
                                                     :value="imageData.image_path">
-                                                <!-- <p class="pe_1" style="padding-top: 8px" name="prodone_img_origin"
-                                                    :value="popupData.image_path">目前檔名：{{popupData.image_path}}</p> -->
+                                                
                                                 <input type="file" name="A_E_one_upFile" id="A_E_one_upFile">
                                                 <div class="ps_1 pe_1" style="width:310px; height: 173px">
                                                     <img style="width:auto; height: 173px" name="image_path"
@@ -558,8 +557,7 @@
                                             <div class="pl_1 pr_1">
                                                 <input type="hidden" name="prodone_img_origin"
                                                     :value="popupData.image_path">
-                                                <!-- <p style="padding-top: 8px" name="prodone_img_origin"
-                                                    :value="popupData.image_path">目前檔名：{{popupData.image_path}}</p> -->
+                                                
                                                 <input type="file" name="A_E_two_upFile" id="A_E_two_upFile">
                                                 <div class="ps_1 pe_1" style="width:310px; height: 173px">
                                                     <img style="width:auto; height: 173px" name="image_path"
@@ -585,8 +583,7 @@
                                             <div class="pl_1 pr_1">
                                                 <input type="hidden" name="prodone_img_origin"
                                                     :value="popupData.image_path">
-                                                <!-- <p style="padding-top: 8px" name="prodone_img_origin"
-                                                    :value="popupData.image_path">目前檔名：{{popupData.image_path}}</p> -->
+                                                
                                                 <input type="file" name="A_E_three_upFile" id="A_E_three_upFile">
                                                 <div class="ps_1 pe_1" style="width:310px; height: 173px">
                                                     <img style="width:auto; height: 173px" name="image_path"
@@ -612,8 +609,7 @@
                                             <div class="pl_1 pr_1">
                                                 <input type="hidden" name="prodone_img_origin"
                                                     :value="popupData.image_path">
-                                                <!-- <p style="padding-top: 8px" name="prodone_img_origin"
-                                                    :value="popupData.image_path">目前檔名：{{popupData.image_path}}</p> -->
+                                                
                                                 <input type="file" name="A_E_four_upFile" id="A_E_four_upFile">
                                                 <div class="ps_1 pe_1" style="width:310px; height: 173px">
                                                     <img style="width:auto; height: 173px" name="image_path"
@@ -631,34 +627,12 @@
                                                     <option value="1">Yes</option>
                                                 </select>
                                             </div>
-                                        </div>
-                                        <div class="ps_1 pe_1 LBcol">
-                                            <div class="pl_1 pr_1 LBcolTitle">
-                                                <label class="p1" for="">Image4</label>
-                                            </div>
-                                            <div class="pl_1 pr_1">
-                                                <input type="hidden" name="prodone_img_origin"
-                                                    :value="popupData.image_path">
-                                                <!-- <p style="padding-top: 8px" name="prodone_img_origin"
-                                                    :value="popupData.image_path">目前檔名：{{popupData.image_path}}</p> -->
-                                                <input type="file" name="A_E_four_upFile" id="A_E_four_upFile">
-                                                <div class="ps_1 pe_1" style="width:310px; height: 173px">
-                                                    <img style="width:auto; height: 173px" name="image_path"
-                                                        id="A_E_four_newsImage" :src="'images//'+ popupData.image_path"
-                                                        alt="">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="ps_1 pe_1 LBcol">
-                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Show</label>
-                                            </div>
-                                            <div class="pl_1 pr_1">
-                                                <select name="product_show" v-model="popupData.product_show" id="">
-                                                    <option value="0">No</option>
-                                                    <option value="1">Yes</option>
-                                                </select>
-                                            </div>
-                                        </div>
+                                        </div> -->
+                                        <ul>
+                                            <template v-for="prodimgRow in imageData">
+                                                <li is="Aimg_menu" v-bind="prodimgRow"></li>
+                                            </template>
+                                        </ul>
                                     </div>
                                 </div>
                                 <div class="ps_1 pr_1 lastBtn">
@@ -696,6 +670,39 @@
                 </div>
             </section>
             <script>
+                let prodimgRow = Vue.component('Aimg_menu', {
+                    props: ['image_no', 'product_no', 'image_path','product_show'],
+                    template: `
+                        <li>
+                            <div class="ps_1 pe_1 LBcol">
+                                <div class="pl_1 pr_1 LBcolTitle">
+                                    <label class="p1" for="">Image{{image_no}}</label>
+                                </div>
+                                <div class="pl_1 pr_1">
+                                    <input type="hidden" name="prodone_img_origin"
+                                        :value="image_path">
+                                    <!-- <p style="padding-top: 8px" name="prodone_img_origin"
+                                        :value="image_path">目前檔名：{{image_path}}</p> -->
+                                    <input type="file" name="A_E_four_upFile" id="A_E_four_upFile">
+                                    <div class="ps_1 pe_1" style="width:310px; height: 173px">
+                                        <img style="width: auto; max-width:100%; height: 173px" name="image_path" id="A_E_four_newsImage" :src="'images//'+ image_path" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ps_1 pe_1 LBcol">
+                                <div class="pl_1 pr_1 LBcolTitle">
+                                    <label class="p1" for="">Show</label>
+                                </div>
+                                <div class="pl_1 pr_1">
+                                    <select name="product_show" v-model="product_show" id="">
+                                        <option value="0">No</option>
+                                        <option value="1">Yes</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </li>
+                    `,
+                })
                 let prodRow = Vue.component('A_menu', {
                     props: ['product_no', 'name', 'category_no', 'des_no', 'description', 'specification', 'price', 'on_market', 'in_stock', 'category_name', 'des_name', 'product_show'],
                     template: `
@@ -742,7 +749,7 @@
                             xhr.onload = function () {
                                 productsVue.prodRows = JSON.parse(xhr.responseText).prodRows;
                                  productsVue.imageRows = JSON.parse(xhr.responseText).imageRows;
-                                console.log(productsVue.imageRows);
+                                // console.log(productsVue.imageRows);
 
                             }
                             xhr.open("get", "getProducts.php", true);

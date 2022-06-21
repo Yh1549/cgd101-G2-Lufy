@@ -14,7 +14,7 @@ try{
 	$prodRows = $products->fetchAll(PDO::FETCH_ASSOC);
 	// echo json_encode($prodRows);
 
-	$imagesql = "select image_path, product_no, product_show from product_image";
+	$imagesql = "select image_no, image_path, product_no, product_show from product_image";
 	$image=$pdo->query($imagesql);
 	$imageRows = $image->fetchAll(PDO::FETCH_ASSOC);
 	// echo json_encode($imageRows);
