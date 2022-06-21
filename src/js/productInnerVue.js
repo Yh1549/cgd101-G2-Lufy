@@ -28,12 +28,12 @@ let purchasePnl = Vue.component('purchase-panel', {
         setFavorite(e) {
             const product_no = window.location.search.split('id=')[1];
             axios.get(`favorite.php?id=${product_no
-                }&add=${this.isAdd}`).then((response) => {
+                }&add=${this.add}`).then((response) => {
                 if (response.data == 'add success') {
-                    this.isAdd = false;
+                    this.add = false;
                     e.target.classList.add('favActive');
                 } else {
-                    this.isAdd = true;
+                    this.add = true;
                     e.target.classList.remove('favActive');
                 }
             }).catch(err => console.log(err));

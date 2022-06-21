@@ -12,7 +12,17 @@ try{
 				    order by 1 asc"; //準備好sql指令
 	$products = $pdo->query($sql);//將sql指令送到mysql去執行, 回傳的是pdoStatement
 	$prodRows = $products->fetchAll(PDO::FETCH_ASSOC);
-	echo json_encode($prodRows);
+	// echo json_encode($prodRows);
+
+	$imagesql = "select image_path, product_no, product_show from product_image";
+	$image=$pdo->query($imagesql);
+	$imageRows = $image->fetchAll(PDO::FETCH_ASSOC);
+	// echo json_encode($imageRows);
+	
+	$result =['prodRows'=> $prodRows, 'imageRows'=> $imageRows];
+	echo json_encode($result);
+
+	
 }catch(PDOException $e){
 	//$msg =  "系統暫時無法提供服務, 請聯絡系統維護人員<br>";
 	echo "錯誤訊息 : ", $e->getMessage(), "<br>";

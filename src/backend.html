@@ -530,13 +530,13 @@
                                             </div>
                                             <div class="pl_1 pr_1">
                                                 <input type="hidden" name="prodone_img_origin"
-                                                    :value="popupData.image_path">
+                                                    :value="imageData.image_path">
                                                 <!-- <p class="pe_1" style="padding-top: 8px" name="prodone_img_origin"
                                                     :value="popupData.image_path">目前檔名：{{popupData.image_path}}</p> -->
                                                 <input type="file" name="A_E_one_upFile" id="A_E_one_upFile">
                                                 <div class="ps_1 pe_1" style="width:310px; height: 173px">
                                                     <img style="width:auto; height: 173px" name="image_path"
-                                                        id="A_E_one_newsImage" :src="'images//'+ popupData.image_path"
+                                                        id="A_E_one_newsImage" :src="'images//'+ imageData.image_path"
                                                         alt="">
                                                 </div>
                                             </div>
@@ -545,7 +545,7 @@
                                             <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Show</label>
                                             </div>
                                             <div class="pl_1 pr_1">
-                                                <select name="product_show" v-model="popupData.product_show" id="">
+                                                <select name="product_show" v-model="imageData.product_show" id="">
                                                     <option value="0">No</option>
                                                     <option value="1">Yes</option>
                                                 </select>
@@ -596,6 +596,33 @@
                                             </div>
                                         </div>
                                         <div class="ps_1 pe_1 LBcol" style="border-bottom: 1px dashed #ccc">
+                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Show</label>
+                                            </div>
+                                            <div class="pl_1 pr_1">
+                                                <select name="product_show" v-model="popupData.product_show" id="">
+                                                    <option value="0">No</option>
+                                                    <option value="1">Yes</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle">
+                                                <label class="p1" for="">Image4</label>
+                                            </div>
+                                            <div class="pl_1 pr_1">
+                                                <input type="hidden" name="prodone_img_origin"
+                                                    :value="popupData.image_path">
+                                                <!-- <p style="padding-top: 8px" name="prodone_img_origin"
+                                                    :value="popupData.image_path">目前檔名：{{popupData.image_path}}</p> -->
+                                                <input type="file" name="A_E_four_upFile" id="A_E_four_upFile">
+                                                <div class="ps_1 pe_1" style="width:310px; height: 173px">
+                                                    <img style="width:auto; height: 173px" name="image_path"
+                                                        id="A_E_four_newsImage" :src="'images//'+ popupData.image_path"
+                                                        alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="ps_1 pe_1 LBcol">
                                             <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Show</label>
                                             </div>
                                             <div class="pl_1 pr_1">
@@ -694,6 +721,8 @@
                         data: {
                             fucusNo: 0,
                             prodRows: [],
+                            imageRows:[],
+                            imageData:[],
                             popupData: {
                                 product_no: '',
                                 name: ``,
@@ -704,14 +733,17 @@
                                 price: ``,
                                 on_market: ``,
                                 in_stock: ``,
-                                product_show: [],
+                                product_show: ``,
                             },
                             promotions_select_list: []
                         },
                         created() {
                             let xhr = new XMLHttpRequest();
                             xhr.onload = function () {
-                                productsVue.prodRows = JSON.parse(xhr.responseText);
+                                productsVue.prodRows = JSON.parse(xhr.responseText).prodRows;
+                                 productsVue.imageRows = JSON.parse(xhr.responseText).imageRows;
+                                console.log(productsVue.imageRows);
+
                             }
                             xhr.open("get", "getProducts.php", true);
                             xhr.send(null);
@@ -722,15 +754,25 @@
                             }
                             xhrP.open("get", "getPromotions.php", true);
                             xhrP.send(null);
+
+                            
                         },
                         computed: {
                             focusObj() {
                                 return (this.prodRows.find(v => v.product_no == this.fucusNo)) ? (this.prodRows.find(v => v.product_no == this.fucusNo)) : this.prodRows[0];
                             },
+                            focusimgObj() {
+                                return this.imageRows.filter(v => v.product_no == this.fucusNo);
+                                // return 123;
+                            },
                         },
                         watch: {
                             focusObj(nVal) {
+                                // console.log(nVal);
                                 this.popupData = JSON.parse(JSON.stringify(nVal));
+                            },
+                            focusimgObj(gVal) {
+                                this.imageData = JSON.parse(JSON.stringify(gVal));
                             },
                         },
                         methods: {
@@ -1669,7 +1711,6 @@
                             let xhr = new XMLHttpRequest();
                             xhr.onload = function () {
                                 carouselVue.carouselRows = JSON.parse(xhr.responseText);
-
                             }
                             xhr.open("get", "getCarousels.php", true);
                             xhr.send(null);
