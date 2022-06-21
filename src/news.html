@@ -13,74 +13,95 @@
     <div class="mouse"></div>
     @@include('layout/header.html')
     <div class="containerALL">
-        <ul class="newsList" id="abcd">
-            <N_menu v-for="newsMenu in newsObject" v-bind="newsMenu">
-            </N_menu>
+        <h1>Promotions</h1>
+        <ul class="promotionsList" id="promotionsList">
+            <template v-for="promoRow in promoRows">
+                <li is="G_menu" v-bind="promoRow"></li>
+            </template>
         </ul>
+        <h1>News</h1>
+        <ul class="newsList" id="newsList">
+            <template v-for="newsRow in newsRows">
+                <li is="H_menu" v-bind="newsRow"></li>
+            </template>
+        </ul>
+        <!-- <ul class="newsList" id="abcd">
+            <H_menu v-for="newsMenu in newsObject" v-bind="newsMenu">
+            </H_menu>
+        </ul> -->
     </div>
     <script>
-        let newsMenu = Vue.component('N_menu', {
-            props: ['newsImage', 'newsTitle', 'newsDate', 'newsTxt'],
+        let promoRow = Vue.component('G_menu',{
+            props: ['promotions_no', 'promotions_name', 'promotions_startDate', 'promotions_endDate', 'promotions_state', 'promotionsImage_path', 'promotions_text'],
             template: `
                 <li class="newsCard ps_1 pe_1">
                     <div class="newsPic ">
-                        <img :src="newsImage" :alt="newsTitle">
+                        <img :src="'images//'+ promotionsImage_path" :alt="promotions_name">
                     </div>
                     <div class="pl_2 pr_2 newsText">
                         <div class="menu_title">
-                            <h1 class="h1 fontcontent font_w7 fontTitle">{{newsTitle}}</h1>
-                            <p class="h2 fontcontent font_w5 fontTitle">{{newsDate}}</p>
+                            <h1 class="h1 fontcontent font_w7 fontTitle">{{promotions_name}}</h1>
+                            <p class="h2 fontcontent font_w5 fontTitle">Event : {{promotions_startDate}}~{{promotions_endDate}}</p>
                         </div>
                         <div>
-                            <p class="p1 fontcontent fontColor">{{newsTxt}}</p>
+                            <p class="p1 fontcontent fontColor">{{promotions_text}}</p>
                         </div>
                     </div>
                 </li>
-            `,
-        })
-        new Vue({
-            el: '#abcd',
-            data: {
-                newsObject: [
-                    {
-                        newsImage: `./images/news.lamp.png`,
-                        newsTitle: `Latest Product`,
-                        newsDate: `event : 2022/04/21-2022/06/02`,
-                        newsTxt: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi pariatur ullam iste est enim, sunt quibusdam aperiam deserunt maxime a hic possimus laudantium cupiditate reiciendis quam assumenda. Culpa assumenda illo quasi reiciendis, corrupti eum atque quas consequuntur tempora. Pariatur deserunt itaque quibusdam adipisci quidem aliquid obcaecati atque voluptas dignissimos error?`
+            `
+        }) ;
+        let newsRow = Vue.component('H_menu',{
+            props: ['news_no', 'news_title', 'news_text', 'newsImage_path', 'news_publish', 'news_state'],
+            template: `
+                <li class="newsCard ps_1 pe_1">
+                    <div class="newsPic ">
+                        <img :src="'images//'+ newsImage_path" :alt="news_title">
+                    </div>
+                    <div class="pl_2 pr_2 newsText">
+                        <div class="menu_title">
+                            <h1 class="h1 fontcontent font_w7 fontTitle">{{news_title}}</h1>
+                            <p class="h2 fontcontent font_w5 fontTitle">Publish : {{news_publish}}</p>
+                        </div>
+                        <div>
+                            <p class="p1 fontcontent fontColor">{{news_text}}</p>
+                        </div>
+                    </div>
+                </li>
+            `
+        }) ;
+        let promotionsVue =
+            new Vue({
+                    el: '#promotionsList',
+                    data: {
+                        promoRows: [],
+                        
                     },
-                    {
-                        newsImage: `./images/news.moms_day.png`,
-                        newsTitle: `2022 Happy mom's day`,
-                        newsDate: `event : 2022/05/01-2022/05/31`,
-                        newsTxt: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi pariatur ullam iste est enim, sunt quibusdam aperiam deserunt maxime a hic possimus laudantium cupiditate reiciendis quam assumenda. Culpa assumenda illo quasi reiciendis, corrupti eum atque quas consequuntur tempora. Pariatur deserunt itaque quibusdam adipisci quidem aliquid obcaecati atque voluptas dignissimos error?`
+                    created() {
+                        let xhr = new XMLHttpRequest();
+                        xhr.onload = function () {
+                            promotionsVue.promoRows = JSON.parse(xhr.responseText);
+
+                        }
+                        xhr.open("get", "getPromotions.php", true);
+                        xhr.send(null);
                     },
-                    {
-                        newsImage: `./images/news.newyear.png`,
-                        newsTitle: `2022 Happy new year`,
-                        newsDate: `event : 2022/01/01-2022/02/06`,
-                        newsTxt: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi pariatur ullam iste est enim, sunt quibusdam aperiam deserunt maxime a hic possimus laudantium cupiditate reiciendis quam assumenda. Culpa assumenda illo quasi reiciendis, corrupti eum atque quas consequuntur tempora. Pariatur deserunt itaque quibusdam adipisci quidem aliquid obcaecati atque voluptas dignissimos error?`
+                })
+        let newsVue =
+            new Vue({
+                    el: '#newsList',
+                    data: {
+                        newsRows: [],
                     },
-                    {
-                        newsImage: `./images/news.tenyear.jpg`,
-                        newsTitle: `LUFY 10 Anniversary`,
-                        newsDate: `event : 2021/11/16-2021/12/31`,
-                        newsTxt: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi pariatur ullam iste est enim, sunt quibusdam aperiam deserunt maxime a hic possimus laudantium cupiditate reiciendis quam assumenda. Culpa assumenda illo quasi reiciendis, corrupti eum atque quas consequuntur tempora. Pariatur deserunt itaque quibusdam adipisci quidem aliquid obcaecati atque voluptas dignissimos error?`
+                    created() {
+                        let xhr = new XMLHttpRequest();
+                        xhr.onload = function () {
+                            newsVue.newsRows = JSON.parse(xhr.responseText);
+
+                        }
+                        xhr.open("get", "getNews.php", true);
+                        xhr.send(null);
                     },
-                    {
-                        newsImage: `./images/news.birthday.png`,
-                        newsTitle: `Member birthday`,
-                        newsDate: ``,
-                        newsTxt: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi pariatur ullam iste est enim, sunt quibusdam aperiam deserunt maxime a hic possimus laudantium cupiditate reiciendis quam assumenda. Culpa assumenda illo quasi reiciendis, corrupti eum atque quas consequuntur tempora. Pariatur deserunt itaque quibusdam adipisci quidem aliquid obcaecati atque voluptas dignissimos error?`
-                    },
-                    {
-                        newsImage: `./images/news.memoffer.jpg`,
-                        newsTitle: `Member register`,
-                        newsDate: ``,
-                        newsTxt: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi pariatur ullam iste est enim, sunt quibusdam aperiam deserunt maxime a hic possimus laudantium cupiditate reiciendis quam assumenda. Culpa assumenda illo quasi reiciendis, corrupti eum atque quas consequuntur tempora. Pariatur deserunt itaque quibusdam adipisci quidem aliquid obcaecati atque voluptas dignissimos error?`
-                    },
-                ]
-            }
-        })
+                })
     </script>
     <!-- footer  -->
     @@include('layout/footer.html')

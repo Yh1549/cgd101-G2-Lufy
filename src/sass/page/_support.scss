@@ -35,12 +35,10 @@
         width: 60%;
         @include t {
             width: 90%;
-            
           }
     }
     @include t {
         flex-direction: column;
-        
       }
 }
 .faqTitle{
@@ -49,7 +47,6 @@
     border-radius: 30px;
     @include t {
         display: none;
-        
       }
 }
 .question{
@@ -79,6 +76,6 @@
     @include t {
         display: flex;
         justify-content: space-between;
-        transform: translateY(-50px);
+        transform: translateY(-70px);
       }
 }
