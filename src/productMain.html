@@ -26,7 +26,7 @@
             
             <!-- 商品瀑布流 -->
             <div id="grid_masonry">
-                <transition-group class="grid" tag="div" name="gender-filter" @enter="resetGrid" @after-leave="resetGrid">
+                <transition-group class="grid me_4" tag="div" name="gender-filter" @enter="resetGrid" @after-leave="resetGrid">
                     <div class="grid-sizer" key="grid-sizer"></div>
                     <div class="gutter-sizer" key="gutter-sizer"></div>
                     <p key="noPosts" v-if="filterList.length <= 0" class="no-posts">no data</p>
