@@ -400,7 +400,7 @@ html.fixWindow {
 
 /* 情境模擬 */
 .index_simulation {
-    overflow: hidden;
+    overflow: hidden;    
 }
 .index_simulation_title h2 {
     &:nth-of-type(1),
@@ -411,6 +411,7 @@ html.fixWindow {
 }
 
 .index_luminosity {
+    margin-top: 8rem;
     background-color: $main-bg-color;
     background-size: cover;
     background-repeat: no-repeat;
@@ -651,6 +652,7 @@ html.fixWindow {
             position: relative;
 
             .photo {
+                width: 50%;
                 position: relative;
 
                 img {
@@ -658,20 +660,32 @@ html.fixWindow {
                     object-fit: cover;
                     vertical-align: top;
                 }
+                &:nth-of-type(1) {
+                    width: auto;
+                    height: 100%;
+                }
             }
 
             .wrap {
+                width: 50%;
                 margin: 4rem;
                 display: flex;
                 align-items: center;
                 word-break: break-all;
 
                 .content {
+                    color: $fontcolor_100;
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
 
                     p {
+                        display: -webkit-box;
+                        word-wrap: break-word;
+                        -webkit-line-clamp: 3;
+                        -webkit-box-orient: vertical;
+                        overflow: hidden;
+                        color: $fontcolor_70;
                         flex: 1 0 100px;
                     }
 
