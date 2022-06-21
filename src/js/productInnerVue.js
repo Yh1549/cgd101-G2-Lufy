@@ -23,12 +23,16 @@ let prodImgSmall = Vue.component('prodimg-small', {
     },
 });
 let purchasePnl = Vue.component('purchase-panel', {
+<<<<<<< HEAD
+    props: ['name', 'price', 'promotions_name', 'promotions_price', 'promPrice', 'add', 'product_no'],
+=======
     props: ['name', 'price', 'promotions_name', 'promotions_price', 'promPrice', 'add'],
     data() {
         return {
             isAdd: false,
         }
     },
+>>>>>>> cecffb8e945da99890d1e7b37cc7eddbbe2c8943
     methods: {
         setFavorite(e) {
             const product_no = window.location.search.split('id=')[1];
@@ -71,7 +75,7 @@ let purchasePnl = Vue.component('purchase-panel', {
             </div>
             <div class="addButton">
                 <span id="A1001" class="fontcontent p1"><i class="fa-solid fa-cart-plus"></i> Add to Cart
-                    <input type="hidden" value="lamp1|aboutus.lamp1.png|50000|lamp1 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore dicta obcaecati id fuga consectetur accusantium, debitis consequatur odit iste dolorum.|1">
+                    <input type="hidden" :value="product_no">
                 </span>               
             </div>
         </div>
