@@ -5,6 +5,7 @@
     color: $fontcolor_100;
 }
 .newsCard{
+    height: 300px;
     display: flex;
     align-items: center;
     border-bottom: 5px solid $fontcolor_100;
@@ -13,11 +14,16 @@
         display: inline-block;
     }
 }
+.newsCard:last-child{
+    border-bottom: none;
+}
 .newsCard:nth-of-type(6){
     border-bottom: 0px;
 }
 .newsPic{
     width: 30%;
+    height: 100%;
+    text-align: center;
     @include t{
         margin-right: auto;
         margin-left: auto;
@@ -25,7 +31,8 @@
         text-align: center;
     }
     & img{
-        width: 100%;
+        max-width: 100%;
+        max-height: 100%;
         vertical-align: bottom;
         @include t{
             width: 200px;
@@ -39,11 +46,15 @@
 }
 .menu_title{
     display: flex;
-    & h1 , p{
-        width: 50%;
+    & h1{
+        width: 65%;
         @include t{
             width: 100%;
         }
+    }
+    & p{
+        width: 35%;
+        text-align: right;
     }
     @include t{
         display: contents;
