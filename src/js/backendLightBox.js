@@ -28,6 +28,15 @@ function A_create(){//----新增
     }
     xhr.open("post", "backend_productsInsert.php");
     xhr.send(new FormData($id("productsForm")));
+
+    let xhrPm = new XMLHttpRequest();
+    xhrPm.onload = function(){
+        alert(xhrPm.responseText);
+    }
+    xhrPm.open("post", "backend_promotionsdetailsInsert.php");
+    xhrPm.send(new FormData($id("productsForm")));
+
+
     $id("A_lightBox").style.display = "none";
 }
 //----------------------------
@@ -56,15 +65,15 @@ function B_showLightBox() {//-----------開新增燈箱
 function B_cancelNew() {//-----------取消開新增燈箱
     $id("B_lightBox").style.display = "none";
 };
-function B_create(){//----新增
-    let xhr = new XMLHttpRequest();
-    xhr.onload = function(){
-        alert(xhr.responseText);
-    };
-    xhr.open("post", "backend_promotionsInsert.php");
-    xhr.send(new FormData($id("promotionsForm")));
-    $id("B_lightBox").style.display = "none";
-}
+// function B_create(){//----新增
+//     let xhr = new XMLHttpRequest();
+//     xhr.onload = function(){
+//         alert(xhr.responseText);
+//     };
+//     xhr.open("post", "backend_promotionsInsert.php", true);
+//     xhr.send(new FormData($id("promotionsForm")));
+//     $id("B_lightBox").style.display = "none";
+// }
 //----------------------------
 function B_showEditLightBox() {//-----------開修改燈箱
     $id("B_edit_lightBox").style.display = "block";
@@ -179,6 +188,14 @@ function init() {
         };
         reader.readAsDataURL(file); //將圖檔資訊讀出以 base64的編碼方式，以便放到img標籤中
     };
+    $id("A_four_upFile").onchange = function (e) {//----新增商品上傳圖片鈕
+        let file = e.target.files[0]; //取得所選的file物件的參考
+        let reader = new FileReader();
+        reader.onload = function (e) {
+            $id("A_four_membersImage").src = reader.result;
+        };
+        reader.readAsDataURL(file); //將圖檔資訊讀出以 base64的編碼方式，以便放到img標籤中
+    };
     //-------------------修改 A_商品按鈕--------------------
     
     let AdEts = document.querySelectorAll("#A_Edit");//----列表的修改商品Edit鈕
@@ -211,6 +228,14 @@ function init() {
         };
         reader.readAsDataURL(file); //將圖檔資訊讀出以 base64的編碼方式，以便放到img標籤中
     };
+    $id("A_E_four_upFile").onchange = function (e) {//----新增商品上傳圖片鈕
+        let file = e.target.files[0]; //取得所選的file物件的參考
+        let reader = new FileReader();
+        reader.onload = function (e) {
+            $id("A_E_four_newsImage").src = reader.result;
+        };
+        reader.readAsDataURL(file); //將圖檔資訊讀出以 base64的編碼方式，以便放到img標籤中
+    };
     
     
     
@@ -229,7 +254,7 @@ function init() {
     
     //-------------------新增 B_優惠活動按鈕--------------------
     $id("B_New").onclick = B_showLightBox;//----新增優惠活動-New鈕
-    $id("B_btnAdd").onclick = B_create;//----新增優惠活動-Confirm鈕
+    //$id("B_btnAdd").onclick = B_create;//----新增優惠活動-Confirm鈕
     $id("B_btnCancel").onclick = B_cancelNew;//----新增優惠活動-取消鈕
     $id("B_upFile").onchange = function (e) {//----新增優惠活動上傳圖片鈕
         let file = e.target.files[0]; //取得所選的file物件的參考

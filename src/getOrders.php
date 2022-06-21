@@ -3,6 +3,7 @@ try{
 
 	require_once("connect_lufy.php");
 
+	$sql = "select * from product_order ORDER BY `order_datetime` DESC LIMIT 1"; //準備好sql指令
 	$sql2="SELECT count(*) as num  from orderdetail where order_no = (select max(order_no) from orderdetail);" ;
 	$ordercounts = $pdo->query($sql2);
 	$countsRows = $ordercounts->fetch(PDO::FETCH_ASSOC);

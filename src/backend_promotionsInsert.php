@@ -18,14 +18,14 @@ try {
 		if(copy( $from, $to)===true){
 			//將檔案名稱寫回資料庫
 			$sql = "INSERT INTO `promotions`(`promotions_no`, `promotions_name`, `promotions_text`, `promotionsImage_path`, `promotions_startDate`, `promotions_endDate`, `promotions_state`) VALUES (null,:promotions_name,:promotions_text,:promotionsImage_path,:promotions_startDate,:promotions_endDate,:promotions_state)";
-			$news = $pdo->prepare( $sql );
-			$news -> bindValue(":promotions_name", $_POST["promotions_name"]);
-			$news -> bindValue(":promotions_startDate", $_POST["promotions_startDate"]);
-			$news -> bindValue(":promotions_endDate", $_POST["promotions_endDate"]);
-			$news -> bindValue(":promotions_state", $_POST["promotions_state"]);
-			$news -> bindValue(":promotions_text", $_POST["promotions_text"]);
-			$news -> bindValue(":promotionsImage_path", $fileName);
-			$news -> execute();
+			$promotions = $pdo->prepare( $sql );
+			$promotions -> bindValue(":promotions_name", $_POST["promotions_name"]);
+			$promotions -> bindValue(":promotions_startDate", $_POST["promotions_startDate"]);
+			$promotions -> bindValue(":promotions_endDate", $_POST["promotions_endDate"]);
+			$promotions -> bindValue(":promotions_state", $_POST["promotions_state"]);
+			$promotions -> bindValue(":promotions_text", $_POST["promotions_text"]);
+			$promotions -> bindValue(":promotionsImage_path", $fileName);
+			$promotions -> execute();
 			echo "新增成功";
 		}
 
