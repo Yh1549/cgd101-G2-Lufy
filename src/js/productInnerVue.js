@@ -24,28 +24,28 @@ let prodImgSmall = Vue.component('prodimg-small', {
 });
 let purchasePnl = Vue.component('purchase-panel', {
     props: ['name', 'price', 'promotions_name', 'promotions_price', 'promPrice', 'add'],
-    data() {
-        return {
-            isAdd: false,
-        }
-    },
+    // data() {
+    //     return {
+    //         isAdd: false,
+    //     }
+    // },
     methods: {
         setFavorite(e) {
             const product_no = window.location.search.split('id=')[1];
             axios.get(`favorite.php?id=${product_no
-                }&add=${this.isAdd}`).then((response) => {
+                }&add=${this.add}`).then((response) => {
                 if (response.data == 'add success') {
-                    this.isAdd = false;
+                    this.add = false;
                     e.target.classList.add('favActive');
                 } else {
-                    this.isAdd = true;
+                    this.add = true;
                     e.target.classList.remove('favActive');
                 }
             }).catch(err => console.log(err));
         },
     },
     mounted() {
-        this.isAdd = this.add;
+        // this.isAdd = this.add;
     },
     computed: {
         prom_price() {
