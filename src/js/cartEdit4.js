@@ -1,13 +1,145 @@
+let newDiv = document.createElement('div')
+let newTable = document.createElement('table')
+let total = 0;
+let totalcounts = 0;
+let fproductPrice = 0;
 function showOrder(json){
     let order = JSON.parse(json);
     // let order2 = JSON.stringify(order);
     console.log(order);
-    console.log(order.length);
+   
     // console.log(order[0].order_no);
     let html;
     let productnos = 0; 
     let productcounts = 0;
     let  productPrices = 0;
+
+    newDiv.appendChild(newTable);
+    cartList.appendChild(newDiv);
+
+    for (let i = 0; i <order.length; i++) {
+       
+        let itemTitle =order[i].name
+        console.log(itemTitle);
+        let itemImage = 'images/' + order[i].image_path;
+        let itemPrice = parseInt(order[i].product_price);
+    
+    
+        let trItemList = document.createElement('tr')
+        trItemList.className = 'item'
+    
+        newTable.appendChild(trItemList)
+    
+    
+        let tdImage = document.createElement('td')
+        tdImage.style.width = '200px'
+    
+        let image = document.createElement('img')
+        image.src = itemImage
+        image.width = 80
+        image.height = 80
+    
+        tdImage.appendChild(image)
+        trItemList.appendChild(tdImage)
+    
+        let tdTitle = document.createElement('td')
+        tdTitle.style.width = '280px'
+        tdTitle.id = order[i].name
+    
+        let pTitle = document.createElement('p')
+        pTitle.innerText = itemTitle
+    
+        let delButton = document.createElement('button')
+        delButton.innerText = 'Delete'
+            // delButton.addEventListener('click', deleteItem)
+    
+        tdTitle.appendChild(pTitle)
+            // tdTitle.appendChild(delButton)
+    
+        trItemList.appendChild(tdTitle)
+    
+    
+    
+        let tdPrice = document.createElement('td')
+        tdPrice.style.width = '170px'
+    
+        let pPrice = document.createElement('p')
+            // let newPrice = storage.getItem(itemValue.split('|')[0])
+    
+        pPrice.className = 'tPrice'
+        pPrice.innerText = itemPrice
+        let productPrice = document.querySelector('.productPrice')
+    
+        // fproductPrice += (itemValue.split('|')[2]) + ","
+        // console.log(fproductPrice);
+    
+        // let theproudctPrice = fproductPrice.substring(0, fproductPrice.length - 1)
+       
+    
+    
+    
+        // let ffproductPrice = theproudctPrice.slice(1)
+       
+    
+        // productPrice.value = ffproductPrice
+    
+    
+        tdPrice.appendChild(pPrice)
+        trItemList.appendChild(tdPrice)
+    
+    
+    
+        let tdItemCount = document.createElement('td')
+        tdItemCount.style.width = '170px'
+    
+        let pItemCount = document.createElement('p')
+        let inputItemCount = document.createElement('input')
+    
+        let counts = order[i].order_count
+        inputItemCount.disabled = true
+        inputItemCount.type = 'number'
+        inputItemCount.value = counts
+        inputItemCount.min = 1
+    
+        // let productCounts = document.querySelector('.productCounts');
+        // totalcounts += counts + ',';
+        // console.log(totalcounts);
+        // let tcounts = totalcounts.substring(0, totalcounts.length - 1);
+        // console.log(tcounts);
+        // var ftotalcounts = tcounts.slice(1)
+    
+        // productCounts.value = ftotalcounts;
+    
+    
+    
+        pItemCount.appendChild(inputItemCount)
+        tdItemCount.appendChild(pItemCount)
+        trItemList.appendChild(tdItemCount)
+    
+    
+        let sum = 0;
+        let list = document.querySelectorAll('.tPrice');
+    
+        list.forEach(item => {
+            let price = item.innerText;
+            // console.log(item.innerText);
+    
+            let fcounts = item.parentNode.nextSibling.firstChild.firstChild.value
+                // console.log(fcounts);
+    
+            let newPrice = price * fcounts
+            sum += newPrice;
+            // console.log(sum);
+            // storage.setItem(itemId, newPrice);
+            // console.log(storage.getItem(itemId))
+            // console.log(newPrice);
+            // storage.clear();
+            // storage.setItem(itemId, newPrice);
+    
+        })
+        // document.getElementById('total2').innerText = sum;
+        // // console.log(sum);
+    }
     
 
    
@@ -15,9 +147,7 @@ function showOrder(json){
         <tr><th>orderNo: </th><td>${order[0].order_no}</td></tr>
         
         
-        <tr><th>productNo: </th><td id=productNo></td></tr>
-        <tr><th>productCount: </th><td id=productCount></td></tr>
-        <tr><th>productPrice: </th><td id=productPrice></td></tr>
+   
         <tr><th>orderTotal: </th><td>${order[0].order_total}</td></tr>
         <tr><th>recipientAddress: </th><td>${order[0].recipient_address}</td></tr>
         <tr><th>recipientName: </th><td>${order[0].recipient_name}</td></tr>
@@ -30,31 +160,33 @@ function showOrder(json){
          
          </table>`;        
    
-    document.getElementById("showPanel").innerHTML = html;
-    for(let i=0;i<order.length;i++){
-        productnos += order[i].product_no + ",";
-        productcounts += order[i].order_count + ",";
-        productPrices += order[i].product_price + ",";
-    }
-    let productnos2 = productnos.substring(0,productnos.length - 1);
-    let productnos3 = productnos2.slice(1);
-    document.getElementById('productNo').innerText = productnos3;
+     document.getElementById("showPanel").innerHTML = html;
+    // for(let i=0;i<order.length;i++){
+    //     productnos += order[i].product_no + ",";
+    //     productcounts += order[i].order_count + ",";
+    //     productPrices += order[i].product_price + ",";
+    // }
+    // let productnos2 = productnos.substring(0,productnos.length - 1);
+    // let productnos3 = productnos2.slice(1);
+    // document.getElementById('productNo').innerText = productnos3;
 
-    let productcounts2 =  productcounts.substring(0, productcounts.length -1);
-    let productcounts3 =  productcounts2.slice(1);
-    document.getElementById('productCount').innerText = productcounts3;
+    // let productcounts2 =  productcounts.substring(0, productcounts.length -1);
+    // let productcounts3 =  productcounts2.slice(1);
+    // document.getElementById('productCount').innerText = productcounts3;
 
-    let  productPrices2 =  productPrices.substring(0,  productPrices.length -1);
-    let  productPrices3 =  productPrices2.slice(1);
-    console.log(productPrices3);
-    document.getElementById('productPrice').innerText =  productPrices3;
+    // let  productPrices2 =  productPrices.substring(0,  productPrices.length -1);
+    // let  productPrices3 =  productPrices2.slice(1);
+   
+    // document.getElementById('productPrice').innerText =  productPrices3;
 
     let datetime = order[0].recipient_datetime;
-    let datetime2 = datetime.substring(0,datetime.length-7);
-    document.getElementById('datetime').innerText = datetime2;
+    // let datetime2 = datetime.substring(0,datetime.length-7);
+    document.getElementById('datetime').innerText = datetime;
 
 
 }
+
+
     
 function getOrder(){
     let xhr = new XMLHttpRequest();

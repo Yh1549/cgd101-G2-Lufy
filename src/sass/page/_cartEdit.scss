@@ -137,9 +137,19 @@
    
 }
 #showPanel{
+    margin-bottom: 40px;
     table,th,td{
         text-align: left;
         border:$secondary_70 5px solid;
         padding:10px;
     }
+}
+.cart_end{
+    display:flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.customer_detail{
+    margin-top: 20px;
 }
