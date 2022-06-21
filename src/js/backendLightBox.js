@@ -144,7 +144,16 @@ function D_cancelEdit() {//-----------取消開修改燈箱
     $id("D_edit_lightBox").style.display = "none";
 };
 
-
+function admin(){
+    let xhr = new XMLHttpRequest();
+    xhr.onload = function () {
+        if(xhr.status == 200){
+            alert("登出成功");
+        };
+    };
+    xhr.open("get", "memberLogout.php");
+    xhr.send(null);
+};
 //-----------------------init-------------------------------------------------------------
 function init() {
 
