@@ -23,16 +23,7 @@ let prodImgSmall = Vue.component('prodimg-small', {
     },
 });
 let purchasePnl = Vue.component('purchase-panel', {
-<<<<<<< HEAD
     props: ['name', 'price', 'promotions_name', 'promotions_price', 'promPrice', 'add', 'product_no'],
-=======
-    props: ['name', 'price', 'promotions_name', 'promotions_price', 'promPrice', 'add'],
-    data() {
-        return {
-            isAdd: false,
-        }
-    },
->>>>>>> cecffb8e945da99890d1e7b37cc7eddbbe2c8943
     methods: {
         setFavorite(e) {
             const product_no = window.location.search.split('id=')[1];
