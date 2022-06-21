@@ -87,7 +87,7 @@ function doFirst() {
         createCartList(items[i], itemInfo)
 
         let productNo = document.querySelector('.productNo');
-         productsNo += (itemInfo.split('|')[4])+",";
+         productsNo += (itemInfo.split('|')[0])+",";
          let  productsNo2 = productsNo.substring(0, productsNo.length - 1);
          let  productsNo3 = productsNo2.slice(1)
          console.log(productsNo2);
@@ -108,8 +108,8 @@ function doFirst() {
 
 function createCartList(itemId, itemValue) {
 
-    let itemTitle = itemValue.split('|')[0]
-    let itemImage = 'images/' + itemValue.split('|')[1]
+    let itemTitle = itemValue.split('|')[1]
+    let itemImage = 'images/' + itemValue.split('|')[3]
     let itemPrice = parseInt(itemValue.split('|')[2])
 
 
@@ -182,7 +182,7 @@ function createCartList(itemId, itemValue) {
     let pItemCount = document.createElement('p')
     let inputItemCount = document.createElement('input')
 
-    let counts = storage.getItem(itemValue.split('|')[0])
+    let counts = storage.getItem(itemValue.split('|')[1])
     inputItemCount.disabled = true
     inputItemCount.type = 'number'
     inputItemCount.value = counts

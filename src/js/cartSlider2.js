@@ -19,7 +19,7 @@ function showCart() {
 
         let itemPrice = parseInt(itemInfo.split('|')[2])
         total += itemPrice
-        console.log(total);
+       
     }
 
     document.getElementById('cart-total').innerText = total
@@ -34,19 +34,17 @@ function showItem(itemId, Value) {
     Value = localStorage.getItem(itemId)
 
     let image = document.createElement('img')
-    image.src = 'images/' + Value.split('|')[1]
+    image.src = 'images/' + Value.split('|')[3]
 
     let title = document.createElement('span')
-    title.innerText = Value.split('|')[0]
+    title.innerText = Value.split('|')[1]
 
     let price = document.createElement('span')
     price.innerText = Value.split('|')[2]
-    console.log(Value.split('|')[2]);
-
+  
     let text = document.createElement('p')
-    text.innerText = Value.split('|')[3]
-    console.log(Value.split('|')[3]);
-
+    text.innerText = Value.split('|')[4]
+    
     // let product = document.querySelector('.shopping-cart .product')
 
     let shoppingCart = document.querySelector('.shopping-cart')
@@ -69,7 +67,7 @@ function showItem(itemId, Value) {
 
 
     let imgDiv = document.createElement('div')
-    console.log(imgDiv);
+  
     imgDiv.className = 'product-image'
 
     product.appendChild(imgDiv)
@@ -97,7 +95,7 @@ function showItem(itemId, Value) {
 
     product.appendChild(productPrice)
     productPrice.innerText = price.innerText
-    console.log(price.innerText);
+  
 
 
 
