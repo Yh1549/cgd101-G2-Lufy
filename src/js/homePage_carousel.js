@@ -1,8 +1,7 @@
-
 Vue.component('carousel-rows', {
     props: ['carousel'],
     template: `<div class="swiper-slide">
-                    <img :src="'images//'+ carousel.carousel_path" alt="" />
+                    <img :src="'images//'+ carousel.carousel_path" :alt="carousel_name" />
                 </div>`,
 })
 const index_carousel = new Vue({

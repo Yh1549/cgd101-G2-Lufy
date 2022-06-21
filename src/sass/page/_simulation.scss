@@ -114,7 +114,6 @@
                 color: $fontcolor_30;
                 background: $primary_100;
                 border-radius: 50% 50% 0% 50%;
-                // box-shadow: 4px 0 16px $secondary_100;
                 text-align: center;
                 content: '';
                 position: absolute;
@@ -219,6 +218,7 @@
         }
     }
 }
+
 @media all and (max-width:490px) {
     .simulation_form {
         flex-direction: column;

@@ -50,7 +50,7 @@
             <div id="project_wrap" class="project_wrap">
                 <div class="project_card project_card1">
                     <img src="./images/projectMain_pic5.webp" alt="The Renaissance" />
-                    <div class="content ms_1 mr_1 me_1 ml_1">
+                    <div class="content ms_2 mr_2 me_2 ml_2">
                         <h2 class="h1 me_1">The Renaissance</h2>
                         <h3 class="h4 me_1">
                             It is recommended that you work through Getting started with the web before attempting this
@@ -65,7 +65,7 @@
                 </div>
                 <div class="project_card project_card2">
                     <img src="./images/projectMain_pic4.webp" alt="INDUSTRIAL REVOLUTION" />
-                    <div class="content ms_1 mr_1 me_1 ml_1">
+                    <div class="content ms_2 mr_2 me_2 ml_2">
                         <h2 class="h1 me_1">INDUSTRIAL REVOLUTION</h2>
                         <h3 class="h4 me_1">
                             The Industrial Revolution was the transition to new manufacturing processes in Great
@@ -78,7 +78,7 @@
                 </div>
                 <div class="project_card project_card3">
                     <img src="./images/projectMain_pic6.webp" alt="The Dragon" />
-                    <div class="content ms_1 mr_1 me_1 ml_1">
+                    <div class="content ms_2 mr_2 me_2 ml_2">
                         <h2 class="h1 me_1">The Dragon</h2>
                         <h3 class="h4 me_1">
                             The warm and soft light caressed the earth, and the dexterous light feathers flew, carrying
@@ -141,31 +141,67 @@
         </section>
     </section>
     <!-- 情境模擬 -->
-    <section class="index_simulation">
-        <div class="containerALL">
-            <div class="index_simulation_title">
-                <h2 class="s1 font_i fontdeco_w5 me_4">MyLight</h2>
-                <h2 class="s2 font_i fontdeco_w2 me_4">/Play with the Light</h2>
-            </div>
+    <section class="simulation_luminosity index_luminosity me_8" id="simulation_luminosity" :style="{ backdropFilter: 'contrast(60%)' }">
+    
+        <!-- 投射燈光幕 -->
+        <div class="simulation_lamp">
+            <img src="./images/simulation_lamp_v2.webp" alt="">
         </div>
-        <div class="index_luminosity ms_8 me_8" id="index_luminosity">
-            <!-- <div class="entrance_lamp"></div> -->
-            <!-- <div id="entrance_light" class="entrance_homepage"></div> -->
-            <div class="lamp-wrapper"></div>
-            <div class="wall-light-shadow"></div>
-            <form class="index_form" oninput="index_luminosity.setAttribute('data-light', slider.value)">
-                <div class="range">
-                    <div class="sliderValue">
-                        <span class="indicator">0</span>
-                    </div>
-                    <div class="field">
+    
+        <!-- 投射燈光 -->
+        <div id="entrance_light" class="entrance_homepage" style="display: block;"></div>
+    
+        <!-- 燈光 -->
+        <div class="wall-light-shadow" :style="hueOutput"></div>
+    
+        <!-- 遮色片 -->
+        <div class="front-mask" :style="opacityOutput"></div>
+    
+        <!-- 控制面板 -->
+        <form class="simulation_form" oninput="simulation_luminosity.setAttribute('data-light', slider.value)">
+    
+            <!-- 透明度 -->
+            <div class="range me_2">
+                <h2 class="title">Light : {{opacity}}</h2>
+                <div class="rangebox">
+                    <!-- <label class="sliderValue">
+                                        <span class="indicator" :style="{ left : (opacity/1.19) + '%' }">{{opacity}}</span> -->
+                    <label class="field">
                         <div class="value left">0</div>
-                        <input type="range" id="slider" value="0" min="0" max="100" steps="1" />
+                        <input type="range" id="slider" value="0" min="0" max="100" steps="1" v-model="opacity">
                         <div class="value right">100</div>
-                    </div>
+                    </label>
                 </div>
-            </form>
-        </div>
+            </div>
+    
+            <!-- 色相 -->
+            <div class="range me_2">
+                <h2 class="title">Hue</h2>
+                <div class="rangebox">
+                    <label class="field">
+                        <div class="value left">Orange</div>
+                        <input type="range" v-model="hue" min="40" max="180" steps="1">
+                        <div class="value right">Blue</div>
+                    </label>
+                </div>
+            </div>
+    
+            <!-- 飽和度 -->
+            <div class="range me_2">
+                <h2 class="title">Saturation : {{saturation}}</h2>
+                <div class="rangebox">
+                    <!-- <label class="sliderValue">
+                            <span class="indicator" :style="{ left : (saturation/1.19) + '%' }">{{saturation}}</span>
+                        </label> -->
+                    <label class="field">
+                        <div class="value left">0</div>
+                        <input type="range" v-model="saturation" min="0" max="100" steps="1">
+                        <div class="value right">100</div>
+                    </label>
+                </div>
+            </div>
+    
+        </form>
     </section>
     <!-- 最新消息 -->
     <section class="index_news">
@@ -203,22 +239,22 @@
                         el: "#news_photo",
                         data: {
                             newsphotoObject: [{
-                                newsImage: `./images/news_shinning.webp`,
-                                newsName: `Shinning a light on furniture`,
-                                newsTitle: `Shinning a light on furniture`,
-                                newsContent: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ipsum, maecenas et tristique convallis cras est aliquet arcu.`,
+                                newsImage: `./images/news_01_lamp_maintenance_guide.webp`,
+                                newsName: `lamp_maintenance_guide`,
+                                newsTitle: `lamp_maintenance_guide`,
+                                newsContent: `In fact, as long as a simple maintenance program is carried out on a regular basis for the material of each lamp, the service life of the lamp can be extended and more time spent with family members.`,
                                 newsInfoLink: `news.html`,
                             }, {
-                                newsImage: `./images/news_discount_prouduct.webp`,
-                                newsName: `Discount Prouduct`,
-                                newsTitle: `Discount Prouduct`,
-                                newsContent: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ipsum, maecenas et tristique convallis cras est aliquet arcu.`,
+                                newsImage: `./images/news_02_tips_for_choosing_lamps_for_children_at_home.webp`,
+                                newsName: `Tips_for_choosing_lamps_for_children_at_home`,
+                                newsTitle: `Tips_for_choosing_lamps_for_children_at_home`,
+                                newsContent: `Today, let's talk about the "Notes on Lamps for Children", so that everyone can confirm according to the description and help families with small children find a lamp that is suitable for accompanying the whole family.`,
                                 newsInfoLink: `news.html`,
                             }, {
-                                newsImage: `./images/news_new_style_creative_01.webp`,
-                                newsName: `New Style Creative`,
-                                newsTitle: `New Style Creative`,
-                                newsContent: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ipsum, maecenas et tristique convallis cras est aliquet arcu.`,
+                                newsImage: `./images/news_03_friendly_home_lighting_environment_guide.webp`,
+                                newsName: `Friendly_home_lighting_environment_guide`,
+                                newsTitle: `Friendly_home_lighting_environment_guide`,
+                                newsContent: `With age, vision naturally gradually weakens. After about 50 years old, people will gradually become less sensitive to color contrast, take longer to respond to light in the dark room, or easily feel soreness due to excessive intraocular pressure, and experience imagery.`,
                                 newsInfoLink: `news.html`,
                             },],
                         },
@@ -259,7 +295,7 @@
     <!-- 專案實例 -->
     <script src="./js/homePage_project.js"></script>
     <!-- 情境模擬 -->
-    <script src="./js/simulation.js"></script>
+    <script src="./js/simulationVue.js"></script>
     <!-- 輪播套件script -->
     <script src="./js/swiper-bundle.min.js"></script>
     <!-- 商品頁瀑布流 -->
