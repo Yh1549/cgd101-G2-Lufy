@@ -1,6 +1,6 @@
 <?php
 try {
-    require_once("connect_lufy.php");
+    require_once("connect_cgd101g2.php");
     foreach ($_FILES["A_E_upFile"]["error"] as $i => $error) {
         switch ($_FILES["A_E_upFile"]["error"][$i]) {
             case UPLOAD_ERR_OK:
