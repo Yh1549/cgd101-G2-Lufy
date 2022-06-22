@@ -612,8 +612,8 @@
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{des_name}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{description}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{specification}}</p>
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{price}}</p>
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{on_market ? '已上架' : '未上架'}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">$ {{price}}</p>
+                                <p class="p1 pl_1 pr_1 font_w5 fontcontent fontColor">{{on_market ? '已上架' : '未上架'}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{in_stock ? '有庫存' : '無庫存'}}</p>
                                 <button class="p1 bkbtn" id="A_Edit" @click="$emit('edit-handler')" type="button">Edit</button>
                             </div>
@@ -658,7 +658,7 @@
                             xhrP.onload = function () {
                                 productsVue.promotions_select_list = JSON.parse(xhrP.responseText);
                             }
-                            xhrP.open("get", "getPromotions.php", true);
+                            xhrP.open("get", "getPromotionsForProd.php", true);
                             xhrP.send(null);
 
                             let xhrZ = new XMLHttpRequest();
@@ -916,7 +916,7 @@
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{order_no}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{member_no}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{order_datetime}}</p>
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{order_total}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">$ {{order_total}}</p>
                                 <p class="p1 pl_1 pr_1 font_w5 fontcontent fontColor">{{order_state}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{order_notes}}</p>
                                 <button class="p1 bkbtn" id="O_Edit" @click="$emit('edit-handler')" type="button">Details</button>
@@ -931,7 +931,7 @@
                             <div class="backend_text">
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{product_name}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{order_count}}</p>
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{product_price}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">$ {{product_price}}</p>
                                 <p class=""></p>
                             </div>
                         </li>

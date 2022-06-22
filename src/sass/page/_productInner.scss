@@ -129,6 +129,10 @@
             a {
                 color: $fontcolor_100;
                 text-decoration: none;
+                &:hover {
+                        color: $primary_dark;
+                        -webkit-text-stroke: 1px transparent;
+                    }
             }
 
             .material-icons {
@@ -172,12 +176,16 @@
             .product_price,
             .color_selector,
             .purchase_function {
-                margin-bottom: 2.5rem;
-                justify-content: space-between;
+                margin-bottom: 1.5rem;
             }
-
+            .buyNowButton, .addButton {
+                width: 50%;
+            }
             .buyNowButton {
-                margin-right: 1rem;
+                margin-right: 0rem;
+            }
+            .favoriteButton {
+                margin-bottom: 1.5rem;
             }
         }
 
@@ -228,6 +236,7 @@
     .detail_switch {
         width: 40%;
         display: flex;
+        cursor: pointer;
     }
     
     .descBar, .specBar {

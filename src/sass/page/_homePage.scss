@@ -201,6 +201,11 @@ html.fixWindow {
             top: 510px;
             left: -100px;
             z-index: 2;
+            @media all and (max-width:768px) {
+                width: 150px;
+                top: 462px;
+                left: -5px;
+            }
         }
     }
 
@@ -227,12 +232,12 @@ html.fixWindow {
                 }
 
                 h3 {
-                    color: $fontcolor_100;
+                    color: $fontcolor_70;
                     flex: 1 0 20px;
                 }
 
                 p {
-                    color: $fontcolor_70;
+                    color: $fontcolor_100;
                 }
 
                 a {
@@ -296,6 +301,43 @@ html.fixWindow {
         top: 110px;
         right: 0;
         z-index: 2;
+    }
+}
+
+@media all and (max-width:768px) {
+    .index_project {
+        margin-bottom: 150px;
+    }
+    .project_wrap {
+    
+        .project_card {
+
+            .content {
+                flex: 1;
+
+                a {
+                    height: auto;
+                    // padding: 1rem 4rem;
+                }
+
+                h2 {
+                    font-size: 20px;
+                }
+
+                .content p {
+                    font-size: 16px;
+                    display: -webkit-box;
+                    word-wrap: break-word;
+                    -webkit-line-clamp: 4;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                }
+            }
+        }    
+    }
+    .index_project_deco_image_fullview img{
+        width: 320px;
+        top: 115px;
     }
 }
 
@@ -684,7 +726,7 @@ html.fixWindow {
                     p {
                         display: -webkit-box;
                         word-wrap: break-word;
-                        -webkit-line-clamp: 3;
+                        -webkit-line-clamp: 5;
                         -webkit-box-orient: vertical;
                         overflow: hidden;
                         color: $fontcolor_70;
@@ -777,6 +819,148 @@ html.fixWindow {
     }
 }
 
+@media all and (max-width:768px) {
+    .index_news {
+        .card {
+            .news_photo {
+                display: flex;
+                position: relative;
+
+                .photo {
+                    width: 50%;
+                    position: relative;
+
+                    img {
+                        width: 100%;
+                        object-fit: cover;
+                        vertical-align: top;
+                    }
+
+                    &:nth-of-type(1) {
+                        width: auto;
+                        height: 100%;
+                    }
+                }
+
+                .wrap {
+                    width: 50%;
+                    margin: 1.5rem;
+                    display: flex;
+                    align-items: center;
+                    word-break: break-all;
+
+                    .content {
+                        color: $fontcolor_100;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        margin-left: 15px;
+                        margin-right: 15px;
+
+                        p {
+                            -webkit-line-clamp: 4;
+                        }
+
+                        a {
+                            max-width: 184px;
+                            height: auto;
+                            padding: 1rem 0;
+                            text-decoration: none;
+                        }
+                    }
+                }
+
+                &:nth-of-type(1) {
+                    .photo {
+                        width: 300px;
+                    }
+                    &::before {
+                        content: '';
+                        width: 270px;
+                        height: 520px;
+                        background-color: $primary_30;
+                        position: absolute;
+                        transform: translate(38%, -4%);
+                        z-index: -1;
+                    }
+
+                    &::after {
+                        content: '';
+                        width: 200px;
+                        height: 320px;
+                        background-color: $primary_70;
+                        position: absolute;
+                        transform: translate(-8%, 70%);
+                        z-index: -1;
+                    }
+                }
+
+                &:nth-of-type(2) {
+                    .photo {
+                        width: 300px;
+                        order: 1;
+                    }
+
+                    &::before {
+                        content: '';
+                        width: 300px;
+                        height: 300px;
+                        background-color: $secondary_70;
+                        position: absolute;
+                        top: -20px;
+                        right: 0;
+                        z-index: -1;
+                    }
+
+                    &::after {
+                        content: '';
+                        width: 300px;
+                        height: 260px;
+                        background-color: $primary_70;
+                        position: absolute;
+                        bottom: 45px;
+                        right: 70px;
+                        z-index: -1;
+                    }
+                }
+
+                &:nth-of-type(3) {
+                    flex-direction: column;
+                    .photo {
+                        width: 300px;
+                    }
+                    .wrap {
+                        width: 100%;
+                        margin: 0;
+                        margin-top: 2rem;
+                    }
+                    &::before {
+                        content: '';
+                        width: 280px;
+                        height: 200px;
+                        background-color: $primary_70;
+                        position: absolute;
+                        top: -20px;
+                        left: 0;
+                        z-index: -1;
+                    }
+
+                    &::after {
+                        content: '';
+                        width: 360px;
+                        height: 200px;
+                        background-color: $secondary_50;
+                        position: absolute;
+                        bottom: 265px;
+                        left: 200px;
+                        z-index: -1;
+                    }
+                }
+            }
+        }
+    }
+}
+
 @media all and (max-width:490px) {
     .index_news {
         .card {
@@ -804,6 +988,10 @@ html.fixWindow {
                     .content {                        
                         align-items: center;
 
+                        p {
+                            -webkit-line-clamp: 3;
+                        }
+
                         a {
                             max-width: 100%;
                             padding: 12px 4rem;
@@ -826,6 +1014,7 @@ html.fixWindow {
 
                 &:nth-of-type(2) {
                     .photo {
+                        width: 100%;
                         order: 0;
                     }
 
@@ -845,6 +1034,11 @@ html.fixWindow {
                 }
 
                 &:nth-of-type(3) {
+                    .photo {
+                        width: 100%;
+                        margin-bottom: 1rem;
+                    }
+
                     &::before {
                         width: 160px;
                         height: 110px;
@@ -890,7 +1084,9 @@ html.fixWindow {
                 object-fit: cover;
                 vertical-align: top;
             }
-
+            @media all and (max-width:768px) {
+                width: 50%;
+            }
             @media all and (max-width:490px) {
                 width: 100%;
             }
@@ -899,6 +1095,10 @@ html.fixWindow {
         .wrap {
             width: 58%;
             background-color: $secondary_100;
+
+            @media all and (max-width:768px) {
+                width: 50%;
+            }
 
             @media all and (max-width:490px) {
                 width: 100%;
@@ -915,6 +1115,16 @@ html.fixWindow {
                     text-align: center;
                 }
 
+                p {
+                    display: -webkit-box;
+                    word-wrap: break-word;
+                    -webkit-line-clamp: 9;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                    @media all and (max-width:768px) {
+                        -webkit-line-clamp: 5;
+                    }
+                }
                 .btn {
                     width: 8.5rem;
                     border-radius: 1rem;

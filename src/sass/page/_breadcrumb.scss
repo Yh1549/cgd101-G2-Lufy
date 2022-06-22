@@ -15,10 +15,16 @@
     }
 
     .breadcrumbItem {
-        &.active {
-            color: $primary_100;
+        &.active  {
+            a{
+                color: $primary_100;
+            }
         }
-
+        &:hover {
+            a {
+                color: $primary_dark;
+            }
+        }
         +.breadcrumbItem {
             &::before {
                 content: '>';

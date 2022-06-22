@@ -9,11 +9,19 @@
     <!-- header -->
     @@include('layout/header.html')
     <!-- header end -->
-    <div class="containerALL me_8 productInner" id="product">
+    <div class="containerALL productInner me_8 ml_2 mr_2" id="product">
         <!-- breadcrumb -->
-        <div id="breadcrumb_list">
-            <breadcrumb-list></breadcrumb-list>
-        </div>
+        <ul class="breadcrumbList">
+            <li class="breadcrumbItem">
+                <a class="breadcrumb" href="./homePage.html">Home</a>
+            </li>
+            <li class="breadcrumbItem">
+                <a class="breadcrumb" href="./productMain.html">ProductMain</a>
+            </li>
+            <li class="breadcrumbItem">
+                <a class="breadcrumb" v-if="prodInfoRow[0]" :href="`./productInner.html${locationSearch}`">{{prodInfoRow[0].name}}</a>
+            </li>
+        </ul>
         <!-- breadcrumb end-->
         <section class="product_main_box me_6">
             <div class="main_product_img" v-if="prodInfoRow.length !=0">
@@ -37,8 +45,6 @@
     </div>
     <!-- footer  -->
     @@include('layout/footer.html')
-
-    <script src="./js/breadcrumb.js"></script>
     
     <!-- 商品內頁 -->
     <script src="./js/productInner.js"></script>
