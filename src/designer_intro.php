@@ -3,7 +3,7 @@
 session_start();
 $errMsg = "";
 try {
-	require_once("../../connect_lufy.php");
+	require_once("connect_lufy.php");
 	//.......確定是否上傳成功
 	if( $_FILES["upFile"]["error"] == UPLOAD_ERR_OK){
 		//----------------------

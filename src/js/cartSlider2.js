@@ -1,31 +1,44 @@
 // const { compileString } = require("sass");
 
 function showCart() {
+    var xhr = new XMLHttpRequest();
+    xhr.onload=function (){
+         if( xhr.status == 200 ){ 
+            let cartv2 = document.querySelector(".shopping_cart_box");
 
-    let cartv2 = document.querySelector(".shopping_cart_box");
-
-    cartv2.classList.toggle('hidden');
-
-    let itemString = localStorage.getItem('addItemList')
-    let items = itemString.substr(0, itemString.length - 2).split(', ')
-
-
-
-    let total = 0
-
-    for (let i = 0; i < items.length; i++) {
-        let itemInfo = localStorage.getItem(items[i])
-        showItem(items[i], itemInfo)
-
-        let itemPrice = parseInt(itemInfo.split('|')[2])
-        total += itemPrice
-       
+            cartv2.classList.toggle('hidden');
+        
+            let itemString = localStorage.getItem('addItemList')
+            let items = itemString.substr(0, itemString.length - 2).split(', ')
+        
+        
+        
+            let total = 0
+        
+            for (let i = 0; i < items.length; i++) {
+                let itemInfo = localStorage.getItem(items[i])
+                showItem(items[i], itemInfo)
+        
+                let itemPrice = parseInt(itemInfo.split('|')[2])
+                total += itemPrice
+               
+            }
+        
+            document.getElementById('cart-total').innerText = total
+        
+        
+        
+         
+         }else{
+           alert( "請登入" );
+         }
     }
+    
+    xhr.open("get", "./checkMemberState.php", true); //執行登出php(刪除session)
+    xhr.send(null);
+    
 
-    document.getElementById('cart-total').innerText = total
-
-
-}
+   
 
 
 
@@ -109,4 +122,5 @@ function showItem(itemId, Value) {
 
 
 
+}
 }
