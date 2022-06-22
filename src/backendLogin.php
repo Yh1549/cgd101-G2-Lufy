@@ -20,7 +20,7 @@ try {
             echo "backendDesigner.html";
         }
     }else{
-        echo "此帳號已凍結";
+        echo "wrong account";
     }
   }else{
     echo "wrong account";

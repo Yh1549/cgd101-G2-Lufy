@@ -3,4 +3,9 @@ dist
 package-lock.json
 connect_lufy.php
 src/connect_lufy.php
+<<<<<<< HEAD
+=======
+connect_cgd101g2.php
+src/connect_cgd101g2.php
+>>>>>>> e43f9f27daca062a51de29764d72fc610c970538
 src/product.product.sql
