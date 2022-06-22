@@ -1,6 +1,6 @@
 <?php
 try {
-    require_once("connect_cgd101g2.php");
+    require_once("connect_lufy.php");
 $total = [];
 $promotionssql = "select * from designer";
 $promotions = $pdo->prepare($promotionssql);

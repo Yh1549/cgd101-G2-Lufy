@@ -1,6 +1,6 @@
 <?php 
 try {
-	require_once("connect_cgd101g2.php");
+	require_once("connect_lufy.php");
     switch ($_FILES["P_E_upFile"]["error"] ){
         case UPLOAD_ERR_OK: 
             $dir ="images";

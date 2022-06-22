@@ -1,6 +1,6 @@
 <?php 
 try{
-	require_once("connect_cgd101g2.php");
+	require_once("connect_lufy.php");
 
 	$sql = "select * from news"; //準備好sql指令
 	$news = $pdo->query($sql);//將sql指令送到mysql去執行, 回傳的是pdoStatement

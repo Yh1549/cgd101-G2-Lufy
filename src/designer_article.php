@@ -3,11 +3,7 @@
 session_start();
 $errMsg = "";
 try {
-<<<<<<< HEAD
 	require_once("connect_lufy.php");
-=======
-	require_once("connect_cgd101g2.php");
->>>>>>> 5a67ca79b764d7a61e9589d0d22c3745255dab5e
 	
 			$sql = "UPDATE `designer` SET `art_1`=:art1,`art1_text`=:art1_text where manager_no = :cur_manager";
             

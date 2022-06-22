@@ -1,6 +1,6 @@
 <?php 
 try {
-	require_once("connect_cgd101g2.php");
+	require_once("connect_lufy.php");
 	$sql = "update member set member_state=:member_state where member_no=:member_no";
     $member = $pdo->prepare($sql);
     $member->bindValue(":member_no", $_POST["member_no"]);

@@ -1,6 +1,6 @@
 <?php 
 try {
-	require_once("connect_cgd101g2.php");
+	require_once("connect_lufy.php");
     
 	//執行sql指令
 	$sql = "update manager set manager_name=:manager_name, role=:role, manager_account=:manager_account, manager_password=:manager_password, state=:state where manager_no=:manager_no";
