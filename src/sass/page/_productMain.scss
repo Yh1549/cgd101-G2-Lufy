@@ -124,7 +124,19 @@
         }
         @media all and (max-width:820px) {
             margin: 0 30px;
-
+            .product_category {
+                justify-content: flex-start;
+                margin-top: 1rem;
+                margin-bottom: 2rem;
+                .category {
+                    width: 110px;
+                    padding-right: 1.75rem;
+        
+                    .p1 {
+                        font-size: 13px;
+                    }
+                }
+            }
             .gutter-sizer {
                 width: 2%;
             }
@@ -141,7 +153,6 @@
             
             margin: 0 15px;
             .product_category {
-                justify-content: flex-start;
                 .category {
                     width: 90px;
                     padding-right: 1.75rem;

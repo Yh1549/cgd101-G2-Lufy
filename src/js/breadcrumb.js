@@ -14,9 +14,9 @@ let breadcrumb = Vue.component('breadcrumb-list', {
             //tibamef2e.com/cgd101/g2/productMain.html
             let arr = window.location.pathname.split('.html')[0].split('/');
             //['', 'tibamef2e.com','cgd101' ,'g2','productMain']
-            console.log(arr)
+
             arr.splice(0, 3);
-            console.log(arr)
+
             //['tibamef2e.com','cgd101' ,'g2','productMain']
 
             this.breadCrumbRow = [
@@ -29,7 +29,7 @@ let breadcrumb = Vue.component('breadcrumb-list', {
             arr.forEach((v, i) => {
                 this.breadCrumbRow.push({
                     name: v,
-                    link: `${arr.slice(0, i + 1).join('/')}.html`,
+                    link: `${arr.slice(0, i + 1).join('/')}.html${window.location.search}`,
                 })
             })
         },
@@ -38,6 +38,9 @@ let breadcrumb = Vue.component('breadcrumb-list', {
         this.setBreadcrumb();
     },
 })
+
+// home > productMain > Chair
+
 // 目前狀況：
 // https://tibamef2e.com/cgd101/g2/.html
 

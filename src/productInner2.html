@@ -10,9 +10,20 @@
     <!-- header -->
     @@include('layout/header.html')
     <!-- header end -->
-    <div class="containerALL me_8">
+    <div class="containerALL me_8  ml_2 mr_2">
         <!-- breadcrumb -->
-        @@include('layout/breadcrumb.html')
+        <ul class="breadcrumbList">
+            <li class="breadcrumbItem">
+                <a class="breadcrumb" href="./homePage.html">Home</a>
+            </li>
+            <li class="breadcrumbItem">
+                <a class="breadcrumb" href="./productMain.html">ProductMain</a>
+            </li>
+            <li class="breadcrumbItem">
+                <a class="breadcrumb" v-if="prodInfoRow[0]"
+                    :href="`./productInner.html${locationSearch}`">{{prodInfoRow[0].name}}</a>
+            </li>
+        </ul>
         <!-- breadcrumb end-->
         <section class="product_main_box me_6">
             <div class="main_product_img">
