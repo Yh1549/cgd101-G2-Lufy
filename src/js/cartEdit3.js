@@ -264,13 +264,23 @@ function goDiscount() {
         ')';
 
     orderTime.value = currentDateTime;
-
-
-
+   
 
 }
 discount.addEventListener("change", goDiscount, false)
-
+    var xhr2 = new XMLHttpRequest();
+    console.log(1);
+    xhr2.onload=function (){
+         if( xhr2.status == 200 ){
+            console.log(1); 
+            // getmemNo(xhr2.responseText);
+            getmemNo(xhr2.responseText);
+           
+         }
+        
+        };
+         xhr2.open("get", "./getmemNo.php", true); //執行登出php(刪除session)
+         xhr2.send(null);
 let sendBtn = document.querySelector('.sendBtn')
 
 function setDiscount() {
@@ -300,3 +310,10 @@ window.addEventListener("load", function() {
 
 
 })
+function getmemNo (json) {
+    let memNo = document.querySelector('.memNo');
+    memNo.value=json;
+    console.log(json);
+    
+    
+}

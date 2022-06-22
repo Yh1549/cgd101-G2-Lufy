@@ -314,17 +314,17 @@
                             // },
                         },
                         created() {
-                            let xhr = new XMLHttpRequest();
-                            console.log(1);
-                            xhr.onload = function() {
-                                articlesVue.articleRows = JSON.parse(xhr.responseText);
-                                console.log(xhr.responseText);
-                                console.log(1);
+                            // let xhr = new XMLHttpRequest();
+                            // console.log(1);
+                            // xhr.onload = function() {
+                            //     articlesVue.articleRows = JSON.parse(xhr.responseText);
+                            //     console.log(xhr.responseText);
+                            //     console.log(1);
 
 
-                            }
-                            xhr.open("get", "getDesignersArticle.php", true);
-                            xhr.send(null);
+                            // }
+                            // xhr.open("get", "getDesignersArticle.php", true);
+                            // xhr.send(null);
                         },
                         computed: {
                             focusObj() {

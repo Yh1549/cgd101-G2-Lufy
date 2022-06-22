@@ -3,7 +3,11 @@
 session_start();
 $errMsg = "";
 try {
-	require_once("../../connect_lufy.php");
+<<<<<<< HEAD
+	require_once("connect_lufy.php");
+=======
+	require_once("connect_cgd101g2.php");
+>>>>>>> 5a67ca79b764d7a61e9589d0d22c3745255dab5e
 	//.......確定是否上傳成功
 	if( $_FILES["upFile"]["error"] == UPLOAD_ERR_OK){
 		//----------------------

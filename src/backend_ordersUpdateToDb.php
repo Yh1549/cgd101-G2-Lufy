@@ -1,6 +1,6 @@
 <?php 
 try {
-	require_once("connect_lufy.php");
+	require_once("connect_cgd101g2.php");
     
 	//執行sql指令
 	$sql = "update product_order set member_no=:member_no, order_datetime=:order_datetime, payer_name=:payer_name, payer_phone=:payer_phone, 

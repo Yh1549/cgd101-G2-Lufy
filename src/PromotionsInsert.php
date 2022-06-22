@@ -1,6 +1,6 @@
 <?php
 try{
-require_once("connect_lufy.php");
+require_once("connect_cgd101g2.php");
     if ($_FILES["B_upFile"]["error"] == UPLOAD_ERR_OK) {
         if (file_exists("images") === false) {
             mkdir("images");
