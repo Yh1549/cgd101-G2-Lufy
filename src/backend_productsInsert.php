@@ -19,13 +19,8 @@ try {
     $productCur->bindValue(":product_name", $_POST["product_name"]);
     $productCur->execute();
     $productCurRow = $productCur->fetch(PDO::FETCH_ASSOC);
-    $promotionsql = "insert into promotionsdetail(promotions_no, product_no, promotions_price) value(:promotions_no, :product_no, :promotions_price)";
-    $promotion =$pdo->prepare($promotionsql);
-    $promotion->bindValue(":promotions_no", $_POST["promotions_no"]);
-    $promotion->bindValue(":product_no", $productCurRow["product_no"]);
-    $promotion->bindValue(":promotions_price", $_POST["promotions_price"]);
-    $promotion->execute();
-    
+
+
     foreach ($_FILES["A_upFile"]["error"] as $i => $error) {
         switch ($_FILES["A_upFile"]["error"][$i]) {
             case UPLOAD_ERR_OK:
@@ -69,6 +64,15 @@ try {
         };
        
     } ;
+    
+    if(isset($_POST["promotions_no"]) == true){
+        $promotionsql = "insert into promotionsdetail(promotions_no, product_no, promotions_price) value(:promotions_no, :product_no, :promotions_price)";
+        $promotion =$pdo->prepare($promotionsql);
+        $promotion->bindValue(":promotions_no", $_POST["promotions_no"]);
+        $promotion->bindValue(":product_no", $productCurRow["product_no"]);
+        $promotion->bindValue(":promotions_price", $_POST["promotions_price"]);
+        $promotion->execute();
+        };
     echo "product新增成功";
     // if (copy($from, $to) === true) {
        

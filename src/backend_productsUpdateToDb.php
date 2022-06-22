@@ -17,13 +17,7 @@ try {
     $products->execute();
 
 
-    $promotionsql = "update promotionsdetail set promotions_no=:promotions_no, promotions_price=:promotions_price where product_no=:product_no";
-    $promotion =$pdo->prepare($promotionsql);
-    $promotion->bindValue(":promotions_no", $_POST["promotions_no"]);
-    $promotion->bindValue(":product_no", $_POST["product_no"]);
-    $promotion->bindValue(":promotions_price", $_POST["promotions_price"]);
-    $promotion->execute();
-    echo "update left oK";
+    
     //------right data
   
     foreach ($_FILES["A_E_upFile"]["error"] as $i => $error) {
@@ -67,7 +61,15 @@ try {
         };
 
     }
-    
+    if(isset($_POST["promotions_no"]) == true){
+    $promotionsql = "update promotionsdetail set promotions_no=:promotions_no, promotions_price=:promotions_price where product_no=:product_no";
+    $promotion =$pdo->prepare($promotionsql);
+    $promotion->bindValue(":promotions_no", $_POST["promotions_no"]);
+    $promotion->bindValue(":product_no", $_POST["product_no"]);
+    $promotion->bindValue(":promotions_price", $_POST["promotions_price"]);
+    $promotion->execute();
+    echo "update left oK";
+    }
 } catch (PDOException $e) {
     $errMsg = "";
     $errMsg .= "錯誤原因 : " . $e->getMessage() . "<br>";
