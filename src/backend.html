@@ -212,6 +212,7 @@
                                 let membersSubDb = new FormData(document.getElementById("membersModify"));
                                 xhr.send(membersSubDb);
                                 document.getElementById("N_edit_lightBox").style.display = "none";
+                                location.reload();
                             }
                         },
                     })
@@ -679,8 +680,8 @@
                                     <label class="p1" for="">Image{{image_no}}</label>
                                 </div>
                                 <div class="pl_1 pr_1">
-                                    <input type="hidden" name="prod_img_origin[]"
-                                        :value="image_path">
+                                    <input type="hidden" name="image_no[]"
+                                        :value="image_no">
                                     <!-- <p style="padding-top: 8px" name="prodone_img_origin"
                                         :value="image_path">目前檔名：{{image_path}}</p> -->
                                     <input type="file" name="A_E_upFile[]" class="A_E_upFile">
@@ -795,6 +796,7 @@
                                 let productsSubDb = new FormData(document.getElementById("productsModify"));
                                 xhr.send(productsSubDb);
                                 document.getElementById("A_edit_lightBox").style.display = "none";
+                                location.reload();
                             },
                             // productInsert(){
                             //     let xhr = new XMLHttpRequest();
@@ -1119,6 +1121,7 @@
                                 let ordersSubDb = new FormData(document.getElementById("ordersModify"));
                                 xhr.send(ordersSubDb);
                                 document.getElementById("O_edit_lightBox").style.display = "none";
+                                location.reload();
                             }
                         },
                     })
@@ -1370,6 +1373,7 @@
                                 let promotionsSubDb = new FormData(document.getElementById("promotionsModify"));
                                 xhr.send(promotionsSubDb);
                                 document.getElementById("B_edit_lightBox").style.display = "none";
+                                location.reload();
                             },
                             promotionInsert() {
                                 let xhr = new XMLHttpRequest();
@@ -1380,6 +1384,7 @@
                                 let promotionsSubDb = new FormData(document.getElementById("promotionsForm"));
                                 xhr.send(promotionsSubDb);
                                 document.getElementById("B_lightBox").style.display = "none";
+                                location.reload();
                             }
                         },
                     })
@@ -1607,6 +1612,7 @@
                                 let newsSubDb = new FormData(document.getElementById("newsModify"));
                                 xhr.send(newsSubDb);
                                 document.getElementById("C_edit_lightBox").style.display = "none";
+                                location.reload();
                             }
                         },
                     })
@@ -1741,6 +1747,7 @@
                                 let carouselsSubDb = new FormData(document.getElementById("carouselsModify"));
                                 xhr.send(carouselsSubDb);
                                 document.getElementById("P_edit_lightBox").style.display = "none";
+                                location.reload();
                             }
                         },
                     })
@@ -1945,6 +1952,7 @@
                                 let managersSubDb = new FormData(document.getElementById("managersModify"));
                                 xhr.send(managersSubDb);
                                 document.getElementById("D_edit_lightBox").style.display = "none";
+                                location.reload();
                             }
                         },
                     })

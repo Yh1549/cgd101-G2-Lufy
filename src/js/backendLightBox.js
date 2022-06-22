@@ -38,6 +38,7 @@ function A_create() {//----新增
 
 
     $id("A_lightBox").style.display = "none";
+    location.reload();
 }
 //----------------------------
 function A_showEditLightBox() {//-----------開修改燈箱
@@ -99,6 +100,7 @@ function C_create() {//----新增
     xhr.open("post", "backend_newsInsert.php");
     xhr.send(new FormData($id("newsForm")));
     $id("C_lightBox").style.display = "none";
+    location.reload();
 };
 //----------------------------
 function C_showEditLightBox() {//-----------開修改燈箱
@@ -135,6 +137,7 @@ function D_create() {//----新增
     xhr.open("post", "backend_managersInsert.php");
     xhr.send(new FormData($id("managersForm")));
     $id("D_lightBox").style.display = "none";
+    location.reload();
 };
 //----------------------------
 function D_showEditLightBox() {//-----------開修改燈箱

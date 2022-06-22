@@ -38,12 +38,12 @@ try {
                 $fileName = uniqid() . ".{$fileInfoArr["extension"]}";
                 $to = "$dir/" . $fileName;
                 if(copy($from, $to)){
-                    $productImgsql = "update product_image set name=:name, product_show=:product_show, image_path=:image_path where product_no=:product_no";
+                    $productImgsql = "update product_image set name=:name, product_show=:product_show, image_path=:image_path where image_no=:image_no";
                     $productImg = $pdo->prepare($productImgsql);
-                    $productImg->bindValue(":product_no", $_POST["product_no"]);
+                    $productImg->bindValue(":image_no", $_POST["image_no"][$i]);
                     $productImg->bindValue(":name", $_POST["product_name"]);
                     $productImg->bindValue(":product_show", $_POST["product_show"][$i]);
-                    $productImg->bindValue(":image_path", $_FILES["A_E_upFile"]["name"][$i]);
+                    $productImg->bindValue(":image_path", $fileName);
                     $productImg->execute();            
                     echo "update right OK";
                 }else{
