@@ -1,8 +1,5 @@
 <?php
 try {
-<<<<<<< HEAD
-    require_once("connect_lufy.php");
-=======
     require_once("connect_cgd101g2.php");
     //--------left data
     $productssql = "update product set category_no=:category_no, des_no=:des_no, name=:name, description=:description, specification=:specification, price=:price, on_market=:on_market, in_stock=:in_stock where product_no=:product_no";
@@ -29,7 +26,6 @@ try {
     echo "update left oK";
     //------right data
   
->>>>>>> e43f9f27daca062a51de29764d72fc610c970538
     foreach ($_FILES["A_E_upFile"]["error"] as $i => $error) {
         switch ($_FILES["A_E_upFile"]["error"][$i]) {
             case UPLOAD_ERR_OK:

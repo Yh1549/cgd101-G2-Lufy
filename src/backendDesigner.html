@@ -111,9 +111,9 @@
                 <li onclick="openClass(event,'mainElm11')" class="ps_1 pe_1 pl_1 pr_1 p1 tablink currentM"><i class="fa-solid fa-id-card pr_1"></i>
                     <p>簡介管理</p>
                 </li>
-                <li onclick="openClass(event,'mainElm12')" class="ps_1 pe_1 pl_1 pr_1 p1 tablink"><i class="fa-solid fa-signature pr_1"></i>
+                <!-- <li onclick="openClass(event,'mainElm12')" class="ps_1 pe_1 pl_1 pr_1 p1 tablink"><i class="fa-solid fa-signature pr_1"></i>
                     <p>作品管理</p>
-                </li>
+                </li> -->
                 <li onclick="openClass(event,'mainElm13')" class="ps_1 pe_1 pl_1 pr_1 p1 tablink"><i class="fa-solid fa-paperclip pr_1"></i>
                     <p>文章管理</p>
                 </li>
@@ -152,7 +152,7 @@
             </section>
 
             <!-- 作品管理 -->
-            <section class="mem_content" id="mainElm12">
+            <!-- <section class="mem_content" id="mainElm12">
                 <div class="ps_1 pe_1 pl_1 pr_1 beNews_titleH1">
                     <h1 class="h1 font_w5 fontTitle">作品管理</h1>
                 </div>
@@ -169,10 +169,6 @@
                         <A_menu v-for="A_backendMenu in prodObject" :key="A_backendMenu.prodNo" v-bind="A_backendMenu" @edit-handler="editHandler(A_backendMenu.prodNo)">
                         </A_menu>
                     </ul>
-                    <!-- <div class="pages">
-                        <p class="p1 pl_1 pr_1">1</p>
-                        <p class="p1 pl_1 pr_1">2</p>
-                    </div> -->
                 </div>
             </section>
             <script>
@@ -234,7 +230,7 @@
                         },
                     },
                 })
-            </script>
+            </script> -->
             <!-- 文章管理 -->
             <section class="mem_content" id="mainElm13">
                 <div id="articleList">

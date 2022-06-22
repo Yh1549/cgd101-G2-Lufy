@@ -1,8 +1,5 @@
 <?php
 try {
-<<<<<<< HEAD
-    require_once("connect_lufy.php");
-=======
     require_once("connect_cgd101g2.php");
 
     $productssql = "INSERT INTO `product`(`category_no`, `des_no`, `des_select`, `name`, `description`, `specification`, `price`, `on_market`, `in_stock`) VALUES (:category_no, :des_no, :des_select, :product_name, :description, :specification, :price, :on_market, :in_stock)";
@@ -29,7 +26,6 @@ try {
     $promotion->bindValue(":promotions_price", $_POST["promotions_price"]);
     $promotion->execute();
     
->>>>>>> e43f9f27daca062a51de29764d72fc610c970538
     foreach ($_FILES["A_upFile"]["error"] as $i => $error) {
         switch ($_FILES["A_upFile"]["error"][$i]) {
             case UPLOAD_ERR_OK:
