@@ -251,9 +251,9 @@
                                             </div>
                                             <div class="pl_1 pr_1">
                                                 <select name="des_no" id="">
-                                                    <option value="1">設計師1</option>
-                                                    <option value="2">設計師2</option>
-                                                    <option value="3">設計師3</option>
+                                                    <option>請選擇設計師</option>
+                                                    <option  v-for="item in designer_select_list"
+                                                    :key="item.des_no" :value="item.des_no">{{item.des_name}}</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -448,10 +448,11 @@
                                             <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Designer</label>
                                             </div>
                                             <div class="pl_1 pr_1">
-                                                <select name="des_no" id="" v-model="popupData.des_no">
-                                                    <option value="1">設計師1</option>
-                                                    <option value="2">設計師2</option>
-                                                    <option value="3">設計師3</option>
+                                                <select name="des_no" id="des_no" v-model="popupData.des_no">
+                                                    <option>請選擇設計師</option>
+                                                    <option v-for="item in designer_select_list"
+                                                        :key="item.des_no" :value="item.des_no">{{
+                                                        item.des_name }}</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -525,110 +526,6 @@
                                         </div>
                                     </div>
                                     <div style="width:50%">
-                                        <!-- <div class="ps_1 pe_1 LBcol">
-                                            <div class="pl_1 pr_1 LBcolTitle">
-                                                <label class="p1" for="">Image1</label>
-                                            </div>
-                                            <div class="pl_1 pr_1">
-                                                <input type="hidden" name="prodone_img_origin"
-                                                    :value="imageData.image_path">
-                                                
-                                                <input type="file" name="A_E_one_upFile" id="A_E_one_upFile">
-                                                <div class="ps_1 pe_1" style="width:310px; height: 173px">
-                                                    <img style="width:auto; height: 173px" name="image_path"
-                                                        id="A_E_one_newsImage" :src="'images//'+ imageData.image_path"
-                                                        alt="">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="ps_1 pe_1 LBcol" style="border-bottom: 1px dashed #ccc">
-                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Show</label>
-                                            </div>
-                                            <div class="pl_1 pr_1">
-                                                <select name="product_show" v-model="imageData.product_show" id="">
-                                                    <option value="0">No</option>
-                                                    <option value="1">Yes</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="ps_1 pe_1 LBcol">
-                                            <div class="pl_1 pr_1 LBcolTitle">
-                                                <label class="p1" for="">Image2</label>
-                                            </div>
-                                            <div class="pl_1 pr_1">
-                                                <input type="hidden" name="prodone_img_origin"
-                                                    :value="popupData.image_path">
-                                                
-                                                <input type="file" name="A_E_two_upFile" id="A_E_two_upFile">
-                                                <div class="ps_1 pe_1" style="width:310px; height: 173px">
-                                                    <img style="width:auto; height: 173px" name="image_path"
-                                                        id="A_E_two_newsImage" :src="'images//'+ popupData.image_path"
-                                                        alt="">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="ps_1 pe_1 LBcol" style="border-bottom: 1px dashed #ccc">
-                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Show</label>
-                                            </div>
-                                            <div class="pl_1 pr_1">
-                                                <select name="product_show" v-model="popupData.product_show" id="">
-                                                    <option value="0">No</option>
-                                                    <option value="1">Yes</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="ps_1 pe_1 LBcol">
-                                            <div class="pl_1 pr_1 LBcolTitle">
-                                                <label class="p1" for="">Image3</label>
-                                            </div>
-                                            <div class="pl_1 pr_1">
-                                                <input type="hidden" name="prodone_img_origin"
-                                                    :value="popupData.image_path">
-                                                
-                                                <input type="file" name="A_E_three_upFile" id="A_E_three_upFile">
-                                                <div class="ps_1 pe_1" style="width:310px; height: 173px">
-                                                    <img style="width:auto; height: 173px" name="image_path"
-                                                        id="A_E_three_newsImage" :src="'images//'+ popupData.image_path"
-                                                        alt="">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="ps_1 pe_1 LBcol" style="border-bottom: 1px dashed #ccc">
-                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Show</label>
-                                            </div>
-                                            <div class="pl_1 pr_1">
-                                                <select name="product_show" v-model="popupData.product_show" id="">
-                                                    <option value="0">No</option>
-                                                    <option value="1">Yes</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="ps_1 pe_1 LBcol">
-                                            <div class="pl_1 pr_1 LBcolTitle">
-                                                <label class="p1" for="">Image4</label>
-                                            </div>
-                                            <div class="pl_1 pr_1">
-                                                <input type="hidden" name="prodone_img_origin"
-                                                    :value="popupData.image_path">
-                                                
-                                                <input type="file" name="A_E_four_upFile" id="A_E_four_upFile">
-                                                <div class="ps_1 pe_1" style="width:310px; height: 173px">
-                                                    <img style="width:auto; height: 173px" name="image_path"
-                                                        id="A_E_four_newsImage" :src="'images//'+ popupData.image_path"
-                                                        alt="">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="ps_1 pe_1 LBcol">
-                                            <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Show</label>
-                                            </div>
-                                            <div class="pl_1 pr_1">
-                                                <select name="product_show" v-model="popupData.product_show" id="">
-                                                    <option value="0">No</option>
-                                                    <option value="1">Yes</option>
-                                                </select>
-                                            </div>
-                                        </div> -->
                                         <ul>
                                             <template v-for="prodimgRow in imageData">
                                                 <li is="Aimg_menu" v-bind="prodimgRow"></li>
@@ -715,8 +612,8 @@
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{des_name}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{description}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{specification}}</p>
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{price}}</p>
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{on_market ? '已上架' : '未上架'}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">$ {{price}}</p>
+                                <p class="p1 pl_1 pr_1 font_w5 fontcontent fontColor">{{on_market ? '已上架' : '未上架'}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{in_stock ? '有庫存' : '無庫存'}}</p>
                                 <button class="p1 bkbtn" id="A_Edit" @click="$emit('edit-handler')" type="button">Edit</button>
                             </div>
@@ -743,7 +640,8 @@
                                 in_stock: ``,
                                 product_show: ``,
                             },
-                            promotions_select_list: []
+                            promotions_select_list: [],
+                            designer_select_list: []
                         },
                         created() {
                             let xhr = new XMLHttpRequest();
@@ -762,6 +660,13 @@
                             }
                             xhrP.open("get", "getPromotions.php", true);
                             xhrP.send(null);
+
+                            let xhrZ = new XMLHttpRequest();
+                            xhrZ.onload = function () {
+                                productsVue.designer_select_list = JSON.parse(xhrZ.responseText);
+                            }
+                            xhrZ.open("get", "getDesigners.php", true);
+                            xhrZ.send(null);
 
                             
                         },
@@ -1011,7 +916,7 @@
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{order_no}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{member_no}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{order_datetime}}</p>
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{order_total}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">$ {{order_total}}</p>
                                 <p class="p1 pl_1 pr_1 font_w5 fontcontent fontColor">{{order_state}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{order_notes}}</p>
                                 <button class="p1 bkbtn" id="O_Edit" @click="$emit('edit-handler')" type="button">Details</button>
@@ -1026,7 +931,7 @@
                             <div class="backend_text">
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{product_name}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{order_count}}</p>
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{product_price}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">$ {{product_price}}</p>
                                 <p class=""></p>
                             </div>
                         </li>
