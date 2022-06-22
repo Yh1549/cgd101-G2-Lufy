@@ -69,8 +69,6 @@ let profiles_sub = () => {
         } else {
           $id("member_Lightbox").style.display = "flex";
           $id("responseMsg").innerText = `Change Fail`;
-
-          // console.log(xhr.status);
         }
       };
       xhr.open("post", "membermodify.php", true);
@@ -79,6 +77,18 @@ let profiles_sub = () => {
     }
   }
 };
+// 會員相片
+let profilesPhoto_sub =()=>{
+  let photoxhr = new XMLHttpRequest();
+  photoxhr.onload=()=>{
+    $id("member_Lightbox").style.display = "flex";
+    $id("responseMsg").innerText = `${photoxhr.responseText}`;
+  };
+  photoxhr.open("post","memberphotomodify.php", true);
+  let profilesPhotosend = new FormData($id("profilesPhoto"));
+  photoxhr.send(profilesPhotosend);
+};
+// 會員密碼修改
 let changePsw_sub = () => {
   let xhr = new XMLHttpRequest();
   xhr.onload = () => {
@@ -123,6 +133,7 @@ function getMemberinfo(e) {
       $id("memBD").value = memberinfo.member_birthday;
       $id("memPhone").value = memberinfo.member_tel;
       $id("Address").value = memberinfo.member_address;
+      $id("memphotoPreview").src=`images/${memberinfo.member_pic}`;
       // 會員訂單寫入
       let orderHtml = ``;
       for (let i = 0; i < memberorder.length; i++) {
@@ -197,6 +208,7 @@ function getMemberinfo(e) {
       $id("mem_Loginbtn").innerText = "Log in";
     }
   };
+  
   xhr.open("get", "membergetInfo.php", true);
   xhr.send(null);
 }
@@ -235,6 +247,8 @@ function init() {
   $id("btnLogin").addEventListener("click", memberLogin, false);
   //會員資料修改
   $id("profiles_sub").onclick = profiles_sub;
+  // 會員相片修改
+  $id("profilesPhoto_sub").onclick = profilesPhoto_sub;
   //會員密碼修改
   $id("changePsw_sub").onclick = changePsw_sub;
   //燈箱關閉

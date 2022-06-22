@@ -211,7 +211,6 @@
     justify-content: center;
     margin: 10px;
     width: 100%;
-
     img {   
         width: 40%;
     }
@@ -238,11 +237,9 @@
 .designer_slogan {
     padding: 10px;
     display: flex;
-    align-items: center;
-
-    p {
-        color: $fontcolor_10;
-    }
+    flex-direction: column;
+    justify-content: center;
+    color: $fontcolor_10;
 }
 
 .designer_name,
