@@ -73,9 +73,10 @@ let purchasePnl = Vue.component('purchase-panel', {
         </div>
         <div class="purchase_function me_3">
             <div id="buyNow" class="buyNowButton mr_5">
-                <i class="fa-solid fa-credit-card"></i>
-                <span class="fontcontent p1">Buy Now</span>
-                <input type="hidden" value="lamp1|aboutus.lamp1.png|50000">
+                
+            <a href="./cartEdit.html"><span :id="product_no" class="fontcontent p1"><i class="fa-solid fa-credit-card"></i>Buy Now
+                <input type="hidden" :value="productInfo">
+                </span></a>
             </div>
             <div class="addButton">
                 <span :id="product_no" class="fontcontent p1"><i class="fa-solid fa-cart-plus"></i> Add to Cart

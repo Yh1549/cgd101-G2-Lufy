@@ -1,7 +1,7 @@
 <?php
 
 try {
-	require_once("connect_cgd101g2.php");
+	require_once("connect_lufy.php");
 	        
 	$sql2 ="INSERT INTO `product_order`(`order_no`, `member_no`, `order_datetime`, `payer_name`, `payer_phone`, `payer_address`, `credit_card`, `card_date`, `card_checkCode`, `recipient_name`, `recipient_phone`, `recipient_address`, `recipient_datetime`, `order_state`, `order_total`, `order_notes`) VALUES (null,:member_no,:order_datetime,:payer_name,:payer_phone,:payer_address,:credit_card,:credit_card_date,:card_checkCode,:recipient_name,:recipient_phone,:recipient_address,:recipient_datetime,:order_state,:order_total,:order_notes)";
 

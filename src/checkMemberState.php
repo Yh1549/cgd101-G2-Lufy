@@ -1,7 +1,7 @@
 <?php
 session_start();
 try {
-    require_once("connect_cgd101g2.php");
+    require_once("connect_lufy.php");
     if ($_SESSION["memNo"]){
         echo "已登入";
     } else {
