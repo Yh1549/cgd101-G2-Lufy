@@ -1,5 +1,5 @@
 /* 商品主頁 */
-.containerALL {
+.productInner {
     @media all and (max-width:768px) {
         margin-bottom: 2rem;
         margin-right: 30px;
@@ -52,7 +52,7 @@
         @media all and (max-width:768px) {
             .small_products_img_box {
                 .small_products_img {
-                    width: 90px;
+                    width: 31%;
                 }
             }
         }
@@ -185,7 +185,7 @@
             .product_price,
             .color_selector,
             .purchase_function {
-                margin-bottom: 1.25rem;
+                margin-bottom: 2rem;
             }
         }
     }

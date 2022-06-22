@@ -6,7 +6,7 @@ $jsonCount = count($data);
 if (array_key_first($data) == 'memName' && $jsonCount == 1) {
   try {
         // Name跟email檢查有無重複
-    require_once("connect_lufy.php");
+    require_once("connect_cgd101g2.php");
     $sql = "select * from member where member_name=:memName";
     $member = $pdo->prepare($sql);
     $member->bindValue(":memName", $data["memName"]);
@@ -22,7 +22,7 @@ if (array_key_first($data) == 'memName' && $jsonCount == 1) {
 }else if (array_key_first($data) == 'email' && $jsonCount == 1) {
   try {
     // Name跟email檢查有無重複
-    require_once("connect_lufy.php");
+    require_once("connect_cgd101g2.php");
     $sql = "select * from member where member_mail=:email";
     $member = $pdo->prepare($sql);
     $member->bindValue(":email", $data["email"]);
@@ -37,7 +37,7 @@ if (array_key_first($data) == 'memName' && $jsonCount == 1) {
   }
 }else if($jsonCount > 1){
   try {
-    require_once("connect_lufy.php");
+    require_once("connect_cgd101g2.php");
     $sql = "insert into member(member_name, member_mail, member_psw, member_birthday, member_tel, member_address, member_state, member_pic, credit_card, card_date, card_checkCode) values(:memName, :email, :memPsw, :memBD, :memPhone, :Address, 0, '', '', '2000-01-01', '000')";
     $member = $pdo->prepare($sql);
     $member->bindValue(":memName", $data["memName"]);
