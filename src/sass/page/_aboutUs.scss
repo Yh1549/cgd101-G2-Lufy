@@ -86,6 +86,9 @@
     z-index: 10;
     // color: #ccc;
     position: relative;
+     p{
+
+     }
 }
 
 .timeline .time:first-child {
@@ -122,7 +125,7 @@
     border-radius: 10px;
     font-size: 14px;
     position: relative;
-    height: 80px;
+    min-height: 80px;
     box-shadow: 0 $ip_shadow $ip_shadow * 3 0 $secondary_dark;
 }
 
@@ -178,7 +181,14 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    @include t {
+        max-width: 678px;
+        margin: 0 auto;
+       
+        flex-direction: column;
+    }
 }
+
 
 .designer_card {
     background-color: $secondary_dark;
@@ -187,6 +197,7 @@
     border-radius: 20px;
     padding: 20px;
     margin-bottom: 20px;
+
     // background-image: url('../images/aboutus.lamp1.png');
 }
 

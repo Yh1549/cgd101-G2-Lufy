@@ -15,16 +15,16 @@ introBtn.addEventListener("click", sendForm);
 
 function sendForm() {
     // console.log(new FormData(document.getElementById("desIntro")));
-    let xhr = new XMLHttpRequest();
-    xhr.onload = function() {
-        alert(xhr.responseText);
+    let xhr3 = new XMLHttpRequest();
+    xhr3.onload = function() {
+        alert(xhr3.responseText);
         console.log(xhr.responseText);
     }
 
 
-    xhr.open("post", "designer_intro.php");
+    xhr3.open("post", "designer_intro.php");
 
-    xhr.send(new FormData(document.getElementById("desIntro")));
+    xhr3.send(new FormData(document.getElementById("desIntro")));
 
 }
 
@@ -33,15 +33,24 @@ desArticleBtn.addEventListener("click", sendForm2);
 
 function sendForm2() {
     // console.log(new FormData(document.getElementById("desIntro")));
-    let xhr = new XMLHttpRequest();
-    xhr.onload = function() {
-        alert(xhr.responseText);
-        console.log(xhr.responseText);
+    let xhr4 = new XMLHttpRequest();
+    xhr4.onload = function() {
+        alert(xhr4.responseText);
+        console.log(xhr4.responseText);
     }
 
 
-    xhr.open("post", "designer_article.php");
+    xhr4.open("post", "designer_article.php");
 
-    xhr.send(new FormData(document.getElementById("desArticle")));
+    xhr4.send(new FormData(document.getElementById("desArticle")));
 
 }
+function sendForm3 (){
+    let xhr2 = new XMLHttpRequest();
+    xhr2.onload = function(){
+        alert(xhr2.responseText);
+    }
+    xhr2.open("get","./getDesignerInfo.php",true)
+    xhr2.send(null);
+}
+window.addEventListener("load",sendForm3);

@@ -92,9 +92,18 @@ function createCartList(itemId, itemValue) {
     inputItemCount.className = 'js-count'
     inputItemCount.addEventListener('input', changeItemCount)
 
+   
+   
+
     pItemCount.appendChild(inputItemCount)
     tdItemCount.appendChild(pItemCount)
     trItemList.appendChild(tdItemCount)
+
+    let counts = document.querySelector('.js-count').value;
+    
+
+    storage.setItem(itemTitle, counts);
+
 
 
 

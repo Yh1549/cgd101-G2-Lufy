@@ -1,8 +1,6 @@
 let newDiv = document.createElement('div')
 let newTable = document.createElement('table')
-let total = 0;
-let totalcounts = 0;
-let fproductPrice = 0;
+
 function showOrder(json){
     let order = JSON.parse(json);
     // let order2 = JSON.stringify(order);
@@ -10,9 +8,7 @@ function showOrder(json){
    
     // console.log(order[0].order_no);
     let html;
-    let productnos = 0; 
-    let productcounts = 0;
-    let  productPrices = 0;
+  
 
     newDiv.appendChild(newTable);
     cartList.appendChild(newDiv);
@@ -22,7 +18,9 @@ function showOrder(json){
         let itemTitle =order[i].name
         console.log(itemTitle);
         let itemImage = 'images/' + order[i].image_path;
+        console.log(itemImage);
         let itemPrice = parseInt(order[i].product_price);
+        console.log(itemPrice);
     
     
         let trItemList = document.createElement('tr')
@@ -117,28 +115,7 @@ function showOrder(json){
         trItemList.appendChild(tdItemCount)
     
     
-        let sum = 0;
-        let list = document.querySelectorAll('.tPrice');
-    
-        list.forEach(item => {
-            let price = item.innerText;
-            // console.log(item.innerText);
-    
-            let fcounts = item.parentNode.nextSibling.firstChild.firstChild.value
-                // console.log(fcounts);
-    
-            let newPrice = price * fcounts
-            sum += newPrice;
-            // console.log(sum);
-            // storage.setItem(itemId, newPrice);
-            // console.log(storage.getItem(itemId))
-            // console.log(newPrice);
-            // storage.clear();
-            // storage.setItem(itemId, newPrice);
-    
-        })
-        // document.getElementById('total2').innerText = sum;
-        // // console.log(sum);
+  
     }
     
 
@@ -202,3 +179,8 @@ function getOrder(){
 
 }
 window.addEventListener("load",getOrder);
+let checkorder = document.getElementById('checkorder');
+window.addEventListener("click",clearStorage);
+function clearStorage (){
+    localStorage.clear();
+}
