@@ -26,7 +26,7 @@
                 let backendLoginxhr = new XMLHttpRequest();
                 backendLoginxhr.onload = () => {
                     if (backendLoginxhr.status == 200) {
-                        if (backendLoginxhr.responseText != "此帳號已被凍結") {
+                        if ( backendLoginxhr.responseText != "wrong account") {
                             window.location.assign(`${backendLoginxhr.responseText}`)
                         } else {
                             document.getElementById("loginMsg").innerText = backendLoginxhr.responseText;
