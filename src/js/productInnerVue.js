@@ -48,7 +48,7 @@ let purchasePnl = Vue.component('purchase-panel', {
 
     },
     mounted() {
-        this.isAdd = this.add;
+        // this.isAdd = this.add;
     },
     computed: {
         prom_price() {

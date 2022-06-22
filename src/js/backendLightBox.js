@@ -213,6 +213,7 @@ function init() {
     };
     //----//----修改商品-Edit鈕
     $id("A_EditBtnCancel").onclick = A_cancelEdit;//----修改商品-取消鈕
+    /*
     $id("A_E_one_upFile").onchange = function (e) {//----新增商品上傳圖片鈕
         let file = e.target.files[0]; //取得所選的file物件的參考
         let reader = new FileReader();
@@ -237,6 +238,7 @@ function init() {
         };
         reader.readAsDataURL(file); //將圖檔資訊讀出以 base64的編碼方式，以便放到img標籤中
     };
+    
     $id("A_E_four_upFile").onchange = function (e) {//----新增商品上傳圖片鈕
         let file = e.target.files[0]; //取得所選的file物件的參考
         let reader = new FileReader();
@@ -245,7 +247,7 @@ function init() {
         };
         reader.readAsDataURL(file); //將圖檔資訊讀出以 base64的編碼方式，以便放到img標籤中
     };
-    
+    */
     
     
     //-------------------修改 O_訂單按鈕--------------------

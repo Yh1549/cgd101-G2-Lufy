@@ -1,7 +1,14 @@
 /* 商品主頁 */
-.containerALL {
-    @include m {
+.productInner {
+    @media all and (max-width:768px) {
         margin-bottom: 2rem;
+        margin-right: 30px;
+        margin-left: 30px;
+    }
+    @media all and (max-width:490px) {
+        margin-bottom: 2rem;
+        margin-right: 15px;
+        margin-left: 15px;
     }
 }
 
@@ -22,7 +29,7 @@
             object-fit: cover;
             vertical-align: top;
 
-            @include t {
+            @media all and (max-width:768px) {
                 margin-bottom: 1rem;
             }
         }
@@ -42,15 +49,15 @@
             }
         }
 
-        @include t {
+        @media all and (max-width:768px) {
             .small_products_img_box {
                 .small_products_img {
-                    width: 90px;
+                    width: 31%;
                 }
             }
         }
 
-        @include m {
+        @media all and (max-width:490px) {
             width: 100%;
             margin-bottom: 0;
         }
@@ -142,16 +149,16 @@
             .heart {
                 font-size: 20px;
             }
-            @include t {
+            @media all and (max-width:768px) {
                 max-width: 678px;
             }
 
-            @include m {
+            @media all and (max-width:490px) {
                 margin-right: 2rem;
             }
         }
 
-        @include t {
+        @media all and (max-width:768px) {
             max-width: 678px;
             padding-left: 2rem;
 
@@ -169,7 +176,7 @@
             }
         }
 
-        @include m {
+        @media all and (max-width:490px) {
             width: 100%;
             padding-left: 0;
 
@@ -178,16 +185,16 @@
             .product_price,
             .color_selector,
             .purchase_function {
-                margin-bottom: 1.25rem;
+                margin-bottom: 2rem;
             }
         }
     }
 
-    @include t {
+    @media all and (max-width:768px) {
         margin-bottom: 3rem;
     }
 
-    @include m {
+    @media all and (max-width:490px) {
         width: 100%;
         padding: 0;
         flex-direction: column;
@@ -202,7 +209,7 @@
     width: 500px;
     height: 500px;
 
-    @include t {
+    @media all and (max-width:768px) {
         width: 100%;
     }
 }
@@ -240,7 +247,7 @@
         border-bottom: 2px solid $primary_100;
     }
 
-    @include m {
+    @media all and (max-width:490px) {
         .detail_switch {
             display: flex;
             justify-content: flex-start;
@@ -282,23 +289,23 @@
                 vertical-align: top;
             }
 
-            @include t {
+            @media all and (max-width:768px) {
                 max-width: 678px;
                 width: 30%;
             }
 
-            @include m {
+            @media all and (max-width:490px) {
                 width: 100%;
                 margin-right: 0;
                 margin-bottom: 1rem;
             }
         }
 
-        @include t {
+        @media all and (max-width:768px) {
             max-width: 678px;
         }
 
-        @include m {
+        @media all and (max-width:490px) {
             flex-direction: column;
         }
 
@@ -323,7 +330,7 @@
                 }
             }
 
-            @include t {
+            @media all and (max-width:768px) {
                 width: 70%;
 
                 .product_designer_intro_content {
@@ -331,7 +338,7 @@
                 }
             }
 
-            @include m {
+            @media all and (max-width:490px) {
                 width: 100%;
                 display: flex;
                 flex-direction: column;
@@ -364,12 +371,12 @@
         color: $white;
         float: left;
 
-        @include m {
+        @media all and (max-width:490px) {
             margin-bottom: 2rem;
         }
     }
 
-    @include m {
+    @media all and (max-width:490px) {
         .category_wrap {
             margin: 0;
         }

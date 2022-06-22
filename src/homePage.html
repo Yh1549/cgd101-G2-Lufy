@@ -50,48 +50,54 @@
             <div id="project_wrap" class="project_wrap">
                 <div class="project_card project_card1">
                     <img src="./images/projectMain_pic5.webp" alt="The Renaissance" />
-                    <div class="content ms_1 mr_1 me_1 ml_1">
+                    <div class="content ms_2 mr_2 me_2 ml_2">
                         <h2 class="h1 me_1">The Renaissance</h2>
-                        <h3 class="h4 me_1">
-                            It is recommended that you work through Getting started with the web before attempting this
-                            topic. However, this
-                            isn't absolutely necessary; much of what is covered in the HTML basics article is also
-                            covered in our
-                            Introduction to HTML module, albeit in a lot more detail.
-                        </h3>
-                        <p class="h5 me_4">SIMON SCHMITZ</p>
+                        <div class="content">
+                            <p class="h4 me_1">
+                                It is recommended that you work through Getting started with the web before attempting this
+                                topic. However, this
+                                isn't absolutely necessary; much of what is covered in the HTML basics article is also
+                                covered in our
+                                Introduction to HTML module, albeit in a lot more detail.
+                            </p>
+                        </div>
+                        <h3 class="h5 me_4">SIMON SCHMITZ</h3>
                         <a href="projectInner1.html" class="btn_normal"> more </a>
                     </div>
                 </div>
                 <div class="project_card project_card2">
                     <img src="./images/projectMain_pic4.webp" alt="INDUSTRIAL REVOLUTION" />
-                    <div class="content ms_1 mr_1 me_1 ml_1">
+                    <div class="content ms_2 mr_2 me_2 ml_2">
                         <h2 class="h1 me_1">INDUSTRIAL REVOLUTION</h2>
-                        <h3 class="h4 me_1">
-                            The Industrial Revolution was the transition to new manufacturing processes in Great
-                            Britain, continental Europe, and
-                            the United States, in the period from about 1760 to sometime between 1820 and 1840.
-                        </h3>
-                        <p class="h5 me_4">BERNARD SCHOTTLANDER</p>
+                        <div class="content">
+                            <p class="h4 me_1">
+                                The Industrial Revolution was the transition to new manufacturing processes in Great
+                                Britain, continental Europe, and
+                                the United States, in the period from about 1760 to sometime between 1820 and 1840.
+                            </p>
+                        </div>
+                        <h3 class="h5 me_4">BERNARD SCHOTTLANDER</h3>
                         <a href="projectInner2.html" class="btn_normal"> more </a>
                     </div>
                 </div>
                 <div class="project_card project_card3">
                     <img src="./images/projectMain_pic6.webp" alt="The Dragon" />
-                    <div class="content ms_1 mr_1 me_1 ml_1">
+                    <div class="content ms_2 mr_2 me_2 ml_2">
                         <h2 class="h1 me_1">The Dragon</h2>
-                        <h3 class="h4 me_1">
-                            The warm and soft light caressed the earth, and the dexterous light feathers flew, carrying
-                            a fresh and flawless
-                            atmosphere.
+                        <div class="content">
+                            <p class="h4 me_1">
+                                The warm and soft light caressed the earth, and the dexterous light feathers flew, carrying
+                                a fresh and flawless
+                                atmosphere.
 
-                            Slowly glowing in the faint space,
+                                Slowly glowing in the faint space,
 
-                            It seems to express affectionately with pure sincerity and connotation, and silently becomes
-                            a force to soothe people's
-                            hearts.
-                        </h3>
-                        <p class="h5 me_4">ALBIN GRAS</p>
+                                It seems to express affectionately with pure sincerity and connotation, and silently becomes
+                                a force to soothe people's
+                                hearts.
+                            </p>
+                        </div>
+                        <h3 class="h5 me_4">ALBIN GRAS</h3>
                         <a href="projectInner3.html" class="btn_normal"> more </a>
                     </div>
                 </div>
@@ -127,102 +133,114 @@
                     </product-commodity>
                 </transition-group>
             </div>
-            <!-- <div id="product_category" class="product_category ms_4 me_4">
-                <product-category v-for='(category, index) in categoryObject' :key="category.id" v-bind="category">
-                </product-category>
-            </div> -->
-            <!-- <div id="grid_masonry">
-                <div class="grid">
-                    <div class="grid-sizer"></div>
-                    <div class="gutter-sizer"></div>
-                    <product-commodity v-for="(commodity, index) in commodityObject" :key="commodity.id" v-bind="commodity"></product-commodity>
-                </div>
-            </div> -->
         </section>
     </section>
     <!-- 情境模擬 -->
-    <section class="index_simulation">
-        <div class="containerALL">
-            <div class="index_simulation_title">
-                <h2 class="s1 font_i fontdeco_w5 me_4">MyLight</h2>
-                <h2 class="s2 font_i fontdeco_w2 me_4">/Play with the Light</h2>
-            </div>
+    <section class="simulation_luminosity index_luminosity me_8" id="simulation_luminosity" :style="{ backdropFilter: 'contrast(60%)' }">
+    
+        <!-- 投射燈光幕 -->
+        <div class="simulation_lamp">
+            <img src="./images/simulation_lamp_v2.webp" alt="">
         </div>
-        <div class="index_luminosity ms_8 me_8" id="index_luminosity">
-            <!-- <div class="entrance_lamp"></div> -->
-            <!-- <div id="entrance_light" class="entrance_homepage"></div> -->
-            <div class="lamp-wrapper"></div>
-            <div class="wall-light-shadow"></div>
-            <form class="index_form" oninput="index_luminosity.setAttribute('data-light', slider.value)">
-                <div class="range">
-                    <div class="sliderValue">
-                        <span class="indicator">0</span>
-                    </div>
-                    <div class="field">
+    
+        <!-- 投射燈光 -->
+        <div id="entrance_light" class="entrance_homepage" style="display: block;"></div>
+    
+        <!-- 燈光 -->
+        <div class="wall-light-shadow" :style="hueOutput"></div>
+    
+        <!-- 遮色片 -->
+        <div class="front-mask" :style="opacityOutput"></div>
+    
+        <!-- 控制面板 -->
+        <form class="simulation_form" oninput="simulation_luminosity.setAttribute('data-light', slider.value)">
+    
+            <!-- 透明度 -->
+            <div class="range me_2">
+                <h2 class="title">Light : {{opacity}}</h2>
+                <div class="rangebox">
+                    <!-- <label class="sliderValue">
+                                        <span class="indicator" :style="{ left : (opacity/1.19) + '%' }">{{opacity}}</span> -->
+                    <label class="field">
                         <div class="value left">0</div>
-                        <input type="range" id="slider" value="0" min="0" max="100" steps="1" />
+                        <input type="range" id="slider" value="0" min="0" max="100" steps="1" v-model="opacity">
                         <div class="value right">100</div>
-                    </div>
+                    </label>
                 </div>
-            </form>
-        </div>
+            </div>
+    
+            <!-- 色相 -->
+            <div class="range me_2">
+                <h2 class="title">Hue</h2>
+                <div class="rangebox">
+                    <label class="field">
+                        <div class="value left">Orange</div>
+                        <input type="range" v-model="hue" min="40" max="180" steps="1">
+                        <div class="value right">Blue</div>
+                    </label>
+                </div>
+            </div>
+    
+            <!-- 飽和度 -->
+            <div class="range me_2">
+                <h2 class="title">Saturation : {{saturation}}</h2>
+                <div class="rangebox">
+                    <!-- <label class="sliderValue">
+                            <span class="indicator" :style="{ left : (saturation/1.19) + '%' }">{{saturation}}</span>
+                        </label> -->
+                    <label class="field">
+                        <div class="value left">0</div>
+                        <input type="range" v-model="saturation" min="0" max="100" steps="1">
+                        <div class="value right">100</div>
+                    </label>
+                </div>
+            </div>
+    
+        </form>
     </section>
     <!-- 最新消息 -->
     <section class="index_news">
         <div class="containerALL">
             <div class="card">
-                <div id="news_photo">
-                    <news-photo v-for="(newsphoto, index) in newsphotoObject" :key="newsphoto.id" v-bind="newsphoto">
-                    </news-photo>
+                <div id="newsList">
+                    <news-card v-for="(newsphoto, index) in newsRows" :key="newsphoto.id" v-bind="newsphoto">
+                    </news-card>
                 </div>
                 <script>
-                    let newsphoto = Vue.component("news-photo", {
-                        props: [
-                            "newsImage",
-                            "newsName",
-                            "newsTitle",
-                            "newsContent",
-                            "newsInfoLink",
-                        ],
+                    let newsphoto = Vue.component("news-card", {
+                        props: ['news_no', 'news_title', 'news_text', 'newsImage_path', 'news_publish', 'news_state'],
                         template: `
-                <div class="news_photo me_8">
-                    <div class='photo'>
-                        <img :src="newsImage" :alt="newsName">
-                    </div>
-                    <div class="wrap">
-                        <div class="content">
-                            <h2 class="h2">{{newsTitle}}</h2>
-                            <p class="h4 me_2">{{newsContent}}</p>
-                            <a :href="newsInfoLink" class="btn_normal h4 me_2">more</a>
-                        </div>
-                    </div>
-                </div>
-            `,
+                            <div class="news_photo me_8">
+                                <div class='photo'>
+                                    <img :src="'images//'+ newsImage_path"" :alt="news_title">
+                                </div>
+                                <div class="wrap">
+                                    <div class="content">
+                                        <h2 class="h2 me_1">{{news_title}}</h2>
+                                        <div>
+                                            <p class="h5 me_2">{{news_text}}</p>
+                                        </div>
+                                        <a :href="newsInfoLink" class="btn_normal h4 me_2">more</a>
+                                    </div>
+                                </div>
+                            </div>
+                        `,
                     });
-                    new Vue({
-                        el: "#news_photo",
-                        data: {
-                            newsphotoObject: [{
-                                newsImage: `./images/news_shinning.webp`,
-                                newsName: `Shinning a light on furniture`,
-                                newsTitle: `Shinning a light on furniture`,
-                                newsContent: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ipsum, maecenas et tristique convallis cras est aliquet arcu.`,
-                                newsInfoLink: `news.html`,
-                            }, {
-                                newsImage: `./images/news_discount_prouduct.webp`,
-                                newsName: `Discount Prouduct`,
-                                newsTitle: `Discount Prouduct`,
-                                newsContent: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ipsum, maecenas et tristique convallis cras est aliquet arcu.`,
-                                newsInfoLink: `news.html`,
-                            }, {
-                                newsImage: `./images/news_new_style_creative_01.webp`,
-                                newsName: `New Style Creative`,
-                                newsTitle: `New Style Creative`,
-                                newsContent: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ipsum, maecenas et tristique convallis cras est aliquet arcu.`,
-                                newsInfoLink: `news.html`,
-                            },],
-                        },
-                    });
+                    let newsVue =
+                            new Vue({
+                                el: '#newsList',
+                                data: {
+                                    newsRows: [],
+                                },
+                                created() {
+                                    let xhr = new XMLHttpRequest();
+                                    xhr.onload = function () {
+                                        newsVue.newsRows = JSON.parse(xhr.responseText);
+                                    }
+                                    xhr.open("get", "getNews.php", true);
+                                    xhr.send(null);
+                                },
+                            });
                 </script>
             </div>
         </div>
@@ -259,7 +277,7 @@
     <!-- 專案實例 -->
     <script src="./js/homePage_project.js"></script>
     <!-- 情境模擬 -->
-    <script src="./js/simulation.js"></script>
+    <script src="./js/simulationVue.js"></script>
     <!-- 輪播套件script -->
     <script src="./js/swiper-bundle.min.js"></script>
     <!-- 商品頁瀑布流 -->

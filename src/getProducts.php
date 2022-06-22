@@ -1,6 +1,6 @@
 <?php 
 try{
-	require_once("connect_lufy.php");
+	require_once("connect_cgd101g2.php");
 	// i.product_show, i.image_path, 
 	$sql = "SELECT  DISTINCT p.product_no, p.des_no, p.name, p.description, p.specification, p.price, p.on_market, p.in_stock, d.des_name, d.des_text, 'd.des_img_path', r.promotions_no, r.promotions_price, m.promotions_no, m.promotions_name, m.promotions_startDate, m.promotions_endDate, m.promotions_text, c.category_no, c.category_imgpath, c.category_name
 	FROM product p
@@ -14,7 +14,7 @@ try{
 	$prodRows = $products->fetchAll(PDO::FETCH_ASSOC);
 	// echo json_encode($prodRows);
 
-	$imagesql = "select image_path, product_no, product_show from product_image";
+	$imagesql = "select image_no, image_path, product_no, product_show from product_image";
 	$image=$pdo->query($imagesql);
 	$imageRows = $image->fetchAll(PDO::FETCH_ASSOC);
 	// echo json_encode($imageRows);

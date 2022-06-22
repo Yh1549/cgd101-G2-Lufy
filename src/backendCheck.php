@@ -1,7 +1,7 @@
 <?php
 session_start();
 try {
-    require_once("connect_lufy.php");
+    require_once("connect_cgd101g2.php");
 if(isset($_SESSION["role"])){
 if ($_SESSION["role"] == "後台管理人員") {
         echo "admin";
