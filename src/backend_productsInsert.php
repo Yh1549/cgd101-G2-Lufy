@@ -67,7 +67,7 @@ try {
         };
         echo "product新增成功";
     } else {
-        echo "錯誤代碼 : {$_FILES["C_upFile"]["error"]} <br>";
+        echo "錯誤代碼 : {$_FILES["A_upFile"]["error"]} <br>";
         echo "新增失敗<br>";
     }
 } catch (PDOException $e) {
