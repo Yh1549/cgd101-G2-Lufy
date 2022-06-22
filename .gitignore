@@ -1,6 +1,6 @@
 node_modules
 dist
 package-lock.json
-connect_cgd101g2.php
-src/connect_cgd101g2.php
+connect_lufy.php
+src/connect_lufy.php
 src/product.product.sql
