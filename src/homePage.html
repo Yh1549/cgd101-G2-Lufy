@@ -10,7 +10,7 @@
     @@include('layout/header.html')
     <!-- header end -->
     <!-- 第一屏遮罩 + 首頁輪播 -->
-    <input type="button" value="On" class="turn_on" />
+    <input type="button" value="Turn On" class="turn_on" />
     <section class="first">
         <div class="containerALL">
             <div class="wrapper">
@@ -151,24 +151,40 @@
     
         <!-- 遮色片 -->
         <div class="front-mask" :style="opacityOutput"></div>
-    
+        
+        <!-- LOGO SLOGAN -->
+        <div class="sloganBox">
+            <h2 class="slogan title s3 font_i">Light Up For You</h2>
+            <h3 class="slogan text h2">
+                We firmly believe that 'Light' can bring more beautiful value to life
+                <br /> which is our original intention.
+            </h3>
+        </div>
+
         <!-- 控制面板 -->
-        <form class="simulation_form" oninput="simulation_luminosity.setAttribute('data-light', slider.value)">
-    
+        <form class="simulation_form" oninput="simulation_luminosity.setAttribute('data-light', slider.value)">    
             <!-- 透明度 -->
             <div class="range me_2">
                 <h2 class="title">Light : {{opacity}}</h2>
                 <div class="rangebox">
-                    <!-- <label class="sliderValue">
-                                        <span class="indicator" :style="{ left : (opacity/1.19) + '%' }">{{opacity}}</span> -->
                     <label class="field">
                         <div class="value left">0</div>
                         <input type="range" id="slider" value="0" min="0" max="100" steps="1" v-model="opacity">
                         <div class="value right">100</div>
                     </label>
                 </div>
+            </div>    
+            <!-- 飽和度 -->
+            <div class="range me_2">
+                <h2 class="title">Saturation : {{saturation}}</h2>
+                <div class="rangebox">
+                    <label class="field">
+                        <div class="value left">0</div>
+                        <input type="range" v-model="saturation" min="0" max="100" steps="1">
+                        <div class="value right">100</div>
+                    </label>
+                </div>
             </div>
-    
             <!-- 色相 -->
             <div class="range me_2">
                 <h2 class="title">Hue</h2>
@@ -180,22 +196,6 @@
                     </label>
                 </div>
             </div>
-    
-            <!-- 飽和度 -->
-            <div class="range me_2">
-                <h2 class="title">Saturation : {{saturation}}</h2>
-                <div class="rangebox">
-                    <!-- <label class="sliderValue">
-                            <span class="indicator" :style="{ left : (saturation/1.19) + '%' }">{{saturation}}</span>
-                        </label> -->
-                    <label class="field">
-                        <div class="value left">0</div>
-                        <input type="range" v-model="saturation" min="0" max="100" steps="1">
-                        <div class="value right">100</div>
-                    </label>
-                </div>
-            </div>
-    
         </form>
     </section>
     <!-- 最新消息 -->
@@ -220,7 +220,7 @@
                                         <div>
                                             <p class="h5 me_2">{{news_text}}</p>
                                         </div>
-                                        <a :href="newsInfoLink" class="btn_normal h4 me_2">more</a>
+                                        <a href="https://tibamef2e.com/cgd101/g2/news.html" class="btn_normal h4 me_2">more</a>
                                     </div>
                                 </div>
                             </div>
