@@ -22,7 +22,7 @@
                 <a class="breadcrumb" v-if="prodInfoRow[0]" :href="`./productInner.html${locationSearch}`">{{prodInfoRow[0].name}}</a>
             </li>
         </ul>
-        <!-- breadcrumb end-->
+        <!-- productInfo-->
         <section class="product_main_box me_6">
             <div class="main_product_img" v-if="prodInfoRow.length !=0">
                 <prodimg-main :image_path="prodInfoRow[0]?.image_path"></prodimg-main>
