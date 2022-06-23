@@ -8,14 +8,14 @@ let prodImgMain = Vue.component('prodimg-main', {
         }
     },
     computed: {
-        productInfo() {
-            return `${this.image_path}`
-
+        productInfo(){
+            return  `${this.image_path}`
+            
         }
     },
     template: `<img :src="'images//'+largeImg" :alt="name" class="me_2 big_img">`,
     mounted() {
-        bus.$on('showImg', theImg => this.largeImg = theImg?.image_path)
+        bus.$on('showImg', theImg => this.largeImg = theImg ?.image_path)
     },
 });
 // 小圖
@@ -32,24 +32,20 @@ let prodImgSmall = Vue.component('prodimg-small', {
 });
 // 購買面板
 let purchasePnl = Vue.component('purchase-panel', {
-    props: ['name', 'price', 'promotions_name', 'promotions_price', 'promPrice', 'add', 'product_no', 'image_path', 'specification'],
+    props: ['name', 'price', 'promotions_name', 'promotions_price', 'promPrice', 'add', 'product_no', 'image_path', 'specification','promotions_state'],
     methods: {
         setFavorite(e) {
             const product_no = window.location.search.split('id=')[1];
             axios.get(`favorite.php?id=${product_no
                 }&add=${this.add}`).then((response) => {
-                    if (response.data != 'Login First') {
-                        if (response.data == 'add success') {
-                            this.add = false;
-                            e.target.classList.add('favActive');
-                        } else {
-                            this.add = true;
-                            e.target.classList.remove('favActive');
-                        }
-                    }else{
-                        alert("未登入");
-                    }
-                }).catch(err => console.log(err));
+                if (response.data == 'add success') {
+                    this.add = false;
+                    e.target.classList.add('favActive');
+                } else {
+                    this.add = true;
+                    e.target.classList.remove('favActive');
+                }
+            }).catch(err => console.log(err));
         },
     },
     mounted() {
@@ -58,23 +54,28 @@ let purchasePnl = Vue.component('purchase-panel', {
     computed: {
         prom_price() {
             return {
-                original_price: this.promotions_price,
-                big_price: !this.promotions_price,
+                original_price: this.promotions_state == 0,
+                big_price:      this.promotions_state != 0,
             }
         },
-        productInfo() {
-            return `${this.product_no}|${this.name}|${this.price}|${this.image_path}|${this.specification}`
-
+        productInfo(){
+            return  `${this.product_no}|${this.name}|${this.price}|${this.image_path}|${this.specification}`            
         }
-    },
-
+    },   
     // #region 
     template: `<div>
         <h1 class="product_name h1 me_1">{{name}}</h1>
-        <h2 class="promotions font_w3 p1 me_4">{{promotions_name}}</h2>
-        <div class="product_price me_4">
-            <span class="h6" :class="prom_price"><span class="h6">$</span>{{price}}</span>
-            <span class="promotions_price fontdeco_w7 font_i fontdeco h1" v-if='promotions_price'><span class="fontdeco_w3 font_i fontdeco p2">$</span>{{promotions_price}}</span>
+        <h2 class="promotions font_w3 p1 me_4" v-if='promotions_state == 0'>{{promotions_name}}</h2>
+        <div class="product_price me_4" >
+
+            <span class="h6" :class="prom_price">
+                <span class="h6">$</span>
+            {{price}}</span> 
+            
+            <span class="promotions_price fontdeco_w7 font_i fontdeco h1" v-if='promotions_state == 0'>
+                <span class="fontdeco_w3 font_i fontdeco p2">$</span>
+            {{promotions_price}}</span>
+
         </div>
         <div class="purchase_function me_3">
             <div id="buyNow" class="buyNowButton mr_5">
@@ -147,9 +148,9 @@ const mainProductImg = new Vue({
             // productInner.html ? id =
             axios.get(`productInner.php?id=${product_no
                 }`).then((response) => {
-                    this.prodInfoRow = response.data;
-                    // console.log(response.data)
-                }).catch(err => console.log(err));
+                this.prodInfoRow = response.data;
+                // console.log(response.data)
+            }).catch(err => console.log(err));
         },
         // 一進到頁面做商品是否已加入蒐藏檢查的函式
         favoriteCheck() {
@@ -161,14 +162,19 @@ const mainProductImg = new Vue({
                     let pageid = parseInt(idParams.get("id"));
                     for (let i = 0; i < memberfavorite.length; i++) {
                         if (memberfavorite[i].product_no == pageid) {
+                            // console.log(memberfavorite[i].product_no+"sucess");
                             this.add = false;
                             document.querySelector('.favoriteButton .heart').classList.add('favActive');
+                            // favorite按鈕變色的js放這 已加入蒐藏
                             break;
                         } else {
                             this.add = true;
                             document.querySelector('.favoriteButton .heart').classList.remove('favActive');
+                            // favorite按鈕變色的js放這 未加入蒐藏
+                            // console.log("fail");
                         }
                     };
+                    // console.log(this.add);
                 } else {
                     console.log("未登入");
                 }
