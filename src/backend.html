@@ -562,9 +562,9 @@
                             <p class="p1 pr_1 font_w5 listGrow">商品名稱</p>
                             <p class="p1 pr_1 font_w5">商品類別</p>
                             <p class="p1 pr_1 font_w5 listGrow">商品設計師</p>
-                            <p class="p1 pr_1 font_w5 listGrow">商品介紹</p>
-                            <p class="p1 pr_1 font_w5 listGrow">商品規格</p>
                             <p class="p1 pr_1 font_w5">商品單價</p>
+                            <p class="p1 pr_1 font_w5 listGrow">優惠活動</p>
+                            <p class="p1 pr_1 font_w5">優惠活動價</p>
                             <p class="p1 pl_1 pr_1 font_w5">商品狀態</p>
                             <p class="p1 pr_1 font_w5">商品庫存</p>
                             <p></p>
@@ -613,7 +613,7 @@
                     `,
                 })
                 let prodRow = Vue.component('A_menu', {
-                    props: ['product_no', 'name', 'category_no', 'des_no', 'description', 'specification', 'price', 'on_market', 'in_stock', 'category_name', 'des_name', 'product_show'],
+                    props: ['product_no', 'name', 'category_no', 'des_no', 'description', 'specification', 'price', 'on_market', 'in_stock', 'category_name', 'des_name', 'product_show','promotions_name','promotions_price'],
                     template: `
                         <li class="backend_details">
                             <div class="backend_text">
@@ -621,9 +621,9 @@
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{name}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{category_name}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{des_name}}</p>
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{description}}</p>
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{specification}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">$ {{price}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{promotions_name}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{promotions_price ? '$ '+promotions_price : ''}}</p>
                                 <p class="p1 pl_1 pr_1 font_w5 fontcontent fontColor">{{on_market ? '已上架' : '未上架'}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{in_stock ? '有庫存' : '無庫存'}}</p>
                                 <button class="p1 bkbtn" id="A_Edit" @click="$emit('edit-handler')" type="button">Edit</button>
@@ -644,8 +644,8 @@
                                 name: ``,
                                 category_name: ``,
                                 des_name: ``,
-                                description: ``,
-                                specification: ``,
+                                promotions_name: ``,
+                                promotions_price: ``,
                                 price: ``,
                                 on_market: ``,
                                 in_stock: ``,
