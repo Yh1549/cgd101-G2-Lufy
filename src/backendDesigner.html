@@ -142,9 +142,9 @@
                         </div>
                         <div class="pl_1 pr_1 desTxt">
                             <label class="h1 font_w5 fontcontent fontTitle" for="">Title</label><br>
-                            <input class="p1 ip_normal" type="text" name="desTitle"><br>
+                            <input class="p1 ip_normal" type="text" name="desTitle" id="dname"><br>
                             <label class="h1 font_w5 fontcontent fontTitle" for="" style="vertical-align:top">Text</label>
-                            <textarea class="p1 tArea" name="desIntro" id="" cols="80" rows="10"></textarea><br>
+                            <textarea class="p1 tArea" name="desIntro" id="dtext" cols="80" rows="10"></textarea><br>
                         </div>
                     </form>
                     <div class="pr_1 pe_1 ps_2"><input class="btn_small" type="button" value="confirm" id="introBtn"></div>
@@ -298,30 +298,33 @@
                         data: {
                             fucusNo: 0,
                             articleRows: [],
-                            articleObject: [1, 2, 3]
+                            articleObject: [1, 2, 3],
+                            popupData:{
+                                art_1:'',
+                                art1_text:'',
+                                art_2:'',
+                                art2_text:'',
+                                art_3:'',
+                                art3_text:'',
 
-                            // popupData: {
-                            //     news_no: '',
-                            //     news_title: ``,
-                            //     news_publish: ``,
-                            //     news_text: ``,
-                            //     newsImage_path: ``,
-                            //     news_state: ``
-                            // },
+
+
+                            },
+                           
                         },
                         created() {
-                            // let xhr = new XMLHttpRequest();
-                            // console.log(1);
-                            // xhr.onload = function() {
-                            //     articlesVue.articleRows = JSON.parse(xhr.responseText);
-                            //     console.log(xhr.responseText);
-                            //     console.log(1);
+                            let xhr = new XMLHttpRequest();
+                            console.log(1);
+                            xhr.onload = function() {
+                                articlesVue.articleRows = JSON.parse(xhr.responseText);
+                                console.log(xhr.responseText);
+                               
 
 
-                            // }
-                            // xhr.open("get", "getDesignersArticle.php", true);
-                            // xhr.send(null);
-                        },
+                            }
+                            xhr.open("get", "getDesignersArticle.php", true);
+                            xhr.send(null);
+                         },
                         computed: {
                             focusObj() {
                                 return (this.articleRows.find(v => v.articleObject == this.fucusNo)) ? (this.articleObject.find(v => v.articleObject == this.fucusNo)) : this.articleObject[0];
