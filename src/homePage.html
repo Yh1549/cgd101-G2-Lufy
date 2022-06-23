@@ -237,7 +237,7 @@
                                     xhr.onload = function () {
                                         newsVue.newsRows = JSON.parse(xhr.responseText);
                                     }
-                                    xhr.open("get", "getNews.php", true);
+                                    xhr.open("get", "getNewsHomepage.php", true);
                                     xhr.send(null);
                                 },
                             });

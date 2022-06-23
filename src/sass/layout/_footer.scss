@@ -60,6 +60,10 @@ $b_top_base : 50px;
       a{
         color: $fontcolor_70;
         text-decoration: none;
+        transition: all 0.3s ease-in-out;
+        &:hover {
+          color: $white;
+        }
       }
     }
   }
