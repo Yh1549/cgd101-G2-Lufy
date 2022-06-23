@@ -202,9 +202,17 @@ body:hover::-webkit-scrollbar-thumb {
 .backendD_text {
     display: flex;
     box-sizing: border-boxs;
+    // max-height: 400px;
+    height: 25px;
     padding: 10px;
     & p {
         width: 20%;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        overflow: hidden;
     }
     & span {
         width: 10%;
@@ -244,4 +252,7 @@ body:hover::-webkit-scrollbar-thumb {
 
 #myImage {
     width: 400px;
+}
+.beNews_details{
+    max-height: 30vh
 }
