@@ -22,10 +22,11 @@
 //專案import---
 @import 'page/projectMain'; //專案主頁
 @import 'page/projectInner.scss'; //專案內頁
+// 設計師內頁import---
+@import 'page/designer';
 //會員中心---
 @import 'page/memberCenter'; //會員中心
 @import 'page/memberRegister'; //註冊頁
-//------------
 //產品import------
 @import 'page/productMain'; //產品主頁
 @import 'page/productInner'; //產品內頁

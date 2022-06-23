@@ -38,7 +38,7 @@ if (array_key_first($data) == 'memName' && $jsonCount == 1) {
 }else if($jsonCount > 1){
   try {
     require_once("connect_lufy.php");
-    $sql = "insert into member(member_name, member_mail, member_psw, member_birthday, member_tel, member_address, member_state, member_pic, credit_card, card_date, card_checkCode) values(:memName, :email, :memPsw, :memBD, :memPhone, :Address, 0, '', '', '2000-01-01', '000')";
+    $sql = "insert into member(member_name, member_mail, member_psw, member_birthday, member_tel, member_address, member_state, member_pic) values(:memName, :email, :memPsw, :memBD, :memPhone, :Address, 0, 'memphoto_default.jpg')";
     $member = $pdo->prepare($sql);
     $member->bindValue(":memName", $data["memName"]);
     $member->bindValue(":email", $data["email"]);
@@ -49,7 +49,6 @@ if (array_key_first($data) == 'memName' && $jsonCount == 1) {
     $member->execute();
     if ($member->rowCount() != 0) {
       echo "Register Sucess";
-      // $memRow = $member->fetch(PDO::FETCH_ASSOC);//接住資料庫成為陣列
     } else {
       echo "Fail";
     }

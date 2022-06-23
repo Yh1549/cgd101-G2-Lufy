@@ -134,6 +134,7 @@ const mainProductImg = new Vue({
     data: {
         prodInfoRow: [],
         add: true,
+        locationSearch: window.location.search,
     },
     methods: {
         setProductimage() {

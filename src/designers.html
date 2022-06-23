@@ -1,73 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> @@include('layout/meta.html', { "title" : "desingers" })
+    @@include('layout/meta.html', { "title" : "desingers" })
 </head>
-
 <body>
     @@include('layout/header.html')
-
-        <ul class="designer" id="design">   
-             <h1 class="s3">Designer</h1>
-            <designer_page v-for="designer in designerObject" v-bind="designer">
-            </designer_page>
-        </ul>
-    <script>
-        let designer = Vue.component('designer_page', {
-            props: ['designer_Image', 'designer_Title', 'designer_Text'],
-            template: `
-            <li>
-            <div class="designer_name">
-            <h1 class="h1">{{designer_Title}}</h1>
-        </div>
-        <div class="designer_presentation">
-            <div class="designer_words">
-                <div class="designer_image">
-                    <img :src="designer_Image" :alt="designer_Title">
-
-                </div>
-                <div class="designer_speech">
-                    <p class="h3">{{designer_Text}}</p>
-
-                </div>
-            </div>
-
-        </div>
-        </li>
-                
-            `,
-        })
-        new Vue({
-            el: '#design',
-            data: {
-                designerObject: [{
-                    designer_Image: `./images/designer4.webp`,
-                    designer_Title: `Designer John`,
-
-                    designer_Text: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi pariatur ullam iste est enim, sunt quibusdam aperiam deserunt maxime a hic possimus laudantium cupiditate reiciendis quam assumenda. Culpa assumenda illo quasi reiciendis, corrupti eum atque quas consequuntur tempora. Pariatur deserunt itaque quibusdam adipisci quidem aliquid obcaecati atque voluptas dignissimos error?`
-                }, {
-                    designer_Image: `./images/aboutus.lamp2.webp`,
-                    designer_Title: `Artworks`,
-
-                    designer_Text: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi pariatur ullam iste est enim, sunt quibusdam aperiam deserunt maxime a hic possimus laudantium cupiditate reiciendis quam assumenda. Culpa assumenda illo quasi reiciendis, corrupti eum atque quas consequuntur tempora. Pariatur deserunt itaque quibusdam adipisci quidem aliquid obcaecati atque voluptas dignissimos error?`
-                }, {
-                    designer_Image: `./images/aboutus.lamp4.webp`,
-                    designer_Title: `Articles`,
-
-                    designer_Text: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi pariatur ullam iste est enim, sunt quibusdam aperiam deserunt maxime a hic possimus laudantium cupiditate reiciendis quam assumenda. Culpa assumenda illo quasi reiciendis, corrupti eum atque quas consequuntur tempora. Pariatur deserunt itaque quibusdam adipisci quidem aliquid obcaecati atque voluptas dignissimos error?`
-
-                }]
-            }
-        })
-    </script>
+    <div id="designerInner_banner">
+        <h1 class="s3" id="designerInner_name">name</h1>
+        <p class="h1">A LUFY Designer</p>
+    </div>
+    <div id="designerInner_selfintro"><!--設計師自介注入--></div>
+    <div id="designerInner_lamp"><!--注入--></div>
+    <div id="designerInner_article"><!--注入--></div>
+    <script src="js/designerInner.js"></script>
     <!-- footer  -->
     @@include('layout/footer.html')
-
     <!-- script -->
     @@include('layout/script.html')
 </body>
-
 </html>
