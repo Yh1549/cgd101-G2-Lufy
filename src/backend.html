@@ -434,7 +434,7 @@
                                             <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Category</label>
                                             </div>
                                             <div class="pl_1 pr_1">
-                                                <select name="category_no" id="" v-model="popupData.category_no">
+                                                <select name="category_no" id="" v-model="popupData.category_no" readonly="readonly">
                                                     <option value="1">Floor Lamps</option>
                                                     <option value="2">Pendant</option>
                                                     <option value="3">Home Accent</option>
@@ -448,7 +448,7 @@
                                             <div class="pl_1 pr_1 LBcolTitle"><label class="p1" for="">Designer</label>
                                             </div>
                                             <div class="pl_1 pr_1">
-                                                <select name="des_no" id="des_no" v-model="popupData.des_no">
+                                                <select name="des_no" id="des_no" v-model="popupData.des_no" readonly="readonly">
                                                     <option>請選擇設計師</option>
                                                     <option v-for="item in designer_select_list"
                                                         :key="item.des_no" :value="item.des_no">{{
@@ -524,6 +524,17 @@
                                                     name="promotions_price" id="" v-model="popupData.promotions_price">
                                             </div>
                                         </div>
+
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <div class="pl_1 pr_1 LBcolTitle"></div>
+                                            <div class="pr_1">
+                                                <button class="ml_1 p1 bkbtn" type="button" @click="prodEvent_create">Create Promotions</button>
+                                                <button class="ml_1 p1 bkbtn" type="button" @click="prodEvent_delete">End Promotions</button>
+                                            </div>
+                                        </div>
+                                        <div class="ps_1 pe_1 LBcol">
+                                            <p>★若僅變更活動，請點擊右下角ok按鈕，不需點擊Create Promotions，即可變更!</p>
+                                        </div>                                        
                                     </div>
                                     <div style="width:50%">
                                         <ul>
@@ -703,6 +714,30 @@
                                 document.getElementById("A_edit_lightBox").style.display = "none";
                                 location.reload();
                             },
+                            prodEvent_delete(){
+                                let xhr = new XMLHttpRequest();
+                                xhr.onload = () => {
+                                    alert(xhr.responseText);
+                                };
+                                xhr.open("post", "backend_deletEvent.php", true);
+                                let productsSubDb = new FormData(document.getElementById("productsModify"));
+                                xhr.send(productsSubDb);
+                                xhr.send(null);
+                                document.getElementById("A_edit_lightBox").style.display = "none";
+                                location.reload();
+                            },
+                            prodEvent_create(){
+                                let xhr = new XMLHttpRequest();
+                                xhr.onload = () => {
+                                    alert(xhr.responseText);
+                                };
+                                xhr.open("post", "backend_createEvent.php", true);
+                                let productsSubDb = new FormData(document.getElementById("productsModify"));
+                                xhr.send(productsSubDb);
+                                xhr.send(null);
+                                document.getElementById("A_edit_lightBox").style.display = "none";
+                                location.reload();
+                            }
                             // productInsert(){
                             //     let xhr = new XMLHttpRequest();
                             //     xhr.onload = () => {
