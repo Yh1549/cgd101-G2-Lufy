@@ -13,9 +13,11 @@ let breadcrumb = Vue.component('breadcrumb-list', {
         setBreadcrumb() {
             // /product/projustlist/item.html
             let arr = window.location.pathname.split('.html')[0].split('/');
+            console.log(arr);
             //['', 'product','projustlist' ,'item']
             arr.splice(0, 1);
             //['product','projustlist', 'item']
+            console.log(arr);
 
             this.breadCrumbRow = [
                 {
