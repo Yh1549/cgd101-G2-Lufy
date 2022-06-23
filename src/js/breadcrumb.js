@@ -13,11 +13,19 @@ let breadcrumb = Vue.component('breadcrumb-list', {
         setBreadcrumb() {
             //tibamef2e.com/cgd101/g2/productMain.html
             let arr = window.location.pathname.split('.html')[0].split('/');
+<<<<<<< HEAD
+            console.log(arr);
+            //['', 'product','projustlist' ,'item']
+            arr.splice(0, 1);
+            //['product','projustlist', 'item']
+            console.log(arr);
+=======
             //['', 'tibamef2e.com','cgd101' ,'g2','productMain']
 
             arr.splice(0, 3);
 
             //['tibamef2e.com','cgd101' ,'g2','productMain']
+>>>>>>> 495695b36cda7ec1589f6317fa320da3444bd80d
 
             this.breadCrumbRow = [
                 {

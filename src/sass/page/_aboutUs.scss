@@ -16,6 +16,10 @@
         // background-color: $secondary_dark;
         .aboutUs_company_intro_content_img img {
             width: 300px;
+            @include t {
+                max-width: 678px;
+               width:150px;
+            }
         }
         .aboutUs_company_intro_content_text {
             margin-left: 60px;
@@ -125,7 +129,7 @@
     border-radius: 10px;
     font-size: 14px;
     position: relative;
-    min-height: 80px;
+   
     box-shadow: 0 $ip_shadow $ip_shadow * 3 0 $secondary_dark;
 }
 
@@ -204,6 +208,14 @@
 .designer_works img {
     width: 150px;
     height: 190px;
+    @include t {
+        max-width: 678px;
+        margin: 0 auto;
+        width:100px;
+        height:120px;
+       
+        flex-direction: column;
+    }
 }
 
 .designer_intro {
