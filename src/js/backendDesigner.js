@@ -60,21 +60,11 @@ function setInfo (json) {
     let info = JSON.parse(json);
      let dname = document.getElementById('dname');
     dname.value = info.des_name;
-
     let dtext = document.getElementById('dtext');
     dtext.value = info.des_text;
-
-    
-    
     let myImage = document.getElementById('myImage');
     let a = 'images/'+ info.des_img_path.slice(1);
     console.log(a);
     
     myImage.src =  a;
-  
-
-    
-
-    
-
 }

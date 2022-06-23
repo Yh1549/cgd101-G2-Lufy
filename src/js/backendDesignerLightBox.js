@@ -1,31 +1,39 @@
 //-------------------開關商品燈箱
-function AD_showLightBox(){
-    document.getElementById("AD_lightBox").style.display = "block";
+
+function BD_showLightBox1(){
+    document.getElementById("BD_lightBox1").style.display = "block";
+   
 }
-function BD_showLightBox(){
-    document.getElementById("BD_lightBox").style.display = "block";
+function BD_showLightBox2(){
+    document.getElementById("BD_lightBox2").style.display = "block";
+   
+}
+function BD_showLightBox3(){
+    document.getElementById("BD_lightBox3").style.display = "block";
+   
 }
 //-------------------
-function AD_cancel(){
-    document.getElementById("AD_lightBox").style.display = "none";
+
+function BD_cancel1(){
+    document.getElementById("BD_lightBox1").style.display = "none";
 }
-function BD_cancel(){
-    document.getElementById("BD_lightBox").style.display = "none";
+function BD_cancel2(){
+    document.getElementById("BD_lightBox2").style.display = "none";
+}
+function BD_cancel3(){
+    document.getElementById("BD_lightBox3").style.display = "none";
 }
 //-------------------
 function init(){
     //-------------------showLightbox
-    let AdEts = document.querySelectorAll("#Ad_Edit");
-	for (let i=0; i<AdEts.length; i++){
-		AdEts[i].onclick = AD_showLightBox;
-	}
-    let BdEts = document.querySelectorAll("#Bd_Edit");
-	for (let i=0; i<BdEts.length; i++){
-		BdEts[i].onclick = BD_showLightBox;
-	}
+    
+    document.getElementById("Bd_Edit1").onclick = BD_showLightBox1;
+    document.getElementById("Bd_Edit2").onclick = BD_showLightBox2;
+    document.getElementById("Bd_Edit3").onclick = BD_showLightBox3;
     //-------------------cancelLightbox
-    document.getElementById("A_btnCancel").onclick = AD_cancel;
-    document.getElementById("B_btnCancel").onclick = BD_cancel;
+    document.getElementById("B_btnCancel1").onclick = BD_cancel1;
+    document.getElementById("B_btnCancel2").onclick = BD_cancel2;
+    document.getElementById("B_btnCancel3").onclick = BD_cancel3;
 }
 
 window.addEventListener("load",init,false);

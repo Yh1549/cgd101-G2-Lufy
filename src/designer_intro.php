@@ -19,19 +19,22 @@ try {
 		$to = "images/$fileName";
        
 		if(copy( $from, $to)===true){
-            echo 1 ;
+            
 			//將檔案名稱寫回資料庫
-			$sql = "UPDATE `designer` SET `des_name`=:dtitle,`des_text`=:dtext,`des_img_ path`=:fileName where manager_no = :cur_manager";
+			$sql = "UPDATE `designer` SET `des_name`=:dtitle,`des_text`=:dtext,`des_img_path`=:fileName where manager_no = :cur_manager";
             
 			$designer = $pdo->prepare( $sql );
 			$designer -> bindValue(":dtitle", $_POST["desTitle"]);
 			$designer -> bindValue(":dtext", $_POST["desIntro"]);
 			$designer -> bindValue(":cur_manager", $_SESSION["manager_no"]);
 			
+			
 			$designer -> bindValue(":fileName", $fileName);
+			
 			$designer -> execute();
+			echo "sucess";
 			// echo "商品編號:", $pdo->lastInsertId();
-            echo "sucess";
+            
 		}
 
 	}else{
@@ -39,8 +42,8 @@ try {
 		echo "新增失敗<br>";
 	}
 } catch (PDOException $e) {
-	$errMsg .= "錯誤原因 : ".$e -> getMessage(). "<br>";
-	$errMsg .= "錯誤行號 : ".$e -> getLine(). "<br>";	
+	echo $errMsg .= "錯誤原因 : ".$e -> getMessage(). "<br>";
+	echo $errMsg .= "錯誤行號 : ".$e -> getLine(). "<br>";	
 }
 // echo $errMsg;
 

@@ -110,91 +110,11 @@
                 </div>
             </section>
 
-            <!-- 作品管理 -->
-            <!-- <section class="mem_content" id="mainElm12">
-                <div class="ps_1 pe_1 pl_1 pr_1 beNews_titleH1">
-                    <h1 class="h1 font_w5 fontTitle">作品管理</h1>
-                </div>
-                <div class="ps_1 pe_1 pl_1 pr_1">
-                    <div class="pr_1 pe_1 ps_2"></div>
-                    <div class="beNews_title">
-                        <p class="p1 pr_1 font_w5 fontcontent">作品編號</p>
-                        <p class="p1 pr_1 font_w5 fontcontent">作品名稱</p>
-                        <p class="p1 pr_1 font_w5 fontcontent">樣式</p>
-                        <p class="p1 pr_1 font_w5 fontcontent">狀態</p>
-                        <p></p>
-                    </div>
-                    <ul id="productList">
-                        <A_menu v-for="A_backendMenu in prodObject" :key="A_backendMenu.prodNo" v-bind="A_backendMenu" @edit-handler="editHandler(A_backendMenu.prodNo)">
-                        </A_menu>
-                    </ul>
-                </div>
-            </section>
-            <script>
-                let A_backendMenu = Vue.component('A_menu', {
-                    props: ['prodNo', 'prodName', 'prodCategory', 'prodState'],
-                    template: `
-                        <li class="beNews_details">
-                            <div class="backendD_text">
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{prodNo}}</p>
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{prodName}}</p>
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{prodCategory}}</p>
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{prodState}}</p>
-                                <span></span>
-                                <button class="p1 newsbtn" id="Ad_Edit" @click="$emit('edit-handler')">Edit</button>
-                            </div>
-                        </li>
-                    `,
-                })
-                new Vue({
-                    el: '#productList',
-                    data: {
-                        fucusNo: 0,
-                        prodObject: [{
-                            prodNo: `1`,
-                            prodName: `燈燈燈`,
-                            prodCategory: `A 樣式`,
-                            prodState: `上架`
-                        }, {
-                            prodNo: `2`,
-                            prodName: `燈燈`,
-                            prodCategory: `B 樣式`,
-                            prodState: `上架`
-                        }, {
-                            prodNo: `3`,
-                            prodName: `燈`,
-                            prodCategory: `C 樣式`,
-                            prodState: `上架`
-                        }, ],
-                        popupData: {
-                            prodNo: '',
-                            prodName: ``,
-                            prodCategory: ``,
-                            prodState: ``
-                        },
-                    },
-                    computed: {
-                        focusObj() {
-                            return (this.prodObject.find(v => v.prodNo == this.fucusNo)) ? (this.prodObject.find(v => v.prodNo == this.fucusNo)) : this.prodObject[0];
-                        },
-                    },
-                    watch: {
-                        focusObj(nVal) {
-                            this.popupData = JSON.parse(JSON.stringify(nVal));
-                        },
-                    },
-                    methods: {
-                        editHandler(no) {
-                            this.fucusNo = no;
-                        },
-                    },
-                })
-            </script> -->
 
             <!-- 文章管理 -->
             <section class="mem_content" id="mainElm13">
                 <!-- 文章燈箱 -->
-                <div class="ps_1" id="BD_lightBox" style="display:none">
+                <div class="ps_1" id="BD_lightBox1" style="display:none">
                     <div class="ps_2 pe_2 pl_2 pr_2 lightBox_list">
                         <form class="formDOne">
                             <div>
@@ -205,7 +125,7 @@
                             </div>
                         
                         </form>
-                        <form class="formDTwo" method="post" id="desArticle">
+                        <form class="formDTwo" method="post" id="desArticle1">
                             <div class="ps_1 pe_1">
                                 <label class="p1 pl_1 pr_1" for="">Title</label><input class="ip_normal" type="text" name="art1" id="">
 
@@ -215,8 +135,60 @@
                             </div>
                         </form>
                         <div class="lastBtn">
-                            <button class="ml_1 p1 newsbtn" id="B_btnCancel">Cancel</button>
-                            <button class="ml_1 p1 newsbtn" id="desArticleBtn">Confirm</button>
+                            <button class="ml_1 p1 newsbtn" id="B_btnCancel1">Cancel</button>
+                            <button class="ml_1 p1 newsbtn" id="desArticleBtn1">Confirm</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="ps_1" id="BD_lightBox2" style="display:none">
+                    <div class="ps_2 pe_2 pl_2 pr_2 lightBox_list">
+                        <form class="formDOne">
+                            <div>
+                                <div class="ps_1 pe_1">
+                                    <label class="p1 pl_1 pr_1" for="">No.1</label>
+                                    <input class="ip_normal" type="text" name="" id="" value="文章2">
+                                </div>
+                            </div>
+                        
+                        </form>
+                        <form class="formDTwo" method="post" id="desArticle2">
+                            <div class="ps_1 pe_1">
+                                <label class="p1 pl_1 pr_1" for="">Title</label><input class="ip_normal" type="text" name="art2" id="">
+
+                            </div>
+                            <div class="ps_1 pe_1">
+                                <label class="p1 pl_1 pr_1" for="" style="vertical-align:top">Text</label><textarea class="tArea" name="art2_text" id="" cols="100" rows="10"></textarea>
+                            </div>
+                        </form>
+                        <div class="lastBtn">
+                            <button class="ml_1 p1 newsbtn" id="B_btnCancel2">Cancel</button>
+                            <button class="ml_1 p1 newsbtn" id="desArticleBtn2">Confirm</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="ps_1" id="BD_lightBox3" style="display:none">
+                    <div class="ps_2 pe_2 pl_2 pr_2 lightBox_list">
+                        <form class="formDOne">
+                            <div>
+                                <div class="ps_1 pe_1">
+                                    <label class="p1 pl_1 pr_1" for="">No.1</label>
+                                    <input class="ip_normal" type="text" name="" id="" value="文章3">
+                                </div>
+                            </div>
+                        
+                        </form>
+                        <form class="formDTwo" method="post" id="desArticle3">
+                            <div class="ps_1 pe_1">
+                                <label class="p1 pl_1 pr_1" for="">Title</label><input class="ip_normal" type="text" name="art3" id="">
+
+                            </div>
+                            <div class="ps_1 pe_1">
+                                <label class="p1 pl_1 pr_1" for="" style="vertical-align:top">Text</label><textarea class="tArea" name="art3_text" id="" cols="100" rows="10"></textarea>
+                            </div>
+                        </form>
+                        <div class="lastBtn">
+                            <button class="ml_1 p1 newsbtn" id="B_btnCancel3">Cancel</button>
+                            <button class="ml_1 p1 newsbtn" id="desArticleBtn3">Confirm</button>
                         </div>
                     </div>
                 </div>
@@ -240,21 +212,21 @@
                                     <p class="p1 pr_1 font_w5 fontcontent fontColor">{{item.art_1}}</p>
                                     <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{item.art1_text}}</p>
                                     <span></span>
-                                    <button class="p1 newsbtn" id="Bd_Edit">Edit</button>
+                                    <button class="p1 newsbtn" id="Bd_Edit1">Edit</button>
                                 </div>
                                 <div class="backendD_text">
                                     <p class="p1 pr_1 font_w5 fontcontent fontColor">2</p>
                                     <p class="p1 pr_1 font_w5 fontcontent fontColor">{{item.art_2}}</p>
                                     <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{item.art2_text}}</p>
                                     <span></span>
-                                    <button class="p1 newsbtn" id="Bd_Edit">Edit</button>
+                                    <button class="p1 newsbtn" id="Bd_Edit2">Edit</button>
                                 </div>
                                 <div class="backendD_text">
                                     <p class="p1 pr_1 font_w5 fontcontent fontColor">3</p>
                                     <p class="p1 pr_1 font_w5 fontcontent fontColor">{{item.art_3}}</p>
                                     <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{item.art3_text}}</p>
                                     <span></span>
-                                    <button class="p1 newsbtn" id="Bd_Edit">Edit</button>
+                                    <button class="p1 newsbtn" id="Bd_Edit3">Edit</button>
                                 </div>
                             </li>
                         </ul>
@@ -275,6 +247,7 @@
                     </div>
                 </div>
             </section>
+        </div>
             <script>
                 let articlesVue =
                     new Vue({
@@ -285,8 +258,9 @@
                         },
                         created() {
                             let xhr = new XMLHttpRequest();
-                            console.log(1);
+                           
                             xhr.onload = function() {
+
                                 articlesVue.articleRows = JSON.parse(xhr.responseText);
                                 console.log(xhr.responseText);
                                
@@ -298,10 +272,124 @@
                          },
                     })
             </script>
+ <script>
+                window.addEventListener("load", function() {
 
-        </div>
+document.getElementById("upFile").onchange = function(e) {
+    let file = e.target.files[0]; //取得所選的file物件的參考
+    let reader = new FileReader();
+    reader.onload = function(e) {
+        document.getElementById("myImage").src = reader.result;
+    }
 
-        <script src="./js/backendDesigner.js"></script>
+    reader.readAsDataURL(file); //將圖檔資訊讀出以 base64的編碼方式，以便放到img標籤中
+}
+})
+let introBtn = document.getElementById('introBtn');
+introBtn.addEventListener("click", sendForm);
+
+function sendForm() {
+
+let xhr3 = new XMLHttpRequest();
+xhr3.onload = function() {
+   
+    alert(xhr3.responseText);
+    
+}
+
+
+xhr3.open("post", "designer_intro.php");
+
+xhr3.send(new FormData(document.getElementById("desIntro")));
+
+}
+
+
+function sendForm3 (){
+let xhr2 = new XMLHttpRequest();
+xhr2.onload = function(){
+   setInfo(xhr2.responseText);
+    
+}
+xhr2.open("get","./getDesignerInfo.php",true)
+xhr2.send(null);
+}
+window.addEventListener("load",sendForm3);
+
+function setInfo (json) { 
+let info = JSON.parse(json);
+ let dname = document.getElementById('dname');
+dname.value = info.des_name;
+let dtext = document.getElementById('dtext');
+dtext.value = info.des_text;
+let myImage = document.getElementById('myImage');
+let a = 'images/'+ info.des_img_path.slice(1);
+console.log(a);
+
+myImage.src =  a;
+}
+
+let desArticleBtn1 = document.getElementById('desArticleBtn1');
+desArticleBtn1.addEventListener("click", sendForm2);
+
+function sendForm2() {
+    // console.log(new FormData(document.getElementById("desIntro")));
+    let xhr4 = new XMLHttpRequest();
+    xhr4.onload = function() {
+        alert(xhr4.responseText);
+        console.log(xhr4.responseText);
+    }
+
+
+    xhr4.open("post", "designer_article1.php");
+
+    xhr4.send(new FormData(document.getElementById("desArticle1")));
+
+ }
+
+ let desArticleBtn2 = document.getElementById('desArticleBtn2');
+desArticleBtn2.addEventListener("click", sendForm5);
+
+function sendForm5() {
+    // console.log(new FormData(document.getElementById("desIntro")));
+    let xhr4 = new XMLHttpRequest();
+    xhr4.onload = function() {
+        alert(xhr4.responseText);
+        console.log(xhr4.responseText);
+    }
+
+
+    xhr4.open("post", "designer_article2.php");
+
+    xhr4.send(new FormData(document.getElementById("desArticle2")));
+
+ }
+ let desArticleBtn3 = document.getElementById('desArticleBtn3');
+desArticleBtn3.addEventListener("click", sendForm6);
+
+function sendForm6() {
+    // console.log(new FormData(document.getElementById("desIntro")));
+    let xhr4 = new XMLHttpRequest();
+    xhr4.onload = function() {
+        alert(xhr4.responseText);
+        console.log(xhr4.responseText);
+    }
+
+
+    xhr4.open("post", "designer_article3.php");
+
+    xhr4.send(new FormData(document.getElementById("desArticle3")));
+
+ }
+                
+                
+            
+           
+</script>
+
+        
+
+       
         <script src="./js/backend.js"></script>
         <script src="./js/backendDesignerLightBox.js"></script>
         <!-- script -->
