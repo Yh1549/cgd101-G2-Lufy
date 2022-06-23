@@ -173,9 +173,13 @@
     </div>
     <script>
         let xhr = new XMLHttpRequest();
+        let designerSlogan = document.querySelectorAll(".designer_slogan");
         xhr.onload=()=>{
             let designerRow = JSON.parse(xhr.responseText);
             console.log(designerRow);
+            for(let i=0; i< designerSlogan.length; i++){
+                designerSlogan[i].innerHTML = `<h2 class="h1">${designerRow[i].des_name}</h2><p class="h4">${designerRow[i].des_text}</p>`;
+            }
         };
         xhr.open("get", "ALLdesigner.php", true);
         xhr.send(null);

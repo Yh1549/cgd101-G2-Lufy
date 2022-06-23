@@ -1134,6 +1134,7 @@ html.fixWindow {
                     text-align: center;
                     text-decoration: none;
                     display: inline-block;
+                    transition: all 0.3s ease-in-out;
                     cursor: pointer;
 
                     &:hover {

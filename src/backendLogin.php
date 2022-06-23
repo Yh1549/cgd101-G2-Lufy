@@ -14,6 +14,7 @@ try {
       $_SESSION["manager_account"] = $adminRow["manager_account"];
       $_SESSION["manager_name"] = $adminRow["manager_name"];
       $_SESSION["role"] = $adminRow["role"];
+      $_SESSION["state"] = $adminRow["state"];
       if ($adminRow["role"] == "後台管理人員") {
         echo "backend.html";
       } else if ($adminRow["role"] == "設計師") {
