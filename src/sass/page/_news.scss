@@ -10,6 +10,11 @@
     align-items: center;
     border-bottom: 5px solid $fontcolor_100;
     box-sizing: border-box;
+    @media screen and (max-width: 1248px) {
+        display: inline-block;
+        height: auto;
+    }
+
     @include t{
         display: inline-block;
         height: auto;
@@ -25,6 +30,13 @@
     width: 30%;
     text-align: center;
     box-sizing: border-box;
+    @media screen and (max-width: 1248px) {
+        margin-right: auto;
+        margin-left: auto;
+        width: 100%;
+        height: auto;
+        text-align: center;
+    }
     @include t{
         margin-right: auto;
         margin-left: auto;
@@ -36,7 +48,9 @@
         max-width: 100%;
         max-height: 350px;
         vertical-align: bottom;
-
+        @media screen and (max-width: 1248px) {
+            height: 200px;
+        }
         @include t{
             height: 200px;
         }
@@ -54,6 +68,9 @@
     display: flex;
     & h1{
         width: 65%;
+        @media screen and (max-width: 1248px) {
+            width: 100%;
+        }
         @include t{
             width: 100%;
         }
@@ -61,10 +78,18 @@
     & p{
         width: 35%;
         text-align: right;
+        @media screen and (max-width: 1248px) {
+            width: auto;
+            text-align: left;
+        }
         @include t{
             width: auto;
             text-align: left;
         }
+    }
+    
+    @media screen and (max-width: 1248px) {
+        display: contents;
     }
     @include t{
         display: contents;
