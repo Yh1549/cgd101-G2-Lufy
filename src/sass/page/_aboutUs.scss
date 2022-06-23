@@ -202,8 +202,7 @@
 }
 
 .designer_works img {
-    width: 150px;
-    height: 190px;
+ width: 100%;
 }
 
 .designer_intro {
@@ -217,14 +216,16 @@
 }
 
 .designer_works {
+    width: 100%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
 }
 
-// .designer_work {
-// //     padding: 10px;
-// // }
+.designer_work {
+   width: 30%;
+   margin: 40px;
+}
 .aboutus_button {
     margin: 0 auto;
 

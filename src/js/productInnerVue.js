@@ -7,14 +7,14 @@ let prodImgMain = Vue.component('prodimg-main', {
         }
     },
     computed: {
-        productInfo(){
-            return  `${this.image_path}`
-            
+        productInfo() {
+            return `${this.image_path}`
+
         }
     },
     template: `<img :src="'images//'+largeImg" :alt="name" class="me_2 big_img">`,
     mounted() {
-        bus.$on('showImg', theImg => this.largeImg = theImg ?.image_path)
+        bus.$on('showImg', theImg => this.largeImg = theImg?.image_path)
     },
 });
 let prodImgSmall = Vue.component('prodimg-small', {
@@ -29,23 +29,25 @@ let prodImgSmall = Vue.component('prodimg-small', {
     },
 });
 let purchasePnl = Vue.component('purchase-panel', {
-    props: ['name', 'price', 'promotions_name', 'promotions_price', 'promPrice', 'add', 'product_no','image_path','specification'],
+    props: ['name', 'price', 'promotions_name', 'promotions_price', 'promPrice', 'add', 'product_no', 'image_path', 'specification'],
     methods: {
         setFavorite(e) {
             const product_no = window.location.search.split('id=')[1];
             axios.get(`favorite.php?id=${product_no
                 }&add=${this.add}`).then((response) => {
-                if (response.data == 'add success') {
-                    this.add = false;
-                    e.target.classList.add('favActive');
-                } else {
-                    this.add = true;
-                    e.target.classList.remove('favActive');
-                }
-            }).catch(err => console.log(err));
+                    if (response.data != 'Login First') {
+                        if (response.data == 'add success') {
+                            this.add = false;
+                            e.target.classList.add('favActive');
+                        } else {
+                            this.add = true;
+                            e.target.classList.remove('favActive');
+                        }
+                    }else{
+                        alert("未登入");
+                    }
+                }).catch(err => console.log(err));
         },
-       
-
     },
     mounted() {
         // this.isAdd = this.add;
@@ -57,12 +59,12 @@ let purchasePnl = Vue.component('purchase-panel', {
                 big_price: !this.promotions_price,
             }
         },
-        productInfo(){
-            return  `${this.product_no}|${this.name}|${this.price}|${this.image_path}|${this.specification}`
-            
+        productInfo() {
+            return `${this.product_no}|${this.name}|${this.price}|${this.image_path}|${this.specification}`
+
         }
     },
-   
+
     // #region 
     template: `<div>
         <h1 class="product_name h1 me_1">{{name}}</h1>
@@ -142,9 +144,9 @@ const mainProductImg = new Vue({
             // productInner.html ? id =
             axios.get(`productInner.php?id=${product_no
                 }`).then((response) => {
-                this.prodInfoRow = response.data;
-                // console.log(response.data)
-            }).catch(err => console.log(err));
+                    this.prodInfoRow = response.data;
+                    // console.log(response.data)
+                }).catch(err => console.log(err));
         },
         // 一進到頁面做商品是否已加入蒐藏檢查的函式
         favoriteCheck() {
@@ -156,19 +158,14 @@ const mainProductImg = new Vue({
                     let pageid = parseInt(idParams.get("id"));
                     for (let i = 0; i < memberfavorite.length; i++) {
                         if (memberfavorite[i].product_no == pageid) {
-                            // console.log(memberfavorite[i].product_no+"sucess");
                             this.add = false;
                             document.querySelector('.favoriteButton .heart').classList.add('favActive');
-                            // favorite按鈕變色的js放這 已加入蒐藏
                             break;
                         } else {
                             this.add = true;
                             document.querySelector('.favoriteButton .heart').classList.remove('favActive');
-                            // favorite按鈕變色的js放這 未加入蒐藏
-                            // console.log("fail");
                         }
                     };
-                    // console.log(this.add);
                 } else {
                     console.log("未登入");
                 }
