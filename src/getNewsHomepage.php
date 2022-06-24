@@ -1,6 +1,6 @@
 <?php 
 try{
-	require_once("connect_lufy.php");
+	require_once("connect_cgd101g2.php");
 
 	$sql = "SELECT * 
 			FROM news

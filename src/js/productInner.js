@@ -12,7 +12,7 @@ function doFirst() {
             let lamp = document.querySelector(`span input`).value
             addItem(e.target.id, lamp);
             alert("已加入購物車");
-            location.reload();
+            // location.reload();
             // console.log(lamp);
             // console.log(e.target.id);
             // console.log(e.target.id);
@@ -25,7 +25,7 @@ function doFirst() {
             let lamp = document.querySelector(`span input`).value
             addItem(e.target.id, lamp);
            
-            location.reload();
+            // location.reload();
             // console.log(lamp);
             // console.log(e.target.id);
             // console.log(e.target.id);
