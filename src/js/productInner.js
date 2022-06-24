@@ -36,7 +36,22 @@ function doFirst() {
     for (let i = 0; i < list2.length; i++) {
         list2[i].addEventListener('click', function (e) {
             let selector = e.target + ' input'
-            let lamp = document.querySelector(`span input`).value
+            let lamp = document.querySelector(`span input`).value;
+            var xhr = new XMLHttpRequest();
+            xhr.onload = function () {
+                if (xhr.status == 200) {
+                    if(xhr.responseText == "已登入"){
+                        addItem(e.target.id, lamp);
+                        window.location.href="cartEdit.html";
+                        
+                    }else
+                        alert("請登入");
+                    
+              
+            }
+        }
+            xhr.open("get","./checkMemberState.php",true); //執行登出php(刪除session)
+            xhr.send(null);
             addItem(e.target.id, lamp);
            
             // location.reload();

@@ -80,9 +80,9 @@ let purchasePnl = Vue.component('purchase-panel', {
         <div class="purchase_function me_3">
             <div id="buyNow" class="buyNowButton mr_5">
                 
-            <a href="./cartEdit.html"><span :id="product_no" class="fontcontent p1 userSelectNone"><i class="fa-solid fa-credit-card userSelectNone"></i>Buy Now
+            <span :id="product_no" class="fontcontent p1 userSelectNone"><i class="fa-solid fa-credit-card userSelectNone"></i>Buy Now
                 <input type="hidden" :value="productInfo">
-                </span></a>
+                </span>
             </div>
             <div class="addButton">
                 <span :id="product_no" class="fontcontent p1 userSelectNone"><i class="fa-solid fa-cart-plus userSelectNone"></i> Add to Cart
