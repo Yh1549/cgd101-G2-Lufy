@@ -134,7 +134,7 @@
                             <p class="p1 pr_1 font_w5">會員生日</p>
                             <p class="p1 pr_1 font_w5">會員電話</p>
                             <p class="p1 pr_1 font_w5 listGrow">會員地址</p>
-                            <p class="p1 pl_1 pr_1 font_w5">會員狀態</p>
+                            <!-- <p class="p1 pl_1 pr_1 font_w5">會員狀態</p> -->
                             <p></p>
                         </div>
                         <ul>
@@ -158,7 +158,6 @@
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{member_birthday}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{member_tel}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{member_address}}</p>
-                                <p class="p1 pl_1 pr_1 font_w5 fontcontent fontColor">{{member_state ? '正常' : '凍結'}}</p>
                                 <button class="p1 bkbtn" id="N_Edit" @click="$emit('edit-handler')" type="button">Edit</button>
                             </div>
                         </li>
@@ -286,8 +285,8 @@
                                             </div>
                                             <div class="pl_1 pr_1">
                                                 <select name="on_market" id="">
-                                                    <option value="0">已上架</option>
-                                                    <option value="1">未上架</option>
+                                                    <option value="0">未上架</option>
+                                                    <option value="1">已上架</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -296,8 +295,8 @@
                                             </div>
                                             <div class="pl_1 pr_1">
                                                 <select name="in_stock" id="">
-                                                    <option value="0">有庫存</option>
-                                                    <option value="1">無庫存</option>
+                                                    <option value="0">無庫存</option>
+                                                    <option value="1">有庫存</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -486,8 +485,8 @@
                                             </div>
                                             <div class="pl_1 pr_1">
                                                 <select name="on_market" id="" v-model="popupData.on_market">
-                                                    <option value="0">已上架</option>
-                                                    <option value="1">未上架</option>
+                                                    <option value="0">未上架</option>
+                                                    <option value="1">已上架</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -496,8 +495,8 @@
                                             </div>
                                             <div class="pl_1 pr_1">
                                                 <select name="in_stock" id="" v-model="popupData.in_stock">
-                                                    <option value="0">有庫存</option>
-                                                    <option value="1">無庫存</option>
+                                                    <option value="0">無庫存</option>
+                                                    <option value="1">有庫存</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -565,8 +564,8 @@
                             <p class="p1 pr_1 font_w5">商品單價</p>
                             <p class="p1 pr_1 font_w5 listGrow">優惠活動</p>
                             <p class="p1 pr_1 font_w5">優惠活動價</p>
-                            <p class="p1 pl_1 pr_1 font_w5">商品狀態</p>
-                            <p class="p1 pr_1 font_w5">商品庫存</p>
+                            <!-- <p class="p1 pl_1 pr_1 font_w5">商品狀態</p> -->
+                            <!-- <p class="p1 pr_1 font_w5">商品庫存</p> -->
                             <p></p>
                         </div>
                         <ul>
@@ -624,8 +623,6 @@
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">$ {{price}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{promotions_name}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{promotions_price ? '$ '+promotions_price : ''}}</p>
-                                <p class="p1 pl_1 pr_1 font_w5 fontcontent fontColor">{{on_market ? '已上架' : '未上架'}}</p>
-                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{in_stock ? '有庫存' : '無庫存'}}</p>
                                 <button class="p1 bkbtn" id="A_Edit" @click="$emit('edit-handler')" type="button">Edit</button>
                             </div>
                         </li>
@@ -1235,7 +1232,7 @@
                             <p class="p1 pr_1 font_w5">活動結束日期</p>
                             <p class="p1 pr_1 font_w5 listGrow">活動內文</p>
                             <p class="p1 pr_1 font_w5 listGrow">圖片檔名</p>
-                            <p class="p1 pl_1 pr_1 font_w5">狀態</p>
+                            <!-- <p class="p1 pl_1 pr_1 font_w5">狀態</p> -->
                             <p></p>
                         </div>
                         <ul>
@@ -1259,7 +1256,6 @@
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{promotions_endDate}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{promotions_text}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{promotionsImage_path}}</p>
-                                <p class="p1 pl_1 pr_1 font_w5 fontcontent fontColor">{{promotions_state ? '上架' : '下架'}}</p>
                                 <button class="p1 bkbtn" id="B_Edit" @click="$emit('edit-handler')" type="button">Edit</button>
                             </div>
                         </li>
@@ -1476,8 +1472,9 @@
                             <p class="p1 pr_1 font_w5">消息編號</p>
                             <p class="p1 pr_1 font_w5 listGrow">消息名稱</p>
                             <p class="p1 pr_1 font_w5">消息發佈日期</p>
-                            <p class="p1 pr_1 font_w5 listGrow">圖片檔名</p>
-                            <p class="p1 pl_1 pr_1 font_w5">狀態</p>
+                            <p class="p1 pr_1 font_w5 listGrow">消息圖片檔名</p>
+                            <p class="p1 pr_1 font_w5"></p>
+                            <!-- <p class="p1 pl_1 pr_1 font_w5">狀態</p> -->
                             <p></p>
                         </div>
                         <ul>
@@ -1499,7 +1496,7 @@
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{news_title}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{news_publish}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{newsImage_path}}</p>
-                                <p class="p1 pl_1 pr_1 font_w5 fontcontent fontColor state">{{news_state ? '上架' : '下架'}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor"></p>
                                 <button class="p1 bkbtn" id="C_Edit" @click="$emit('edit-handler')" type="button">Edit</button>
                             </div>
                         </li>
@@ -1793,8 +1790,8 @@
                                         </div>
                                         <div class="pl_1 pr_1">
                                             <select name="state" id="" v-model="popupData.state">
-                                                <option value="0">凍結</option>
-                                                <option value="1">正常</option>
+                                                <option value="0">正常</option>
+                                                <option value="1">凍結</option>
                                             </select>
                                         </div>
                                     </div>
@@ -1817,7 +1814,7 @@
                             <p class="p1 pr_1 font_w5 listGrow">人員姓名</p>
                             <p class="p1 pr_1 font_w5 listGrow">人員帳號</p>
                             <p class="p1 pr_1 font_w5 listGrow">人員類別</p>
-                            <p class="p1 pl_1 pr_1 font_w5">人員狀態</p>
+                            <!-- <p class="p1 pl_1 pr_1 font_w5">人員狀態</p> -->
                             <p></p>
                         </div>
                         <ul>
@@ -1839,7 +1836,6 @@
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{manager_name}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{manager_account}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{role}}</p>
-                                <p class="p1 pl_1 pr_1 font_w5 fontcontent fontColor">{{state ? '凍結' : '正常'}}</p>
                                 <button class="p1 bkbtn" id="D_Edit" @click="$emit('edit-handler')" type="button">Edit</button>
                             </div>
                         </li>
