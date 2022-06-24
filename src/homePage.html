@@ -10,12 +10,12 @@
     @@include('layout/header.html')
     <!-- header end -->
     <!-- 第一屏遮罩 + 首頁輪播 -->
-    <input type="button" value="On" class="turn_on" />
+    <input type="button" value="Turn On" class="turn_on" />
     <section class="first">
         <div class="containerALL">
             <div class="wrapper">
-                <h1 class="wrapper_title s3 font_i">Light Up For You</h1>
-                <h2 class="wrapper_text h2">
+                <h1 class="wrapper_title s3 font_i userSelectNone">Light Up For You</h1>
+                <h2 class="wrapper_text h2 userSelectNone">
                     We firmly believe that 'Light' can bring more beautiful value to life
                     <br /> which is our original intention.
                 </h2>
@@ -39,21 +39,21 @@
     <!-- 專案實例 -->
     <section class="index_project">
         <div class="index_project_wrap">
-            <div class="containerALL">
+            <div class="containerALL userSelectNone">
                 <div class="index_project_title">
-                    <h2 class="s2 me_4 para1">Our Lights</h2>
-                    <h2 class="s3 me_4 para2">Always</h2>
-                    <h2 class="s1 font_i fontdeco_w9 me_4 para3">LIGHT</h2>
-                    <h2 class="s2 font_i me_4 para4">your LIFE</h2>
+                    <h2 class="s2 me_4 para1 userSelectNone">Our Lights</h2>
+                    <h2 class="s3 me_4 para2 userSelectNone">Always</h2>
+                    <h2 class="s1 font_i fontdeco_w9 me_4 para3 userSelectNone">LIGHT</h2>
+                    <h2 class="s2 font_i me_4 para4 userSelectNone">your LIFE</h2>
                 </div>
             </div>
-            <div id="project_wrap" class="project_wrap">
-                <div class="project_card project_card1">
+            <div id="project_wrap" class="project_wrap ">
+                <div class="project_card project_card1 userSelectNone">
                     <img src="./images/projectMain_pic5.webp" alt="The Renaissance" />
                     <div class="content ms_2 mr_2 me_2 ml_2">
-                        <h2 class="h1 me_1">The Renaissance</h2>
+                        <h2 class="h1 me_1 userSelectNone">The Renaissance</h2>
                         <div class="content">
-                            <p class="h4 me_1">
+                            <p class="h4 me_1 userSelectNone">
                                 It is recommended that you work through Getting started with the web before attempting this
                                 topic. However, this
                                 isn't absolutely necessary; much of what is covered in the HTML basics article is also
@@ -61,31 +61,31 @@
                                 Introduction to HTML module, albeit in a lot more detail.
                             </p>
                         </div>
-                        <h3 class="h5 me_4">SIMON SCHMITZ</h3>
-                        <a href="projectInner1.html" class="btn_normal"> more </a>
+                        <h3 class="h5 me_4 userSelectNone">SIMON SCHMITZ</h3>
+                        <a href="projectInner1.html" class="btn_normal userSelectNone"> more </a>
                     </div>
                 </div>
                 <div class="project_card project_card2">
                     <img src="./images/projectMain_pic4.webp" alt="INDUSTRIAL REVOLUTION" />
                     <div class="content ms_2 mr_2 me_2 ml_2">
-                        <h2 class="h1 me_1">INDUSTRIAL REVOLUTION</h2>
+                        <h2 class="h1 me_1 userSelectNone">INDUSTRIAL REVOLUTION</h2>
                         <div class="content">
-                            <p class="h4 me_1">
+                            <p class="h4 me_1 userSelectNone">
                                 The Industrial Revolution was the transition to new manufacturing processes in Great
                                 Britain, continental Europe, and
                                 the United States, in the period from about 1760 to sometime between 1820 and 1840.
                             </p>
                         </div>
-                        <h3 class="h5 me_4">BERNARD SCHOTTLANDER</h3>
-                        <a href="projectInner2.html" class="btn_normal"> more </a>
+                        <h3 class="h5 me_4 userSelectNone">BERNARD SCHOTTLANDER</h3>
+                        <a href="projectInner2.html" class="btn_normal userSelectNone"> more </a>
                     </div>
                 </div>
-                <div class="project_card project_card3">
+                <div class="project_card project_card3 userSelectNone">
                     <img src="./images/projectMain_pic6.webp" alt="The Dragon" />
                     <div class="content ms_2 mr_2 me_2 ml_2">
-                        <h2 class="h1 me_1">The Dragon</h2>
+                        <h2 class="h1 me_1 userSelectNone">The Dragon</h2>
                         <div class="content">
-                            <p class="h4 me_1">
+                            <p class="h4 me_1 userSelectNone">
                                 The warm and soft light caressed the earth, and the dexterous light feathers flew, carrying
                                 a fresh and flawless
                                 atmosphere.
@@ -97,17 +97,17 @@
                                 hearts.
                             </p>
                         </div>
-                        <h3 class="h5 me_4">ALBIN GRAS</h3>
-                        <a href="projectInner3.html" class="btn_normal"> more </a>
+                        <h3 class="h5 me_4 userSelectNone">ALBIN GRAS</h3>
+                        <a href="projectInner3.html" class="btn_normal userSelectNone"> more </a>
                     </div>
                 </div>
             </div>
 
-            <div class="index_project_deco_image">
+            <div class="index_project_deco_image userSelectNone">
                 <img src="./images/index_project_deco_image_01.webp" alt="" />
             </div>
         </div>
-        <div class="index_project_deco_image_fullview">
+        <div class="index_project_deco_image_fullview userSelectNone">
             <img src="./images/index_project_deco_image_02.webp" alt="" />
         </div>
     </section>
@@ -128,7 +128,6 @@
                     @after-leave="resetGrid">
                     <div class="grid-sizer" key="grid-sizer"></div>
                     <div class="gutter-sizer" key="gutter-sizer"></div>
-                    <p key="noPosts" v-if="filterList.length <= 0" class="no-posts">no data</p>
                     <product-commodity v-for="(commodity, index) in filterList" :key="index" v-bind="commodity">
                     </product-commodity>
                 </transition-group>
@@ -139,7 +138,7 @@
     <section class="simulation_luminosity index_luminosity me_8" id="simulation_luminosity" :style="{ backdropFilter: 'contrast(60%)' }">
     
         <!-- 投射燈光幕 -->
-        <div class="simulation_lamp">
+        <div class="simulation_lamp userSelectNone">
             <img src="./images/simulation_lamp_v2.webp" alt="">
         </div>
     
@@ -151,51 +150,51 @@
     
         <!-- 遮色片 -->
         <div class="front-mask" :style="opacityOutput"></div>
-    
+        
+        <!-- LOGO SLOGAN -->
+        <div class="sloganBox">
+            <h2 class="slogan title s3 font_i userSelectNone">Light Up For You</h2>
+            <h3 class="slogan text h2 userSelectNone">
+                We firmly believe that 'Light' can bring more beautiful value to life
+                <br /> which is our original intention.
+            </h3>
+        </div>
+
         <!-- 控制面板 -->
-        <form class="simulation_form" oninput="simulation_luminosity.setAttribute('data-light', slider.value)">
-    
+        <form class="simulation_form" oninput="simulation_luminosity.setAttribute('data-light', slider.value)">    
             <!-- 透明度 -->
             <div class="range me_2">
-                <h2 class="title">Light : {{opacity}}</h2>
+                <h2 class="title userSelectNone">Light : {{opacity}}</h2>
                 <div class="rangebox">
-                    <!-- <label class="sliderValue">
-                                        <span class="indicator" :style="{ left : (opacity/1.19) + '%' }">{{opacity}}</span> -->
                     <label class="field">
-                        <div class="value left">0</div>
+                        <div class="value left userSelectNone">0</div>
                         <input type="range" id="slider" value="0" min="0" max="100" steps="1" v-model="opacity">
-                        <div class="value right">100</div>
+                        <div class="value right userSelectNone">100</div>
                     </label>
                 </div>
-            </div>
-    
-            <!-- 色相 -->
-            <div class="range me_2">
-                <h2 class="title">Hue</h2>
-                <div class="rangebox">
-                    <label class="field">
-                        <div class="value left">Orange</div>
-                        <input type="range" v-model="hue" min="40" max="180" steps="1">
-                        <div class="value right">Blue</div>
-                    </label>
-                </div>
-            </div>
-    
+            </div>    
             <!-- 飽和度 -->
             <div class="range me_2">
-                <h2 class="title">Saturation : {{saturation}}</h2>
+                <h2 class="title userSelectNone">Saturation : {{saturation}}</h2>
                 <div class="rangebox">
-                    <!-- <label class="sliderValue">
-                            <span class="indicator" :style="{ left : (saturation/1.19) + '%' }">{{saturation}}</span>
-                        </label> -->
                     <label class="field">
-                        <div class="value left">0</div>
+                        <div class="value left userSelectNone">0</div>
                         <input type="range" v-model="saturation" min="0" max="100" steps="1">
-                        <div class="value right">100</div>
+                        <div class="value right userSelectNone">100</div>
                     </label>
                 </div>
             </div>
-    
+            <!-- 色相 -->
+            <div class="range me_2">
+                <h2 class="title userSelectNone">Hue</h2>
+                <div class="rangebox">
+                    <label class="field">
+                        <div class="value left userSelectNone">Orange</div>
+                        <input type="range" v-model="hue" min="40" max="180" steps="1">
+                        <div class="value right userSelectNone">Blue</div>
+                    </label>
+                </div>
+            </div>
         </form>
     </section>
     <!-- 最新消息 -->
@@ -211,16 +210,16 @@
                         props: ['news_no', 'news_title', 'news_text', 'newsImage_path', 'news_publish', 'news_state'],
                         template: `
                             <div class="news_photo me_8">
-                                <div class='photo'>
+                                <div class='photo userSelectNone'>
                                     <img :src="'images//'+ newsImage_path"" :alt="news_title">
                                 </div>
                                 <div class="wrap">
                                     <div class="content">
-                                        <h2 class="h2 me_1">{{news_title}}</h2>
+                                        <h2 class="h2 me_1 userSelectNone">{{news_title}}</h2>
                                         <div>
-                                            <p class="h5 me_2">{{news_text}}</p>
+                                            <p class="h5 me_2 userSelectNone">{{news_text}}</p>
                                         </div>
-                                        <a href="https://tibamef2e.com/cgd101/g2/news.html" class="btn_normal h4 me_2">more</a>
+                                        <a href="https://tibamef2e.com/cgd101/g2/news.html" class="btn_normal h4 me_2 userSelectNone">more</a>
                                     </div>
                                 </div>
                             </div>
@@ -249,19 +248,19 @@
     <section class="index_aboutus">
         <div class="containerALL">
             <div class="card">
-                <div class="photo">
+                <div class="photo userSelectNone">
                     <img src="./images/index_about_us.webp" alt="about lufy" />
                 </div>
                 <div class="wrap">
                     <div class="content">
-                        <h2 class="h1 ms_2 me_1">About Light Up For You</h2>
-                        <p class="h4 me_2">
+                        <h2 class="h1 ms_2 me_1 userSelectNone">About Light Up For You</h2>
+                        <p class="h4 me_2 userSelectNone">
                             Starting from six sketches in 1991, the founder Meiric sowed a design seed, carefully
                             irrigated with delicate thinking and rigorous attitude, rubbed light and shadow into brush
                             and ink, and outlined the lighting imagination in his heart.<br /> We firmly believe that
                             "light" can bring more beautiful value to life, which is our original intention.
                         </p>
-                        <a href="./aboutUs.html" class="btn h4 me_2">more</a>
+                        <a href="./aboutUs.html" class="btn h4 me_2 userSelectNone">more</a>
                     </div>
                 </div>
             </div>

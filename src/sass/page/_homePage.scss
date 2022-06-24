@@ -1,4 +1,23 @@
 /* 第一屏燈箱 */
+@keyframes shake-it {
+    0% {
+        transform: translate(0%, 15%);
+    }
+
+    50% {
+        transform: translate(0%, 0%);
+    }
+
+    100% {
+        transform: translate(0%, 15%);
+    }
+}
+
+.turn_on {
+    // display: none;
+    top: 80%;
+    animation: shake-it 1s infinite;
+}
 .turn_on {
     color: #666;
     background-color: rgba(0, 0, 0, 0);
@@ -66,23 +85,7 @@
     }
 }
 
-@media all and (max-width:490px) {
-    @keyframes shake-it {
-        0% {
-            transform: translate(0%, 15%);
-        }
-        50% {
-            transform: translate(0%, 0%);
-        }
-        100% {
-            transform: translate(0%, 15%);
-        }
-    }
-    .turn_on {
-        // display: none;
-        top: 80%;
-        animation: shake-it 1s infinite;
-    }
+@media all and (max-width:490px) {    
     .wrapper {
         // display: none;
         text-align: center;

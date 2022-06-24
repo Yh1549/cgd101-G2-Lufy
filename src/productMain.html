@@ -10,7 +10,7 @@
     @@include('layout/header.html')
     <!-- header end -->
     <section id="product" class="productMain">
-        <section class="containerALL me_8  ml_2 mr_2">
+        <section class="containerALL me_8">
             <!-- breadcrumb -->
             <ul class="breadcrumbList">
                 <li class="breadcrumbItem">
@@ -18,15 +18,11 @@
                 </li>
                 <li class="breadcrumbItem"><a href="./productMain.html">ProductMain</a></li>
             </ul>
-            <!-- breadcrumb end-->
-
             <!-- 商品分類 -->
             <div id="product_category" class="product_category ms_4 me_4">
                 <product-category v-for='(category, index) in categoryObject' :key="category.id" v-bind="category" :focus-id="focusId" @filtercategory="changeFocusId($event)">
                 </product-category>
-            </div>
-
-            
+            </div>            
             <!-- 商品瀑布流 -->
             <div id="grid_masonry">
                 <transition-group class="grid me_4" tag="div" name="gender-filter" @enter="resetGrid" @after-leave="resetGrid">
@@ -37,22 +33,6 @@
                     </product-commodity>
                 </transition-group>
             </div>
-            <!-- 商品瀑布流 old -->
-            <!-- <div id="grid_masonry">
-                
-                <div class="grid" v-show="isNaN(focusId)">                    
-                    <div class="grid-sizer"></div>
-                    <div class="gutter-sizer"></div>                    
-                    <product-commodity v-masonry-tile v-for="(commodity, index) in filterList" :key="commodity.id" v-bind="commodity">
-                    </product-commodity>
-                </div>
-                
-                <div v-show="!isNaN(focusId)" class="category_wrap">
-                    <product-commodity v-for="(commodity, index) in filterList" :key="commodity.id" v-bind="commodity">
-                    </product-commodity>
-                </div>            
-            </div> -->
-
         </section>
     </section>
     <!-- footer  -->

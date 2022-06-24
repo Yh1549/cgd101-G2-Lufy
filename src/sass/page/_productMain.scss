@@ -108,13 +108,12 @@
                     color: rgba(0, 0, 0, .04);
                     -webkit-text-stroke: 1px hsla(0, 0%, 100%, .8);
                     transition: all .1s ease;
-
                     &:hover {
                         color: $primary_30;
                         opacity: 0.6;
                     }
 
-                    &:active {
+                    &:active, &.favActive {
                         color: $errorcolor;
                         text-shadow: 0 1px 3px rgb(0 0 0 / 15%);
                         -webkit-text-stroke: 1px $errorcolor;
