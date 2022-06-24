@@ -1,6 +1,6 @@
 <?php
 try {
-    require_once("connect_lufy.php");
+    require_once("connect_cgd101g2.php");
     //--------left data
     $productssql = "update product set category_no=:category_no, des_no=:des_no, name=:name, description=:description, specification=:specification, price=:price, on_market=:on_market, in_stock=:in_stock where product_no=:product_no";
     $products = $pdo->prepare($productssql);

@@ -1,6 +1,6 @@
 <?php
 try {
-    require_once("connect_lufy.php");
+    require_once("connect_cgd101g2.php");
     $productssql = "DELETE from promotionsdetail where product_no=:product_no";
     $products = $pdo->prepare($productssql);
     $products->bindValue(":product_no", $_POST["product_no"]);
