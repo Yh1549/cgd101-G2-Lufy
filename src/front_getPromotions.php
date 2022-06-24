@@ -2,7 +2,7 @@
 try{
 	require_once("connect_cgd101g2.php");
 
-	$sql = "SELECT * FROM lufy.promotions where promotions_state = 0 order by promotions_startDate desc LIMIT 3"; //準備好sql指令
+	$sql = "SELECT * FROM promotions where promotions_state = 0 order by promotions_startDate desc LIMIT 3"; //準備好sql指令
 	$promotions = $pdo->query($sql);//將sql指令送到mysql去執行, 回傳的是pdoStatement
 	$promoRows = $promotions->fetchAll(PDO::FETCH_ASSOC);
 	echo json_encode($promoRows);
