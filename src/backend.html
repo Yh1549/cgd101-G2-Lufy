@@ -134,7 +134,7 @@
                             <p class="p1 pr_1 font_w5">會員生日</p>
                             <p class="p1 pr_1 font_w5">會員電話</p>
                             <p class="p1 pr_1 font_w5 listGrow">會員地址</p>
-                            <!-- <p class="p1 pl_1 pr_1 font_w5">會員狀態</p> -->
+                            <p class="p1 pl_1 pr_1 font_w5">會員狀態</p>
                             <p></p>
                         </div>
                         <ul>
@@ -158,6 +158,7 @@
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{member_birthday}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor">{{member_tel}}</p>
                                 <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{member_address}}</p>
+                                <p class="p1 pr_1 font_w5 fontcontent fontColor">{{member_state==1 ? "凍結":"正常"}}</p>
                                 <button class="p1 bkbtn" id="N_Edit" @click="$emit('edit-handler')" type="button">Edit</button>
                             </div>
                         </li>
