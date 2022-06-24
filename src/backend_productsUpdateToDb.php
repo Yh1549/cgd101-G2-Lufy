@@ -15,8 +15,17 @@ try {
     $products->bindValue(":on_market", $_POST["on_market"]);
     $products->bindValue(":in_stock", $_POST["in_stock"]);
     $products->execute();
-
-
+    
+    
+    if(isset($_POST["promotions_no"]) == true){
+    $promotionsql = "update promotionsdetail set promotions_no=:promotions_no, promotions_price=:promotions_price where product_no=:product_no";
+    $promotion =$pdo->prepare($promotionsql);
+    $promotion->bindValue(":promotions_no", $_POST["promotions_no"]);
+    $promotion->bindValue(":product_no", $_POST["product_no"]);
+    $promotion->bindValue(":promotions_price", $_POST["promotions_price"]);
+    $promotion->execute();
+    // echo "update left oK";
+    }
     
     //------right data
   
@@ -55,21 +64,13 @@ try {
                 echo "上傳檔案有問題~<br>";
                 break;
             case UPLOAD_ERR_NO_FILE:
-                echo "檔案没選~<br>";
+                echo "檔案",$i+1,"没選~　　";
                 break;
             default:
         };
 
     }
-    if(isset($_POST["promotions_no"]) == true){
-    $promotionsql = "update promotionsdetail set promotions_no=:promotions_no, promotions_price=:promotions_price where product_no=:product_no";
-    $promotion =$pdo->prepare($promotionsql);
-    $promotion->bindValue(":promotions_no", $_POST["promotions_no"]);
-    $promotion->bindValue(":product_no", $_POST["product_no"]);
-    $promotion->bindValue(":promotions_price", $_POST["promotions_price"]);
-    $promotion->execute();
-    echo "update left oK";
-    }
+    echo "product異動成功";
 } catch (PDOException $e) {
     $errMsg = "";
     $errMsg .= "錯誤原因 : " . $e->getMessage() . "<br>";

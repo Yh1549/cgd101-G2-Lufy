@@ -1,10 +1,10 @@
-// 引用 var.scss
+// 引用 var
 // _告訴scss 不要編譯 
 @import 'base/reset';
 @import 'base/var';
 @import 'mixin/mixin';
 @import 'base/components';
-//@import './node_modules/bootstrap/scss/bootstrap.scss';
+//@import './node_modules/bootstrap/scss/bootstrap';
 //-----字體-----
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&display=swap%27');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700;1,900&display=swap%27');
@@ -18,10 +18,9 @@
 @import 'page/aboutUs'; //關於我們
 //購物車頁import--
 @import 'page/cartEdit'; //購物車頁
-@import 'page/_cartEdit_progress_bar'; //購物車進度條
 //專案import---
 @import 'page/projectMain'; //專案主頁
-@import 'page/projectInner.scss'; //專案內頁
+@import 'page/projectInner'; //專案內頁
 // 設計師內頁import---
 @import 'page/designer';
 //會員中心---
@@ -33,17 +32,19 @@
 @import 'page/breadcrumb'; // 麵包屑
 //----------
 //最新消息import------------
-@import 'page/news.scss'; //最新消息
+@import 'page/news'; //最新消息
 //常見問題import------------
-@import 'page/support.scss'; //常見問題
+@import 'page/support'; //常見問題
 // 情境模擬import------
-@import 'page/simulation.scss'; //情境模擬
+@import 'page/simulation'; //情境模擬
 //-----------
 // 後台登入import
 @import 'page/backendLogin';
 //後台import------------
-@import 'page/backend.scss'; //後台
+@import 'page/backend'; //後台
 //-----------
 //設計師後台import------------
-@import 'page/backendDesigner.scss'; //設計師後台
+@import 'page/backendDesigner'; //設計師後台
 //-----------
+// 工具項
+@import 'base/utility';

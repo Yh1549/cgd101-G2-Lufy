@@ -13,20 +13,20 @@
         <!-- breadcrumb -->
         <ul class="breadcrumbList">
             <li class="breadcrumbItem">
-                <a class="breadcrumb" href="./homePage.html">Home</a>
+                <a class="breadcrumb userSelectNone" href="./homePage.html">Home</a>
             </li>
             <li class="breadcrumbItem">
-                <a class="breadcrumb" href="./productMain.html">ProductMain</a>
+                <a class="breadcrumb userSelectNone" href="./productMain.html">ProductMain</a>
             </li>
             <li class="breadcrumbItem">
-                <a class="breadcrumb" v-if="prodInfoRow[0]" :href="`./productInner.html${locationSearch}`">{{prodInfoRow[0].name}}</a>
+                <a class="breadcrumb userSelectNone" v-if="prodInfoRow[0]" :href="`./productInner.html${locationSearch}`">{{prodInfoRow[0].name}}</a>
             </li>
         </ul>
         <!-- productInfo-->
         <section class="product_main_box me_6">
             <div class="main_product_img" v-if="prodInfoRow.length !=0">
                 <prodimg-main :image_path="prodInfoRow[0]?.image_path"></prodimg-main>
-
+                
                 <div class="small_products_img_box" v-if="prodInfoRow.length !=0">
                     <prodimg-small v-for='(prodImgSmall,index) in prodInfoRow' :key="(prodImgSmall.id)" v-bind="prodImgSmall" :small-img="prodInfoRow[index]"></prodimg-small>
                 </div>

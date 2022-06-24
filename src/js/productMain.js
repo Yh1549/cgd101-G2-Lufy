@@ -3,16 +3,16 @@ let bread = Vue.component('breadcrumb-list', {
     template: `
     <ol class="breadcrumbList">
         <li class="breadcrumbItem" v-for="item in breadcrumb">
-            <a :href="item.link">{{item.name}}</a>
+            <a class="userSelectNone" :href="item.link">{{item.name}}</a>
         </li>
     </ol> `,
 })
 let category = Vue.component('product-category', {
     props: ['category_imgpath', 'category_name', 'category_no', 'focusId'],
     template: `
-    <div class="category"  @click="filterhandler(category_no)" :class="(focusId === category_no)?'active':''">
+    <div class="category userSelectNone"  @click="filterhandler(category_no)" :class="(focusId === category_no)?'active':''">
         <img :src="'images//'+category_imgpath" :alt="category_name">
-        <p class="p1">{{category_name}}</p>
+        <p class="p1 userSelectNone">{{category_name}}</p>
     </div>`,
 
     methods: {
@@ -23,7 +23,7 @@ let category = Vue.component('product-category', {
 })
 
 let commodity = Vue.component('product-commodity', {
-    props: ['image_path', 'name', 'product_no', 'add'],
+    props: ['image_path', 'name', 'product_no', 'add', 'isFav'],
     data() { 
         return {
             isAdd: false,
@@ -52,16 +52,16 @@ let commodity = Vue.component('product-commodity', {
     },
     mounted() { 
         this.isAdd = this.add;
-    },
-   
+    },   
     template: `
     <div class="grid-item" @click="goDetailPage">
         <div class="commodityImg">
             <img :src="'images//'+image_path" :alt="name">
         </div>
         <div class="commodity">
-            <h2>{{name}}</h2>
-            <span class="material-icons favoriteButton" @click.stop="addFav;setFavorite($event, product_no)">favorite</span>
+            <h2 class="userSelectNone">{{name}}</h2>
+            <span class="material-icons favoriteButton userSelectNone userSelectNone" :class="isFav ? 'favActive':'abc'"
+            @click.stop="addFav;setFavorite($event, product_no)">favorite</span>
         </div>
     </div> `,
 })
@@ -72,7 +72,8 @@ const productCommodity = new Vue({
         commodityObject: [],
         breadCrumbRow: [],
         focusId: NaN,
-        categoryName: 'all'
+        categoryName: 'all',
+        favItems: [],
     },
     methods: {
         // 麵包屑
@@ -107,9 +108,15 @@ const productCommodity = new Vue({
         async setProductimage() {
             axios.get('productMain.php').then((response) => {
                 console.log(response.data)
-                productCommodity.commodityObject = response.data;
+                this.commodityObject = response.data;
                 this.$nextTick(this.callMasonry)
 
+                this.commodityObject.forEach(item => {
+                    const isInIt = this.favItems.find(i => i?.product_no == item.product_no);
+                    item.isFav = !!isInIt ? true : false;
+                });
+                console.log(this.commodityObject)
+               
             }).catch(err => console.log(err));
         },
         changeFocusId(num) {
@@ -141,36 +148,15 @@ const productCommodity = new Vue({
                 Masonry.data(gridEl).layout()
             })
         },
+        // 加入收藏的商品
         favoriteCheck() {
-            console.log('123')
-            let favCheck = new XMLHttpRequest();
-            favCheck.onload = () => {
-                if (favCheck.responseText != "No login") {
-                    let memberfavorite = JSON.parse(JSON.parse(favCheck.responseText).memberfavorite);
-                    let idParams = new URLSearchParams(window.location.search);
-                    let pageid = parseInt(idParams.get("id"));
-                    for (let i = 0; i < memberfavorite.length; i++) {
-                        if (memberfavorite[i].product_no == pageid) {
-                            // console.log(memberfavorite[i].product_no+"sucess");
-                            this.add = false;
-                            document.querySelector('.favoriteButton .heart').classList.add('favActive');
-                            // favorite按鈕變色的js放這 已加入蒐藏
-                            break;
-                        } else {
-                            this.add = true;
-                            document.querySelector('.favoriteButton .heart').classList.remove('favActive');
-                            // favorite按鈕變色的js放這 未加入蒐藏
-                            // console.log("fail");
-                        }
-                    };
-                    // console.log(this.add);
-                } else {
-                    console.log("未登入");
-                }
-            };
-            favCheck.open("get", "membergetInfo.php", true);
-            favCheck.send(null);
-        }
+            axios.get(`membergetInfo.php`)
+            .then((response) => response?.data?.memberfavorite)
+            .then(res => this.favItems = (res))
+            .then(res => {
+                this.setProductimage();
+            })
+        },
     },
     computed: {
         // 篩選商品
@@ -180,11 +166,11 @@ const productCommodity = new Vue({
         },
     },
     created() {
-        this.favoriteCheck();
+        
     },
     mounted() {
         this.setBreadcrumb();
         this.setCategoryimage();
-        this.setProductimage();
+        this.favoriteCheck();
     },
 })

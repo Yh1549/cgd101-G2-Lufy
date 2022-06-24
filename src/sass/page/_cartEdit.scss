@@ -1,7 +1,11 @@
 .cart_total {
     text-align: right;
 }
-
+.cartTitle {
+    font-family: $fontdeco;
+    font-weight: 700;
+    color: $primary_100;
+}
 .discount,
 .discount_total {
     text-align: right;
