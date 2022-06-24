@@ -112,7 +112,7 @@ const productCommodity = new Vue({
                 this.$nextTick(this.callMasonry)
 
                 this.commodityObject.forEach(item => {
-                    const isInIt = this.favItems.find(i => i?.product_no == item.product_no);
+                    const isInIt = this.favItems?.find(i => i?.product_no == item.product_no);
                     item.isFav = !!isInIt ? true : false;
                 });
                 console.log(this.commodityObject)
@@ -151,7 +151,7 @@ const productCommodity = new Vue({
         // 加入收藏的商品
         favoriteCheck() {
             axios.get(`membergetInfo.php`)
-            .then((response) => response?.data?.memberfavorite)
+            .then((response) => (response?.data?.memberfavorite))
             .then(res => this.favItems = (res))
             .then(res => {
                 this.setProductimage();

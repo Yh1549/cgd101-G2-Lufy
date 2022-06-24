@@ -128,7 +128,7 @@
                     @after-leave="resetGrid">
                     <div class="grid-sizer" key="grid-sizer"></div>
                     <div class="gutter-sizer" key="gutter-sizer"></div>
-                    <product-commodity v-for="(commodity, index) in filterList" :key="index" v-bind="commodity">
+                    <product-commodity v-for="(commodity, index) in filterList" :key="commodity.product_no" v-bind="commodity">
                     </product-commodity>
                 </transition-group>
             </div>

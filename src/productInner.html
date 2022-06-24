@@ -32,7 +32,7 @@
                 </div>
             </div>
             <div class="purchase_panel pl_6" v-if="prodInfoRow.length !=0">
-                <purchase-panel v-bind="prodInfoRow[0]" :add="add"></purchase-panel>
+                <purchase-panel v-bind="prodInfoRow[0]" :add="add" @set-fav-event="setFavorite($event)"></purchase-panel>
                 
                 <div class="product_details_box me_6" v-if="prodInfoRow.length !=0">
                     <prod-info v-bind="prodInfoRow[0]"></prod-info>
