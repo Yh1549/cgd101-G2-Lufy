@@ -4,10 +4,15 @@ function showCart() {
     var xhr = new XMLHttpRequest();
     xhr.onload = function () {
         if (xhr.status == 200) {
-            let cartv2 = document.querySelector(".shopping_cart_box");
-            cartv2.classList.toggle('hidden');
-        } else {
+            if(xhr.reponseText != '未登入'){
+                           let cartv2 = document.querySelector(".shopping_cart_box");
+            cartv2.classList.toggle('hidden')
+             
+            }
+
+            else {
             alert("請登入");
+        }
         }
     }
     xhr.open("get","./checkMemberState.php",true); //執行登出php(刪除session)
