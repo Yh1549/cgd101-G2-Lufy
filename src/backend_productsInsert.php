@@ -1,6 +1,6 @@
 <?php
 try {
-    require_once("connect_cgd101g2.php");
+    require_once("connect_lufy.php");
 
     $productssql = "INSERT INTO `product`(`category_no`, `des_no`, `des_select`, `name`, `description`, `specification`, `price`, `on_market`, `in_stock`) VALUES (:category_no, :des_no, :des_select, :product_name, :description, :specification, :price, :on_market, :in_stock)";
     $products = $pdo->prepare($productssql);

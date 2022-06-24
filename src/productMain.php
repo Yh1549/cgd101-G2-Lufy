@@ -1,6 +1,6 @@
 <?php 
 	try{
-		require_once("connect_cgd101g2.php");
+		require_once("connect_lufy.php");
 
 		$sql = "SELECT DISTINCT  p.product_no, p.name, i.product_show, i.image_path, c.category_no
 				FROM product p 

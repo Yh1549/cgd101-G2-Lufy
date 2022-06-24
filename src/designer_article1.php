@@ -3,7 +3,7 @@
 session_start();
 $errMsg = "";
 try {
-	require_once("connect_cgd101g2.php");
+	require_once("connect_lufy.php");
 	
 			$sql = "UPDATE `designer` SET `art_1`=:art1,`art1_text`=:art1_text where manager_no = :cur_manager";
             
