@@ -13,10 +13,10 @@ try {
 		}
 		//將檔案copy到要放的路徑
 		$fileInfoArr = pathinfo($_FILES["upFile"]["name"]);
-		$fileName = uniqid().".{$fileInfoArr["extension"]}"; //usq321Bddd.gif 
+		$fileName = "/".uniqid().".{$fileInfoArr["extension"]}"; //usq321Bddd.gif 
 
 		$from = $_FILES["upFile"]["tmp_name"];
-		$to = "images/$fileName";
+		$to = "images$fileName";
        
 		if(copy( $from, $to)===true){
             
