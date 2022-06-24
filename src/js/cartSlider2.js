@@ -7,13 +7,12 @@ function showCart() {
             if(xhr.responseText == "已登入"){
                 let cartv2 = document.querySelector(".shopping_cart_box");
                 cartv2.classList.toggle('hidden');
-            }else{
+            }else
                 alert("請登入");
-            }
-        } else {
-            alert("請登入");
-        }
+            
+      
     }
+}
     xhr.open("get","./checkMemberState.php",true); //執行登出php(刪除session)
     xhr.send(null);
 }
