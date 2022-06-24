@@ -25,7 +25,7 @@ try {
 			$memberfavorite->bindValue(":curId", $memRow["member_no"]);
 			$memberfavorite->execute();
 			$favoriteRow = $memberfavorite->fetchAll(PDO::FETCH_ASSOC);
-			$memberTotal["memberfavorite"] = json_encode($favoriteRow);
+			$memberTotal["memberfavorite"] = ($favoriteRow);
 			echo json_encode($memberTotal);
 		};
 	} else {

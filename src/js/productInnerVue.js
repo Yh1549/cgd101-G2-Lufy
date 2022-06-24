@@ -30,22 +30,51 @@ let prodImgSmall = Vue.component('prodimg-small', {
         },
     },
 });
+// 商品詳情
+let prodInfo = Vue.component('prod-info', {
+    props: ['description', 'specification'],
+    data() {
+        return { layout: 'desc', }
+    },
+    template: `<div>
+        <div class="detail_switch me_2">
+            <div class="descBar fontcontent userSelectNone" @click="layout = 'desc'" :class="{ barActive: layout === 'desc', }">Description</div>
+            <div class="specBar fontcontent userSelectNone" @click="layout = 'spec'" :class="{ barActive: layout === 'spec', 'aaa': true, }">Specification</div>
+        </div>
+        <div v-if="layout === 'desc'" class="content userSelectNone">
+            <p class="p2">{{description}}</p>
+        </div>
+        <div  v-if="layout === 'spec'" class="content userSelectNone">
+            <p class="p2">{{specification}}</p>
+        </div>        
+    </div>
+    `,
+})
+// 設計師簡介
+let designerInfo = Vue.component('des-info', {
+    props: ['des_name', 'des_text', 'des_img_path', 'des_no'],
+    template: `<div>
+        <div class="product_designer">
+            <div class="product_designer_img mr_2 userSelectNone">
+                <img :src="'images//'+des_img_path" :alt="des_name">
+            </div>
+            <div class="product_designer_intro_box me_2">
+                <div class="product_designer_intro_content me_4">
+                    <h2 class="h2 me_1 userSelectNone">{{des_name}}</h2>
+                    <p class="p2 userSelectNone">{{des_text}}</p>
+                </div>
+                <a :href="'./designers.html?id='+des_no" class="designer_link btn_normal userSelectNone">Read More</a>
+            </div>
+        </div>
+    </div>
+    `,
+})
 // 購買面板
 let purchasePnl = Vue.component('purchase-panel', {
-    props: ['name', 'price', 'promotions_name', 'promotions_price', 'promPrice', 'add', 'product_no', 'image_path', 'specification','promotions_state'],
+    props: ['name', 'price', 'promotions_name', 'promotions_price', 'promPrice', 'add', 'product_no', 'image_path', 'specification', 'promotions_state','isFav'],
     methods: {
         setFavorite(e) {
-            const product_no = window.location.search.split('id=')[1];
-            axios.get(`favorite.php?id=${product_no
-                }&add=${this.add}`).then((response) => {
-                if (response.data == 'add success') {
-                    this.add = false;
-                    e.target.classList.add('favActive');
-                } else {
-                    this.add = true;
-                    e.target.classList.remove('favActive');
-                }
-            }).catch(err => console.log(err));
+            this.$emit('set-fav-event', !this.isFav);
         },
     },
     mounted() {
@@ -92,55 +121,20 @@ let purchasePnl = Vue.component('purchase-panel', {
             </div>
         </div>
         <div id="favoriteButton" class="favoriteButton me_4" @click="setFavorite($event)">
-            <span class="material-icons heart userSelectNone">favorite</span>
+            <span class="material-icons heart userSelectNone" :class="isFav ? 'favActive':'abc'">favorite</span>
             <span class="fontcontent p1 userSelectNone">Favorite</span>
         </div> 
     </div>`,
     // #endRegion :class="{favActive : isSelected}"
 });
-let prodInfo = Vue.component('prod-info', {
-    props: ['description', 'specification'],
-    data() {
-        return { layout: 'desc', }
-    },
-    template: `<div>
-        <div class="detail_switch me_2">
-            <div class="descBar fontcontent userSelectNone" @click="layout = 'desc'" :class="{ barActive: layout === 'desc', }">Description</div>
-            <div class="specBar fontcontent userSelectNone" @click="layout = 'spec'" :class="{ barActive: layout === 'spec', 'aaa': true, }">Specification</div>
-        </div>
-        <div v-if="layout === 'desc'" class="content userSelectNone">
-            <p class="p2">{{description}}</p>
-        </div>
-        <div  v-if="layout === 'spec'" class="content userSelectNone">
-            <p class="p2">{{specification}}</p>
-        </div>        
-    </div>
-    `,
-})
-let designerInfo = Vue.component('des-info', {
-    props: ['des_name', 'des_text', 'des_img_path'],
-    template: `<div>
-        <div class="product_designer">
-            <div class="product_designer_img mr_2 userSelectNone">
-                <img :src="'images//'+des_img_path" :alt="des_name">
-            </div>
-            <div class="product_designer_intro_box me_2">
-                <div class="product_designer_intro_content me_4">
-                    <h2 class="h2 me_1 userSelectNone">{{des_name}}</h2>
-                    <p class="p2 userSelectNone">{{des_text}}</p>
-                </div>
-                <a href="./designers.html" class="designer_link btn_normal userSelectNone">Read More</a>
-            </div>
-        </div>
-    </div>
-    `,
-})
+
 const mainProductImg = new Vue({
     el: `#product`,
     data: {
         prodInfoRow: [],
         add: true,
         locationSearch: window.location.search,
+        favItems: [],
     },
     methods: {
         setProductimage() {
@@ -148,43 +142,77 @@ const mainProductImg = new Vue({
             // productInner.html ? id =
             axios.get(`productInner.php?id=${product_no
                 }`).then((response) => {
-                this.prodInfoRow = response.data;
+                    console.log(response.data)
+                    this.prodInfoRow = response.data;
+                    this.prodInfoRow.forEach(item => {
+                        const isInIt = this.favItems?.find(i => i?.product_no == item.product_no);
+                        item.isFav = !!isInIt ? true : false;
+                    });
                 // console.log(response.data)
             }).catch(err => console.log(err));
         },
+        // 新增/刪除收藏
+        setFavorite(e) {
+            console.log('new vue', e)
+            const product_no = window.location.search.split('id=')[1];
+            axios.get(`favorite.php?id=${product_no
+                }&add=${e}`).then((response) => {
+                    console.log(response)
+                    if (response.data == 'add success') {
+                        this.add = false;
+                        // e.target.classList.add('favActive');
+                    } else {
+                        this.add = true;
+                        // e.target.classList.remove('favActive');
+                    }
+                    this.favoriteCheck()
+                }).catch(err => console.log(err));
+        },
         // 一進到頁面做商品是否已加入蒐藏檢查的函式
         favoriteCheck() {
-            let favCheck = new XMLHttpRequest();
-            favCheck.onload = () => {
-                if (favCheck.responseText != "No login") {
-                    let memberfavorite = JSON.parse(JSON.parse(favCheck.responseText).memberfavorite);
-                    let idParams = new URLSearchParams(window.location.search);
-                    let pageid = parseInt(idParams.get("id"));
-                    for (let i = 0; i < memberfavorite.length; i++) {
-                        if (memberfavorite[i].product_no == pageid) {
-                            // console.log(memberfavorite[i].product_no+"sucess");
-                            this.add = false;
-                            document.querySelector('.favoriteButton .heart').classList.add('favActive');
-                            // favorite按鈕變色的js放這 已加入蒐藏
-                            break;
-                        } else {
-                            this.add = true;
-                            document.querySelector('.favoriteButton .heart').classList.remove('favActive');
-                            // favorite按鈕變色的js放這 未加入蒐藏
-                            // console.log("fail");
-                        }
-                    };
-                    // console.log(this.add);
-                } else {
-                    console.log("未登入");
-                }
-            };
-            favCheck.open("get", "membergetInfo.php", true);
-            favCheck.send(null);
-        }
+            axios.get(`membergetInfo.php`)
+                .then((response) => response?.data?.memberfavorite)
+                .then(res => { this.favItems = (res);  return res})
+                .then(res => {
+                    console.log(res)
+                    this.setProductimage();
+                })
+        },
+        // #region
+        // favoriteCheck() {
+        //     let favCheck = new XMLHttpRequest();
+        //     favCheck.onload = () => {
+        //         if (favCheck.responseText != "No login") {
+        //             let memberfavorite = favCheck.responseText.memberfavorite;
+        //             console.log(memberfavorite)
+        //             let idParams = new URLSearchParams(window.location.search);
+        //             let pageid = parseInt(idParams.get("id"));
+        //             for (let i = 0; i < memberfavorite.length; i++) {
+        //                 if (memberfavorite[i].product_no == pageid) {
+        //                     // console.log(memberfavorite[i].product_no+"sucess");
+        //                     this.add = false;
+        //                     document.querySelector('.favoriteButton .heart').classList.add('favActive');
+        //                     // favorite按鈕變色的js放這 已加入蒐藏
+        //                     break;
+        //                 } else {
+        //                     this.add = true;
+        //                     document.querySelector('.favoriteButton .heart').classList.remove('favActive');
+        //                     // favorite按鈕變色的js放這 未加入蒐藏
+        //                     // console.log("fail");
+        //                 }
+        //             };
+        //             // console.log(this.add);
+        //         } else {
+        //             console.log("未登入");
+        //         }
+        //     };
+        //     favCheck.open("get", "membergetInfo.php", true);
+        //     favCheck.send(null);
+        // }
+        // #endregion
     },
     created() {
-        this.setProductimage();
+        // this.setProductimage();
         this.favoriteCheck();
     },
 })
