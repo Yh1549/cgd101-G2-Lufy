@@ -26,7 +26,7 @@
         <section class="product_main_box me_6">
             <div class="main_product_img" v-if="prodInfoRow.length !=0">
                 <prodimg-main :image_path="prodInfoRow[0]?.image_path"></prodimg-main>
-
+                
                 <div class="small_products_img_box" v-if="prodInfoRow.length !=0">
                     <prodimg-small v-for='(prodImgSmall,index) in prodInfoRow' :key="(prodImgSmall.id)" v-bind="prodImgSmall" :small-img="prodInfoRow[index]"></prodimg-small>
                 </div>

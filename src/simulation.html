@@ -23,6 +23,15 @@
         <!-- 遮色片 -->
         <div class="front-mask" :style="opacityOutput"></div>
 
+        <!-- LOGO SLOGAN -->
+        <div class="sloganBox">
+            <h2 class="slogan title s3 font_i">Light Up For You</h2>
+            <h3 class="slogan text h2">
+                We firmly believe that 'Light' can bring more beautiful value to life
+                <br /> which is our original intention.
+            </h3>
+        </div>
+
         <!-- 控制面板 -->
         <form class="simulation_form" oninput="simulation_luminosity.setAttribute('data-light', slider.value)">
 
@@ -70,7 +79,7 @@
         </form>
     </section>
     <!-- 情境模擬 -->
-    <script src="./js/simulationVue.js"></script>
+    <script src="./js/simulationVue.js"></script>    
     <!-- footer  -->
     @@include('layout/footer.html')
     <!-- script -->

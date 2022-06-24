@@ -31,7 +31,22 @@
         z-index: -1;
         opacity: 1;
     }
-    
+    .sloganBox{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .slogan {        
+        color: $white;
+        mix-blend-mode: overlay;
+        text-align: center;
+        margin: 15px 0;
+        letter-spacing : 1px;
+        &.title {
+            font-weight: 900;
+        }
+    }
     .front-mask {
         background-color: rgba(0, 0, 0, .85);
         width: 100%;
@@ -225,5 +240,37 @@
         .range {
             padding: 0;
         }
+    }
+}
+@media all and (max-width:490px) {
+    .simulation_luminosity {
+        .sloganBox {
+            height: 100vh;
+            margin: 4rem 15px;
+            justify-content: flex-start;
+        }
+        .slogan {
+            margin: 0;
+            letter-spacing: 0;
+            &.title {
+                line-height: 1.2;
+                font-size: 35px;
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+            }
+            &.text {
+                font-weight: 200;
+                font-size: 16px;
+            }
+        }
+    }
+    .simulation_form {
+        bottom: 1%;
+    }
+    .range {
+        .title {
+            margin: 0;
+        }
+        margin: 0;
     }
 }
