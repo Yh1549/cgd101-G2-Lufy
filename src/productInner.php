@@ -9,7 +9,7 @@
 			LEFT JOIN promotionsdetail r ON p.product_no = r.product_no
 			LEFT JOIN promotions as m ON m.promotions_no = r.promotions_no
 			LEFT JOIN favorite f ON p.product_no = f.product_no
-			WHERE i.product_show = 0 AND p.on_market = 1 AND p.product_no=:id"; //準備好sql指令
+			WHERE i.product_show = 0 AND p.on_market = 0 AND p.product_no=:id"; //準備好sql指令
 	$products = $pdo->prepare($sql);//將sql指令送到mysql去執行, 回傳的是pdoStatement
 	$products->bindValue(':id', $_GET['id']);
     $products->execute();
