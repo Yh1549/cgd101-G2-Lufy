@@ -1,7 +1,7 @@
 <?php
 
 try {
-	require_once("connect_cgd101g2.php");
+	require_once("connect_lufy.php");
 	//將檔案名稱寫回資料庫
 	$sql = "INSERT INTO `manager`(`manager_no`, `manager_name`, `role`, `manager_account`, `manager_password`, `state`) VALUES (null,:manager_name,:role,:manager_account,:manager_password,:state)";
 	$managers = $pdo->prepare( $sql );

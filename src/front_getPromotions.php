@@ -1,6 +1,6 @@
 <?php 
 try{
-	require_once("connect_cgd101g2.php");
+	require_once("connect_lufy.php");
 
 	$sql = "SELECT * FROM promotions where promotions_state = 0 order by promotions_startDate desc LIMIT 3"; //準備好sql指令
 	$promotions = $pdo->query($sql);//將sql指令送到mysql去執行, 回傳的是pdoStatement

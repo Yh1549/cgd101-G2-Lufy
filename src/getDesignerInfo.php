@@ -3,7 +3,7 @@
 session_start();
 $errMsg = "";
 try {
-	require_once("connect_cgd101g2.php");
+	require_once("connect_lufy.php");
 	
 			$sql5 = "SELECT * FROM `designer` WHERE manager_no = :cur_manager";
             $designer = $pdo->prepare($sql5);

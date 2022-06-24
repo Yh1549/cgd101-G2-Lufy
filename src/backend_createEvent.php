@@ -1,6 +1,6 @@
 <?php
 try {
-    require_once("connect_cgd101g2.php");
+    require_once("connect_lufy.php");
     $promotionsql = "insert into promotionsdetail(promotions_no, product_no, promotions_price) value(:promotions_no, :product_no, :promotions_price)";
         $promotion =$pdo->prepare($promotionsql);
         $promotion->bindValue(":promotions_no", $_POST["promotions_no"]);

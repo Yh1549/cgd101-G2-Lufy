@@ -2,7 +2,7 @@
 session_start();
 
 try {
-    require_once("connect_cgd101g2.php");
+    require_once("connect_lufy.php");
     $total = [];
     $sql = "select member.member_name, product_order.recipient_name, product_order.	recipient_phone, product_order.recipient_address, product_order.credit_card, product_order.order_total from member join product_order on member.member_no=product_order.member_no where product_order.order_no=:order_no";
     $order = $pdo->prepare($sql);

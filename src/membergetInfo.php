@@ -1,7 +1,7 @@
 <?php
 session_start();
 try {
-	require_once("connect_cgd101g2.php");
+	require_once("connect_lufy.php");
 	if (isset($_SESSION["memNo"])) { //已登入
 		$memberTotal = []; //將會員資料放入關聯性陣列
 		$sql = "select * from member where member_mail=:memId and member_psw=:memPsw "; //登入
