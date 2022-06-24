@@ -3,16 +3,16 @@ let bread = Vue.component('breadcrumb-list', {
     template: `
     <ol class="breadcrumbList">
         <li class="breadcrumbItem" v-for="item in breadcrumb">
-            <a :href="item.link">{{item.name}}</a>
+            <a class="userSelectNone" :href="item.link">{{item.name}}</a>
         </li>
     </ol> `,
 })
 let category = Vue.component('product-category', {
     props: ['category_imgpath', 'category_name', 'category_no', 'focusId'],
     template: `
-    <div class="category"  @click="filterhandler(category_no)" :class="(focusId === category_no)?'active':''">
+    <div class="category userSelectNone"  @click="filterhandler(category_no)" :class="(focusId === category_no)?'active':''">
         <img :src="'images//'+category_imgpath" :alt="category_name">
-        <p class="p1">{{category_name}}</p>
+        <p class="p1 userSelectNone">{{category_name}}</p>
     </div>`,
 
     methods: {
@@ -59,8 +59,8 @@ let commodity = Vue.component('product-commodity', {
             <img :src="'images//'+image_path" :alt="name">
         </div>
         <div class="commodity">
-            <h2>{{name}}</h2>
-            <span class="material-icons favoriteButton userSelectNone" :class="isFav ? 'favActive':'abc'"
+            <h2 class="userSelectNone">{{name}}</h2>
+            <span class="material-icons favoriteButton userSelectNone userSelectNone" :class="isFav ? 'favActive':'abc'"
             @click.stop="addFav;setFavorite($event, product_no)">favorite</span>
         </div>
     </div> `,
@@ -152,45 +152,11 @@ const productCommodity = new Vue({
         favoriteCheck() {
             axios.get(`membergetInfo.php`)
             .then((response) => response?.data?.memberfavorite)
-            .then(res => this.favItems = (JSON.parse(res)))
+            .then(res => this.favItems = (res))
             .then(res => {
                 this.setProductimage();
             })
         },
-        // #region
-        // favoriteCheck() {
-        //     console.log('123')
-        //     let favCheck = new XMLHttpRequest();
-        //     favCheck.onload = () => {
-        //         if (favCheck.responseText != "No login") {
-        //             let memberfavorite = JSON.parse(JSON.parse(favCheck.responseText).memberfavorite);
-        //             let idParams = new URLSearchParams(window.location.search);
-        //             let pageid = parseInt(idParams.get("id"));
-        //             memberfavorite.forEach()
-        //             for (let i = 0; i < memberfavorite.length; i++) {
-        //                 if (memberfavorite[i].product_no == pageid) {
-        //                     console.log(memberfavorite[i].product_no+"sucess");
-        //                     this.add = false;
-        //                     document.querySelector('.favoriteButton .heart').classList.add('favActive');
-        //                     // favorite按鈕變色的js放這 已加入蒐藏
-        //                     break;
-        //                 } else {
-        //                     this.add = true;
-        //                     document.querySelector('.favoriteButton .heart').classList.remove('favActive');
-        //                     // favorite按鈕變色的js放這 未加入蒐藏
-        //                     console.log("fail");
-        //                 }
-        //             };
-        //             console.log(this.add);
-        //         } else {
-        //             console.log("未登入");
-        //         }
-        //     };
-        //     favCheck.open("get", "membergetInfo.php", true);
-        //     favCheck.send(null);
-        // }
-        // #endregion
-       
     },
     computed: {
         // 篩選商品
