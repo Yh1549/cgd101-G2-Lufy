@@ -2,26 +2,32 @@
 
 function BD_showLightBox1(){
     document.getElementById("BD_lightBox1").style.display = "block";
+    document.getElementById("articleList").style.display = "none";
    
 }
 function BD_showLightBox2(){
     document.getElementById("BD_lightBox2").style.display = "block";
+    document.getElementById("articleList").style.display = "none"
    
 }
 function BD_showLightBox3(){
     document.getElementById("BD_lightBox3").style.display = "block";
+    document.getElementById("articleList").style.display = "none"
    
 }
 //-------------------
 
 function BD_cancel1(){
     document.getElementById("BD_lightBox1").style.display = "none";
+    document.getElementById("articleList").style.display = "block"
 }
 function BD_cancel2(){
     document.getElementById("BD_lightBox2").style.display = "none";
+    document.getElementById("articleList").style.display = "block"
 }
 function BD_cancel3(){
     document.getElementById("BD_lightBox3").style.display = "none";
+    document.getElementById("articleList").style.display = "block";
 }
 //-------------------
 function init(){
