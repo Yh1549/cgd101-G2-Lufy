@@ -1,6 +1,6 @@
 <?php
     try{
-	require_once("connect_lufy.php");
+	require_once("connect_cgd101g2.php");
 
 	$sql = "SELECT p.product_no, p.des_no, p.name, p.description, p.specification, p.price, d.des_name, d.des_text, d.des_img_path, i.product_show, i.image_path, r.promotions_no, r.promotions_price, m.promotions_no, m.promotions_name, m.promotions_startDate, m.promotions_endDate, m.promotions_text, f.member_no, m.promotions_state
 			FROM product p
