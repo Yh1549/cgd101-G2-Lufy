@@ -21,7 +21,7 @@ let prodImgMain = Vue.component('prodimg-main', {
 // 小圖
 let prodImgSmall = Vue.component('prodimg-small', {
     props: ['name', 'image_path', 'small-img'],
-    template: `<div class="small_products_img" @click="showLargeImg">
+    template: `<div class="small_products_img userSelectNone" @click="showLargeImg">
                 <img  :src="'images//'+image_path" :alt='name' class="small">
                 </div>`,
     methods: {
@@ -64,36 +64,36 @@ let purchasePnl = Vue.component('purchase-panel', {
     },   
     // #region 
     template: `<div>
-        <h1 class="product_name h1 me_1">{{name}}</h1>
-        <h2 class="promotions font_w3 p1 me_4" v-if='promotions_state == 0'>{{promotions_name}}</h2>
+        <h1 class="product_name h1 me_1 userSelectNone">{{name}}</h1>
+        <h2 class="promotions font_w3 p1 me_4 userSelectNone" v-if='promotions_state == 0'>{{promotions_name}}</h2>
         <div class="product_price me_4" >
 
-            <span class="h6" :class="prom_price">
-                <span class="h6">$</span>
+            <span class="h6 userSelectNone" :class="prom_price">
+                <span class="h6 userSelectNone">$</span>
             {{price}}</span> 
             
-            <span class="promotions_price fontdeco_w7 font_i fontdeco h1" v-if='promotions_state == 0'>
-                <span class="fontdeco_w3 font_i fontdeco p2">$</span>
+            <span class="promotions_price fontdeco_w7 font_i fontdeco h1 userSelectNone" v-if='promotions_state == 0'>
+                <span class="fontdeco_w3 font_i fontdeco p2 userSelectNone">$</span>
             {{promotions_price}}</span>
 
         </div>
         <div class="purchase_function me_3">
             <div id="buyNow" class="buyNowButton mr_5">
                 
-            <a href="./cartEdit.html"><span :id="product_no" class="fontcontent p1"><i class="fa-solid fa-credit-card"></i>Buy Now
+            <a href="./cartEdit.html"><span :id="product_no" class="fontcontent p1 userSelectNone"><i class="fa-solid fa-credit-card userSelectNone"></i>Buy Now
                 <input type="hidden" :value="productInfo">
                 </span></a>
             </div>
             <div class="addButton">
-                <span :id="product_no" class="fontcontent p1"><i class="fa-solid fa-cart-plus"></i> Add to Cart
+                <span :id="product_no" class="fontcontent p1 userSelectNone"><i class="fa-solid fa-cart-plus userSelectNone"></i> Add to Cart
                    
                      <input type="hidden" :value="productInfo">
                 </span>               
             </div>
         </div>
         <div id="favoriteButton" class="favoriteButton me_4" @click="setFavorite($event)">
-            <span class="material-icons heart">favorite</span>
-            <span class="fontcontent p1">Favorite</span>
+            <span class="material-icons heart userSelectNone">favorite</span>
+            <span class="fontcontent p1 userSelectNone">Favorite</span>
         </div> 
     </div>`,
     // #endRegion :class="{favActive : isSelected}"
@@ -105,13 +105,13 @@ let prodInfo = Vue.component('prod-info', {
     },
     template: `<div>
         <div class="detail_switch me_2">
-            <div class="descBar fontcontent" @click="layout = 'desc'" :class="{ barActive: layout === 'desc', }">Description</div>
-            <div class="specBar fontcontent" @click="layout = 'spec'" :class="{ barActive: layout === 'spec', 'aaa': true, }">Specification</div>
+            <div class="descBar fontcontent userSelectNone" @click="layout = 'desc'" :class="{ barActive: layout === 'desc', }">Description</div>
+            <div class="specBar fontcontent userSelectNone" @click="layout = 'spec'" :class="{ barActive: layout === 'spec', 'aaa': true, }">Specification</div>
         </div>
-        <div v-if="layout === 'desc'" class="content">
+        <div v-if="layout === 'desc'" class="content userSelectNone">
             <p class="p2">{{description}}</p>
         </div>
-        <div  v-if="layout === 'spec'" class="content">
+        <div  v-if="layout === 'spec'" class="content userSelectNone">
             <p class="p2">{{specification}}</p>
         </div>        
     </div>
@@ -121,15 +121,15 @@ let designerInfo = Vue.component('des-info', {
     props: ['des_name', 'des_text', 'des_img_path'],
     template: `<div>
         <div class="product_designer">
-            <div class="product_designer_img mr_2">
+            <div class="product_designer_img mr_2 userSelectNone">
                 <img :src="'images//'+des_img_path" :alt="des_name">
             </div>
             <div class="product_designer_intro_box me_2">
                 <div class="product_designer_intro_content me_4">
-                    <h2 class="h2 me_1">{{des_name}}</h2>
-                    <p class="p2">{{des_text}}</p>
+                    <h2 class="h2 me_1 userSelectNone">{{des_name}}</h2>
+                    <p class="p2 userSelectNone">{{des_text}}</p>
                 </div>
-                <a href="./designers.html" class="designer_link btn_normal">Read More</a>
+                <a href="./designers.html" class="designer_link btn_normal userSelectNone">Read More</a>
             </div>
         </div>
     </div>

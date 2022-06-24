@@ -48,7 +48,7 @@
                 </div>
             </div>
             <div id="project_wrap" class="project_wrap ">
-                <div class="project_card project_card1">
+                <div class="project_card project_card1 userSelectNone">
                     <img src="./images/projectMain_pic5.webp" alt="The Renaissance" />
                     <div class="content ms_2 mr_2 me_2 ml_2">
                         <h2 class="h1 me_1 userSelectNone">The Renaissance</h2>
@@ -80,7 +80,7 @@
                         <a href="projectInner2.html" class="btn_normal userSelectNone"> more </a>
                     </div>
                 </div>
-                <div class="project_card project_card3">
+                <div class="project_card project_card3 userSelectNone">
                     <img src="./images/projectMain_pic6.webp" alt="The Dragon" />
                     <div class="content ms_2 mr_2 me_2 ml_2">
                         <h2 class="h1 me_1 userSelectNone">The Dragon</h2>
@@ -103,11 +103,11 @@
                 </div>
             </div>
 
-            <div class="index_project_deco_image">
+            <div class="index_project_deco_image userSelectNone">
                 <img src="./images/index_project_deco_image_01.webp" alt="" />
             </div>
         </div>
-        <div class="index_project_deco_image_fullview">
+        <div class="index_project_deco_image_fullview userSelectNone">
             <img src="./images/index_project_deco_image_02.webp" alt="" />
         </div>
     </section>
@@ -138,7 +138,7 @@
     <section class="simulation_luminosity index_luminosity me_8" id="simulation_luminosity" :style="{ backdropFilter: 'contrast(60%)' }">
     
         <!-- 投射燈光幕 -->
-        <div class="simulation_lamp">
+        <div class="simulation_lamp userSelectNone">
             <img src="./images/simulation_lamp_v2.webp" alt="">
         </div>
     
@@ -186,7 +186,7 @@
             </div>
             <!-- 色相 -->
             <div class="range me_2">
-                <h2 class="title">Hue</h2>
+                <h2 class="title userSelectNone">Hue</h2>
                 <div class="rangebox">
                     <label class="field">
                         <div class="value left userSelectNone">Orange</div>
@@ -210,7 +210,7 @@
                         props: ['news_no', 'news_title', 'news_text', 'newsImage_path', 'news_publish', 'news_state'],
                         template: `
                             <div class="news_photo me_8">
-                                <div class='photo'>
+                                <div class='photo userSelectNone'>
                                     <img :src="'images//'+ newsImage_path"" :alt="news_title">
                                 </div>
                                 <div class="wrap">
@@ -219,7 +219,7 @@
                                         <div>
                                             <p class="h5 me_2 userSelectNone">{{news_text}}</p>
                                         </div>
-                                        <a href="https://tibamef2e.com/cgd101/g2/news.html" class="btn_normal h4 me_2">more</a>
+                                        <a href="https://tibamef2e.com/cgd101/g2/news.html" class="btn_normal h4 me_2 userSelectNone">more</a>
                                     </div>
                                 </div>
                             </div>
@@ -248,7 +248,7 @@
     <section class="index_aboutus">
         <div class="containerALL">
             <div class="card">
-                <div class="photo">
+                <div class="photo userSelectNone">
                     <img src="./images/index_about_us.webp" alt="about lufy" />
                 </div>
                 <div class="wrap">

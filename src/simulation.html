@@ -25,8 +25,8 @@
 
         <!-- LOGO SLOGAN -->
         <div class="sloganBox">
-            <h2 class="slogan title s3 font_i">Light Up For You</h2>
-            <h3 class="slogan text h2">
+            <h2 class="slogan title s3 font_i userSelectNone">Light Up For You</h2>
+            <h3 class="slogan text h2 userSelectNone">
                 We firmly believe that 'Light' can bring more beautiful value to life
                 <br /> which is our original intention.
             </h3>
@@ -36,42 +36,42 @@
         <form class="simulation_form" oninput="simulation_luminosity.setAttribute('data-light', slider.value)">
 
             <!-- 透明度 -->
-            <div class="range me_2">
-                <h2 class="title">Light : {{opacity}}</h2>
+            <div class="range me_2 userSelectNone">
+                <h2 class="title userSelectNone">Light : {{opacity}}</h2>
                 <div class="rangebox">
                     <!-- <label class="sliderValue">
                                     <span class="indicator" :style="{ left : (opacity/1.19) + '%' }">{{opacity}}</span> -->
                     <label class="field">
-                        <div class="value left">0</div>
+                        <div class="value left userSelectNone">0</div>
                         <input type="range" id="slider" value="0" min="0" max="100" steps="1" v-model="opacity">
-                        <div class="value right">100</div>
+                        <div class="value right userSelectNone">100</div>
                     </label>
                 </div>
             </div>
             
             <!-- 色相 -->
             <div class="range me_2">
-                <h2 class="title">Hue</h2>
+                <h2 class="title userSelectNone">Hue</h2>
                 <div class="rangebox">
                     <label class="field">
-                        <div class="value left">Orange</div>
+                        <div class="value left userSelectNone">Orange</div>
                         <input type="range" v-model="hue" min="40" max="180" steps="1">
-                        <div class="value right">Blue</div>
+                        <div class="value right userSelectNone">Blue</div>
                     </label>
                 </div>
             </div>            
             
             <!-- 飽和度 -->
             <div class="range me_2">
-                <h2 class="title">Saturation : {{saturation}}</h2>
+                <h2 class="title userSelectNone">Saturation : {{saturation}}</h2>
                 <div class="rangebox">
                     <!-- <label class="sliderValue">
                         <span class="indicator" :style="{ left : (saturation/1.19) + '%' }">{{saturation}}</span>
                     </label> -->
                     <label class="field">
-                        <div class="value left">0</div>
+                        <div class="value left userSelectNone">0</div>
                         <input type="range" v-model="saturation" min="0" max="100" steps="1" >
-                        <div class="value right">100</div>
+                        <div class="value right userSelectNone">100</div>
                     </label>
                 </div>
             </div>
