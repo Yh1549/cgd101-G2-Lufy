@@ -13,13 +13,13 @@ function showOrder(json){
     newDiv.appendChild(newTable);
     cartList.appendChild(newDiv);
 
-    for (let i = 0; i <order.length; i++) {
+    for (let i = 0; i <order.length/4; i++) {
        
-        let itemTitle =order[i].name
+        let itemTitle =order[0+i*4].name
         console.log(itemTitle);
-        let itemImage = 'images/' + order[i].image_path;
+        let itemImage = 'images/' + order[0+i*4].image_path;
         console.log(itemImage);
-        let itemPrice = parseInt(order[i].product_price);
+        let itemPrice = parseInt(order[0+i*4].product_price);
         console.log(itemPrice);
     
     
@@ -93,7 +93,7 @@ function showOrder(json){
         let pItemCount = document.createElement('p')
         let inputItemCount = document.createElement('input')
     
-        let counts = order[i].order_count
+        let counts = order[0+i*4].order_count
         inputItemCount.disabled = true
         inputItemCount.type = 'number'
         inputItemCount.value = counts

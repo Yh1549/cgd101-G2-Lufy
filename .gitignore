@@ -3,4 +3,4 @@ dist
 package-lock.json
 src/connect_lufy.php
 connect_lufy.php
-src/connect_cgd101g2.sql
+src/connect_lufy.sql
