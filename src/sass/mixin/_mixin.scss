@@ -6,8 +6,20 @@
     }
 };
 
+@mixin tl(){  //Apple Air
+  @media all and (max-width: $tl_breakpoint) {
+    @content
+  }
+};
+
 @mixin t(){//平板斷點
   @media all and (max-width :  $t_breakpoint) {
+      @content 
+    }
+};
+
+@mixin ml(){  // 6.5"尺寸手機
+  @media all and (max-width :  $ml_breakpoint) {
       @content 
     }
 };
@@ -18,7 +30,20 @@
     }
 };
 
+@mixin containerALL {
+  max-width: 1410px;
+  margin: 0 auto;
 
+  @include t {
+    max-width: 820px;
+    margin: 0 auto;
+  }
+
+  @include m {
+    max-width: 490px;
+    margin: 0 auto;
+  }
+}
 
 
 

@@ -1,8 +1,13 @@
 .productMain {
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     box-sizing: border-box;
-
+    @include tl{
+        max-width: 678px;
+    }
+    @include ml {
+        max-width: 375px;
+    }
     .containerALL {
         /*商品類別*/
         .product_category {
@@ -35,8 +40,6 @@
         .grid-sizer {
             width: 23.5%;
         }
-
-
         .grid-item {
             width: 23.5%;
             margin-bottom: 2%;
@@ -121,8 +124,7 @@
                 }
             }
         }
-        @media all and (max-width:820px) {
-            margin: 0 30px;
+        @include tl {
             .product_category {
                 justify-content: flex-start;
                 margin-top: 1rem;
@@ -148,13 +150,13 @@
                 width: 32%;
             }
         }
-        @media all and (max-width:490px) {
+        @include ml {
             
             margin: 0 15px;
             .product_category {
                 .category {
                     width: 90px;
-                    padding-right: 1.75rem;
+                    padding-right: 0.75rem;
                     .p1 {
                         font-size: 13px;
                     }
@@ -166,6 +168,11 @@
 
             .grid-item {
                 width: 49%;
+                .commodity {
+                    .favoriteButton {
+                        display: none;
+                    }
+                }
             }
         }
     }
