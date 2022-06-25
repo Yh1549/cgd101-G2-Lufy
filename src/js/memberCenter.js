@@ -123,9 +123,9 @@ function getMemberinfo(e) {
           }
         }
       }
-      let memberinfo = JSON.parse(JSON.parse(xhr.responseText).member); //會員資料陣列放進memberinfo
-      let memberorder = JSON.parse(JSON.parse(xhr.responseText).memberorder); //會員訂單陣列放進memberorder
-      let memberfavorite = JSON.parse(JSON.parse(xhr.responseText).memberfavorite); //會員蒐藏陣列放進memberorder
+      let memberinfo = (JSON.parse(xhr.responseText).member); //會員資料陣列放進memberinfo
+      let memberorder = (JSON.parse(xhr.responseText).memberorder); //會員訂單陣列放進memberorder
+      let memberfavorite = (JSON.parse(xhr.responseText).memberfavorite); //會員蒐藏陣列放進memberorder
       $id("memshow").innerText = "Hello~ \n" + memberinfo.member_name;
       //會員資料寫入HTML
       $id("memName").value = memberinfo.member_name;
