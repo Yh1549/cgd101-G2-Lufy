@@ -65,14 +65,14 @@ try {
        
     } ;
     
-    if(isset($_POST["promotions_no"]) == true){
-        $promotionsql = "insert into promotionsdetail(promotions_no, product_no, promotions_price) value(:promotions_no, :product_no, :promotions_price)";
-        $promotion =$pdo->prepare($promotionsql);
-        $promotion->bindValue(":promotions_no", $_POST["promotions_no"]);
-        $promotion->bindValue(":product_no", $productCurRow["product_no"]);
-        $promotion->bindValue(":promotions_price", $_POST["promotions_price"]);
-        $promotion->execute();
-        };
+    // if(isset($_POST["promotions_no"]) == true){
+    //     $promotionsql = "insert into promotionsdetail(promotions_no, product_no, promotions_price) value(:promotions_no, :product_no, :promotions_price)";
+    //     $promotion =$pdo->prepare($promotionsql);
+    //     $promotion->bindValue(":promotions_no", $_POST["promotions_no"]);
+    //     $promotion->bindValue(":product_no", $productCurRow["product_no"]);
+    //     $promotion->bindValue(":promotions_price", $_POST["promotions_price"]);
+    //     $promotion->execute();
+    //     };
     echo "product新增成功";
     // if (copy($from, $to) === true) {
        
