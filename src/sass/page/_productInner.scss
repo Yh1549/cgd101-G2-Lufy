@@ -1,14 +1,14 @@
 /* 商品主頁 */
 .productInner {
-    @media all and (max-width:768px) {
+    @include tl {
+        max-width: 678px;
+        margin: 0 auto;
         margin-bottom: 2rem;
-        margin-right: 30px;
-        margin-left: 30px;
     }
-    @media all and (max-width:490px) {
+    @include ml {
+        max-width: 375px;
+        margin: 0 auto;
         margin-bottom: 2rem;
-        margin-right: 15px;
-        margin-left: 15px;
     }
 }
 
@@ -29,7 +29,7 @@
             object-fit: cover;
             vertical-align: top;
 
-            @media all and (max-width:768px) {
+            @include tl {
                 margin-bottom: 1rem;
             }
         }
@@ -49,7 +49,7 @@
             }
         }
 
-        @media all and (max-width:768px) {
+        @include tl {
             .small_products_img_box {
                 .small_products_img {
                     width: 31%;
@@ -57,7 +57,7 @@
             }
         }
 
-        @media all and (max-width:490px) {
+        @include ml {
             width: 100%;
             margin-bottom: 0;
         }
@@ -158,16 +158,16 @@
             .heart {
                 font-size: 20px;
             }
-            @media all and (max-width:768px) {
+            @include tl {
                 max-width: 678px;
             }
 
-            @media all and (max-width:490px) {
+            @include ml {
                 margin-right: 2rem;
             }
         }
 
-        @media all and (max-width:768px) {
+        @include tl {
             max-width: 678px;
             padding-left: 2rem;
 
@@ -189,7 +189,7 @@
             }
         }
 
-        @media all and (max-width:490px) {
+        @include ml {
             width: 100%;
             padding-left: 0;
 
@@ -203,11 +203,11 @@
         }
     }
 
-    @media all and (max-width:768px) {
+    @include tl {
         margin-bottom: 3rem;
     }
 
-    @media all and (max-width:490px) {
+    @include ml {
         width: 100%;
         padding: 0;
         flex-direction: column;
@@ -222,7 +222,7 @@
     width: 500px;
     height: 500px;
 
-    @media all and (max-width:768px) {
+    @include tl {
         width: 100%;
     }
 }
@@ -261,7 +261,7 @@
         border-bottom: 2px solid $primary_100;
     }
 
-    @media all and (max-width:490px) {
+    @include ml {
         .detail_switch {
             display: flex;
             justify-content: flex-start;
@@ -303,23 +303,23 @@
                 vertical-align: top;
             }
 
-            @media all and (max-width:768px) {
+            @include tl {
                 max-width: 678px;
                 width: 30%;
             }
 
-            @media all and (max-width:490px) {
+            @include ml {
                 width: 100%;
                 margin-right: 0;
                 margin-bottom: 1rem;
             }
         }
 
-        @media all and (max-width:768px) {
+        @include tl {
             max-width: 678px;
         }
 
-        @media all and (max-width:490px) {
+        @include ml {
             flex-direction: column;
         }
 
@@ -344,7 +344,7 @@
                 }
             }
 
-            @media all and (max-width:768px) {
+            @include tl {
                 width: 70%;
 
                 .product_designer_intro_content {
@@ -352,7 +352,7 @@
                 }
             }
 
-            @media all and (max-width:490px) {
+            @include ml {
                 width: 100%;
                 display: flex;
                 flex-direction: column;
@@ -385,12 +385,12 @@
         color: $white;
         float: left;
 
-        @media all and (max-width:490px) {
+        @include ml {
             margin-bottom: 2rem;
         }
     }
 
-    @media all and (max-width:490px) {
+    @include ml {
         .category_wrap {
             margin: 0;
         }

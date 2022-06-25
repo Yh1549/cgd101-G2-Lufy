@@ -18,12 +18,12 @@ function showCart() {
 }
 function addCart() {
     let itemString = localStorage.getItem('addItemList')
-    let items = itemString.substr(0,itemString.length - 2).split(', ')
+    let items = itemString?.substr(0,itemString.length - 2)?.split(', ')
     let total = 0
-    for (let i = 0; i < items.length; i++) {
+    for (let i = 0; i < items?.length; i++) {
         let itemInfo = localStorage.getItem(items[i])
-        showItem(items[i],itemInfo)
-        let itemPrice = parseInt(itemInfo.split('|')[2])
+        showItem(items[i], itemInfo) 
+        let itemPrice = parseInt(itemInfo?.split('|')[2])
         total += itemPrice
     }
     document.getElementById('cart-total').innerText = total
@@ -32,13 +32,13 @@ function showItem(itemId,Value) {
 
     Value = localStorage.getItem(itemId)
     let image = document.createElement('img')
-    image.src = 'images/' + Value.split('|')[3]
+    image.src = 'images/' + Value?.split('|')[3] //載入時一定不會有載入，所以 404 報錯是正常的。
     let title = document.createElement('span')
-    title.innerText = Value.split('|')[1]
+    title.innerText = Value?.split('|')[1]
     let price = document.createElement('span')
-    price.innerText = Value.split('|')[2]
+    price.innerText = Value?.split('|')[2]
     let text = document.createElement('p')
-    text.innerText = Value.split('|')[4]
+    text.innerText = Value?.split('|')[4]
     // let product = document.querySelector('.shopping-cart .product')
     let shoppingCart = document.querySelector('.shopping-cart')
     let product = document.createElement('div')

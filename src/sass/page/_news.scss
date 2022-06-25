@@ -2,13 +2,15 @@
     color: $primary_100;
 }
 .fontColor{
-    color: $fontcolor_100;
+    color: $secondary_70;
 }
 .newsCard{
     height: 400px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;    
     display: flex;
     align-items: center;
-    border-bottom: 5px solid $fontcolor_100;
+    border-bottom: 1px solid $fontcolor_30;
     box-sizing: border-box;
     @media screen and (max-width: 1248px) {
         display: inline-block;
@@ -58,11 +60,13 @@
 }
 .contentTitle{
     font-size: 36px;
-    background-color: $primary_100;;
+    background-color: $primary_100;
+    color: $secondary_70;
 }
 .newsText{
     width: 100%;
     box-sizing: border-box;
+    padding-bottom: 1rem;
 }
 .menu_title{
     display: flex;

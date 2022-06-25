@@ -5,6 +5,9 @@
     font-family: $fontdeco;
     font-weight: 700;
     color: $primary_100;
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
 }
 .discount,
 .discount_total {
@@ -68,7 +71,13 @@
 
 .cart_check_detail {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
+    margin: 0 auto;
+    @include ml {
+        max-width: 290px;
+        margin: 0 auto;
+        flex-direction: column;
+    }
 }
 
 .cart_check_title {
@@ -77,20 +86,44 @@
 
 .payer,
 .receiver {
-    margin: 0 1rem;
-    width: 50%;
-   
-    flex-direction: column;
+    color: $fontcolor_100;
+    width: 500px;
+    border-radius: 1rem;
+    box-shadow: 0 4px 1rem rgba(0,0,0,0.3);
+    padding: 2rem;
     display: flex;
-    justify-content: space-evenly;
-    background-color: $secondary_30;
-    padding: 20px;
-    border-radius: 10px;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
+    .input {
+        .title{
+            font-size: 14px;
+            margin-top: 1rem;
+            margin-bottom: 0.25rem;
+        }
+    }
+    .ip_small {
+        padding: 0.5rem 1.5rem;
+        color: $fontcolor_100;
+        &::placeholder {
+            color: $fontcolor_30;
+        }
+    }
+    .arriveTime {
+        color: $fontcolor_100;
+        font-size: 17px;
+        border-radius: 12px;
+        border: 1px solid #4a4e53;
+        padding: 0.25rem 1.5rem;
+    }
     @include t {
         max-width: 678px;
         margin: 0 auto;
         width: 30%;
+    }
+    @include ml {
+        max-width: 290px;
+        width: 100%;
     }
     input {
         @include t {

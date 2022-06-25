@@ -25,7 +25,7 @@ try {
 			$news -> bindValue(":news_state", $_POST["news_state"]);
 			$news -> bindValue(":newsImage_path", $fileName);
 			$news -> execute();
-			//echo "新增成功";
+			echo "新增成功";
 		}
 
 	}else{

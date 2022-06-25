@@ -74,18 +74,17 @@ header {
 
 /* 購物車預覽清單v2 */
 .shopping_cart_box {
-    min-width: 35%;
-    max-width: 80%;
-    height: 60vh;
-    overflow: auto;
     background-color: $white;
     box-shadow: -1rem 0 64px $shadow;
     font-weight: 100;
+    max-width: 900px;
+    height: 70vh;
+    padding: 2rem;
     position: absolute;
     right: 0;
     z-index: 495;
+    overflow: auto;
 
-    // padding: 50px 30px 30px 20px;
     /* Global "table" column settings */
     .product-image {
         float: left;
@@ -94,27 +93,12 @@ header {
 
     .product-details {
         float: left;
-        width: 37%;
+        width: 60%;
     }
 
     .product-price {
         float: left;
-        width: 12%;
-    }
-
-    .product-quantity {
-        float: left;
-        width: 10%;
-    }
-
-    .product-removal {
-        float: left;
-        width: 9%;
-    }
-
-    .product-line-price {
-        float: right;
-        width: 12%;
+        width: 20%;
         text-align: right;
     }
 
@@ -158,7 +142,7 @@ header {
     }
 
     .shopping-cart {
-        margin-top: -70px;
+        margin-top: 0;
     }
 
     /* Column headers */
@@ -167,11 +151,6 @@ header {
             padding-bottom: 15px;
             margin-bottom: 15px;
             border-bottom: 1px solid #eee;
-        }
-
-        .product-image,
-        .product-removal {
-            text-indent: -9999px;
         }
     }
 
@@ -182,14 +161,13 @@ header {
         border-bottom: 1px solid #eee;
 
         .product-image {
-            text-align: center;
             width: 20%;
 
             img {
                 width: 100px;
                 object-fit: cover;
                 vertical-align: top;
-                @include t {
+                @include tl {
                     margin: 0;
                 }
             }
@@ -204,11 +182,11 @@ header {
             .product-description {
                 margin: 5px 20px 5px 0;
                 line-height: 1.4em;
-                @include t {
+                @include tl {
                     margin: 0;
                 }
             }
-            @include t {
+            @include tl {
                 width: 70%;
                 margin: 0;
             }
@@ -219,22 +197,8 @@ header {
                 width: 40px;
             }
         }
-
-        .product-removal {
-            .remove-product {
-                border: 0;
-                padding: 4px 8px;
-                background-color: #c66;
-                color: #fff;
-                font-family: $fontcontent;
-                font-size: 12px;
-                border-radius: 3px;
-                cursor: pointer;
-
-                &:hover {
-                    background-color: #a44;
-                }
-            }
+        @include ml {
+            max-width: 300px;
         }
     }
 
@@ -265,26 +229,31 @@ header {
         }
     }
 
-    .checkout {
-        float: right;
-        border: 0;
-        margin-top: 20px;
-        padding: 6px 25px;
-        background-color: #6b6;
-        color: #fff;
-        font-size: 25px;
-        border-radius: 3px;
+    .cart_link {
+        width: 100%;
+        text-decoration: none;
+        display: flex;
 
-        &:hover {
-            background-color: #494;
+        .checkout {
+            border: 0;
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+            margin-left: auto;
+            padding: 0.5rem 1.5rem;
+            background-color: #6b6;
+            color: #fff;
+            font-size: 1.5rem;
+            border-radius: 0.5rem;
+
+            &:hover {
+                background-color: $success;
+            }
         }
     }
-
-    /* Make adjustments for tablet */
 }
 
 /* Make more adjustments for tablet */
-@media screen and (max-width: 650px) {
+@include tl {
     .shopping_cart_box {
         max-width: 80%;
         box-shadow: 0rem 1rem 4rem $shadow;
@@ -301,7 +270,6 @@ header {
 
         .product-image {
             float: right;
-            // width: auto;
 
             img {
                 margin: 0 0 10px 10px;
@@ -343,15 +311,15 @@ header {
 }
 
 /* Make more adjustments for phone */
-@media all and (max-width:490px) {
+@include ml {
     .shopping_cart_box {
         max-width: 100%;
         max-height: 90vh;
-        box-shadow: none;
-        padding: 0 15px 2rem;
-        overflow: auto;
+        box-shadow: 0 0.25rem 1rem $shadow;
+        padding: 2rem;
 
         .shopping-cart {
+            padding: 0;
             overflow: auto;
         }
         .product-image {
@@ -361,6 +329,9 @@ header {
             float: right;
         }
 
+        .product-price { 
+            text-align: left;
+        }
         .product-line-price {
             float: left;
             clear: left;
