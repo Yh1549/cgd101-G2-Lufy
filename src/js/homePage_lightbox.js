@@ -32,6 +32,5 @@ function init() {
         moveEventListener();
     }
 };
-// window.addEventListener("scroll", noscroll);
-// window.addEventListener("load", init, false);
-shutDown()
+window.addEventListener("scroll", noscroll);
+window.addEventListener("load", init, false);
