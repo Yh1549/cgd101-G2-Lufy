@@ -1,67 +1,70 @@
 let storage = localStorage;
 
-function doFirst() {
+// let list = document.querySelectorAll('.addButton');
+// for (let i = 0; i < list.length; i++) {
+//     list[i].addEventListener('click', function (e) {
+//         let selector = e.target + ' input'
+//         let lamp = document.querySelector(`span input`).value
+//         var xhr = new XMLHttpRequest();
+//         xhr.onload = function () {
+//             if (xhr.status == 200) {
+//                 if(xhr.responseText == "已登入"){
+//                     addItem(e.target.id, lamp);
+//                     alert("已加入購物車");
+                    
+//                 }else
+//                     alert("請登入");
+                
+          
+//         }
+//     }
+//         xhr.open("get","./checkMemberState.php",true); //執行登出php(刪除session)
+//         xhr.send(null);
+       
+//         // location.reload();
+//         // console.log(lamp);
+//         // console.log(e.target.id);
+//         // console.log(e.target.id);
+//     })
+// }
+// let list2 = document.querySelectorAll('.buyNowButton');
+// for (let i = 0; i < list2.length; i++) {
+//     list2[i].addEventListener('click', function (e) {
+//         let selector = e.target + ' input'
+//         let lamp = document.querySelector(`span input`).value;
+//         var xhr = new XMLHttpRequest();
+//         xhr.onload = function () {
+//             if (xhr.status == 200) {
+//                 if(xhr.responseText == "已登入"){
+//                     addItem(e.target.id, lamp);
+//                     window.location.href="cartEdit.html";
+                    
+//                 }else
+//                     alert("請登入");
+                
+          
+//         }
+//     }
+//         xhr.open("get","./checkMemberState.php",true); //執行登出php(刪除session)
+//         xhr.send(null);
+//         addItem(e.target.id, lamp);
+       
+//         // location.reload();
+//         // console.log(lamp);
+//         // console.log(e.target.id);
+//         // console.log(e.target.id);
+//     })
+// }
 
-    if (storage['addItemList'] == null) {
-        storage['addItemList'] = '';
-    }
-    let list = document.querySelectorAll('.addButton');
-    for (let i = 0; i < list.length; i++) {
-        list[i].addEventListener('click', function (e) {
-            let selector = e.target + ' input'
-            let lamp = document.querySelector(`span input`).value
-            var xhr = new XMLHttpRequest();
-            xhr.onload = function () {
-                if (xhr.status == 200) {
-                    if(xhr.responseText == "已登入"){
-                        addItem(e.target.id, lamp);
-                        alert("已加入購物車");
-                        
-                    }else
-                        alert("請登入");
-                    
-              
-            }
-        }
-            xhr.open("get","./checkMemberState.php",true); //執行登出php(刪除session)
-            xhr.send(null);
-           
-            // location.reload();
-            // console.log(lamp);
-            // console.log(e.target.id);
-            // console.log(e.target.id);
-        })
-    }
-    let list2 = document.querySelectorAll('.buyNowButton');
-    for (let i = 0; i < list2.length; i++) {
-        list2[i].addEventListener('click', function (e) {
-            let selector = e.target + ' input'
-            let lamp = document.querySelector(`span input`).value;
-            var xhr = new XMLHttpRequest();
-            xhr.onload = function () {
-                if (xhr.status == 200) {
-                    if(xhr.responseText == "已登入"){
-                        addItem(e.target.id, lamp);
-                        window.location.href="cartEdit.html";
-                        
-                    }else
-                        alert("請登入");
-                    
-              
-            }
-        }
-            xhr.open("get","./checkMemberState.php",true); //執行登出php(刪除session)
-            xhr.send(null);
-            addItem(e.target.id, lamp);
-           
-            // location.reload();
-            // console.log(lamp);
-            // console.log(e.target.id);
-            // console.log(e.target.id);
-        })
-    }
+// function doFirst() {
+
+//     if (storage['addItemList'] == null) {
+//         storage['addItemList'] = '';
+//     }
+  
+   
     
-}
+// }
 
 function addItem(itemId, itemValue) {
    

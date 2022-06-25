@@ -47,6 +47,60 @@ let purchasePnl = Vue.component('purchase-panel', {
                 }
             }).catch(err => console.log(err));
         },
+        
+        addToCart(){
+
+            if (localStorage['addItemList'] == null) {
+                localStorage['addItemList'] = '';
+            }
+          
+                 
+                   let lampid = document.querySelector('.add').id;
+                   let lamp = document.querySelector(`span input`).value;
+                    
+                    var xhr = new XMLHttpRequest();
+                    xhr.onload = function () {
+                        if (xhr.status == 200) {
+                            if(xhr.responseText == "已登入"){
+                                addItem(lampid, lamp);
+                                alert("已加入購物車");
+                                location.reload();
+                                
+                            }else
+                                alert("請登入");  
+                    }
+                }
+                    xhr.open("get","./checkMemberState.php",true); //執行登出php(刪除session)
+                    xhr.send(null);
+                
+                   
+        },
+        buyNow(){
+            
+            if (localStorage['addItemList'] == null) {
+                localStorage['addItemList'] = '';
+            }
+            let buy = document.querySelector('.buy').id;
+            let lamp = document.querySelector(`span input`).value;
+             
+             var xhr = new XMLHttpRequest();
+             xhr.onload = function () {
+                 if (xhr.status == 200) {
+                     if(xhr.responseText == "已登入"){
+                         addItem(buy, lamp);
+                         location.reload();
+                         window.location.href="cartEdit.html";
+                         
+                     }else
+                         alert("請登入");  
+             }
+         }
+             xhr.open("get","./checkMemberState.php",true); //執行登出php(刪除session)
+             xhr.send(null);
+            
+            
+        },
+       
     },
     mounted() {
         // this.isAdd = this.add;
@@ -80,12 +134,12 @@ let purchasePnl = Vue.component('purchase-panel', {
         <div class="purchase_function me_3">
             <div id="buyNow" class="buyNowButton mr_5">
                 
-            <span :id="product_no" class="fontcontent p1 userSelectNone"><i class="fa-solid fa-credit-card userSelectNone"></i>Buy Now
+            <span :id="product_no" class="fontcontent p1 userSelectNone buy" @click="buyNow"><i class="fa-solid fa-credit-card userSelectNone"></i>Buy Now
                 <input type="hidden" :value="productInfo">
                 </span>
             </div>
             <div class="addButton">
-                <span :id="product_no" class="fontcontent p1 userSelectNone"><i class="fa-solid fa-cart-plus userSelectNone"></i> Add to Cart
+                <span :id="product_no" class="fontcontent p1 userSelectNone add" @click="addToCart" ><i class="fa-solid fa-cart-plus userSelectNone"></i> Add to Cart
                    
                      <input type="hidden" :value="productInfo">
                 </span>               
@@ -181,7 +235,8 @@ const mainProductImg = new Vue({
             };
             favCheck.open("get", "membergetInfo.php", true);
             favCheck.send(null);
-        }
+        },
+        
     },
     created() {
         this.setProductimage();
