@@ -29,16 +29,12 @@
                 <li is="H_menu" v-bind="newsRow"></li>
             </template>
         </ul>
-        <!-- <ul class="newsList" id="abcd">
-            <H_menu v-for="newsMenu in newsObject" v-bind="newsMenu">
-            </H_menu>
-        </ul> -->
     </div>
     <script>
         let promoRow = Vue.component('G_menu',{
             props: ['promotions_no', 'promotions_name', 'promotions_startDate', 'promotions_endDate', 'promotions_state', 'promotionsImage_path', 'promotions_text'],
             template: `
-                <li class="newsCard ps_1 pe_1">
+                <li class="newsCard">
                     <div class="newsPic ">
                         <img :src="'images//'+ promotionsImage_path" :alt="promotions_name">
                     </div>
@@ -57,7 +53,7 @@
         let newsRow = Vue.component('H_menu',{
             props: ['news_no', 'news_title', 'news_text', 'newsImage_path', 'news_publish', 'news_state'],
             template: `
-                <li class="newsCard ps_1 pe_1">
+                <li class="newsCard">
                     <div class="newsPic ">
                         <img :src="'images//'+ newsImage_path" :alt="news_title">
                     </div>

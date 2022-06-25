@@ -5,13 +5,19 @@
 </head>
 <body>
     @@include('layout/header.html')
-    <div id="designerInner_banner">
-        <h1 class="s3" id="designerInner_name"></h1>
-        <p class="h1">A LUFY Designer</p>
-    </div>
-    <div id="designerInner_selfintro"><!--設計師自介注入--></div>
-    <div id="designerInner_lamp"><!--注入--></div>
-    <div id="designerInner_article"><!--注入--></div>
+    <section class="designer">
+        <div class="designer_wrap containerALL">
+            <div id="designerInner_banner" class="ms_4 me_4">
+                <h1 id="designerInner_name" class="s3 me_2" ></h1>
+                <p class="h1">THE LUFY Designer</p>
+            </div>
+            <div id="designerInner_selfintro" class=" me_8"><!--設計師自介注入-->
+            </div>
+            <div id="designerInner_lamp" class=""><!--注入--></div>
+            <div id="designerInner_article" class=""><!--注入--></div>
+        </div>
+    </section>
+
     <script src="js/designerInner.js"></script>
     <!-- footer  -->
     @@include('layout/footer.html')
