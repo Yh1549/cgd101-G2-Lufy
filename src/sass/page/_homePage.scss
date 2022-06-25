@@ -706,6 +706,7 @@ html.fixWindow {
 /* 最新消息 */
 .index_news {
     .containerALL {
+        max-width: 678px;
         .card {
             .news_photo {
                 display: flex;
