@@ -9,7 +9,7 @@ function doFirst() {
     for (let i = 0; i < list.length; i++) {
         list[i].addEventListener('click', function (e) {
             let selector = e.target + ' input'
-            let lamp = document.querySelector(`span input`).value
+            let lamp = list[i].querySelector(`span input`).value
             var xhr = new XMLHttpRequest();
             xhr.onload = function () {
                 if (xhr.status == 200) {

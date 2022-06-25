@@ -144,7 +144,7 @@ const mainProductImg = new Vue({
                 }`).then((response) => {
                     console.log(response.data)
                     this.prodInfoRow = response.data;
-                    this.prodInfoRow.forEach(item => {
+                    this.prodInfoRow?.forEach(item => {
                         const isInIt = this.favItems?.find(i => i?.product_no == item.product_no);
                         item.isFav = !!isInIt ? true : false;
                     });
@@ -165,16 +165,28 @@ const mainProductImg = new Vue({
                         this.add = true;
                         // e.target.classList.remove('favActive');
                     }
-                    this.favoriteCheck()
+                    this.favAccountCheck()
                 }).catch(err => console.log(err));
         },
         // 一進到頁面做商品是否已加入蒐藏檢查的函式
-        favoriteCheck() {
+        favAccountCheck() {
             axios.get(`membergetInfo.php`)
-                .then((response) => response?.data?.memberfavorite)
+                .then(res => { 
+                    if (res?.data == 'No login') alert('請註冊成為會員或登入')
+                    else return res
+                })
+                .then((res) => res?.data?.memberfavorite)
                 .then(res => { this.favItems = (res);  return res})
                 .then(res => {
                     console.log(res)
+                    this.setProductimage();
+                })
+        },
+        favoriteCheck() {
+            axios.get(`membergetInfo.php`)
+                .then((res) => res?.data?.memberfavorite)
+                .then(res => { this.favItems = (res);  return res})
+                .then(res => {
                     this.setProductimage();
                 })
         },

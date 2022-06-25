@@ -29,7 +29,7 @@
                     <div class="grid-sizer" key="grid-sizer"></div>
                     <div class="gutter-sizer" key="gutter-sizer"></div>
                     <p key="noPosts" v-if="filterList.length <= 0" class="no-posts">no data</p>
-                    <product-commodity v-for="commodity in filterList" :key="commodity.product_no" v-bind="commodity">
+                    <product-commodity v-for="commodity in filterList" :key="commodity.product_no" v-bind="commodity" @set-fav-event="setFavorite($event)">
                     </product-commodity>
                 </transition-group>
             </div>

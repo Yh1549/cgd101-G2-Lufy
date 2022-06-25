@@ -37,17 +37,11 @@ let commodity = Vue.component('product-commodity', {
             window.location = `./productInner.html?id=${this.product_no}`
         },
         setFavorite(e, id) {
-            const product_no = id
-            axios.get(`favorite.php?id=${product_no
-                }&add=${this.isAdd}`).then((response) => {
-                    if (response.data == 'add success') {
-                        this.isAdd = false;
-                        e.target.classList.add('favActive');
-                    } else {
-                        this.isAdd = true;
-                        e.target.classList.remove('favActive');
-                    }
-                }).catch(err => console.log(err));
+            const obj = {
+                isFav: !this.isFav,
+                prodId: id,
+            };
+            this.$emit('set-fav-event', obj);
         },
     },
     mounted() { 
@@ -148,7 +142,36 @@ const productCommodity = new Vue({
                 Masonry.data(gridEl).layout()
             })
         },
+        // 新增/刪除收藏
+        setFavorite(e) {
+            console.log('new vue', e)
+            axios.get(`favorite.php?id=${e?.prodId
+                }&add=${e?.isFav}`).then((response) => {
+                    console.log(response)
+                    if (response.data == 'add success') {
+                        this.add = false;
+                        // e.target.classList.add('favActive');
+                    } else {
+                        this.add = true;
+                        // e.target.classList.remove('favActive');
+                    }
+                    this.favAccountCheck()
+                }).catch(err => console.log(err));
+        },
         // 加入收藏的商品
+        favAccountCheck() {
+            axios.get(`membergetInfo.php`)
+                .then(res => {
+                    if (res?.data == 'No login') alert('請註冊成為會員或登入')
+                    else return res
+                })
+                .then((res) => res?.data?.memberfavorite)
+                .then(res => { this.favItems = (res); return res })
+                .then(res => {
+                    console.log(res)
+                    this.setProductimage();
+                })
+        },
         favoriteCheck() {
             axios.get(`membergetInfo.php`)
             .then((response) => (response?.data?.memberfavorite))

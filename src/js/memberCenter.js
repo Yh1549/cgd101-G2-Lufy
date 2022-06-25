@@ -123,6 +123,7 @@ function getMemberinfo(e) {
           }
         }
       }
+      console.log(xhr.responseText)
       let memberinfo = (JSON.parse(xhr.responseText).member); //會員資料陣列放進memberinfo
       let memberorder = (JSON.parse(xhr.responseText).memberorder); //會員訂單陣列放進memberorder
       let memberfavorite = (JSON.parse(xhr.responseText).memberfavorite); //會員蒐藏陣列放進memberorder
