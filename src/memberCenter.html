@@ -64,7 +64,7 @@
                     <!-- 大頭貼表單 -->
                     <form id="profilesPhoto" class="member_photo" enctype="multipart/form-data">
                         <div class="me_2">
-                            <img src="" id="memphotoPreview"/>
+                            <img src="" id="memphotoPreview" />
                             <label for="memphoto" class="h1 font_w7">Upload</label>
                         </div>
                         <input type="file" name="memphoto" id="memphoto" class="me_2 ip_file" />
@@ -96,9 +96,11 @@
                         <label for="check">Enter Again :</label>
                     </div>
                     <div class="memberform_input">
-                        <input type="text" name="oldPsw" id="oldPsw" class="ip_normal"><br />
-                        <input type="text" name="newPsw" id="newPsw" class="ip_normal"><br />
-                        <input type="text" name="checkPsw" id="check" class="ip_normal"><br />
+                        <input type="password" name="oldPsw" id="oldPsw" class="ip_normal passwordChange"><br />
+                        <input type="password" name="newPsw" id="newPsw" class="ip_normal passwordChange"><br />
+                        <input type="password" name="checkPsw" id="check" class="ip_normal passwordChange"><br />
+                        <span class="fontcontent" id="pswCheck"></span>
+                        <br />
                         <input type="button" id="changePsw_sub" class="ip_sub" value="Save Change">
                     </div>
                 </form>
@@ -108,8 +110,12 @@
     <div id="orderdetail_container" style="display: none;">
         <div class="orderdetail_item">
             <h1 class="h1">Order Detail</h1>
-            <div id="orderDetail_member"><!--訂單注入--></div>
-            <div class="orderDetail_product" id="orderDetail_productInsert"><!--訂單細節注入--></div>
+            <div id="orderDetail_member">
+                <!--訂單注入-->
+            </div>
+            <div class="orderDetail_product" id="orderDetail_productInsert">
+                <!--訂單細節注入-->
+            </div>
             <button class="btn_normal" id="orderLightbox_cancel">OK</button>
         </div>
     </div>
