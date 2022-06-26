@@ -9,12 +9,15 @@ try {
   $member->execute();
   if ($member->rowCount() != 0) {
     $memRow = $member->fetch(PDO::FETCH_ASSOC);
-    //登入成功,將登入者的資料寫入session
-    $_SESSION["memNo"] = $memRow["member_no"];
-    $_SESSION["memEmail"] = $memRow["member_mail"];
-    $_SESSION["memName"] = $memRow["member_name"];
-    $_SESSION["memPsw"] = $memRow["member_psw"];
-    echo $_SESSION["memName"];
+    if($member["member_state"] == 0){
+      $_SESSION["memNo"] = $memRow["member_no"];
+      $_SESSION["memEmail"] = $memRow["member_mail"];
+      $_SESSION["memName"] = $memRow["member_name"];
+      $_SESSION["memPsw"] = $memRow["member_psw"];
+      echo $_SESSION["memName"];
+    }else{
+      echo "帳號凍結";
+    }
   } else {
     echo "輸入錯誤";
   }

@@ -2,7 +2,7 @@ function $id(id) {
     return document.getElementById(id);
 }
 let registerCheck = (e) => {
-    // Name跟email檢查有無重複
+    //email檢查有無重複
     let xhr = new XMLHttpRequest();
     xhr.onload = () => {
         if (xhr.status == 200) {
@@ -18,7 +18,13 @@ let registerCheck = (e) => {
     let data_info = `json=${JSON.stringify(data)}`;
     xhr.send(data_info);
 };
-
+let registerPswCheck =(e)=>{
+    if(e.target.value != $id("memPsw").value){
+        $id("pswCheck").innerText = "* Recheck Failed";
+    }else{
+        $id("pswCheck").innerText = "* Recheck Success";
+    }
+};
 let register = function () {
     let regInput = document.querySelectorAll(".regInput");
     for (let i = 0; i < regInput.length; i++) {
@@ -56,11 +62,10 @@ let register = function () {
 }
 //初始化
 let init = () => {
-    // ----Name跟email檢查
-    let ip = document.querySelectorAll(".regInputCheck");
-    for (let i = 0; i < ip.length; i++) {
-        ip[i].onchange = registerCheck;
-    }
+// 
+    $id("memPswC").onkeyup = registerPswCheck;
+    //email檢查
+    $id("email").onchange = registerCheck;
     // ----註冊按鈕
     $id("ipReg").addEventListener("click", register, false);
 }
