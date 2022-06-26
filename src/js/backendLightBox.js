@@ -152,7 +152,7 @@ function admin() {
     xhr.onload = function () {
         if (xhr.status == 200) {
             alert("登出成功");
-            window.location.assign("backendlogin.html");
+            window.location.assign("backendLogin.html");
         };
     };
     xhr.open("get", "memberLogout.php");
