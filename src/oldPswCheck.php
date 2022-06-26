@@ -2,7 +2,7 @@
 session_start();
 try{
     require_once("connect_cgd101g2.php");
-        $pswChecksql = "select member_psw from member member_no=:curId";
+        $pswChecksql = "select member_psw from member where member_no=:curId";
         $pswCheck = $pdo->prepare($pswChecksql);
         $pswCheck ->bindValue(":curId", $_SESSION["memNo"]);
         $pswCheck ->execute();

@@ -29,7 +29,6 @@ let memberLogin = () => {
   xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
   let data_info =
     "memId=" + $id("memId").value.trim() + "&memPsw=" + $id("memPsw").value.trim();
-  console.log(data_info);
   xhr.send(data_info);
 };
 // 會員中心選單登入紐
@@ -109,51 +108,64 @@ let changePsw_sub = () => {
             let changePswData = new FormData($id("changePswData"));
             pswxhr.send(changePswData);
           } else {
-            alert("wrong password");
+            $id("member_Lightbox").style.display = "flex";
+            $id("responseMsg").innerText = `wrong password`;
           }
+        }else{
+          console.log(checkxhr.responseText);
         }
       };
-      checkxhr.open("open", "oldPswCheck.php", true);
+      checkxhr.open("post", "oldPswCheck.php", true);
+      checkxhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
       let data = `pswC=${$id("oldPsw").value}`;
       checkxhr.send(data);
     }
   }
 };
 let oldPsw_Check = (e) => {
-  if(e.target == $id("check")){
+  if (e.target == $id("check")) {
     if (e.target.value != $id("newPsw").value) {
       $id("pswCheck").innerText = "* Recheck Failed";
     } else {
       $id("pswCheck").innerText = "* Recheck Success";
     }
-  }else{
+  } else {
     if (e.target.value != $id("check").value) {
       $id("pswCheck").innerText = "* Recheck Failed";
     } else {
       $id("pswCheck").innerText = "* Recheck Success";
     }
   }
-  
+
 };
 let tabChange = (e) => {
   let memberform = document.querySelectorAll(".memberform");
   let ul = document.querySelector(".ul");
-  if (e != undefined) {
-    for (let i = 0; i < ul.children.length; i++) {
-      if (e.target == ul.children[i]) {
-        memberform[i].classList.remove("member_hide");
-        ul.children[i].classList.add("member_colstay");
-        $id("member_welcome").classList.add("member_hide");
-      } else if (e.target == ul) {
-        $id("member_welcome").classList.remove("member_hide");
-        memberform[i].classList.add("member_hide");
-        ul.children[i].classList.remove("member_colstay");
-      } else {
-        memberform[i].classList.add("member_hide");
-        ul.children[i].classList.remove("member_colstay");
+  let xhr = new XMLHttpRequest();
+  xhr.onload = () => {
+    if (xhr.responseText != "No login") {
+      for (let i = 0; i < ul.children.length; i++) {
+        if (e.target == ul.children[i]) {
+          memberform[i].classList.remove("member_hide");
+          ul.children[i].classList.add("member_colstay");
+          $id("member_welcome").classList.add("member_hide");
+        } else if (e.target == ul) {
+          $id("member_welcome").classList.remove("member_hide");
+          memberform[i].classList.add("member_hide");
+          ul.children[i].classList.remove("member_colstay");
+        } else {
+          memberform[i].classList.add("member_hide");
+          ul.children[i].classList.remove("member_colstay");
+        }
       }
-    }
-  }
+    } else {
+      $id("member_Lightbox").style.display = "flex";
+      $id("responseMsg").innerText = `Login First`;
+      $id("mem_Loginbtn").innerText = "Log in";
+    };
+  };
+  xhr.open("get", "membergetInfo.php", true);
+  xhr.send(null);
 }
 function getMemberinfo() {
   let xhr = new XMLHttpRequest();
