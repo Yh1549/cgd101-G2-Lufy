@@ -28,7 +28,11 @@
                 <prodimg-main :image_path="prodInfoRow[0]?.image_path"></prodimg-main>
                 
                 <div class="small_products_img_box" v-if="prodInfoRow.length !=0">
-                    <prodimg-small v-for='(prodImgSmall,index) in prodInfoRow' :key="(prodImgSmall.id)" v-bind="prodImgSmall" :small-img="prodInfoRow[index]"></prodimg-small>
+                    <prodimg-small 
+                    @active-main-img-event="activeMainImgHandler($event)"
+                    v-for='(prodImgSmall,index) in prodInfoRow' 
+                    :key="(prodImgSmall.id)" 
+                    v-bind="prodImgSmall" :small-img="prodInfoRow[index]" :active-main-img="activeMainImg"></prodimg-small>
                 </div>
             </div>
             <div class="purchase_panel pl_6" v-if="prodInfoRow.length !=0">
