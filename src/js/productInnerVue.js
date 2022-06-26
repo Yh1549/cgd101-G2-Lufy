@@ -15,19 +15,26 @@ let prodImgMain = Vue.component('prodimg-main', {
     },
     template: `<img :src="'images//'+largeImg" :alt="name" class="me_2 big_img">`,
     mounted() {
-        bus.$on('showImg', theImg => this.largeImg = theImg ?.image_path)
+        bus.$on('showImg', item => this.largeImg = item?.image_path)
     },
 });
 // 小圖
 let prodImgSmall = Vue.component('prodimg-small', {
-    props: ['name', 'image_path', 'small-img'],
-    template: `<div class="small_products_img userSelectNone" @click="showLargeImg">
+    props: ['name', 'image_path', 'small-img', 'activeMainImg'],
+    data() {
+        return { layout: 'checkImg' }  
+    },
+    template: `<div class="small_products_img userSelectNone" @click="activeMainImgHandler(smallImg?.image_path);showLargeImg(smallImg)" :class="{ active: activeMainImg == image_path }">
                 <img  :src="'images//'+image_path" :alt='name' class="small">
                 </div>`,
     methods: {
         showLargeImg() {
             bus.$emit('showImg', this.smallImg)
         },
+        activeMainImgHandler(event) {
+            this.$emit('active-main-img-event', event);
+        },
+
     },
 });
 // 商品詳情
@@ -189,6 +196,7 @@ const mainProductImg = new Vue({
         add: true,
         locationSearch: window.location.search,
         favItems: [],
+        activeMainImg: '',
     },
     methods: {
         setProductimage() {
@@ -202,6 +210,7 @@ const mainProductImg = new Vue({
                         const isInIt = this.favItems?.find(i => i?.product_no == item.product_no);
                         item.isFav = !!isInIt ? true : false;
                     });
+                    this.activeMainImg = this.prodInfoRow[0]?.image_path;
                 // console.log(response.data)
             }).catch(err => console.log(err));
         },
@@ -244,38 +253,10 @@ const mainProductImg = new Vue({
                     this.setProductimage();
                 })
         },
-        // #region
-        // favoriteCheck() {
-        //     let favCheck = new XMLHttpRequest();
-        //     favCheck.onload = () => {
-        //         if (favCheck.responseText != "No login") {
-        //             let memberfavorite = favCheck.responseText.memberfavorite;
-        //             console.log(memberfavorite)
-        //             let idParams = new URLSearchParams(window.location.search);
-        //             let pageid = parseInt(idParams.get("id"));
-        //             for (let i = 0; i < memberfavorite.length; i++) {
-        //                 if (memberfavorite[i].product_no == pageid) {
-        //                     // console.log(memberfavorite[i].product_no+"sucess");
-        //                     this.add = false;
-        //                     document.querySelector('.favoriteButton .heart').classList.add('favActive');
-        //                     // favorite按鈕變色的js放這 已加入蒐藏
-        //                     break;
-        //                 } else {
-        //                     this.add = true;
-        //                     document.querySelector('.favoriteButton .heart').classList.remove('favActive');
-        //                     // favorite按鈕變色的js放這 未加入蒐藏
-        //                     // console.log("fail");
-        //                 }
-        //             };
-        //             // console.log(this.add);
-        //         } else {
-        //             console.log("未登入");
-        //         }
-        //     };
-        //     favCheck.open("get", "membergetInfo.php", true);
-        //     favCheck.send(null);
-        // }
-        // #endregion
+        activeMainImgHandler(event) {
+            console.log(event)
+            this.activeMainImg = event;
+        },
     },
     created() {
         // this.setProductimage();
