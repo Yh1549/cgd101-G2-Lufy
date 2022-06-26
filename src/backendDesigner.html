@@ -212,21 +212,21 @@
                                     <p class="p1 pr_1 font_w5 fontcontent fontColor">{{item.art_1}}</p>
                                     <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{item.art1_text}}</p>
                                     <span></span>
-                                    <button class="p1 newsbtn" id="Bd_Edit1">Edit</button>
+                                    <button class="p1 newsbtn" id="Bd_Edit1" @click="BD_showLightBox1">Edit</button>
                                 </div>
                                 <div class="backendD_text">
                                     <p class="p1 pr_1 font_w5 fontcontent fontColor">2</p>
                                     <p class="p1 pr_1 font_w5 fontcontent fontColor">{{item.art_2}}</p>
                                     <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{item.art2_text}}</p>
                                     <span></span>
-                                    <button class="p1 newsbtn" id="Bd_Edit2">Edit</button>
+                                    <button class="p1 newsbtn" id="Bd_Edit2"  @click="BD_showLightBox2">Edit</button>
                                 </div>
                                 <div class="backendD_text">
                                     <p class="p1 pr_1 font_w5 fontcontent fontColor">3</p>
                                     <p class="p1 pr_1 font_w5 fontcontent fontColor">{{item.art_3}}</p>
                                     <p class="p1 pr_1 font_w5 fontcontent fontColor listGrow">{{item.art3_text}}</p>
                                     <span></span>
-                                    <button class="p1 newsbtn" id="Bd_Edit3">Edit</button>
+                                    <button class="p1 newsbtn" id="Bd_Edit3"  @click="BD_showLightBox3">Edit</button>
                                 </div>
                             </li>
                         </ul>
@@ -270,6 +270,23 @@
                             xhr.open("get", "getDesignersArticle.php", true);
                             xhr.send(null);
                          },
+                         methods:{
+                            BD_showLightBox1(){
+                                document.getElementById("BD_lightBox1").style.display = "block";
+                                 document.getElementById("articleList").style.display = "none";
+
+                            }, BD_showLightBox2(){
+                                document.getElementById("BD_lightBox2").style.display = "block";
+                                 document.getElementById("articleList").style.display = "none";
+
+                            }, BD_showLightBox3(){
+                                document.getElementById("BD_lightBox3").style.display = "block";
+                                 document.getElementById("articleList").style.display = "none";
+
+                            },
+                          
+                         },
+                        
                     })
             </script>
  <script>

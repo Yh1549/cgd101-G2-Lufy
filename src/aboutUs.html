@@ -118,7 +118,7 @@
             <div class="designers_summary">
                 <div class="designer_card">
                     <div class="designer_intro">
-                        <div class="designer_photo"><img src="images/designer4.webp" alt="設計師頭像1"></div>
+                        <div class="designer_photo"><img src="images/designer4.webp" alt="設計師頭像1" class="dphoto"></div>
                         <div class="designer_slogan">
                             <h2 class="h1">name</h2>
                             <p class="h4">The lamp with unique vision is an artist who has very strict requirements for
@@ -137,7 +137,7 @@
                 </div>
                 <div class="designer_card">
                     <div class="designer_intro">
-                        <div class="designer_photo"><img src="images/designer5.webp" alt="設計師頭像1"></div>
+                        <div class="designer_photo"><img src="images/designer5.webp" alt="設計師頭像1" class="dphoto"></div>
                         <div class="designer_slogan">
                             <h2 class="h1">name</h2>
                             <p class="h4">Good at observing the advantages of each lighting work,<br> able to fully meet
@@ -153,7 +153,7 @@
                 </div>
                 <div class="designer_card">
                     <div class="designer_intro">
-                        <div class="designer_photo"><img src="images/designer6.webp" alt="設計師頭像1"></div>
+                        <div class="designer_photo"><img src="images/designer6.webp" alt="設計師頭像1" class="dphoto"></div>
                         <div class="designer_slogan">
                             <h2 class="h1">name</h2>
                             <p class="h4">He has unique insights into the matching of lighting and situation,<br> and
@@ -174,11 +174,13 @@
     <script>
         let xhr = new XMLHttpRequest();
         let designerSlogan = document.querySelectorAll(".designer_slogan");
+        let dphoto= document.querySelectorAll(".dphoto");
         xhr.onload=()=>{
             let designerRow = JSON.parse(xhr.responseText);
             console.log(designerRow);
             for(let i=0; i< designerSlogan.length; i++){
                 designerSlogan[i].innerHTML = `<h2 class="h1">${designerRow[i].des_name}</h2><p class="h4">${designerRow[i].des_text}</p>`;
+                dphoto[i].src = 'images'+ designerRow[i].des_img_path;
             }
         };
         xhr.open("get", "ALLdesigner.php", true);
