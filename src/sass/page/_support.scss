@@ -1,4 +1,8 @@
+.supportPage.containerAll * {
+    box-sizing: border-box;
+}
 .supWrapper{
+    position: relative;
     display: flex;
     @include t {
         flex-direction: column;
@@ -13,17 +17,44 @@
     line-height: 60px;
     position: sticky;
     top: 120px;
+    white-space: nowrap;
+    background: $white;
+    box-sizing: border-box;
     // background-color: aquamarine;
-    @include t {
+    @include tl {
+        bottom: 0;
+        padding-top: 0;
+        line-height: initial;
         display: flex;
-        // position: fixed;
-        width: 85%;
-        height: 100px;
         justify-content: center;
-      }
+        height: initial;
+        width: 100%;
+        align-items: center;
+        top: initial;
+        // top: 44px;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        width: 100%;
+        overflow: auto;
+    }
+    @include ml {
+        justify-content: initial;
+        // position: fixed;
+    }
+    
+    
+    
 }
 .faqMenu{
+    box-sizing: border-box;
     width: 85%;
+    padding: 1rem;
+    @include t {
+        width: 100%;
+    }
 }
 .stronghold{
     display: flex;
@@ -39,6 +70,9 @@
     }
     @include t {
         flex-direction: column;
+        iframe {
+            width: 100%;
+        }
       }
 }
 .faqTitle{
@@ -63,7 +97,7 @@
     @include t {
         padding: 5px 10px;
         font-size: 14px;
-      }
+    }
 }
 .faqCard h2{
     border-bottom: 2px solid #ccc;
@@ -76,6 +110,11 @@
     @include t {
         display: flex;
         justify-content: space-between;
-        transform: translateY(-70px);
+        // transform: translateY(-70px);
       }
+}
+.hrefpoint{
+    @include t {
+        display: none;
+    }
 }

@@ -10,6 +10,9 @@ let memberLogin = () => {
         //登入失敗
         $id("member_Lightbox").style.display = "flex";
         $id("responseMsg").innerText = "Login Failed";
+      } else if(xhr.responseText == "帳號凍結"){
+        $id("member_Lightbox").style.display = "flex";
+        $id("responseMsg").innerText = "Login Failed";
       } else {
         //登入成功
         $id("memshow").innerText = "Hello~ \n" + xhr.responseText;
