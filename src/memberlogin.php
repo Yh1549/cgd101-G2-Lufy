@@ -6,10 +6,10 @@ try {
   $member = $pdo->prepare($sql);
   $member->bindValue(":memId", $_POST["memId"]);
   $member->bindValue(":memPsw", $_POST["memPsw"]);
-  $member->execute();
+  $member->execute(); 
+  $memRow = $member->fetch(PDO::FETCH_ASSOC);
   if ($member->rowCount() != 0) {
-    $memRow = $member->fetch(PDO::FETCH_ASSOC);
-    if($member["member_state"] == 0){
+    if($memRow["member_state"] == 0){
       $_SESSION["memNo"] = $memRow["member_no"];
       $_SESSION["memEmail"] = $memRow["member_mail"];
       $_SESSION["memName"] = $memRow["member_name"];
