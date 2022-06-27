@@ -59,12 +59,27 @@
     display: flex;
     justify-content: end;
     margin-bottom: 20px;
+    
     button {
         @include t {
             max-width: 678px;
             margin: 0 auto;
             width: 60px;
             text-align: center;
+        }
+    }
+    @include ml {
+        max-width: 320px;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        a{
+            width: 200px;
+            margin: 0 auto;
+            .counts{
+                width: 100%;
+                text-align: center;
+            }
         }
     }
 }
