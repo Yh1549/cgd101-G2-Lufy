@@ -10,6 +10,12 @@
         margin: 0 auto;
         margin-bottom: 2rem;
     }
+    .containerALL {
+        @include ml {
+            margin-left: 1rem;
+            margin-right: 1rem;
+        }
+    }
 }
 
 .product_main_box {

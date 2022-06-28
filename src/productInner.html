@@ -9,44 +9,46 @@
     <!-- header -->
     @@include('layout/header.html')
     <!-- header end -->
-    <div class="containerALL productInner me_8 ml_2 mr_2" id="product">
-        <!-- breadcrumb -->
-        <ul class="breadcrumbList">
-            <li class="breadcrumbItem">
-                <a class="breadcrumb userSelectNone" href="./homePage.html">Home</a>
-            </li>
-            <li class="breadcrumbItem">
-                <a class="breadcrumb userSelectNone" href="./productMain.html">ProductMain</a>
-            </li>
-            <li class="breadcrumbItem">
-                <a class="breadcrumb userSelectNone" v-if="prodInfoRow[0]" :href="`./productInner.html${locationSearch}`">{{prodInfoRow[0].name}}</a>
-            </li>
-        </ul>
-        <!-- productInfo-->
-        <section class="product_main_box me_6">
-            <div class="main_product_img" v-if="prodInfoRow.length !=0">
-                <prodimg-main :image_path="prodInfoRow[0]?.image_path"></prodimg-main>
-                
-                <div class="small_products_img_box" v-if="prodInfoRow.length !=0">
-                    <prodimg-small 
-                    @active-main-img-event="activeMainImgHandler($event)"
-                    v-for='(prodImgSmall,index) in prodInfoRow' 
-                    :key="(prodImgSmall.id)" 
-                    v-bind="prodImgSmall" :small-img="prodInfoRow[index]" :active-main-img="activeMainImg"></prodimg-small>
+    <section class="productInner me_8 ml_2 mr_2" id="product">
+        <div class="containerALL">
+            <!-- breadcrumb -->
+            <ul class="breadcrumbList">
+                <li class="breadcrumbItem">
+                    <a class="breadcrumb userSelectNone" href="./homePage.html">Home</a>
+                </li>
+                <li class="breadcrumbItem">
+                    <a class="breadcrumb userSelectNone" href="./productMain.html">ProductMain</a>
+                </li>
+                <li class="breadcrumbItem">
+                    <a class="breadcrumb userSelectNone" v-if="prodInfoRow[0]" :href="`./productInner.html${locationSearch}`">{{prodInfoRow[0].name}}</a>
+                </li>
+            </ul>
+            <!-- productInfo-->
+            <section class="product_main_box me_6">
+                <div class="main_product_img" v-if="prodInfoRow.length !=0">
+                    <prodimg-main :image_path="prodInfoRow[0]?.image_path"></prodimg-main>
+            
+                    <div class="small_products_img_box" v-if="prodInfoRow.length !=0">
+                        <prodimg-small
+                        @active-main-img-event="activeMainImgHandler($event)"
+                        v-for='(prodImgSmall,index) in prodInfoRow'
+                        :key="(prodImgSmall.id)"
+                        v-bind="prodImgSmall" :small-img="prodInfoRow[index]" :active-main-img="activeMainImg"></prodimg-small>
+                    </div>
                 </div>
-            </div>
-            <div class="purchase_panel pl_6" v-if="prodInfoRow.length !=0">
-                <purchase-panel v-bind="prodInfoRow[0]" :add="add" @set-fav-event="setFavorite($event)"></purchase-panel>
-                
-                <div class="product_details_box me_6" v-if="prodInfoRow.length !=0">
-                    <prod-info v-bind="prodInfoRow[0]"></prod-info>
+                <div class="purchase_panel pl_6" v-if="prodInfoRow.length !=0">
+                    <purchase-panel v-bind="prodInfoRow[0]" :add="add" @set-fav-event="setFavorite($event)"></purchase-panel>
+            
+                    <div class="product_details_box me_6" v-if="prodInfoRow.length !=0">
+                        <prod-info v-bind="prodInfoRow[0]"></prod-info>
+                    </div>
                 </div>
-            </div> 
-        </section>
-        <section class="product_designer_box me_6" v-if="prodInfoRow.length !=0">
-            <des-info v-bind="prodInfoRow[0]"></des-info>
-        </section>       
-    </div>
+            </section>
+            <section class="product_designer_box me_6" v-if="prodInfoRow.length !=0">
+                <des-info v-bind="prodInfoRow[0]"></des-info>
+            </section>
+        </div>
+    </section>
     <!-- footer  -->
     @@include('layout/footer.html')
     
